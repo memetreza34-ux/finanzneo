@@ -56,7 +56,7 @@
   "imageWorld": {
     "id": "finanzneo-connected-studio-v3",
     "seriesLockId": "finanzneo-same-world-v1",
-    "styleLockId": "finanzneo-youtube-v9-front-readable-v2",
+    "styleLockId": "finanzneo-youtube-animated-black-v3",
     "generatedImageAspectRatio": "16:9",
     "horizontalGeneratedImagesRequired": true,
     "referencePromptFile": "04-visuals/01-BILDPROMPTS/bildwelt.txt",
@@ -68,10 +68,17 @@
     "selectedThumbnailMayBeStyleReference": false,
     "seamlessSingleBackgroundRequired": true,
     "objectLabelsOnly": true,
-    "primaryApprovedStyleAnchor": "finanzneo-premium-physical-editorial-v8",
+    "imageWorldFile": "config/finanzneo-image-worlds/finanzneo-youtube-animated-black-v3.txt",
+    "primaryApprovedStyleAnchor": "finanzneo-stylized-3d-animated-black-v9",
+    "approvedStyleReferences": "Reel \"Kurse schwanken\" (2026-09-20) + YouTube \"Notgroschen\" (2026-09-17)",
+    "decisiveMomentRequired": true,
     "flowVisualModes": [
-      "grounded-scene",
-      "editorial-3d-illustration"
+      "character-moment",
+      "hands-in-action",
+      "object-story",
+      "everyday-scene",
+      "comparison-scene",
+      "hybrid-scene-plate"
     ],
     "precisionGraphicsOwner": "remotion",
     "flowInfographicLayoutsForbidden": true
@@ -133,7 +140,7 @@
       "chapter": "Hook",
       "scriptBeat": "Eine Kreditkarte kann sich harmlos anfühlen; problematisch wird automatische Teilzahlung.",
       "googleFlowFileName": "YouTube Bild 01 - Karte und Monatsabrechnung.png",
-      "expectedVisual": "Grounded Scene: große stilisierte Kreditkarte auf einer echten Monatsabrechnung; eine reale Dokument-Szene statt UI oder Infografik.",
+      "expectedVisual": "Object Story: Monatsabrechnung halb aus dem Umschlag; „Teilzahlung“ schon angekreuzt, „Vollzahlung“ nicht. Küchentisch, Animationsfilm-Look auf Schwarz, ohne Menschen.",
       "objectLabels": ["Vollzahlung", "Teilzahlung"],
       "planFile": "04-visuals/01-BILDPROMPTS/visual-01/bildprompt.txt"
     },
@@ -217,7 +224,7 @@
       "chapter": "Zwischenstand",
       "scriptBeat": "Nach zwölf Monaten sind 1.200 € gezahlt, aber noch rund 1.069,72 € offen.",
       "googleFlowFileName": "YouTube Bild 05 - Kleine Rate grosse Restschuld.png",
-      "expectedVisual": "Grounded Scene Plate: räumliche Papier-/Abrechnungsszene mit vielen vergangenen Monatsabrechnungen und weiterhin großer offener Abrechnung im Vordergrund; ohne Zahlenlayout oder Progress-Bar.",
+      "expectedVisual": "Object Story: zwölf grün gestempelte „bezahlt“-Belege vor einer großen Abrechnung mit „Restschuld“. Wohnzimmertisch, Animationsfilm-Look auf Schwarz, ohne Menschen; exakte Zahlen legt Remotion darüber.",
       "objectLabels": [],
       "planFile": "04-visuals/EINZELNE-VISUALS/visual-05/remotion.md",
       "imagePlanFile": "04-visuals/01-BILDPROMPTS/visual-05/bildprompt.txt",

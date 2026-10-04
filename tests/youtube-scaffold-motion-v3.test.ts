@@ -4,7 +4,7 @@ import {resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import test from 'node:test';
 
-test('YouTube-Ersteller erzeugt Motion V3 und legacy-DNA Flow-Master', () => {
+test('YouTube-Ersteller erzeugt Motion V3 und den Flow-Master der Bildwelt A+B', () => {
   const target = `youtube/.tmp-motion-v3-${process.pid}-${Date.now()}`;
   const absolute = resolve(target);
   try {
@@ -26,17 +26,20 @@ test('YouTube-Ersteller erzeugt Motion V3 und legacy-DNA Flow-Master', () => {
     assert.equal(index.version, 3);
     assert.equal(index.fixedVisualCount, false);
     assert.equal(index.fixedImageAnimationRatio, false);
-    assert.equal(index.imageWorld.primaryApprovedStyleAnchor, 'finanzneo-premium-physical-editorial-v8');
-    assert.equal(index.imageWorld.legacyPromptDna, 'finanzneo-stylized-3d-editorial-v5');
+    assert.equal(index.imageWorld.styleLockId, 'finanzneo-youtube-animated-black-v3');
+    assert.equal(index.imageWorld.imageWorldFile, 'config/finanzneo-image-worlds/finanzneo-youtube-animated-black-v3.txt');
+    assert.equal(index.imageWorld.primaryApprovedStyleAnchor, 'finanzneo-stylized-3d-animated-black-v9');
+    assert.match(index.imageWorld.approvedStyleReferences, /Kurse schwanken/);
+    assert.match(index.imageWorld.approvedStyleReferences, /Notgroschen/);
+    assert.equal('legacyPromptDna' in index.imageWorld, false);
+    assert.equal(index.imageWorld.decisiveMomentRequired, true);
     assert.deepEqual(index.imageWorld.flowVisualModes, [
-      'grounded-scene',
-      'character-story',
+      'character-moment',
+      'hands-in-action',
       'object-story',
-      'physical-metaphor',
-      'editorial-3d-illustration',
-      'environmental-scene',
+      'everyday-scene',
       'comparison-scene',
-      'transformation-scene',
+      'creative-idea',
       'hybrid-scene-plate',
     ]);
     assert.equal(index.imageWorld.sceneSpecificColorsAllowed, true);
@@ -67,36 +70,43 @@ test('YouTube-Ersteller erzeugt Motion V3 und legacy-DNA Flow-Master', () => {
     assert.match(remotionPlan, /Composition Family: \[FREE DESCRIPTIVE FAMILY/);
 
     const prompt = readFileSync(resolve(absolute, '04-visuals/01-BILDPROMPTS/visual-01/bildprompt.txt'), 'utf8');
-    assert.match(prompt, /finanzneo-premium-physical-editorial-v8/);
-    assert.match(prompt, /LEGACY_PROMPT_DNA: finanzneo-stylized-3d-editorial-v5/);
-    assert.match(prompt, /grounded-scene/i);
-    assert.match(prompt, /character-story/i);
-    assert.match(prompt, /physical-metaphor/i);
+    assert.match(prompt, /STYLE_AUTHORITY: finanzneo-youtube-animated-black-v3/);
+    assert.match(prompt, /LOOK FEST — INHALT FREI/);
+    assert.match(prompt, /animated-feature-film/);
+    assert.match(prompt, /DECISIVE_MOMENT:/);
+    assert.match(prompt, /IMAGE PROMPT\nStylized 3D animated feature film still, 16:9\. \[WHAT IS IN THE FRAME\]\. \[OPTIONAL DECISIVE MOMENT: /);
+    assert.match(prompt, /Only text: \[SHORT GERMAN TEXT/);
+    assert.doesNotMatch(prompt, /Expressive faces, real everyday objects/);
+    assert.match(prompt, /character-moment/);
+    assert.match(prompt, /real everyday objects/);
     assert.match(prompt, /PRECISION_GRAPHICS_OWNER: REMOTION/);
-    assert.match(prompt, /scene-appropriate colors/i);
-    assert.match(prompt, /MENSCHEN\/FIGUREN SIND ERLAUBT/);
+    assert.doesNotMatch(prompt, /LEGACY_PROMPT_DNA|premium-physical-editorial-v8|stylized-3d-editorial-v5/);
+    assert.doesNotMatch(prompt, /chunky/i);
+    assert.doesNotMatch(prompt, /Pixar/i);
     assert.doesNotMatch(prompt, /SIMPLE EXPLAINER/i);
 
     const imageWorld = readFileSync(resolve(absolute, '04-visuals/01-BILDPROMPTS/bildwelt.txt'), 'utf8');
-    assert.match(imageWorld, /finanzneo-premium-physical-editorial-v8/);
-    assert.match(imageWorld, /LEGACY_PROMPT_DNA: finanzneo-stylized-3d-editorial-v5/);
-    assert.match(imageWorld, /grounded-scene/i);
-    assert.match(imageWorld, /editorial-3d-illustration/i);
+    assert.match(imageWorld, /YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-black-v3/);
+    assert.match(imageWorld, /LOOK FEST — INHALT FREI/);
+    assert.match(imageWorld, /grün-goldene Symbolwelt/);
     assert.match(imageWorld, /PRECISION_GRAPHICS_OWNER: REMOTION/);
-    assert.match(imageWorld, /FARBEN SIND NICHT AUF/i);
+    assert.doesNotMatch(imageWorld, /LEGACY_PROMPT_DNA|chunky|Pixar/i);
     assert.doesNotMatch(imageWorld, /SIMPLE EXPLAINER/i);
 
     const flowPath = resolve(absolute, '04-visuals/alle-bildprompts.txt');
     assert.equal(existsSync(flowPath), true);
     const flow = readFileSync(flowPath, 'utf8');
     assert.match(flow, /DIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG/);
-    assert.match(flow, /finanzneo-premium-physical-editorial-v8/);
-    assert.match(flow, /LEGACY_PROMPT_DNA: finanzneo-stylized-3d-editorial-v5/);
-    assert.match(flow, /MAIN IDEA -> SCENE -> FULL STYLE LOCK/);
-    assert.match(flow, /character-story/i);
+    assert.match(flow, /STYLE_AUTHORITY: finanzneo-youtube-animated-black-v3/);
+    assert.match(flow, /APPROVED_STYLE_REFERENCES: .*Kurse schwanken.*Notgroschen/);
+    assert.match(flow, /ENTSCHEIDENDER MOMENT — NUR AB UND ZU/);
+    assert.match(flow, /ZITATE, STICHWORTE, TABELLEN: Remotion-Karten/);
+    assert.match(flow, /IMAGE PROMPT\nStylized 3D animated feature film still, 16:9\./);
+    assert.match(flow, /Prompts in English, one short paragraph, same shape every time/);
+    assert.match(flow, /character-moment/);
     assert.match(flow, /PRECISION_GRAPHICS_OWNER: REMOTION/);
-    assert.match(flow, /scene-appropriate colors/i);
-    assert.match(flow, /MENSCHEN\/FIGUREN SIND ERLAUBT/);
+    assert.doesNotMatch(flow, /LEGACY_PROMPT_DNA|premium-physical-editorial-v8|chunky|Pixar/i);
+    assert.doesNotMatch(flow, /Büro-\/Papier-Stillleben/);
     assert.doesNotMatch(flow, /SIMPLE EXPLAINER/i);
     assert.doesNotMatch(flow, /NICHT MEHR HIER ARBEITEN/);
     assert.doesNotMatch(flow, /vollständigen.*liegen jetzt/i);
@@ -109,7 +119,9 @@ test('YouTube-Ersteller erzeugt Motion V3 und legacy-DNA Flow-Master', () => {
     const readme = readFileSync(resolve(absolute, 'README.md'), 'utf8');
     assert.match(readme, /genau diese Datei vollständig und 1:1/i);
     assert.match(readme, /04-visuals\/alle-bildprompts\.txt/);
-    assert.match(readme, /MAIN IDEA → SCENE → FULL STYLE LOCK/);
+    assert.match(readme, /kurzer englischer Absatz in immer derselben Form/);
+    assert.match(readme, /optional der Moment/);
+    assert.match(readme, /Look fest, Inhalt frei/);
   } finally {
     rmSync(absolute, {recursive:true, force:true});
   }

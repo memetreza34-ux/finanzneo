@@ -58,8 +58,8 @@ npm run studio
 ## V4-Kern
 
 - 1920 × 1080, 16:9, 30 fps
-- `FORM FREI — BILDWELT FEST`
-- Bildwelt `finanzneo-youtube-v9-front-readable-v2`
+- `LOOK FEST — INHALT FREI`: Standbilder im stilisierten 3D-Animationsfilm-Look auf tiefem Schwarz; Menschen, Hände, echte Gegenstände und Orte, wenn es passt
+- Bildwelt `finanzneo-youtube-animated-black-v3`
 - mindestens zwei Motion-/Animationsvisuals
 - drei Thumbnail-Kandidaten parallel, danach einmalige A/B/C-Auswahl
 - Szenenbilder anschließend in parallelen Batches mit maximal fünf getrennten Einzelbild-Jobs

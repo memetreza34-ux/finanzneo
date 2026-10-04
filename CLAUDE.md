@@ -16,6 +16,7 @@ Verbindlich für neue Arbeit:
 - neue Videos ausschließlich als eigenständige horizontale YouTube-Longform-Projekte unter `youtube/`
 - 1920×1080, 16:9, 30 fps
 - Bilder und Animationen gehören sichtbar zur selben FinanzNeo-V9-Welt
+- Bildwelt: **Look fest — Inhalt frei** (§6): Standbilder im stilisierten 3D-Animationsfilm-Look auf tiefem Schwarz; Menschen, Hände, echte Gegenstände und Orte, wenn es passt
 - jedes normale YouTube-Projekt enthält **mindestens zwei echte Motion-/Animationsvisuals**; keine reine Slideshow
 - Google Flow: zuerst 3 Thumbnail-Kandidaten parallel, danach Szenenbilder in echten parallelen 5er-Batches
 - Diagramme/Charts standardmäßig frontal, gerade und sofort lesbar; keine schrägen 3D-Perspektiven
@@ -136,185 +137,120 @@ Verbindlich:
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-black-v3
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
+YOUTUBE_GENERATED_IMAGE_ASPECT_RATIO: 16:9
 VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
 ```
+
+Kanonische Bildwelt-Datei für YouTube: `config/finanzneo-image-worlds/finanzneo-youtube-animated-black-v3.txt`.
 
 ### Kernregel
 
 ```text
-FORM FREI — BILDWELT FEST
+LOOK FEST — INHALT FREI
 ```
 
-V9 beschreibt **wie** FinanzNeo aussieht, nicht **welche Darstellungsform** verwendet werden muss.
+Form frei heißt: Im Bild darf alles vorkommen, wenn es den Sprechpunkt visuell unterstützt — Gegenstände, Orte, kreative Ideen, ab und zu Menschen. Zitate, Stichworte und Tabellen kommen als Remotion-Karten. Fest ist der Look. **Nichts auf Krampf:** Die meisten Bilder brauchen keine Person und keine Geschichte.
 
-Die Bildidee folgt dieser Reihenfolge:
+Festgelegt von Arman am 04.10.2026 nach mehreren Fehlversuchen. Freigegebene Referenzen sind echte Flow-Bilder:
+
+- Reel „Kurse schwanken“ (20.09.2026) — Figuren und Hände im Alltagsmoment
+- YouTube „Notgroschen“ (17.09.2026) — echte Gegenstände auf tiefem Schwarz
+
+### Der Look — immer gleich
+
+Jedes Bild sieht aus wie ein **Standbild aus einem hochwertigen stilisierten 3D-Animationsfilm über Geld im Alltag**:
+
+- stilisiertes 3D im Animationsfilm-Look, niemals fotorealistisch
+- wenn eine Person vorkommt: sympathische stilisierte Erwachsene mit ausdrucksstarkem Gesicht und klarer Körpersprache; keine reale identifizierbare Person
+- echte Alltagsgegenstände mit glaubwürdigen Proportionen und erkennbaren Details: Handy, Rechnung, Brief, Bankkarte, Geldbörse, Waschmaschine, Auto, Kalender
+- halbrealistische Materialien, weich und sauber stilisiert gerendert
+- warmes Hauptlicht, sanftes Randlicht gegen das Schwarz, weiche Kontaktschatten
+- tiefes nahtloses Schwarz; ein kleiner echter Ort (Küchentisch, Waschecke, Flur, Ladentheke, Autoinnenraum) darf da sein, wenn er hilft, und läuft ins Schwarz aus
+
+### Der Inhalt — frei, wenn es passt
+
+Es gibt keine Objektliste und keine Quote. Wähle, was den Sprechpunkt am schnellsten erklärt:
+
+- `character-moment` — eine Figur reagiert, zögert, entscheidet, zahlt, liest
+- `hands-in-action` — Daumen über einem Knopf, Hand zieht eine Karte
+- `object-story` — ein starker echter Gegenstand trägt die Idee
+- `everyday-scene` — wenige echte Gegenstände an einem kleinen echten Ort
+- `comparison-scene` — zwei echte Situationen nebeneinander
+- `creative-idea` — Übertreibung oder eine Bildidee aus echten Gegenständen; kreativ ist erwünscht, solange es auf einen Blick lesbar ist
+
+Keine Figur und keine Geschichte einbauen, nur damit sie da sind — die meisten Bilder brauchen beides nicht.
+
+### Der entscheidende Moment — ab und zu
+
+Nur wenn der Sprechpunkt von etwas handelt, das passiert, zeigt das Bild diese Sekunde: Der Daumen ist kurz vor dem Tippen, der Brief rutscht gerade aus dem Umschlag. Die meisten Bilder brauchen das nicht — ein starker Gegenstand, eine einfache Szene oder ein Zitat reicht.
+
+Technisches Feld in jedem Bildprompt (darf `not-applicable` sein):
 
 ```text
-Sprechpunkt
-→ was soll in 1–2 Sekunden verstanden werden?
-→ stärkste Darstellungsform frei wählen
-→ konkrete Bildidee bauen
-→ fachliche Logik/Daten prüfen
-→ V9-Art-Direction anwenden
+DECISIVE_MOMENT: <was in genau dieser Sekunde passiert — oder not-applicable>
 ```
 
-Erlaubte Formen:
+### Prompt-Form
 
-- `character-story`
-- `object-story`
-- `comparison`
-- `chart`
-- `diagram`
-- `editorial-quote`
-- `illustration`
-- `metaphor`
-- `hybrid`
+Jeder Bildprompt ist ein kurzer **englischer** Absatz in immer derselben Form: Look („Stylized 3D animated feature film still, 16:9“), was im Bild ist, optional der Moment, Ort, erlaubte deutsche Labels („Only text: …“), „warm soft light, deep black background“, „not photorealistic, no logos“. Nur die Labels im Bild sind deutsch. Keine langen Regelblöcke im Einzelprompt.
 
-Es gibt keinen Zwang zu Menschen, Alltagsgegenständen oder Story-Metaphern. Ein echtes Diagramm darf die stärkste Lösung sein. Ein einzelnes Objekt darf reichen. Ein Zitat-/Editorialbild darf Hauptmotiv sein. Eine Figur darf zentral sein. Kombinationen sind erlaubt.
+### Szenenvarianz
 
-### Was visuell fest bleibt
+Gleiche Welt heißt gleicher Look, nicht gleiche Szene. Jedes Bild zeigt eine sichtbar andere Situation, einen anderen Ort, Abstand oder Blickwinkel als das Bild davor. Deko wie Tasse, Brille oder ruhende Hand kommt höchstens einmal pro Video vor.
 
-- klar stylized 3D bzw. hochwertige FinanzNeo-Illustrationssprache
-- niemals Fotorealismus
-- premium Animation-Film-/Editorial-Qualität
-- tiefe schwarze Bühne
-- hochwertige Materialien, Licht, Tiefe und Kontaktschatten
-- Emerald = positiv / Wachstum
-- Gold = Geld / Wert
-- Warm Red-Orange = Kosten / Risiko / Verlust
-- wichtige Inhalte groß und sofort lesbar
-- gleiche visuelle DNA über das gesamte Reel
-- Zuschauer soll die Hauptaussage in etwa 1–2 Sekunden erfassen können
-- kein billiger Corporate-, Stock-, PowerPoint- oder Excel-Default-Look
+### Zahlen und Diagramme
 
-### Menschen
+Die Bilder sollen passen, nicht auf Krampf — beim Inhalt gibt es keine Einschränkung, kreative Ideen und Zitate sind erwünscht. **Diagramme mit Achsen, Charts, exakte Zahlen, Tabellen, Checklisten und UI baut Remotion** (entschieden von Arman am 04.10.2026 nach dem Vergleich Flow-Diagramm vs. Remotion-Diagramm).
 
-Menschen sind optional.
+### Karten (Remotion) — erlaubter eigener Visual-Typ
 
-Wenn eine Figur vorkommt, muss Pose, Reaktion oder Handlung etwas erklären. Eine generische Corporate-3D-Figur, die nur neben einem Objekt steht, ist keine gute Szene.
+Nach dem Vorbild Finanzbär (04.10.2026 von Arman freigegeben): ruhige Karten auf Schwarz aus `src/design-system/karten.tsx` — `StichwortKarte`, `ZitatKarte`, `TabellenKarte`, `IconAblauf`, `Zeitstrahl`, dazu `KartenHinweis` für Beispielrechnung/Quelle. Inter, weiße Schrift, grüne Hervorhebung; Elemente erscheinen nacheinander im Sprechrhythmus. Zahlen kommen aus der Zentralrechnung, Zitate müssen belegt sein. Referenz: Composition `DemoKartenBaukasten`.
 
-### Objekte
+Zitate, Stichworte und Tabellen gehören in diese Karten statt in Flow — dort stimmt jeder Buchstabe.
 
-Ein oder wenige Objekte dürfen die komplette Szene tragen, wenn sie stark genug sind. Keine Person hinzufügen, nur um eine Person im Bild zu haben.
+### Deutsche Labels
 
-### Vergleiche
+Kurze deutsche Labels direkt am Gegenstand sind erwünscht, wenn sie Mehrdeutigkeit verhindern: `Notgroschen`, `Girokonto`, `Reparatur 280 €`, `Teilzahlung`, `Restschuld`. Zitate kommen als `ZitatKarte` aus dem Karten-Baukasten, nicht als Flow-Bild. Sonst keine Headline, kein Untertitel, kein CTA, kein Satz.
 
-A-vs-B darf direkt, symmetrisch, räumlich oder über unterschiedliche Größen/Verläufe gezeigt werden. Der Unterschied muss sofort lesbar sein.
+### Farbrollen
 
-### Echte Charts und Diagramme
+- Emerald Green = positiv / Lösung / Sparen
+- Warm Red-Orange = Kosten / Warnung / Verlust
+- Gold = kleiner Geld-/Wert-Akzent
+- Warm Ivory + Soft Gray = neutral
+- natürliche Haut- und Kleidungsfarben sind erlaubt
+- Deep Black = Hintergrund; kein dunkelgrün-schwarzer Monochrom-Look
 
-Charts sind ausdrücklich erlaubt und sollen **wirklich richtige Charts** bleiben.
+### Streng verboten
 
-Je nach Diagrammtyp gehören dazu:
+- Fotorealismus / Stockfoto-Look
+- die alte grün-goldene Symbolwelt als Hauptidee: Bankgebäude, Schild, Tresor, Münzberge, leuchtende Icons
+- abstrakte Finanzskulpturen statt echter Situation: Schuldenklammer, Zinsmagnet, Zahlungs-Token, Geldband, Wertblock, „chunky“ CGI-Objekte ohne Alltagsbezug
+- Chart, Diagramm, flache Infografik, Dashboard, App-/Settings-UI, Checkliste oder Progress-Bar als Flow-Bild
+- erfundene oder falsch zugeordnete Zitate
+- schwebende Karten, Tiles oder Panels; Flowchart
+- heller Studio-, weißer oder farbiger Hintergrund
+- winzige Miniatur-/Diorama-Darstellung
+- Spielzeug-, Plastik- oder Knete-Look
+- aufgeräumter Endzustand statt Moment
+- reale identifizierbare Personen, flach aufgeklebte echte Logos
+- Clutter und Deko ohne Erklärwert
 
-- echte Achsen, wenn fachlich erforderlich
-- Skalen
-- Kategorien
-- Zahlenwerte
-- Labels
-- mathematisch korrekte Proportionen
-- korrekte Start-/Endwerte
+### Bild-QA
 
-Beispiele:
+Bild verwerfen und **dieselbe Bildnummer neu erzeugen**, wenn:
 
-- Liniendiagramm: X-Achse `Jahre`, Y-Achse `Vermögen`, korrekte Kurven
-- Balkendiagramm: gemeinsame Baseline, echte relative Höhen, Werte
-- Kreisdiagramm: korrekte Segmentanteile und Labels; keine künstliche X-/Y-Achse
-
-Ein Chart darf hochwertig in V9 inszeniert werden: physische 3D-Achsen, volumetrische Balken, hochwertige Linien/Ribbons, 3/4-Perspektive, Materialtiefe, Licht und Schatten. Die Datenlogik darf aber nie für Dekoration geopfert werden.
-
-Verboten:
-
-- Excel-/PowerPoint-Default-Look
-- dünne Standardachsen mit langweiligen Standardbalken als finale Bildwelt
-- generische Business-Infografik
-- Dashboard-Template als Ersatz für eine Bildidee
-- Datenwerte verändern, nur damit es schöner aussieht
-
-Für `chart` und `diagram` ist `DATA_INTEGRITY_TEST: PASS ...` Pflicht.
-
-### Editorial / Zitat / Typografie
-
-Text darf Hauptmotiv sein, wenn das die stärkste Form ist.
-
-Erlaubt:
-
-- kurze starke Aussage
-- physische 3D-Typografie
-- Magazin-/Editorial-Komposition
-- Typografie + visuelle Metapher
-
-Nicht erlaubt:
-
-- generische Social-Media-Template-Karte
-- langer Textabsatz
-- langweilige Standardtypografie ohne Bildidee
-
-### Illustration / Metapher
-
-Freie Illustration, intuitive Metapher und Übertreibung sind erlaubt.
-
-Sie dürfen kein Rätsel sein.
-
-Abstrakte Begriffe wie `capital body`, `wealth tower`, `value block`, `investment block`, `fee token`, Fantasie-Klammern oder erfundene Finanzmaschinen sind keine automatische Standardsprache. Wenn sie bewusst genutzt werden, dann nur als `illustration`, `metaphor` oder `hybrid` und nur bei bestandenem Instant-Read-Test.
-
-### Hybrid
-
-Kombinationen sind ausdrücklich erwünscht, wenn sie stärker erklären:
-
-- Figur + echtes Chart
-- Objekt + Diagramm
-- Editorial-Zitat + Metapher
-- Vergleich + Datenvisualisierung
-
-### Abwechslung
-
-Es gibt keine Pflichtquote pro Bildart. Der Sprechbeat entscheidet.
-
-Aufeinanderfolgende Szenen sollen nicht unnötig dieselbe Kompositionsidee wiederholen.
-
-Mögliche Mischung:
-
-```text
-Figur
-→ Objekt
-→ echtes Chart
-→ Metapher
-→ Vergleich
-→ Editorial
-→ Figur + Chart
-```
-
-### Prompt-QA
-
-Neue Bildszenen dokumentieren:
-
-```text
-VISUAL_FORM
-VISUAL_CONCEPT
-VOICEOVER_VISUAL_MATCH
-INSTANT_READ_TEST
-TRANSFERABILITY_TEST
-DATA_INTEGRITY_TEST
-```
-
-`DATA_INTEGRITY_TEST`:
-
-- bei `chart` / `diagram`: `PASS - ...`
-- bei allen anderen Formen: `not-applicable`
-
-Bild verwerfen und dieselbe Nummer neu erzeugen, wenn:
-
-- es hübsch ist, aber den Sprechpunkt nicht erklärt
-- es generisch zu vielen Finanzthemen passen würde
-- ein Chart fachlich falsch oder wie ein Standard-Office-Chart aussieht
-- eine Figur nur dekorativ herumsteht
-- Text wie ein billiges Social-Template wirkt
-- es fotorealistisch, katalogartig oder cluttered wird
-- die Szene sichtbar nicht zur FinanzNeo-Welt gehört
-
-Die frühere YouTube-Phase-A-DNA bleibt Qualitätsreferenz für Modellierung, Licht, Tiefe, Kamera, Figuren und hochwertige 3D-Inszenierung, begrenzt aber nicht die Darstellungsform.
+- es nicht wie ein Standbild aus einem stilisierten 3D-Animationsfilm aussieht
+- es fotorealistisch wird
+- eine Person oder Geschichte ohne Grund eingebaut ist
+- die echte Alltagssituation fehlt oder man ein Symbolrätsel entschlüsseln muss
+- es in grün-goldene Symbole oder abstrakte Finanzskulpturen zurückfällt
+- der Hintergrund nicht tief schwarz ist oder das Bild grün-monochrom wird
+- das Hauptmotiv zu klein ist
+- es Ort und Blickwinkel des vorigen Bildes wiederholt
+- notwendige deutsche Labels fehlen oder falsch zugeordnet sind
 
 ## 7. Google Flow — Cover Parallel V2 + Scene Single Job
 
@@ -542,11 +478,11 @@ Header, Caption, Canvas und Safe-Zone-Clipping werden exakt einmal vom zentralen
 
 ### Verbotene Hauptsprache
 
-- generische Karten-/Kästchenreihe
+- generische Karten-/Kästchenreihe (der Karten-Baukasten aus §6 ist ausdrücklich erlaubt)
 - Lade-/Fortschrittsbalken als Ersatz für die Finanzmechanik
 - langweilige Dashboard-/Control-Panel-Komposition
 - generische Corporate-Infografik
-- reine Texttafel mit Fade/Scale ohne Editorial-Idee
+- reine Texttafel mit Fade/Scale ohne Editorial-Idee — außer Stichwort-/Zitat-Karten aus dem Karten-Baukasten (§6)
 - kleine Boxen mit dünnen Verbindungslinien
 - unverständliche abstrakte Value-Geometrie
 - Partikel/Aurora/Grid als Szenenhintergrund

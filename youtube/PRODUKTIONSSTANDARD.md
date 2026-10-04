@@ -13,42 +13,38 @@
 
 ## Grundprinzip
 
-`FORM FREI — BILDWELT FEST — WERKZEUG PASSEND`
+`LOOK FEST — INHALT FREI — WERKZEUG PASSEND`
 
-Für jeden Sprechbeat wird zuerst bestimmt, was der Zuschauer sehen und verstehen soll. Danach wird das Werkzeug gewählt. Google Flow rendert hochwertige stylized-3D-Szenen, Objektgeschichten, Figurenmomente und physische Metaphern. Remotion/SVG/React übernimmt präzise Daten-, Text-, Checklisten-, Timeline- und UI-Grafiken.
+Für jeden Sprechbeat wird zuerst bestimmt, was der Zuschauer sehen und verstehen soll. Danach wird das Werkzeug gewählt. Google Flow rendert Standbilder im Animationsfilm-Look: Menschen in Alltagsmomenten, Hände in Aktion, echte Gegenstände, kleine echte Orte. Remotion/SVG/React übernimmt präzise Daten-, Text-, Checklisten-, Timeline- und UI-Grafiken.
 
-**Wichtig:** Google Flow ist kein Infografik-Generator. Das bedeutet aber NICHT, dass Flow nur realistische Gegenstände auf einem dunklen Tisch zeigen darf. Die alte erfolgreiche FinanzNeo-Promptlogik mit konkreten 3D-Ideen ist verbindlich.
+**Wichtig:** Google Flow ist kein Infografik-Generator. Flow zeigt den Moment aus dem Alltag, Remotion zeigt die exakte Zahl.
 
 ---
 
 # 1. Werkzeugwahl — verbindlich
 
-## Google Flow: premium stylized 3D CGI
+## Google Flow: Standbild aus einem stilisierten 3D-Animationsfilm
 
-Flow darf innerhalb derselben Bildwelt frei die beste Darstellungsform wählen:
+Flow wählt innerhalb derselben Bildwelt frei, was den Sprechbeat am schnellsten erklärt:
 
-- Grounded Scene
-- Character Story
-- Object Story
-- Physical Metaphor
-- Editorial 3D Illustration
-- Environmental Scene
-- Comparison Scene
-- Transformation Scene
-- Hybrid Scene Plate
+- **Character Moment** — eine Figur reagiert, zögert, entscheidet, zahlt, liest
+- **Hands in Action** — Daumen über einem Knopf, Hand zieht eine Karte, Finger zählen Scheine
+- **Object Story** — ein starker echter Gegenstand trägt die Idee (kaputte Waschmaschine mit Reparaturrechnung)
+- **Everyday Scene** — wenige echte Gegenstände an einem kleinen echten Ort
+- **Comparison Scene** — zwei echte Situationen nebeneinander im selben Bild
+- **Creative Idea** — Übertreibung oder Bildidee aus echten Gegenständen, solange sie auf einen Blick lesbar ist
+- **Hybrid Scene Plate** — Flow liefert die Szene, Remotion legt exakte Zahlen darüber
 
 ### Wann Flow richtig ist
 
-Wenn eine bildhafte 3D-Idee den Sprechbeat schnell erklärt:
+Wenn ein Moment aus dem Alltag den Sprechbeat schnell erklärt:
 
-- konkrete Alltagssituation
-- Figur mit klarer Handlung
-- ein dominantes Objekt mit sichtbarer Ursache/Wirkung
-- kleine-vs-große Größenkontraste
-- Lupe enthüllt etwas
-- Gegenstände werden gestapelt, geteilt, gestempelt, geöffnet, gezogen, gewogen oder verwandelt
-- mehrere bekannte Alltagsobjekte bilden eine zusammenhängende Szene
-- eine physische Metapher erklärt den Finanzpunkt sofort
+- konkrete Alltagssituation mit Ursache und Wirkung
+- Figur mit klarer Reaktion oder Handlung
+- Hand, die gerade etwas tut
+- ein dominanter echter Gegenstand mit sichtbarem Problem oder sichtbarer Lösung
+- wenige bekannte Alltagsobjekte in einer zusammenhängenden Szene
+- zwei Situationen im direkten Vergleich
 
 ### Nicht als generisches Flow-Infografikbild erzeugen
 
@@ -64,6 +60,19 @@ Wenn der Kern des Beats hauptsächlich aus präzisen Informationen besteht, geh�
 - mathematisch exakter Vergleich
 
 Flow darf bei einem Hybrid eine starke 3D-Szenenbasis liefern. Präzise Zahlen, Labels, UI-Zustände und Daten kann Remotion darüberlegen.
+
+## Karten — der ruhige Standard für Text, Zitat und Tabelle
+
+Vorbild Finanzbär, umgesetzt in der FinanzNeo-Welt (schwarz, Inter, grüne Hervorhebung). Baukasten: `src/design-system/karten.tsx`, Referenz-Composition `DemoKartenBaukasten`.
+
+- `StichwortKarte` — großes Stichwort, optional Zusatzzeile, ein Teil wird grün markiert, wenn er gesagt wird
+- `ZitatKarte` — nur Zitat und Autor (Zitat belegt)
+- `TabellenKarte` — Zeilen erscheinen nacheinander, eine Zeile grün markiert
+- `IconAblauf` — Linien-Icons mit Bogenpfeilen, optional ein Hinweis-Kasten
+- `Zeitstrahl` — Punkte nacheinander, optional ein Sprung-Pfeil
+- `KartenHinweis` — „Beispielrechnung: …“ oder Quelle am unteren Rand
+
+Karten bewegen sich bewusst wenig: einblenden im Sprechrhythmus, mehr nicht.
 
 ## Remotion / SVG / React verwenden
 
@@ -84,147 +93,83 @@ Hybrid nur, wenn das Flow-Bild als echte stylized-3D-Szene einen visuellen Mehrw
 
 ---
 
-# 2. FinanzNeo-Bildwelt
+# 2. FinanzNeo-Bildwelt — Look fest, Inhalt frei
 
-`YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2`
+`YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-black-v3`
 
-Source Visual Language:
+Source Visual Language: `finanzneo-stylized-3d-animated-black-v9`
 
-`finanzneo-stylized-3d-animated-black-v9`
+Freigegebene Stilreferenzen (echte Flow-Bilder, die genau so aussehen sollen):
 
-Primärer genehmigter Stilanker:
+- Reel „Kurse schwanken“ (20.09.2026) — Figuren und Hände im Alltagsmoment
+- YouTube „Notgroschen“ (17.09.2026) — echte Gegenstände auf tiefem Schwarz
 
-`finanzneo-premium-physical-editorial-v8`
+Kanonische Datei: `config/finanzneo-image-worlds/finanzneo-youtube-animated-black-v3.txt`
 
-Legacy Prompt DNA:
+## Der Look — immer gleich
 
-`finanzneo-stylized-3d-editorial-v5`
+Jedes Bild sieht aus wie ein Standbild aus einem hochwertigen stilisierten 3D-Animationsfilm über Geld im Alltag:
 
-Kanonische Datei:
+- stilisiertes 3D im Animationsfilm-Look, niemals fotorealistisch
+- sympathische stilisierte Erwachsene mit ausdrucksstarken Gesichtern und klarer Körpersprache
+- echte Alltagsgegenstände mit glaubwürdigen Proportionen und erkennbaren Details: Handy, Rechnung, Brief, Bankkarte, Geldbörse, Waschmaschine, Auto, Kalender
+- halbrealistische Materialien, weich und sauber stilisiert gerendert
+- warmes Hauptlicht, sanftes Randlicht gegen das Schwarz, weiche Kontaktschatten
+- tiefes nahtloses Schwarz; ein kleiner echter Ort (Küchentisch, Waschecke, Flur, Ladentheke, Autoinnenraum) darf da sein, wenn er hilft, und läuft ins Schwarz aus
 
-`config/finanzneo-image-worlds/finanzneo-youtube-v9-front-readable-v2.txt`
+## Der Inhalt — frei, wenn es passt
 
-## Immer gleich
+Es gibt keine Objektliste und keine Quote. Gegenstände, Orte, kreative Ideen, ab und zu Menschen — alles darf vorkommen, wenn es den Sprechpunkt visuell unterstützt. **Nichts auf Krampf:** Die meisten Bilder brauchen keine Person und keine Geschichte.
 
-Die Konstanz entsteht durch die **Render-/Formensprache**, nicht durch eine starre Liste erlaubter Objekte oder Farben:
+## Der entscheidende Moment — ab und zu
 
-- clearly stylized premium 3D CGI / Editorial-Qualität
-- klar stilisiert, niemals fotorealistisch
-- chunky, substanzielle volumetrische Formen
-- leicht vereinfachte bzw. überzeichnete Proportionen, wenn es der Klarheit hilft
-- glatte Geometrie, weiche Bevels, sichtbare Dicke und Gewicht
-- hochwertige Materialien passend zur Szene
-- cinematografisches Licht
-- weiche aber sichtbare Kontaktschatten
-- klare Vordergrund-/Mittelgrund-/Hintergrundtiefe
-- sinnvolle Überlappungen und sichtbare Handlung
-- niemals childish clay / toy / Pixar
-- niemals generisches Corporate-3D oder Gold-Luxus-Finanz-KI
+Nur wenn der Sprechpunkt von etwas handelt, das passiert, zeigt das Bild diese Sekunde. Die meisten Bilder brauchen das nicht. Technisches Feld in jedem Bildjob: `DECISIVE_MOMENT: <…>` oder `not-applicable`.
 
-## Farben — frei passend zum Inhalt
+## Abwechslung
 
-FinanzNeo ist **kein Farbkorsett**.
+Jedes Bild zeigt eine sichtbar andere Situation, einen anderen Ort, Abstand oder Blickwinkel als das Bild davor. Die Einheit entsteht durch den Look, nie durch denselben Tisch, dieselbe Tasse oder dieselben Requisiten.
 
-Wiederkehrende Anker:
-- Deep Charcoal / Green-Black als häufige Grundatmosphäre
-- Emerald/Mint für positive Richtung/Lösung
-- warmes Red-Orange für Kosten/Risiko/Schuld/Warnung
-- Gold/Brass für Geld/Wert
-- Warm Ivory/Cream für neutrale Informationsflächen
+## Farben
 
-Zusätzlich ausdrücklich erlaubt:
-- Blau / Cyan
-- Gelb
-- Orange / Rot
-- Violett
-- natürliche Hauttöne
-- Kleidungsfarben
-- Umwelt-/Produktfarben
-- alle anderen scene-spezifischen Farben, wenn sie die Aussage klarer machen
+- Emerald = positiv, Lösung, Sparen
+- warmes Red-Orange = Kosten, Warnung, Verlust
+- Gold = kleiner Geld-/Wert-Akzent
+- Warm Ivory und Soft Gray = neutral
+- natürliche Haut- und Kleidungsfarben sind erlaubt
+- kein dunkelgrün-schwarzer Monochrom-Look
 
-Nicht jedes Objekt künstlich in Markenfarben umfärben. Die Szene darf bunt sein, wenn sie dadurch besser funktioniert.
+## Prompt-Form — Pflicht
 
-## Objekte / Figuren / Umgebungen
+Jeder Bildprompt ist **ein kurzer englischer Absatz in immer derselben Form**. Nur die Labels im Bild sind deutsch.
 
-Es gibt keine feste Objekt-Whitelist.
+```text
+Stylized 3D animated feature film still, 16:9. [Was im Bild ist]. [Optional: was gerade passiert]. [Ort, nur so viel wie nötig]. Only text: "[deutscher Text]". Warm soft light, deep black background. Not photorealistic, no logos.
+```
 
-Erlaubt sind alle passenden:
-- Alltagsobjekte
-- Finanzobjekte
-- Fahrzeuge
-- Gebäude
-- Landschaften
-- Räume
-- Geschäfte
-- Haushaltsgegenstände
-- Geräte
-- Symbole
-- Figuren
-- Hände / Teilfiguren
-- komplette stylized Adult Characters
+Beispiel, das in Flow auf Anhieb gepasst hat:
 
-Menschen sind erlaubt, wenn sie die Aussage besser erklären. Sichtbares Gesicht = Augen, Nase und Mund; keine reale identifizierbare Person.
+```text
+Stylized 3D animated film still, 16:9. A young man at a supermarket checkout has just paid by card: the card terminal glows green, but his relieved smile is freezing, because a small red-orange paper tag reading "Dispo" is swinging from his bank card. Groceries on the belt in front of him. Warm soft light, deep black background, only the checkout counter visible. Expressive faces, real everyday objects, not photorealistic, no logos. Only text: "Dispo".
+```
 
-## Alte erfolgreiche Promptlogik — Pflicht
-
-Jeder individuelle Flow-Bildprompt folgt dieser Reihenfolge:
-
-1. `MAIN IDEA`
-2. `SCENE`
-3. `FULL STYLE LOCK`
-4. `BACKGROUND / ENVIRONMENT`
-5. `ALLOWED TEXT`
-6. `PERSON RULE`
-7. `NEGATIVE`
-8. `QA`
-
-### MAIN IDEA
-
-Genau eine Aussage. In ungefähr zwei Sekunden verständlich.
-
-### SCENE
-
-Hier wird die **konkrete Bildidee erfunden**. Nicht nur den Sprechertext umformulieren.
-
-Beschreiben:
-- welches Objekt / welche Figur der Hero ist
-- welche unterstützenden Elemente vorkommen
-- was physisch passiert
-- welche Größenverhältnisse gelten
-- wie die Tiefenstaffelung aussieht
-- was das Auge zuerst sieht
-- wie Ursache und Wirkung visuell zusammenhängen
-
-Die früheren erfolgreichen FinanzNeo-Prompts nutzten z. B. Lupe, Wallet, Kalender, Calculator, Kopfhörer, Smartphone, SIM-Karte, Contract Folder, Tags, Coins, Shopping Basket, Fuel Nozzle usw. Diese Beispiele sind **keine Whitelist**.
+Keine langen Regelblöcke im Einzelprompt — die Regeln stehen einmal im Master.
 
 ## Text in Flow-Szenenbildern
 
-Kurze deutsche Objektlabels, Preise, Prozentwerte oder kurze Fragen sind erlaubt, wenn sie Teil der Szene sind und helfen.
+Kurze deutsche Objektlabels direkt am Gegenstand, wenn sie helfen: `Teilzahlung`, `Restschuld`, `Reparatur 280 €`.
 
-- kein langer Titel im normalen Szenenbild
-- kein Absatz
-- keine CTA-Sätze
-- Text bevorzugt auf/in einem physischen 3D-Objekt integriert
-- kein automatisch erzeugtes FinanzNeo-Logo / Wasserzeichen / Markenlabel
-- datenintensive Präzisionsgrafiken gehören Remotion
+- kein Titel im normalen Szenenbild
+- kein Absatz, keine CTA-Sätze
+- kein automatisch erzeugtes FinanzNeo-Logo / Wasserzeichen
+- exakte Zahlen, die stimmen müssen, legt Remotion darüber
 
 ## Charts / Diagramme / Daten
 
-Werden standardmäßig in Remotion/SVG/React gebaut:
-
-- gerade Frontansicht
-- korrekte Achsen
-- mathematisch korrekte Werte und Proportionen
-- keine Perspektivverzerrung
+Werden in Remotion/SVG/React gebaut — echte Achsen, exakte Werte, die Kurve zeichnet sich zum Sprechtext (Referenz: Composition `DemoZinseszinsLinienDiagramm`). Entschieden am 04.10.2026 nach direktem Vergleich mit einem Flow-Diagramm.
 
 ## UI / Settings
 
-Werden standardmäßig in Remotion/React gebaut:
-
-- fiktiv/unbranded
-- gerade und lesbar
-- frame-genau
-- kein Flow-Screenshot und kein dickes schwebendes Control-Panel
+Werden in Remotion/React gebaut — fiktiv/unbranded, gerade, lesbar, frame-genau. Kein Flow-Screenshot und kein schwebendes Control-Panel.
 
 ---
 
@@ -232,34 +177,30 @@ Werden standardmäßig in Remotion/React gebaut:
 
 Sofort verwerfen und denselben Job neu generieren bei:
 
+- sieht nicht aus wie ein Standbild aus einem stilisierten 3D-Animationsfilm
 - Fotorealismus / Stockfoto
-- realistisches langweiliges Büro-/Papier-Stillleben
-- flacher Infografik / Slide / Poster
-- Social-Media-Card-Look
+- grün-goldene Symbolwelt als Hauptidee: Bankgebäude, Schild, Tresor, Münzberge, leuchtende Icons
+- abstrakte Finanzskulptur statt echter Situation: Schuldenklammer, Zinsmagnet, Zahlungs-Token, Geldband, Wertblock
+- dunkelgrün-schwarzer Monochrom-Look
+- flache Infografik / Slide / Poster / Social-Media-Card
 - Dashboard-/Control-Panel-/HUD-Look
-- Checklistenlayout als generiertes Bild
-- Settings-/UI-Layout als generiertes Bild
-- Progress-Bar als Hauptmotiv
-- Chart-/Datengrafik als generiertes Bild
-- Zahlenvergleich in Rechtecken/Tiles/Cards
+- Chart, Diagramm, Checkliste, Settings-/UI-Layout oder Progress-Bar als generiertes Bild
+- erfundenes oder falsch zugeordnetes Zitat
 - kleine schwebende Tiles/Karten/Module
-- generische Finance-Icon-Collage
-- generisches Corporate-3D
-- sterile Produktaufnahme
-- winzige isometrische/Diorama-Perspektive
-- riesige leere schwarze Fläche mit kleinem Motiv
-- Trophy-/Plinth-/Gold-Luxury-Staging
-- childish clay/toy/Pixar
-- Bild hat keine Handlung, Beziehung, Transformation oder klaren Größenkontrast
-- Prompt paraphrasiert nur den Sprechertext statt eine konkrete Bildidee zu erfinden
+- heller oder farbiger Hintergrund
+- winzige isometrische/Diorama-Perspektive, Hauptmotiv zu klein
+- Spielzeug-, Plastik- oder Knete-Look
+- aufgeräumter Endzustand statt Moment
+- dieselbe Szene und derselbe Blickwinkel wie das vorige Bild
+- reale identifizierbare Person oder aufgeklebtes echtes Logo
 
 Qualitätsfragen:
 
-1. Ist genau eine Hauptaussage sofort klar?
-2. Sieht es eindeutig nach premium stylized 3D CGI aus?
-3. Ist die Bildidee konkret statt generisch?
-4. Helfen die gewählten Objekte/Figuren/Farben der Aussage?
-5. Sind Tiefe, Kontakt, Überlappung oder Handlung sichtbar?
+1. Sieht es aus wie ein Standbild aus einem stilisierten 3D-Animationsfilm?
+2. Ist genau eine Hauptaussage sofort klar?
+3. Zeigt es einen Moment statt eines Endzustands?
+4. Ist die Alltagssituation echt und erkennbar — ohne Rätsel?
+5. Ist das Schwarz tief und das Hauptmotiv groß?
 
 Wenn eine Antwort nein ist: denselben Job neu generieren.
 

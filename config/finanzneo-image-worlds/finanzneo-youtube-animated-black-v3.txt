@@ -1,0 +1,73 @@
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-black-v3
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+APPROVED_STYLE_REFERENCES: Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgroschen" (2026-09-17)
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FLOW_IMAGE_POLICY: scene-first-no-infographic-v1
+PRECISION_GRAPHICS_OWNER: REMOTION
+PROMPT_LANGUAGE: English (only the on-image labels are German)
+
+FINANZNEO YOUTUBE ANIMATED BLACK WORLD — V3
+
+PURPOSE
+Every image supports the spoken point visually, in the look of a high-end stylized 3D animated feature film on deep black. Most images need no person and no story: one strong object or a simple scene is enough. Quotes, keywords and tables are Remotion cards, not Flow images. A person or a story moment is used now and then, when the beat is really about a person. Anything may appear when it fits. Never forced.
+
+APPROVED LOOK — ALWAYS
+- stylized 3D animated-feature-film rendering, never photorealistic, never stock photo
+- when a person appears: appealing stylized adult character with an expressive face (eyes, nose, mouth) and clear body language
+- real everyday objects with believable proportions and recognizable details: phones, bills, letters, bank cards, wallets, washing machines, cars, calendars, groceries, keys, whiteboards
+- semi-realistic material cues (paper, painted metal, fabric, wood, glass) rendered in a soft, clean, visibly stylized way
+- soft cinematic lighting: warm key light, gentle rim light that separates the subject from the black, soft contact shadows
+- deep seamless black world; a small local set (part of a kitchen table, laundry corner, hallway, shop counter, car interior, small office) may exist when it helps, but it dissolves into black
+- emerald green = positive, solution, saving; warm red-orange = cost, warning, loss; gold = money or value accent; warm ivory and soft gray = neutral; natural skin tones and normal clothing colors are fine
+
+CONTENT — FREE WHEN IT FITS
+Choose whatever explains the spoken point fastest:
+- character-moment: a person reacting, deciding, hesitating, paying, reading
+- hands-in-action: a thumb over a button, a hand pulling a card, fingers counting notes
+- object-story: one strong real object carries the idea (a broken washing machine with a repair bill)
+- everyday-scene: a few real objects in one small real place
+- comparison-scene: two real situations side by side in the same frame
+- creative-idea: playful exaggeration or a visual idea built from real objects (a receipt that never ends, a piggy bank on a diet) — creative is welcome as long as it reads at a glance
+There is no object whitelist and no quota. Do not add a person just to have one — most images need none.
+
+STORY MOMENTS — NOW AND THEN
+Only when the beat is about something happening, show the second in which it happens (the thumb just about to press, the letter just sliding out). Most images do not need this; never invent a story just to have one.
+
+SCENE VARIANCE
+Every image shows a visibly different situation, place, camera distance or angle than the one before. Style comes from the look, never from repeating the same table, cup or props.
+
+GERMAN LABELS
+Short German labels are allowed when they remove ambiguity, attached to the exact object: "Teilzahlung", "Restschuld", "Reparatur 280 €", "Notgroschen". No headline, subtitle or other sentences.
+
+YOUTUBE COMPOSITION
+Horizontal 16:9. The main subject is large and readable on a phone. Eye-level or natural camera height, calm horizon. One clear idea per frame. Use foreground and background depth. No huge empty black area with a tiny subject.
+
+FORBIDDEN
+- photorealism, stock photo, a frame that could be mistaken for a real photograph
+- the old green-gold symbol world as the main idea: bank buildings, shields, vaults, coin mountains, glowing icons
+- abstract finance sculptures that replace a real situation: debt clamps, interest magnets, payment tokens, money ribbons, value blocks
+- dark green-black monochrome frames
+- charts and diagrams with axes, flat infographics, dashboards, app or settings UI screens, checklists, progress bars — these belong to Remotion
+- quotes or longer text inside generated images (quotes are Remotion cards)
+- floating cards, tiles or panels; flowcharts
+- bright studio, white or colored backgrounds
+- tiny diorama or isometric miniature framing
+- childish toy, plastic or clay look
+- real identifiable people, pasted real logos
+- clutter and decorative props that do not explain the point
+
+PROMPT — ALWAYS ENGLISH, SHORT, SAME SHAPE
+Every image prompt is one short English paragraph in the same order: look ("Stylized 3D animated feature film still, 16:9"), what is in the frame, optionally what is happening, the place (only as much as needed), the allowed German text ("Only text: ..."), "warm soft light, deep black background", "not photorealistic, no logos". No long rule blocks inside a single prompt.
+
+QA — REJECT AND REGENERATE THE SAME NUMBER WHEN
+- it does not look like a frame from a stylized 3D animated feature film
+- it is photorealistic
+- the real everyday situation is missing or must be decoded like a riddle
+- it falls back to green-gold symbols or abstract finance sculptures
+- a person or story was added without a reason
+- the background is not deep black or the frame turns monochrome green
+- the main subject is too small
+- it repeats the previous image's place and camera
+- text is long, wrong or not attached to an object

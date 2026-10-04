@@ -107,9 +107,10 @@ if (index) {
   assert(index.imageWorld?.styleReferenceStrategy === 'written-youtube-v9-lock-only', 'Nur die geschriebene YouTube-V9-Welt darf Style-Autorität sein.');
   assert(index.imageWorld?.selectedThumbnailMayBeStyleReference === false, 'Das gewählte Thumbnail darf keine Style-Referenz sein.');
   assert(index.imageWorld?.referencePromptFile === IMAGE_WORLD_PROMPT, 'referencePromptFile ist falsch.');
-  assert(index.imageWorld?.primaryApprovedStyleAnchor === 'finanzneo-premium-physical-editorial-v8', 'Premium Physical Editorial V8 muss primärer Flow-Stilanker sein.');
+  assert(index.imageWorld?.primaryApprovedStyleAnchor === 'finanzneo-stylized-3d-animated-black-v9', 'Stylized 3D Animated Black V9 muss primärer Flow-Stilanker sein.');
+  assert(index.imageWorld?.legacyPromptDna === undefined, 'Die alte Legacy-Prompt-DNA (grün-goldene Chunky-CGI) darf nicht mehr Stilquelle sein.');
   if (Array.isArray(index.imageWorld?.flowVisualModes)) {
-    assert(index.imageWorld.flowVisualModes.includes('grounded-scene') && index.imageWorld.flowVisualModes.includes('editorial-3d-illustration'), 'Flow-Bildwelt muss Grounded Scene und Editorial 3D Illustration unterstützen.');
+    assert(index.imageWorld.flowVisualModes.includes('character-moment') && index.imageWorld.flowVisualModes.includes('object-story'), 'Flow-Bildwelt muss Figuren-Momente und Objektgeschichten unterstützen.');
   assert(index.imageWorld?.precisionGraphicsOwner === 'remotion', 'Präzise Daten/UI/Checklisten müssen Remotion gehören.');
   assert(index.imageWorld?.flowInfographicLayoutsForbidden === true, 'Google Flow darf keine Infografik-/Dashboard-Layouts erzeugen.');
   }
@@ -165,7 +166,7 @@ if (index) {
       assert(typeof imagePlan !== 'string' || imagePlan.startsWith(`${PROMPT_DIRECTORY}/`), `${id}: Bildprompt muss unter ${PROMPT_DIRECTORY}/ liegen.`);
       if (typeof imagePlan === 'string' && existsSync(resolve(root, imagePlan))) {
         const prompt = readFileSync(resolve(root, imagePlan), 'utf8');
-        for (const marker of ['VISUAL_FORM:', 'VISUAL_CONCEPT:', 'VOICEOVER_VISUAL_MATCH:', 'FRONT_READABILITY_TEST:', 'DATA_INTEGRITY_TEST:']) {
+        for (const marker of ['VISUAL_FORM:', 'VISUAL_CONCEPT:', 'DECISIVE_MOMENT:', 'VOICEOVER_VISUAL_MATCH:', 'FRONT_READABILITY_TEST:', 'DATA_INTEGRITY_TEST:']) {
           assert(prompt.includes(marker), `${id}: YouTube-V4 Bildmarker fehlt: ${marker}`);
         }
       }
@@ -201,8 +202,14 @@ if (existsSync(resolve(root, ALL_PROMPTS))) {
   assert(prompts.includes(IMAGE_INBOX), 'Gemeinsamer Bilderordner fehlt in der Flow-Übergabe.');
   assert(prompts.includes('horizontal 16:9'), 'Horizontales 16:9-Quellbild fehlt in der Flow-Übergabe.');
   assert(prompts.includes(`STYLE_AUTHORITY: ${YOUTUBE_IMAGE_WORLD_LOCK}`), 'Geschriebene V9-Bildwelt fehlt als Style-Autorität.');
-  assert(prompts.includes('PRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8'), 'Premium Physical Editorial V8 fehlt als primärer Flow-Stilanker.');
-  assert(/GROUNDED SCENE/.test(prompts) && /EDITORIAL 3D ILLUSTRATION/.test(prompts), 'Flow-Master muss Grounded Scene und Editorial 3D Illustration als zwei zulässige Flow-Bildklassen enthalten.');
+  assert(prompts.includes('APPROVED_STYLE_REFERENCES:'), 'Freigegebene Stilreferenzen (Kurse schwanken + Notgroschen) fehlen im Flow-Master.');
+  assert(/LOOK FEST — INHALT FREI/.test(prompts), 'Flow-Master muss die Bildwelt als „Look fest — Inhalt frei“ festlegen.');
+  assert(/ENTSCHEIDENDER MOMENT/.test(prompts), 'Flow-Master muss regeln, wann ein entscheidender Moment ins Bild gehört.');
+  assert(/animated[- ]feature[- ]film/i.test(prompts), 'Flow-Master muss den Animationsfilm-Look verlangen.');
+  // Diese Vorgaben haben am 2026-10-03/04 genau den gewünschten Look verboten.
+  assert(!/LEGACY_PROMPT_DNA|premium-physical-editorial-v8|stylized-3d-editorial-v5/.test(prompts), 'Flow-Master darf die alte grün-goldene Chunky-CGI-DNA nicht mehr als Stilquelle nennen.');
+  assert(!/NOT Pixar|Pixar\/clay|toy\/clay\/Pixar|clay\/toy\/Pixar/i.test(prompts), 'Flow-Master darf den Animationsfilm-Look nicht verbieten.');
+  assert(!/realistisches (langweiliges )?Büro-\/Papier-Stillleben/i.test(prompts), 'Flow-Master darf echte Alltagsgegenstände wie Rechnungen nicht pauschal verbieten.');
   assert(!/SIMPLE EXPLAINER/i.test(prompts), 'Flow-Master darf keinen Simple-Explainer-Infografikmodus mehr enthalten.');
   assert(/PRECISION_GRAPHICS_OWNER:\s*REMOTION/i.test(prompts), 'Präzisionsgrafiken müssen explizit Remotion gehören.');
   assert(/DIESEN TEXT 1:1 AUSFÜHREN|DIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG/.test(prompts), 'Flow-Master muss die direkte Bildausführung ausdrücklich anweisen.');
@@ -229,4 +236,4 @@ if (errors.length > 0) {
 }
 
 console.log('\n✓ YouTube-Longform-Vertrag erfüllt.');
-console.log(`  16:9 · ${YOUTUBE_IMAGE_WORLD_LOCK} · Grounded Scene + Editorial 3D Illustration · Precision = Remotion · min. ${YOUTUBE_MIN_MOTION_VISUALS} Motion · keine Shorts/Reels`);
+console.log(`  16:9 · ${YOUTUBE_IMAGE_WORLD_LOCK} · Animationsfilm-Look, Inhalt frei · Precision = Remotion · min. ${YOUTUBE_MIN_MOTION_VISUALS} Motion · keine Shorts/Reels`);

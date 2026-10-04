@@ -33,7 +33,13 @@ export const YOUTUBE_VIDEO_WIDTH = 1920;
 export const YOUTUBE_VIDEO_HEIGHT = 1080;
 export const YOUTUBE_VIDEO_FPS = 30;
 
-export const YOUTUBE_IMAGE_WORLD_LOCK = 'finanzneo-youtube-v9-front-readable-v2';
+// Bildwelt A+B (2026-10-04): Animationsfilm-Look mit Alltagsmomenten und echten
+// Gegenständen auf tiefem Schwarz. Löst front-readable-v2 ab, das den
+// Animationsfilm-Look und echte Alltagsgegenstände verboten hatte.
+export const YOUTUBE_IMAGE_WORLD_LOCK = 'finanzneo-youtube-animated-black-v3';
+export const YOUTUBE_IMAGE_WORLD_FILE = 'config/finanzneo-image-worlds/finanzneo-youtube-animated-black-v3.txt';
+export const YOUTUBE_APPROVED_STYLE_REFERENCES = 'Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgroschen" (2026-09-17)';
+export const YOUTUBE_FLOW_VISUAL_MODES = ['character-moment', 'hands-in-action', 'object-story', 'everyday-scene', 'comparison-scene', 'creative-idea', 'hybrid-scene-plate'];
 export const YOUTUBE_FLOW_EXECUTION_MODE_ID = 'finanzneo-youtube-cover3-image5-parallel-v4';
 export const YOUTUBE_THUMBNAIL_CANDIDATE_COUNT = 3;
 export const YOUTUBE_THUMBNAIL_CONCURRENCY = 3;

@@ -66,8 +66,11 @@ for (const visual of visuals.filter(requiresYouTubeMotion)) {
   for (const [pattern, message] of forbiddenSourcePatterns) {
     if (pattern.test(source)) errors.push(`${id}: ${message}`);
   }
-  if (!/useCurrentFrame\s*\(/.test(source)) errors.push(`${id}: useCurrentFrame() fehlt.`);
-  if (!/\b(interpolate|spring)\s*\(/.test(source)) errors.push(`${id}: mindestens interpolate() oder spring() muss echte Frame-Motion steuern.`);
+  // Karten aus dem Karten-Baukasten tragen ihre Frame-Motion selbst (src/design-system/karten.tsx).
+  const nutztKarten = /from\s+['"][^'"]*design-system(?:\/karten|\/index)?['"]/.test(source)
+    && /\b(StichwortKarte|ZitatKarte|TabellenKarte|IconAblauf|Zeitstrahl)\b/.test(source);
+  if (!nutztKarten && !/useCurrentFrame\s*\(/.test(source)) errors.push(`${id}: useCurrentFrame() fehlt.`);
+  if (!nutztKarten && !/\b(interpolate|spring)\s*\(/.test(source)) errors.push(`${id}: mindestens interpolate() oder spring() muss echte Frame-Motion steuern.`);
   if (!source.includes(`MECHANIC_ID = '${visual.mechanicId}'`) && !source.includes(`MECHANIC_ID = "${visual.mechanicId}"`)) {
     errors.push(`${id}: MECHANIC_ID im Code stimmt nicht mit visual-index.json überein.`);
   }
