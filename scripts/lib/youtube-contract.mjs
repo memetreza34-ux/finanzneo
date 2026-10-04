@@ -55,6 +55,14 @@ export const YOUTUBE_FLOW_DELETE_LOSERS_MARKER = 'NICHT GEWÄHLTE COVER LÖSCHEN
 export const YOUTUBE_FLOW_FINISHED_FOLDER_MARKER = 'FERTIGER FLOW-ORDNER';
 export const YOUTUBE_FLOW_NATURAL_LOOK_MARKER = 'NATÜRLICH — KEIN KI-LOOK';
 
+// Einheitliche Flow-Prompt-Form: fester Anfang, ein konkreter Alltagssatz, kurzer Ort,
+// höchstens zwei Texte, fester Schluss. Lange, jedes Mal anders formulierte Prompts
+// mit „premium/cinematic“ haben in Flow zu KI-Poster-Bildern geführt (2026-10-04).
+export const YOUTUBE_FLOW_PROMPT_OPENING = 'Stylized 3D animated feature film still, 16:9.';
+export const YOUTUBE_FLOW_PROMPT_CLOSING = 'Soft natural light, deep black background. Not photorealistic, no logos.';
+export const YOUTUBE_FLOW_PROMPT_MAX_WORDS = 70;
+export const YOUTUBE_FLOW_PROMPT_MAX_TEXTS = 2;
+
 export const VISUAL_INDEX = '04-visuals/visual-index.json';
 export const PROMPT_DIRECTORY = '04-visuals/01-BILDPROMPTS';
 // This is intentionally the user-facing, directly copyable Google Flow master prompt.

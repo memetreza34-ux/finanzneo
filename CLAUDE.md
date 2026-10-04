@@ -195,7 +195,13 @@ DECISIVE_MOMENT: <was in genau dieser Sekunde passiert — oder not-applicable>
 
 ### Prompt-Form
 
-Jeder Bildprompt ist ein kurzer **englischer** Absatz in immer derselben Form: Look („Stylized 3D animated feature film still, 16:9“), was im Bild ist, optional der Moment, Ort, erlaubte deutsche Labels („Only text: …“), „warm soft light, deep black background“, „not photorealistic, no logos“. Nur die Labels im Bild sind deutsch. Keine langen Regelblöcke im Einzelprompt.
+Jeder Bildprompt hat **genau dieselbe kurze englische Form** (einheitlich und einfach, Arman 04.10.2026):
+
+```text
+Stylized 3D animated feature film still, 16:9. [Was man sieht — ein konkreter Alltagssatz]. [Ort — kurz]. Only text: "[max. zwei Labels]". Soft natural light, deep black background. Not photorealistic, no logos.
+```
+
+Höchstens 70 Wörter und zwei Texte, keine Stilwörter wie premium/cinematic/epic/dramatic. **Naheliegend zuerst — nichts auf Krampf:** zeigen, was man bei dem Satz im echten Alltag sehen würde; bei abstrakten Sätzen die einfachste echte Szene oder eine Remotion-Karte, nie eine Symbol-Anordnung zum Entschlüsseln.
 
 ### Szenenvarianz
 

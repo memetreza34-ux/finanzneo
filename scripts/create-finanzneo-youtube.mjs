@@ -5,6 +5,9 @@ import {spawnSync} from 'node:child_process';
 import {
   YOUTUBE_APPROVED_STYLE_REFERENCES,
   YOUTUBE_FLOW_NATURAL_LOOK_MARKER,
+  YOUTUBE_FLOW_PROMPT_CLOSING,
+  YOUTUBE_FLOW_PROMPT_MAX_WORDS,
+  YOUTUBE_FLOW_PROMPT_OPENING,
   YOUTUBE_FLOW_VISUAL_MODES,
   YOUTUBE_IMAGE_WORLD_FILE,
   YOUTUBE_IMAGE_WORLD_LOCK,
@@ -57,7 +60,7 @@ LOOK — IMMER:
 - when a person appears: appealing stylized adult character with an expressive face; no real identifiable person
 - real everyday objects with believable proportions and recognizable details: phone, bill, letter, bank card, wallet, washing machine, car, calendar
 - semi-realistic material cues rendered soft and clean
-- warm cinematic key light, gentle rim light separating the subject from the black, soft contact shadows
+- soft natural key light, gentle rim light separating the subject from the black, soft contact shadows
 - deep seamless black world; a small local set may exist when it helps and dissolves into black
 - Emerald = positiv/Lösung, warmes Red-Orange = Kosten/Warnung, Gold = kleiner Geld-Akzent, Ivory/Soft Gray = neutral; natürliche Haut- und Kleidungsfarben sind erlaubt
 
@@ -75,17 +78,19 @@ ABWECHSLUNG: Jedes Bild zeigt eine sichtbar andere Situation, einen anderen Ort 
 
 TEXT: kurze deutsche Objektlabels direkt am Gegenstand, wenn sie helfen. Keine Sätze, kein Logo.
 
-KREATIV IST ERWÜNSCHT: Übertreibung und Bildideen aus echten Gegenständen, solange es auf einen Blick lesbar ist. ZITATE, STICHWORTE, TABELLEN: Remotion-Karten mit exaktem Text (src/design-system/karten.tsx), nicht Flow.\n\nDIAGRAMME UND ZAHLEN: Charts, Diagramme mit Achsen, exakte Zahlen, Tabellen, Checklisten und UI-Zustände baut Remotion, nicht Flow.\n\nPROMPTS: Jeder Bildprompt ist ein kurzer englischer Absatz in immer derselben Form; nur die Labels im Bild sind deutsch.
+NAHELIEGEND ZUERST — NICHTS AUF KRAMPF: Zeige, was man bei diesem Satz im echten Alltag sehen würde. Alles darf ins Bild, wenn es passt. Eine kreative Idee nur, wenn sie sofort sitzt. Ist ein Satz abstrakt (Faustregel, Liquidität, Situation), dann die einfachste echte Alltagsszene dazu — keine Symbol-Anordnung, die man entschlüsseln muss. Passt keine echte Szene, gehört der Beat in eine Remotion-Karte. ZITATE, STICHWORTE, TABELLEN: Remotion-Karten mit exaktem Text (src/design-system/karten.tsx), nicht Flow.\n\nDIAGRAMME UND ZAHLEN: Charts, Diagramme mit Achsen, exakte Zahlen, Tabellen, Checklisten und UI-Zustände baut Remotion, nicht Flow.\n\nEINHEITLICHE PROMPT-FORM — JEDER BILDPROMPT GENAU SO:
+FORM: ${YOUTUBE_FLOW_PROMPT_OPENING} <What you see: one concrete everyday sentence>. <Place: short>. Only text: "<max two short German labels>" (or: No text.). ${YOUTUBE_FLOW_PROMPT_CLOSING}
+Thumbnail: statt Only text → Big clean white headline on the left: "<HOOK>". Höchstens ${YOUTUBE_FLOW_PROMPT_MAX_WORDS} Wörter. Keine Stilwörter wie premium, cinematic, epic, dramatic, hyper-detailed — den Look legt der erste Satz fest.
 
 HARD FAIL — DENSELBEN JOB NEU GENERIEREN: fotorealistisch; grün-goldene Symbolwelt (Bankgebäude, Schild, Tresor, Münzberge, leuchtende Icons) als Hauptidee; abstrakte Finanzskulpturen statt echter Situation (Schuldenklammer, Zinsmagnet, Zahlungs-Token, Geldband, Wertblock, Wertstapel); KI-Poster-Look (Glas-/Leuchtbalken, Neon, Rauch, Funken, Drama, erfundene Mini-Labels); dunkelgrün-schwarzer Monochrom-Look; Chart, Diagramm, flache Infografik, Dashboard, UI, Checkliste oder Progress-Bar; Zitat oder längerer Text im Bild; schwebende Karten oder Tiles; heller oder farbiger Hintergrund; Mini-Diorama; Hauptmotiv zu klein; Spielzeug-, Plastik- oder Knete-Look; Person oder Geschichte ohne Grund; dieselbe Szene wie das vorige Bild.
 `;
 
 const oldImagePrompt = 'Show [THE EXACT CONTENT-SPECIFIC VISUAL]. If this is a chart or diagram, show it straight-on from the front with undistorted axes/labels/proportions. Include only these short German object labels if needed: [LABELS].';
 const imagePromptTemplate = `IMAGE PROMPT
-Stylized 3D animated feature film still, 16:9. [WHAT IS IN THE FRAME]. [OPTIONAL DECISIVE MOMENT: WHAT IS HAPPENING — ONLY IF A MOMENT REALLY FITS]. [PLACE, ONLY AS MUCH AS NEEDED]. Only text: [SHORT GERMAN TEXT, OR NONE]. Warm soft light, deep black background. Not photorealistic, no logos.
+${YOUTUBE_FLOW_PROMPT_OPENING} [WHAT YOU WOULD SEE IN REAL LIFE AT THIS SENTENCE — ONE CONCRETE SENTENCE]. [PLACE — SHORT]. Only text: "[MAX TWO SHORT GERMAN LABELS — OR WRITE: No text.]". ${YOUTUBE_FLOW_PROMPT_CLOSING}
 
 QA
-PASS only if it looks like it belongs to the stylized 3D animated-film world on black and the idea is clear in about two seconds.`;
+PASS only if it fits the spoken sentence naturally, looks like a calm frame from a stylized 3D animated film on black, and is clear in about two seconds.`;
 
 const allPrompts = readFileSync(allPromptsPath, 'utf8');
 const master = allPrompts.replaceAll(oldImagePrompt, imagePromptTemplate);

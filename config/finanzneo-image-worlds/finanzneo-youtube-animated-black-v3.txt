@@ -18,7 +18,7 @@ APPROVED LOOK — ALWAYS
 - when a person appears: appealing stylized adult character with an expressive face (eyes, nose, mouth) and clear body language
 - real everyday objects with believable proportions and recognizable details: phones, bills, letters, bank cards, wallets, washing machines, cars, calendars, groceries, keys, whiteboards
 - semi-realistic material cues (paper, painted metal, fabric, wood, glass) rendered in a soft, clean, visibly stylized way
-- soft cinematic lighting: warm key light, gentle rim light that separates the subject from the black, soft contact shadows
+- soft natural lighting: warm key light, gentle rim light that separates the subject from the black, soft contact shadows
 - deep seamless black world; a small local set (part of a kitchen table, laundry corner, hallway, shop counter, car interior, small office) may exist when it helps, but it dissolves into black
 - emerald green = positive, solution, saving; warm red-orange = cost, warning, loss; gold = money or value accent; warm ivory and soft gray = neutral; natural skin tones and normal clothing colors are fine
 
@@ -68,7 +68,12 @@ FORBIDDEN
 - clutter and decorative props that do not explain the point
 
 PROMPT — ALWAYS ENGLISH, SHORT, SAME SHAPE
-Every image prompt is one short English paragraph in the same order: look ("Stylized 3D animated feature film still, 16:9"), what is in the frame, optionally what is happening, the place (only as much as needed), the allowed German text ("Only text: ..."), "warm soft light, deep black background", "not photorealistic, no logos". No long rule blocks inside a single prompt.
+Every image prompt has exactly this short form:
+Stylized 3D animated feature film still, 16:9. [What you see — one concrete everyday sentence]. [Place — short]. Only text: "[max two short German labels]" (or: No text.). Soft natural light, deep black background. Not photorealistic, no logos.
+Thumbnails use: Big clean white headline on the left: "[HOOK]". Max 70 words, max two texts. No style words like premium, cinematic, epic, dramatic, hyper-detailed — the first sentence sets the look. No long rule blocks inside a single prompt.
+
+OBVIOUS FIRST — NOTHING FORCED
+Show what you would actually see in everyday life at this sentence. A creative idea only when it lands at once. For an abstract sentence, use the simplest real everyday scene — never an arrangement of symbolic objects to decode. If no real scene fits, the beat becomes a Remotion card instead of a Flow image.
 
 QA — REJECT AND REGENERATE THE SAME NUMBER WHEN
 - it does not look like a frame from a stylized 3D animated feature film

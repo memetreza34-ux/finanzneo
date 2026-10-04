@@ -74,8 +74,8 @@ test('YouTube-Ersteller erzeugt Motion V3 und den Flow-Master der Bildwelt A+B',
     assert.match(prompt, /LOOK FEST — INHALT FREI/);
     assert.match(prompt, /animated-feature-film/);
     assert.match(prompt, /DECISIVE_MOMENT:/);
-    assert.match(prompt, /IMAGE PROMPT\nStylized 3D animated feature film still, 16:9\. \[WHAT IS IN THE FRAME\]\. \[OPTIONAL DECISIVE MOMENT: /);
-    assert.match(prompt, /Only text: \[SHORT GERMAN TEXT/);
+    assert.match(prompt, /IMAGE PROMPT\nStylized 3D animated feature film still, 16:9\. \[WHAT YOU WOULD SEE IN REAL LIFE AT THIS SENTENCE — ONE CONCRETE SENTENCE\]\. \[PLACE — SHORT\]\. Only text: "\[MAX TWO SHORT GERMAN LABELS — OR WRITE: No text\.\]"\. Soft natural light, deep black background\. Not photorealistic, no logos\.\n/);
+    assert.match(prompt, /DECISIVE_MOMENT: \[not-applicable — ONLY IF THE SENTENCE IS ABOUT SOMETHING HAPPENING/);
     assert.doesNotMatch(prompt, /Expressive faces, real everyday objects/);
     assert.match(prompt, /character-moment/);
     assert.match(prompt, /real everyday objects/);
@@ -114,6 +114,9 @@ test('YouTube-Ersteller erzeugt Motion V3 und den Flow-Master der Bildwelt A+B',
     assert.match(flow, /delete the failed result from the Flow folder and regenerate only that same number/);
     assert.match(flow, /FERTIGER FLOW-ORDNER\n1\. The Flow folder contains exactly the selected thumbnail plus every planned scene image/);
     assert.match(flow, /NATÜRLICH — KEIN KI-LOOK:/);
+    assert.match(flow, /NAHELIEGEND ZUERST — NICHTS AUF KRAMPF/);
+    assert.match(flow, /EINHEITLICHE PROMPT-FORM — JEDER BILDPROMPT GENAU SO:\nFORM: Stylized 3D animated feature film still, 16:9\./);
+    assert.doesNotMatch(flow, /KREATIV IST ERWÜNSCHT|cinematic key light/);
     assert.match(flow, /KI-SLOP VERBOTEN: glowing or neon edges, glass or crystal bars/);
     assert.doesNotMatch(flow, /discard the other two from the final folder/);
     assert.doesNotMatch(flow, /NICHT MEHR HIER ARBEITEN/);

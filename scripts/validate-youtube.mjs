@@ -34,6 +34,7 @@ import {
   YOUTUBE_FLOW_FINISHED_FOLDER_MARKER,
   YOUTUBE_FLOW_NATURAL_LOOK_MARKER,
   YOUTUBE_FLOW_ONE_FOLDER_MARKER,
+  YOUTUBE_FLOW_PROMPT_OPENING,
   YOUTUBE_THUMBNAIL_CANDIDATE_COUNT,
   YOUTUBE_THUMBNAIL_CONCURRENCY,
   YOUTUBE_IMAGE_BATCH_SIZE,
@@ -46,7 +47,7 @@ import {
   validateYouTubeMotionMetadata,
   validateYouTubeMotionVariety,
 } from './lib/youtube-motion-contract.mjs';
-import {findAbstractFlowPromptTerms} from './lib/youtube-flow-prompt-check.mjs';
+import {countFlowPrompts, findAbstractFlowPromptTerms, findFlowPromptFormIssues} from './lib/youtube-flow-prompt-check.mjs';
 
 const [target] = process.argv.slice(2);
 if (!target) {
@@ -237,6 +238,14 @@ if (existsSync(resolve(root, ALL_PROMPTS))) {
   assert(prompts.includes(YOUTUBE_FLOW_DELETE_LOSERS_MARKER), `Flow-Master muss „${YOUTUBE_FLOW_DELETE_LOSERS_MARKER}“ verlangen (die zwei nicht gewählten Cover löschen).`);
   assert(prompts.includes(YOUTUBE_FLOW_FINISHED_FOLDER_MARKER), `Flow-Master muss den „${YOUTUBE_FLOW_FINISHED_FOLDER_MARKER}“ prüfen (jedes Bild genau einmal, nach Szene benannt).`);
   assert(prompts.includes(YOUTUBE_FLOW_NATURAL_LOOK_MARKER), `Flow-Master muss „${YOUTUBE_FLOW_NATURAL_LOOK_MARKER}“ festlegen.`);
+  if (index) {
+    const expectedPrompts = (index.visuals ?? []).filter(requiresYouTubeImage).length + YOUTUBE_THUMBNAIL_CANDIDATE_COUNT;
+    const foundPrompts = countFlowPrompts(prompts);
+    assert(foundPrompts >= expectedPrompts, `${ALL_PROMPTS}: ${foundPrompts} Bildprompts in Einheitsform gefunden, geplant sind ${expectedPrompts} (3 Cover + Flow-Szenenbilder). Jeder Prompt beginnt mit „${YOUTUBE_FLOW_PROMPT_OPENING}“.`);
+  }
+  for (const issue of findFlowPromptFormIssues(prompts)) {
+    errors.push(`${ALL_PROMPTS}: Bildprompt ${issue}`);
+  }
   for (const {label, term, sentence} of findAbstractFlowPromptTerms(prompts)) {
     errors.push(`${ALL_PROMPTS}: Bildprompt verlangt abstraktes KI-Motiv (${label}: „${term}“) statt echter Alltagssituation: "${sentence.slice(0, 110)}"`);
   }

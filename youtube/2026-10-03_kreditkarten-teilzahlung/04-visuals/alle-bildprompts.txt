@@ -31,7 +31,7 @@ LOOK — IMMER:
 - when a person appears: appealing stylized adult character with an expressive face; no real identifiable person
 - real everyday objects with believable proportions and recognizable details: phone, bill, letter, bank card, wallet, washing machine, car, calendar
 - semi-realistic material cues rendered soft and clean
-- warm cinematic key light, gentle rim light separating the subject from the black, soft contact shadows
+- soft natural key light, gentle rim light separating the subject from the black, soft contact shadows
 - deep seamless black world; a small local set may exist when it helps and dissolves into black
 - Emerald = positiv/Lösung, warmes Red-Orange = Kosten/Warnung, Gold = kleiner Geld-Akzent, Ivory/Soft Gray = neutral; natürliche Haut- und Kleidungsfarben sind erlaubt
 
@@ -49,11 +49,11 @@ ABWECHSLUNG: Jedes Bild zeigt eine sichtbar andere Situation, einen anderen Ort 
 
 TEXT: kurze deutsche Objektlabels direkt am Gegenstand, wenn sie helfen. Keine Sätze, kein Logo.
 
-KREATIV IST ERWÜNSCHT: Übertreibung und Bildideen aus echten Gegenständen, solange es auf einen Blick lesbar ist. ZITATE, STICHWORTE, TABELLEN: Remotion-Karten mit exaktem Text (src/design-system/karten.tsx), nicht Flow.
+NAHELIEGEND ZUERST — NICHTS AUF KRAMPF: Zeige, was man bei diesem Satz im echten Alltag sehen würde. Eine kreative Idee nur, wenn sie sofort sitzt. ZITATE, STICHWORTE, TABELLEN: Remotion-Karten mit exaktem Text (src/design-system/karten.tsx), nicht Flow.
 
 DIAGRAMME UND ZAHLEN: Charts, Diagramme mit Achsen, exakte Zahlen, Tabellen, Checklisten und UI-Zustände baut Remotion, nicht Flow.
 
-PROMPTS: Jeder Bildprompt ist ein kurzer englischer Absatz in immer derselben Form; nur die Labels im Bild sind deutsch.
+EINHEITLICHE PROMPT-FORM: Jeder Bildprompt beginnt mit „Stylized 3D animated feature film still, 16:9.“, beschreibt in einem Satz, was man sieht, nennt kurz den Ort und höchstens zwei Texte und endet mit „Soft natural light, deep black background. Not photorealistic, no logos.“ Cover-Headline: klare weiße Schrift, max. 2 Zeilen, nie metallisch oder 3D.
 
 HARD FAIL — DENSELBEN JOB NEU GENERIEREN: fotorealistisch; grün-goldene Symbolwelt (Bankgebäude, Schild, Tresor, Münzberge, leuchtende Icons) als Hauptidee; abstrakte Finanzskulpturen statt echter Situation (Schuldenklammer, Zinsmagnet, Zahlungs-Token, Geldband, Wertblock, Wertstapel); KI-Poster-Look (Glas-/Leuchtbalken, Neon, Rauch, Funken, Drama, erfundene Mini-Labels); dunkelgrün-schwarzer Monochrom-Look; Chart, Diagramm, flache Infografik, Dashboard, UI, Checkliste oder Progress-Bar; Zitat oder längerer Text im Bild; schwebende Karten oder Tiles; heller oder farbiger Hintergrund; Mini-Diorama; Hauptmotiv zu klein; Spielzeug-, Plastik- oder Knete-Look; Person oder Geschichte ohne Grund; dieselbe Szene wie das vorige Bild.
 
@@ -78,7 +78,7 @@ TEMP FILE NAME: YouTube Thumbnail A.png
 ------------------------------------------------------------
 
 IMAGE PROMPT
-Stylized 3D animated feature film still, 16:9, YouTube thumbnail. An unbranded dark blue credit card lies on a cream monthly credit card statement; a large warm red-orange stamp "Teilzahlung" has just been pressed onto the statement. Warm soft light, deep black background, card and stamp large in the right half. Hook text in the left half: "TEILZAHLUNG KOSTET". The hook text is clean bold white sans-serif typography, max 2 lines, in a calm area of the frame; one word may be emerald or warm red-orange; never metallic or 3D text. Not photorealistic, no logos, no people.
+Stylized 3D animated feature film still, 16:9. An unbranded dark blue credit card lies on a cream monthly statement, a red-orange stamp has just been pressed onto it. Kitchen table, card and statement large on the right. Big clean white headline on the left: "TEILZAHLUNG KOSTET". Soft natural light, deep black background. Not photorealistic, no logos.
 
 QA
 PASS only if it looks like it belongs to the stylized 3D animated-film world on black and the hook text is spelled exactly as given and readable at thumbnail size.
@@ -89,7 +89,7 @@ TEMP FILE NAME: YouTube Thumbnail B.png
 ------------------------------------------------------------
 
 IMAGE PROMPT
-Stylized 3D animated feature film still, 16:9, YouTube thumbnail. A tall, slightly leaning pile of twelve opened statement envelopes on a small wooden hallway sideboard; the top statement shows a large warm red-orange field "Restschuld". An unbranded dark blue credit card lies at the foot of the pile. Warm soft side light, deep black background, pile large on the right. Hook text in the left half: "2.000 € WERDEN TEUER". The hook text is clean bold white sans-serif typography, max 2 lines, in a calm area of the frame; one word may be emerald or warm red-orange; never metallic or 3D text. Not photorealistic, no logos, no people.
+Stylized 3D animated feature film still, 16:9. A tall pile of twelve opened credit card statements leans on a small hallway sideboard, an unbranded dark blue credit card at its foot. Pile large on the right. Big clean white headline on the left: "2.000 € WERDEN TEUER". Soft natural light, deep black background. Not photorealistic, no logos.
 
 QA
 PASS only if it looks like it belongs to the stylized 3D animated-film world on black and the hook text is spelled exactly as given and readable at thumbnail size.
@@ -100,7 +100,7 @@ TEMP FILE NAME: YouTube Thumbnail C.png
 ------------------------------------------------------------
 
 IMAGE PROMPT
-Stylized 3D animated feature film still, 16:9, YouTube thumbnail. A single small 100 € banknote lies next to a much bigger, thick unfolded credit card statement with a large warm red-orange field "Restschuld" — the size contrast shows that the small payment barely touches the debt. Warm soft light, deep black background, both objects large in the center-right. Hook text on the left: "DIE KLEINE RATE TÄUSCHT". The hook text is clean bold white sans-serif typography, max 2 lines, in a calm area of the frame; one word may be emerald or warm red-orange; never metallic or 3D text. Not photorealistic, no logos, no people.
+Stylized 3D animated feature film still, 16:9. A single small 100-euro banknote lies next to a thick unfolded credit card statement with a red-orange field "Restschuld". Coffee table, both large in the center-right. Big clean white headline on the left: "DIE KLEINE RATE TÄUSCHT". Soft natural light, deep black background. Not photorealistic, no logos.
 
 QA
 PASS only if it looks like it belongs to the stylized 3D animated-film world on black and the hook text is spelled exactly as given and readable at thumbnail size.
@@ -139,7 +139,7 @@ FRONT_READABILITY_TEST: PASS — the statement faces the camera almost straight 
 DATA_INTEGRITY_TEST: not-applicable
 
 IMAGE PROMPT
-Stylized 3D animated feature film still, 16:9. A cream monthly credit card statement sticks halfway out of its opened envelope on a wooden kitchen table; on it two large printed options sit side by side: "Vollzahlung" with an empty emerald-outlined box and "Teilzahlung" with a warm red-orange box that is already ticked. An unbranded dark blue credit card and a small shopping receipt lie next to the envelope. Warm soft lamp light, deep black background, only the table edge visible, statement large and readable. Not photorealistic, no logos, no people. Only text: "Vollzahlung", "Teilzahlung".
+Stylized 3D animated feature film still, 16:9. A credit card statement sticks halfway out of its opened envelope, two printed tick boxes on it, the red-orange Teilzahlung box already ticked, an unbranded blue credit card beside it. Kitchen table. Only text: "Vollzahlung", "Teilzahlung". Soft natural light, deep black background. Not photorealistic, no logos.
 
 QA
 PASS only if it looks like it belongs to the stylized 3D animated-film world on black, the idea is clear in about two seconds and all text is spelled exactly as given.
@@ -157,7 +157,7 @@ FRONT_READABILITY_TEST: PASS — eye-level; statement and slips frontal; labels 
 DATA_INTEGRITY_TEST: not-applicable
 
 IMAGE PROMPT
-Stylized 3D animated feature film still, 16:9. On a low living-room coffee table lies a neat fanned row of twelve small cream payment slips, each stamped "bezahlt" in emerald green — a whole year of monthly payments. In front of them lies a large unfolded credit card statement with one big warm red-orange field "Restschuld". Warm soft floor-lamp light, deep black background, slips and statement large in the left two thirds, the right third calm and dark for numbers added later. Not photorealistic, no logos, no people. Only text: "bezahlt", "Restschuld".
+Stylized 3D animated feature film still, 16:9. Twelve small paid slips lie fanned out in a row in front of a large unfolded credit card statement with a big red-orange field. Living-room coffee table, objects in the left two thirds. Only text: "bezahlt", "Restschuld". Soft natural light, deep black background. Not photorealistic, no logos.
 
 QA
 PASS only if it looks like it belongs to the stylized 3D animated-film world on black, the idea is clear in about two seconds and all text is spelled exactly as given.
