@@ -30,6 +30,10 @@ import {
   YOUTUBE_VISUAL_TYPES,
   YOUTUBE_IMAGE_WORLD_LOCK,
   YOUTUBE_FLOW_EXECUTION_MODE_ID,
+  YOUTUBE_FLOW_DELETE_LOSERS_MARKER,
+  YOUTUBE_FLOW_FINISHED_FOLDER_MARKER,
+  YOUTUBE_FLOW_NATURAL_LOOK_MARKER,
+  YOUTUBE_FLOW_ONE_FOLDER_MARKER,
   YOUTUBE_THUMBNAIL_CANDIDATE_COUNT,
   YOUTUBE_THUMBNAIL_CONCURRENCY,
   YOUTUBE_IMAGE_BATCH_SIZE,
@@ -42,6 +46,7 @@ import {
   validateYouTubeMotionMetadata,
   validateYouTubeMotionVariety,
 } from './lib/youtube-motion-contract.mjs';
+import {findAbstractFlowPromptTerms} from './lib/youtube-flow-prompt-check.mjs';
 
 const [target] = process.argv.slice(2);
 if (!target) {
@@ -228,6 +233,13 @@ if (existsSync(resolve(root, ALL_PROMPTS))) {
   assert(!/NICHT MEHR HIER ARBEITEN/i.test(prompts), `${ALL_PROMPTS} darf kein Redirect-/Stub-Hinweis sein.`);
   assert(!/vollständigen.{0,80}(liegen|findest du|stehen).{0,80}(ander|zentral)/is.test(prompts), `${ALL_PROMPTS} darf nicht auf einen anderen Master-Prompt verweisen.`);
   assert(!/square 1:1 source image|portrait 9:16|vertical 9:16 image/i.test(prompts), 'YouTube-Prompts enthalten ein falsches Quellbildformat.');
+  assert(prompts.includes(YOUTUBE_FLOW_ONE_FOLDER_MARKER), `Flow-Master muss „${YOUTUBE_FLOW_ONE_FOLDER_MARKER}“ verlangen (Thumbnail + alle Bilder in einem Flow-Ordner).`);
+  assert(prompts.includes(YOUTUBE_FLOW_DELETE_LOSERS_MARKER), `Flow-Master muss „${YOUTUBE_FLOW_DELETE_LOSERS_MARKER}“ verlangen (die zwei nicht gewählten Cover löschen).`);
+  assert(prompts.includes(YOUTUBE_FLOW_FINISHED_FOLDER_MARKER), `Flow-Master muss den „${YOUTUBE_FLOW_FINISHED_FOLDER_MARKER}“ prüfen (jedes Bild genau einmal, nach Szene benannt).`);
+  assert(prompts.includes(YOUTUBE_FLOW_NATURAL_LOOK_MARKER), `Flow-Master muss „${YOUTUBE_FLOW_NATURAL_LOOK_MARKER}“ festlegen.`);
+  for (const {label, term, sentence} of findAbstractFlowPromptTerms(prompts)) {
+    errors.push(`${ALL_PROMPTS}: Bildprompt verlangt abstraktes KI-Motiv (${label}: „${term}“) statt echter Alltagssituation: "${sentence.slice(0, 110)}"`);
+  }
 }
 
 if (existsSync(resolve(root, WORD_TIMINGS))) {

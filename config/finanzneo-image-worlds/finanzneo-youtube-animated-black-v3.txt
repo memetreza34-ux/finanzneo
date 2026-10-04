@@ -22,6 +22,14 @@ APPROVED LOOK — ALWAYS
 - deep seamless black world; a small local set (part of a kitchen table, laundry corner, hallway, shop counter, car interior, small office) may exist when it helps, but it dissolves into black
 - emerald green = positive, solution, saving; warm red-orange = cost, warning, loss; gold = money or value accent; warm ivory and soft gray = neutral; natural skin tones and normal clothing colors are fine
 
+NATURAL — NOT AI-LOOKING (Arman, 2026-10-04, after the first real Flow run)
+Every image feels like a calm frame from an animated film, never like an AI poster. Simple, natural, understood at once.
+- few real objects in a believable everyday arrangement; natural proportions, natural colors, soft natural light
+- real things in a real situation, never an abstract symbol that must be decoded
+- clean but not plastic-shiny; no over-sharpened hyper-detail, no oversaturated colors
+- text only exactly the requested words; no extra invented labels, no garbled lettering
+- AI slop is forbidden: glowing or neon edges, glass or crystal bars/blocks/arrows, value blocks or value stacks as symbols, falling bars or arrows, dramatic red glow, smoke, sparks, lens flares, heavy fog, epic poster drama, banknote piles as decoration, cluttered backgrounds
+
 CONTENT — FREE WHEN IT FITS
 Choose whatever explains the spoken point fastest:
 - character-moment: a person reacting, deciding, hesitating, paying, reading
@@ -48,6 +56,7 @@ FORBIDDEN
 - photorealism, stock photo, a frame that could be mistaken for a real photograph
 - the old green-gold symbol world as the main idea: bank buildings, shields, vaults, coin mountains, glowing icons
 - abstract finance sculptures that replace a real situation: debt clamps, interest magnets, payment tokens, money ribbons, value blocks
+- AI-poster look: glowing or glass bars, neon, smoke, sparks, lens flares, epic drama, invented mini labels
 - dark green-black monochrome frames
 - charts and diagrams with axes, flat infographics, dashboards, app or settings UI screens, checklists, progress bars — these belong to Remotion
 - quotes or longer text inside generated images (quotes are Remotion cards)
@@ -66,6 +75,7 @@ QA — REJECT AND REGENERATE THE SAME NUMBER WHEN
 - it is photorealistic
 - the real everyday situation is missing or must be decoded like a riddle
 - it falls back to green-gold symbols or abstract finance sculptures
+- it looks like AI slop: glowing, glassy, dramatic, overloaded or abstract instead of calm and natural
 - a person or story was added without a reason
 - the background is not deep black or the frame turns monochrome green
 - the main subject is too small

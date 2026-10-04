@@ -117,6 +117,18 @@ Jedes Bild sieht aus wie ein Standbild aus einem hochwertigen stilisierten 3D-An
 - warmes Hauptlicht, sanftes Randlicht gegen das Schwarz, weiche Kontaktschatten
 - tiefes nahtloses Schwarz; ein kleiner echter Ort (Küchentisch, Waschecke, Flur, Ladentheke, Autoinnenraum) darf da sein, wenn er hilft, und läuft ins Schwarz aus
 
+## Natürlich — kein KI-Look
+
+Festgelegt von Arman am 04.10.2026 nach dem ersten echten Flow-Lauf (Notgroschen): Die Bildwelt stimmt, aber die Bilder dürfen nicht nach KI aussehen. Jedes Bild wirkt wie ein ruhiges Standbild aus einem Animationsfilm — einfach, natürlich, sofort verständlich. Nicht abstrakt und nicht schwer.
+
+- wenige echte Gegenstände, glaubwürdig angeordnet; natürliche Proportionen, Farben und weiches Licht
+- echte Dinge in einer echten Situation statt eines Symbols, das man entschlüsseln muss
+- sauber, aber nicht plastik-glänzend; keine überschärften Details, keine übersättigten Farben
+- Text nur exakt die verlangten Wörter; keine erfundenen Zusatzlabels
+- **KI-Slop verboten:** leuchtende oder Neon-Kanten, Glas-/Kristallbalken und -blöcke, Wertblöcke und Wertstapel als Symbol, fallende Balken oder Pfeile, dramatisches rotes Glühen, Rauch, Funken, Lens Flares, Nebel, epische Poster-Dramatik, Geldscheinstapel als Deko, überladener Hintergrund
+
+`youtube:validate` lässt Bildprompts mit solchen abstrakten Motiven nicht durch.
+
 ## Der Inhalt — frei, wenn es passt
 
 Es gibt keine Objektliste und keine Quote. Gegenstände, Orte, kreative Ideen, ab und zu Menschen — alles darf vorkommen, wenn es den Sprechpunkt visuell unterstützt. **Nichts auf Krampf:** Die meisten Bilder brauchen keine Person und keine Geschichte.
@@ -180,7 +192,8 @@ Sofort verwerfen und denselben Job neu generieren bei:
 - sieht nicht aus wie ein Standbild aus einem stilisierten 3D-Animationsfilm
 - Fotorealismus / Stockfoto
 - grün-goldene Symbolwelt als Hauptidee: Bankgebäude, Schild, Tresor, Münzberge, leuchtende Icons
-- abstrakte Finanzskulptur statt echter Situation: Schuldenklammer, Zinsmagnet, Zahlungs-Token, Geldband, Wertblock
+- abstrakte Finanzskulptur statt echter Situation: Schuldenklammer, Zinsmagnet, Zahlungs-Token, Geldband, Wertblock, Wertstapel
+- KI-Poster-Look: Glas- oder Leuchtbalken, Neon, Rauch, Funken, Drama, erfundene Mini-Labels
 - dunkelgrün-schwarzer Monochrom-Look
 - flache Infografik / Slide / Poster / Social-Media-Card
 - Dashboard-/Control-Panel-/HUD-Look
@@ -201,6 +214,7 @@ Qualitätsfragen:
 3. Zeigt es einen Moment statt eines Endzustands?
 4. Ist die Alltagssituation echt und erkennbar — ohne Rätsel?
 5. Ist das Schwarz tief und das Hauptmotiv groß?
+6. Wirkt es natürlich und ruhig — nicht wie ein KI-Poster?
 
 Wenn eine Antwort nein ist: denselben Job neu generieren.
 
@@ -244,6 +258,11 @@ Der Master-Prompt muss ausdrücklich verlangen:
 - jeden Job QA-prüfen
 - bei FAIL nur denselben Bildjob wiederholen
 
+## Phase 0 — ein Google-Flow-Ordner pro Video
+
+- genau ein Flow-Projekt (Ordner) pro Video, Name `FinanzNeo – <Videotitel>`
+- Cover-Kandidaten und alle Szenenbilder entstehen in diesem einen Ordner
+
 ## Phase A — Cover
 
 1. Exakt drei Kandidaten A/B/C als drei getrennte Ein-Bild-Jobs gleichzeitig starten.
@@ -252,22 +271,29 @@ Der Master-Prompt muss ausdrücklich verlangen:
 4. Kurzer deutscher Hook, maximal 2 Zeilen, ideal 2–5 Wörter.
 5. Alle drei QA-prüfen.
 6. Danach genau einmal A/B/C vom Nutzer wählen lassen.
-7. Nur den Gewinner final übernehmen.
+7. Die zwei nicht gewählten Kandidaten im Flow-Ordner löschen; nur der Gewinner bleibt und wird exakt umbenannt.
 8. Der Gewinner wird niemals Style-Referenz für Szenenbilder.
 
 ## Phase B — Szenenbilder
 
-- nur Visuals mit tatsächlichem Flow-Szenenbedarf
+- genau die geplanten Visuals mit Flow-Szenenbedarf — der Plan entscheidet, wie viele Bilder das Video braucht
 - bis zu fünf getrennte Ein-Bild-Jobs parallel
 - niemals ein Multi-Image-Request
 - jedes Ergebnis sofort exakt umbenennen
 - jedes Ergebnis sofort QA-prüfen
-- bei Fehler nur dieselbe Bildnummer neu generieren
+- bei Fehler das fehlerhafte Ergebnis im Flow-Ordner löschen und nur dieselbe Bildnummer neu generieren
 - nächster Batch erst, wenn der aktuelle Batch vollständig PASS ist
 - keine weitere Nutzerfreigabe zwischen Batches
 - finaler Inventory-QA
 
 `IMAGE_BATCH_SIZE = 5` ist eine maximale Batchgröße, keine Pflicht, fünf Bilder zu erzeugen.
+
+## Abschluss — fertiger Flow-Ordner
+
+- im Flow-Ordner liegen genau das gewählte Thumbnail und jedes geplante Szenenbild — jedes genau einmal, jedes nach seiner Szene benannt
+- keine abgelehnten Cover, keine Fehlversuche, keine Duplikate
+- kann Flow etwas nicht löschen oder umbenennen, listet der Agent genau auf, was der Nutzer tun muss
+- danach lädt der Nutzer den Ordner herunter und legt alles in `04-visuals/00-ALLE-BILDER-HIER-REIN/`
 
 ---
 

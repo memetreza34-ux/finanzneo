@@ -17,8 +17,9 @@ Verbindlich für neue Arbeit:
 - 1920×1080, 16:9, 30 fps
 - Bilder und Animationen gehören sichtbar zur selben FinanzNeo-V9-Welt
 - Bildwelt: **Look fest — Inhalt frei** (§6): Standbilder im stilisierten 3D-Animationsfilm-Look auf tiefem Schwarz; Menschen, Hände, echte Gegenstände und Orte, wenn es passt
+- **natürlich — kein KI-Look**: ruhig, einfach, echte Dinge in echter Situation; keine Glas-/Leuchtbalken, Wertblöcke, Neon, Rauch oder Poster-Drama
 - jedes normale YouTube-Projekt enthält **mindestens zwei echte Motion-/Animationsvisuals**; keine reine Slideshow
-- Google Flow: zuerst 3 Thumbnail-Kandidaten parallel, danach Szenenbilder in echten parallelen 5er-Batches
+- Google Flow: ein Flow-Ordner pro Video → zuerst 3 Thumbnail-Kandidaten parallel → Nutzer wählt → die zwei anderen Cover löschen → Szenenbilder in parallelen Batches von bis zu 5 (Anzahl laut Visualplan) → am Ende liegen Thumbnail und alle Szenenbilder nach Szene benannt in diesem einen Ordner
 - Diagramme/Charts standardmäßig frontal, gerade und sofort lesbar; keine schrägen 3D-Perspektiven
 
 Für neue YouTube-Projekte überschreibt `youtube/PRODUKTIONSSTANDARD.md` alle späteren Reel-spezifischen Layout-/Caption-/Flow-Angaben dieser Datei.
@@ -227,7 +228,8 @@ Kurze deutsche Labels direkt am Gegenstand sind erwünscht, wenn sie Mehrdeutigk
 
 - Fotorealismus / Stockfoto-Look
 - die alte grün-goldene Symbolwelt als Hauptidee: Bankgebäude, Schild, Tresor, Münzberge, leuchtende Icons
-- abstrakte Finanzskulpturen statt echter Situation: Schuldenklammer, Zinsmagnet, Zahlungs-Token, Geldband, Wertblock, „chunky“ CGI-Objekte ohne Alltagsbezug
+- abstrakte Finanzskulpturen statt echter Situation: Schuldenklammer, Zinsmagnet, Zahlungs-Token, Geldband, Wertblock, Wertstapel, „chunky“ CGI-Objekte ohne Alltagsbezug
+- KI-Poster-Look / KI-Slop: Glas- oder Leuchtbalken, Neon, Rauch, Funken, Lens Flares, Poster-Drama, erfundene Mini-Labels (Arman, 04.10.2026: „natürlich, nicht abstrakt schwer“)
 - Chart, Diagramm, flache Infografik, Dashboard, App-/Settings-UI, Checkliste oder Progress-Bar als Flow-Bild
 - erfundene oder falsch zugeordnete Zitate
 - schwebende Karten, Tiles oder Panels; Flowchart
@@ -244,6 +246,7 @@ Bild verwerfen und **dieselbe Bildnummer neu erzeugen**, wenn:
 
 - es nicht wie ein Standbild aus einem stilisierten 3D-Animationsfilm aussieht
 - es fotorealistisch wird
+- es nach KI aussieht: leuchtend, gläsern, dramatisch, überladen oder abstrakt statt ruhig und natürlich
 - eine Person oder Geschichte ohne Grund eingebaut ist
 - die echte Alltagssituation fehlt oder man ein Symbolrätsel entschlüsseln muss
 - es in grün-goldene Symbole oder abstrakte Finanzskulpturen zurückfällt

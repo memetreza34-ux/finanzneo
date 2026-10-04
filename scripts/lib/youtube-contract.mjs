@@ -47,6 +47,14 @@ export const YOUTUBE_IMAGE_BATCH_SIZE = 5;
 export const YOUTUBE_IMAGE_CONCURRENCY = 5;
 export const YOUTUBE_MIN_MOTION_VISUALS = 2;
 
+// Flow-Ablauf und Look nach dem ersten echten Flow-Lauf (Notgroschen, 2026-10-04):
+// ein Flow-Ordner pro Video, Verlierer-Cover löschen, alles nach Szene benannt,
+// und natürlich statt KI-Poster. Der Validator verlangt diese Marker im Flow-Master.
+export const YOUTUBE_FLOW_ONE_FOLDER_MARKER = 'EIN GOOGLE-FLOW-ORDNER PRO VIDEO';
+export const YOUTUBE_FLOW_DELETE_LOSERS_MARKER = 'NICHT GEWÄHLTE COVER LÖSCHEN';
+export const YOUTUBE_FLOW_FINISHED_FOLDER_MARKER = 'FERTIGER FLOW-ORDNER';
+export const YOUTUBE_FLOW_NATURAL_LOOK_MARKER = 'NATÜRLICH — KEIN KI-LOOK';
+
 export const VISUAL_INDEX = '04-visuals/visual-index.json';
 export const PROMPT_DIRECTORY = '04-visuals/01-BILDPROMPTS';
 // This is intentionally the user-facing, directly copyable Google Flow master prompt.

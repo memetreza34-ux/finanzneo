@@ -35,6 +35,14 @@ LOOK — IMMER:
 - deep seamless black world; a small local set may exist when it helps and dissolves into black
 - Emerald = positiv/Lösung, warmes Red-Orange = Kosten/Warnung, Gold = kleiner Geld-Akzent, Ivory/Soft Gray = neutral; natürliche Haut- und Kleidungsfarben sind erlaubt
 
+NATÜRLICH — KEIN KI-LOOK:
+Jedes Bild wirkt wie ein ruhiges Standbild aus einem Animationsfilm, nicht wie ein KI-Poster. Einfach, natürlich, sofort verständlich.
+- natural and calm: few real objects, believable everyday arrangement, natural proportions, natural colors, soft natural light
+- real things in a real situation, never an abstract symbol that must be decoded
+- clean but not plastic-shiny; no over-sharpened hyper-detail, no oversaturated colors
+- text only exactly the requested words; no extra invented labels, no garbled lettering
+- KI-SLOP VERBOTEN: glowing or neon edges, glass or crystal bars/blocks/arrows, value blocks or value stacks as symbols, falling bars or arrows, dramatic red glow, smoke, sparks, lens flares, heavy fog, epic poster drama, banknote piles as decoration, cluttered backgrounds
+
 ENTSCHEIDENDER MOMENT — NUR AB UND ZU: Nur wenn der Sprechpunkt von etwas handelt, das passiert, zeigt das Bild diese Sekunde. Keine Geschichte und keine Person erfinden, nur damit eine da ist.
 
 ABWECHSLUNG: Jedes Bild zeigt eine sichtbar andere Situation, einen anderen Ort oder Blickwinkel als das vorige.
@@ -47,7 +55,14 @@ DIAGRAMME UND ZAHLEN: Charts, Diagramme mit Achsen, exakte Zahlen, Tabellen, Che
 
 PROMPTS: Jeder Bildprompt ist ein kurzer englischer Absatz in immer derselben Form; nur die Labels im Bild sind deutsch.
 
-HARD FAIL — DENSELBEN JOB NEU GENERIEREN: fotorealistisch; grün-goldene Symbolwelt (Bankgebäude, Schild, Tresor, Münzberge, leuchtende Icons) als Hauptidee; abstrakte Finanzskulpturen statt echter Situation (Schuldenklammer, Zinsmagnet, Zahlungs-Token, Geldband); dunkelgrün-schwarzer Monochrom-Look; Chart, Diagramm, flache Infografik, Dashboard, UI, Checkliste oder Progress-Bar; Zitat oder längerer Text im Bild; schwebende Karten oder Tiles; heller oder farbiger Hintergrund; Mini-Diorama; Hauptmotiv zu klein; Spielzeug-, Plastik- oder Knete-Look; Person oder Geschichte ohne Grund; dieselbe Szene wie das vorige Bild.
+HARD FAIL — DENSELBEN JOB NEU GENERIEREN: fotorealistisch; grün-goldene Symbolwelt (Bankgebäude, Schild, Tresor, Münzberge, leuchtende Icons) als Hauptidee; abstrakte Finanzskulpturen statt echter Situation (Schuldenklammer, Zinsmagnet, Zahlungs-Token, Geldband, Wertblock, Wertstapel); KI-Poster-Look (Glas-/Leuchtbalken, Neon, Rauch, Funken, Drama, erfundene Mini-Labels); dunkelgrün-schwarzer Monochrom-Look; Chart, Diagramm, flache Infografik, Dashboard, UI, Checkliste oder Progress-Bar; Zitat oder längerer Text im Bild; schwebende Karten oder Tiles; heller oder farbiger Hintergrund; Mini-Diorama; Hauptmotiv zu klein; Spielzeug-, Plastik- oder Knete-Look; Person oder Geschichte ohne Grund; dieselbe Szene wie das vorige Bild.
+
+============================================================
+PHASE 0 — EIN GOOGLE-FLOW-ORDNER PRO VIDEO
+============================================================
+
+1. Arbeite in genau EINEM Google-Flow-Projekt (Ordner) für dieses Video. Name: FinanzNeo – Kreditkarten-Teilzahlung
+2. Cover-Kandidaten und alle Szenenbilder entstehen in diesem einen Ordner. Kein zweites Projekt für dasselbe Video.
 
 ============================================================
 PHASE A — EXAKT 3 THUMBNAILS PARALLEL
@@ -98,7 +113,7 @@ NACH COVER A/B/C
 4. Warte auf die Auswahl.
 5. Gewinner exakt umbenennen in:
 `YouTube Thumbnail - Kreditkarten Teilzahlung.png`
-6. Die anderen beiden nicht in den finalen Bilderordner übernehmen.
+6. NICHT GEWÄHLTE COVER LÖSCHEN: die anderen beiden Kandidaten im Flow-Ordner löschen. Nur der Gewinner bleibt.
 7. Das gewählte Cover ist KEINE Bildreferenz für die Szenenbilder.
 
 ============================================================
@@ -108,7 +123,7 @@ PHASE B — NACH COVER-AUSWAHL
 Starte danach EXAKT zwei getrennte Ein-Bild-Jobs gleichzeitig: BILD 01 und BILD 05.
 Das sind SEPARATE one-image jobs — niemals ein Multi-Image-Request.
 Jedes Ergebnis: rename immediately, nach `04-visuals/00-ALLE-BILDER-HIER-REIN/` legen, QA prüfen.
-Bei FAIL: regenerate only that same number.
+Bei FAIL: das fehlerhafte Ergebnis im Flow-Ordner löschen und regenerate only that same number.
 Keine weitere Nutzerfreigabe zwischen diesen Jobs.
 
 ------------------------------------------------------------
@@ -156,7 +171,12 @@ Am Ende müssen exakt diese drei finalen Google-Flow-Dateien vorhanden sein:
 2. YouTube Bild 01 - Karte und Monatsabrechnung.png
 3. YouTube Bild 05 - Kleine Rate grosse Restschuld.png
 
-Finaler Zielordner:
+FERTIGER FLOW-ORDNER
+1. Im Flow-Ordner liegen genau diese drei Bilder — jedes genau einmal, jedes nach seiner Szene benannt.
+2. Keine abgelehnten Cover, keine Fehlversuche, keine Duplikate im Ordner.
+3. Wenn Flow ein Löschen oder Umbenennen nicht erlaubt: nicht stillschweigend überspringen, sondern genau auflisten, was der Nutzer löschen oder umbenennen muss.
+
+Danach lädt der Nutzer den Ordner herunter. Finaler Zielordner:
 `04-visuals/00-ALLE-BILDER-HIER-REIN/`
 
 horizontal 16:9
