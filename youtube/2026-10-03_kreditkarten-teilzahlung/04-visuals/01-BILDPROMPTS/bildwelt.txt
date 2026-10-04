@@ -3,69 +3,98 @@ FINANZNEO FLOW IMAGE WORLD — KREDITKARTEN-TEILZAHLUNG
 STYLE_AUTHORITY: finanzneo-youtube-v9-front-readable-v2
 SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 PRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8
-GROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1
+LEGACY_PROMPT_DNA: finanzneo-stylized-3d-editorial-v5
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 FLOW_IMAGE_POLICY: scene-first-no-infographic-v1
 PRECISION_GRAPHICS_OWNER: REMOTION
 
-GOOGLE FLOW IST HIER EIN SZENEN-RENDERER.
-Es erzeugt keine fertigen Datenkarten, Checklisten, Progress-Bars, Settings-Panels oder Zahlen-Infografiken.
+VERBINDLICHE BILDWELT
+Create CLEARLY STYLIZED premium 3D CGI financial editorial explainer images. Every image must look deliberately designed, dimensional and content-specific — not like a realistic office scene, not like a product photo and not like fintech software.
 
-ERLAUBTE FLOW-BILDKLASSEN
+OLD FINANZNEO PROMPT DNA
+Every image prompt follows this structure:
+MAIN IDEA
+SCENE
+FULL STYLE LOCK
+BACKGROUND / ENVIRONMENT
+ALLOWED TEXT
+PERSON RULE when relevant
+NEGATIVE
+QA
 
-A) GROUNDED SCENE
-- reale, sofort erkennbare Situation oder Gegenstände
-- klar stilisiertes Premium-3D, niemals Fotorealismus
-- glaubwürdige Proportionen und Materialien
-- ein dominantes Hauptmotiv
-- medium-close, natürliche 3/4- oder nahe Frontkamera
-- erkennbare Tiefe, Überlappung und Kontaktschatten
-- lokaler Kontext darf weich in den tiefschwarzen/charcoal-grünen Hintergrund auslaufen
+MAIN IDEA
+Exactly one spoken idea per image. The viewer should understand it in roughly two seconds.
 
-B) EDITORIAL 3D ILLUSTRATION
-- eine zusammenhängende gerenderte 3D-Illustration oder sofort verständliche Metapher
-- bildfüllendes Motiv statt Informationsmodule
-- räumliche Szene mit Materialität und Licht
-- keine Poster-, Slide-, Dashboard- oder Infografik-Komposition
+SCENE IDEA RULE
+Invent an actual visual mechanism for the idea. Use recognizable 3D objects, figures, environments, actions, scale contrasts or physical metaphors. Do not simply place the topic object on a table.
 
-PRÄZISION
-Exakte Zahlen, Datenaufteilungen, Charts, Checklisten, Timelines und UI-Zustände werden in Remotion/SVG/React gebaut.
-Bei Hybrid erzeugt Flow nur die textarme gerenderte Szenenbasis; exakte Overlays kommen danach aus Remotion.
+Good scene logic can include:
+- reveal with magnifying glass
+- small-vs-large physical contrast
+- objects being stacked, split, stamped, clipped, pulled, opened, weighed, transformed or compared
+- a stylized person performing a clear action
+- multiple recognizable everyday objects arranged as one coherent story
+- a scene-specific environment when it helps understanding
 
-FARBEN
-- Deep Black / Charcoal Green = Grundwelt
-- Emerald = positiv / Lösung
-- warmes Red-Orange = Risiko / Kosten / Schuld
-- Warm Ivory / Soft Gray = neutral
-- Gold nur klein für Geld/Wert
+3D FORM LANGUAGE
+- clearly stylized premium 3D CGI
+- chunky substantial volumetric objects
+- simplified, slightly exaggerated proportions where useful
+- smooth rounded geometry and soft bevels
+- visible thickness, depth and material contrast
+- premium polymer, metal, ceramic, card-like cream surfaces, glass, fabric, wood or any other fitting material
+- strong foreground / midground / background separation
+- natural overlap and contact
+- strong but soft contact shadows
+- mild depth-of-field allowed
+- polished editorial CGI finish
+
+COLOR FREEDOM
+The FinanzNeo world is not limited to only green, orange, ivory and gold.
+Any color may be used when it makes the object, person or environment clearer.
+- deep charcoal / green-black remains a recurring base anchor
+- emerald/mint can signal positive direction
+- warm red-orange can signal cost, debt or warning
+- gold/brass can signal money/value
+- warm cream works well for information surfaces
+- blue, cyan, yellow, orange, red, violet, natural skin tones, clothing colors and environmental colors are all allowed when they fit
+Do not recolor every object into the brand palette just for consistency.
+
+CHARACTERS
+People are allowed whenever they make the story clearer.
+Use stylized adult CGI characters with readable body language. If a face is visible, include eyes, nose and mouth. No real identifiable person and no photorealistic portrait.
 
 TEXT
-- Szenenbilder standardmäßig ohne Text
-- höchstens kurze Objektlabels, wenn sie wirklich notwendig sind
-- kein Titel, kein Untertitel, kein Absatz, kein CTA
-- kein FinanzNeo-Logo, Wasserzeichen oder erfundener Markenname im Szenenbild
-- exakte Zahlen/Textgrafiken gehören Remotion
+Short German labels, prices, percentages or short questions are allowed when they are part of the scene and useful for understanding. No long paragraphs, subtitles or CTA sentences. No accidental FinanzNeo logo or watermark.
+
+PRECISION
+Dense charts, mathematical curves, tables, long checklists and exact UI states belong to Remotion/SVG/React. Flow can still create the 3D scene or metaphor around them.
+
+BACKGROUND / ENVIRONMENT
+Default: premium deep charcoal / green-black FinanzNeo atmosphere.
+But a real or stylized environment may fill the frame when useful. Do not force every scene into an empty black studio.
 
 HARD FAIL — SOFORT NEU GENERIEREN
-- flache Infografik
-- Social-Media-Card / Poster / Slide
-- Dashboard / HUD / Control Panel
-- Checklistenlayout
-- Settings-/UI-Layout
-- Progress-Bar als Hauptmotiv
-- Zahlenvergleich in Rechtecken, Kacheln oder Cards
-- schwebende Tiles / Karten / Widgets
-- FinanzNeo-Logo oder Wasserzeichen ohne ausdrückliche Anweisung
-- Mini-Objekt in riesiger schwarzer Leere
-- sterile Produktaufnahme
-- Mini-Diorama / entfernte Isometrie
-- Stock-Vector / Canva / PowerPoint
-- Fotorealismus
-- Toy / Clay / Pixar
-- generische Gold-Luxus-Finanzoptik
+- photorealistic / stock-photo look
+- realistic boring desk-and-paper still-life
+- flat infographic / PowerPoint / Canva poster
+- dashboard / HUD / control panel
+- floating card/tile/module grid
+- generic finance icon collage
+- generic corporate stock 3D
+- tiny isometric diorama
+- sterile luxury product pedestal
+- Pixar / clay / toy look
+- huge empty black space with tiny subject
+- scene has no visual action, relation, contrast or story
+- prompt merely paraphrases the narration instead of inventing a visual idea
 
-QUALITÄTSFRAGE
-Würde das Bild ohne seine Texte immer noch wie eine hochwertige gerenderte FinanzNeo-Szene funktionieren?
-Wenn nein: FAIL.
+QA
+PASS only when:
+- one idea is understood in about two seconds
+- the image unmistakably looks like premium stylized 3D CGI
+- the visual idea is specific and content-driven
+- objects/figures/colors are chosen because they help the idea
+- depth, overlap, contact or action are clearly visible
