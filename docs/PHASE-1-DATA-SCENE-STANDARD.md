@@ -76,6 +76,25 @@ Die `animation.tsx` liest ihre Zahlen aus der Quelle, statt sie einzutippen. Vor
 
 Alles aus `../design-system`. Die Physical-Primitives für Gegenstände kommen aus `../motion`.
 
+### Flacher Datenbaukasten — bevorzugte Darstellung
+
+`src/design-system/flache-daten.tsx` liefert die Darstellung im flachen Keynote-Stil: schwarzer Grund, kleine grüne Überzeile, große weiße Zahl als Zählwerk, viel Leerraum, kein 3D. Die Bausteine rechnen nichts selbst — die Zahlen kommen aus den Helfern oben.
+
+| Baustein | Wofür |
+|---|---|
+| `Ueberzeile` | kleine grüne Zeile in Großbuchstaben über der Hauptzahl |
+| `Zaehlwerk` | große Zahl, die wie ein mechanisches Zählwerk rollt; `wertBei(frame)` hält Zahl und Grafik synchron, im Stand wird wie `euroText` gerundet |
+| `WerteReihe` | Eingangswerte einer Rechnung, je Wert im Moment, in dem er gesagt wird; machen dann Platz für das Ergebnis |
+| `JahresBalken` + `jahrVerlauf` + `sparplanWertBei` | ein Balken pro Jahr, unten eingezahlt (weiß), oben Zinsen (grün), proportional zu `sparplanFuerAnimation` |
+| `Punkteraster` | viele gleiche Punkte, z. B. „1 Punkt = 1.000 €“, Gruppen füllen sich nacheinander |
+| `IconReihe` | gleiche Icons (`wagen`, `person`, `schein`), die von hinten grau werden, z. B. Kaufkraft |
+| `ZielBalken` | gestrichelte Umrisse zeigen das Ziel, dann füllen sich die Balken nacheinander mit eigenem Zählwerk |
+| `FlachText`, `Legende`, `FLACH` | Text, Farbpunkte-Legende und die Stilwerte (Farben, sichere Fläche X 140–940 / Y 392–1336) |
+
+Alle Zeitangaben sind Frames relativ zum Szenenstart. Für die finale Szene werden sie aus den echten Wort-Zeitstempeln abgeleitet, damit jeder Wert erscheint, wenn er gesagt wird.
+
+Die Quellenzeile übernimmt den Wortlaut aus dem `hinweis` des Rechenhelfers oder ist ein eigener Satz, der die Annahme als Annahme kennzeichnet. **In der Reel-Szene steht sie als wörtlicher Text im Quelltext** (`const QUELLENZEILE = 'Beispielrechnung: …';`), denn der Validator prüft den Wortlaut. `SPARPLAN.hinweis` direkt einzusetzen besteht den Datenszenen-Vertrag nicht — so getestet.
+
 **Die Quellenzeile muss in der Komponente stehen**, wortgleich zu `sourceNote`. Der Validator prüft das, weil eine Quellenzeile, die nur im `scene-index.json` steht, im Video niemand sieht.
 
 ## Was geprüft wird
@@ -91,7 +110,9 @@ Alles aus `../design-system`. Die Physical-Primitives für Gegenstände kommen a
 
 ## Referenz
 
-`src/reels-test/DatenSzenen.tsx` zeigt vier gebaute und gerenderte Datenszenen: gemessene Reihe mit markiertem Tiefpunkt, zwei gestapelte Flächen, Füllstand mit Ziellinie, Rechnung gegen Wirklichkeit.
+**Flacher Baukasten:** Composition `ReelsTestFinanceMotionFlat` (`src/reels-test/FinanceMotionFlatLab.tsx`) zeigt vier Datenszenen nur aus Baukasten und Zentralrechnung: Eingangswerte → Zählwerk → Jahresbalken, Punkteraster, Icon-Reihe (Kaufkraft) und Zielbalken. Gemessene Visualbelegung im Median (Stichproben bei 20/50/80 %): Punkteraster 0,25, Icon-Reihe 0,15, Zielbalken 0,14, Jahresbalken 0,08. Jahresbalken eines Zinseszins-Sparplans sind in den ersten Jahren winzig und füllen den Frame erst am Ende — für Datenszenen ist das zulässig, als Animationsszene läge es unter der Future-V3-Grenze.
+
+**Ältere Referenz:** `src/reels-test/DatenSzenen.tsx` zeigt vier gebaute und gerenderte Datenszenen: gemessene Reihe mit markiertem Tiefpunkt, zwei gestapelte Flächen, Füllstand mit Ziellinie, Rechnung gegen Wirklichkeit.
 
 **Eine Warnung dazu.** Die dortige Visualbelegung liegt im Median bei 7,9 % und damit unter der Future-V3-Grenze von 12 %. Eine gezeichnete Kurve allein füllt den Frame nicht. Wo ein Gegenstand aus `../motion` neben der Reihe steht, steigt die Belegung deutlich — ein gemessener Vergleich derselben Szene kam von 11,5 % auf 25,1 %.
 

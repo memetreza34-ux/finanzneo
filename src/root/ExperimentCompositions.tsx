@@ -22,6 +22,9 @@ import {
   FINANCE_MOTION_LAB_FRAMES as FINANCE_MOTION_LIBRARY_LAB_V1_FRAMES,
 } from '../reels-test/FinanceMotionLibraryLabV1';
 import {FinanceMotionCoreLab, FINANCE_MOTION_CORE_LAB_FRAMES} from '../reels-test/FinanceMotionCoreLab';
+import {FinanceMotionShowcase, FINANCE_MOTION_SHOWCASE_FRAMES} from '../reels-test/FinanceMotionShowcase';
+import {FinanceMotionStyleLab, FINANCE_MOTION_STYLE_LAB_FRAMES} from '../reels-test/FinanceMotionStyleLab';
+import {FinanceMotionFlatLab, FINANCE_MOTION_FLAT_LAB_FRAMES} from '../reels-test/FinanceMotionFlatLab';
 import {
   FinanceHeaderCaptionMotion,
   FINANCE_HEADER_CAPTION_MOTION_FRAMES,
@@ -131,6 +134,30 @@ export const ExperimentCompositions: React.FC = () => (
       id="ReelsTestFinanceMotionCore"
       component={FinanceMotionCoreLab}
       durationInFrames={FINANCE_MOTION_CORE_LAB_FRAMES}
+      fps={FPS}
+      {...VERTICAL}
+    />
+
+    <Composition
+      id="ReelsTestFinanceMotionShowcase"
+      component={FinanceMotionShowcase}
+      durationInFrames={FINANCE_MOTION_SHOWCASE_FRAMES}
+      fps={FPS}
+      {...VERTICAL}
+    />
+
+    <Composition
+      id="ReelsTestFinanceMotionStyleLab"
+      component={FinanceMotionStyleLab}
+      durationInFrames={FINANCE_MOTION_STYLE_LAB_FRAMES}
+      fps={FPS}
+      {...VERTICAL}
+    />
+
+    <Composition
+      id="ReelsTestFinanceMotionFlat"
+      component={FinanceMotionFlatLab}
+      durationInFrames={FINANCE_MOTION_FLAT_LAB_FRAMES}
       fps={FPS}
       {...VERTICAL}
     />

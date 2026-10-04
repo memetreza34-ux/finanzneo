@@ -56,6 +56,7 @@ const signed = (value: number, unit: ValueUnit, decimals = 0): string =>
 
 /** Zählt in runden Schritten mit und landet exakt auf dem Zielwert. */
 const countValue = (from: number, to: number, progress: number, decimals = 0): number => {
+  if (progress <= 0) return from;
   if (progress >= 1) return to;
   const raw = from + (to - from) * progress;
   const span = Math.max(Math.abs(from), Math.abs(to));
@@ -217,7 +218,7 @@ const CoinStack: React.FC<{
         top={base - height - full * step - drop}
         width={width}
         role={role}
-        opacity={Math.min(1, partial * 1.6)}
+        opacity={Math.min(1, partial * 8)}
         grounded={full === 0}
       />,
     );
@@ -365,6 +366,7 @@ export const ValueDrain: React.FC<
   const originalTop = stackTop(base, startCoins, width);
   const currentTop = stackTop(base, startCoins - departed, width);
   const loss = startValue - endValue;
+  const lossSoFar = countValue(0, loss, drain, decimals);
 
   return (
     <div style={{position: 'absolute', inset: 0}}>
@@ -376,7 +378,7 @@ export const ValueDrain: React.FC<
         {drainLabel}
       </Text>
       <Text x={pileX} y={SAFE.top + 48} size={88} font="number" color={C.negativeLt} opacity={prog(frame, actionStart, actionStart + 8)} maxWidth={2 * (SAFE.right - pileX)}>
-        {signed(-countValue(0, loss, drain, decimals), unit, decimals)}
+        {lossSoFar === 0 ? formatValue(0, unit, decimals) : signed(-lossSoFar, unit, decimals)}
       </Text>
 
       <DashedBox
@@ -469,7 +471,9 @@ export const CompoundGrowth: React.FC<
               strokeWidth={6}
               strokeLinecap="round"
               strokeDasharray={1}
-              strokeDashoffset={1 - growth[index]}
+              // Die Kurve wächst mit der Stapelhöhe: Sie beginnt, wenn der neue
+              // Stapel die vorige Spitze erreicht, und endet auf seiner Spitze.
+              strokeDashoffset={1 - clamp((coins[index] * growth[index] - coins[index - 1]) / Math.max(1, coins[index] - coins[index - 1]), 0, 1)}
               style={{filter: `drop-shadow(0 0 10px ${a(C.gold, 0.45)})`}}
             />
           );

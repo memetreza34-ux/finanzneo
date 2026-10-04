@@ -52,3 +52,7 @@ export * from './finance-motion';
 
 // Echte Kursreihen aus public/data/. Quelle und Stand reisen mit den Daten.
 export * from './market-data';
+
+// Flacher Datenbaukasten für Datenszenen: Zählwerk, Jahresbalken, Punkteraster,
+// Icon-Reihe, Zielbalken. Zahlen kommen aus finance-motion bzw. market-data.
+export * from './flache-daten';

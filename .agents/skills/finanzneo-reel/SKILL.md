@@ -134,6 +134,10 @@ The library is a toolbox, **not a forced menu**. A library mechanic may repeat, 
 
 A promising custom mechanic may be marked `libraryPromotionCandidate: true`.
 
+### Data scenes — flat data kit
+
+For a data scene, build the visual from the flat data kit in `src/design-system/flache-daten.tsx` (`Ueberzeile`, `Zaehlwerk`, `WerteReihe`, `JahresBalken`, `Punkteraster`, `IconReihe`, `ZielBalken`) and take every number from the calculation helpers (`sparplanFuerAnimation`, `kaufkraftFuerAnimation`, `kreditFuerAnimation`) or a fetched series in `public/data/`. Never type a result number by hand. Copy the helper's `hinweis` wording into the component as a literal string (`const QUELLENZEILE = '…'`) and render it — the data contract checks the literal text, so `SPARPLAN.hinweis` alone fails. Derive frame timings from the spoken words so each value appears when it is said. Reference: composition `ReelsTestFinanceMotionFlat`; details in `docs/PHASE-1-DATA-SCENE-STANDARD.md`.
+
 ### Legacy: Motion Core V1 routing
 
 Reels already created with `finanzneo-motion-core-v1` keep this route and are not migrated:
