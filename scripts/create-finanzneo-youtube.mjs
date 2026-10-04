@@ -30,24 +30,24 @@ if (!existsSync(allPromptsPath)) {
 }
 mkdirSync(promptDirectory, {recursive: true});
 
-const visualSystemRules = `FINANZNEO GOOGLE FLOW MASTER — VERBINDLICH\n\nDIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG. NICHT nur erklären oder Prompts zurückgeben: die geforderten Bildjobs tatsächlich starten.\n\nSTYLE_AUTHORITY: finanzneo-youtube-v9-front-readable-v2\nSOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9\nPRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8\nGROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1\nFLOW_IMAGE_POLICY: scene-first-no-infographic-v1\nPRECISION_GRAPHICS_OWNER: REMOTION\n\nGoogle Flow ist in FinanzNeo ein SCENE-RENDERER, kein Infografik-/UI-Layout-Generator. Flow erzeugt nur Bilder, bei denen eine hochwertige gerenderte Szene oder Illustration einen echten visuellen Mehrwert hat. Exakte Zahlenaufteilungen, Charts, Checklisten, Tabellen, Timelines, UI-Zustände und textlastige Vergleiche gehören standardmäßig in Remotion/SVG/React.\n\nZWEI ERLAUBTE FLOW-BILDKLASSEN:\nA) GROUNDED SCENE — reale Objekte/Situationen, glaubwürdige Proportionen, räumlich, materialreich, klar stilisiertes 3D.\nB) EDITORIAL 3D ILLUSTRATION — eine zusammenhängende, bildfüllende stilisierte 3D-Illustration oder Metapher mit echter räumlicher Szene; niemals Poster, Slide, Dashboard oder Infografik.\n\nFür HYBRID darf Flow nur eine textarme Szene/Illustrations-Basis liefern. Präzise Zahlen, Labels, Checklisten, Charts und UI-Status werden danach in Remotion gesetzt.\n\nSCENE-FIRST: ein klares Hauptmotiv, medium-close, erkennbare Tiefe, Materialität, Kontaktschatten, Licht und Ursache/Wirkung. Das Bild muss auch ohne Text funktionieren. Kein FinanzNeo-Logo, kein Wasserzeichen und kein erfundener Markenname im Szenenbild.\n\nHARD FAIL: flache Infografik; Social-Media-Card; Poster/Slide; Dashboard/HUD; Settings-Panel; Progress-Bar als Hauptmotiv; Checklistenlayout; Zahlenvergleich als Kachel-/Boxsystem; schwebende Cards/Tiles; sterile Produktaufnahme; Mini-Diorama; Hauptmotiv zu klein; überwiegend leerer schwarzer Raum; Stock-Vector; photorealistisch; toy/clay/Pixar; generische Gold-Luxus-Finanzoptik.\n`;
+const visualSystemRules = `FINANZNEO GOOGLE FLOW MASTER — VERBINDLICH\n\nDIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG. NICHT nur erklären oder Prompts zurückgeben: die geforderten Bildjobs tatsächlich starten.\n\nSTYLE_AUTHORITY: finanzneo-youtube-v9-front-readable-v2\nSOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9\nPRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8\nLEGACY_PROMPT_DNA: finanzneo-stylized-3d-editorial-v5\nFLOW_IMAGE_POLICY: scene-first-no-infographic-v1\nPRECISION_GRAPHICS_OWNER: REMOTION\n\nDIE ERFOLGREICHE ALTE FINANZNEO-PROMPTLOGIK IST PFLICHT:\nMAIN IDEA -> SCENE -> FULL STYLE LOCK -> BACKGROUND/ENVIRONMENT -> ALLOWED TEXT -> PERSON RULE -> NEGATIVE -> QA.\n\nJedes Flow-Bild ist ein bewusst gestalteter CLEARLY STYLIZED PREMIUM 3D CGI FINANZ-EXPLAINER. Nicht standardmäßig Mensch-am-Tisch, Papierstapel, sterile Produktaufnahme oder generische dunkle Finance-Szene. Erfinde für jeden Sprechbeat eine konkrete visuelle Mechanik: Objekt wird gezogen, gestapelt, geöffnet, gestempelt, geteilt, gewogen, vergrößert, enthüllt, transformiert oder durch eine klare Figur-Aktion erklärt.\n\nFORM FREE — WORLD FIXED: Erlaubt sind grounded-scene, character-story, object-story, physical-metaphor, editorial-3d-illustration, environmental-scene, comparison-scene, transformation-scene und hybrid-scene-plate. Das sind Kompositionsformen derselben Bildwelt.\n\n3D DNA: chunky substantial volumetric forms, simplified slightly exaggerated proportions, smooth rounded geometry, soft bevels, visible thickness, premium materials, cinematic key light, controlled rim light, strong soft contact shadows, clear foreground/midground/background separation, purposeful overlap, mild DOF, polished editorial CGI. Never photorealistic, stock-photo, generic corporate 3D, Pixar, clay or toy.\n\nFARBEN SIND NICHT AUF GRÜN/ORANGE/CREAM/GOLD BESCHRÄNKT. Deep charcoal/green-black bleibt ein wiederkehrender Anker. Emerald kann positiv, red-orange Risiko/Kosten, gold Geld/Wert und cream neutrale Flächen markieren. Zusätzlich sind alle scene-appropriate colors erlaubt: blue, cyan, yellow, orange, red, violet, natural skin tones, clothing colors, environmental colors etc. Nicht jedes Objekt künstlich in Markenfarben umfärben.\n\nMENSCHEN/FIGUREN SIND ERLAUBT, wenn sie die Aussage besser machen: stylized adult CGI, klare Körpersprache, sichtbares Gesicht mit Augen/Nase/Mund wenn im Bild, keine reale identifizierbare Person. Ganze Figur, Teilfigur, Hände oder Silhouette sind erlaubt, wenn sinnvoll.\n\nTEXT: kurze deutsche Objektlabels, Preise, Prozentwerte oder kurze Fragen sind erlaubt, wenn sie in die 3D-Szene integriert sind. Keine langen Sätze/Absätze/CTA. Kein zufälliges FinanzNeo-Logo. Datenintensive Charts, Tabellen, lange Checklisten und exakte UI-Zustände bleiben Remotion/SVG/React.\n\nHARD FAIL: flache Infografik; Social-Media-Card; Poster/Slide; Dashboard/HUD; Settings-Panel; Progress-Bar als Hauptmotiv; schwebende Cards/Tiles; generic finance icon collage; realistisches Büro-/Papier-Stillleben; sterile Produktaufnahme; Mini-Diorama; Hauptmotiv zu klein; überwiegend leerer schwarzer Raum; Stock-Vector; photorealistisch; toy/clay/Pixar; generische Gold-Luxus-Finanzoptik; Prompt paraphrasiert nur Sprechertext statt eine konkrete Bildidee zu erfinden.\n`;
+
+const oldImagePrompt = 'Show [THE EXACT CONTENT-SPECIFIC VISUAL]. If this is a chart or diagram, show it straight-on from the front with undistorted axes/labels/proportions. Include only these short German object labels if needed: [LABELS].';
+const legacyImagePrompt = `MAIN IDEA\n[ONE CLEAR SPOKEN IDEA THIS IMAGE MUST EXPLAIN]\n\nSCENE\nCreate a CLEARLY STYLIZED premium 3D CGI editorial composition. Invent the exact content-specific visual mechanism: specify the hero object/figure, supporting props, physical action, scale contrast, depth order and what the viewer sees first. Do not merely restate the narration. Use any fitting objects, figures, environments, materials and colors.\n\nFULL STYLE LOCK\nClearly stylized premium 3D CGI; chunky substantial volumetric forms; simplified slightly exaggerated proportions where useful; smooth rounded geometry; soft bevels; visible thickness; premium scene-appropriate materials; cinematic soft key light; controlled rim light; strong soft contact shadows; foreground/midground/background separation; purposeful overlap; mild depth-of-field; polished high-end editorial CGI. NOT photorealistic. NOT stock photo. NOT generic corporate 3D. NOT Pixar/clay/toy.\n\nBACKGROUND / ENVIRONMENT\nDefault to a premium deep charcoal / green-black FinanzNeo atmosphere, but use a real or stylized environment when it improves the idea. Do not force every scene into an empty black studio.\n\nALLOWED TEXT\n[SHORT GERMAN OBJECT LABELS / PRICES / SHORT QUESTIONS, OR NONE]. No long sentence, paragraph or CTA. No accidental FinanzNeo logo.\n\nPERSON RULE\n[PERSON NOT REQUIRED / OR DESCRIBE THE STYLIZED ADULT CHARACTER AND ACTION]. If a face is visible: eyes, nose and mouth; no real identifiable person.\n\nNEGATIVE\nNo dashboard, no floating tile grid, no flat infographic, no realistic boring office still-life, no tiny diorama, no sterile product pedestal, no generic finance icon collage.\n\nQA\nPASS only if the single idea is understandable in roughly two seconds, the scene unmistakably looks like premium stylized 3D CGI, and the composition has visible action/relationship, depth, overlap or scale contrast.`;
 
 const allPrompts = readFileSync(allPromptsPath, 'utf8');
-const sceneOnlyMaster = allPrompts
+const legacyMaster = allPrompts
   .replace(
     'VISUAL_FORM: [character-story | object-story | comparison | chart | diagram | editorial | illustration | metaphor | hybrid]',
-    'VISUAL_FORM: [grounded-scene | editorial-3d-illustration | character-story | object-story | metaphor-scene | hybrid-scene-plate]',
+    'VISUAL_FORM: [grounded-scene | character-story | object-story | physical-metaphor | editorial-3d-illustration | environmental-scene | comparison-scene | transformation-scene | hybrid-scene-plate]',
   )
-  .replace(
-    'Show [THE EXACT CONTENT-SPECIFIC VISUAL]. If this is a chart or diagram, show it straight-on from the front with undistorted axes/labels/proportions. Include only these short German object labels if needed: [LABELS].',
-    'Show [THE EXACT CONTENT-SPECIFIC SCENE OR EDITORIAL 3D ILLUSTRATION]. If exact numbers, a chart, checklist, timeline, table or UI state are the main information, this beat must be routed to Remotion/SVG/React instead of a Flow image. For hybrid, generate only the text-light scene plate; precision overlays belong to Remotion. Include only short German object labels when they are physically part of the scene and genuinely necessary: [LABELS].',
-  );
-writeFileSync(allPromptsPath, `${visualSystemRules}\n\n${sceneOnlyMaster}`);
+  .replaceAll(oldImagePrompt, legacyImagePrompt);
+writeFileSync(allPromptsPath, `${visualSystemRules}\n\n${legacyMaster}`);
 
 // Internal prompt sources live together under 04-visuals/01-BILDPROMPTS/.
 // The user-facing complete master prompt deliberately stays at 04-visuals/alle-bildprompts.txt.
 if (existsSync(imageWorldOldPath)) {
-  const existing = readFileSync(imageWorldOldPath, 'utf8');
+  const existing = readFileSync(imageWorldOldPath, 'utf8').replaceAll(oldImagePrompt, legacyImagePrompt);
   writeFileSync(imageWorldOldPath, `${visualSystemRules}\n\n${existing}`);
   renameSync(imageWorldOldPath, imageWorldNewPath);
 }
@@ -65,7 +65,7 @@ if (existsSync(visualsRoot)) {
     const newPromptDir = resolve(promptDirectory, entry.name);
     const newPromptPath = resolve(newPromptDir, 'bildprompt.txt');
     mkdirSync(newPromptDir, {recursive: true});
-    const existing = readFileSync(oldPromptPath, 'utf8');
+    const existing = readFileSync(oldPromptPath, 'utf8').replaceAll(oldImagePrompt, legacyImagePrompt);
     writeFileSync(oldPromptPath, `${visualSystemRules}\n\n${existing}`);
     renameSync(oldPromptPath, newPromptPath);
   }
@@ -75,7 +75,20 @@ const indexPath = resolve(projectRoot, '04-visuals/visual-index.json');
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 index.imageWorld.referencePromptFile = '04-visuals/01-BILDPROMPTS/bildwelt.txt';
 index.imageWorld.primaryApprovedStyleAnchor = 'finanzneo-premium-physical-editorial-v8';
-index.imageWorld.flowVisualModes = ['grounded-scene', 'editorial-3d-illustration'];
+index.imageWorld.legacyPromptDna = 'finanzneo-stylized-3d-editorial-v5';
+index.imageWorld.flowVisualModes = [
+  'grounded-scene',
+  'character-story',
+  'object-story',
+  'physical-metaphor',
+  'editorial-3d-illustration',
+  'environmental-scene',
+  'comparison-scene',
+  'transformation-scene',
+  'hybrid-scene-plate',
+];
+index.imageWorld.sceneSpecificColorsAllowed = true;
+index.imageWorld.peopleAllowedWhenUseful = true;
 index.imageWorld.precisionGraphicsOwner = 'remotion';
 index.imageWorld.flowInfographicLayoutsForbidden = true;
 index.thumbnail.planFile = '04-visuals/01-BILDPROMPTS/thumbnail-prompt.txt';
@@ -90,10 +103,10 @@ const readmePath = resolve(projectRoot, 'README.md');
 const readme = readFileSync(readmePath, 'utf8');
 writeFileSync(
   readmePath,
-  `${readme.trim()}\n\n## Google Flow — genau eine Datei kopieren\n\nKopiere **genau diese Datei vollständig und 1:1** in den Google-Flow-Agenten:\n\n\`04-visuals/alle-bildprompts.txt\`\n\nDiese Datei ist immer der vollständige ausführbare Master-Prompt. Sie darf niemals durch einen Hinweis, Redirect oder Platzhalter ersetzt werden. Google Flow rendert ausschließlich Szenen/3D-Illustrationen; präzise Daten-, UI- und Textgrafiken gehören Remotion. Interne Stil-/Thumbnail-/Einzelpromptquellen liegen gesammelt unter \`04-visuals/01-BILDPROMPTS/\`.\n`,
+  `${readme.trim()}\n\n## Google Flow — genau eine Datei kopieren\n\nKopiere **genau diese Datei vollständig und 1:1** in den Google-Flow-Agenten:\n\n\`04-visuals/alle-bildprompts.txt\`\n\nDiese Datei ist immer der vollständige ausführbare Master-Prompt. Sie darf niemals durch einen Hinweis, Redirect oder Platzhalter ersetzt werden. Jeder Bildjob nutzt die alte erfolgreiche FinanzNeo-Struktur MAIN IDEA → SCENE → FULL STYLE LOCK → BACKGROUND/ENVIRONMENT → ALLOWED TEXT → PERSON RULE → NEGATIVE → QA. Farben, Objekte, Figuren und Umgebungen dürfen frei passend zum Inhalt gewählt werden; die konstante Bildwelt entsteht durch Stylized-3D-Formensprache, Materialqualität, Licht, Tiefe und Editorial-Komposition. Präzise Daten-/UI-Grafiken bleiben Remotion-owned. Interne Stil-/Thumbnail-/Einzelpromptquellen liegen unter \`04-visuals/01-BILDPROMPTS/\`.\n`,
 );
 
 console.log('✓ Google Flow: vollständiger Nutzer-Master-Prompt = 04-visuals/alle-bildprompts.txt');
-console.log('✓ Kein Redirect/Stub: die Datei enthält die tatsächlichen ausführbaren Bildjobs.');
-console.log('✓ Interne Promptquellen liegen gesammelt unter 04-visuals/01-BILDPROMPTS/.');
-console.log('✓ Bildwelt: Grounded Scene + Editorial 3D Illustration; Präzisionsgrafiken gehören Remotion.');
+console.log('✓ Prompt-DNA: MAIN IDEA → SCENE → FULL STYLE LOCK → BACKGROUND → TEXT → PERSON → NEGATIVE → QA.');
+console.log('✓ Kreative Freiheit: scene-specific Farben, Objekte, Figuren und Umgebungen erlaubt.');
+console.log('✓ Bildwelt: premium stylized 3D CGI; Präzisionsgrafiken gehören Remotion.');
