@@ -42,7 +42,12 @@ export const YOUTUBE_IMAGE_CONCURRENCY = 5;
 export const YOUTUBE_MIN_MOTION_VISUALS = 2;
 
 export const VISUAL_INDEX = '04-visuals/visual-index.json';
+export const PROMPT_DIRECTORY = '04-visuals/01-BILDPROMPTS';
+// This is intentionally the user-facing, directly copyable Google Flow master prompt.
+// Never replace it with a redirect/stub. Internal prompt sources stay under PROMPT_DIRECTORY.
 export const ALL_PROMPTS = '04-visuals/alle-bildprompts.txt';
+export const IMAGE_WORLD_PROMPT = `${PROMPT_DIRECTORY}/bildwelt.txt`;
+export const THUMBNAIL_PROMPT = `${PROMPT_DIRECTORY}/thumbnail-prompt.txt`;
 export const IMAGE_INBOX = '04-visuals/00-ALLE-BILDER-HIER-REIN';
 export const WORD_TIMINGS = '03-audio/word-timings.json';
 export const ANIMATION_SEAL = '06-projektdateien/animation-seal.json';
@@ -78,8 +83,8 @@ export const PHASE_1_FILES = [
   '02-script/kapitel-dramaturgie.md',
   '02-script/retention-plan.md',
   ALL_PROMPTS,
-  '04-visuals/bildwelt.txt',
-  '04-visuals/thumbnail-prompt.txt',
+  IMAGE_WORLD_PROMPT,
+  THUMBNAIL_PROMPT,
   '06-projektdateien/visual-plan.md',
   '06-projektdateien/remotion-plan.md',
   ...Object.values(YOUTUBE_PUBLISHING_FILES),

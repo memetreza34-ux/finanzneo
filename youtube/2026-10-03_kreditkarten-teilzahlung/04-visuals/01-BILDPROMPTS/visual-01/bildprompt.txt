@@ -1,0 +1,49 @@
+BILD 01 — KREDITKARTE UND ABRECHNUNGSART
+FINAL FILE NAME: YouTube Bild 01 - Karte und Monatsabrechnung.png
+FORMAT: horizontal 16:9
+STYLE_AUTHORITY: finanzneo-youtube-v9-front-readable-v2
+LEGACY_PROMPT_DNA: finanzneo-stylized-3d-editorial-v5
+
+CREATE EXACTLY ONE IMAGE.
+
+MAIN IDEA
+Dieselbe Kreditkarte kann vollständig abgerechnet werden oder als Teilzahlung eine offene Schuld weitertragen.
+
+SCENE
+Create a CLEARLY STYLIZED premium 3D CGI financial editorial composition, not a realistic desk photograph.
+
+Use ONE oversized stylized credit card as the central hero object. Give it a substantial rounded premium form with visible thickness, a deep cobalt-to-charcoal body and a subtle metallic edge so it feels designed rather than like a real branded card.
+
+The card is physically inserted into a large chunky warm-cream monthly-statement folder that opens into two visibly different physical outcomes within ONE connected composition:
+
+- on the left, an emerald mechanical-style payment stamp has just pressed a thick cream tab marked `VOLLZAHLUNG`; the nearby balance section is visibly closed/cleared with a simple embossed check symbol
+- on the right, a warm red-orange pull-tab marked `TEILZAHLUNG` remains extended from the statement; from behind that tab, a short curled red-orange interest ribbon and two small debt tokens continue outward, showing that something remains open
+
+The card and statement must overlap strongly and occupy most of the frame. Make the contrast between “closed completely” and “continues as debt” readable immediately through physical action, not through a UI layout.
+
+Use a lively diagonal composition with foreground card edge, hero statement folder and secondary stamp/ribbon at different depths. The viewer should understand the idea in under two seconds even before reading the two labels.
+
+FULL STYLE LOCK
+Clearly stylized premium 3D CGI editorial render; chunky substantial volumetric forms; simplified slightly exaggerated proportions; smooth rounded geometry; soft bevels; thick cream card-like surfaces; premium cobalt, charcoal and emerald polymer/brushed-metal materials; warm red-orange debt accent; restrained glass only if useful; cinematic soft key light; controlled rim light; believable reflections; strong soft contact shadows; foreground/midground/background separation; mild depth-of-field on secondary props; polished high-end editorial CGI. NOT photorealistic. NOT a real credit-card product photo. NOT a realistic office/stationery still-life. NOT Pixar/clay/toy.
+
+BACKGROUND / ENVIRONMENT
+Use a deep charcoal / green-black FinanzNeo atmosphere with subtle tonal depth. A small amount of stylized billing-desk context may appear at the edges if it strengthens the scene, but do not create a literal office photograph and do not leave the hero floating in empty black space.
+
+ALLOWED TEXT ONLY
+`VOLLZAHLUNG`
+`TEILZAHLUNG`
+No headline. No subtitle. No paragraph. No random extra text. No FinanzNeo logo.
+
+PERSON RULE
+No person is required for this image. If a stylized person or hand appears, it must be clearly intentional, adult, non-identifiable and rendered in the same premium stylized CGI world.
+
+NEGATIVE
+No dashboard. No settings screen. No two-card UI comparison. No floating panels. No flat infographic. No generic finance icons. No tiny diorama. No sterile product pedestal. No photorealistic card or paper. No all-green monochrome scene.
+
+QA
+PASS only if:
+- the oversized card + statement folder are the clear hero
+- full payment vs partial payment is communicated by physical action
+- the scene looks unmistakably like designed premium stylized 3D CGI
+- the composition has depth, overlap and contact
+- it does not resemble banking UI, a slide or a realistic desk photo

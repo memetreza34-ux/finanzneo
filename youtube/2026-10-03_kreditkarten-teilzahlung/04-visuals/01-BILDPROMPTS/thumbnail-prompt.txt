@@ -1,0 +1,66 @@
+INTERN — NICHT MANUELL IN GOOGLE FLOW KOPIEREN.
+Der Nutzer verwendet ausschließlich den vollständigen Master-Prompt unter:
+`04-visuals/alle-bildprompts.txt`
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+YOUTUBE THUMBNAIL PHASE — THREE SEPARATE JOBS IN PARALLEL
+STYLE_AUTHORITY: finanzneo-youtube-v9-front-readable-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+PRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8
+GROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1
+FLOW_IMAGE_POLICY: scene-first-no-infographic-v1
+
+Create exactly three separate horizontal 16:9 thumbnail candidates A, B and C as three concurrent one-image jobs.
+
+All three must be premium rendered FinanzNeo scenes/3D editorial illustrations first. The short hook text is secondary. Never build the thumbnail as a dashboard, infographic, progress graphic, card grid or UI layout.
+
+STYLE LOCK
+- clearly stylized premium 3D animation-film/editorial rendering, never photorealistic
+- one dominant close hero scene/object
+- medium-close composition with real depth and overlap
+- deep seamless black/charcoal-green world
+- believable paper/card materials
+- cinematic soft key light and strong soft contact shadows
+- emerald only for positive/solution
+- warm red-orange for debt/risk/cost
+- ivory/soft gray neutral
+- gold only as a tiny value accent
+- no generated FinanzNeo logo or watermark
+
+TEXT RULE
+Visible German hook required, max 2 lines, ideally 2–5 words. Clean front-readable ivory typography with at most one restrained semantic accent. Text must not become the main object.
+
+THUMBNAIL A — Hook: TEILZAHLUNG KOSTET
+One large unbranded credit card physically overlaps a substantial warm-ivory monthly statement. A restrained warm red-orange recurring-interest mark remains attached to the still-open balance area. One coherent real billing scene, not separate cards.
+
+THUMBNAIL B — Hook: 2.000 € WERDEN TEUER
+One large monthly statement physically extends toward the camera as a growing paper trail while the credit card remains linked to it. Restrained red-orange interest marks repeat along the real paper trail. No chart/timeline UI and no data-card layout.
+
+THUMBNAIL C — Hook: DIE KLEINE RATE
+A close monthly statement and one large unbranded credit card dominate the scene. A small physical payment receipt enters the scene while a red-orange interest slip remains attached to the open-balance section. Cause/effect must be visible without needing an infographic.
+
+Temporary names:
+- YouTube Thumbnail A.png
+- YouTube Thumbnail B.png
+- YouTube Thumbnail C.png
+
+After all three pass QA, ask once for A/B/C. Rename only the selected winner to:
+`YouTube Thumbnail - Kreditkarten Teilzahlung.png`
+
+The selected thumbnail is never a style reference for scene images.
+
+HARD FAIL
+- flat infographic / slide / social-media card
+- dashboard/control panel/UI
+- separate floating tiles/cards/widgets
+- generated FinanzNeo logo or watermark
+- sterile product shot
+- tiny isometric/diorama
+- mostly empty black frame
+- Canva/PowerPoint/stock-vector look
+- childish toy/clay/Pixar
+- photorealism
+- gold-luxury finance cliché
+
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2

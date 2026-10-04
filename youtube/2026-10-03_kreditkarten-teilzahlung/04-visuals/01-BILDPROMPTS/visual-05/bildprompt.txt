@@ -1,0 +1,50 @@
+BILD 05 — KLEINE RATE, GROSSE RESTSCHULD
+FINAL FILE NAME: YouTube Bild 05 - Kleine Rate grosse Restschuld.png
+FORMAT: horizontal 16:9
+STYLE_AUTHORITY: finanzneo-youtube-v9-front-readable-v2
+LEGACY_PROMPT_DNA: finanzneo-stylized-3d-editorial-v5
+PRECISION_GRAPHICS_OWNER: REMOTION
+
+CREATE EXACTLY ONE IMAGE.
+
+MAIN IDEA
+Viele Monatszahlungen sind bereits erfolgt, aber eine deutlich sichtbare Restschuld bleibt bestehen.
+
+SCENE
+Create a CLEARLY STYLIZED premium 3D CGI financial editorial scene using a bold physical metaphor, not a realistic pile of papers on a table.
+
+The hero object is a chunky dark-teal / emerald credit-card wallet-organizer opened toward the viewer. From one side, a fan of many thick warm-cream payment stubs has been pulled outward, clearly communicating repeated monthly payments already made. Several of the stubs are slightly bent, staggered and overlapping so the passage of many months feels physical and lively.
+
+Despite all those payment stubs, one large warm red-orange debt weight remains visibly lodged inside the organizer. Shape it as a substantial rounded 3D balance block with a short integrated object label `RESTSCHULD`. It should feel heavy and stubbornly present, not like a UI card.
+
+Place one stylized unbranded credit card partly under the organizer and let a few small gold value coins visibly move from the payment-stub side toward the organizer, while the red-orange debt weight still remains large. This creates the immediate visual contradiction: much has been paid, but much is still open.
+
+Use a strong near-frontal 3/4 composition. The organizer and debt weight should dominate the middle of the frame, with the payment stubs spreading into the foreground. Use purposeful overlap and strong size contrast. The idea must read in under two seconds.
+
+FULL STYLE LOCK
+Clearly stylized premium 3D CGI editorial render; chunky substantial volumetric geometry; smooth rounded edges and soft bevels; simplified slightly exaggerated proportions; thick warm-cream 3D payment stubs rather than realistic paper; premium emerald/teal polymer and brushed-metal organizer; one strong warm red-orange debt object; small modeled gold value coins; cinematic soft key light; controlled rim light; strong soft contact shadows; clear foreground/midground/background depth; mild depth-of-field; polished high-end editorial CGI. NOT photorealistic. NOT realistic banking paperwork. NOT stock photo. NOT Pixar/clay/toy.
+
+COLOR FREEDOM
+Keep the semantic contrast clear, but do not force the whole image into only green/orange. Neutral cream, charcoal, teal, small gold accents and any additional subtle scene-appropriate hue are allowed if they improve readability.
+
+BACKGROUND / ENVIRONMENT
+Use a premium deep charcoal / green-black FinanzNeo atmosphere with subtle depth. The organizer may sit within a lightly suggested stylized personal-finance setting, but avoid a literal office desk photo and avoid huge empty black space.
+
+ALLOWED TEXT ONLY
+`RESTSCHULD`
+No exact euro amount inside the Flow image. Exact values such as `1.200 € gezahlt` and `1.069,72 € offen` are added later in Remotion.
+No headline. No subtitle. No FinanzNeo logo.
+
+PERSON RULE
+No person is required. If a figure or hand is introduced, it must be a deliberate stylized adult CGI element with readable anatomy and must strengthen the action.
+
+NEGATIVE
+No progress bar. No 12-box month grid. No dashboard. No timeline UI. No spreadsheet. No checklist. No floating cards. No realistic stack of bank statements. No sterile product shot. No tiny diorama. No generic finance icon collage.
+
+QA
+PASS only if:
+- repeated payments are instantly visible through the physical fan of payment stubs
+- the remaining debt is a large, physical, stubborn hero element
+- the image looks like the older successful FinanzNeo stylized-3D explainers
+- depth, overlap, action and size contrast are obvious
+- the result cannot be mistaken for a flat infographic or realistic office photo

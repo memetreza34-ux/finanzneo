@@ -1,85 +1,169 @@
 YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
 SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+PRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8
+LEGACY_PROMPT_DNA: finanzneo-stylized-3d-editorial-v5
+GROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-TARGET_USE: YouTube Longform image, thumbnail and hybrid source
+TARGET_USE: YouTube Longform rendered scenes, thumbnails and hybrid scene plates
+FLOW_IMAGE_POLICY: scene-first-no-infographic-v1
+PRECISION_GRAPHICS_OWNER: REMOTION
 
-FINANZNEO YOUTUBE V9 FRONT-READABLE WORLD — V2
+FINANZNEO YOUTUBE V9 FRONT-READABLE WORLD — LEGACY PROMPT DNA RESTORED
 
-CORE
-This is the horizontal YouTube version of the established FinanzNeo V9 world. Keep the same premium stylized 3D animated-film DNA, deep seamless black stage, refined materials, readable contact shadows, soft cinematic studio light and restrained semantic accent colors. Never invent a separate thumbnail world or chart world.
+PURPOSE
+Return to the successful FinanzNeo image language used by the older stylized-3D prompt system: every image explains ONE spoken idea through a deliberately designed premium 3D composition. Do not default to literal office still-lifes, realistic tables with paperwork, generic dark product shots or UI-like finance graphics.
 
-FORM FREE — WORLD FIXED
-Choose the clearest form for the spoken point: character scene, object scene, comparison, chart, diagram, editorial, illustration, metaphor or hybrid. Do not force a person, money stack, jar, folder or metaphor into every beat. One clear idea beats decorative complexity.
+The old successful logic is the authority:
+MAIN IDEA -> CONTENT-SPECIFIC 3D SCENE / METAPHOR -> FULL STYLE LOCK -> SHORT OBJECT TEXT ONLY -> NEGATIVE -> QA.
 
-DEFAULT CAMERA
-- normal front-facing or near-front eye-level view is the default
-- level horizon
-- natural perspective
-- no dramatic dutch angle
-- no unnecessary extreme low/high angle
-- no heavy perspective distortion
-- use mild 3/4 perspective only for a real narrative scene when it clearly helps the story
+CORE STYLE DNA — ALWAYS ACTIVE
+- clearly stylized premium 3D CGI financial/editorial explainer
+- designed high-end CGI, never photorealistic
+- chunky substantial volumetric forms with obvious depth
+- simplified and slightly exaggerated proportions where this improves clarity
+- smooth rounded geometry, soft bevels and visible thickness
+- premium materials: polymer, brushed metal, ceramic, card-like cream surfaces, restrained glass, fabric, wood, paper-like surfaces or other scene-appropriate materials
+- cinematic soft key light, readable fill, controlled rim light, believable reflections and strong soft contact shadows
+- clear foreground / midground / background separation
+- mild depth-of-field allowed on secondary elements
+- one instantly readable main idea per image
+- composition must feel intentionally designed, lively and explanatory, not merely decorative
 
-CHART / DIAGRAM / DATA LOCK
-Charts and diagrams must be shown front-on, straight and readable.
-- camera perpendicular to the chart plane
-- horizontal x-axis and vertical y-axis when those axes belong to the chart type
-- no 3/4 chart view
-- no tilted chart plane
-- no skewed axes
-- no foreshortened bars
-- no perspective-distorted labels
-- mathematically correct values, scales, proportions and segment sizes
-- use V9 materials, depth, lighting and semantic colors without sacrificing chart readability
-- no Excel/PowerPoint default look, but also no fantasy chart sculpture
+CREATIVE FREEDOM — IMPORTANT
+The visual world is NOT a palette prison and NOT an object whitelist.
+Any fitting object, prop, environment, vehicle, building, landscape, symbol, human figure, clothing style, material or color may appear when it makes the spoken idea clearer.
 
-THUMBNAIL / COVER LOCK
-Every YouTube thumbnail uses this exact same world. It is not allowed to drift into a separate gold-luxury or generic AI-finance style.
-- one strong content-specific visual idea
-- same V9 materials, lighting, black world and color roles as the video images
-- short visible German hook text is allowed and required for the three thumbnail candidates
-- max 2 lines, ideally 2–5 words
-- text must describe the actual video topic/tension
-- clean front-facing typography, white/ivory with at most one semantic emerald or red-orange emphasis
-- do not render the hook as giant metallic/extruded gold 3D lettering
-- do not use trophy plinths, luxury pedestals, giant gold percentage statues, glass money jars or decorative coin mountains unless the exact topic genuinely requires them
-- selected thumbnail never becomes the style reference for scene images; the written V9 world remains the only style authority
+Brand consistency comes primarily from:
+- stylized CGI form language
+- geometry and bevel quality
+- premium material treatment
+- cinematic lighting
+- depth hierarchy
+- contact shadows
+- editorial composition
+- recurring charcoal/emerald FinanzNeo atmosphere where useful
 
-COLOR
-- deep black dominant
-- emerald = positive / growth / solution when semantically correct
-- warm red-orange = cost / risk / loss / warning
-- warm ivory / soft gray = neutral
-- gold = small money/value accent only, never the dominant world
-- no rainbow, neon cyberpunk or excessive glow
+COLOR FREEDOM
+- deep charcoal / green-black remains a recurring base or background anchor, not a requirement that every object be green
+- emerald/mint may signal positive direction, solution or growth
+- warm red-orange may signal cost, pressure, warning, debt or loss
+- gold/brass may signal money/value
+- warm ivory/cream works well for neutral information surfaces
+- scene-specific colors are explicitly allowed: blue, cyan, yellow, orange, red, violet, natural skin tones, clothing colors, product colors, environmental colors and other hues when semantically useful
+- never force unrelated objects into emerald/gold/red just to match a palette
+- avoid monochrome green frames unless the scene genuinely needs them
 
-MATERIAL + LIGHT
-Premium stylized animation-film materials: refined rounded geometry where appropriate, believable paper/plastic/metal/glass cues, controlled surface detail, soft studio key light, subtle rim separation, readable contact shadows. Never photorealistic, never toy-like, never generic corporate stock 3D.
+CHARACTERS + FIGURES
+Human figures are allowed and should be used whenever a person makes the idea easier to understand.
+- stylized adult CGI character, not a real identifiable person
+- clear face with eyes, nose and mouth when face is visible
+- natural body language and readable action
+- scene-appropriate clothing and colors are allowed
+- hands, silhouettes, partial figures and full figures are allowed when compositionally useful
+- do not ban people by default; choose person vs object story based on what communicates faster
 
-READABILITY
-Important objects large. The main message must read quickly on TV, laptop and mobile. Avoid tiny dioramas, overly wide empty compositions and clutter. The still frame must work without motion first.
+STORY-FIRST VISUAL MODES
+Google Flow may use any of these within the same visual world:
+- grounded-scene
+- character-story
+- object-story
+- physical-metaphor
+- editorial-3d-illustration
+- environmental-scene
+- comparison-scene
+- transformation-scene
+- hybrid-scene-plate
 
-TEXT IN SCENE IMAGES
-Short German object labels only when they remove ambiguity. No paragraphs, subtitles, CTA or random words. Thumbnail text follows the dedicated thumbnail rule above.
+These are compositional choices, not different art styles.
 
-ANTI-DRIFT / FORBIDDEN
-- photorealism
-- corporate stock 3D people
-- PowerPoint/Excel default styling
-- dashboard/app UI as main composition
-- giant gold 3D numbers or percent signs as generic hero motif
-- glossy trophy/plinth presentation
-- repeated glass jars, coin piles, money stacks or folders without content reason
-- abstract finance machines, clamps or unexplained value geometry
-- diagonal/tilted chart presentation
-- text-heavy social template
-- clutter
+OLD-PROMPT COMPOSITION DNA
+Prefer content-specific ideas such as:
+- a magnifying glass actively revealing a hidden cost
+- several recognizable everyday objects arranged in a lively composition
+- a tiny monthly price physically contrasted with a much larger yearly result
+- a calendar, wallet, calculator, receipt ribbon, membership tag, shopping basket, fuel nozzle, house, phone, bank object, credit card, contract folder, coins or any other relevant prop
+- an object being pulled, clipped, stamped, opened, revealed, enlarged, split, weighed, stacked, compared or transformed
+- one clear physical cause-and-effect relationship
+
+Do NOT write vague prompts like “show a premium finance scene”. Invent the exact visual mechanism for the spoken sentence.
+
+FLOW CLASS A — GROUNDED / CHARACTER / OBJECT STORY
+Use when a recognizable situation, figure or everyday object communicates the beat best.
+- one dominant readable action or hero relationship
+- supporting props only when they strengthen the story
+- medium-close or scene-appropriate framing
+- natural overlap and contact
+- figures, rooms, streets, shops, homes, offices, transport, landscapes and other environments are allowed if they fit
+- never reduce every beat to a card on a dark table
+
+FLOW CLASS B — EDITORIAL 3D ILLUSTRATION / PHYSICAL METAPHOR
+Use when a designed visual metaphor communicates faster than a literal situation.
+- one coherent illustration, not a layout of modules
+- strong silhouette, scale contrast, depth and movement cues
+- may use exaggerated scale, transformed objects, symbolic physical relationships and scene-specific colors
+- must be understandable in roughly 1–2 seconds
+
+PRECISION GRAPHICS ROUTING
+If the core information is a dense chart, mathematical curve, table, long checklist, multi-line comparison or exact UI state, use Remotion/SVG/React.
+This does NOT mean Flow must be textless or literal.
+Flow may include a few short object labels, prices, percentages or short questions when they are visually integrated into the 3D scene and important to the idea. Exact data-heavy overlays remain Remotion-owned.
+
+TEXT
+- no long headline, subtitle, paragraph or CTA inside normal scene images
+- short German object labels, prices, percentages or short questions are allowed when explicitly planned
+- text should live on or beside a physical 3D prop, tag, receipt, plaque, sign, screen or object surface rather than as floating UI
+- thumbnails may use short hook text per thumbnail brief
+- no accidental FinanzNeo logo, watermark or invented brand mark
+
+CAMERA + LIGHT
+- choose the camera that best serves the visual idea; frontal, near-frontal, gentle 3/4, medium-close and controlled wider environmental framing are all allowed
+- avoid distant tiny isometric diorama views
+- important content must remain large enough for YouTube viewing
+- cinematic key light and contact shadows must make forms feel substantial
+- do not create huge empty black space around a tiny object
+
+BACKGROUND
+Default to a seamless deep charcoal / green-black FinanzNeo atmosphere with subtle tonal depth.
+However, a real or stylized environment may occupy the frame when the scene benefits from it. The environment must still share the same premium stylized-CGI rendering language, lighting quality and depth treatment.
+Do not force every scene into an empty black studio.
+
+GLOBAL HARD FAIL — REGENERATE
+Reject if ANY is true:
+- photorealistic or stock-photo look
+- realistic office/stationery still-life as the default visual solution
+- flat infographic / slide / poster look
+- dashboard / control panel / HUD
+- checklist, settings UI or chart card used as the generated-image composition
+- progress bar used as the generated-image composition or main motif
+- floating card/tile/module grid
+- generic finance-icon collage
+- generic corporate stock 3D
+- childish clay/toy/Pixar look
+- sterile luxury product pedestal
+- tiny isometric diorama
+- frame mostly empty with a tiny subject
+- unexplained abstract finance machine
+- composition has no visible action, contrast, relationship or story
+- prompt only restates the narration instead of inventing a visual idea
 
 QUALITY GATE
-Reject and regenerate if the image is visually impressive but not clearly FinanzNeo V9, if it feels like generic AI-finance art, if a chart is tilted, if gold dominates, if the subject is decorative rather than explanatory, or if the spoken point is not immediately recognizable.
+Before accepting, ask:
+1. Is there ONE clear main idea?
+2. Can it be understood in roughly two seconds?
+3. Does it unmistakably look like premium stylized 3D CGI?
+4. Is the scene visually specific rather than generic?
+5. Are objects/characters/colors chosen because they help the idea, not because of a rigid palette?
+6. Does the composition have depth, contact, overlap or action?
+If any answer is NO, regenerate the same image number.
 
-GOOGLE FLOW
-Thumbnail phase: exactly 3 separate thumbnail jobs in parallel.
-Scene-image phase: up to 5 separate one-image jobs in parallel per batch. Each job produces exactly one image. As each result returns, rename it immediately and run QA. Failed images are regenerated under the same number. Start the next batch only when every image in the current batch has passed.
+GOOGLE FLOW EXECUTION
+- Cover phase: 3 separate one-image jobs in parallel, then one A/B/C selection.
+- Scene phase: up to 5 separate one-image jobs in parallel per batch.
+- Every individual image prompt must be SELF-CONTAINED and repeat: MAIN IDEA, SCENE, FULL STYLE LOCK, BACKGROUND/ENVIRONMENT, ALLOWED TEXT, PERSON RULE when relevant, NEGATIVE and QA.
+- Do not rely on a previous generated image as the style reference.
+- Rename immediately.
+- QA every result.
+- Failed style/composition -> regenerate only that same image number.
+- Start next batch only after current batch passes.

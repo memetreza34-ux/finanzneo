@@ -10,10 +10,13 @@ import {
   GENERATED_IMAGE_ASPECT_MARKER,
   GENERATED_IMAGE_ASPECT_RATIO,
   IMAGE_INBOX,
+  IMAGE_WORLD_PROMPT,
+  PROMPT_DIRECTORY,
   SERIES_LOCK_ID,
   SERIES_LOCK_MARKER,
   SOCIAL_PROMO_FILES,
   SUBTITLE_MODE,
+  THUMBNAIL_PROMPT,
   VISUAL_INDEX,
   WORD_TIMINGS,
   WORLD_ID,
@@ -56,7 +59,7 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
 const errors = [];
 const assert = (condition, message) => { if (!condition) errors.push(message); };
 const read = (relativePath) => readFileSync(resolve(root, relativePath), 'utf8');
-const requiredDirectories = ['01-recherche', '02-script', '03-audio', '04-visuals', '05-publishing', '06-projektdateien', IMAGE_INBOX];
+const requiredDirectories = ['01-recherche', '02-script', '03-audio', '04-visuals', '05-publishing', '06-projektdateien', IMAGE_INBOX, PROMPT_DIRECTORY];
 for (const directory of requiredDirectories) {
   assert(existsSync(resolve(root, directory)) && statSync(resolve(root, directory)).isDirectory(), `${directory}/ fehlt.`);
 }
@@ -80,8 +83,8 @@ if (!existsSync(resolve(root, VISUAL_INDEX))) {
 }
 
 assert(existsSync(resolve(root, ALL_PROMPTS)), `${ALL_PROMPTS} fehlt.`);
-assert(existsSync(resolve(root, '04-visuals/bildwelt.txt')), '04-visuals/bildwelt.txt fehlt.');
-assert(existsSync(resolve(root, '04-visuals/thumbnail-prompt.txt')), '04-visuals/thumbnail-prompt.txt fehlt.');
+assert(existsSync(resolve(root, IMAGE_WORLD_PROMPT)), `${IMAGE_WORLD_PROMPT} fehlt.`);
+assert(existsSync(resolve(root, THUMBNAIL_PROMPT)), `${THUMBNAIL_PROMPT} fehlt.`);
 assert(existsSync(resolve(root, WORD_TIMINGS)), `${WORD_TIMINGS} fehlt.`);
 
 if (index) {
@@ -103,7 +106,13 @@ if (index) {
   assert(index.imageWorld?.frontFacingChartsRequired === true, 'Charts/Diagramme müssen frontal dargestellt werden.');
   assert(index.imageWorld?.styleReferenceStrategy === 'written-youtube-v9-lock-only', 'Nur die geschriebene YouTube-V9-Welt darf Style-Autorität sein.');
   assert(index.imageWorld?.selectedThumbnailMayBeStyleReference === false, 'Das gewählte Thumbnail darf keine Style-Referenz sein.');
-  assert(index.imageWorld?.referencePromptFile === '04-visuals/bildwelt.txt', 'referencePromptFile ist falsch.');
+  assert(index.imageWorld?.referencePromptFile === IMAGE_WORLD_PROMPT, 'referencePromptFile ist falsch.');
+  assert(index.imageWorld?.primaryApprovedStyleAnchor === 'finanzneo-premium-physical-editorial-v8', 'Premium Physical Editorial V8 muss primärer Flow-Stilanker sein.');
+  if (Array.isArray(index.imageWorld?.flowVisualModes)) {
+    assert(index.imageWorld.flowVisualModes.includes('grounded-scene') && index.imageWorld.flowVisualModes.includes('editorial-3d-illustration'), 'Flow-Bildwelt muss Grounded Scene und Editorial 3D Illustration unterstützen.');
+  assert(index.imageWorld?.precisionGraphicsOwner === 'remotion', 'Präzise Daten/UI/Checklisten müssen Remotion gehören.');
+  assert(index.imageWorld?.flowInfographicLayoutsForbidden === true, 'Google Flow darf keine Infografik-/Dashboard-Layouts erzeugen.');
+  }
   assert(index.motionStandard?.id === YOUTUBE_MOTION_STANDARD_ID, `motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
   assert(index.motionStandard?.contentFirstTechniqueSelection === true, 'Motion-Technik muss aus dem Inhalt gewählt werden.');
   assert(index.motionStandard?.existingComponentsOptional === true && index.motionStandard?.physicalPrimitivesOptional === true, 'Bestehende/Physical-Primitives müssen optional bleiben.');
@@ -123,7 +132,7 @@ if (index) {
   assert(index.timelineRules?.equalLengthVisualsForbiddenByDefault === true, 'Starre gleich lange Visuals müssen standardmäßig verboten sein.');
   assert(Number(index.audio?.targetIntegratedLufs) === -16 && Number(index.audio?.targetTruePeakDbtp) === -1, 'Audioziel muss ungefähr -16 LUFS und höchstens -1 dBTP sein.');
   assert(index.thumbnail?.type === 'image' && typeof index.thumbnail?.googleFlowFileName === 'string', 'Thumbnail-Vertrag fehlt.');
-  assert(index.thumbnail?.planFile === '04-visuals/thumbnail-prompt.txt', 'Thumbnail-Promptpfad ist falsch.');
+  assert(index.thumbnail?.planFile === THUMBNAIL_PROMPT, 'Thumbnail-Promptpfad ist falsch.');
   assert(Number(index.thumbnail?.candidateCount) === YOUTUBE_THUMBNAIL_CANDIDATE_COUNT && Number(index.thumbnail?.concurrency) === YOUTUBE_THUMBNAIL_CONCURRENCY, 'Es müssen 3 Thumbnail-Kandidaten gleichzeitig geplant sein.');
   assert(index.thumbnail?.textRequired === true && Number(index.thumbnail?.textMaxLines) === 2, 'Thumbnail braucht kurzen Inhalts-Hook mit max. 2 Zeilen.');
   assert(index.thumbnail?.mustUseSameV9World === true && index.thumbnail?.mayBeStyleReference === false, 'Thumbnail muss dieselbe V9-Welt nutzen, darf aber nie Style-Referenz sein.');
@@ -153,6 +162,7 @@ if (index) {
       imageFileNames.add(visual.googleFlowFileName);
       const imagePlan = visual.type === 'hybrid' ? visual.imagePlanFile : visual.planFile;
       assert(typeof imagePlan === 'string' && imagePlan.endsWith('/bildprompt.txt') && existsSync(resolve(root, imagePlan)), `${id}: bildprompt.txt fehlt.`);
+      assert(typeof imagePlan !== 'string' || imagePlan.startsWith(`${PROMPT_DIRECTORY}/`), `${id}: Bildprompt muss unter ${PROMPT_DIRECTORY}/ liegen.`);
       if (typeof imagePlan === 'string' && existsSync(resolve(root, imagePlan))) {
         const prompt = readFileSync(resolve(root, imagePlan), 'utf8');
         for (const marker of ['VISUAL_FORM:', 'VISUAL_CONCEPT:', 'VOICEOVER_VISUAL_MATCH:', 'FRONT_READABILITY_TEST:', 'DATA_INTEGRITY_TEST:']) {
@@ -190,8 +200,14 @@ if (existsSync(resolve(root, ALL_PROMPTS))) {
   assert(prompts.includes('regenerate only that same number'), 'Wiederholungsregel für fehlerhafte Bilder fehlt.');
   assert(prompts.includes(IMAGE_INBOX), 'Gemeinsamer Bilderordner fehlt in der Flow-Übergabe.');
   assert(prompts.includes('horizontal 16:9'), 'Horizontales 16:9-Quellbild fehlt in der Flow-Übergabe.');
-  assert(prompts.includes(`STYLE_AUTHORITY: ${YOUTUBE_IMAGE_WORLD_LOCK}`), 'Geschriebene V9-Bildwelt fehlt als einzige Style-Autorität.');
-  assert(prompts.includes('Charts') || prompts.includes('CHART/DIAGRAM/DATA'), 'Frontale Chart-/Diagramm-Regel fehlt.');
+  assert(prompts.includes(`STYLE_AUTHORITY: ${YOUTUBE_IMAGE_WORLD_LOCK}`), 'Geschriebene V9-Bildwelt fehlt als Style-Autorität.');
+  assert(prompts.includes('PRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8'), 'Premium Physical Editorial V8 fehlt als primärer Flow-Stilanker.');
+  assert(/GROUNDED SCENE/.test(prompts) && /EDITORIAL 3D ILLUSTRATION/.test(prompts), 'Flow-Master muss Grounded Scene und Editorial 3D Illustration als zwei zulässige Flow-Bildklassen enthalten.');
+  assert(!/SIMPLE EXPLAINER/i.test(prompts), 'Flow-Master darf keinen Simple-Explainer-Infografikmodus mehr enthalten.');
+  assert(/PRECISION_GRAPHICS_OWNER:\s*REMOTION/i.test(prompts), 'Präzisionsgrafiken müssen explizit Remotion gehören.');
+  assert(/DIESEN TEXT 1:1 AUSFÜHREN|DIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG/.test(prompts), 'Flow-Master muss die direkte Bildausführung ausdrücklich anweisen.');
+  assert(!/NICHT MEHR HIER ARBEITEN/i.test(prompts), `${ALL_PROMPTS} darf kein Redirect-/Stub-Hinweis sein.`);
+  assert(!/vollständigen.{0,80}(liegen|findest du|stehen).{0,80}(ander|zentral)/is.test(prompts), `${ALL_PROMPTS} darf nicht auf einen anderen Master-Prompt verweisen.`);
   assert(!/square 1:1 source image|portrait 9:16|vertical 9:16 image/i.test(prompts), 'YouTube-Prompts enthalten ein falsches Quellbildformat.');
 }
 
@@ -213,4 +229,4 @@ if (errors.length > 0) {
 }
 
 console.log('\n✓ YouTube-Longform-Vertrag erfüllt.');
-console.log(`  16:9 · ${YOUTUBE_IMAGE_WORLD_LOCK} · min. ${YOUTUBE_MIN_MOTION_VISUALS} Motion · Cover 3 parallel · Bilder 5 parallel · Charts frontal · keine Shorts/Reels`);
+console.log(`  16:9 · ${YOUTUBE_IMAGE_WORLD_LOCK} · Grounded Scene + Editorial 3D Illustration · Precision = Remotion · min. ${YOUTUBE_MIN_MOTION_VISUALS} Motion · keine Shorts/Reels`);
