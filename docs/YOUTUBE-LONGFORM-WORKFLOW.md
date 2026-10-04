@@ -58,17 +58,21 @@ Dem Google-Flow-KI-Agenten wird ausschließlich diese Datei gegeben:
 Der Agent arbeitet nach `finanzneo-youtube-cover3-image5-parallel-v4` (Details: `youtube/PRODUKTIONSSTANDARD.md`, Abschnitt 5):
 
 ```text
-THUMBNAIL A / B / C ALS DREI GETRENNTE EIN-BILD-JOBS GLEICHZEITIG
+EIN GOOGLE-FLOW-ORDNER PRO VIDEO („FinanzNeo – <Videotitel>“)
+→ THUMBNAIL A / B / C ALS DREI GETRENNTE EIN-BILD-JOBS GLEICHZEITIG
 → ALLE DREI QA-PRÜFEN
 → NUTZER WÄHLT GENAU EINMAL A/B/C
+→ DIE ZWEI NICHT GEWÄHLTEN COVER IM FLOW-ORDNER LÖSCHEN, GEWINNER UMBENENNEN
 → SZENENBILDER IN BATCHES VON BIS ZU FÜNF GETRENNTEN EIN-BILD-JOBS PARALLEL
-→ JEDES ERGEBNIS SOFORT EXAKT UMBENENNEN UND QA-PRÜFEN
-→ BEI FAIL NUR DIESELBE BILDNUMMER NEU ERZEUGEN
+→ JEDES ERGEBNIS SOFORT NACH SEINER SZENE UMBENENNEN UND QA-PRÜFEN
+→ BEI FAIL FEHLVERSUCH LÖSCHEN UND NUR DIESELBE BILDNUMMER NEU ERZEUGEN
 → NÄCHSTER BATCH ERST, WENN DER AKTUELLE BATCH VOLLSTÄNDIG PASS IST
-→ FINALER INVENTORY-QA
+→ FERTIGER FLOW-ORDNER: THUMBNAIL + ALLE SZENENBILDER, JEDES GENAU EINMAL
 ```
 
 - Bilder folgen `finanzneo-youtube-animated-black-v3`: Standbild aus einem stilisierten 3D-Animationsfilm auf tiefem Schwarz. Look fest — Inhalt frei.
+- Natürlich — kein KI-Look: ruhig, einfach, echte Dinge in einer echten Situation. Keine Glas-/Leuchtbalken, Wertblöcke, Neon, Rauch oder Poster-Drama.
+- Wie viele Bilder entstehen, entscheidet der Visualplan aus Phase 1.
 - Nur Visuals mit echtem Flow-Bedarf (`image` und die Szenenplatte von `hybrid`) bekommen ein Flow-Bild. `animation` und `data` baut Remotion.
 - Fünf ist die maximale Batchgröße, keine Pflichtanzahl.
 - Niemals mehrere Bilder in einem Request, kein Kontaktbogen, keine Collage.
@@ -76,7 +80,7 @@ THUMBNAIL A / B / C ALS DREI GETRENNTE EIN-BILD-JOBS GLEICHZEITIG
 - Nicht Motiv, Komposition oder Labels eines anderen Bildes als Standardvorlage kopieren.
 - Keine Nutzerfreigabe zwischen Batches.
 - Nicht-Bild-Visualnummern überspringen, aber nicht neu nummerieren.
-- Alle fertigen Dateien gemeinsam nach `04-visuals/00-ALLE-BILDER-HIER-REIN/` legen.
+- Den fertigen Flow-Ordner herunterladen und alle Dateien gemeinsam nach `04-visuals/00-ALLE-BILDER-HIER-REIN/` legen.
 - Alle YouTube-Quellbilder und das Thumbnail sind horizontal `16:9`.
 - Genau ein finales Voiceover in `03-audio/` ablegen.
 - Aus genau diesem Audio echte Wort-Zeitstempel in `03-audio/word-timings.json` erzeugen.

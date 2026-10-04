@@ -108,6 +108,14 @@ test('YouTube-Ersteller erzeugt Motion V3 und den Flow-Master der Bildwelt A+B',
     assert.doesNotMatch(flow, /LEGACY_PROMPT_DNA|premium-physical-editorial-v8|chunky|Pixar/i);
     assert.doesNotMatch(flow, /Büro-\/Papier-Stillleben/);
     assert.doesNotMatch(flow, /SIMPLE EXPLAINER/i);
+    assert.match(flow, /PHASE 0 — EIN GOOGLE-FLOW-ORDNER PRO VIDEO\n1\. Work in exactly ONE Google Flow project \(folder\) for this video\. Name it: FinanzNeo – Motion V3 Test/);
+    assert.match(flow, /NICHT GEWÄHLTE COVER LÖSCHEN: delete the two non-selected candidates/);
+    assert.match(flow, /Generate exactly the IMAGE\/HYBRID jobs planned below — no more, no less/);
+    assert.match(flow, /delete the failed result from the Flow folder and regenerate only that same number/);
+    assert.match(flow, /FERTIGER FLOW-ORDNER\n1\. The Flow folder contains exactly the selected thumbnail plus every planned scene image/);
+    assert.match(flow, /NATÜRLICH — KEIN KI-LOOK:/);
+    assert.match(flow, /KI-SLOP VERBOTEN: glowing or neon edges, glass or crystal bars/);
+    assert.doesNotMatch(flow, /discard the other two from the final folder/);
     assert.doesNotMatch(flow, /NICHT MEHR HIER ARBEITEN/);
     assert.doesNotMatch(flow, /vollständigen.*liegen jetzt/i);
 

@@ -4,6 +4,7 @@ import {resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {
   YOUTUBE_APPROVED_STYLE_REFERENCES,
+  YOUTUBE_FLOW_NATURAL_LOOK_MARKER,
   YOUTUBE_FLOW_VISUAL_MODES,
   YOUTUBE_IMAGE_WORLD_FILE,
   YOUTUBE_IMAGE_WORLD_LOCK,
@@ -60,6 +61,14 @@ LOOK — IMMER:
 - deep seamless black world; a small local set may exist when it helps and dissolves into black
 - Emerald = positiv/Lösung, warmes Red-Orange = Kosten/Warnung, Gold = kleiner Geld-Akzent, Ivory/Soft Gray = neutral; natürliche Haut- und Kleidungsfarben sind erlaubt
 
+${YOUTUBE_FLOW_NATURAL_LOOK_MARKER}:
+Jedes Bild wirkt wie ein ruhiges Standbild aus einem Animationsfilm, nicht wie ein KI-Poster. Einfach, natürlich, sofort verständlich.
+- natural and calm: few real objects, believable everyday arrangement, natural proportions, natural colors, soft natural light
+- real things in a real situation, never an abstract symbol that must be decoded
+- clean but not plastic-shiny; no over-sharpened hyper-detail, no oversaturated colors
+- text only exactly the requested words; no extra invented labels, no garbled lettering
+- KI-SLOP VERBOTEN: glowing or neon edges, glass or crystal bars/blocks/arrows, value blocks or value stacks as symbols, falling bars or arrows, dramatic red glow, smoke, sparks, lens flares, heavy fog, epic poster drama, banknote piles as decoration, cluttered backgrounds
+
 ENTSCHEIDENDER MOMENT — NUR AB UND ZU: Nur wenn der Sprechpunkt von etwas handelt, das passiert, zeigt das Bild diese Sekunde. Keine Geschichte und keine Person erfinden, nur damit eine da ist.
 
 ABWECHSLUNG: Jedes Bild zeigt eine sichtbar andere Situation, einen anderen Ort oder Blickwinkel als das vorige.
@@ -68,7 +77,7 @@ TEXT: kurze deutsche Objektlabels direkt am Gegenstand, wenn sie helfen. Keine S
 
 KREATIV IST ERWÜNSCHT: Übertreibung und Bildideen aus echten Gegenständen, solange es auf einen Blick lesbar ist. ZITATE, STICHWORTE, TABELLEN: Remotion-Karten mit exaktem Text (src/design-system/karten.tsx), nicht Flow.\n\nDIAGRAMME UND ZAHLEN: Charts, Diagramme mit Achsen, exakte Zahlen, Tabellen, Checklisten und UI-Zustände baut Remotion, nicht Flow.\n\nPROMPTS: Jeder Bildprompt ist ein kurzer englischer Absatz in immer derselben Form; nur die Labels im Bild sind deutsch.
 
-HARD FAIL — DENSELBEN JOB NEU GENERIEREN: fotorealistisch; grün-goldene Symbolwelt (Bankgebäude, Schild, Tresor, Münzberge, leuchtende Icons) als Hauptidee; abstrakte Finanzskulpturen statt echter Situation (Schuldenklammer, Zinsmagnet, Zahlungs-Token, Geldband); dunkelgrün-schwarzer Monochrom-Look; Chart, Diagramm, flache Infografik, Dashboard, UI, Checkliste oder Progress-Bar; Zitat oder längerer Text im Bild; schwebende Karten oder Tiles; heller oder farbiger Hintergrund; Mini-Diorama; Hauptmotiv zu klein; Spielzeug-, Plastik- oder Knete-Look; Person oder Geschichte ohne Grund; dieselbe Szene wie das vorige Bild.
+HARD FAIL — DENSELBEN JOB NEU GENERIEREN: fotorealistisch; grün-goldene Symbolwelt (Bankgebäude, Schild, Tresor, Münzberge, leuchtende Icons) als Hauptidee; abstrakte Finanzskulpturen statt echter Situation (Schuldenklammer, Zinsmagnet, Zahlungs-Token, Geldband, Wertblock, Wertstapel); KI-Poster-Look (Glas-/Leuchtbalken, Neon, Rauch, Funken, Drama, erfundene Mini-Labels); dunkelgrün-schwarzer Monochrom-Look; Chart, Diagramm, flache Infografik, Dashboard, UI, Checkliste oder Progress-Bar; Zitat oder längerer Text im Bild; schwebende Karten oder Tiles; heller oder farbiger Hintergrund; Mini-Diorama; Hauptmotiv zu klein; Spielzeug-, Plastik- oder Knete-Look; Person oder Geschichte ohne Grund; dieselbe Szene wie das vorige Bild.
 `;
 
 const oldImagePrompt = 'Show [THE EXACT CONTENT-SPECIFIC VISUAL]. If this is a chart or diagram, show it straight-on from the front with undistorted axes/labels/proportions. Include only these short German object labels if needed: [LABELS].';
