@@ -1,0 +1,111 @@
+DIESEN TEXT 1:1 AUSFÜHREN.
+DIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG IN GOOGLE FLOW.
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
+THUMBNAIL_CONCURRENCY: 3
+IMAGE_BATCH_SIZE: 5
+IMAGE_CONCURRENCY: 5
+STYLE_AUTHORITY: finanzneo-youtube-animated-black-v3
+APPROVED_STYLE_REFERENCES: Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgroschen" (2026-09-17)
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+PRECISION_GRAPHICS_OWNER: REMOTION
+FINAL COLLECTION: 04-visuals/00-ALLE-BILDER-HIER-REIN
+
+LOOK FEST — INHALT FREI.
+Every image must look like a still from a high-quality stylized 3D animated feature film about money in everyday life: premium semi-realistic materials, refined rounded geometry, warm key light, soft rim light, contact shadows, deep seamless black background. Real objects and small real places are allowed when useful. People are optional, never forced. Not photorealistic. No logos. No dashboard, app UI, infographic card layout, floating tiles, checklists, progress bars, flowcharts, tiny dioramas, generic bank/coin/shield symbolism as the main idea, or gold-luxury finance look.
+
+ENTSCHEIDENDER MOMENT: Only use a decisive action moment when the spoken beat is about something happening. A strong object or quiet everyday scene is valid when it explains the beat faster.
+
+Precise numbers, charts, tables, UI and checklists belong to Remotion. Google Flow renders only the three planned scene images and the three thumbnail candidates.
+
+EXECUTION RULES
+1. Start exactly three SEPARATE one-image jobs for Thumbnail A/B/C at the same time.
+2. QA all three. Ask the user exactly once to choose A/B/C.
+3. Rename the winner immediately to: YouTube Thumbnail - Notgroschen nicht ins Depot.png
+4. Then start the three planned scene images as SEPARATE one-image jobs in one parallel batch.
+5. As each result returns, rename immediately to its exact final file name and QA it.
+6. If one job fails, regenerate only that same number. Do not regenerate passed jobs.
+7. The batch is complete only when every planned scene image passes.
+8. Do not ask for user approval between scene images or batches.
+9. Never use the selected thumbnail or another generated image as a style reference.
+10. Every output is a horizontal 16:9 single image. Never make a collage or multi-image request.
+
+THUMBNAIL A
+Temporary file: YouTube Thumbnail A.png
+Only text: "NICHT INS DEPOT"
+Stylized 3D animated feature film still, 16:9. A broken washing machine with a large repair slip in the foreground, a safe green emergency-money stack on one side and a visibly reduced investment value block on the other. Deep black background, warm cinematic light, no dashboard, no photorealism.
+
+THUMBNAIL B
+Temporary file: YouTube Thumbnail B.png
+Only text: "NOTGROSCHEN FEHLER"
+Stylized 3D animated feature film still, 16:9. A repair bill marked "800 €" lands next to an emergency-money folder while a separate investment value block behind it has visibly lost part of its height. Deep black background, premium animated-film look, no logos or UI.
+
+THUMBNAIL C
+Temporary file: YouTube Thumbnail C.png
+Only text: "3.000 € → 2.400 €?"
+Stylized 3D animated feature film still, 16:9. A large physical 3.000-euro value stack is missing one red-orange fifth, leaving a smaller 2.400-euro stack beside a broken household appliance. Deep black background, no chart axes, no dashboard.
+
+SCENE JOBS
+
+BILD 01
+FINAL FILE NAME: YouTube Bild 01 - Waschmaschine kaputt.png
+FORMAT: horizontal 16:9
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
+THUMBNAIL_CONCURRENCY: 3
+IMAGE_BATCH_SIZE: 5
+IMAGE_CONCURRENCY: 5
+STYLE_AUTHORITY: finanzneo-youtube-animated-black-v3
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+APPROVED_STYLE_REFERENCES: Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgroschen" (2026-09-17)
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+PRECISION_GRAPHICS_OWNER: REMOTION
+
+CREATE EXACTLY ONE IMAGE.
+VISUAL_FORM: everyday-scene
+VISUAL_CONCEPT: Die unerwartete Reparatur ist sofort da und der Notgroschen wird jetzt gebraucht.
+DECISIVE_MOMENT: The washing-machine door hangs open and the repair slip has just been placed beside it.
+VOICEOVER_VISUAL_MATCH: Script: "Dein Notgroschen hat nur einen Job: Er muss da sein, wenn plötzlich etwas kaputtgeht."
+FRONT_READABILITY_TEST: PASS — main idea is large, close and understandable in about two seconds.
+DATA_INTEGRITY_TEST: not-applicable
+IMAGE PROMPT
+Stylized 3D animated feature film still, 16:9. A modern washing machine in a small laundry corner has its door open and a loose belt visible inside; beside it lies a cream repair slip with one large clear line "Reparatur 800 €". A small toolbox is open on the floor. Warm soft practical light, deep seamless black swallowing the rest of the room, believable proportions, premium semi-realistic materials, no person, no logos, not photorealistic. Only text: "Reparatur 800 €".
+
+BILD 04
+FINAL FILE NAME: YouTube Bild 04 - Eigene Lebenssituation.png
+FORMAT: horizontal 16:9
+CREATE EXACTLY ONE IMAGE.
+VISUAL_FORM: object-story
+VISUAL_CONCEPT: Die passende Reserve hängt von den Verpflichtungen des eigenen Alltags ab.
+DECISIVE_MOMENT: not-applicable — the grouped everyday obligations are the idea.
+VOICEOVER_VISUAL_MATCH: Script: "Wie hoch deine Reserve wirklich sein sollte, hängt aber von deiner Situation ab."
+FRONT_READABILITY_TEST: PASS — main idea is large, close and understandable in about two seconds.
+DATA_INTEGRITY_TEST: not-applicable
+IMAGE PROMPT
+Stylized 3D animated feature film still, 16:9. On one dark entryway shelf: apartment keys, a car key, three ordinary unopened bill envelopes, a small work backpack and a compact tool pouch. Everything is arranged naturally as used everyday objects, not as an infographic or catalog grid. Warm soft side light, deep black background, slightly off-center cinematic framing, premium stylized materials, no people, no logos, no text.
+
+BILD 06
+FINAL FILE NAME: YouTube Bild 06 - Notgroschen auf Tagesgeld.png
+FORMAT: horizontal 16:9
+CREATE EXACTLY ONE IMAGE.
+VISUAL_FORM: object-story
+VISUAL_CONCEPT: Der Notgroschen liegt stabil und getrennt für kurzfristige Ausgaben bereit.
+DECISIVE_MOMENT: A repair receipt is being slid underneath the Notgroschen folder, showing the reserve is meant to pay real emergencies.
+VOICEOVER_VISUAL_MATCH: Script: "Für den Notgroschen zählt deshalb nicht maximale Rendite, sondern Liquidität und Stabilität."
+FRONT_READABILITY_TEST: PASS — main idea is large, close and understandable in about two seconds.
+DATA_INTEGRITY_TEST: not-applicable
+IMAGE PROMPT
+Stylized 3D animated feature film still, 16:9. A sturdy dark-green document folder labeled "Notgroschen" rests on a dark wooden surface next to an unbranded bank card and a small cream account note labeled "Tagesgeld"; a repair receipt is partly sliding underneath the folder as the real-life purpose. Deep black background, warm soft light with subtle emerald rim light, believable everyday materials, close framing, no person, no logos, no UI. Only text: "Notgroschen", "Tagesgeld".
+
+FINAL INVENTORY QA
+Exactly these four final files must exist:
+- YouTube Thumbnail - Notgroschen nicht ins Depot.png
+- YouTube Bild 01 - Waschmaschine kaputt.png
+- YouTube Bild 04 - Eigene Lebenssituation.png
+- YouTube Bild 06 - Notgroschen auf Tagesgeld.png

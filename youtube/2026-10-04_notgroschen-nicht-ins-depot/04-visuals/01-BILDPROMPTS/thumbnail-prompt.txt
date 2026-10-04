@@ -1,0 +1,32 @@
+THUMBNAIL
+FINAL FILE NAME: YouTube Thumbnail - Notgroschen nicht ins Depot.png
+FORMAT: horizontal 16:9
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
+THUMBNAIL_CONCURRENCY: 3
+IMAGE_BATCH_SIZE: 5
+IMAGE_CONCURRENCY: 5
+STYLE_AUTHORITY: finanzneo-youtube-animated-black-v3
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+APPROVED_STYLE_REFERENCES: Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgroschen" (2026-09-17)
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+PRECISION_GRAPHICS_OWNER: REMOTION
+
+Create exactly three separate one-image jobs in parallel: A, B and C. Each uses the same written FinanzNeo animated-film world. After QA, stop exactly once for the user to choose A/B/C. The selected image is renamed to the final file name and is never used as style reference.
+
+CANDIDATE A
+Only text: "NICHT INS DEPOT"
+Stylized 3D animated feature film still, 16:9. A broken washing machine with a large repair slip in the foreground, while a neat stack of green emergency money sits safe on one side and a red downward market line is physically separated on the other side. Deep black background, warm soft light, large readable objects, no dashboard, no photorealism.
+
+CANDIDATE B
+Only text: "NOTGROSCHEN FEHLER"
+Stylized 3D animated feature film still, 16:9. A repair bill marked "800 €" lands next to an emergency-money folder, while behind it a stylized investment value block is visibly lower than its original outline. Deep black background, cinematic animated-film lighting, no logos, no UI.
+
+CANDIDATE C
+Only text: "3.000 € → 2.400 €?"
+Stylized 3D animated feature film still, 16:9. A large physical 3.000-euro value stack is missing one red-orange fifth, leaving a smaller 2.400-euro stack beside a broken household appliance. Deep black background, premium stylized 3D animated-film look, no chart axes, no dashboard.
+
+QA: text must be spelled exactly, max two lines, hook readable at thumbnail size, no photorealism and no generic finance-symbol collage.

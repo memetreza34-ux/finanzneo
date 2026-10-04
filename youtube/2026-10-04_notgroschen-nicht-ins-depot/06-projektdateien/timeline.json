@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "fps": 30,
+  "status": "phase1-planning-only",
+  "timingAuthority": "03-audio/word-timings.json after Phase 2",
+  "plannedDurationSeconds": 124,
+  "visuals": [
+    {"id":"visual-01","plannedStart":0,"plannedEnd":13},
+    {"id":"visual-02","plannedStart":13,"plannedEnd":30},
+    {"id":"visual-03","plannedStart":30,"plannedEnd":46},
+    {"id":"visual-04","plannedStart":46,"plannedEnd":61},
+    {"id":"visual-05","plannedStart":61,"plannedEnd":76},
+    {"id":"visual-06","plannedStart":76,"plannedEnd":96},
+    {"id":"visual-07","plannedStart":96,"plannedEnd":112},
+    {"id":"visual-08","plannedStart":112,"plannedEnd":124}
+  ]
+}
