@@ -15,18 +15,18 @@ FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 PRECISION_GRAPHICS_OWNER: REMOTION
 
-Create exactly three separate one-image jobs in parallel: A, B and C. Each uses the same written FinanzNeo animated-film world. After QA, stop exactly once for the user to choose A/B/C. The selected image is renamed to the final file name and is never used as style reference.
+Create exactly three separate one-image jobs in parallel: A, B and C. Each uses the same written FinanzNeo animated-film world. After QA, stop exactly once for the user to choose A/B/C. Delete the two non-selected candidates from the Flow folder. The selected image is renamed to the final file name and is never used as style reference.
+
+NATURAL, NOT AI-LOOKING: calm real everyday scenes; no glowing or glass bars, value blocks, neon, smoke or poster drama.
 
 CANDIDATE A
 Only text: "NICHT INS DEPOT"
-Stylized 3D animated feature film still, 16:9. A broken washing machine with a large repair slip in the foreground, while a neat stack of green emergency money sits safe on one side and a red downward market line is physically separated on the other side. Deep black background, warm soft light, large readable objects, no dashboard, no photorealism.
+Stylized 3D animated feature film still, 16:9, YouTube thumbnail. A stylized adult stands in a small laundry corner in front of a broken front-loading washing machine with its door hanging open and a small puddle of water on the tiled floor; she holds a cream repair bill "Reparatur 800 €" and looks at it in surprise. Warm soft light, deep black background, person and machine large in the right half. Hook text in the calm left half: "NICHT INS DEPOT" in clean bold white sans-serif typography, max 2 lines. Not photorealistic, no logos. Only text: "NICHT INS DEPOT", "Reparatur 800 €".
 
 CANDIDATE B
-Only text: "NOTGROSCHEN FEHLER"
-Stylized 3D animated feature film still, 16:9. A repair bill marked "800 €" lands next to an emergency-money folder, while behind it a stylized investment value block is visibly lower than its original outline. Deep black background, cinematic animated-film lighting, no logos, no UI.
+Only text: "NOTGROSCHEN-FEHLER"
+Stylized 3D animated feature film still, 16:9, YouTube thumbnail. Close-up on a kitchen table: a hand opens a plain paper envelope labeled "Notgroschen" and finds it empty except for one small handwritten note "im Depot"; a repair bill "800 €" lies right next to it. Warm soft lamp light, deep black background, envelope and bill large in the right half. Hook text in the calm left half: "NOTGROSCHEN-FEHLER" in clean bold white sans-serif typography, max 2 lines. Not photorealistic, no logos. Only text: "NOTGROSCHEN-FEHLER", "Notgroschen", "im Depot", "800 €".
 
 CANDIDATE C
 Only text: "3.000 € → 2.400 €?"
-Stylized 3D animated feature film still, 16:9. A large physical 3.000-euro value stack is missing one red-orange fifth, leaving a smaller 2.400-euro stack beside a broken household appliance. Deep black background, premium stylized 3D animated-film look, no chart axes, no dashboard.
-
-QA: text must be spelled exactly, max two lines, hook readable at thumbnail size, no photorealism and no generic finance-symbol collage.
+Stylized 3D animated feature film still, 16:9, YouTube thumbnail. A hand pulls a noticeably thin bundle of euro banknotes out of an envelope labeled "Notgroschen" on a wooden hallway sideboard; a repair bill "800 €" waits beside it under a set of car keys. Warm soft side light, deep black background, hand and envelope large in the right half. Hook text in the calm left half: "3.000 € → 2.400 €?" in clean bold white sans-serif typography, max 2 lines. Not photorealistic, no logos. Only text: "3.000 € → 2.400 €?", "Notgroschen", "800 €".
