@@ -73,6 +73,7 @@ EIN GOOGLE-FLOW-ORDNER PRO VIDEO („FinanzNeo – <Videotitel>“)
 - Bilder folgen `finanzneo-youtube-animated-black-v3`: Standbild aus einem stilisierten 3D-Animationsfilm auf tiefem Schwarz. Look fest — Inhalt frei.
 - Natürlich — kein KI-Look: ruhig, einfach, echte Dinge in einer echten Situation. Keine Glas-/Leuchtbalken, Wertblöcke, Neon, Rauch oder Poster-Drama.
 - Wie viele Bilder entstehen, entscheidet der Visualplan aus Phase 1.
+- Jeder Bildprompt hat dieselbe kurze Form (`youtube/PRODUKTIONSSTANDARD.md`, Prompt-Form): naheliegende Alltagsszene in einem Satz, kurzer Ort, höchstens zwei Texte, keine Stilwörter.
 - Nur Visuals mit echtem Flow-Bedarf (`image` und die Szenenplatte von `hybrid`) bekommen ein Flow-Bild. `animation` und `data` baut Remotion.
 - Fünf ist die maximale Batchgröße, keine Pflichtanzahl.
 - Niemals mehrere Bilder in einem Request, kein Kontaktbogen, keine Collage.

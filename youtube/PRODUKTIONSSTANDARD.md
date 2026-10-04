@@ -133,6 +133,14 @@ Festgelegt von Arman am 04.10.2026 nach dem ersten echten Flow-Lauf (Notgroschen
 
 Es gibt keine Objektliste und keine Quote. Gegenstände, Orte, kreative Ideen, ab und zu Menschen — alles darf vorkommen, wenn es den Sprechpunkt visuell unterstützt. **Nichts auf Krampf:** Die meisten Bilder brauchen keine Person und keine Geschichte.
 
+**Naheliegend zuerst:** Zeige, was man bei diesem Satz im echten Alltag sehen würde. Eine kreative Idee nur, wenn sie sofort sitzt. Ist ein Satz abstrakt (Faustregel, Liquidität, „hängt von deiner Situation ab“), dann die einfachste echte Alltagsszene dazu — keine Anordnung von Symbol-Gegenständen, die man entschlüsseln muss. Passt keine echte Szene, wird der Beat eine Remotion-Karte statt eines Flow-Bildes.
+
+Passt-Test vor jedem Bildprompt:
+
+1. Würde man diese Szene so im echten Leben sehen?
+2. Versteht man in zwei Sekunden, was der Satz sagt?
+3. Ist es das Naheliegendste — oder eine Idee, die man erklären muss?
+
 ## Der entscheidende Moment — ab und zu
 
 Nur wenn der Sprechpunkt von etwas handelt, das passiert, zeigt das Bild diese Sekunde. Die meisten Bilder brauchen das nicht. Technisches Feld in jedem Bildjob: `DECISIVE_MOMENT: <…>` oder `not-applicable`.
@@ -152,19 +160,25 @@ Jedes Bild zeigt eine sichtbar andere Situation, einen anderen Ort, Abstand oder
 
 ## Prompt-Form — Pflicht
 
-Jeder Bildprompt ist **ein kurzer englischer Absatz in immer derselben Form**. Nur die Labels im Bild sind deutsch.
+Jeder Bildprompt hat **genau dieselbe kurze Form** — einheitlich, einfach, ein Satz zum Inhalt. Nur die Texte im Bild sind deutsch.
 
 ```text
-Stylized 3D animated feature film still, 16:9. [Was im Bild ist]. [Optional: was gerade passiert]. [Ort, nur so viel wie nötig]. Only text: "[deutscher Text]". Warm soft light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. [Was man sieht — ein konkreter Alltagssatz]. [Ort — kurz]. Only text: "[höchstens zwei kurze deutsche Labels]". Soft natural light, deep black background. Not photorealistic, no logos.
 ```
 
-Beispiel, das in Flow auf Anhieb gepasst hat:
+- ohne Text: `No text.` statt `Only text: …`
+- Cover: statt `Only text` → `Big clean white headline on the left: "[HOOK]".`
+- höchstens 70 Wörter, höchstens zwei Texte im Bild
+- keine Stilwörter wie premium, cinematic, epic, dramatic, hyper-detailed — den Look legt der erste Satz fest
+- keine Regelblöcke im Einzelprompt — die Regeln stehen einmal im Master
+
+Beispiel:
 
 ```text
-Stylized 3D animated film still, 16:9. A young man at a supermarket checkout has just paid by card: the card terminal glows green, but his relieved smile is freezing, because a small red-orange paper tag reading "Dispo" is swinging from his bank card. Groceries on the belt in front of him. Warm soft light, deep black background, only the checkout counter visible. Expressive faces, real everyday objects, not photorealistic, no logos. Only text: "Dispo".
+Stylized 3D animated feature film still, 16:9. A young man at a supermarket checkout has just paid by card, a small red-orange paper tag hangs from his bank card. Checkout counter with groceries. Only text: "Dispo". Soft natural light, deep black background. Not photorealistic, no logos.
 ```
 
-Keine langen Regelblöcke im Einzelprompt — die Regeln stehen einmal im Master.
+`youtube:validate` prüft Anfang, Schluss, Länge, Textanzahl und Stilwörter jedes Prompts.
 
 ## Text in Flow-Szenenbildern
 

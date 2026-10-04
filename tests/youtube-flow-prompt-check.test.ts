@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {findAbstractFlowPromptTerms} from '../scripts/lib/youtube-flow-prompt-check.mjs';
+import {countFlowPrompts, findAbstractFlowPromptTerms, findFlowPromptFormIssues} from '../scripts/lib/youtube-flow-prompt-check.mjs';
 
 test('Flow-Prompt-Check findet die abstrakten Cover-Motive aus dem ersten Notgroschen-Lauf', () => {
   const prompts = [
@@ -23,4 +23,20 @@ test('Flow-Prompt-Check lässt natürliche Alltagsszenen und Verbotslisten durch
     '- KI-SLOP VERBOTEN: glowing or neon edges, glass or crystal bars/blocks/arrows, value blocks or value stacks as symbols',
   ].join('\n');
   assert.deepEqual(findAbstractFlowPromptTerms(prompts), []);
+});
+
+test('Flow-Prompt-Check verlangt dieselbe kurze Form für jeden Bildprompt', () => {
+  const uniform = 'Stylized 3D animated feature film still, 16:9. A washing machine with its door open, a repair bill beside it. Small laundry corner. Only text: "Reparatur 800 €". Soft natural light, deep black background. Not photorealistic, no logos.';
+  assert.deepEqual(findFlowPromptFormIssues(uniform), []);
+  assert.equal(countFlowPrompts(`Regeltext erwähnt Stylized 3D animated feature film still nur.\n${uniform}`), 1);
+
+  const old = 'Stylized 3D animated feature film still, 16:9, YouTube thumbnail. A premium cinematic hero shot of a card on four labels "A", "B", "C", "D". Warm soft light, deep black background. Not photorealistic, no logos, no people.';
+  const issues = findFlowPromptFormIssues(old).join('\n');
+  assert.match(issues, /beginnt nicht exakt/);
+  assert.match(issues, /endet nicht exakt/);
+  assert.match(issues, /verlangt 4 Texte/);
+  assert.match(issues, /Hochglanz-Wort „premium“/);
+
+  const long = `Stylized 3D animated feature film still, 16:9. ${'A calm kitchen table with ordinary things. '.repeat(10)}Soft natural light, deep black background. Not photorealistic, no logos.`;
+  assert.match(findFlowPromptFormIssues(long).join('\n'), /Wörter, erlaubt sind 70/);
 });
