@@ -4,7 +4,7 @@ import {resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import test from 'node:test';
 
-test('YouTube-Ersteller erzeugt Motion V3 und scene-first Flow-Master', () => {
+test('YouTube-Ersteller erzeugt Motion V3 und legacy-DNA Flow-Master', () => {
   const target = `youtube/.tmp-motion-v3-${process.pid}-${Date.now()}`;
   const absolute = resolve(target);
   try {
@@ -27,7 +27,20 @@ test('YouTube-Ersteller erzeugt Motion V3 und scene-first Flow-Master', () => {
     assert.equal(index.fixedVisualCount, false);
     assert.equal(index.fixedImageAnimationRatio, false);
     assert.equal(index.imageWorld.primaryApprovedStyleAnchor, 'finanzneo-premium-physical-editorial-v8');
-    assert.deepEqual(index.imageWorld.flowVisualModes, ['grounded-scene', 'editorial-3d-illustration']);
+    assert.equal(index.imageWorld.legacyPromptDna, 'finanzneo-stylized-3d-editorial-v5');
+    assert.deepEqual(index.imageWorld.flowVisualModes, [
+      'grounded-scene',
+      'character-story',
+      'object-story',
+      'physical-metaphor',
+      'editorial-3d-illustration',
+      'environmental-scene',
+      'comparison-scene',
+      'transformation-scene',
+      'hybrid-scene-plate',
+    ]);
+    assert.equal(index.imageWorld.sceneSpecificColorsAllowed, true);
+    assert.equal(index.imageWorld.peopleAllowedWhenUseful, true);
     assert.equal(index.imageWorld.precisionGraphicsOwner, 'remotion');
     assert.equal(index.imageWorld.flowInfographicLayoutsForbidden, true);
     assert.equal(index.imageWorld.referencePromptFile, '04-visuals/01-BILDPROMPTS/bildwelt.txt');
@@ -55,16 +68,22 @@ test('YouTube-Ersteller erzeugt Motion V3 und scene-first Flow-Master', () => {
 
     const prompt = readFileSync(resolve(absolute, '04-visuals/01-BILDPROMPTS/visual-01/bildprompt.txt'), 'utf8');
     assert.match(prompt, /finanzneo-premium-physical-editorial-v8/);
-    assert.match(prompt, /GROUNDED SCENE/);
-    assert.match(prompt, /EDITORIAL 3D ILLUSTRATION/);
+    assert.match(prompt, /LEGACY_PROMPT_DNA: finanzneo-stylized-3d-editorial-v5/);
+    assert.match(prompt, /grounded-scene/i);
+    assert.match(prompt, /character-story/i);
+    assert.match(prompt, /physical-metaphor/i);
     assert.match(prompt, /PRECISION_GRAPHICS_OWNER: REMOTION/);
+    assert.match(prompt, /scene-appropriate colors/i);
+    assert.match(prompt, /MENSCHEN\/FIGUREN SIND ERLAUBT/);
     assert.doesNotMatch(prompt, /SIMPLE EXPLAINER/i);
 
     const imageWorld = readFileSync(resolve(absolute, '04-visuals/01-BILDPROMPTS/bildwelt.txt'), 'utf8');
     assert.match(imageWorld, /finanzneo-premium-physical-editorial-v8/);
-    assert.match(imageWorld, /GROUNDED SCENE/);
-    assert.match(imageWorld, /EDITORIAL 3D ILLUSTRATION/);
+    assert.match(imageWorld, /LEGACY_PROMPT_DNA: finanzneo-stylized-3d-editorial-v5/);
+    assert.match(imageWorld, /grounded-scene/i);
+    assert.match(imageWorld, /editorial-3d-illustration/i);
     assert.match(imageWorld, /PRECISION_GRAPHICS_OWNER: REMOTION/);
+    assert.match(imageWorld, /FARBEN SIND NICHT AUF/i);
     assert.doesNotMatch(imageWorld, /SIMPLE EXPLAINER/i);
 
     const flowPath = resolve(absolute, '04-visuals/alle-bildprompts.txt');
@@ -72,9 +91,12 @@ test('YouTube-Ersteller erzeugt Motion V3 und scene-first Flow-Master', () => {
     const flow = readFileSync(flowPath, 'utf8');
     assert.match(flow, /DIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG/);
     assert.match(flow, /finanzneo-premium-physical-editorial-v8/);
-    assert.match(flow, /GROUNDED SCENE/);
-    assert.match(flow, /EDITORIAL 3D ILLUSTRATION/);
+    assert.match(flow, /LEGACY_PROMPT_DNA: finanzneo-stylized-3d-editorial-v5/);
+    assert.match(flow, /MAIN IDEA -> SCENE -> FULL STYLE LOCK/);
+    assert.match(flow, /character-story/i);
     assert.match(flow, /PRECISION_GRAPHICS_OWNER: REMOTION/);
+    assert.match(flow, /scene-appropriate colors/i);
+    assert.match(flow, /MENSCHEN\/FIGUREN SIND ERLAUBT/);
     assert.doesNotMatch(flow, /SIMPLE EXPLAINER/i);
     assert.doesNotMatch(flow, /NICHT MEHR HIER ARBEITEN/);
     assert.doesNotMatch(flow, /vollständigen.*liegen jetzt/i);
@@ -87,6 +109,7 @@ test('YouTube-Ersteller erzeugt Motion V3 und scene-first Flow-Master', () => {
     const readme = readFileSync(resolve(absolute, 'README.md'), 'utf8');
     assert.match(readme, /genau diese Datei vollständig und 1:1/i);
     assert.match(readme, /04-visuals\/alle-bildprompts\.txt/);
+    assert.match(readme, /MAIN IDEA → SCENE → FULL STYLE LOCK/);
   } finally {
     rmSync(absolute, {recursive:true, force:true});
   }
