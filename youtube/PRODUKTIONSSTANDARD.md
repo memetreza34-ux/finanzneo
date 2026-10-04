@@ -15,50 +15,55 @@
 
 `FORM FREI — BILDWELT FEST — WERKZEUG PASSEND`
 
-Für jeden Sprechbeat wird zuerst bestimmt, was der Zuschauer sehen und verstehen soll. Danach wird das Werkzeug gewählt. Google Flow rendert hochwertige Szenen/Illustrationen. Remotion/SVG/React übernimmt präzise Daten-, Text-, Checklisten-, Timeline- und UI-Grafiken.
+Für jeden Sprechbeat wird zuerst bestimmt, was der Zuschauer sehen und verstehen soll. Danach wird das Werkzeug gewählt. Google Flow rendert hochwertige stylized-3D-Szenen, Objektgeschichten, Figurenmomente und physische Metaphern. Remotion/SVG/React übernimmt präzise Daten-, Text-, Checklisten-, Timeline- und UI-Grafiken.
 
-**Wichtig:** Google Flow ist kein Infografik-Generator. Ein Beat darf nicht nur deshalb zu Flow werden, weil er statisch ist.
+**Wichtig:** Google Flow ist kein Infografik-Generator. Das bedeutet aber NICHT, dass Flow nur realistische Gegenstände auf einem dunklen Tisch zeigen darf. Die alte erfolgreiche FinanzNeo-Promptlogik mit konkreten 3D-Ideen ist verbindlich.
 
 ---
 
 # 1. Werkzeugwahl — verbindlich
 
-## Google Flow: nur gerenderte Szenen und 3D-Illustrationen
+## Google Flow: premium stylized 3D CGI
 
-### A) Grounded Scene
+Flow darf innerhalb derselben Bildwelt frei die beste Darstellungsform wählen:
 
-Für reale, sofort erkennbare Situationen und Gegenstände:
+- Grounded Scene
+- Character Story
+- Object Story
+- Physical Metaphor
+- Editorial 3D Illustration
+- Environmental Scene
+- Comparison Scene
+- Transformation Scene
+- Hybrid Scene Plate
 
-- Kreditkarte + Abrechnung
-- Rechnung / Beleg / Vertrag / Kalender
-- reale Haushalts- oder Konsumobjekte
-- sichtbare physische Ursache/Wirkung
-- dokumentarisch-editoriale Objektgeschichten
+### Wann Flow richtig ist
 
-### B) Editorial 3D Illustration
+Wenn eine bildhafte 3D-Idee den Sprechbeat schnell erklärt:
 
-Für eine einzelne zusammenhängende gerenderte Illustration/Metapher, wenn keine reale Szene nötig ist:
+- konkrete Alltagssituation
+- Figur mit klarer Handlung
+- ein dominantes Objekt mit sichtbarer Ursache/Wirkung
+- kleine-vs-große Größenkontraste
+- Lupe enthüllt etwas
+- Gegenstände werden gestapelt, geteilt, gestempelt, geöffnet, gezogen, gewogen oder verwandelt
+- mehrere bekannte Alltagsobjekte bilden eine zusammenhängende Szene
+- eine physische Metapher erklärt den Finanzpunkt sofort
 
-- ein klarer physischer Weg / eine Schranke / eine Waage
-- ein einzelnes Objekt, das sichtbar seinen Zustand verändert
-- eine bildfüllende stilisierte 3D-Metapher mit sofort verständlicher Aussage
-
-Auch hier gilt: **eine Szene, kein Layout aus Informationsmodulen.**
-
-## Nicht mit Google Flow als finales Erklärbild erzeugen
+### Nicht als generisches Flow-Infografikbild erzeugen
 
 Wenn der Kern des Beats hauptsächlich aus präzisen Informationen besteht, gehört er in Remotion/SVG/React:
 
 - exakte Zahlenaufteilung
-- Chart oder Datenverlauf
-- Checkliste
+- dichter Chart oder Datenverlauf
+- lange Checkliste
 - Timeline
 - Tabelle
 - mehrere Textzeilen
-- UI-/Settings-Zustand
+- exakter UI-/Settings-Zustand
 - mathematisch exakter Vergleich
 
-Flow darf bei einem Hybrid nur eine **textarme Szenen-/Illustrations-Basis** erzeugen. Präzise Zahlen, Labels, UI-Zustände und Daten legt Remotion darüber.
+Flow darf bei einem Hybrid eine starke 3D-Szenenbasis liefern. Präzise Zahlen, Labels, UI-Zustände und Daten kann Remotion darüberlegen.
 
 ## Remotion / SVG / React verwenden
 
@@ -75,7 +80,7 @@ Code-basierte Visuals sind die Standardwahl für:
 
 ## Hybrid
 
-Hybrid nur, wenn das Flow-Bild als echte gerenderte Szene einen visuellen Mehrwert bringt. Ein Hybrid darf nicht benutzt werden, um eine Flow-Infografik nachträglich zu animieren.
+Hybrid nur, wenn das Flow-Bild als echte stylized-3D-Szene einen visuellen Mehrwert bringt. Ein Hybrid darf nicht benutzt werden, um eine schlechte Flow-Infografik nachträglich zu retten.
 
 ---
 
@@ -91,9 +96,9 @@ Primärer genehmigter Stilanker:
 
 `finanzneo-premium-physical-editorial-v8`
 
-Grounding-Referenz:
+Legacy Prompt DNA:
 
-`finanzneo-youtube-grounded-3d-black-v1`
+`finanzneo-stylized-3d-editorial-v5`
 
 Kanonische Datei:
 
@@ -101,45 +106,107 @@ Kanonische Datei:
 
 ## Immer gleich
 
-- erwachsene hochwertige stylized-3D-/Editorial-Qualität
+Die Konstanz entsteht durch die **Render-/Formensprache**, nicht durch eine starre Liste erlaubter Objekte oder Farben:
+
+- clearly stylized premium 3D CGI / Editorial-Qualität
 - klar stilisiert, niemals fotorealistisch
-- tiefer nahtloser Schwarz-/Charcoal-Green-Hintergrund
-- Emerald = positiv / Lösung / Wachstum
-- warmes Rot-Orange = Risiko / Kosten / Schuld
-- Ivory / Soft Gray = neutral
-- Gold nur sparsam für Geld/Wert
-- sauberes Premium-Studiolicht
-- erkennbare Materialität und Kontaktschatten
-- wichtige Motive groß und nah
+- chunky, substanzielle volumetrische Formen
+- leicht vereinfachte bzw. überzeichnete Proportionen, wenn es der Klarheit hilft
+- glatte Geometrie, weiche Bevels, sichtbare Dicke und Gewicht
+- hochwertige Materialien passend zur Szene
+- cinematografisches Licht
+- weiche aber sichtbare Kontaktschatten
+- klare Vordergrund-/Mittelgrund-/Hintergrundtiefe
+- sinnvolle Überlappungen und sichtbare Handlung
 - niemals childish clay / toy / Pixar
-- niemals generische Gold-Luxus-Finanz-KI
+- niemals generisches Corporate-3D oder Gold-Luxus-Finanz-KI
 
-## Grounded Scene
+## Farben — frei passend zum Inhalt
 
-- reale Objekte und glaubwürdige Proportionen
-- ein klares Hauptmotiv oder eine klare Handlung
-- medium-close Editorial-Framing
-- natürliche Perspektive
-- sinnvolle Tiefe und Überlappung
-- weiche Kontaktschatten
-- lokale Umgebung darf in die dunkle Welt auslaufen
+FinanzNeo ist **kein Farbkorsett**.
 
-## Editorial 3D Illustration
+Wiederkehrende Anker:
+- Deep Charcoal / Green-Black als häufige Grundatmosphäre
+- Emerald/Mint für positive Richtung/Lösung
+- warmes Red-Orange für Kosten/Risiko/Schuld/Warnung
+- Gold/Brass für Geld/Wert
+- Warm Ivory/Cream für neutrale Informationsflächen
 
-- ein zusammenhängendes bildfüllendes Motiv
-- klarer räumlicher Aufbau
-- starke Silhouette
-- kein Karten-/Modul-/Dashboard-Aufbau
-- keine textlastige Erklärung im generierten Bild
-- Metapher nur, wenn sie sofort verständlich ist
+Zusätzlich ausdrücklich erlaubt:
+- Blau / Cyan
+- Gelb
+- Orange / Rot
+- Violett
+- natürliche Hauttöne
+- Kleidungsfarben
+- Umwelt-/Produktfarben
+- alle anderen scene-spezifischen Farben, wenn sie die Aussage klarer machen
 
-## Text in Szenenbildern
+Nicht jedes Objekt künstlich in Markenfarben umfärben. Die Szene darf bunt sein, wenn sie dadurch besser funktioniert.
 
-- standardmäßig kein Text
-- kurze deutsche Objektlabels nur, wenn sie wirklich nötig und an ein Objekt gebunden sind
-- kein Titel, Untertitel, CTA oder Absatz
+## Objekte / Figuren / Umgebungen
+
+Es gibt keine feste Objekt-Whitelist.
+
+Erlaubt sind alle passenden:
+- Alltagsobjekte
+- Finanzobjekte
+- Fahrzeuge
+- Gebäude
+- Landschaften
+- Räume
+- Geschäfte
+- Haushaltsgegenstände
+- Geräte
+- Symbole
+- Figuren
+- Hände / Teilfiguren
+- komplette stylized Adult Characters
+
+Menschen sind erlaubt, wenn sie die Aussage besser erklären. Sichtbares Gesicht = Augen, Nase und Mund; keine reale identifizierbare Person.
+
+## Alte erfolgreiche Promptlogik — Pflicht
+
+Jeder individuelle Flow-Bildprompt folgt dieser Reihenfolge:
+
+1. `MAIN IDEA`
+2. `SCENE`
+3. `FULL STYLE LOCK`
+4. `BACKGROUND / ENVIRONMENT`
+5. `ALLOWED TEXT`
+6. `PERSON RULE`
+7. `NEGATIVE`
+8. `QA`
+
+### MAIN IDEA
+
+Genau eine Aussage. In ungefähr zwei Sekunden verständlich.
+
+### SCENE
+
+Hier wird die **konkrete Bildidee erfunden**. Nicht nur den Sprechertext umformulieren.
+
+Beschreiben:
+- welches Objekt / welche Figur der Hero ist
+- welche unterstützenden Elemente vorkommen
+- was physisch passiert
+- welche Größenverhältnisse gelten
+- wie die Tiefenstaffelung aussieht
+- was das Auge zuerst sieht
+- wie Ursache und Wirkung visuell zusammenhängen
+
+Die früheren erfolgreichen FinanzNeo-Prompts nutzten z. B. Lupe, Wallet, Kalender, Calculator, Kopfhörer, Smartphone, SIM-Karte, Contract Folder, Tags, Coins, Shopping Basket, Fuel Nozzle usw. Diese Beispiele sind **keine Whitelist**.
+
+## Text in Flow-Szenenbildern
+
+Kurze deutsche Objektlabels, Preise, Prozentwerte oder kurze Fragen sind erlaubt, wenn sie Teil der Szene sind und helfen.
+
+- kein langer Titel im normalen Szenenbild
+- kein Absatz
+- keine CTA-Sätze
+- Text bevorzugt auf/in einem physischen 3D-Objekt integriert
 - kein automatisch erzeugtes FinanzNeo-Logo / Wasserzeichen / Markenlabel
-- exakte Zahlen und längere Texte gehören Remotion
+- datenintensive Präzisionsgrafiken gehören Remotion
 
 ## Charts / Diagramme / Daten
 
@@ -165,6 +232,8 @@ Werden standardmäßig in Remotion/React gebaut:
 
 Sofort verwerfen und denselben Job neu generieren bei:
 
+- Fotorealismus / Stockfoto
+- realistisches langweiliges Büro-/Papier-Stillleben
 - flacher Infografik / Slide / Poster
 - Social-Media-Card-Look
 - Dashboard-/Control-Panel-/HUD-Look
@@ -174,20 +243,25 @@ Sofort verwerfen und denselben Job neu generieren bei:
 - Chart-/Datengrafik als generiertes Bild
 - Zahlenvergleich in Rechtecken/Tiles/Cards
 - kleine schwebende Tiles/Karten/Module
-- künstliche dicke Plaketten für Werte oder Text
-- FinanzNeo-Logo/Wasserzeichen ohne ausdrückliche Anweisung
+- generische Finance-Icon-Collage
+- generisches Corporate-3D
 - sterile Produktaufnahme
 - winzige isometrische/Diorama-Perspektive
-- Canva-/PowerPoint-/Stock-Vector-Look
-- generische Finance-Icon-Collage
-- abstrakte Finanzmaschine ohne verständliche Aussage
+- riesige leere schwarze Fläche mit kleinem Motiv
 - Trophy-/Plinth-/Gold-Luxury-Staging
-- Fotorealismus
 - childish clay/toy/Pixar
-- unnötige visuelle Komplexität
-- Bild funktioniert nur, wenn man viel Text liest
+- Bild hat keine Handlung, Beziehung, Transformation oder klaren Größenkontrast
+- Prompt paraphrasiert nur den Sprechertext statt eine konkrete Bildidee zu erfinden
 
-Qualitätsfrage: **Würde das Bild ohne seine Texte immer noch wie eine hochwertige gerenderte Szene funktionieren?** Wenn nein, gehört es nicht als finales Flow-Szenenbild in FinanzNeo.
+Qualitätsfragen:
+
+1. Ist genau eine Hauptaussage sofort klar?
+2. Sieht es eindeutig nach premium stylized 3D CGI aus?
+3. Ist die Bildidee konkret statt generisch?
+4. Helfen die gewählten Objekte/Figuren/Farben der Aussage?
+5. Sind Tiefe, Kontakt, Überlappung oder Handlung sichtbar?
+
+Wenn eine Antwort nein ist: denselben Job neu generieren.
 
 ---
 
@@ -212,6 +286,8 @@ Interne Promptquellen liegen gesammelt unter:
 `04-visuals/01-BILDPROMPTS/`
 
 Dort dürfen Bildwelt, Thumbnail-Prompt und einzelne interne Bildpromptquellen liegen. Der Nutzer kopiert diese Dateien nicht einzeln.
+
+Jeder enthaltene einzelne Bildjob muss selbstständig genug sein, dass Google Flow den Bildstil nicht aus einem vorherigen Bild erraten muss.
 
 ---
 
@@ -265,8 +341,8 @@ Der Master-Prompt muss ausdrücklich verlangen:
 - Custom React, SVG, CSS 3D, Canvas, Three.js/R3F und Datenvisualisierung erlaubt
 - bestehende Komponenten sind Werkzeuge, keine Stilpflicht
 - Variation muss in echter Kamera/Layout/Transformation bestehen, nicht nur in neuen Namen
-- Motion nutzt dieselbe FinanzNeo-Farb-/Typografie-/Premium-Logik
-- Präzisionsgrafiken dürfen bewusst grafisch und frontal sein; sie müssen nicht wie Flow-Bilder aussehen, aber farblich/typografisch zur Serie passen
+- Motion nutzt dieselbe FinanzNeo-Premium-Logik; die exakte Farbwahl darf content-spezifisch sein
+- Präzisionsgrafiken dürfen bewusst grafisch und frontal sein; sie müssen nicht wie Flow-Bilder aussehen, aber klar zur Serie gehören
 
 Ein normales YouTube-Projekt darf keine reine Slideshow sein.
 
@@ -282,7 +358,7 @@ Bei präzisen Charts, Daten, UI und Typografie:
 - lesbare Labels
 - keine Perspektivverzerrung, wenn Genauigkeit darunter leidet
 
-Flow-Szenen dürfen eine sanfte 3/4-Editorial-Kamera verwenden.
+Flow-Szenen dürfen die Kamera frei passend zur Bildidee wählen: frontal, near-frontal, gentle 3/4 oder kontrolliert weiter für Umgebungen. Kein winziger entfernte Isometrie.
 
 ---
 
