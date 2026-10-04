@@ -136,6 +136,7 @@ Reject if ANY is true:
 - flat infographic / slide / poster look
 - dashboard / control panel / HUD
 - checklist, settings UI or chart card used as the generated-image composition
+- progress bar used as the generated-image composition or main motif
 - floating card/tile/module grid
 - generic finance-icon collage
 - generic corporate stock 3D
