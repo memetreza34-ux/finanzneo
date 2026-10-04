@@ -20,6 +20,10 @@ const PLACEHOLDER_PATTERN = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONA
 const readText = (path) => readFileSync(path, 'utf8');
 const isFile = (path) => existsSync(path) && statSync(path).isFile();
 const hasPlaceholder = (content) => PLACEHOLDER_PATTERN.test(content) || /\b(?:TODO|PLACEHOLDER)\b/i.test(content);
+// Vorlagen-Platzhalter sind immer GROSS geschrieben. In Code darf `[start, start + 18]` kein Treffer sein.
+const CODE_EXTENSIONS = new Set(['.ts', '.tsx', '.js', '.jsx', '.mjs']);
+const CODE_PLACEHOLDER_PATTERN = new RegExp(PLACEHOLDER_PATTERN.source);
+const hasCodePlaceholder = (content) => CODE_PLACEHOLDER_PATTERN.test(content) || /\b(?:TODO|PLACEHOLDER)\b/i.test(content);
 
 const listFiles = (directory, extensions) => {
   if (!existsSync(directory)) return [];
@@ -49,7 +53,7 @@ const checkCompletedText = (root, relativePath, blockers) => {
   }
   const content = readText(path).trim();
   if (!content) blockers.push(`${relativePath} ist leer.`);
-  else if (hasPlaceholder(content)) blockers.push(`${relativePath} enthält noch Platzhalter.`);
+  else if ((CODE_EXTENSIONS.has(extname(path).toLowerCase()) ? hasCodePlaceholder : hasPlaceholder)(content)) blockers.push(`${relativePath} enthält noch Platzhalter.`);
 };
 
 const flattenTimingWords = (timing) => {

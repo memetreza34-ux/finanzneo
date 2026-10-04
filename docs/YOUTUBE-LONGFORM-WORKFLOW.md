@@ -1,6 +1,6 @@
 # FinanzNeo — YouTube-Longform in drei Phasen
 
-> Bei Widersprüchen gilt `CLAUDE.md`. Für Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V3.md`.
+> Bei Widersprüchen gilt `CLAUDE.md`. Aktiver Standard ist `youtube/PRODUKTIONSSTANDARD.md` (V4, zentrale IDs in `config/finanzneo-production-standard.json`). Für Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V3.md`.
 
 YouTube-Longform ist ein eigenständiges Format. Ein Reel wird weder gestreckt noch als YouTube Short gespiegelt. Ein Thema gehört in Longform, wenn es für Verständnis echte Tiefe braucht: mehrere Schritte, Beispiele, Vergleiche, Rechnungen, Einordnung oder häufige Fehler.
 
@@ -55,20 +55,26 @@ Dem Google-Flow-KI-Agenten wird ausschließlich diese Datei gegeben:
 04-visuals/alle-bildprompts.txt
 ```
 
-Der Agent arbeitet strikt:
+Der Agent arbeitet nach `finanzneo-youtube-cover3-image5-parallel-v4` (Details: `youtube/PRODUKTIONSSTANDARD.md`, Abschnitt 5):
 
 ```text
-GENAU EIN BILD ERZEUGEN
-→ VOLLSTÄNDIG WARTEN
-→ SOFORT EXAKT UMBENENNEN
-→ LITERALEN SPRECHPUNKT + KONTEXT + LABELS + HINTERGRUND + 16:9 + DATEINAME PRÜFEN
-→ ERST DANN DAS NÄCHSTE BILD
+THUMBNAIL A / B / C ALS DREI GETRENNTE EIN-BILD-JOBS GLEICHZEITIG
+→ ALLE DREI QA-PRÜFEN
+→ NUTZER WÄHLT GENAU EINMAL A/B/C
+→ SZENENBILDER IN BATCHES VON BIS ZU FÜNF GETRENNTEN EIN-BILD-JOBS PARALLEL
+→ JEDES ERGEBNIS SOFORT EXAKT UMBENENNEN UND QA-PRÜFEN
+→ BEI FAIL NUR DIESELBE BILDNUMMER NEU ERZEUGEN
+→ NÄCHSTER BATCH ERST, WENN DER AKTUELLE BATCH VOLLSTÄNDIG PASS IST
+→ FINALER INVENTORY-QA
 ```
 
-- Bilder folgen `finanzneo-youtube-grounded-3d-black-v1`.
+- Bilder folgen `finanzneo-youtube-animated-black-v3`: Standbild aus einem stilisierten 3D-Animationsfilm auf tiefem Schwarz. Look fest — Inhalt frei.
+- Nur Visuals mit echtem Flow-Bedarf (`image` und die Szenenplatte von `hybrid`) bekommen ein Flow-Bild. `animation` und `data` baut Remotion.
+- Fünf ist die maximale Batchgröße, keine Pflichtanzahl.
+- Niemals mehrere Bilder in einem Request, kein Kontaktbogen, keine Collage.
+- Das gewählte Thumbnail und fertige Szenenbilder sind nie Style-Referenz für weitere Bilder.
 - Nicht Motiv, Komposition oder Labels eines anderen Bildes als Standardvorlage kopieren.
-- Neue Bilder folgen `Literal first, creative second`.
-- Fehlerhafte Bildnummer wiederholen; nie parallel oder als Batch fortfahren.
+- Keine Nutzerfreigabe zwischen Batches.
 - Nicht-Bild-Visualnummern überspringen, aber nicht neu nummerieren.
 - Alle fertigen Dateien gemeinsam nach `04-visuals/00-ALLE-BILDER-HIER-REIN/` legen.
 - Alle YouTube-Quellbilder und das Thumbnail sind horizontal `16:9`.

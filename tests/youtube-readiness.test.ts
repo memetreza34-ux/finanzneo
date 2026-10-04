@@ -165,6 +165,38 @@ test('Einsatzprüfung blockiert offene Metadaten und Social-Promo-Platzhalter', 
   }
 });
 
+const resealAnimation = (root: string, source: string) => {
+  write(root, '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx', source);
+  const sealPath = join(root, '06-projektdateien/animation-seal.json');
+  const seal = JSON.parse(readFileSync(sealPath, 'utf8'));
+  seal.entries[0].sha256 = createHash('sha256').update(Buffer.from(source)).digest('hex');
+  writeFileSync(sealPath, `${JSON.stringify(seal)}\n`);
+};
+
+test('Einsatzprüfung hält normalen Code wie [start, start + 18] nicht für Platzhalter', () => {
+  const root = createReadyFixture();
+  try {
+    resealAnimation(root, `import {interpolate, useCurrentFrame} from 'remotion';\nexport const YouTubeVisual02Animation = () => { const frame = useCurrentFrame(); const start = 12; const result = [1, 2]; return interpolate(frame, [start, start + 18], [0, result.length]); };\n`);
+    const result = analyzeYouTubeReadiness(root);
+    assert.deepEqual(result.phase1Blockers, []);
+    assert.equal(result.ready, true);
+  } finally {
+    rmSync(root, {recursive:true, force:true});
+  }
+});
+
+test('Einsatzprüfung blockiert Vorlagen-Platzhalter im Motion-Code weiterhin', () => {
+  const root = createReadyFixture();
+  try {
+    resealAnimation(root, `export const ANIMATION_NARRATIVE = {START:'[START STATE]', RESULT:'[CLEAR RESULT]'};\nexport const YouTubeVisual02Animation = () => null;\n`);
+    const result = analyzeYouTubeReadiness(root);
+    assert.equal(result.ready, false);
+    assert.ok(result.phase1Blockers.includes('04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx enthält noch Platzhalter.'));
+  } finally {
+    rmSync(root, {recursive:true, force:true});
+  }
+});
+
 test('Einsatzprüfung blockiert mehrere Voiceover-Dateien', () => {
   const root = createReadyFixture();
   try {

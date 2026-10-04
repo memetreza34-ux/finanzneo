@@ -56,6 +56,7 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
   process.exit(1);
 }
 
+const PHASE_STATUS = '06-projektdateien/PHASENSTATUS.md';
 const errors = [];
 const assert = (condition, message) => { if (!condition) errors.push(message); };
 const read = (relativePath) => readFileSync(resolve(root, relativePath), 'utf8');
@@ -185,6 +186,17 @@ if (index) {
   const motionCount = (index.visuals ?? []).filter(requiresYouTubeMotion).length;
   assert(motionCount >= YOUTUBE_MIN_MOTION_VISUALS, `YouTube Longform braucht mindestens ${YOUTUBE_MIN_MOTION_VISUALS} echte Motion-Visuals; gefunden: ${motionCount}.`);
   errors.push(...validateYouTubeMotionVariety(index.visuals ?? []));
+
+  // Statusdateien dürfen dem Visualplan nicht widersprechen — sonst erzeugt Phase 2 falsche Bilder.
+  if (existsSync(resolve(root, PHASE_STATUS))) {
+    const flowImageCount = (index.visuals ?? []).filter(requiresYouTubeImage).length;
+    const NUMBER_WORDS = {ein: 1, eins: 1, zwei: 2, drei: 3, vier: 4, 'fünf': 5, sechs: 6, sieben: 7, acht: 8, neun: 9, zehn: 10, elf: 11, 'zwölf': 12};
+    for (const match of read(PHASE_STATUS).matchAll(/(\d+|[a-zäöü]+)\s+(?:finale\s+)?(?:Flow-Szenenbilder|Flow-Bilder|Flow-Bild|Szenenbilder)\b/gi)) {
+      const stated = /^\d+$/.test(match[1]) ? Number(match[1]) : NUMBER_WORDS[match[1].toLowerCase()];
+      if (stated === undefined) continue;
+      assert(stated === flowImageCount, `${PHASE_STATUS} nennt „${match[0]}“, ${VISUAL_INDEX} plant aber ${flowImageCount} Flow-Szenenbild(er).`);
+    }
+  }
 }
 
 if (existsSync(resolve(root, ALL_PROMPTS))) {
