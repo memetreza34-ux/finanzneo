@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "standardId": "finanzneo-youtube-framed-v1",
+  "canvas": {"width":1920,"height":1080,"fps":30,"background":"#000000"},
+  "visualFrame": {"fullScreenForbidden":true,"outerX":120,"top":66,"bottom":78,"headerHeight":112,"gap":26,"borderRadius":30},
+  "sectionHeader": {"required":true,"iconRequired":true,"maxLines":1,"style":"calm-icon-plus-title"},
+  "captions": {"burnedIn":false,"wordTimingsUsage":["cuts","srt-export","timestamp-script-export"]},
+  "imagePolicy": {"meaningFirst":true,"sceneFirst":false,"peopleRequired":false,"placeRequired":false,"contentFreeWithinWorld":true,"forcePeopleForbidden":true,"sameWorldNotSameScene":true,"semanticObjectCompositionsAllowed":true,"visualMetaphorsAllowed":true},
+  "visuals": [
+    {"id":"visual-01","title":"Warum Rabatt so gut klingt","icon":"percent"},
+    {"id":"visual-02","title":"Was 100 € Rabatt wirklich heißt","icon":"percent"},
+    {"id":"visual-03","title":"Was dein Budget tatsächlich sieht","icon":"wallet"},
+    {"id":"visual-04","title":"Wenn der Kauf schon geplant war","icon":"check"},
+    {"id":"visual-05","title":"Geplant oder erst durch Sale gewollt?","icon":"arrowRight"},
+    {"id":"visual-06","title":"Wenn der Kauf später egal wird","icon":"warning"},
+    {"id":"visual-07","title":"Der 10-Sekunden-Rabatt-Test","icon":"list"},
+    {"id":"visual-08","title":"Nicht der Rabatt. Der Endpreis zählt.","icon":"target"}
+  ]
+}

@@ -1,0 +1,15 @@
+BILD 04
+FINAL FILE NAME: YouTube Bild 04 - Geplanter Kauf.png
+FORMAT: horizontal 16:9
+
+VISUAL_FORM: character-moment
+VISUAL_CONCEPT: Ein Mensch ist hier sinnvoll, weil es um eine bewusste Kaufentscheidung geht, die schon vor dem Rabatt existierte.
+DECISIVE_MOMENT: The shopper pauses with the headphones in one hand and a short handwritten shopping note in the other before checkout.
+VOICEOVER_VISUAL_MATCH: „Ein Rabatt kann trotzdem sinnvoll sein, wenn du ohnehin neue Kopfhörer kaufen wolltest.“
+FRONT_READABILITY_TEST: PASS — Person, gewünschtes Produkt und bestehender Kaufplan sind sofort lesbar.
+DATA_INTEGRITY_TEST: Keine exakten Preise im Flow-Bild.
+
+IMAGE PROMPT
+Stylized 3D animated feature film still, 16:9. A young adult pauses before an electronics checkout holding brandless headphones in one hand and a short handwritten shopping note in the other, clearly considering a planned purchase. Soft natural light, deep black background. Not photorealistic, no logos.
+
+QA: Mensch nur wegen der Entscheidung; keine zusätzlichen Kunden, Werbewände oder unnötige Ladenrequisiten.

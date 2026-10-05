@@ -1,0 +1,15 @@
+BILD 01
+FINAL FILE NAME: YouTube Bild 01 - Rabatt Objekt.png
+FORMAT: horizontal 16:9
+
+VISUAL_FORM: isolated-object
+VISUAL_CONCEPT: Ein Rabatt wirkt zuerst wie ein attraktives Angebot, bevor überhaupt über den tatsächlichen Kauf nachgedacht wird.
+DECISIVE_MOMENT: not-applicable
+VOICEOVER_VISUAL_MATCH: „100 Euro Rabatt klingt wie 100 Euro gespart.“
+FRONT_READABILITY_TEST: PASS — ein einzelnes Produkt plus Sale-Tag ist sofort verständlich.
+DATA_INTEGRITY_TEST: Keine exakte Zahl im Szenenbild; die Rechenwerte übernimmt Remotion.
+
+IMAGE PROMPT
+Stylized 3D animated feature film still, 16:9. A brandless pair of over-ear headphones hangs alone in black space with one red-orange sale tag attached, large and clearly readable as a sale item. No text. Soft natural light, deep black background. Not photorealistic, no logos.
+
+QA: kein Tisch, kein Ladenraum, kein Mensch und keine Deko ergänzen, weil sie für diesen Beat nichts erklären.
