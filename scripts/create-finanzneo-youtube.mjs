@@ -4,6 +4,8 @@ import {resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {
   YOUTUBE_APPROVED_STYLE_REFERENCES,
+  YOUTUBE_FLOW_IMAGE_POLICY_ID,
+  YOUTUBE_FLOW_MEANING_FIRST_MARKER,
   YOUTUBE_FLOW_NATURAL_LOOK_MARKER,
   YOUTUBE_FLOW_PROMPT_CLOSING,
   YOUTUBE_FLOW_PROMPT_MAX_WORDS,
@@ -40,8 +42,6 @@ if (!existsSync(allPromptsPath)) {
 }
 mkdirSync(promptDirectory, {recursive: true});
 
-// Bildwelt A+B (2026-10-04): Look fest, Inhalt frei. Kanonische Quelle ist
-// YOUTUBE_IMAGE_WORLD_FILE; dieser Text ist ihre ausführbare Kurzfassung für Flow.
 const visualSystemRules = `FINANZNEO GOOGLE FLOW MASTER — VERBINDLICH
 
 DIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG. NICHT nur erklären oder Prompts zurückgeben: die geforderten Bildjobs tatsächlich starten.
@@ -49,55 +49,65 @@ DIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG. NICHT nur erklären oder Prompts zurü
 STYLE_AUTHORITY: ${YOUTUBE_IMAGE_WORLD_LOCK}
 SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 APPROVED_STYLE_REFERENCES: ${YOUTUBE_APPROVED_STYLE_REFERENCES}
-FLOW_IMAGE_POLICY: scene-first-no-infographic-v1
+FLOW_IMAGE_POLICY: ${YOUTUBE_FLOW_IMAGE_POLICY_ID}
 PRECISION_GRAPHICS_OWNER: REMOTION
 
-BILDWELT: LOOK FEST — INHALT FREI.
-Jedes Flow-Bild unterstützt den Sprechpunkt visuell, im Look eines hochwertigen stilisierten 3D-Animationsfilms auf tiefem Schwarz. Die meisten Bilder brauchen keine Person und keine Geschichte: ein starker Gegenstand, eine einfache Szene oder ein Zitat reicht. Alles darf vorkommen, wenn es passt — nichts auf Krampf.
+${YOUTUBE_FLOW_MEANING_FIRST_MARKER}.
+Vor jedem Bild zuerst den gesprochenen Gedanken verstehen. Danach die visuell stärkste Form wählen. Es gibt KEIN scene-first, KEIN people-first, KEIN object-first und KEINE Orts-Pflicht.
+
+GLEICHBERECHTIGTE FORMEN:
+- isolated object / object detail
+- hands in action
+- character moment
+- everyday scene
+- comparison
+- semantic object composition
+- visual metaphor
+- creative idea
+- hybrid scene plate
+
+SEMANTISCHE ANORDNUNG:
+Objekte dürfen frei im Raum stehen oder schweben, wenn ihre Position etwas erklärt: Ursache/Wirkung, vorher/nachher, Vergleich, Wahl, Wiederholung, Hierarchie. Keine dekorativen Spiralen, S-Kurven, Trails oder Objektwolken ohne Bedeutung. Kein Tisch, Raum oder Mensch nur als Lückenfüller.
 
 LOOK — IMMER:
 - stylized 3D animated-feature-film rendering, never photorealistic
-- when a person appears: appealing stylized adult character with an expressive face; no real identifiable person
-- real everyday objects with believable proportions and recognizable details: phone, bill, letter, bank card, wallet, washing machine, car, calendar
-- semi-realistic material cues rendered soft and clean
-- soft natural key light, gentle rim light separating the subject from the black, soft contact shadows
-- deep seamless black world; a small local set may exist when it helps and dissolves into black
-- Emerald = positiv/Lösung, warmes Red-Orange = Kosten/Warnung, Gold = kleiner Geld-Akzent, Ivory/Soft Gray = neutral; natürliche Haut- und Kleidungsfarben sind erlaubt
+- soft natural light, gentle rim, believable materials, deep seamless black
+- Emerald = positiv/Lösung, Red-Orange = Kosten/Warnung, Gold nur kleiner Wertakzent, Ivory/Soft Gray neutral
 
 ${YOUTUBE_FLOW_NATURAL_LOOK_MARKER}:
-Jedes Bild wirkt wie ein ruhiges Standbild aus einem Animationsfilm, nicht wie ein KI-Poster. Einfach, natürlich, sofort verständlich.
-- natural and calm: few real objects, believable everyday arrangement, natural proportions, natural colors, soft natural light
-- real things in a real situation, never an abstract symbol that must be decoded
-- clean but not plastic-shiny; no over-sharpened hyper-detail, no oversaturated colors
-- text only exactly the requested words; no extra invented labels, no garbled lettering
-- KI-SLOP VERBOTEN: glowing or neon edges, glass or crystal bars/blocks/arrows, value blocks or value stacks as symbols, falling bars or arrows, dramatic red glow, smoke, sparks, lens flares, heavy fog, epic poster drama, banknote piles as decoration, cluttered backgrounds
+Ruhig, klar, absichtlich gestaltet. Kein KI-Poster. Keine Glas-/Leuchtbalken, Value Blocks, Neon, Rauch, Funken, Lens Flares, Geldberge oder generische Finanzcollage. Keine Deko ohne Erklärwert.
 
-ENTSCHEIDENDER MOMENT — NUR AB UND ZU: Nur wenn der Sprechpunkt von etwas handelt, das passiert, zeigt das Bild diese Sekunde. Keine Geschichte und keine Person erfinden, nur damit eine da ist.
+MENSCHEN / ORT / MOMENT:
+Alles optional. Person nur wenn Gesicht/Körpersprache Bedeutung trägt. Ort nur wenn der Ort Bedeutung trägt. Entscheidender Moment nur wenn die Handlung wichtig ist.
 
-ABWECHSLUNG: Jedes Bild zeigt eine sichtbar andere Situation, einen anderen Ort oder Blickwinkel als das vorige.
+PRÄZISION:
+Exakte Charts, Achsen, Tabellen, Checklisten, UI und mathematisch präzise Daten gehören zu Remotion. Flow darf eine konzeptuelle Bildidee liefern, aber keine Präzision vortäuschen.
 
-TEXT: kurze deutsche Objektlabels direkt am Gegenstand, wenn sie helfen. Keine Sätze, kein Logo.
+TEXT:
+Kurze deutsche Objektlabels nur wenn nötig. Keine eingebrannten Untertitel, keine langen Sätze, kein Logo.
 
-NAHELIEGEND ZUERST — NICHTS AUF KRAMPF: Zeige, was man bei diesem Satz im echten Alltag sehen würde. Alles darf ins Bild, wenn es passt. Eine kreative Idee nur, wenn sie sofort sitzt. Ist ein Satz abstrakt (Faustregel, Liquidität, Situation), dann die einfachste echte Alltagsszene dazu — keine Symbol-Anordnung, die man entschlüsseln muss. Passt keine echte Szene, gehört der Beat in eine Remotion-Karte. ZITATE, STICHWORTE, TABELLEN: Remotion-Karten mit exaktem Text (src/design-system/karten.tsx), nicht Flow.\n\nDIAGRAMME UND ZAHLEN: Charts, Diagramme mit Achsen, exakte Zahlen, Tabellen, Checklisten und UI-Zustände baut Remotion, nicht Flow.\n\nEINHEITLICHE PROMPT-FORM — JEDER BILDPROMPT GENAU SO:
-FORM: ${YOUTUBE_FLOW_PROMPT_OPENING} <What you see: one concrete everyday sentence>. <Place: short>. Only text: "<max two short German labels>" (or: No text.). ${YOUTUBE_FLOW_PROMPT_CLOSING}
-Thumbnail: statt Only text → Big clean white headline on the left: "<HOOK>". Höchstens ${YOUTUBE_FLOW_PROMPT_MAX_WORDS} Wörter. Keine Stilwörter wie premium, cinematic, epic, dramatic, hyper-detailed — den Look legt der erste Satz fest.
+EINHEITLICHER STILRAHMEN — INHALTLICH FLEXIBEL:
+FORM: ${YOUTUBE_FLOW_PROMPT_OPENING} <BEST VISUAL IDEA FOR THIS SPOKEN BEAT: object, detail, action, scene, comparison, semantic object composition or visual metaphor>. <OPTIONAL LOCATION ONLY IF IT ADDS MEANING>. Only text: "<max two short German labels>" (or: No text.). ${YOUTUBE_FLOW_PROMPT_CLOSING}
+Die optionale Ortszeile darf komplett entfallen. Höchstens ${YOUTUBE_FLOW_PROMPT_MAX_WORDS} Wörter. Keine Stilwörter wie premium, cinematic, epic, dramatic, hyper-detailed.
 
-HARD FAIL — DENSELBEN JOB NEU GENERIEREN: fotorealistisch; grün-goldene Symbolwelt (Bankgebäude, Schild, Tresor, Münzberge, leuchtende Icons) als Hauptidee; abstrakte Finanzskulpturen statt echter Situation (Schuldenklammer, Zinsmagnet, Zahlungs-Token, Geldband, Wertblock, Wertstapel); KI-Poster-Look (Glas-/Leuchtbalken, Neon, Rauch, Funken, Drama, erfundene Mini-Labels); dunkelgrün-schwarzer Monochrom-Look; Chart, Diagramm, flache Infografik, Dashboard, UI, Checkliste oder Progress-Bar; Zitat oder längerer Text im Bild; schwebende Karten oder Tiles; heller oder farbiger Hintergrund; Mini-Diorama; Hauptmotiv zu klein; Spielzeug-, Plastik- oder Knete-Look; Person oder Geschichte ohne Grund; dieselbe Szene wie das vorige Bild.
+MEANING QA:
+PASS nur wenn die Aussage in ca. zwei Sekunden klar ist, jedes Element einen Grund hat und die Komposition erklärt statt dekoriert.
+
+HARD FAIL — DENSELBEN JOB NEU GENERIEREN:
+unklare Aussage; dekorative Objektanordnung; Person/Tisch/Raum ohne Grund; schwebende Objekte ohne semantische Beziehung; fotorealistisch; alte grün-goldene Symbolwelt; KI-Slop; generiertes Dashboard/UI/Chart; erfundener Text; Hauptinformation zu klein; Wiederholung der letzten Bildform ohne Grund.
 `;
 
 const oldImagePrompt = 'Show [THE EXACT CONTENT-SPECIFIC VISUAL]. If this is a chart or diagram, show it straight-on from the front with undistorted axes/labels/proportions. Include only these short German object labels if needed: [LABELS].';
 const imagePromptTemplate = `IMAGE PROMPT
-${YOUTUBE_FLOW_PROMPT_OPENING} [WHAT YOU WOULD SEE IN REAL LIFE AT THIS SENTENCE — ONE CONCRETE SENTENCE]. [PLACE — SHORT]. Only text: "[MAX TWO SHORT GERMAN LABELS — OR WRITE: No text.]". ${YOUTUBE_FLOW_PROMPT_CLOSING}
+${YOUTUBE_FLOW_PROMPT_OPENING} [BEST VISUAL IDEA FOR THIS SPOKEN BEAT — OBJECT, DETAIL, ACTION, SCENE, COMPARISON, SEMANTIC OBJECT COMPOSITION OR VISUAL METAPHOR]. [OPTIONAL LOCATION ONLY IF IT ADDS MEANING — OMIT OTHERWISE]. Only text: "[MAX TWO SHORT GERMAN LABELS — OR WRITE: No text.]". ${YOUTUBE_FLOW_PROMPT_CLOSING}
 
 QA
-PASS only if it fits the spoken sentence naturally, looks like a calm frame from a stylized 3D animated film on black, and is clear in about two seconds.`;
+PASS only if the visual meaning is clear in about two seconds, every element has a reason, and no person, place, surface or decorative object was added just to fill the frame.`;
 
 const allPrompts = readFileSync(allPromptsPath, 'utf8');
 const master = allPrompts.replaceAll(oldImagePrompt, imagePromptTemplate);
 writeFileSync(allPromptsPath, `${visualSystemRules}\n\n${master}`);
 
-// Internal prompt sources live together under 04-visuals/01-BILDPROMPTS/.
-// The user-facing complete master prompt deliberately stays at 04-visuals/alle-bildprompts.txt.
 if (existsSync(imageWorldOldPath)) {
   const existing = readFileSync(imageWorldOldPath, 'utf8').replaceAll(oldImagePrompt, imagePromptTemplate);
   writeFileSync(imageWorldOldPath, `${visualSystemRules}\n\n${existing}`);
@@ -131,7 +141,15 @@ index.imageWorld.primaryApprovedStyleAnchor = 'finanzneo-stylized-3d-animated-bl
 index.imageWorld.approvedStyleReferences = YOUTUBE_APPROVED_STYLE_REFERENCES;
 delete index.imageWorld.legacyPromptDna;
 index.imageWorld.flowVisualModes = [...YOUTUBE_FLOW_VISUAL_MODES];
-index.imageWorld.decisiveMomentRequired = true;
+index.imageWorld.visualDecisionPolicy = YOUTUBE_FLOW_IMAGE_POLICY_ID;
+index.imageWorld.meaningFirstRequired = true;
+index.imageWorld.sceneFirst = false;
+index.imageWorld.placeRequired = false;
+index.imageWorld.realSceneRequired = false;
+index.imageWorld.peopleRequired = false;
+index.imageWorld.semanticObjectCompositionsAllowed = true;
+index.imageWorld.visualMetaphorsAllowed = true;
+index.imageWorld.decisiveMomentRequired = false;
 index.imageWorld.sceneSpecificColorsAllowed = true;
 index.imageWorld.peopleAllowedWhenUseful = true;
 index.imageWorld.precisionGraphicsOwner = 'remotion';
@@ -148,9 +166,9 @@ const readmePath = resolve(projectRoot, 'README.md');
 const readme = readFileSync(readmePath, 'utf8');
 writeFileSync(
   readmePath,
-  `${readme.trim()}\n\n## Google Flow — genau eine Datei kopieren\n\nKopiere **genau diese Datei vollständig und 1:1** in den Google-Flow-Agenten:\n\n\`04-visuals/alle-bildprompts.txt\`\n\nDiese Datei ist immer der vollständige ausführbare Master-Prompt. Sie darf niemals durch einen Hinweis, Redirect oder Platzhalter ersetzt werden. Jeder Bildprompt ist ein kurzer englischer Absatz in immer derselben Form: Look, was im Bild ist, optional der Moment, Ort, erlaubter deutscher Text, Licht und tiefschwarzer Hintergrund. Bildwelt: Look fest, Inhalt frei — jedes Bild sieht aus wie ein Standbild aus einem stilisierten 3D-Animationsfilm auf tiefem Schwarz; Menschen, Hände, echte Alltagsgegenstände und kleine Orte dürfen vorkommen, wenn sie den Sprechpunkt erklären. Präzise Daten-/UI-Grafiken bleiben Remotion-owned. Interne Stil-/Thumbnail-/Einzelpromptquellen liegen unter \`04-visuals/01-BILDPROMPTS/\`.\n`,
+  `${readme.trim()}\n\n## Google Flow — genau eine Datei kopieren\n\nKopiere **genau diese Datei vollständig und 1:1** in den Google-Flow-Agenten:\n\n\`04-visuals/alle-bildprompts.txt\`\n\nDiese Datei ist der vollständige ausführbare Master-Prompt. Bildlogik: **Bedeutung zuerst, Form frei**. Eine Person, ein Ort oder eine reale Szene sind niemals Pflicht. Ein Bild darf aus einem einzelnen Objekt, Detail, einer Handlung, einer echten Szene, einem Vergleich, einer semantischen Objektanordnung oder einer sofort verständlichen visuellen Metapher bestehen. Fest bleibt nur die FinanzNeo-Bildwelt; präzise Daten/UI bleiben Remotion-owned.\n`,
 );
 
 console.log('✓ Google Flow: vollständiger Nutzer-Master-Prompt = 04-visuals/alle-bildprompts.txt');
-console.log('✓ Prompts: ein kurzer englischer Absatz pro Bild, immer gleiche Form — Look, Motiv, Moment, Ort, Labels, Licht, Schwarz.');
-console.log(`✓ Bildwelt: ${YOUTUBE_IMAGE_WORLD_LOCK} — Animationsfilm-Look auf Schwarz, Inhalt frei; Präzisionsgrafiken gehören Remotion.`);
+console.log(`✓ Bildlogik: ${YOUTUBE_FLOW_IMAGE_POLICY_ID} — Bedeutung zuerst, Form frei, Ort/Mensch optional.`);
+console.log(`✓ Bildwelt: ${YOUTUBE_IMAGE_WORLD_LOCK} — Animationsfilm-Look auf Schwarz; Präzisionsgrafiken gehören Remotion.`);
