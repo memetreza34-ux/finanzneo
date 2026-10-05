@@ -30,7 +30,12 @@ test('YouTube-Animationsprüfung erkennt Karten-Szenen gezielt, ohne die Motion-
 
 test('Regeln erlauben die Karten ausdrücklich', () => {
   const brain = read('CLAUDE.md');
+  const standard = read('youtube/PRODUKTIONSSTANDARD.md');
   assert.match(brain, /### Karten \(Remotion\) — erlaubter eigener Visual-Typ/);
   assert.match(brain, /reine Texttafel mit Fade\/Scale ohne Editorial-Idee — außer Stichwort-\/Zitat-Karten aus dem Karten-Baukasten/);
-  assert.match(read('youtube/PRODUKTIONSSTANDARD.md'), /## Karten — der ruhige Standard für Text, Zitat und Tabelle/);
+  assert.match(standard, /## Karten\b/);
+  assert.match(standard, /src\/design-system\/karten\.tsx/);
+  for (const name of ['StichwortKarte', 'ZitatKarte', 'TabellenKarte', 'IconAblauf', 'Zeitstrahl']) {
+    assert.match(standard, new RegExp(name));
+  }
 });
