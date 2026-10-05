@@ -2,62 +2,84 @@
 
 > `CLAUDE.md` ist die höchste Regelquelle für Produktionsverantwortung und Agent-Verhalten.
 
-## Aktiver Produktionsstandard
+## Aktiver Produktionsmodus
 
-Welche Versionen aktuell zusammengehören, steht nur noch in:
+```text
+ACTIVE_PRODUCTION_MODE: youtube-longform-v4
+NEW_REELS_PAUSED: true
+YOUTUBE_SHORTS_FORBIDDEN: true
+```
+
+Die maschinenlesbare aktive Kombination steht in:
 
 ```text
 config/finanzneo-production-standard.json
 ```
 
-Der Index verweist auf die jeweils autoritative Quelle für Layout, Hintergrund, Bildwelt, Google Flow, Animationscode und Produktions-Gates. Versionsnummern nicht aus alten Dokumenten zusammensuchen oder frei kombinieren.
+Für neue Produktionen gelten ausschließlich die YouTube-Longform-Quellen:
 
-Wichtige Quellen:
+- Produktionsstandard: `youtube/PRODUKTIONSSTANDARD.md`
+- Motion: `docs/YOUTUBE-MOTION-V3.md`
+- Bildwelt: `config/finanzneo-image-worlds/finanzneo-youtube-animated-black-v3.txt`
+- Maschinenvertrag: `scripts/lib/youtube-contract.mjs`
 
-- Layout und Safe-Zones: `src/brand/tokens.ts -> REEL_STYLE`
-- Reel-Hintergrund: `src/design-system/FinanceBackground.tsx`
-- Bildwelt und Flow: `config/finanzneo-image-world-lock.json`
-- Komponentenwahl: `docs/COMPONENT-CATALOG.md`
-- Phase 1: `docs/PHASE-1-BRIEFING.md`
-- Animationscode: `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`
-- Gesamtworkflow: `docs/3-PHASEN-WORKFLOW.md`
-- Phase 3: `docs/PHASE-3-COMPLETION-GATE.md`
+Bestehende Reel-Dateien und Reel-Regeln bleiben nur für Legacy-Projekte erhalten. **Keine neuen Reels und keine YouTube Shorts erstellen.**
+
+## Neues Video
+
+```bash
+npm run youtube:create -- --target youtube/<Projekt> --title "Titel"
+```
+
+Wenn die Visualtypen bereits feststehen, mindestens zwei Motion-Visuals einplanen:
+
+```bash
+npm run youtube:create -- --target youtube/<Projekt> --title "Titel" --types image,animation,image,hybrid,image,animation,image
+```
+
+Verbindlicher V4-Rahmen:
+
+- 1920 × 1080, horizontal 16:9, 30 fps
+- mindestens zwei echte Motion-/Animationsvisuals pro normalem Projekt
+- `LOOK FEST — INHALT FREI`: Standbilder im stilisierten 3D-Animationsfilm-Look auf tiefem Schwarz; Menschen, Hände, echte Gegenstände und Orte, wenn es passt
+- Bildwelt `finanzneo-youtube-animated-black-v3`
+- Charts und Diagramme frontal, gerade und sofort lesbar
+- drei Thumbnail-Kandidaten A/B/C als drei parallele Einzelbild-Jobs
+- nach einmaliger A/B/C-Auswahl Szenenbilder in parallelen Batches mit maximal fünf getrennten Einzelbild-Jobs
+- Thumbnail oder andere Szenenbilder niemals als Style-Referenz verwenden; die geschriebene V9-Welt ist die Style-Autorität
 
 ## Drei Phasen
 
 ```text
 PHASE 1 — ChatGPT
-Recherche + Skript + Bildprompts + produktionsreife animation.tsx
+Recherche + geprüftes Skript + Dramaturgie + Visualplanung + Flow-Prompts
++ produktionsreife animation.tsx + Publishing-Paket
 
         ↓
 
 PHASE 2 — Nutzer
-Flow-Bilder + genau ein finales Voiceover + echte Wort-Timings
+3 Thumbnail-Kandidaten → A/B/C-Auswahl → finale Flow-Bilder
++ genau ein finales Voiceover + echte Wort-Timings
 
         ↓
 
 PHASE 3 — konfigurierter Executor
-Assets integrieren + Animationen binden + Preflight + Render + QA + Export
+versiegelte Motion integrieren + Assets/Timing binden + QA + Render + Export
 ```
 
-## Neuer Reel
+Phase 3 darf fehlende kreative Arbeit nicht mit Platzhaltern, Dummy-Motion oder Ersatzbildern kaschieren.
+
+## Startfreigabe vor Phase 3
 
 ```bash
-npm run reel:create -- --target reels/<Woche>/<Tag>/<Reel> --title "Titel"
+npm run youtube:validate -- youtube/<Projekt>
+npm run youtube:animation:validate -- youtube/<Projekt>
+npm run youtube:phase1:seal -- youtube/<Projekt>
+npm run youtube:ready -- youtube/<Projekt>
 ```
 
-Danach gilt der im aktiven Standard referenzierte Workflow. Ein Reel ist erst final, wenn die dort definierten Produktions-Gates vollständig bestanden sind. Eine vorhandene MP4 allein ist kein Fertigkeitsnachweis.
-
-## Phase 3 — Befehle
-
-```bash
-npm run reel:ready -- <Reel>
-npm run reel:phase3:init -- <Reel> <Composition-ID>
-npm run reel:phase3:preflight -- <Reel>
-npm run reel:render -- <Reel>/05-projektdateien/phase3-production-manifest.json
-npm run reel:export -- <Reel> <Final-MP4>
-```
+Nur ein erfolgreicher Lauf aller Gates gibt Phase 3 frei.
 
 ## Grundregel für Änderungen
 
-Neue Regeln nicht parallel in mehreren Dokumenten neu definieren. Stattdessen die autoritative Quelle ändern und bei Bedarf nur darauf verweisen. Alte Versionsdokumente sind keine Grundlage für neue Produktionen, sofern sie nicht vom aktiven Produktionsstandard referenziert werden.
+Neue Regeln nicht parallel in mehreren Dokumenten neu definieren. Die autoritative Quelle ändern und andere Dokumente nur darauf verweisen lassen. Alte Reel-/Versionsdokumente sind keine Grundlage für neue Produktionen, sofern der aktive YouTube-V4-Standard sie nicht ausdrücklich referenziert.

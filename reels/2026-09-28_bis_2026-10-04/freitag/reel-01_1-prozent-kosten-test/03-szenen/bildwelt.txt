@@ -1,0 +1,25 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+
+FINANZNEO WORLD:
+- Deep Black als ruhige Bühne.
+- Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache.
+- Emerald = positiv/Wachstum, Gold = Geld/Wert, Warm Red-Orange = Kosten/Warnung, Ivory/Soft Gray = neutral.
+- Starke Tiefe, saubere Materialien, hochwertige Lichtsetzung, klare mobile Lesbarkeit.
+- Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
+
+FREE VISUAL FORM:
+- Pro Sprechbeat frei die stärkste Form wählen: character-story, object-story, comparison, chart, diagram, editorial-quote, illustration, metaphor oder hybrid.
+- Kein Zwang zu Menschen, Alltagsobjekten oder Metaphern.
+- Aufeinanderfolgende Szenen nicht unnötig mit derselben Kompositionsidee bauen.
+- CHART/DIAGRAM muss ein echtes Diagramm bleiben: korrekte Achsen/Skalen/Labels/Proportionen, soweit fachlich erforderlich; 3D-Inszenierung darf die Datenlogik nie verfälschen.
+- POWERPOINT-/EXCEL-DEFAULT ist verboten: keine langweiligen Standardbalken, dünnen Defaultachsen oder flachen Corporate-Templates.
+- TRANSFERABILITY_TEST: Bild muss spezifisch für den Sprechbeat sein.
+
+BACKGROUND_LOCK: Use one seamless deep black background.

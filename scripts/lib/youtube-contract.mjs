@@ -33,8 +33,43 @@ export const YOUTUBE_VIDEO_WIDTH = 1920;
 export const YOUTUBE_VIDEO_HEIGHT = 1080;
 export const YOUTUBE_VIDEO_FPS = 30;
 
+// Bildwelt A+B (2026-10-04): Animationsfilm-Look mit Alltagsmomenten und echten
+// Gegenständen auf tiefem Schwarz. Löst front-readable-v2 ab, das den
+// Animationsfilm-Look und echte Alltagsgegenstände verboten hatte.
+export const YOUTUBE_IMAGE_WORLD_LOCK = 'finanzneo-youtube-animated-black-v3';
+export const YOUTUBE_IMAGE_WORLD_FILE = 'config/finanzneo-image-worlds/finanzneo-youtube-animated-black-v3.txt';
+export const YOUTUBE_APPROVED_STYLE_REFERENCES = 'Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgroschen" (2026-09-17)';
+export const YOUTUBE_FLOW_VISUAL_MODES = ['character-moment', 'hands-in-action', 'object-story', 'everyday-scene', 'comparison-scene', 'creative-idea', 'hybrid-scene-plate'];
+export const YOUTUBE_FLOW_EXECUTION_MODE_ID = 'finanzneo-youtube-cover3-image5-parallel-v4';
+export const YOUTUBE_THUMBNAIL_CANDIDATE_COUNT = 3;
+export const YOUTUBE_THUMBNAIL_CONCURRENCY = 3;
+export const YOUTUBE_IMAGE_BATCH_SIZE = 5;
+export const YOUTUBE_IMAGE_CONCURRENCY = 5;
+export const YOUTUBE_MIN_MOTION_VISUALS = 2;
+
+// Flow-Ablauf und Look nach dem ersten echten Flow-Lauf (Notgroschen, 2026-10-04):
+// ein Flow-Ordner pro Video, Verlierer-Cover löschen, alles nach Szene benannt,
+// und natürlich statt KI-Poster. Der Validator verlangt diese Marker im Flow-Master.
+export const YOUTUBE_FLOW_ONE_FOLDER_MARKER = 'EIN GOOGLE-FLOW-ORDNER PRO VIDEO';
+export const YOUTUBE_FLOW_DELETE_LOSERS_MARKER = 'NICHT GEWÄHLTE COVER LÖSCHEN';
+export const YOUTUBE_FLOW_FINISHED_FOLDER_MARKER = 'FERTIGER FLOW-ORDNER';
+export const YOUTUBE_FLOW_NATURAL_LOOK_MARKER = 'NATÜRLICH — KEIN KI-LOOK';
+
+// Einheitliche Flow-Prompt-Form: fester Anfang, ein konkreter Alltagssatz, kurzer Ort,
+// höchstens zwei Texte, fester Schluss. Lange, jedes Mal anders formulierte Prompts
+// mit „premium/cinematic“ haben in Flow zu KI-Poster-Bildern geführt (2026-10-04).
+export const YOUTUBE_FLOW_PROMPT_OPENING = 'Stylized 3D animated feature film still, 16:9.';
+export const YOUTUBE_FLOW_PROMPT_CLOSING = 'Soft natural light, deep black background. Not photorealistic, no logos.';
+export const YOUTUBE_FLOW_PROMPT_MAX_WORDS = 70;
+export const YOUTUBE_FLOW_PROMPT_MAX_TEXTS = 2;
+
 export const VISUAL_INDEX = '04-visuals/visual-index.json';
+export const PROMPT_DIRECTORY = '04-visuals/01-BILDPROMPTS';
+// This is intentionally the user-facing, directly copyable Google Flow master prompt.
+// Never replace it with a redirect/stub. Internal prompt sources stay under PROMPT_DIRECTORY.
 export const ALL_PROMPTS = '04-visuals/alle-bildprompts.txt';
+export const IMAGE_WORLD_PROMPT = `${PROMPT_DIRECTORY}/bildwelt.txt`;
+export const THUMBNAIL_PROMPT = `${PROMPT_DIRECTORY}/thumbnail-prompt.txt`;
 export const IMAGE_INBOX = '04-visuals/00-ALLE-BILDER-HIER-REIN';
 export const WORD_TIMINGS = '03-audio/word-timings.json';
 export const ANIMATION_SEAL = '06-projektdateien/animation-seal.json';
@@ -70,8 +105,8 @@ export const PHASE_1_FILES = [
   '02-script/kapitel-dramaturgie.md',
   '02-script/retention-plan.md',
   ALL_PROMPTS,
-  '04-visuals/bildwelt.txt',
-  '04-visuals/thumbnail-prompt.txt',
+  IMAGE_WORLD_PROMPT,
+  THUMBNAIL_PROMPT,
   '06-projektdateien/visual-plan.md',
   '06-projektdateien/remotion-plan.md',
   ...Object.values(YOUTUBE_PUBLISHING_FILES),

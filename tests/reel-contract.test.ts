@@ -21,9 +21,9 @@ test('Reel-Vertrag verwendet die verbindliche Bildwelt', () => {
   assert.equal(REEL_VIDEO_ASPECT_RATIO, '9:16');
 });
 
-test('Google Flow verwendet Strict-Single-Job-State-Machine V3', () => {
-  assert.equal(FLOW_EXECUTION_MODE_ID, 'finanzneo-flow-strict-single-job-v3');
-  assert.equal(FLOW_STATE_MACHINE_ID, 'finanzneo-flow-state-machine-v1');
+test('Legacy-Reel Google Flow verwendet Cover-parallel + Scene-single V4', () => {
+  assert.equal(FLOW_EXECUTION_MODE_ID, 'finanzneo-flow-cover-parallel-then-single-v4');
+  assert.equal(FLOW_STATE_MACHINE_ID, 'finanzneo-flow-state-machine-v2');
   assert.equal(FLOW_STRUCTURE_LOCK_ID, 'finanzneo-flow-structure-lock-v2');
 });
 

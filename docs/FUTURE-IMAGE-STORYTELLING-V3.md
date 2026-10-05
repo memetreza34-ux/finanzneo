@@ -2,85 +2,106 @@
 
 Contract: `finanzneo-image-storytelling-v3`
 
-Gilt nur für Reels, die nach Aktivierung dieses Standards neu mit `reel:create` angelegt werden. Bestehende Reels und bereits erzeugte Bilder werden nicht migriert oder verändert.
+Aktuelle Revision für neue Reels:
+
+```text
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+```
+
+Bestehende ältere Reels bleiben rückwärtskompatibel. Neue Reels wählen pro Sprechbeat frei die stärkste Darstellungsform.
 
 ## Kernregel
 
-**Literal first, creative second.**
+**Form frei, Bildwelt fest.**
 
-Ein statisches Flow-Bild beginnt bei der echten Situation des gesprochenen Beats. Kreativität soll diese Situation klarer, interessanter und hochwertiger machen — nicht durch eine beliebige Metapher ersetzen.
+Der Sprechbeat entscheidet, ob ein Mensch, ein Objekt, ein Vergleich, ein echtes Chart/Diagramm, ein Editorial-/Zitatbild, eine Illustration, eine Metapher oder eine Kombination davon am besten erklärt.
 
-## Reihenfolge für jede Bildszene
+Es gibt keine Pflichtquote und keinen Zwang zu Menschen oder realen Alltagsszenen.
 
-1. **Exakten Voiceover-Beat lesen.** Welche Handlung, welches Objekt, welcher Zustand oder welche Konsequenz wird wirklich genannt?
-2. **Reale Situation definieren.** Was würde man in der echten Welt sehen?
-3. **Kontextanker festlegen.** Zum Beispiel Überweisung, Rechnung, Kreditkarte, Konto, Einkauf, Vertrag, Bankkontakt oder Zahlung.
-4. **Voiceover-Match festlegen.** Welches konkrete sichtbare Detail beweist die gesprochene Aussage?
-5. **Transferability-Test bestehen.** Könnte dasselbe Bild unverändert zu fünf anderen Finanzthemen passen, ist es zu generisch.
-6. **Erst danach Stil und kreative Inszenierung festlegen.**
+## Erlaubte VISUAL_FORM-Werte
+
+- `character-story`
+- `object-story`
+- `comparison`
+- `chart`
+- `diagram`
+- `editorial-quote`
+- `illustration`
+- `metaphor`
+- `hybrid`
 
 ## Pflichtfelder vor Google Flow
 
-Jeder individuelle `bildprompt.txt` enthält:
+Jede Bildszene dokumentiert identisch in `bildprompt.txt` und `scene-index.json`:
 
-- `VISUAL_STRATEGY: literal` oder `metaphor`
-- `LITERAL_REAL_WORLD_SITUATION`
-- `REAL_WORLD_CONTEXT_ANCHOR`
+- `VISUAL_FORM`
+- `VISUAL_CONCEPT`
 - `VOICEOVER_VISUAL_MATCH`
+- `INSTANT_READ_TEST: PASS - ...`
 - `TRANSFERABILITY_TEST: PASS - ...`
-- `METAPHOR_JUSTIFICATION`
+- `DATA_INTEGRITY_TEST`
 
-Bei `VISUAL_STRATEGY: literal` muss `METAPHOR_JUSTIFICATION: none` gesetzt sein.
+Für `chart` und `diagram` muss `DATA_INTEGRITY_TEST` mit `PASS` beginnen und konkret bestätigen, dass Werte, Proportionen, Achsen/Skalen/Labels und Aussage fachlich zusammenpassen.
 
-Bei `VISUAL_STRATEGY: metaphor` ist eine konkrete Begründung Pflicht: Warum erklärt die reale Situation diesen Beat visuell schlechter als die Metapher?
+Für alle anderen Formen gilt exakt:
 
-## Subtitle-off-Test
+```text
+DATA_INTEGRITY_TEST: not-applicable
+```
 
-Überschrift, Untertitel und erklärenden Begleittext gedanklich entfernen.
+## Chart / Diagram — echte Datenvisualisierung
 
-Ein fremder Zuschauer muss anhand des Bildes ungefähr erkennen können, **welcher konkrete Vorgang** erklärt wird. Reine Stimmung oder ein allgemeines Finanzmotiv reicht nicht.
+Ein Chart bleibt ein echtes Chart.
 
-## Transferability-Test
+- Linien-/Balkendiagramme erhalten echte Achsen, Skalen und Labels, wenn der Diagrammtyp sie fachlich braucht.
+- Kreis-/Donutdiagramme erhalten keine künstlichen X-/Y-Achsen.
+- Werte und Proportionen müssen korrekt sein.
+- 3D-Tiefe, physische Achsen, volumetrische Balken, hochwertige Materialien und Licht sind erlaubt, solange die Datenlogik nicht verfälscht wird.
 
-Frage vor der Bildgenerierung:
+**POWERPOINT-/EXCEL-DEFAULT ist verboten.** Keine langweiligen Standardbalken, dünnen Defaultachsen oder flachen Corporate-Infografik-Templates als finale Bildwelt.
 
-> Könnte dieses Bild ohne Änderung auch zu fünf anderen Finanzthemen verwendet werden?
+## Andere Formen
 
-Wenn ja: **FAIL.** Motiv spezifischer planen.
+### Character story
+Eine Figur wird nur verwendet, wenn Pose, Reaktion oder Handlung die Aussage wirklich trägt. Keine Corporate-Stock-Figur als Dekoration.
 
-Beispiel:
+### Object story
+Ein oder wenige starke Objekte dürfen die komplette Aussage tragen, wenn sie sofort verständlich sind.
 
-- Schlecht: Goldmünze vor roter Schranke. Könnte Kredit, Gebühren, Betrug, Sparen oder Schulden bedeuten.
-- Gut: Überweisungsbeleg mit Empfängername und IBAN, sichtbare Abweichung, Zahlung noch nicht freigegeben.
+### Comparison
+A-vs-B kann symmetrisch, räumlich oder editorial inszeniert werden. Der Unterschied muss sofort lesbar sein.
 
-## Metaphern
+### Editorial / Quote
+Kurze starke Typografie darf Hauptmotiv sein und als physisches 3D-/Illustrationselement in der FinanzNeo-Welt stehen.
 
-Metaphern bleiben ausdrücklich erlaubt. Sie sind aber ein **Fallback**, nicht der Standard für statische Bilder.
+### Illustration / Metapher
+Freie Illustration und intuitive Metaphern sind ausdrücklich erlaubt. Sie dürfen kein Rätsel werden. Erfundenes `capital body`, `wealth tower`, `value block`, `investment block` oder `fee token` ist keine automatische Standardsprache.
 
-Insbesondere folgende Motive dürfen nicht automatisch aus dem Begriff „Ursache/Wirkung“ entstehen:
+### Hybrid
+Kombinationen sind erlaubt, z. B. Figur + echtes Chart, Objekt + Diagramm, Zitat + Metapher oder Vergleich + Datenvisualisierung.
 
-- Förderbänder
-- Schienen
-- Schranken
-- Käfige oder Gitter
-- Fantasie-Portale
-- Sortieranlagen
-- große mechanische Hebel
-- beliebige Maschinen ohne realen Bezug zum Sprechbeat
+## QA
 
-Wenn eines dieser Motive die beste Erklärung ist, kann es verwendet werden — aber nur mit `VISUAL_STRATEGY: metaphor` und einer konkreten `METAPHOR_JUSTIFICATION`.
+Ein Bild besteht nur, wenn:
 
-## Gute Referenzlogik
+1. die Aussage in ca. 1–2 Sekunden erkennbar ist,
+2. es exakt zum Sprechbeat passt,
+3. es nicht generisch zu fünf anderen Finanzthemen passt,
+4. Chart-/Diagrammdaten fachlich korrekt sind,
+5. es sichtbar zur selben FinanzNeo-V9-Serie gehört.
 
-Ein gutes Bild zeigt den Satz möglichst direkt:
+## Bildwelt bleibt fest
 
-- Datum wird erklärt → Kalenderdatum + betroffener Finanzvorgang.
-- Name und IBAN werden geprüft → genau Name und IBAN werden sichtbar geprüft.
-- Bank kontaktieren → erkennbare Bank-/Kontakt-Situation plus betroffener Vorgang.
-- Rückforderung hängt vom Empfänger ab → Rückforderungsanfrage erreicht den Empfänger; Rückgabe ist sichtbar nicht automatisch.
+- `finanzneo-stylized-3d-animated-black-v9`
+- 1:1 Google-Flow-Bilder
+- Deep Black
+- premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache
+- starke Tiefe, Licht und Materialqualität
+- Emerald = positiv/Wachstum
+- Gold = Geld/Wert
+- Warm Red-Orange = Kosten/Warnung
+- kein Fotorealismus
+- kein billiger Corporate-/Stock-/PowerPoint-Look
 
-## Was weiterhin gilt
-
-V9-Bildwelt, 1:1-Flow-Format, tiefschwarzer Hintergrund, kurze Objektlabels, Strict-Single-Job Flow V3 und alle bisherigen Sicherheits-/Layoutregeln bleiben unverändert.
-
-V3 ändert **nicht den Look**, sondern die Auswahl und Präzision des Motivs.
+Die frühere Phase-A-DNA bleibt Qualitätsreferenz für Licht, Tiefe, Kamera und hochwertige 3D-Inszenierung, begrenzt aber nicht die Darstellungsform.

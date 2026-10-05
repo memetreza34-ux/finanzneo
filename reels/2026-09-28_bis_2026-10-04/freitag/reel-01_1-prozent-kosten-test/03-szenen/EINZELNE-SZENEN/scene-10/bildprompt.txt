@@ -1,0 +1,38 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 10 - Fuenfundachtzigtausend Unterschied.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 85.600 €
+- nur 1 Prozentpunkt
+
+VISUAL_FORM: editorial-quote
+VISUAL_CONCEPT: Große physische 3D-Typografie „85.600 €“ steht im Zentrum; darunter klein „nur 1 Prozentpunkt“, flankiert von zwei subtilen Endwert-Markern 447k und 362k, ohne Dashboard-Look.
+VOICEOVER_VISUAL_MATCH: Die große Differenzzahl und der kleine Hinweis auf nur einen Prozentpunkt stellen den überraschenden Gegensatz direkt gegenüber.
+INSTANT_READ_TEST: PASS - 85.600 € groß und „nur 1 Prozentpunkt“ klein vermitteln die Kernbotschaft sofort.
+TRANSFERABILITY_TEST: PASS - 85.600 € Differenz bei einem Prozentpunkt ist die spezifische Pointe dieses Rechenbeispiels.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Create a premium editorial 3D finance composition on a seamless deep-black stage. Main hero: large physical beveled 3D typography reading exactly “85.600 €” in warm gold, occupying most of the composition. Directly below, much smaller refined ivory text reads “nur 1 Prozentpunkt”. Add two subtle physical endpoint markers at the sides, “447k” in emerald and “362k” in warm ivory, connected only by spatial alignment—not a dashboard. Use cinematic depth, premium materials, soft rim lighting and clean contact shadows. It should feel like a high-end animated-film editorial frame, not a social template. No PowerPoint, no card UI, no person, no extra sentence, no photorealism.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
+
+BACKGROUND_LOCK: Use one seamless deep black background.

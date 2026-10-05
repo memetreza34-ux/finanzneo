@@ -1,6 +1,6 @@
-# YouTube-Longform
+# YouTube-Longform — aktiver FinanzNeo-Produktionsmodus
 
-Dieser Bereich ist ausschließlich für eigenständige längere FinanzNeo-Videos. Keine YouTube Shorts und keine gestreckten Reel-Kopien.
+Neue FinanzNeo-Videos werden aktuell ausschließlich hier gebaut. **Keine neuen Reels, keine YouTube Shorts.**
 
 ## Neues Projekt
 
@@ -8,35 +8,14 @@ Dieser Bereich ist ausschließlich für eigenständige längere FinanzNeo-Videos
 npm run youtube:create -- --target youtube/<Projekt> --title "Titel"
 ```
 
-Ohne `--types` wird bewusst **keine feste Visualzahl** vorgegeben. Phase 1 plant zuerst Skript und Visual Beats. Wenn die Visualtypen bereits feststehen, können sie beim Scaffold übergeben werden:
+Wenn Visualtypen schon feststehen, mindestens zwei Motion-Typen einplanen:
 
 ```bash
-npm run youtube:create -- --target youtube/<Projekt> --title "Titel" --types image,hybrid,animation,data,image
+npm run youtube:create -- --target youtube/<Projekt> --title "Titel" --types image,animation,image,hybrid,image,animation,image
 ```
 
-Erlaubt:
+Flow: 3 Thumbnail-Kandidaten parallel → Nutzerwahl → Szenenbilder in parallelen 5er-Batches → sofort Rename/QA → Final Inventory QA. Thumbnail und Bilder nutzen direkt dieselbe schriftliche V9-Bildwelt; das Thumbnail wird nie Style-Referenz.
 
-- `image`
-- `animation`
-- `hybrid`
-- `data`
+Charts/Diagramme frontal und gerade. Mindestens zwei echte Motion-Visuals pro Projekt.
 
-Für Motion gilt V3: erst `viewerChange`, dann die beste Technik. Es gibt keine feste Animationsbibliothek und keine Whitelist für Composition Families.
-
-Danach:
-
-```bash
-npm run youtube:validate -- youtube/<Projekt>
-npm run youtube:animation:validate -- youtube/<Projekt>
-npm run youtube:phase1:seal -- youtube/<Projekt>
-npm run youtube:ready -- youtube/<Projekt>
-```
-
-Verbindlich:
-
-- [Produktionsstandard](PRODUKTIONSSTANDARD.md)
-- [YouTube Motion V3](../docs/YOUTUBE-MOTION-V3.md)
-- [3-Phasen-Workflow](../docs/YOUTUBE-LONGFORM-WORKFLOW.md)
-- `CLAUDE.md`
-
-`youtube:ready` gibt Phase 3 nur frei, wenn Recherche, Skript, Visuals, produktionsreife und Motion-V3-versiegelte Quellen, Publishing-Paket, alle exakten 16:9-Nutzerbilder, genau ein finales Voiceover und echte Wort-Timings vollständig sind.
+Verbindlich: [Produktionsstandard](PRODUKTIONSSTANDARD.md), [YouTube Motion V3](../docs/YOUTUBE-MOTION-V3.md), `CLAUDE.md`.

@@ -10,10 +10,13 @@ import {
   GENERATED_IMAGE_ASPECT_MARKER,
   GENERATED_IMAGE_ASPECT_RATIO,
   IMAGE_INBOX,
+  IMAGE_WORLD_PROMPT,
+  PROMPT_DIRECTORY,
   SERIES_LOCK_ID,
   SERIES_LOCK_MARKER,
   SOCIAL_PROMO_FILES,
   SUBTITLE_MODE,
+  THUMBNAIL_PROMPT,
   VISUAL_INDEX,
   WORD_TIMINGS,
   WORLD_ID,
@@ -25,6 +28,18 @@ import {
   YOUTUBE_VIDEO_HEIGHT,
   YOUTUBE_VIDEO_WIDTH,
   YOUTUBE_VISUAL_TYPES,
+  YOUTUBE_IMAGE_WORLD_LOCK,
+  YOUTUBE_FLOW_EXECUTION_MODE_ID,
+  YOUTUBE_FLOW_DELETE_LOSERS_MARKER,
+  YOUTUBE_FLOW_FINISHED_FOLDER_MARKER,
+  YOUTUBE_FLOW_NATURAL_LOOK_MARKER,
+  YOUTUBE_FLOW_ONE_FOLDER_MARKER,
+  YOUTUBE_FLOW_PROMPT_OPENING,
+  YOUTUBE_THUMBNAIL_CANDIDATE_COUNT,
+  YOUTUBE_THUMBNAIL_CONCURRENCY,
+  YOUTUBE_IMAGE_BATCH_SIZE,
+  YOUTUBE_IMAGE_CONCURRENCY,
+  YOUTUBE_MIN_MOTION_VISUALS,
 } from './lib/youtube-contract.mjs';
 import {
   requiresYouTubeImage,
@@ -32,6 +47,7 @@ import {
   validateYouTubeMotionMetadata,
   validateYouTubeMotionVariety,
 } from './lib/youtube-motion-contract.mjs';
+import {countFlowPrompts, findAbstractFlowPromptTerms, findFlowPromptFormIssues} from './lib/youtube-flow-prompt-check.mjs';
 
 const [target] = process.argv.slice(2);
 if (!target) {
@@ -46,10 +62,11 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
   process.exit(1);
 }
 
+const PHASE_STATUS = '06-projektdateien/PHASENSTATUS.md';
 const errors = [];
 const assert = (condition, message) => { if (!condition) errors.push(message); };
 const read = (relativePath) => readFileSync(resolve(root, relativePath), 'utf8');
-const requiredDirectories = ['01-recherche', '02-script', '03-audio', '04-visuals', '05-publishing', '06-projektdateien', IMAGE_INBOX];
+const requiredDirectories = ['01-recherche', '02-script', '03-audio', '04-visuals', '05-publishing', '06-projektdateien', IMAGE_INBOX, PROMPT_DIRECTORY];
 for (const directory of requiredDirectories) {
   assert(existsSync(resolve(root, directory)) && statSync(resolve(root, directory)).isDirectory(), `${directory}/ fehlt.`);
 }
@@ -73,8 +90,8 @@ if (!existsSync(resolve(root, VISUAL_INDEX))) {
 }
 
 assert(existsSync(resolve(root, ALL_PROMPTS)), `${ALL_PROMPTS} fehlt.`);
-assert(existsSync(resolve(root, '04-visuals/bildwelt.txt')), '04-visuals/bildwelt.txt fehlt.');
-assert(existsSync(resolve(root, '04-visuals/thumbnail-prompt.txt')), '04-visuals/thumbnail-prompt.txt fehlt.');
+assert(existsSync(resolve(root, IMAGE_WORLD_PROMPT)), `${IMAGE_WORLD_PROMPT} fehlt.`);
+assert(existsSync(resolve(root, THUMBNAIL_PROMPT)), `${THUMBNAIL_PROMPT} fehlt.`);
 assert(existsSync(resolve(root, WORD_TIMINGS)), `${WORD_TIMINGS} fehlt.`);
 
 if (index) {
@@ -91,23 +108,42 @@ if (index) {
   assert(index.imageWorld?.generatedImageAspectRatio === GENERATED_IMAGE_ASPECT_RATIO, 'YouTube-Quellbilder müssen 16:9 sein.');
   assert(index.imageWorld?.horizontalGeneratedImagesRequired === true, 'Horizontale 16:9-Quellbilder müssen verpflichtend sein.');
   assert(index.imageWorld?.sameWorldAcrossSeriesRequired === true, 'Dieselbe Bildwelt muss für die ganze Serie vorgeschrieben sein.');
-  assert(index.imageWorld?.literalFirst === true && index.imageWorld?.metaphorOptional === true, 'YouTube-Bilder müssen Literal-first V3 verwenden.');
-  assert(index.imageWorld?.styleReferenceStrategy === 'approved-thumbnail-style-only', 'Das freigegebene Thumbnail muss reine Stilreferenz sein.');
-  assert(index.imageWorld?.referencePromptFile === '04-visuals/bildwelt.txt', 'referencePromptFile ist falsch.');
+  assert(index.imageWorld?.styleLockId === YOUTUBE_IMAGE_WORLD_LOCK, `YouTube-Bildwelt muss ${YOUTUBE_IMAGE_WORLD_LOCK} sein.`);
+  assert(index.imageWorld?.formFree === true && index.imageWorld?.frontReadableDefault === true, 'YouTube-Bilder brauchen Form-frei + Front-readable V2.');
+  assert(index.imageWorld?.frontFacingChartsRequired === true, 'Charts/Diagramme müssen frontal dargestellt werden.');
+  assert(index.imageWorld?.styleReferenceStrategy === 'written-youtube-v9-lock-only', 'Nur die geschriebene YouTube-V9-Welt darf Style-Autorität sein.');
+  assert(index.imageWorld?.selectedThumbnailMayBeStyleReference === false, 'Das gewählte Thumbnail darf keine Style-Referenz sein.');
+  assert(index.imageWorld?.referencePromptFile === IMAGE_WORLD_PROMPT, 'referencePromptFile ist falsch.');
+  assert(index.imageWorld?.primaryApprovedStyleAnchor === 'finanzneo-stylized-3d-animated-black-v9', 'Stylized 3D Animated Black V9 muss primärer Flow-Stilanker sein.');
+  assert(index.imageWorld?.legacyPromptDna === undefined, 'Die alte Legacy-Prompt-DNA (grün-goldene Chunky-CGI) darf nicht mehr Stilquelle sein.');
+  if (Array.isArray(index.imageWorld?.flowVisualModes)) {
+    assert(index.imageWorld.flowVisualModes.includes('character-moment') && index.imageWorld.flowVisualModes.includes('object-story'), 'Flow-Bildwelt muss Figuren-Momente und Objektgeschichten unterstützen.');
+  assert(index.imageWorld?.precisionGraphicsOwner === 'remotion', 'Präzise Daten/UI/Checklisten müssen Remotion gehören.');
+  assert(index.imageWorld?.flowInfographicLayoutsForbidden === true, 'Google Flow darf keine Infografik-/Dashboard-Layouts erzeugen.');
+  }
   assert(index.motionStandard?.id === YOUTUBE_MOTION_STANDARD_ID, `motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
   assert(index.motionStandard?.contentFirstTechniqueSelection === true, 'Motion-Technik muss aus dem Inhalt gewählt werden.');
   assert(index.motionStandard?.existingComponentsOptional === true && index.motionStandard?.physicalPrimitivesOptional === true, 'Bestehende/Physical-Primitives müssen optional bleiben.');
   assert(index.googleFlow?.protocolId === FLOW_AGENT_PROTOCOL_ID, 'Google-Flow-Agent-Protokoll fehlt.');
-  assert(index.googleFlow?.generationMode === 'one-image-at-a-time' && index.googleFlow?.strictSequential === true, 'Google Flow muss strikt Bild für Bild arbeiten.');
-  assert(index.googleFlow?.waitForCurrentImage === true && index.googleFlow?.renameBeforeNext === true && index.googleFlow?.qaBeforeNext === true, 'Google Flow muss warten, umbenennen und prüfen, bevor es fortfährt.');
-  assert(index.googleFlow?.retrySameImageOnFailure === true, 'Fehlerhafte Bilder müssen unter derselben Nummer neu erzeugt werden.');
+  assert(index.googleFlow?.executionModeId === YOUTUBE_FLOW_EXECUTION_MODE_ID, `Google Flow muss ${YOUTUBE_FLOW_EXECUTION_MODE_ID} verwenden.`);
+  assert(index.googleFlow?.generationMode === 'thumbnail3-parallel-then-image5-parallel-batches' && index.googleFlow?.strictSequential === false, 'Google Flow muss Thumbnail-3 parallel und danach Bild-5 parallel arbeiten.');
+  assert(Number(index.googleFlow?.thumbnailCandidateCount) === YOUTUBE_THUMBNAIL_CANDIDATE_COUNT && Number(index.googleFlow?.thumbnailConcurrency) === YOUTUBE_THUMBNAIL_CONCURRENCY, 'Thumbnail-Phase muss exakt 3 parallele getrennte Jobs verwenden.');
+  assert(index.googleFlow?.thumbnailSeparateJobsRequired === true && index.googleFlow?.thumbnailSelectionRequired === true, 'Thumbnail A/B/C müssen getrennte Jobs sein und eine einmalige Auswahl verlangen.');
+  assert(index.googleFlow?.selectedThumbnailMayBeStyleReference === false, 'Gewähltes Thumbnail darf keine Style-Referenz werden.');
+  assert(Number(index.googleFlow?.imageBatchSize) === YOUTUBE_IMAGE_BATCH_SIZE && Number(index.googleFlow?.imageConcurrency) === YOUTUBE_IMAGE_CONCURRENCY, 'Szenenbilder müssen in parallelen 5er-Batches laufen.');
+  assert(index.googleFlow?.separateOneImageJobsRequired === true && index.googleFlow?.multiImageRequestForbidden === true, '5er-Batch muss aus getrennten Ein-Bild-Jobs bestehen.');
+  assert(index.googleFlow?.renameImmediatelyOnReturn === true && index.googleFlow?.qaEachResult === true && index.googleFlow?.nextBatchLockedUntilCurrentBatchPasses === true, 'Jedes Batch-Ergebnis muss sofort umbenannt/QA-geprüft werden; nächster Batch erst nach Gesamt-PASS.');
+  assert(index.googleFlow?.retrySameImageOnFailure === true && index.googleFlow?.userApprovalBetweenBatchesForbidden === true && index.googleFlow?.finalInventoryQaRequired === true, 'Retry/Auto-Continue/Final-Inventory-Vertrag fehlt.');
   assert(index.googleFlow?.finalCollectionDirectory === `${IMAGE_INBOX}/`, 'Finaler gemeinsamer Bilderordner ist falsch.');
   assert(index.googleFlow?.distributeToVisualFolders === false, 'Google Flow darf Bilder nicht auf Visual-Ordner verteilen.');
   assert(index.timelineRules?.cutsFollowVoiceAndChapters === true && index.timelineRules?.beatFirst === true, 'Schnitte müssen Voiceover/Beats/Kapiteln folgen.');
   assert(index.timelineRules?.equalLengthVisualsForbiddenByDefault === true, 'Starre gleich lange Visuals müssen standardmäßig verboten sein.');
   assert(Number(index.audio?.targetIntegratedLufs) === -16 && Number(index.audio?.targetTruePeakDbtp) === -1, 'Audioziel muss ungefähr -16 LUFS und höchstens -1 dBTP sein.');
   assert(index.thumbnail?.type === 'image' && typeof index.thumbnail?.googleFlowFileName === 'string', 'Thumbnail-Vertrag fehlt.');
-  assert(index.thumbnail?.planFile === '04-visuals/thumbnail-prompt.txt', 'Thumbnail-Promptpfad ist falsch.');
+  assert(index.thumbnail?.planFile === THUMBNAIL_PROMPT, 'Thumbnail-Promptpfad ist falsch.');
+  assert(Number(index.thumbnail?.candidateCount) === YOUTUBE_THUMBNAIL_CANDIDATE_COUNT && Number(index.thumbnail?.concurrency) === YOUTUBE_THUMBNAIL_CONCURRENCY, 'Es müssen 3 Thumbnail-Kandidaten gleichzeitig geplant sein.');
+  assert(index.thumbnail?.textRequired === true && Number(index.thumbnail?.textMaxLines) === 2, 'Thumbnail braucht kurzen Inhalts-Hook mit max. 2 Zeilen.');
+  assert(index.thumbnail?.mustUseSameV9World === true && index.thumbnail?.mayBeStyleReference === false, 'Thumbnail muss dieselbe V9-Welt nutzen, darf aber nie Style-Referenz sein.');
   assert(Array.isArray(index.visuals) && index.visuals.length > 0, `${VISUAL_INDEX} benötigt nach Phase-1-Planung visuals[].`);
 
   for (const [key, expectedPath] of Object.entries(YOUTUBE_PUBLISHING_FILES)) {
@@ -134,10 +170,11 @@ if (index) {
       imageFileNames.add(visual.googleFlowFileName);
       const imagePlan = visual.type === 'hybrid' ? visual.imagePlanFile : visual.planFile;
       assert(typeof imagePlan === 'string' && imagePlan.endsWith('/bildprompt.txt') && existsSync(resolve(root, imagePlan)), `${id}: bildprompt.txt fehlt.`);
+      assert(typeof imagePlan !== 'string' || imagePlan.startsWith(`${PROMPT_DIRECTORY}/`), `${id}: Bildprompt muss unter ${PROMPT_DIRECTORY}/ liegen.`);
       if (typeof imagePlan === 'string' && existsSync(resolve(root, imagePlan))) {
         const prompt = readFileSync(resolve(root, imagePlan), 'utf8');
-        for (const marker of ['LITERAL_REAL_WORLD_SITUATION:', 'REAL_WORLD_CONTEXT_ANCHOR:', 'VOICEOVER_VISUAL_MATCH:', 'TRANSFERABILITY_TEST:', 'VISUAL_STRATEGY:', 'METAPHOR_JUSTIFICATION:']) {
-          assert(prompt.includes(marker), `${id}: Literal-first Marker fehlt: ${marker}`);
+        for (const marker of ['VISUAL_FORM:', 'VISUAL_CONCEPT:', 'DECISIVE_MOMENT:', 'VOICEOVER_VISUAL_MATCH:', 'FRONT_READABILITY_TEST:', 'DATA_INTEGRITY_TEST:']) {
+          assert(prompt.includes(marker), `${id}: YouTube-V4 Bildmarker fehlt: ${marker}`);
         }
       }
     }
@@ -152,7 +189,20 @@ if (index) {
       assert(typeof visual.dataNotesFile === 'string' && existsSync(resolve(root, visual.dataNotesFile ?? '')), `${id}: data-notes.md fehlt.`);
     }
   }
+  const motionCount = (index.visuals ?? []).filter(requiresYouTubeMotion).length;
+  assert(motionCount >= YOUTUBE_MIN_MOTION_VISUALS, `YouTube Longform braucht mindestens ${YOUTUBE_MIN_MOTION_VISUALS} echte Motion-Visuals; gefunden: ${motionCount}.`);
   errors.push(...validateYouTubeMotionVariety(index.visuals ?? []));
+
+  // Statusdateien dürfen dem Visualplan nicht widersprechen — sonst erzeugt Phase 2 falsche Bilder.
+  if (existsSync(resolve(root, PHASE_STATUS))) {
+    const flowImageCount = (index.visuals ?? []).filter(requiresYouTubeImage).length;
+    const NUMBER_WORDS = {ein: 1, eins: 1, zwei: 2, drei: 3, vier: 4, 'fünf': 5, sechs: 6, sieben: 7, acht: 8, neun: 9, zehn: 10, elf: 11, 'zwölf': 12};
+    for (const match of read(PHASE_STATUS).matchAll(/(\d+|[a-zäöü]+)\s+(?:finale\s+)?(?:Flow-Szenenbilder|Flow-Bilder|Flow-Bild|Szenenbilder)\b/gi)) {
+      const stated = /^\d+$/.test(match[1]) ? Number(match[1]) : NUMBER_WORDS[match[1].toLowerCase()];
+      if (stated === undefined) continue;
+      assert(stated === flowImageCount, `${PHASE_STATUS} nennt „${match[0]}“, ${VISUAL_INDEX} plant aber ${flowImageCount} Flow-Szenenbild(er).`);
+    }
+  }
 }
 
 if (existsSync(resolve(root, ALL_PROMPTS))) {
@@ -161,13 +211,44 @@ if (existsSync(resolve(root, ALL_PROMPTS))) {
   assert(prompts.includes(SERIES_LOCK_MARKER), `${ALL_PROMPTS} enthält keinen Same-World-Lock.`);
   assert(prompts.includes(GENERATED_IMAGE_ASPECT_MARKER), `${ALL_PROMPTS} schreibt 16:9 nicht vor.`);
   assert(prompts.includes(FLOW_AGENT_PROTOCOL_MARKER), `${ALL_PROMPTS} enthält kein Flow-Protokoll.`);
-  assert(prompts.includes('Generate exactly ONE image'), 'Google Flow muss exakt ein Bild pro Schritt erzeugen.');
-  assert(prompts.includes('Rename it immediately'), 'Sofortige Umbenennung vor dem nächsten Bild fehlt.');
-  assert(prompts.includes('regenerate the same image number'), 'Wiederholungsregel für fehlerhafte Bilder fehlt.');
+  assert(prompts.includes(`FLOW_EXECUTION_MODE: ${YOUTUBE_FLOW_EXECUTION_MODE_ID}`), 'Aktueller YouTube-Flow-Modus fehlt.');
+  assert(prompts.includes(`THUMBNAIL_CONCURRENCY: ${YOUTUBE_THUMBNAIL_CONCURRENCY}`), '3 parallele Thumbnail-Jobs fehlen.');
+  assert(prompts.includes(`IMAGE_BATCH_SIZE: ${YOUTUBE_IMAGE_BATCH_SIZE}`) && prompts.includes(`IMAGE_CONCURRENCY: ${YOUTUBE_IMAGE_CONCURRENCY}`), 'Paralleler 5er-Bildbatch fehlt.');
+  assert(prompts.includes('SEPARATE one-image jobs'), '5er-Batch muss aus getrennten Ein-Bild-Jobs bestehen.');
+  assert(prompts.includes('rename immediately'), 'Sofortige Umbenennung bei Rückgabe fehlt.');
+  assert(prompts.includes('regenerate only that same number'), 'Wiederholungsregel für fehlerhafte Bilder fehlt.');
   assert(prompts.includes(IMAGE_INBOX), 'Gemeinsamer Bilderordner fehlt in der Flow-Übergabe.');
   assert(prompts.includes('horizontal 16:9'), 'Horizontales 16:9-Quellbild fehlt in der Flow-Übergabe.');
-  assert(prompts.includes('Literal first, creative second'), 'Literal-first Bildlogik fehlt in der Flow-Übergabe.');
+  assert(prompts.includes(`STYLE_AUTHORITY: ${YOUTUBE_IMAGE_WORLD_LOCK}`), 'Geschriebene V9-Bildwelt fehlt als Style-Autorität.');
+  assert(prompts.includes('APPROVED_STYLE_REFERENCES:'), 'Freigegebene Stilreferenzen (Kurse schwanken + Notgroschen) fehlen im Flow-Master.');
+  assert(/LOOK FEST — INHALT FREI/.test(prompts), 'Flow-Master muss die Bildwelt als „Look fest — Inhalt frei“ festlegen.');
+  assert(/ENTSCHEIDENDER MOMENT/.test(prompts), 'Flow-Master muss regeln, wann ein entscheidender Moment ins Bild gehört.');
+  assert(/animated[- ]feature[- ]film/i.test(prompts), 'Flow-Master muss den Animationsfilm-Look verlangen.');
+  // Diese Vorgaben haben am 2026-10-03/04 genau den gewünschten Look verboten.
+  assert(!/LEGACY_PROMPT_DNA|premium-physical-editorial-v8|stylized-3d-editorial-v5/.test(prompts), 'Flow-Master darf die alte grün-goldene Chunky-CGI-DNA nicht mehr als Stilquelle nennen.');
+  assert(!/NOT Pixar|Pixar\/clay|toy\/clay\/Pixar|clay\/toy\/Pixar/i.test(prompts), 'Flow-Master darf den Animationsfilm-Look nicht verbieten.');
+  assert(!/realistisches (langweiliges )?Büro-\/Papier-Stillleben/i.test(prompts), 'Flow-Master darf echte Alltagsgegenstände wie Rechnungen nicht pauschal verbieten.');
+  assert(!/SIMPLE EXPLAINER/i.test(prompts), 'Flow-Master darf keinen Simple-Explainer-Infografikmodus mehr enthalten.');
+  assert(/PRECISION_GRAPHICS_OWNER:\s*REMOTION/i.test(prompts), 'Präzisionsgrafiken müssen explizit Remotion gehören.');
+  assert(/DIESEN TEXT 1:1 AUSFÜHREN|DIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG/.test(prompts), 'Flow-Master muss die direkte Bildausführung ausdrücklich anweisen.');
+  assert(!/NICHT MEHR HIER ARBEITEN/i.test(prompts), `${ALL_PROMPTS} darf kein Redirect-/Stub-Hinweis sein.`);
+  assert(!/vollständigen.{0,80}(liegen|findest du|stehen).{0,80}(ander|zentral)/is.test(prompts), `${ALL_PROMPTS} darf nicht auf einen anderen Master-Prompt verweisen.`);
   assert(!/square 1:1 source image|portrait 9:16|vertical 9:16 image/i.test(prompts), 'YouTube-Prompts enthalten ein falsches Quellbildformat.');
+  assert(prompts.includes(YOUTUBE_FLOW_ONE_FOLDER_MARKER), `Flow-Master muss „${YOUTUBE_FLOW_ONE_FOLDER_MARKER}“ verlangen (Thumbnail + alle Bilder in einem Flow-Ordner).`);
+  assert(prompts.includes(YOUTUBE_FLOW_DELETE_LOSERS_MARKER), `Flow-Master muss „${YOUTUBE_FLOW_DELETE_LOSERS_MARKER}“ verlangen (die zwei nicht gewählten Cover löschen).`);
+  assert(prompts.includes(YOUTUBE_FLOW_FINISHED_FOLDER_MARKER), `Flow-Master muss den „${YOUTUBE_FLOW_FINISHED_FOLDER_MARKER}“ prüfen (jedes Bild genau einmal, nach Szene benannt).`);
+  assert(prompts.includes(YOUTUBE_FLOW_NATURAL_LOOK_MARKER), `Flow-Master muss „${YOUTUBE_FLOW_NATURAL_LOOK_MARKER}“ festlegen.`);
+  if (index) {
+    const expectedPrompts = (index.visuals ?? []).filter(requiresYouTubeImage).length + YOUTUBE_THUMBNAIL_CANDIDATE_COUNT;
+    const foundPrompts = countFlowPrompts(prompts);
+    assert(foundPrompts >= expectedPrompts, `${ALL_PROMPTS}: ${foundPrompts} Bildprompts in Einheitsform gefunden, geplant sind ${expectedPrompts} (3 Cover + Flow-Szenenbilder). Jeder Prompt beginnt mit „${YOUTUBE_FLOW_PROMPT_OPENING}“.`);
+  }
+  for (const issue of findFlowPromptFormIssues(prompts)) {
+    errors.push(`${ALL_PROMPTS}: Bildprompt ${issue}`);
+  }
+  for (const {label, term, sentence} of findAbstractFlowPromptTerms(prompts)) {
+    errors.push(`${ALL_PROMPTS}: Bildprompt verlangt abstraktes KI-Motiv (${label}: „${term}“) statt echter Alltagssituation: "${sentence.slice(0, 110)}"`);
+  }
 }
 
 if (existsSync(resolve(root, WORD_TIMINGS))) {
@@ -188,4 +269,4 @@ if (errors.length > 0) {
 }
 
 console.log('\n✓ YouTube-Longform-Vertrag erfüllt.');
-console.log('  16:9 · Beat-first · Literal-first V3 · Motion V2 · sequenzieller Flow · keine Shorts');
+console.log(`  16:9 · ${YOUTUBE_IMAGE_WORLD_LOCK} · Animationsfilm-Look, Inhalt frei · Precision = Remotion · min. ${YOUTUBE_MIN_MOTION_VISUALS} Motion · keine Shorts/Reels`);

@@ -1,0 +1,62 @@
+FLOW_COVER_FILE_BEGIN
+FLOW_COVER_WORKFLOW: finanzneo-flow-cover-parallel-5pack-v2
+COVER_VARIANT_COUNT: 3
+COVER_PARALLEL_GENERATION_REQUIRED: true
+COVER_CONCURRENCY: 3
+COVER_SEPARATE_JOBS_REQUIRED: true
+COVER_MULTI_IMAGE_REQUEST_FORBIDDEN: true
+COVER_TEXT_REQUIRED: true
+COVER_TEXT_MAX_LINES: 2
+COVER_TEXT_IDEAL_WORDS: 2-5
+COVER_TEXT_MUST_DESCRIBE_REEL_CONTENT: true
+COVER_LONG_SENTENCE_FORBIDDEN: true
+COVER_SELECTION_REQUIRED: true
+SELECTED_COVER_BECOMES_SCENE_01: true
+SELECTED_COVER_IS_STYLE_REFERENCE: false
+IMAGE_TO_IMAGE_STYLE_REFERENCE_FORBIDDEN: true
+STYLE_AUTHORITY: finanzneo-stylized-3d-animated-black-v9
+
+A/B/C parallel als 3 getrennte Jobs. Alle direkt V9. Hook nur Reel-Inhalt: max. 2 Zeilen, ideal 2–5 Wörter; kein langer Satz, Clickbait oder erfundene Fakten. Danach A/B/C wählen; Gewinner = scene-01, nie Style-Referenz.
+FLOW_COVER_FILE_END
+FUTURE_COVER_HOOK: finanzneo-cover-hook-v3
+COVER_ALIAS: SZENE 01
+KEIN SEPARATER BILDJOB.
+No separate cover generation.
+no Bild 00.
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Ein Prozent wirkt klein.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 1 %
+
+VISUAL_FORM: metaphor
+VISUAL_CONCEPT: Ein winziger roter 1-%-Gebührenzettel liegt groß im Vordergrund; dahinter ziehen sich viele identische kleine Gebührenzettel in die schwarze Tiefe und sammeln sich zu einem deutlich größeren Papierberg.
+VOICEOVER_VISUAL_MATCH: Der einzelne kleine 1-%-Zettel wirkt harmlos, die Masse derselben Zettel im Hintergrund zeigt sofort die langfristige Wirkung.
+INSTANT_READ_TEST: PASS - kleiner Einzelzettel vorne und großer angesammelter Gebührenberg hinten lesen sich sofort als klein einmal, groß über Zeit.
+TRANSFERABILITY_TEST: PASS - die wiederholten 1-%-Gebührenzettel sind spezifisch für laufende Investmentkosten über viele Jahre.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Create a premium stylized 3D animated-film finance cover on a seamless deep-black stage. In the lower foreground place one very small, perfectly readable warm red-orange paper fee slip marked only “1 %”. Behind it, let dozens of identical small 1-% fee slips recede through strong cinematic depth and accumulate into a much larger pile in the distance. The first slip must feel almost harmless; the accumulated pile must feel surprisingly substantial. Use elegant paper materials, subtle edge wear, soft contact shadows, restrained emerald accents and warm ivory neutrals. Reserve calm deep-black negative space in the upper area for the Remotion title. Strong 3/4 perspective, premium studio lighting, high-end animated-film rendering. No person, no dashboard, no chart, no fantasy machine, no abstract capital block, cover hook text is required; no additional text beyond the chosen short hook, no clutter, no photorealism.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
+
+BACKGROUND_LOCK: Use one seamless deep black background.

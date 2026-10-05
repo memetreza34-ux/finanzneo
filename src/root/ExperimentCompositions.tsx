@@ -48,12 +48,18 @@ import {EinlagensicherungReel} from '../reels/einlagensicherung-100000/Einlagens
 import {TOTAL_FRAMES as EINLAGENSICHERUNG_LEGACY_FRAMES} from '../reels/einlagensicherung-100000/timeline';
 import {FORMAT} from '../brand/tokens';
 
+import {ZinseszinsLinienDiagramm, ZINSESZINS_DIAGRAMM_FRAMES} from '../reels-test/ZinseszinsLinienDiagramm';
+import {KartenBaukastenDemo, KARTEN_DEMO_FRAMES} from '../reels-test/KartenBaukastenDemo';
+
 const FPS = FORMAT.fps;
 const VERTICAL = FORMAT.vertical;
 const WIDE = FORMAT.landscape;
 
 export const ExperimentCompositions: React.FC = () => (
   <>
+    <Composition id="DemoKartenBaukasten" component={KartenBaukastenDemo} durationInFrames={KARTEN_DEMO_FRAMES} fps={FPS} {...WIDE} />
+    <Composition id="DemoZinseszinsLinienDiagramm" component={ZinseszinsLinienDiagramm} durationInFrames={ZINSESZINS_DIAGRAMM_FRAMES} fps={FPS} {...WIDE} />
+
     <Composition
       id="ReelsTestFinanceMotionLab"
       component={FinanceMotionLab}

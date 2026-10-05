@@ -1,0 +1,32 @@
+BILD 01
+FINAL FILE NAME: YouTube Bild 01 - Karte und Monatsabrechnung.png
+FORMAT: horizontal 16:9
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
+THUMBNAIL_CONCURRENCY: 3
+IMAGE_BATCH_SIZE: 5
+IMAGE_CONCURRENCY: 5
+STYLE_AUTHORITY: finanzneo-youtube-animated-black-v3
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+APPROVED_STYLE_REFERENCES: Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgroschen" (2026-09-17)
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FLOW_IMAGE_POLICY: scene-first-no-infographic-v1
+PRECISION_GRAPHICS_OWNER: REMOTION
+
+CREATE EXACTLY ONE IMAGE.
+
+VISUAL_FORM: object-story
+VISUAL_CONCEPT: Die Monatsabrechnung kommt — und Teilzahlung ist schon angekreuzt.
+DECISIVE_MOMENT: not-applicable — the ticked box already tells it; no person needed
+VOICEOVER_VISUAL_MATCH: Script: "Du kaufst heute, die Rechnung kommt später. Problematisch wird es, wenn aus der Monatsabrechnung automatisch eine Teilzahlung wird." The statement shows exactly that Teilzahlung is already active.
+FRONT_READABILITY_TEST: PASS — the statement faces the camera almost straight on; both option labels are large and readable.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT
+Stylized 3D animated feature film still, 16:9. A cream monthly credit card statement sticks halfway out of its opened envelope on a wooden kitchen table; on it two large printed options sit side by side: "Vollzahlung" with an empty emerald-outlined box and "Teilzahlung" with a warm red-orange box that is already ticked. An unbranded dark blue credit card and a small shopping receipt lie next to the envelope. Warm soft lamp light, deep black background, only the table edge visible, statement large and readable. Not photorealistic, no logos, no people. Only text: "Vollzahlung", "Teilzahlung".
+
+QA
+PASS only if it looks like it belongs to the stylized 3D animated-film world on black, the idea is clear in about two seconds and all text is spelled exactly as given.

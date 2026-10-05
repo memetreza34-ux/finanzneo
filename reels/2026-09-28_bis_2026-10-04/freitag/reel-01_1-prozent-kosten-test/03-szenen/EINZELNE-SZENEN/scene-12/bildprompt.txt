@@ -1,0 +1,38 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 12 - Kosten im Blick behalten.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Kosten prüfen
+- langfristig denken
+
+VISUAL_FORM: hybrid
+VISUAL_CONCEPT: Ein hochwertiger Investmentordner liegt offen; links ein kleiner sauberer Kostenbeleg, rechts ein deutlich größerer goldener langfristiger Vermögensstapel; zwei kurze integrierte Labels „Kosten prüfen“ und „langfristig denken“ verbinden Handlung und Konsequenz.
+VOICEOVER_VISUAL_MATCH: Kostenbeleg und langfristiger Vermögensstapel zeigen gemeinsam, dass Gebühren bewertet werden sollen, ohne jede Gebühr pauschal schlecht darzustellen.
+INSTANT_READ_TEST: PASS - Kostenbeleg plus großer langfristiger Vermögenswert und zwei kurze Handlungslabels ergeben eine klare Abschlussbotschaft.
+TRANSFERABILITY_TEST: PASS - die Kombination aus laufenden Kosten und langfristigem Investmentbezug schließt genau dieses Gebührenvideo ab.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Create a premium hybrid stylized 3D finance closing scene on a seamless deep-black stage. Show one open high-quality investment folder as the central anchor. On the left page sits a small clear fee statement with the short physical label “Kosten prüfen”. On the right, a larger refined stack of warm-gold value slips rises upward with the short physical label “langfristig denken”. The composition should communicate balanced evaluation: fees are something to examine because long-term value matters, not that every fee is automatically bad. Use elegant ivory paper, emerald positive accents, restrained red-orange only on the cost line, cinematic 3/4 depth and premium animated-film lighting. No dashboard, no chart, no stock character, no clutter, no photorealism, no extra text.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
+
+BACKGROUND_LOCK: Use one seamless deep black background.

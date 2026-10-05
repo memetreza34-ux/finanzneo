@@ -3,8 +3,13 @@
 // Hält Code, Regelwerk und Anleitungen auf EINEM Stand.
 // Verbindliche Layoutquelle ist REEL_STYLE in src/brand/tokens.ts.
 
-import {existsSync, readFileSync} from 'node:fs';
+import {existsSync, readFileSync, readdirSync} from 'node:fs';
 import {resolve} from 'node:path';
+import {
+  YOUTUBE_FLOW_EXECUTION_MODE_ID,
+  YOUTUBE_IMAGE_WORLD_LOCK,
+  YOUTUBE_MOTION_STANDARD_ID,
+} from './lib/youtube-contract.mjs';
 
 const errors = [];
 const notes = [];
@@ -124,6 +129,66 @@ if (!tokens) {
   }
 
   notes.push(`Layoutwerte konsistent: Header Y=${werte.headerTop} · Visual ${werte.visualTop}–${werte.visualBottom} · Untertitel ${werte.captionBottom} · ${werte.captionSize} px.`);
+}
+
+// YouTube V4: zentrale Datei, Code-Vertrag und aktive Anleitungen müssen dieselben IDs nennen.
+const standardQuelle = read('config/finanzneo-production-standard.json');
+if (!standardQuelle) {
+  errors.push('config/finanzneo-production-standard.json fehlt — zentrale YouTube-Quelle.');
+} else {
+  const standard = JSON.parse(standardQuelle);
+  const aktiveWelt = standard.imageWorld?.id;
+  const aktiverFlow = standard.flow?.id;
+
+  if (aktiveWelt !== YOUTUBE_IMAGE_WORLD_LOCK) errors.push(`Zentrale Bildwelt ${aktiveWelt} ≠ Code-Vertrag ${YOUTUBE_IMAGE_WORLD_LOCK} (scripts/lib/youtube-contract.mjs).`);
+  if (aktiverFlow !== YOUTUBE_FLOW_EXECUTION_MODE_ID) errors.push(`Zentraler Flow-Modus ${aktiverFlow} ≠ Code-Vertrag ${YOUTUBE_FLOW_EXECUTION_MODE_ID}.`);
+  if (standard.motion?.id !== YOUTUBE_MOTION_STANDARD_ID) errors.push(`Zentraler Motion-Standard ${standard.motion?.id} ≠ Code-Vertrag ${YOUTUBE_MOTION_STANDARD_ID}.`);
+  if (standard.imageWorld?.source && !existsSync(resolve(standard.imageWorld.source))) errors.push(`Aktive Bildwelt-Datei fehlt: ${standard.imageWorld.source}`);
+
+  // Jede andere YouTube-Bildweltdatei gilt als abgelöst und darf in aktiven Anleitungen nicht als gültig auftauchen.
+  const weltOrdner = 'config/finanzneo-image-worlds';
+  const abgeloest = existsSync(resolve(weltOrdner))
+    ? readdirSync(resolve(weltOrdner))
+      .filter((datei) => /^finanzneo-youtube-.*\.txt$/.test(datei))
+      .map((datei) => datei.replace(/\.txt$/, ''))
+      .filter((id) => id !== aktiveWelt)
+    : [];
+
+  const YOUTUBE_AKTIV = [
+    'CLAUDE.md',
+    'AGENTS.md',
+    'START-HIER.md',
+    'MASTER-PROMPTS.md',
+    'youtube/README.md',
+    'youtube/PRODUKTIONSSTANDARD.md',
+    'docs/YOUTUBE-LONGFORM-WORKFLOW.md',
+    'docs/YOUTUBE-MOTION-V3.md',
+  ];
+  const ALS_ALT_MARKIERT = /abgelöst|ersetzt|löst .* ab|früher|legacy|veraltet|\bnicht\b|\bnie(mals)?\b|verboten/i;
+
+  for (const datei of YOUTUBE_AKTIV) {
+    const inhalt = read(datei);
+    if (!inhalt) continue;
+    for (const id of abgeloest) {
+      const zeile = inhalt.split('\n').find((z) => z.includes(id) && !ALS_ALT_MARKIERT.test(z));
+      if (zeile) errors.push(`${datei} nennt abgelöste YouTube-Bildwelt ${id} statt ${aktiveWelt}: "${zeile.trim().slice(0, 90)}"`);
+    }
+  }
+
+  // Reine YouTube-Anleitungen dürfen den alten Ein-Bild-nach-dem-anderen-Ablauf nicht mehr vorschreiben.
+  if (Number(standard.flow?.imageConcurrency) > 1) {
+    const SEQUENZIELL = /GENAU EIN BILD ERZEUGEN|nie parallel|one-image-at-a-time|ERST DANN DAS NÄCHSTE BILD/i;
+    for (const datei of ['youtube/README.md', 'youtube/PRODUKTIONSSTANDARD.md', 'docs/YOUTUBE-LONGFORM-WORKFLOW.md']) {
+      const zeile = (read(datei) ?? '').split('\n').find((z) => SEQUENZIELL.test(z));
+      if (zeile) errors.push(`${datei} schreibt sequenzielle Flow-Bilder vor, aktiv ist ${aktiverFlow}: "${zeile.trim().slice(0, 90)}"`);
+    }
+  }
+
+  const workflow = read('docs/YOUTUBE-LONGFORM-WORKFLOW.md');
+  if (workflow && !workflow.includes(aktiveWelt)) errors.push(`docs/YOUTUBE-LONGFORM-WORKFLOW.md nennt die aktive YouTube-Bildwelt ${aktiveWelt} nicht.`);
+  if (workflow && !workflow.includes(aktiverFlow)) errors.push(`docs/YOUTUBE-LONGFORM-WORKFLOW.md nennt den aktiven Flow-Modus ${aktiverFlow} nicht.`);
+
+  notes.push(`YouTube-IDs konsistent: ${aktiveWelt} · ${aktiverFlow} · ${standard.motion?.id}${abgeloest.length ? ` · abgelöst: ${abgeloest.join(', ')}` : ''}.`);
 }
 
 const gehirn = read('CLAUDE.md');

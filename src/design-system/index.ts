@@ -36,3 +36,6 @@ export * as DecorationBlocks from '../bausteine/fn_decor';
 export * as ExtraBlocks from '../bausteine/fn_extra';
 export * as UIBlocks from '../bausteine/fn_ui2';
 export * as LegacyKit from '../bausteine/fn_kit';
+
+// Karten-Baukasten (YouTube 16:9): Stichwort, Zitat, Tabelle, Icon-Ablauf, Zeitstrahl.
+export * from './karten';

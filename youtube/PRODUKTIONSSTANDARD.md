@@ -1,197 +1,366 @@
-# FinanzNeo — YouTube-Longform-Produktionsstandard
+# FinanzNeo — YouTube-Longform-Produktionsstandard V4
 
-> Bei Widersprüchen gilt `CLAUDE.md`. Für YouTube-Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V3.md`. Für die Wahl zwischen Remotion, Bild+Remotion, SVG, Icons und Lottie gilt `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`.
+> Aktiver Standard für neue FinanzNeo-YouTube-Videos. Bei Konflikten gilt zusätzlich `CLAUDE.md`. Neue Reels sind pausiert; YouTube Shorts sind verboten.
 
-## Projektstruktur
+## Format
 
-```text
-01-recherche/
-02-script/
-03-audio/
-04-visuals/
-05-publishing/
-06-projektdateien/
-README.md
-```
-
-## Format und Inhalt
-
-- eigenständiges längeres Finanz-Erklärvideo, kein verlängertes Reel
-- keine YouTube Shorts
+- eigenständiges YouTube-Longform-Video
 - 1920 × 1080, horizontal 16:9, 30 fps
-- Länge folgt dem Thema; keine künstlichen Füllpassagen
+- Länge folgt dem Thema
 - Hook ohne langes Intro
-- Kapitel mit klaren Zwischenzielen und Payoffs
 - einfache Sprache für Finanzanfänger
-- Zahlen, Annahmen und Datenstand prüfbar dokumentieren
-- keine individuelle Anlageberatung oder garantierte Rendite
+- Daten, Annahmen und Rechenwege prüfbar
 
-## Viewer-change-first Visualplanung
+## Grundprinzip
 
-Es gibt **keine feste Visualzahl, keine feste Bild-/Animationsquote und keine feste Animationsbibliothek**.
+`LOOK FEST — INHALT FREI — WERKZEUG PASSEND`
+
+Für jeden Sprechbeat wird zuerst bestimmt, was der Zuschauer sehen und verstehen soll. Danach wird das Werkzeug gewählt. Google Flow rendert Standbilder im Animationsfilm-Look: Menschen in Alltagsmomenten, Hände in Aktion, echte Gegenstände, kleine echte Orte. Remotion/SVG/React übernimmt präzise Daten-, Text-, Checklisten-, Timeline- und UI-Grafiken.
+
+**Wichtig:** Google Flow ist kein Infografik-Generator. Flow zeigt den Moment aus dem Alltag, Remotion zeigt die exakte Zahl.
+
+---
+
+# 1. Werkzeugwahl — verbindlich
+
+## Google Flow: Standbild aus einem stilisierten 3D-Animationsfilm
+
+Flow wählt innerhalb derselben Bildwelt frei, was den Sprechbeat am schnellsten erklärt:
+
+- **Character Moment** — eine Figur reagiert, zögert, entscheidet, zahlt, liest
+- **Hands in Action** — Daumen über einem Knopf, Hand zieht eine Karte, Finger zählen Scheine
+- **Object Story** — ein starker echter Gegenstand trägt die Idee (kaputte Waschmaschine mit Reparaturrechnung)
+- **Everyday Scene** — wenige echte Gegenstände an einem kleinen echten Ort
+- **Comparison Scene** — zwei echte Situationen nebeneinander im selben Bild
+- **Creative Idea** — Übertreibung oder Bildidee aus echten Gegenständen, solange sie auf einen Blick lesbar ist
+- **Hybrid Scene Plate** — Flow liefert die Szene, Remotion legt exakte Zahlen darüber
+
+### Wann Flow richtig ist
+
+Wenn ein Moment aus dem Alltag den Sprechbeat schnell erklärt:
+
+- konkrete Alltagssituation mit Ursache und Wirkung
+- Figur mit klarer Reaktion oder Handlung
+- Hand, die gerade etwas tut
+- ein dominanter echter Gegenstand mit sichtbarem Problem oder sichtbarer Lösung
+- wenige bekannte Alltagsobjekte in einer zusammenhängenden Szene
+- zwei Situationen im direkten Vergleich
+
+### Nicht als generisches Flow-Infografikbild erzeugen
+
+Wenn der Kern des Beats hauptsächlich aus präzisen Informationen besteht, gehört er in Remotion/SVG/React:
+
+- exakte Zahlenaufteilung
+- dichter Chart oder Datenverlauf
+- lange Checkliste
+- Timeline
+- Tabelle
+- mehrere Textzeilen
+- exakter UI-/Settings-Zustand
+- mathematisch exakter Vergleich
+
+Flow darf bei einem Hybrid eine starke 3D-Szenenbasis liefern. Präzise Zahlen, Labels, UI-Zustände und Daten kann Remotion darüberlegen.
+
+## Karten — der ruhige Standard für Text, Zitat und Tabelle
+
+Vorbild Finanzbär, umgesetzt in der FinanzNeo-Welt (schwarz, Inter, grüne Hervorhebung). Baukasten: `src/design-system/karten.tsx`, Referenz-Composition `DemoKartenBaukasten`.
+
+- `StichwortKarte` — großes Stichwort, optional Zusatzzeile, ein Teil wird grün markiert, wenn er gesagt wird
+- `ZitatKarte` — nur Zitat und Autor (Zitat belegt)
+- `TabellenKarte` — Zeilen erscheinen nacheinander, eine Zeile grün markiert
+- `IconAblauf` — Linien-Icons mit Bogenpfeilen, optional ein Hinweis-Kasten
+- `Zeitstrahl` — Punkte nacheinander, optional ein Sprung-Pfeil
+- `KartenHinweis` — „Beispielrechnung: …“ oder Quelle am unteren Rand
+
+Karten bewegen sich bewusst wenig: einblenden im Sprechrhythmus, mehr nicht.
+
+## Remotion / SVG / React verwenden
+
+Code-basierte Visuals sind die Standardwahl für:
+
+- animierte Rechenaufteilung
+- dynamische Charts / Datenverläufe
+- sequenzielle Checklisten
+- Timelines
+- UI-Zustandswechsel
+- frame-genaue Typografie
+- exakte Zahlen und mathematische Proportionen
+- Vergleiche, bei denen Text und Werte fehlerfrei sein müssen
+
+## Hybrid
+
+Hybrid nur, wenn das Flow-Bild als echte stylized-3D-Szene einen visuellen Mehrwert bringt. Ein Hybrid darf nicht benutzt werden, um eine schlechte Flow-Infografik nachträglich zu retten.
+
+---
+
+# 2. FinanzNeo-Bildwelt — Look fest, Inhalt frei
+
+`YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-black-v3`
+
+Source Visual Language: `finanzneo-stylized-3d-animated-black-v9`
+
+Freigegebene Stilreferenzen (echte Flow-Bilder, die genau so aussehen sollen):
+
+- Reel „Kurse schwanken“ (20.09.2026) — Figuren und Hände im Alltagsmoment
+- YouTube „Notgroschen“ (17.09.2026) — echte Gegenstände auf tiefem Schwarz
+
+Kanonische Datei: `config/finanzneo-image-worlds/finanzneo-youtube-animated-black-v3.txt`
+
+## Der Look — immer gleich
+
+Jedes Bild sieht aus wie ein Standbild aus einem hochwertigen stilisierten 3D-Animationsfilm über Geld im Alltag:
+
+- stilisiertes 3D im Animationsfilm-Look, niemals fotorealistisch
+- sympathische stilisierte Erwachsene mit ausdrucksstarken Gesichtern und klarer Körpersprache
+- echte Alltagsgegenstände mit glaubwürdigen Proportionen und erkennbaren Details: Handy, Rechnung, Brief, Bankkarte, Geldbörse, Waschmaschine, Auto, Kalender
+- halbrealistische Materialien, weich und sauber stilisiert gerendert
+- warmes Hauptlicht, sanftes Randlicht gegen das Schwarz, weiche Kontaktschatten
+- tiefes nahtloses Schwarz; ein kleiner echter Ort (Küchentisch, Waschecke, Flur, Ladentheke, Autoinnenraum) darf da sein, wenn er hilft, und läuft ins Schwarz aus
+
+## Natürlich — kein KI-Look
+
+Festgelegt von Arman am 04.10.2026 nach dem ersten echten Flow-Lauf (Notgroschen): Die Bildwelt stimmt, aber die Bilder dürfen nicht nach KI aussehen. Jedes Bild wirkt wie ein ruhiges Standbild aus einem Animationsfilm — einfach, natürlich, sofort verständlich. Nicht abstrakt und nicht schwer.
+
+- wenige echte Gegenstände, glaubwürdig angeordnet; natürliche Proportionen, Farben und weiches Licht
+- echte Dinge in einer echten Situation statt eines Symbols, das man entschlüsseln muss
+- sauber, aber nicht plastik-glänzend; keine überschärften Details, keine übersättigten Farben
+- Text nur exakt die verlangten Wörter; keine erfundenen Zusatzlabels
+- **KI-Slop verboten:** leuchtende oder Neon-Kanten, Glas-/Kristallbalken und -blöcke, Wertblöcke und Wertstapel als Symbol, fallende Balken oder Pfeile, dramatisches rotes Glühen, Rauch, Funken, Lens Flares, Nebel, epische Poster-Dramatik, Geldscheinstapel als Deko, überladener Hintergrund
+
+`youtube:validate` lässt Bildprompts mit solchen abstrakten Motiven nicht durch.
+
+## Der Inhalt — frei, wenn es passt
+
+Es gibt keine Objektliste und keine Quote. Gegenstände, Orte, kreative Ideen, ab und zu Menschen — alles darf vorkommen, wenn es den Sprechpunkt visuell unterstützt. **Nichts auf Krampf:** Die meisten Bilder brauchen keine Person und keine Geschichte.
+
+**Naheliegend zuerst:** Zeige, was man bei diesem Satz im echten Alltag sehen würde. Eine kreative Idee nur, wenn sie sofort sitzt. Ist ein Satz abstrakt (Faustregel, Liquidität, „hängt von deiner Situation ab“), dann die einfachste echte Alltagsszene dazu — keine Anordnung von Symbol-Gegenständen, die man entschlüsseln muss. Passt keine echte Szene, wird der Beat eine Remotion-Karte statt eines Flow-Bildes.
+
+Passt-Test vor jedem Bildprompt:
+
+1. Würde man diese Szene so im echten Leben sehen?
+2. Versteht man in zwei Sekunden, was der Satz sagt?
+3. Ist es das Naheliegendste — oder eine Idee, die man erklären muss?
+
+## Der entscheidende Moment — ab und zu
+
+Nur wenn der Sprechpunkt von etwas handelt, das passiert, zeigt das Bild diese Sekunde. Die meisten Bilder brauchen das nicht. Technisches Feld in jedem Bildjob: `DECISIVE_MOMENT: <…>` oder `not-applicable`.
+
+## Abwechslung
+
+Jedes Bild zeigt eine sichtbar andere Situation, einen anderen Ort, Abstand oder Blickwinkel als das Bild davor. Die Einheit entsteht durch den Look, nie durch denselben Tisch, dieselbe Tasse oder dieselben Requisiten.
+
+## Farben
+
+- Emerald = positiv, Lösung, Sparen
+- warmes Red-Orange = Kosten, Warnung, Verlust
+- Gold = kleiner Geld-/Wert-Akzent
+- Warm Ivory und Soft Gray = neutral
+- natürliche Haut- und Kleidungsfarben sind erlaubt
+- kein dunkelgrün-schwarzer Monochrom-Look
+
+## Prompt-Form — Pflicht
+
+Jeder Bildprompt hat **genau dieselbe kurze Form** — einheitlich, einfach, ein Satz zum Inhalt. Nur die Texte im Bild sind deutsch.
 
 ```text
-Skript
-→ gesprochene Gedanken
-→ sichtbare Visual Beats
-→ Viewer Change: Was soll der Zuschauer tatsächlich sehen, das sich verändert?
-→ beste Visualart und Technik für genau diesen Beat
-→ sinnvolle Gruppierung
+Stylized 3D animated feature film still, 16:9. [Was man sieht — ein konkreter Alltagssatz]. [Ort — kurz]. Only text: "[höchstens zwei kurze deutsche Labels]". Soft natural light, deep black background. Not photorealistic, no logos.
 ```
 
-Erlaubte Visualtypen:
+- ohne Text: `No text.` statt `Only text: …`
+- Cover: statt `Only text` → `Big clean white headline on the left: "[HOOK]".`
+- höchstens 70 Wörter, höchstens zwei Texte im Bild
+- keine Stilwörter wie premium, cinematic, epic, dramatic, hyper-detailed — den Look legt der erste Satz fest
+- keine Regelblöcke im Einzelprompt — die Regeln stehen einmal im Master
 
-- `image`
-- `animation`
-- `hybrid`
-- `data`
-
-## Visual Selection V1
-
-`VISUAL_SELECTION_STANDARD: finanzneo-visual-selection-v1`
-
-Vor der konkreten Technik wird die Visualart festgelegt:
-
-- **einfache, zahlen-/datengetriebene Erklärung → pure Remotion**
-- **komplexe, reale oder räumliche Erklärung → Bild + Remotion Hybrid**
-- **SVG → präzise Pfade, Charts, Linien, Verbindungen und Vektor-Mechaniken**
-- **Icons → semantische Kurzschrift / Support**
-- **Lottie → kleine Support-Bewegung, niemals Hauptstil**
-
-Komplexes Thema bedeutet nicht automatisch komplexe Animation. Ziel ist, schwierige Finanzlogik so einfach sichtbar zu machen, dass der Zuschauer die Erklärung versteht und nicht die technische Komplexität wahrnimmt.
-
-Icons, Lottie und SVG werden nur ergänzt, wenn sie einen konkreten Erklärwert haben. Ein vorhandenes Asset ist niemals allein ein Grund für die Visualwahl.
-
-Kanonische Detailregel:
+Beispiel:
 
 ```text
-docs/FINANZNEO-VISUAL-SELECTION-RULE.md
+Stylized 3D animated feature film still, 16:9. A young man at a supermarket checkout has just paid by card, a small red-orange paper tag hangs from his bank card. Checkout counter with groceries. Only text: "Dispo". Soft natural light, deep black background. Not photorealistic, no logos.
 ```
 
-## Remotion / Motion V3
+`youtube:validate` prüft Anfang, Schluss, Länge, Textanzahl und Stilwörter jedes Prompts.
+
+## Text in Flow-Szenenbildern
+
+Kurze deutsche Objektlabels direkt am Gegenstand, wenn sie helfen: `Teilzahlung`, `Restschuld`, `Reparatur 280 €`.
+
+- kein Titel im normalen Szenenbild
+- kein Absatz, keine CTA-Sätze
+- kein automatisch erzeugtes FinanzNeo-Logo / Wasserzeichen
+- exakte Zahlen, die stimmen müssen, legt Remotion darüber
+
+## Charts / Diagramme / Daten
+
+Werden in Remotion/SVG/React gebaut — echte Achsen, exakte Werte, die Kurve zeichnet sich zum Sprechtext (Referenz: Composition `DemoZinseszinsLinienDiagramm`). Entschieden am 04.10.2026 nach direktem Vergleich mit einem Flow-Diagramm.
+
+## UI / Settings
+
+Werden in Remotion/React gebaut — fiktiv/unbranded, gerade, lesbar, frame-genau. Kein Flow-Screenshot und kein schwebendes Control-Panel.
+
+---
+
+# 3. Globaler Flow-Hard-Fail
+
+Sofort verwerfen und denselben Job neu generieren bei:
+
+- sieht nicht aus wie ein Standbild aus einem stilisierten 3D-Animationsfilm
+- Fotorealismus / Stockfoto
+- grün-goldene Symbolwelt als Hauptidee: Bankgebäude, Schild, Tresor, Münzberge, leuchtende Icons
+- abstrakte Finanzskulptur statt echter Situation: Schuldenklammer, Zinsmagnet, Zahlungs-Token, Geldband, Wertblock, Wertstapel
+- KI-Poster-Look: Glas- oder Leuchtbalken, Neon, Rauch, Funken, Drama, erfundene Mini-Labels
+- dunkelgrün-schwarzer Monochrom-Look
+- flache Infografik / Slide / Poster / Social-Media-Card
+- Dashboard-/Control-Panel-/HUD-Look
+- Chart, Diagramm, Checkliste, Settings-/UI-Layout oder Progress-Bar als generiertes Bild
+- erfundenes oder falsch zugeordnetes Zitat
+- kleine schwebende Tiles/Karten/Module
+- heller oder farbiger Hintergrund
+- winzige isometrische/Diorama-Perspektive, Hauptmotiv zu klein
+- Spielzeug-, Plastik- oder Knete-Look
+- aufgeräumter Endzustand statt Moment
+- dieselbe Szene und derselbe Blickwinkel wie das vorige Bild
+- reale identifizierbare Person oder aufgeklebtes echtes Logo
+
+Qualitätsfragen:
+
+1. Sieht es aus wie ein Standbild aus einem stilisierten 3D-Animationsfilm?
+2. Ist genau eine Hauptaussage sofort klar?
+3. Zeigt es einen Moment statt eines Endzustands?
+4. Ist die Alltagssituation echt und erkennbar — ohne Rätsel?
+5. Ist das Schwarz tief und das Hauptmotiv groß?
+6. Wirkt es natürlich und ruhig — nicht wie ein KI-Poster?
+
+Wenn eine Antwort nein ist: denselben Job neu generieren.
+
+---
+
+# 4. Prompt-Struktur
+
+Der Nutzer kopiert **genau eine einzige Datei vollständig und 1:1** in Google Flow:
+
+`04-visuals/alle-bildprompts.txt`
+
+Diese Datei ist immer der vollständige ausführbare Master-Prompt.
+
+Sie darf niemals ersetzt werden durch:
+
+- Redirect
+- Hinweistext
+- Platzhalter
+- „nicht mehr hier arbeiten“-Datei
+- Verweis auf einen anderen Master-Prompt
+
+Interne Promptquellen liegen gesammelt unter:
+
+`04-visuals/01-BILDPROMPTS/`
+
+Dort dürfen Bildwelt, Thumbnail-Prompt und einzelne interne Bildpromptquellen liegen. Der Nutzer kopiert diese Dateien nicht einzeln.
+
+Jeder enthaltene einzelne Bildjob muss selbstständig genug sein, dass Google Flow den Bildstil nicht aus einem vorherigen Bild erraten muss.
+
+---
+
+# 5. Google Flow — Ausführung
+
+`FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4`
+
+Der Master-Prompt muss ausdrücklich verlangen:
+
+- Bilder tatsächlich generieren
+- nicht nur Prompts erklären oder zurückgeben
+- nur geplante Scene-Jobs ausführen
+- jeden Job QA-prüfen
+- bei FAIL nur denselben Bildjob wiederholen
+
+## Phase 0 — ein Google-Flow-Ordner pro Video
+
+- genau ein Flow-Projekt (Ordner) pro Video, Name `FinanzNeo – <Videotitel>`
+- Cover-Kandidaten und alle Szenenbilder entstehen in diesem einen Ordner
+
+## Phase A — Cover
+
+1. Exakt drei Kandidaten A/B/C als drei getrennte Ein-Bild-Jobs gleichzeitig starten.
+2. Alle verwenden dieselbe FinanzNeo-Bildwelt.
+3. Unterschiedliche Szenen/Kompositionen sind erwünscht.
+4. Kurzer deutscher Hook, maximal 2 Zeilen, ideal 2–5 Wörter.
+5. Alle drei QA-prüfen.
+6. Danach genau einmal A/B/C vom Nutzer wählen lassen.
+7. Die zwei nicht gewählten Kandidaten im Flow-Ordner löschen; nur der Gewinner bleibt und wird exakt umbenannt.
+8. Der Gewinner wird niemals Style-Referenz für Szenenbilder.
+
+## Phase B — Szenenbilder
+
+- genau die geplanten Visuals mit Flow-Szenenbedarf — der Plan entscheidet, wie viele Bilder das Video braucht
+- bis zu fünf getrennte Ein-Bild-Jobs parallel
+- niemals ein Multi-Image-Request
+- jedes Ergebnis sofort exakt umbenennen
+- jedes Ergebnis sofort QA-prüfen
+- bei Fehler das fehlerhafte Ergebnis im Flow-Ordner löschen und nur dieselbe Bildnummer neu generieren
+- nächster Batch erst, wenn der aktuelle Batch vollständig PASS ist
+- keine weitere Nutzerfreigabe zwischen Batches
+- finaler Inventory-QA
+
+`IMAGE_BATCH_SIZE = 5` ist eine maximale Batchgröße, keine Pflicht, fünf Bilder zu erzeugen.
+
+## Abschluss — fertiger Flow-Ordner
+
+- im Flow-Ordner liegen genau das gewählte Thumbnail und jedes geplante Szenenbild — jedes genau einmal, jedes nach seiner Szene benannt
+- keine abgelehnten Cover, keine Fehlversuche, keine Duplikate
+- kann Flow etwas nicht löschen oder umbenennen, listet der Agent genau auf, was der Nutzer tun muss
+- danach lädt der Nutzer den Ordner herunter und legt alles in `04-visuals/00-ALLE-BILDER-HIER-REIN/`
+
+---
+
+# 6. Motion V3
 
 `MOTION_STANDARD: finanzneo-youtube-motion-v3`
 
-### Grundregel
-
-**Eine FinanzNeo-Welt, aber keine feste Animationsart.**
-
-Die visuelle Technik wird erst gewählt, nachdem feststeht, was der Zuschauer tatsächlich sehen soll. Custom React, SVG, CSS 3D, Canvas, Three.js/R3F, Masks, Paths/Shapes, Motion Blur, Effects, Lottie als Support, konsistente SVG-Icons als Support, Datenvisualisierung, Bild+Motion-Hybrid sowie neue sinnvolle Kombinationen sind erlaubt.
-
-Die bekannten Familien wie `spatial-3d`, `timeline`, `document-motion`, `data-viz`, `simulation` oder `camera-journey` sind **nur Beispiele zur Beschreibung**, keine Whitelist. Neue `compositionFamilyId`-Werte dürfen jederzeit entstehen, wenn sie die Szene besser beschreiben.
-
-`PremiumPhysicalStage`, `Physical*` und bestehende FinanzNeo-Komponenten sind **optionale Werkzeuge**, keine Pflichtvorlagen.
-
-Jedes Motion-Visual braucht:
-
+- mindestens zwei echte Motion-/Animationsvisuals pro Projekt
+- keine starre Obergrenze oder Quote
+- Viewer Change zuerst, Technik danach
 - produktionsreife `animation.tsx` bereits in Phase 1
-- `viewerChange` — was der Zuschauer konkret sichtbar verändern/enthüllen/vergleichen/reisen sehen soll
-- `animationIntent` — warum genau diese Veränderung den gesprochenen Punkt erklärt
-- `mechanicId`
-- `visualTechniqueId`
-- `techniqueDescription`
-- freien `compositionFamilyId`
-- `toolStack`
-- `motionSignature` mit `camera`, `layout`, `transformation`
-- mindestens zwei sinnvolle Motion Channels
-- mindestens zwei sichtbare Visual Beats
+- Custom React, SVG, CSS 3D, Canvas, Three.js/R3F und Datenvisualisierung erlaubt
+- bestehende Komponenten sind Werkzeuge, keine Stilpflicht
+- Variation muss in echter Kamera/Layout/Transformation bestehen, nicht nur in neuen Namen
+- Motion nutzt dieselbe FinanzNeo-Premium-Logik; die exakte Farbwahl darf content-spezifisch sein
+- Präzisionsgrafiken dürfen bewusst grafisch und frontal sein; sie müssen nicht wie Flow-Bilder aussehen, aber klar zur Serie gehören
 
-### Echte Vielfalt statt umbenannter Wiederholung
+Ein normales YouTube-Projekt darf keine reine Slideshow sein.
 
-Ein neuer Technikname allein zählt nicht als neue Animation.
+---
 
-Die CI prüft zusätzlich:
+# 7. Kamera und Präzision
 
-- doppelte `visualTechniqueId`
-- doppelte `mechanicId`
-- identische `techniqueDescription`
-- mehr als zwei gleiche Familien direkt hintereinander
-- identische Kombination aus **Kamera + Layout + Transformation** innerhalb der letzten vier Motion-Visuals
+Bei präzisen Charts, Daten, UI und Typografie:
 
-Wiederholung bleibt erlaubt, wenn sie für den Inhalt tatsächlich die beste Lösung ist. Dann braucht sie eine konkrete `repeatTechniqueReason`.
+- gerade Achsen
+- korrekte Skalen
+- mathematisch korrekte Werte
+- lesbare Labels
+- keine Perspektivverzerrung, wenn Genauigkeit darunter leidet
 
-Das Ziel ist **nicht**, zwanghaft jeden Effekt nur einmal zu verwenden. Das Ziel ist, für jeden Gedanken die klarste visuelle Erklärung zu wählen und bequeme Copy-Paste-Motion zu verhindern.
+Flow-Szenen dürfen die Kamera frei passend zur Bildidee wählen: frontal, near-frontal, gentle 3/4 oder kontrolliert weiter für Umgebungen. Kein winziger entfernte Isometrie.
 
-Vor Phase 2:
+---
 
-```bash
-npm run youtube:animation:validate -- youtube/<Projekt>
-npm run youtube:phase1:seal -- youtube/<Projekt>
-```
-
-Der Phase-1-Seal schützt danach sowohl den Motion-Code als auch den kreativen V3-Vertrag (`viewerChange`, Technikbeschreibung, Tool-Stack, Motion-Signatur, Beats und Channels). Phase 3 darf die Mechanik nicht kreativ ersetzen oder vereinfachen.
-
-## Bildwelt und Google Flow
-
-`IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1`
-
-Kanonische YouTube-Bildwelt:
-
-```text
-config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt
-```
-
-Sie übernimmt die bestehende FinanzNeo-Grundwelt:
-
-- `finanzneo-connected-studio-v3`
-- `finanzneo-same-world-v1`
-- stilistische Herkunft: `finanzneo-stylized-3d-animated-black-v9`
-- YouTube-Quellbilder horizontal 16:9
-
-Der freigegebene Stilanker ist die **Waschmaschinen-/Reparatur-/Notgroschen-Szene**. Übernommen werden ausschließlich ihre visuellen Qualitäten: realitätsnahe Alltagssituation, klar stilisiertes Premium-3D, semi-realistische Materialien, große lesbare Objekte, tiefe schwarze Welt mit wenig glaubwürdigem Umgebungskontext, sichtbare Ursache/Wirkung, kontrolliertes Grün/Rot und sauberes Studio-Licht.
-
-Die konkreten Motive des Referenzbildes sind **keine Vorlage**. Waschmaschine, grüner Ordner, Münzen oder Geldfluss dürfen nicht automatisch in andere Themen kopiert werden. Ebenso sind Ordner, Münzstapel, Sparschwein, Pflanzen, Pfeile oder leuchtende Geldpfade keine wiederkehrenden FinanzNeo-YouTube-Pflichtmotive. Jede Szene wird aus dem tatsächlichen Sprechpunkt neu entwickelt.
-
-Für neue YouTube-Bilder gilt **Literal first, creative second**:
-
-- konkrete reale Situation zuerst
-- klarer Finanz-/Alltagskontext
-- sichtbarer Bezug zum Voiceover
-- Ursache und Wirkung möglichst im selben Bild verständlich
-- Metapher nur, wenn sie wirklich klarer ist
-- kein generisches Finanzsymbolbild als Default
-- keine flache Infografik oder Präsentationsfolie als Standardbild
-- wichtige Objekte groß und auch im YouTube-Playback sofort lesbar
-- lokaler Umgebungskontext nur, wenn er die Situation glaubwürdiger oder klarer macht; er löst sich in die schwarze FinanzNeo-Welt auf
-- das Standbild muss bereits funktionieren, bevor Remotion-Bewegung hinzukommt
-
-Bildprompts immer Englisch; nur ausdrücklich gewünschte kurze Objektlabels im Bild sind Deutsch. Keine Headline, Untertitel oder erklärenden Sätze im KI-Bild.
-
-Einzige Übergabe an Google Flow:
-
-```text
-04-visuals/alle-bildprompts.txt
-```
-
-Jedes Bild wird einzeln erzeugt, vollständig abgewartet, sofort exakt umbenannt und geprüft. Erst danach folgt das nächste Bild. Alle fertigen Dateien liegen gemeinsam in `04-visuals/00-ALLE-BILDER-HIER-REIN/`.
-
-## Audio, Timing und Untertitel
+# 8. Audio und Timing
 
 - genau ein finales Voiceover in `03-audio/`
-- echte Wort-Zeitstempel aus genau diesem Audio
-- Schnitte folgen Sprache, Visual Beats, Kapiteln und Payoffs
+- echte Wort-Zeitstempel
+- Schnitte folgen Sprache, Visual Beats und Kapiteln
 - keine pauschal gleich langen Visuals
 - Untertitel satzweise; aktives Wort grün, Rest weiß
-- Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP
+- Audioziel ca. -16 LUFS, True Peak max. -1 dBTP
 
-## Vollständiges Publishing-Paket
+---
 
-`05-publishing/` enthält:
+# 9. Publishing
 
-- fünf belastbare Titelvarianten und einen finalen Titel
-- vollständige Beschreibung
-- Kapitel-Zeitstempel
-- Keywords/Tags und passende Hashtags
-- Thumbnail-Brief
-- Quellen-/Disclaimer-Text
-- angehefteten Kommentar
-- Community-Post
-- Upload-Checkliste
-- Promo-Texte für Instagram, TikTok, Facebook und Snapchat
+`05-publishing/` enthält Titelvarianten, finalen Titel, Beschreibung, Kapitel, Keywords/Tags, Hashtags, Thumbnail-Brief, Quellen/Disclaimer, Pinned Comment, Community-Post, Upload-Checkliste und Social-Promo-Texte.
 
-Titel und Thumbnail dürfen neugierig machen, aber nichts versprechen, was das Video nicht erfüllt.
+---
 
-## Startfreigabe
+# 10. Startfreigabe
 
 ```bash
 npm run youtube:validate -- youtube/<Projekt>
@@ -200,4 +369,4 @@ npm run youtube:phase1:seal -- youtube/<Projekt>
 npm run youtube:ready -- youtube/<Projekt>
 ```
 
-`youtube:ready` prüft Phase 1, den unveränderten Motion-V3-Seal, exakte Nutzerbilder, 16:9-Abmessungen, genau ein lesbares Voiceover, passende Wortzeiten und das vollständige Publishing-Paket. Nur ein erfolgreicher Lauf gibt Phase 3 frei.
+Nur ein erfolgreicher Lauf gibt Phase 3 frei.

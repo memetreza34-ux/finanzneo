@@ -1,6 +1,6 @@
 # FinanzNeo — YouTube-Longform in drei Phasen
 
-> Bei Widersprüchen gilt `CLAUDE.md`. Für Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V3.md`.
+> Bei Widersprüchen gilt `CLAUDE.md`. Aktiver Standard ist `youtube/PRODUKTIONSSTANDARD.md` (V4, zentrale IDs in `config/finanzneo-production-standard.json`). Für Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V3.md`.
 
 YouTube-Longform ist ein eigenständiges Format. Ein Reel wird weder gestreckt noch als YouTube Short gespiegelt. Ein Thema gehört in Longform, wenn es für Verständnis echte Tiefe braucht: mehrere Schritte, Beispiele, Vergleiche, Rechnungen, Einordnung oder häufige Fehler.
 
@@ -55,22 +55,33 @@ Dem Google-Flow-KI-Agenten wird ausschließlich diese Datei gegeben:
 04-visuals/alle-bildprompts.txt
 ```
 
-Der Agent arbeitet strikt:
+Der Agent arbeitet nach `finanzneo-youtube-cover3-image5-parallel-v4` (Details: `youtube/PRODUKTIONSSTANDARD.md`, Abschnitt 5):
 
 ```text
-GENAU EIN BILD ERZEUGEN
-→ VOLLSTÄNDIG WARTEN
-→ SOFORT EXAKT UMBENENNEN
-→ LITERALEN SPRECHPUNKT + KONTEXT + LABELS + HINTERGRUND + 16:9 + DATEINAME PRÜFEN
-→ ERST DANN DAS NÄCHSTE BILD
+EIN GOOGLE-FLOW-ORDNER PRO VIDEO („FinanzNeo – <Videotitel>“)
+→ THUMBNAIL A / B / C ALS DREI GETRENNTE EIN-BILD-JOBS GLEICHZEITIG
+→ ALLE DREI QA-PRÜFEN
+→ NUTZER WÄHLT GENAU EINMAL A/B/C
+→ DIE ZWEI NICHT GEWÄHLTEN COVER IM FLOW-ORDNER LÖSCHEN, GEWINNER UMBENENNEN
+→ SZENENBILDER IN BATCHES VON BIS ZU FÜNF GETRENNTEN EIN-BILD-JOBS PARALLEL
+→ JEDES ERGEBNIS SOFORT NACH SEINER SZENE UMBENENNEN UND QA-PRÜFEN
+→ BEI FAIL FEHLVERSUCH LÖSCHEN UND NUR DIESELBE BILDNUMMER NEU ERZEUGEN
+→ NÄCHSTER BATCH ERST, WENN DER AKTUELLE BATCH VOLLSTÄNDIG PASS IST
+→ FERTIGER FLOW-ORDNER: THUMBNAIL + ALLE SZENENBILDER, JEDES GENAU EINMAL
 ```
 
-- Bilder folgen `finanzneo-youtube-grounded-3d-black-v1`.
+- Bilder folgen `finanzneo-youtube-animated-black-v3`: Standbild aus einem stilisierten 3D-Animationsfilm auf tiefem Schwarz. Look fest — Inhalt frei.
+- Natürlich — kein KI-Look: ruhig, einfach, echte Dinge in einer echten Situation. Keine Glas-/Leuchtbalken, Wertblöcke, Neon, Rauch oder Poster-Drama.
+- Wie viele Bilder entstehen, entscheidet der Visualplan aus Phase 1.
+- Jeder Bildprompt hat dieselbe kurze Form (`youtube/PRODUKTIONSSTANDARD.md`, Prompt-Form): naheliegende Alltagsszene in einem Satz, kurzer Ort, höchstens zwei Texte, keine Stilwörter.
+- Nur Visuals mit echtem Flow-Bedarf (`image` und die Szenenplatte von `hybrid`) bekommen ein Flow-Bild. `animation` und `data` baut Remotion.
+- Fünf ist die maximale Batchgröße, keine Pflichtanzahl.
+- Niemals mehrere Bilder in einem Request, kein Kontaktbogen, keine Collage.
+- Das gewählte Thumbnail und fertige Szenenbilder sind nie Style-Referenz für weitere Bilder.
 - Nicht Motiv, Komposition oder Labels eines anderen Bildes als Standardvorlage kopieren.
-- Neue Bilder folgen `Literal first, creative second`.
-- Fehlerhafte Bildnummer wiederholen; nie parallel oder als Batch fortfahren.
+- Keine Nutzerfreigabe zwischen Batches.
 - Nicht-Bild-Visualnummern überspringen, aber nicht neu nummerieren.
-- Alle fertigen Dateien gemeinsam nach `04-visuals/00-ALLE-BILDER-HIER-REIN/` legen.
+- Den fertigen Flow-Ordner herunterladen und alle Dateien gemeinsam nach `04-visuals/00-ALLE-BILDER-HIER-REIN/` legen.
 - Alle YouTube-Quellbilder und das Thumbnail sind horizontal `16:9`.
 - Genau ein finales Voiceover in `03-audio/` ablegen.
 - Aus genau diesem Audio echte Wort-Zeitstempel in `03-audio/word-timings.json` erzeugen.

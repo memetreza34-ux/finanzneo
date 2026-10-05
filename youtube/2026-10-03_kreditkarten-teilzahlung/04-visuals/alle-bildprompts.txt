@@ -1,0 +1,187 @@
+GOOGLE FLOW MASTER PROMPT — FINANZNEO
+VIDEO: Kreditkarten-Teilzahlung: Wie aus 2.000 € ein teurer Kredit wird
+
+DIESEN TEXT 1:1 AUSFÜHREN.
+NICHT erklären, NICHT zusammenfassen, NICHT nur Prompts zurückgeben.
+Starte die geforderten Bildgenerierungen tatsächlich.
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
+THUMBNAIL_CONCURRENCY: 3
+IMAGE_BATCH_SIZE: 5
+IMAGE_CONCURRENCY: 5
+STYLE_AUTHORITY: finanzneo-youtube-animated-black-v3
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+APPROVED_STYLE_REFERENCES: Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgroschen" (2026-09-17)
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FLOW_IMAGE_POLICY: scene-first-no-infographic-v1
+PRECISION_GRAPHICS_OWNER: REMOTION
+
+============================================================
+VERBINDLICHE FINANZNEO-BILDWELT
+============================================================
+
+BILDWELT: LOOK FEST — INHALT FREI.
+Jedes Flow-Bild unterstützt den Sprechpunkt visuell, im Look eines hochwertigen stilisierten 3D-Animationsfilms auf tiefem Schwarz. Die meisten Bilder brauchen keine Person und keine Geschichte: ein starker Gegenstand, eine einfache Szene oder ein Zitat reicht. Alles darf vorkommen, wenn es passt — nichts auf Krampf.
+
+LOOK — IMMER:
+- stylized 3D animated-feature-film rendering, never photorealistic
+- when a person appears: appealing stylized adult character with an expressive face; no real identifiable person
+- real everyday objects with believable proportions and recognizable details: phone, bill, letter, bank card, wallet, washing machine, car, calendar
+- semi-realistic material cues rendered soft and clean
+- soft natural key light, gentle rim light separating the subject from the black, soft contact shadows
+- deep seamless black world; a small local set may exist when it helps and dissolves into black
+- Emerald = positiv/Lösung, warmes Red-Orange = Kosten/Warnung, Gold = kleiner Geld-Akzent, Ivory/Soft Gray = neutral; natürliche Haut- und Kleidungsfarben sind erlaubt
+
+NATÜRLICH — KEIN KI-LOOK:
+Jedes Bild wirkt wie ein ruhiges Standbild aus einem Animationsfilm, nicht wie ein KI-Poster. Einfach, natürlich, sofort verständlich.
+- natural and calm: few real objects, believable everyday arrangement, natural proportions, natural colors, soft natural light
+- real things in a real situation, never an abstract symbol that must be decoded
+- clean but not plastic-shiny; no over-sharpened hyper-detail, no oversaturated colors
+- text only exactly the requested words; no extra invented labels, no garbled lettering
+- KI-SLOP VERBOTEN: glowing or neon edges, glass or crystal bars/blocks/arrows, value blocks or value stacks as symbols, falling bars or arrows, dramatic red glow, smoke, sparks, lens flares, heavy fog, epic poster drama, banknote piles as decoration, cluttered backgrounds
+
+ENTSCHEIDENDER MOMENT — NUR AB UND ZU: Nur wenn der Sprechpunkt von etwas handelt, das passiert, zeigt das Bild diese Sekunde. Keine Geschichte und keine Person erfinden, nur damit eine da ist.
+
+ABWECHSLUNG: Jedes Bild zeigt eine sichtbar andere Situation, einen anderen Ort oder Blickwinkel als das vorige.
+
+TEXT: kurze deutsche Objektlabels direkt am Gegenstand, wenn sie helfen. Keine Sätze, kein Logo.
+
+NAHELIEGEND ZUERST — NICHTS AUF KRAMPF: Zeige, was man bei diesem Satz im echten Alltag sehen würde. Eine kreative Idee nur, wenn sie sofort sitzt. ZITATE, STICHWORTE, TABELLEN: Remotion-Karten mit exaktem Text (src/design-system/karten.tsx), nicht Flow.
+
+DIAGRAMME UND ZAHLEN: Charts, Diagramme mit Achsen, exakte Zahlen, Tabellen, Checklisten und UI-Zustände baut Remotion, nicht Flow.
+
+EINHEITLICHE PROMPT-FORM: Jeder Bildprompt beginnt mit „Stylized 3D animated feature film still, 16:9.“, beschreibt in einem Satz, was man sieht, nennt kurz den Ort und höchstens zwei Texte und endet mit „Soft natural light, deep black background. Not photorealistic, no logos.“ Cover-Headline: klare weiße Schrift, max. 2 Zeilen, nie metallisch oder 3D.
+
+HARD FAIL — DENSELBEN JOB NEU GENERIEREN: fotorealistisch; grün-goldene Symbolwelt (Bankgebäude, Schild, Tresor, Münzberge, leuchtende Icons) als Hauptidee; abstrakte Finanzskulpturen statt echter Situation (Schuldenklammer, Zinsmagnet, Zahlungs-Token, Geldband, Wertblock, Wertstapel); KI-Poster-Look (Glas-/Leuchtbalken, Neon, Rauch, Funken, Drama, erfundene Mini-Labels); dunkelgrün-schwarzer Monochrom-Look; Chart, Diagramm, flache Infografik, Dashboard, UI, Checkliste oder Progress-Bar; Zitat oder längerer Text im Bild; schwebende Karten oder Tiles; heller oder farbiger Hintergrund; Mini-Diorama; Hauptmotiv zu klein; Spielzeug-, Plastik- oder Knete-Look; Person oder Geschichte ohne Grund; dieselbe Szene wie das vorige Bild.
+
+============================================================
+PHASE 0 — EIN GOOGLE-FLOW-ORDNER PRO VIDEO
+============================================================
+
+1. Arbeite in genau EINEM Google-Flow-Projekt (Ordner) für dieses Video. Name: FinanzNeo – Kreditkarten-Teilzahlung
+2. Cover-Kandidaten und alle Szenenbilder entstehen in diesem einen Ordner. Kein zweites Projekt für dasselbe Video.
+
+============================================================
+PHASE A — EXAKT 3 THUMBNAILS PARALLEL
+============================================================
+
+Starte EXAKT drei getrennte Ein-Bild-Jobs gleichzeitig.
+Jeder Job erzeugt genau EIN horizontales 16:9-Bild.
+Kein Multi-Image-Request.
+
+------------------------------------------------------------
+COVER A
+TEMP FILE NAME: YouTube Thumbnail A.png
+------------------------------------------------------------
+
+IMAGE PROMPT
+Stylized 3D animated feature film still, 16:9. An unbranded dark blue credit card lies on a cream monthly statement, a red-orange stamp has just been pressed onto it. Kitchen table, card and statement large on the right. Big clean white headline on the left: "TEILZAHLUNG KOSTET". Soft natural light, deep black background. Not photorealistic, no logos.
+
+QA
+PASS only if it looks like it belongs to the stylized 3D animated-film world on black and the hook text is spelled exactly as given and readable at thumbnail size.
+
+------------------------------------------------------------
+COVER B
+TEMP FILE NAME: YouTube Thumbnail B.png
+------------------------------------------------------------
+
+IMAGE PROMPT
+Stylized 3D animated feature film still, 16:9. A tall pile of twelve opened credit card statements leans on a small hallway sideboard, an unbranded dark blue credit card at its foot. Pile large on the right. Big clean white headline on the left: "2.000 € WERDEN TEUER". Soft natural light, deep black background. Not photorealistic, no logos.
+
+QA
+PASS only if it looks like it belongs to the stylized 3D animated-film world on black and the hook text is spelled exactly as given and readable at thumbnail size.
+
+------------------------------------------------------------
+COVER C
+TEMP FILE NAME: YouTube Thumbnail C.png
+------------------------------------------------------------
+
+IMAGE PROMPT
+Stylized 3D animated feature film still, 16:9. A single small 100-euro banknote lies next to a thick unfolded credit card statement with a red-orange field "Restschuld". Coffee table, both large in the center-right. Big clean white headline on the left: "DIE KLEINE RATE TÄUSCHT". Soft natural light, deep black background. Not photorealistic, no logos.
+
+QA
+PASS only if it looks like it belongs to the stylized 3D animated-film world on black and the hook text is spelled exactly as given and readable at thumbnail size.
+
+NACH COVER A/B/C
+1. Prüfe alle drei gegen die QA- und Hard-Fail-Regeln.
+2. Fehlerhafte Kandidaten nur unter demselben Buchstaben neu generieren.
+3. Wenn alle drei PASS sind, STOPP genau einmal und frage:
+`Welches Cover: A, B oder C?`
+4. Warte auf die Auswahl.
+5. Gewinner exakt umbenennen in:
+`YouTube Thumbnail - Kreditkarten Teilzahlung.png`
+6. NICHT GEWÄHLTE COVER LÖSCHEN: die anderen beiden Kandidaten im Flow-Ordner löschen. Nur der Gewinner bleibt.
+7. Das gewählte Cover ist KEINE Bildreferenz für die Szenenbilder.
+
+============================================================
+PHASE B — NACH COVER-AUSWAHL
+============================================================
+
+Starte danach EXAKT zwei getrennte Ein-Bild-Jobs gleichzeitig: BILD 01 und BILD 05.
+Das sind SEPARATE one-image jobs — niemals ein Multi-Image-Request.
+Jedes Ergebnis: rename immediately, nach `04-visuals/00-ALLE-BILDER-HIER-REIN/` legen, QA prüfen.
+Bei FAIL: das fehlerhafte Ergebnis im Flow-Ordner löschen und regenerate only that same number.
+Keine weitere Nutzerfreigabe zwischen diesen Jobs.
+
+------------------------------------------------------------
+BILD 01
+FINAL FILE NAME: YouTube Bild 01 - Karte und Monatsabrechnung.png
+------------------------------------------------------------
+
+VISUAL_FORM: object-story
+VISUAL_CONCEPT: Die Monatsabrechnung kommt — und Teilzahlung ist schon angekreuzt.
+DECISIVE_MOMENT: not-applicable — the ticked box already tells it; no person needed
+VOICEOVER_VISUAL_MATCH: Script: "Du kaufst heute, die Rechnung kommt später. Problematisch wird es, wenn aus der Monatsabrechnung automatisch eine Teilzahlung wird." The statement shows exactly that Teilzahlung is already active.
+FRONT_READABILITY_TEST: PASS — the statement faces the camera almost straight on; both option labels are large and readable.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT
+Stylized 3D animated feature film still, 16:9. A credit card statement sticks halfway out of its opened envelope, two printed tick boxes on it, the red-orange Teilzahlung box already ticked, an unbranded blue credit card beside it. Kitchen table. Only text: "Vollzahlung", "Teilzahlung". Soft natural light, deep black background. Not photorealistic, no logos.
+
+QA
+PASS only if it looks like it belongs to the stylized 3D animated-film world on black, the idea is clear in about two seconds and all text is spelled exactly as given.
+
+------------------------------------------------------------
+BILD 05
+FINAL FILE NAME: YouTube Bild 05 - Kleine Rate grosse Restschuld.png
+------------------------------------------------------------
+
+VISUAL_FORM: object-story
+VISUAL_CONCEPT: Ein Jahr lang brav gezahlt — und die Restschuld ist trotzdem noch groß.
+DECISIVE_MOMENT: not-applicable — the contrast of twelve paid slips and the large remaining debt carries it
+VOICEOVER_VISUAL_MATCH: Script: "Nach einem Jahr hast du 1.200 Euro eingezahlt, aber die Restschuld liegt in unserem Modell noch bei rund 1.070 Euro." Twelve paid slips against a large "Restschuld" show exactly this contrast; exact numbers come from Remotion.
+FRONT_READABILITY_TEST: PASS — eye-level; statement and slips frontal; labels large.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT
+Stylized 3D animated feature film still, 16:9. Twelve small paid slips lie fanned out in a row in front of a large unfolded credit card statement with a big red-orange field. Living-room coffee table, objects in the left two thirds. Only text: "bezahlt", "Restschuld". Soft natural light, deep black background. Not photorealistic, no logos.
+
+QA
+PASS only if it looks like it belongs to the stylized 3D animated-film world on black, the idea is clear in about two seconds and all text is spelled exactly as given.
+
+============================================================
+FINALER FLOW-BESTAND
+============================================================
+
+Am Ende müssen exakt diese drei finalen Google-Flow-Dateien vorhanden sein:
+1. YouTube Thumbnail - Kreditkarten Teilzahlung.png
+2. YouTube Bild 01 - Karte und Monatsabrechnung.png
+3. YouTube Bild 05 - Kleine Rate grosse Restschuld.png
+
+FERTIGER FLOW-ORDNER
+1. Im Flow-Ordner liegen genau diese drei Bilder — jedes genau einmal, jedes nach seiner Szene benannt.
+2. Keine abgelehnten Cover, keine Fehlversuche, keine Duplikate im Ordner.
+3. Wenn Flow ein Löschen oder Umbenennen nicht erlaubt: nicht stillschweigend überspringen, sondern genau auflisten, was der Nutzer löschen oder umbenennen muss.
+
+Danach lädt der Nutzer den Ordner herunter. Finaler Zielordner:
+`04-visuals/00-ALLE-BILDER-HIER-REIN/`
+
+horizontal 16:9
+SEPARATE one-image jobs
+rename immediately
+regenerate only that same number
+
+Visual 02, 03, 04, 06, 07 und 08 bleiben Remotion-Visuals (Karten, Diagramme, exakte Zahlen). Erfinde dafür keine zusätzlichen Flow-Bilder.
