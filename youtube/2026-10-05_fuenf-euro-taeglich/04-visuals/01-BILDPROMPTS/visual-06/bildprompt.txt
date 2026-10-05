@@ -4,6 +4,7 @@ FORMAT: horizontal 16:9
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
+FLOW_IMAGE_POLICY: meaning-first-free-visual-v2
 THUMBNAIL_CONCURRENCY: 3
 IMAGE_BATCH_SIZE: 5
 IMAGE_CONCURRENCY: 5
@@ -17,24 +18,16 @@ PRECISION_GRAPHICS_OWNER: REMOTION
 
 CREATE EXACTLY ONE IMAGE.
 
-VISUAL_FORM: character-moment
-VISUAL_CONCEPT: Eine andere kleine Ausgabe entsteht in einem völlig anderen Alltagsszenario.
-DECISIVE_MOMENT: The bicycle courier hands the paper food bag across the apartment doorway.
+VISUAL_FORM: semantic-object-composition
+VISUAL_CONCEPT: Verschiedene kleine Käufe wechseln, die Gewohnheit bleibt dieselbe.
+MEANING_RELATION: Kaffee, Snack und Liefer-Papiertüte sind drei unterschiedliche Kaufarten; gleiche Größe und klare Dreierordnung verbindet sie als wiederkehrende kleine Ausgaben.
+DECISIVE_MOMENT: not-applicable
 VOICEOVER_VISUAL_MATCH: Script: "Heute der Kaffee, morgen ein Snack, dann eine kleine Liefergebühr. Einzelne Ausgaben wechseln – die Gewohnheit kann trotzdem dieselbe bleiben."
-FRONT_READABILITY_TEST: PASS — the delivery handoff is large and understandable in about two seconds.
+FRONT_READABILITY_TEST: PASS — drei unterschiedliche kleine Käufe sind in etwa zwei Sekunden erkennbar.
 DATA_INTEGRITY_TEST: not-applicable
 
-SCENE_SIGNATURE:
-LOCATION: apartment doorway
-CAMERA: medium frontal two-person shot from inside the hallway
-MAIN_SUBJECT: paper food bag handoff
-ACTION: courier hands bag to resident
-PEOPLE: courier and resident
-PROPS: paper food bag, bicycle helmet
-MUST_DIFFER_FROM_VISUAL_01: different place, two people, frontal camera, no coffee, no counter, no receipt
-
 IMAGE PROMPT
-Stylized 3D animated feature film still, 16:9. A bicycle courier hands a small paper food bag to a young adult at an apartment doorway, both caught mid-handoff. Apartment entrance. No text. Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. A takeaway coffee cup, a small snack packet and a small paper food-delivery bag are arranged as three clearly separated everyday purchases at equal scale, with no people, table or room. No text. Soft natural light, deep black background. Not photorealistic, no logos.
 
 QA
-PASS only if it is clearly different from Bild 01 in place, camera, people, action and props; no glowing finance symbols, no UI and no poster look.
+PASS only if the three objects clearly communicate different small purchases without becoming a decorative lineup; no people, room, surface or extra props unless they add real meaning.
