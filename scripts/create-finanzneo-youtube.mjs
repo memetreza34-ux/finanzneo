@@ -162,6 +162,33 @@ for (const visual of index.visuals ?? []) {
 }
 writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`);
 
+const layoutPath = resolve(projectRoot, '06-projektdateien/layout.json');
+const layout = {
+  version: 2,
+  standardId: 'finanzneo-youtube-framed-v1',
+  canvas: {width: 1920, height: 1080, fps: 30, background: '#000000'},
+  visualFrame: {fullScreenForbidden: true, outerX: 120, top: 66, bottom: 78, headerHeight: 112, gap: 26, borderRadius: 30},
+  sectionHeader: {required: true, iconRequired: true, maxLines: 1, style: 'calm-icon-plus-title'},
+  captions: {burnedIn: false, wordTimingsUsage: ['cuts', 'srt-export', 'timestamp-script-export']},
+  imagePolicy: {
+    meaningFirst: true,
+    sceneFirst: false,
+    peopleRequired: false,
+    placeRequired: false,
+    realSceneRequired: false,
+    contentFreeWithinWorld: true,
+    forcePeopleForbidden: true,
+    sameWorldNotSameScene: true,
+    semanticObjectCompositionsAllowed: true,
+    visualMetaphorsAllowed: true,
+    isolatedObjectsAllowed: true,
+    floatingObjectsAllowedWhenMeaningful: true,
+    decorativeFloatingObjectsForbidden: true,
+  },
+  visuals: (index.visuals ?? []).map((visual) => ({id: visual.id, title: '[HEADER]', icon: '[ICON]'})),
+};
+writeFileSync(layoutPath, `${JSON.stringify(layout, null, 2)}\n`);
+
 const readmePath = resolve(projectRoot, 'README.md');
 const readme = readFileSync(readmePath, 'utf8');
 writeFileSync(
@@ -171,4 +198,5 @@ writeFileSync(
 
 console.log('✓ Google Flow: vollständiger Nutzer-Master-Prompt = 04-visuals/alle-bildprompts.txt');
 console.log(`✓ Bildlogik: ${YOUTUBE_FLOW_IMAGE_POLICY_ID} — Bedeutung zuerst, Form frei, Ort/Mensch optional.`);
+console.log('✓ Layout: 06-projektdateien/layout.json mit Frame, Header+Icon und Caption-Off angelegt.');
 console.log(`✓ Bildwelt: ${YOUTUBE_IMAGE_WORLD_LOCK} — Animationsfilm-Look auf Schwarz; Präzisionsgrafiken gehören Remotion.`);
