@@ -8,6 +8,8 @@
   "fps": 30,
   "subtitleMode": "sentence-with-audio-synced-active-word",
   "activeWordColor": "finance-green",
+  "renderCaptions": false,
+  "purpose": "timing-and-export-only",
   "words": [],
   "sentences": []
 }
