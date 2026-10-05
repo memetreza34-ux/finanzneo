@@ -18,14 +18,14 @@ PRECISION_GRAPHICS_OWNER: REMOTION
 CREATE EXACTLY ONE IMAGE.
 
 VISUAL_FORM: everyday-scene
-VISUAL_CONCEPT: Die unerwartete Reparatur ist sofort da und der Notgroschen wird jetzt gebraucht.
-DECISIVE_MOMENT: The washing-machine door hangs open and the repair slip has just been placed beside it.
+VISUAL_CONCEPT: Die unerwartete Reparatur ist da — genau jetzt wird der Notgroschen gebraucht.
+DECISIVE_MOMENT: not-applicable — the broken machine and the bill already say it.
 VOICEOVER_VISUAL_MATCH: Script: "Dein Notgroschen hat nur einen Job: Er muss da sein, wenn plötzlich etwas kaputtgeht."
 FRONT_READABILITY_TEST: PASS — main idea is large, close and understandable in about two seconds.
 DATA_INTEGRITY_TEST: not-applicable
 
 IMAGE PROMPT
-Stylized 3D animated feature film still, 16:9. A modern washing machine in a small laundry corner has its door open and a loose belt visible inside; beside it lies a cream repair slip with one large clear line "Reparatur 800 €". A small toolbox is open on the floor. Warm soft practical light, deep seamless black swallowing the rest of the room, believable proportions, premium semi-realistic materials, no person, no logos, not photorealistic. Only text: "Reparatur 800 €".
+Stylized 3D animated feature film still, 16:9. A washing machine with its door hanging open and a small puddle of water in front of it, a repair bill lying on top. Small laundry corner. Only text: "Reparatur 800 €". Soft natural light, deep black background. Not photorealistic, no logos.
 
 QA
 PASS only if it is clearly a stylized 3D animated feature-film still on deep black, the scene is not a dashboard/infographic, the main objects are large, and every allowed label is spelled exactly.

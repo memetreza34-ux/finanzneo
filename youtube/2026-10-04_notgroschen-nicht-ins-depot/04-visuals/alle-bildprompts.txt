@@ -34,6 +34,10 @@ Jedes Bild wirkt wie ein ruhiges Standbild aus einem Animationsfilm, nicht wie e
 - text only exactly the requested words; no extra invented labels, no garbled lettering
 - KI-SLOP VERBOTEN: glowing or neon edges, glass or crystal bars/blocks/arrows, value blocks or value stacks as symbols, falling bars or arrows, dramatic red glow, smoke, sparks, lens flares, heavy fog, epic poster drama, banknote piles as decoration, cluttered backgrounds
 
+NAHELIEGEND ZUERST — NICHTS AUF KRAMPF: Show what you would actually see in everyday life at this sentence. A creative idea only when it lands at once. Never an arrangement of symbolic objects to decode.
+
+EINHEITLICHE PROMPT-FORM: Every image prompt below has the same short form — fixed opening, one everyday sentence, short place, max two texts, fixed closing. Cover headline: clean white type, max 2 lines, never metallic or 3D.
+
 ENTSCHEIDENDER MOMENT — NUR AB UND ZU: Only show a decisive moment when the spoken beat is about something happening. A strong object or a quiet everyday scene is valid when it explains the beat faster.
 
 DIAGRAMME UND ZAHLEN: Charts, depot curves, exact calculations, tables and UI belong to Remotion, not Flow.
@@ -60,15 +64,15 @@ PHASE A — EXAKT 3 THUMBNAILS PARALLEL
 
 THUMBNAIL A
 Temporary file: YouTube Thumbnail A.png
-Stylized 3D animated feature film still, 16:9, YouTube thumbnail. A stylized adult stands in a small laundry corner in front of a broken front-loading washing machine with its door hanging open and a small puddle of water on the tiled floor; she holds a cream repair bill "Reparatur 800 €" and looks at it in surprise. Warm soft light, deep black background, person and machine large in the right half. Hook text in the calm left half: "NICHT INS DEPOT" in clean bold white sans-serif typography, max 2 lines. Not photorealistic, no logos. Only text: "NICHT INS DEPOT", "Reparatur 800 €".
+Stylized 3D animated feature film still, 16:9. A young woman stands in front of her broken washing machine with the door open and water on the floor, holding a repair bill. Small laundry corner, woman and machine large on the right. Big clean white headline on the left: "NICHT INS DEPOT". Soft natural light, deep black background. Not photorealistic, no logos.
 
 THUMBNAIL B
 Temporary file: YouTube Thumbnail B.png
-Stylized 3D animated feature film still, 16:9, YouTube thumbnail. Close-up on a kitchen table: a hand opens a plain paper envelope labeled "Notgroschen" and finds it empty except for one small handwritten note "im Depot"; a repair bill "800 €" lies right next to it. Warm soft lamp light, deep black background, envelope and bill large in the right half. Hook text in the calm left half: "NOTGROSCHEN-FEHLER" in clean bold white sans-serif typography, max 2 lines. Not photorealistic, no logos. Only text: "NOTGROSCHEN-FEHLER", "Notgroschen", "im Depot", "800 €".
+Stylized 3D animated feature film still, 16:9. A young man stands next to his small car with the hood open at the roadside, phone at his ear, looking worried. Evening roadside, man and car large on the right. Big clean white headline on the left: "NOTGROSCHEN-FEHLER". Soft natural light, deep black background. Not photorealistic, no logos.
 
 THUMBNAIL C
 Temporary file: YouTube Thumbnail C.png
-Stylized 3D animated feature film still, 16:9, YouTube thumbnail. A hand pulls a noticeably thin bundle of euro banknotes out of an envelope labeled "Notgroschen" on a wooden hallway sideboard; a repair bill "800 €" waits beside it under a set of car keys. Warm soft side light, deep black background, hand and envelope large in the right half. Hook text in the calm left half: "3.000 € → 2.400 €?" in clean bold white sans-serif typography, max 2 lines. Not photorealistic, no logos. Only text: "3.000 € → 2.400 €?", "Notgroschen", "800 €".
+Stylized 3D animated feature film still, 16:9. Two hands count a few euro banknotes on a kitchen table next to a repair bill. Close-up, hands and bill large on the right. Big clean white headline on the left: "3.000 € → 2.400 €?". Soft natural light, deep black background. Not photorealistic, no logos.
 
 ============================================================
 PHASE B — SZENENBILDER NACH DER COVER-AUSWAHL
@@ -86,39 +90,39 @@ FINAL FILE NAME: YouTube Bild 01 - Waschmaschine kaputt.png
 FORMAT: horizontal 16:9
 CREATE EXACTLY ONE IMAGE.
 VISUAL_FORM: everyday-scene
-VISUAL_CONCEPT: Die unerwartete Reparatur ist sofort da und der Notgroschen wird jetzt gebraucht.
-DECISIVE_MOMENT: The washing-machine door hangs open and the repair slip has just been placed beside it.
+VISUAL_CONCEPT: Die unerwartete Reparatur ist da — genau jetzt wird der Notgroschen gebraucht.
+DECISIVE_MOMENT: not-applicable — the broken machine and the bill already say it.
 VOICEOVER_VISUAL_MATCH: Script: "Dein Notgroschen hat nur einen Job: Er muss da sein, wenn plötzlich etwas kaputtgeht."
-FRONT_READABILITY_TEST: PASS — main idea is large, close and understandable in about two seconds.
+FRONT_READABILITY_TEST: PASS — one obvious everyday scene, large and clear in about two seconds.
 DATA_INTEGRITY_TEST: not-applicable
 IMAGE PROMPT
-Stylized 3D animated feature film still, 16:9. A modern washing machine in a small laundry corner has its door open and a loose belt visible inside; beside it lies a cream repair slip with one large clear line "Reparatur 800 €". A small toolbox is open on the floor. Warm soft practical light, deep seamless black swallowing the rest of the room, believable proportions, soft stylized materials, no person, no logos, not photorealistic. Only text: "Reparatur 800 €".
+Stylized 3D animated feature film still, 16:9. A washing machine with its door hanging open and a small puddle of water in front of it, a repair bill lying on top. Small laundry corner. Only text: "Reparatur 800 €". Soft natural light, deep black background. Not photorealistic, no logos.
 
 BILD 04
 FINAL FILE NAME: YouTube Bild 04 - Eigene Lebenssituation.png
 FORMAT: horizontal 16:9
 CREATE EXACTLY ONE IMAGE.
-VISUAL_FORM: object-story
-VISUAL_CONCEPT: Die passende Reserve hängt von den Verpflichtungen des eigenen Alltags ab.
-DECISIVE_MOMENT: not-applicable — the grouped everyday obligations are the idea.
+VISUAL_FORM: character-moment
+VISUAL_CONCEPT: Jeder schaut auf die eigenen festen Kosten — davon hängt die Höhe der Reserve ab.
+DECISIVE_MOMENT: not-applicable — a quiet everyday moment of checking the own costs.
 VOICEOVER_VISUAL_MATCH: Script: "Wie hoch deine Reserve wirklich sein sollte, hängt aber von deiner Situation ab."
-FRONT_READABILITY_TEST: PASS — main idea is large, close and understandable in about two seconds.
+FRONT_READABILITY_TEST: PASS — one obvious everyday scene, large and clear in about two seconds.
 DATA_INTEGRITY_TEST: not-applicable
 IMAGE PROMPT
-Stylized 3D animated feature film still, 16:9. On one dark entryway shelf: apartment keys, a car key, three ordinary unopened bill envelopes, a small work backpack and a compact tool pouch. Everything is arranged naturally as used everyday objects, not as an infographic or catalog grid. Warm soft side light, deep black background, slightly off-center framing, soft stylized materials, no people, no logos, no text.
+Stylized 3D animated feature film still, 16:9. A young woman sits at her kitchen table in the evening and looks through a few monthly bills, her car key lying next to them. Small kitchen. No text. Soft natural light, deep black background. Not photorealistic, no logos.
 
 BILD 06
 FINAL FILE NAME: YouTube Bild 06 - Notgroschen auf Tagesgeld.png
 FORMAT: horizontal 16:9
 CREATE EXACTLY ONE IMAGE.
-VISUAL_FORM: object-story
-VISUAL_CONCEPT: Der Notgroschen liegt stabil und getrennt für kurzfristige Ausgaben bereit.
-DECISIVE_MOMENT: A repair receipt is being slid underneath the Notgroschen folder, showing the reserve is meant to pay real emergencies.
+VISUAL_FORM: everyday-scene
+VISUAL_CONCEPT: Der Notgroschen ist sofort verfügbar: die Reparatur wird direkt bezahlt.
+DECISIVE_MOMENT: The woman pays the repair right away while the mechanic hands back the car key.
 VOICEOVER_VISUAL_MATCH: Script: "Für den Notgroschen zählt deshalb nicht maximale Rendite, sondern Liquidität und Stabilität."
-FRONT_READABILITY_TEST: PASS — main idea is large, close and understandable in about two seconds.
+FRONT_READABILITY_TEST: PASS — one obvious everyday scene, large and clear in about two seconds.
 DATA_INTEGRITY_TEST: not-applicable
 IMAGE PROMPT
-Stylized 3D animated feature film still, 16:9. A sturdy dark-green document folder labeled "Notgroschen" rests on a dark wooden surface next to an unbranded bank card and a small cream account note labeled "Tagesgeld"; a repair receipt is partly sliding underneath the folder as the real-life purpose. Deep black background, warm soft light with a subtle emerald rim, believable everyday materials, close framing, no person, no logos, no UI. Only text: "Notgroschen", "Tagesgeld".
+Stylized 3D animated feature film still, 16:9. A woman pays at a small car repair shop counter with her bank card while the mechanic hands her the car key back. Repair shop counter. No text. Soft natural light, deep black background. Not photorealistic, no logos.
 
 ============================================================
 FERTIGER FLOW-ORDNER

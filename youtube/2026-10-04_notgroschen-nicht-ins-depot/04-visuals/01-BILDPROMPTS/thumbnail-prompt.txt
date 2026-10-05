@@ -21,12 +21,12 @@ NATURAL, NOT AI-LOOKING: calm real everyday scenes; no glowing or glass bars, va
 
 CANDIDATE A
 Only text: "NICHT INS DEPOT"
-Stylized 3D animated feature film still, 16:9, YouTube thumbnail. A stylized adult stands in a small laundry corner in front of a broken front-loading washing machine with its door hanging open and a small puddle of water on the tiled floor; she holds a cream repair bill "Reparatur 800 €" and looks at it in surprise. Warm soft light, deep black background, person and machine large in the right half. Hook text in the calm left half: "NICHT INS DEPOT" in clean bold white sans-serif typography, max 2 lines. Not photorealistic, no logos. Only text: "NICHT INS DEPOT", "Reparatur 800 €".
+Stylized 3D animated feature film still, 16:9. A young woman stands in front of her broken washing machine with the door open and water on the floor, holding a repair bill. Small laundry corner, woman and machine large on the right. Big clean white headline on the left: "NICHT INS DEPOT". Soft natural light, deep black background. Not photorealistic, no logos.
 
 CANDIDATE B
 Only text: "NOTGROSCHEN-FEHLER"
-Stylized 3D animated feature film still, 16:9, YouTube thumbnail. Close-up on a kitchen table: a hand opens a plain paper envelope labeled "Notgroschen" and finds it empty except for one small handwritten note "im Depot"; a repair bill "800 €" lies right next to it. Warm soft lamp light, deep black background, envelope and bill large in the right half. Hook text in the calm left half: "NOTGROSCHEN-FEHLER" in clean bold white sans-serif typography, max 2 lines. Not photorealistic, no logos. Only text: "NOTGROSCHEN-FEHLER", "Notgroschen", "im Depot", "800 €".
+Stylized 3D animated feature film still, 16:9. A young man stands next to his small car with the hood open at the roadside, phone at his ear, looking worried. Evening roadside, man and car large on the right. Big clean white headline on the left: "NOTGROSCHEN-FEHLER". Soft natural light, deep black background. Not photorealistic, no logos.
 
 CANDIDATE C
 Only text: "3.000 € → 2.400 €?"
-Stylized 3D animated feature film still, 16:9, YouTube thumbnail. A hand pulls a noticeably thin bundle of euro banknotes out of an envelope labeled "Notgroschen" on a wooden hallway sideboard; a repair bill "800 €" waits beside it under a set of car keys. Warm soft side light, deep black background, hand and envelope large in the right half. Hook text in the calm left half: "3.000 € → 2.400 €?" in clean bold white sans-serif typography, max 2 lines. Not photorealistic, no logos. Only text: "3.000 € → 2.400 €?", "Notgroschen", "800 €".
+Stylized 3D animated feature film still, 16:9. Two hands count a few euro banknotes on a kitchen table next to a repair bill. Close-up, hands and bill large on the right. Big clean white headline on the left: "3.000 € → 2.400 €?". Soft natural light, deep black background. Not photorealistic, no logos.

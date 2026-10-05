@@ -17,15 +17,15 @@ PRECISION_GRAPHICS_OWNER: REMOTION
 
 CREATE EXACTLY ONE IMAGE.
 
-VISUAL_FORM: object-story
-VISUAL_CONCEPT: Die passende Reserve hängt von den Verpflichtungen des eigenen Alltags ab.
-DECISIVE_MOMENT: not-applicable — the grouped everyday obligations are the idea.
+VISUAL_FORM: character-moment
+VISUAL_CONCEPT: Jeder schaut auf die eigenen festen Kosten — davon hängt die Höhe der Reserve ab.
+DECISIVE_MOMENT: not-applicable — a quiet everyday moment of checking the own costs.
 VOICEOVER_VISUAL_MATCH: Script: "Wie hoch deine Reserve wirklich sein sollte, hängt aber von deiner Situation ab."
 FRONT_READABILITY_TEST: PASS — main idea is large, close and understandable in about two seconds.
 DATA_INTEGRITY_TEST: not-applicable
 
 IMAGE PROMPT
-Stylized 3D animated feature film still, 16:9. On one dark entryway shelf: apartment keys, a car key, three ordinary unopened bill envelopes, a small work backpack and a compact tool pouch. Everything is arranged naturally as used everyday objects, not as an infographic or catalog grid. Warm soft side light, deep black background, slightly off-center cinematic framing, premium stylized materials, no people, no logos, no text.
+Stylized 3D animated feature film still, 16:9. A young woman sits at her kitchen table in the evening and looks through a few monthly bills, her car key lying next to them. Small kitchen. No text. Soft natural light, deep black background. Not photorealistic, no logos.
 
 QA
 PASS only if it is clearly a stylized 3D animated feature-film still on deep black, the scene is not a dashboard/infographic, the main objects are large, and every allowed label is spelled exactly.
