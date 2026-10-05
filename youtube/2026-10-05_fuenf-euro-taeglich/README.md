@@ -2,6 +2,12 @@
 
 Eigenständiges FinanzNeo-YouTube-Longform-Projekt nach V4. Ziel: ungefähr 2 Minuten, 1920×1080, 30 fps.
 
+## Wichtig für den Nutzer
+
+Die Ordner `01-recherche` bis `06-projektdateien` sind interne Produktionsordner für Skript, Bilder, Animationen, Audio und QA.
+
+**Nach Fertigstellung musst du nur noch `07-export/` öffnen.** Dort liegen das fertige Video, das Cover, Titel, YouTube-Beschreibung und das komplette Skript mit Zeitstempeln.
+
 ## Formatmix
 
 - 8 Visual Beats
@@ -33,3 +39,16 @@ Noch erforderlich:
 - echte Wort-Zeitstempel
 
 Danach darf `youtube:ready` Phase 3 freigeben.
+
+## Finaler Export
+
+Phase 3 schreibt die fertigen Upload-Dateien nach:
+
+`07-export/`
+
+Dort ist die einfache Endstruktur:
+- `01-video-und-cover/` → `final-video.mp4` + `cover.png`
+- `02-youtube/` → Titel + Beschreibung
+- `03-untertitel/` → lesbares Skript mit Zeitstempeln + `.srt`
+
+Die Untertitelzeiten werden erst mit dem finalen Voiceover verbindlich.
