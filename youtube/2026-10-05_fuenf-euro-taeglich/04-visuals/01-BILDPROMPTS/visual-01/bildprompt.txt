@@ -4,6 +4,7 @@ FORMAT: horizontal 16:9
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
+FLOW_IMAGE_POLICY: meaning-first-free-visual-v2
 THUMBNAIL_CONCURRENCY: 3
 IMAGE_BATCH_SIZE: 5
 IMAGE_CONCURRENCY: 5
@@ -17,24 +18,16 @@ PRECISION_GRAPHICS_OWNER: REMOTION
 
 CREATE EXACTLY ONE IMAGE.
 
-VISUAL_FORM: hands-in-action
-VISUAL_CONCEPT: Ein einzelner 5-€-Kauf wirkt im Moment klein und normal.
-DECISIVE_MOMENT: A hand takes a coffee and small pastry while the receipt is still visible.
+VISUAL_FORM: semantic-object-composition
+VISUAL_CONCEPT: Ein einzelner 5-€-Kauf wirkt klein und kompakt.
+MEANING_RELATION: Kaffee, Gebäck und genau ein 5,00-€-Beleg bilden einen einzigen Kauf. Kein Raum, Tisch oder Mensch fügt zusätzliche Bedeutung hinzu.
+DECISIVE_MOMENT: not-applicable
 VOICEOVER_VISUAL_MATCH: Script: "Fünf Euro fühlen sich nach fast nichts an. Ein Kaffee, ein Snack, eine kleine Lieferung – bezahlt, vergessen."
-FRONT_READABILITY_TEST: PASS — one obvious purchase moment, large and clear in about two seconds.
+FRONT_READABILITY_TEST: PASS — der einzelne kleine Kauf ist als kompakter Cluster in etwa zwei Sekunden verständlich.
 DATA_INTEGRITY_TEST: The only exact number is 5,00 €.
 
-SCENE_SIGNATURE:
-LOCATION: station bakery counter
-CAMERA: tight close-up at counter height
-MAIN_SUBJECT: coffee, pastry and receipt changing hands
-ACTION: commuter hand takes the purchase
-PEOPLE: no face required; hands only are enough
-PROPS: coffee cup, pastry bag, small receipt
-DO_NOT_REPEAT_LATER: station, bakery counter, coffee cup, this camera angle
-
 IMAGE PROMPT
-Stylized 3D animated feature film still, 16:9. Close-up of a hand taking a coffee and small pastry from a station bakery counter, with a small receipt showing 5,00 € beside the purchase. Station bakery counter. Only text: "5,00 €". Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. A takeaway coffee cup, one small pastry and a single paper receipt showing 5,00 € form one compact purchase cluster, isolated against black with no table, room or person. Only text: "5,00 €". Soft natural light, deep black background. Not photorealistic, no logos.
 
 QA
-PASS only if the purchase is immediately clear without needing a visible face; no forced person, no infographic, no abstract money symbol, no invented extra text.
+PASS only if the visual reads as one small purchase immediately, every object has a reason, and no extra person, room, surface, decoration or finance symbol is added.
