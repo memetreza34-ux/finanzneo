@@ -1,31 +1,10 @@
-BILD 04
-FINAL FILE NAME: YouTube Bild 04 - Eigene Lebenssituation.png
-FORMAT: horizontal 16:9
+# Visual 04 — kein Google-Flow-Bild mehr
 
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
-THUMBNAIL_CONCURRENCY: 3
-IMAGE_BATCH_SIZE: 5
-IMAGE_CONCURRENCY: 5
-STYLE_AUTHORITY: finanzneo-youtube-animated-black-v3
-SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
-APPROVED_STYLE_REFERENCES: Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgroschen" (2026-09-17)
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-GENERATED_IMAGE_ASPECT_RATIO: 16:9
-PRECISION_GRAPHICS_OWNER: REMOTION
+Dieses Visual wurde im neuen System bewusst von `image` auf `animation` umgestellt.
 
-CREATE EXACTLY ONE IMAGE.
+Grund: Der Satz „Wie hoch deine Reserve wirklich sein sollte, hängt von deiner Situation ab“ ist abstrakt. Eine weitere Person-am-Küchentisch-mit-Rechnungen-Szene wäre austauschbar und würde die Bildwelt unnötig wiederholen.
 
-VISUAL_FORM: character-moment
-VISUAL_CONCEPT: Jeder schaut auf die eigenen festen Kosten — davon hängt die Höhe der Reserve ab.
-DECISIVE_MOMENT: not-applicable — a quiet everyday moment of checking the own costs.
-VOICEOVER_VISUAL_MATCH: Script: "Wie hoch deine Reserve wirklich sein sollte, hängt aber von deiner Situation ab."
-FRONT_READABILITY_TEST: PASS — main idea is large, close and understandable in about two seconds.
-DATA_INTEGRITY_TEST: not-applicable
+Verbindliche Umsetzung:
+`04-visuals/EINZELNE-VISUALS/visual-04/animation.tsx`
 
-IMAGE PROMPT
-Stylized 3D animated feature film still, 16:9. A young woman sits at her kitchen table in the evening and looks through a few monthly bills, her car key lying next to them. Small kitchen. No text. Soft natural light, deep black background. Not photorealistic, no logos.
-
-QA
-PASS only if it is clearly a stylized 3D animated feature-film still on deep black, the scene is not a dashboard/infographic, the main objects are large, and every allowed label is spelled exactly.
+Diesen alten Bildprompt NICHT in Google Flow ausführen.
