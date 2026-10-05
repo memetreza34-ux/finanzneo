@@ -4,7 +4,7 @@ import {mkdirSync, mkdtempSync, readFileSync, rmSync, unlinkSync, writeFileSync}
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import test from 'node:test';
-import {PHASE_1_FILES} from '../scripts/lib/youtube-contract.mjs';
+import {ACTIVE_WORD_COLOR, PHASE_1_FILES, SUBTITLE_MODE} from '../scripts/lib/youtube-contract.mjs';
 import {analyzeYouTubeReadiness, isSixteenNineDimensions} from '../scripts/lib/youtube-readiness.mjs';
 
 const write = (root: string, relativePath: string, content: string | Buffer) => {
@@ -85,8 +85,10 @@ const createReadyFixture = () => {
   write(root, '03-audio/voice.mp3', Buffer.from('audio'));
   write(root, '03-audio/word-timings.json', `${JSON.stringify({
     source: '03-audio/voice.mp3',
-    subtitleMode: 'sentence-with-audio-synced-active-word',
-    activeWordColor: 'finance-green',
+    subtitleMode: SUBTITLE_MODE,
+    activeWordColor: ACTIVE_WORD_COLOR,
+    renderCaptions: false,
+    purpose: 'timing-and-export-only',
     words: [{word:'Ein',start:0,end:0.2}],
     sentences: [{text:'Ein',start:0,end:0.2,words:[{word:'Ein',start:0,end:0.2}]}],
   })}\n`);

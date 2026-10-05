@@ -1,97 +1,98 @@
-# FinanzNeo — YouTube Layoutstandard V1
+# FinanzNeo — YouTube Layoutstandard V2
 
 `LAYOUT_STANDARD_ID: finanzneo-youtube-framed-v1`
 
-Dieser Standard ist für neue YouTube-Longform-Videos verbindlich und überschreibt bei Layout-/Caption-Konflikten ältere Angaben in `PRODUKTIONSSTANDARD.md`.
+Dieser Standard ist für neue YouTube-Longform-Videos verbindlich und überschreibt bei Layout-/Caption-Konflikten ältere Angaben in `CLAUDE.md`.
 
-## 1. Kein Bild und keine Animation als Vollbild
+## 1. Kein Bild und keine Animation als ungestaltete Vollbildfläche
 
 Das 1920×1080-Video bleibt eine gestaltete FinanzNeo-Bühne.
 
-- Flow-Bilder werden **niemals randlos über die komplette Leinwand gezogen**.
-- Remotion-Animationen werden **niemals als alleinige Vollbildfläche** gerendert.
-- Jedes Visual sitzt in einem klaren Content-Frame mit sichtbarem Außenraum.
+- Flow-Bilder werden nicht randlos als kompletter Hintergrund gezogen.
+- Remotion-Animationen werden nicht als ungestaltete alleinige Vollbildfläche verwendet.
+- Visuals sitzen in einem klaren Content-Frame mit sichtbarem Außenraum.
 - Standard: ungefähr 120 px Seitenrand, eigener Kopfbereich oben, Content-Frame darunter.
-- Der Content-Frame darf intern `cover` oder `contain` verwenden, aber der Frame selbst bleibt kleiner als die Leinwand.
-- Schwarzer Hintergrund, ruhiger Rand, keine künstlichen Browser-/Dashboard-Chrome.
+- Der Content-Frame darf intern `cover` oder `contain` verwenden.
+- Schwarzer Hintergrund, ruhiger Rand, keine künstliche Browser-/Dashboard-Chrome.
 
 Referenzkomponente:
 
 `src/design-system/youtube-stage.tsx -> YouTubeSectionFrame`
 
-## 2. Jeder Visual Beat bekommt eine Zwischenüberschrift + Icon
+## 2. Jeder Visual Beat bekommt Zwischenüberschrift + Icon
 
-Über dem Content-Frame steht immer eine kurze Zwischenüberschrift, die den aktuellen Gedanken benennt.
-
-Beispiele:
-- Kalender-Icon + „Was 5 € in einer Woche machen“
-- Repeat-Icon + „Warum 5 € so klein wirken“
-- Listen-Icon + „Der 7-Tage-Test“
+Über dem Content-Frame steht eine kurze Zwischenüberschrift mit passendem Linien-Icon.
 
 Regeln:
-- ein passendes Linien-Icon aus dem FinanzNeo-Iconset
-- kurze natürliche Überschrift, keine zweite Voiceover-Zeile
-- Überschrift beschreibt den Abschnitt, nicht Wort für Wort den gesprochenen Satz
-- Header bleibt ruhig; keine aggressive Animation
+
+- kurze natürliche Überschrift
+- kein zweites Voiceover als Textzeile
+- Icon erklärt/markiert den Abschnitt
+- Header ruhig, nicht aggressiv animiert
+- maximal eine Zeile im Normalfall
 
 ## 3. Keine eingebrannten Untertitel
 
-Im finalen Video gibt es **keine Untertitel/Captions im Bild**.
+Im finalen Video gibt es **keine eingebrannten Untertitel/Captions**.
 
-Erlaubt und weiterhin Pflicht:
-- echte Wort-Zeitstempel für Schnitte
-- `script-mit-zeitstempeln.txt` im Export
-- `.srt` im Export für YouTube/optionale externe Untertitel
+Wort-Timings bleiben Pflicht für:
+
+- Schnitte
+- Timing
+- `script-mit-zeitstempeln.txt`
+- `.srt` als externe YouTube-Untertitel
 
 Nicht erlaubt:
-- Wort-für-Wort-Captions unten im Bild
-- grün markiertes aktives Wort
+
+- Wort-für-Wort-Captions im Bild
+- aktives Wort grün markieren
 - Boxed Captions
-- automatische Textwiederholung des Voiceovers
+- automatische Wiederholung des Voiceovers als Text
 
-Die gesprochenen Inhalte sollen durch Bild, Animation und Zwischenüberschrift getragen werden.
+## 4. Bildinhalt: Bedeutung zuerst, Form frei
 
-## 4. Bildinhalt ist frei — Menschen niemals erzwingen
+`FLOW_IMAGE_POLICY: meaning-first-free-visual-v2`
 
-Die Bildwelt bleibt gleich, der Inhalt ist frei.
+Die Layout-Bühne entscheidet **nicht**, welche Bildform benutzt werden muss.
 
-Erlaubt sind zum Beispiel:
-- Menschen, wenn eine Person für die Handlung wirklich sinnvoll ist
+Erlaubt und gleichberechtigt:
+
+- einzelnes Objekt
+- Detail / Makro
 - Hände
-- Gegenstände
-- Maschinen
-- Fahrzeuge
-- Räume und Orte
-- Detailaufnahmen
-- Dokumente
-- Produkte ohne Logos
-- Alltagssituationen
-- ungewöhnliche, aber sofort verständliche Bildideen
+- Mensch
+- reale Szene
+- Vergleich
+- Vorher/Nachher
+- Ursache/Wirkung
+- semantische Objektanordnung
+- visuelle Metapher
+- kreative Bildidee
 
-Es gibt **keine Menschenquote** und **keine Objektquote**.
+Menschen, Orte, Tische und reale Räume sind niemals Pflicht.
 
-Vor jedem Flow-Bild gilt:
-1. Was erklärt genau diesen gesprochenen Beat am schnellsten?
-2. Braucht man dafür wirklich eine Person?
-3. Gibt es ein Objekt, einen Ort, ein Detail oder eine Handlung, die besser ist?
-4. Passt das Bild sichtbar in dieselbe FinanzNeo-Welt?
-5. Ist die Szene eigenständig und nicht nur eine Wiederholung der letzten guten Idee?
+### Semantische Objektanordnung
+
+Objekte dürfen ohne Tisch oder reale Auflagefläche frei im Raum stehen, wenn ihre Position die Aussage erklärt.
+
+Beispiele:
+
+- kaputter Kopfhörer → neuer Kopfhörer → zwei Belege
+- Wallet links ↔ Terminal rechts
+- ein heutiger Beleg → mehrere wiederkehrende Belege
+
+Nicht erlaubt ist bloß dekoratives Schweben ohne Bedeutung.
 
 ## 5. Keine Bildidee auf Krampf
 
-Nicht jedes abstrakte Thema muss ein Flow-Bild bekommen.
+Vor jeder Bildentscheidung:
 
-- konkrete Szene → Flow kann sinnvoll sein
-- genaue Zahl / Vergleich / Ablauf → Remotion
-- abstrakter Gedanke ohne gute Alltagsszene → Remotion/Karte statt erzwungener Menschenszene
+1. Was soll der Zuschauer verstehen?
+2. Welche Bildform erklärt es am schnellsten?
+3. Hat jedes Element einen Grund?
+4. Wird ein Mensch, Tisch oder Raum nur benutzt, weil das vorher funktioniert hat? Dann neu denken.
 
-„Gleicher Look“ bedeutet **nicht**:
-- gleiche Person
-- gleicher Tisch
-- gleiche Kamera
-- gleiche Requisiten
-
-Es bedeutet nur gemeinsame Render-DNA, Licht, Schwarzraum und Farbrollen.
+Präzise Zahlen/Charts/UI bleiben Remotion-owned. Eine konzeptuelle oder schematische Flow-Idee ist trotzdem erlaubt, solange sie keine Präzision vortäuscht.
 
 ## 6. Layout-Datei pro Video
 
@@ -99,11 +100,18 @@ Jedes Projekt braucht:
 
 `06-projektdateien/layout.json`
 
-Darin stehen:
+Darin stehen mindestens:
+
 - Standard-ID
 - Content-Frame-Regel
-- Untertitel-Aus
+- Untertitel aus
 - Zwischenüberschrift/Icons
 - eigener Header pro Visual
+- `imagePolicy.meaningFirst = true`
+- `imagePolicy.sceneFirst = false`
+- `imagePolicy.peopleRequired = false`
+- `imagePolicy.placeRequired = false`
+- `imagePolicy.semanticObjectCompositionsAllowed = true`
+- `imagePolicy.visualMetaphorsAllowed = true`
 
 `npm run youtube:validate -- youtube/<Projekt>` prüft diesen Vertrag.

@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "standardId": "finanzneo-youtube-framed-v1",
   "canvas": {
     "width": 1920,
@@ -31,11 +31,19 @@
     ]
   },
   "imagePolicy": {
+    "meaningFirst": true,
+    "sceneFirst": false,
     "peopleRequired": false,
+    "placeRequired": false,
+    "realSceneRequired": false,
     "contentFreeWithinWorld": true,
     "forcePeopleForbidden": true,
-    "sceneFirst": true,
-    "sameWorldNotSameScene": true
+    "sameWorldNotSameScene": true,
+    "semanticObjectCompositionsAllowed": true,
+    "visualMetaphorsAllowed": true,
+    "isolatedObjectsAllowed": true,
+    "floatingObjectsAllowedWhenMeaningful": true,
+    "decorativeFloatingObjectsForbidden": true
   },
   "visuals": [
     {"id": "visual-01", "title": "Der kleine Kauf", "icon": "receipt"},

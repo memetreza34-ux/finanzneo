@@ -4,17 +4,25 @@ APPROVED_STYLE_REFERENCES: Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgro
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-FLOW_IMAGE_POLICY: scene-first-no-infographic-v1
+FLOW_IMAGE_POLICY: meaning-first-free-visual-v2
 PRECISION_GRAPHICS_OWNER: REMOTION
 
 LOOK FEST — INHALT FREI.
+BEDEUTUNG ZUERST — FORM FREI.
 
-Jedes Flow-Bild ist ein ruhiges Standbild aus einem stilisierten 3D-Animationsfilm auf tiefem Schwarz. Echte Dinge in echter Alltagssituation, natürliche Proportionen, wenige Requisiten, weiches natürliches Licht. Keine abstrakten Finanzsymbole, keine Glas-/Leuchtbalken, kein Neon, keine Poster-Dramatik, keine Dashboards oder Charts.
+Jeder Sprechbeat wird zuerst inhaltlich verstanden. Danach wird die stärkste Bildform gewählt. Es gibt keinen Standard für reale Szene, Mensch, Hände, Tisch, Ort oder Kamera.
 
-Jeder Sprechbeat wird einzeln betrachtet. Flow nur, wenn eine konkrete reale Szene die Aussage schneller erklärt. Abstrakte Zahlen, Listen, Vergleiche und Rechenwege gehören zu Remotion.
+Erlaubt und gleichberechtigt:
+- einzelnes Objekt oder Detail
+- Hände / Mensch, wenn sinnvoll
+- reale Alltagsszene
+- Vergleich
+- semantische Objektanordnung
+- visuelle Metapher
+- kreative Idee
 
-SCENE-DIVERSITY:
-- gleicher Look bedeutet niemals gleiche Szene
-- Ort, Kameradistanz, Handlung, Hauptobjekt und Personenbesetzung bewusst variieren
-- keine Standardlösung "Person + Tisch + Rechnung"
-- keine Requisite wiederholen, nur weil sie vorher funktioniert hat
+Objekte dürfen frei im Schwarzraum stehen, wenn ihre Anordnung etwas erklärt. Keine dekorativen Spiralen, Trails, Objektwolken oder zufällige Schweberei. Jeder Gegenstand muss einen Grund haben.
+
+Gleicher Look bedeutet nicht gleiche Szene. Die Einheit kommt nur aus Animationsfilm-Rendering, Materialien, Licht, Schwarzraum und Farbrollen.
+
+Präzise Zahlen, Charts, Tabellen, Checklisten und UI gehören zu Remotion.

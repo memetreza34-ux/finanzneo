@@ -14,20 +14,44 @@ Wenn Visualtypen schon feststehen, mindestens zwei Motion-Typen einplanen:
 npm run youtube:create -- --target youtube/<Projekt> --title "Titel" --types image,animation,image,hybrid,image,animation,image
 ```
 
+## Bildlogik
+
+`BEDEUTUNG ZUERST — FORM FREI`
+
+Vor jedem Flow-Bild zuerst den gesprochenen Gedanken verstehen. Danach die stärkste Darstellung wählen. Gleichberechtigt sind unter anderem:
+
+- einzelnes Objekt / Detail
+- Hände
+- Mensch
+- reale Szene
+- Vergleich
+- semantische Objektanordnung
+- visuelle Metapher
+- kreative Idee
+
+**Kein scene-first. Kein Menschen-Zwang. Kein Ort-Zwang. Kein Tisch-Zwang.** Objekte dürfen frei im Raum stehen, wenn ihre Anordnung inhaltlich etwas erklärt. Dekorative Schweberei ohne Bedeutung ist dagegen unerwünscht.
+
 Flow: 3 Thumbnail-Kandidaten parallel → Nutzerwahl → Szenenbilder in parallelen 5er-Batches → sofort Rename/QA → Final Inventory QA. Thumbnail und Bilder nutzen direkt dieselbe schriftliche V9-Bildwelt; das Thumbnail wird nie Style-Referenz.
 
-Charts/Diagramme frontal und gerade. Mindestens zwei echte Motion-Visuals pro Projekt.
+Präzise Charts, Tabellen, UI und Rechenwege gehören zu Remotion. Mindestens zwei echte Motion-Visuals pro Projekt.
 
 ## Verbindliches YouTube-Layout
 
-Zusätzlich gilt [LAYOUTSTANDARD.md](LAYOUTSTANDARD.md). Dieser Layoutstandard überschreibt ältere widersprüchliche Layout-/Caption-Regeln:
+Zusätzlich gilt [LAYOUTSTANDARD.md](LAYOUTSTANDARD.md):
 
-- **kein Flow-Bild als Vollbild**
-- **keine Remotion-Animation als Vollbild**
-- jeder Visual Beat hat eine **Zwischenüberschrift + passendes Icon**
+- kein Flow-Bild als randloser Vollbild-Hintergrund
+- keine ungestaltete Remotion-Vollbildfläche
+- jeder Visual Beat hat Zwischenüberschrift + passendes Icon
 - Bilder und Animationen liegen in einem gerahmten Content-Bereich
-- **keine eingebrannten Untertitel/Captions im Video**
-- Wort-Zeitstempel bleiben nur für Schnitte sowie SRT-/Zeitstempel-Export
-- Menschen niemals erzwingen; Bildinhalt ist frei, solange Welt und Szene passen
+- keine eingebrannten Untertitel/Captions
+- Wort-Zeitstempel nur für Schnitte sowie SRT-/Zeitstempel-Export
 
-Verbindlich: [Produktionsstandard](PRODUKTIONSSTANDARD.md), [Layoutstandard V1](LAYOUTSTANDARD.md), [YouTube Motion V3](../docs/YOUTUBE-MOTION-V3.md), `CLAUDE.md`.
+## Validierung
+
+```bash
+npm run youtube:validate -- youtube/<Projekt>
+```
+
+Der Wrapper prüft Basisvertrag, Layoutvertrag und Meaning-first-Visualvertrag mit demselben Projektpfad.
+
+Verbindlich: [Produktionsstandard V5](PRODUKTIONSSTANDARD.md), [Layoutstandard V2](LAYOUTSTANDARD.md), [YouTube Motion V3](../docs/YOUTUBE-MOTION-V3.md). Bei widersprüchlichen älteren YouTube-/Reel-Regeln haben die beiden YouTube-Standards Vorrang.

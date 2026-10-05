@@ -4,31 +4,40 @@ import test from 'node:test';
 
 const read = (path: string) => readFileSync(path, 'utf8');
 
-test('YouTube Flow bleibt szenenbasiert und Präzisionsgrafiken gehören Remotion', () => {
+test('YouTube Flow ist meaning-first und Präzisionsgrafiken gehören Remotion', () => {
   const wrapper = read('scripts/create-finanzneo-youtube.mjs');
   const world = read('config/finanzneo-image-worlds/finanzneo-youtube-animated-black-v3.txt');
   const standard = read('youtube/PRODUKTIONSSTANDARD.md');
 
-  for (const source of [wrapper, world]) {
-    assert.match(source, /scene-first/i);
-    assert.match(source, /Remotion/);
+  for (const source of [wrapper, world, standard]) {
+    assert.match(source, /BEDEUTUNG ZUERST|MEANING FIRST/i);
+    assert.match(source, /Remotion/i);
+    assert.doesNotMatch(source, /FLOW_IMAGE_POLICY:\s*scene-first-no-infographic-v1/i);
     assert.doesNotMatch(source, /SIMPLE EXPLAINER/i);
   }
 
-  assert.match(standard, /Google Flow ist kein Infografik-Generator/);
-  assert.match(standard, /Remotion/);
-  assert.doesNotMatch(standard, /SIMPLE EXPLAINER/i);
-
+  assert.match(wrapper, /YOUTUBE_FLOW_IMAGE_POLICY_ID/);
+  assert.match(wrapper, /sceneFirst = false/);
+  assert.match(wrapper, /placeRequired = false/);
+  assert.match(wrapper, /peopleRequired = false/);
+  assert.match(wrapper, /semanticObjectCompositionsAllowed = true/);
+  assert.match(wrapper, /visualMetaphorsAllowed = true/);
   assert.match(wrapper, /PRECISION_GRAPHICS_OWNER: REMOTION/);
-  assert.match(wrapper, /YOUTUBE_FLOW_VISUAL_MODES/);
-  assert.doesNotMatch(wrapper, /number-focus|quote-card|ui-example|symbol-focus/);
 
-  assert.match(world, /FLOW_IMAGE_POLICY: scene-first-no-infographic-v1/);
-  assert.match(world, /flat infographic/i);
-  assert.match(world, /checklist/i);
-  assert.match(world, /settings|UI/i);
-  assert.match(world, /progress bar/i);
+  assert.match(world, /FLOW_IMAGE_POLICY: meaning-first-free-visual-v2/);
+  assert.match(world, /isolated-object/);
+  assert.match(world, /semantic-object-composition/);
+  assert.match(world, /visual-metaphor/);
+  assert.match(world, /NO location requirement/i);
+  assert.match(world, /Objects do not need a table, room or realistic support surface/i);
+  assert.match(world, /Charts with axes, exact mathematical diagrams, tables, checklists, UI/i);
 
-  assert.match(standard, /exakte Zahlenaufteilung/i);
-  assert.match(standard, /UI-\/Settings-Zustand/i);
+  assert.match(standard, /BEDEUTUNG ZUERST — FORM FREI/);
+  assert.match(standard, /keine Standard-Bildform/i);
+  assert.match(standard, /Tisch oder Raum ist niemals Pflicht/i);
+  assert.match(standard, /### Kein Ort-Zwang/);
+  assert.match(standard, /Semantic Object Composition/);
+  assert.match(standard, /Visual Metaphor/);
+  assert.match(standard, /Charts mit Achsen/);
+  assert.match(standard, /UI-Zustände/);
 });
