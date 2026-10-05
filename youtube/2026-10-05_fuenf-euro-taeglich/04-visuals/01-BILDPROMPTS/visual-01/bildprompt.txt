@@ -1,0 +1,40 @@
+BILD 01
+FINAL FILE NAME: YouTube Bild 01 - Fuenf Euro am Morgen.png
+FORMAT: horizontal 16:9
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
+THUMBNAIL_CONCURRENCY: 3
+IMAGE_BATCH_SIZE: 5
+IMAGE_CONCURRENCY: 5
+STYLE_AUTHORITY: finanzneo-youtube-animated-black-v3
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+APPROVED_STYLE_REFERENCES: Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgroschen" (2026-09-17)
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+PRECISION_GRAPHICS_OWNER: REMOTION
+
+CREATE EXACTLY ONE IMAGE.
+
+VISUAL_FORM: everyday-scene
+VISUAL_CONCEPT: Ein einzelner 5-€-Kauf wirkt im Moment klein und normal.
+DECISIVE_MOMENT: The commuter receives the coffee and pastry while the receipt is still visible.
+VOICEOVER_VISUAL_MATCH: Script: "Fünf Euro fühlen sich nach fast nichts an. Ein Kaffee, ein Snack, eine kleine Lieferung – bezahlt, vergessen."
+FRONT_READABILITY_TEST: PASS — one obvious purchase moment, large and clear in about two seconds.
+DATA_INTEGRITY_TEST: The only exact number is 5,00 €.
+
+SCENE_SIGNATURE:
+LOCATION: station bakery counter
+CAMERA: medium close side angle at counter height
+MAIN_SUBJECT: coffee and small pastry changing hands
+ACTION: commuter receives purchase
+PEOPLE: one customer plus cropped server hands
+PROPS: coffee cup, pastry bag, small receipt
+DO_NOT_REPEAT_LATER: station, bakery counter, coffee cup, this camera angle
+
+IMAGE PROMPT
+Stylized 3D animated feature film still, 16:9. A commuter at a station bakery counter receives a coffee and small pastry, with a small receipt showing 5,00 € beside the purchase. Station bakery counter. Only text: "5,00 €". Soft natural light, deep black background. Not photorealistic, no logos.
+
+QA
+PASS only if this exact real purchase moment is immediately clear, natural and calm; no infographic, no abstract money symbol, no invented extra text.
