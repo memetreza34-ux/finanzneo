@@ -1,0 +1,75 @@
+GOOGLE FLOW MASTER PROMPT — FINANZNEO
+VIDEO: 100 € Rabatt? Warum du trotzdem 400 € ausgibst
+
+DIESEN TEXT 1:1 AUSFÜHREN.
+DIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG IN GOOGLE FLOW.
+NICHT erklären, NICHT zusammenfassen, NICHT nur Prompts zurückgeben. Starte die Bildjobs tatsächlich.
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
+FLOW_IMAGE_POLICY: meaning-first-free-visual-v2
+PRECISION_GRAPHICS_OWNER: REMOTION
+STYLE_AUTHORITY: finanzneo-youtube-animated-black-v3
+APPROVED_STYLE_REFERENCES: Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgroschen" (2026-09-17)
+
+BEDEUTUNG ZUERST — FORM FREI
+Kein scene-first, kein people-first, kein object-first. Vor jedem Bild zuerst den gesprochenen Gedanken verstehen und dann die stärkste Bildform wählen. Ort, Mensch, Tisch oder Oberfläche sind niemals Pflicht. Objekte dürfen frei angeordnet sein, wenn ihre Position etwas erklärt. Dekorative Spiralen, Objektwolken oder Schweberei ohne Bedeutung verwerfen.
+
+NATÜRLICH — KEIN KI-LOOK
+Ruhiger stilisierter 3D-Animationsfilm-Look, natürliche Materialien, soft natural light, deep black background. Keine Glas-/Leuchtbalken, Value Blocks, Neon, Rauch, Funken, Lens Flares, generische Finanzcollagen oder unnötige Requisiten. Präzise Zahlen/Charts/UI bleiben Remotion.
+
+PHASE 0 — EIN GOOGLE-FLOW-ORDNER PRO VIDEO
+Arbeite in genau einem Projekt: FinanzNeo – Rabatt kostet trotzdem.
+
+PHASE A — 3 THUMBNAILS PARALLEL
+Starte A, B und C gleichzeitig als drei getrennte one-image jobs. Prüfe alle drei. Frage danach genau einmal: Welches Cover: A, B oder C?
+NICHT GEWÄHLTE COVER LÖSCHEN. Gewinner umbenennen in: YouTube Thumbnail - Rabatt kostet trotzdem.png
+Das gewählte Cover ist keine Stilreferenz.
+
+THUMBNAIL A
+Stylized 3D animated feature film still, 16:9. A brandless pair of over-ear headphones hangs alone in black space with one red-orange sale tag attached, the object large on the right. Big clean white headline on the left: "100 € GESPART?". Soft natural light, deep black background. Not photorealistic, no logos.
+
+THUMBNAIL B
+Stylized 3D animated feature film still, 16:9. A young adult pauses in an electronics store holding brandless headphones before reaching the checkout, visibly unsure whether to buy. Big clean white headline on the left: "RABATT-FALLE?". Soft natural light, deep black background. Not photorealistic, no logos.
+
+THUMBNAIL C
+Stylized 3D animated feature film still, 16:9. An unopened brandless product box sits forgotten at the back of a closet shelf with its red-orange sale tag still attached. Big clean white headline on the left: "400 € WEG". Soft natural light, deep black background. Not photorealistic, no logos.
+
+PHASE B — GENAU 3 SZENENBILDER
+Visual 02, 03, 05, 07 und 08 sind Remotion und bekommen kein Flow-Bild. Starte Bild 01, 04 und 06 als drei getrennte one-image jobs parallel. Jedes Ergebnis sofort exakt umbenennen und QA prüfen. Bei FAIL nur dieselbe Nummer neu generieren. Keine Nutzerfreigabe zwischen diesen Bildern.
+
+BILD 01 — FINAL FILE NAME: YouTube Bild 01 - Rabatt Objekt.png
+VISUAL_FORM: isolated-object
+VISUAL_CONCEPT: Rabatt wirkt zuerst attraktiv, bevor der tatsächliche Kauf bewertet wird.
+DECISIVE_MOMENT: not-applicable
+VOICEOVER_VISUAL_MATCH: 100 Euro Rabatt klingt wie 100 Euro gespart.
+FRONT_READABILITY_TEST: PASS — einzelnes Produkt plus Sale-Tag ist sofort verständlich.
+DATA_INTEGRITY_TEST: exakte Zahlen bleiben Remotion.
+Stylized 3D animated feature film still, 16:9. A brandless pair of over-ear headphones hangs alone in black space with one red-orange sale tag attached, large and clearly readable as a sale item. No text. Soft natural light, deep black background. Not photorealistic, no logos.
+
+BILD 04 — FINAL FILE NAME: YouTube Bild 04 - Geplanter Kauf.png
+VISUAL_FORM: character-moment
+VISUAL_CONCEPT: Ein Mensch ist sinnvoll, weil der Beat eine bewusste geplante Entscheidung zeigt.
+DECISIVE_MOMENT: The shopper pauses before checkout.
+VOICEOVER_VISUAL_MATCH: Rabatt kann sinnvoll sein, wenn du ohnehin neue Kopfhörer kaufen wolltest.
+FRONT_READABILITY_TEST: PASS — Person, Produkt und Kaufplan sind sofort lesbar.
+DATA_INTEGRITY_TEST: exakte Preise bleiben Remotion.
+Stylized 3D animated feature film still, 16:9. A young adult pauses before an electronics checkout holding brandless headphones in one hand and a short handwritten shopping note in the other, clearly considering a planned purchase. Soft natural light, deep black background. Not photorealistic, no logos.
+
+BILD 06 — FINAL FILE NAME: YouTube Bild 06 - Unbenutzter Kauf.png
+VISUAL_FORM: object-detail
+VISUAL_CONCEPT: Ein ungeplanter Kauf ist später unbenutzt und vergessen.
+DECISIVE_MOMENT: not-applicable
+VOICEOVER_VISUAL_MATCH: Problematisch wird es, wenn der Rabatt den Wunsch erst erzeugt.
+FRONT_READABILITY_TEST: PASS — ungeöffneter Karton mit Sale-Tag ist sofort verständlich.
+DATA_INTEGRITY_TEST: not-applicable
+Stylized 3D animated feature film still, 16:9. An unopened brandless kitchen gadget box sits pushed to the back of a closet shelf with its red-orange sale tag still attached, clearly unused and forgotten. Soft natural light, deep black background. Not photorealistic, no logos.
+
+FERTIGER FLOW-ORDNER
+Im Ordner liegen genau diese vier finalen Dateien, jeweils einmal:
+- YouTube Thumbnail - Rabatt kostet trotzdem.png
+- YouTube Bild 01 - Rabatt Objekt.png
+- YouTube Bild 04 - Geplanter Kauf.png
+- YouTube Bild 06 - Unbenutzter Kauf.png
+
+Alle Outputs horizontal 16:9. Danach alles nach `04-visuals/00-ALLE-BILDER-HIER-REIN/` legen.

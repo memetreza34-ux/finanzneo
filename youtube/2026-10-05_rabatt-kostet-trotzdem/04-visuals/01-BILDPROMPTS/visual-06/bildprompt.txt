@@ -1,0 +1,15 @@
+BILD 06
+FINAL FILE NAME: YouTube Bild 06 - Unbenutzter Kauf.png
+FORMAT: horizontal 16:9
+
+VISUAL_FORM: object-detail
+VISUAL_CONCEPT: Ein ungeplanter Sale-Kauf wirkt im Nachhinein unnötig, ohne dafür eine Person zu brauchen.
+DECISIVE_MOMENT: not-applicable
+VOICEOVER_VISUAL_MATCH: „Problematisch wird es, wenn der Rabatt den Wunsch erst erzeugt.“
+FRONT_READABILITY_TEST: PASS — ungeöffneter Karton mit Sale-Tag am hinteren Rand eines Schranks vermittelt ungenutzten Impulskauf.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT
+Stylized 3D animated feature film still, 16:9. An unopened brandless kitchen gadget box sits pushed to the back of a closet shelf with its red-orange sale tag still attached, clearly unused and forgotten. Soft natural light, deep black background. Not photorealistic, no logos.
+
+QA: Fokus auf dem unbenutzten Kauf; keine Person, kein Tisch und keine dekorativen Gegenstände ergänzen.

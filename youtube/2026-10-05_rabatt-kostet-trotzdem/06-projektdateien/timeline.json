@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "title": "100 € Rabatt? Warum du trotzdem 400 € ausgibst",
+  "fps": 30,
+  "timingSource": "03-audio/word-timings.json",
+  "cutRule": "voice-beat-and-chapter-driven",
+  "fixedVisualCount": false,
+  "visuals": [
+    {"id":"visual-01","type":"image","plannedStart":"00:00","plannedEnd":"00:12"},
+    {"id":"visual-02","type":"data","plannedStart":"00:12","plannedEnd":"00:29"},
+    {"id":"visual-03","type":"data","plannedStart":"00:29","plannedEnd":"00:43"},
+    {"id":"visual-04","type":"image","plannedStart":"00:43","plannedEnd":"00:59"},
+    {"id":"visual-05","type":"animation","plannedStart":"00:59","plannedEnd":"01:16"},
+    {"id":"visual-06","type":"image","plannedStart":"01:16","plannedEnd":"01:29"},
+    {"id":"visual-07","type":"animation","plannedStart":"01:29","plannedEnd":"01:49"},
+    {"id":"visual-08","type":"animation","plannedStart":"01:49","plannedEnd":"02:05"}
+  ]
+}
