@@ -14,6 +14,10 @@ export * from '../finance/examples';
 export {FinanceBackground, VerticalSafeAreaGuide} from './FinanceBackground';
 export type {FinanceBackgroundVariant} from './FinanceBackground';
 
+// YouTube-Longform-Bühne: Zwischenüberschrift + Icon + gerahmter Content.
+// Bilder und Animationen dürfen nicht als Vollbild gerendert werden.
+export * from './youtube-stage';
+
 // Premium-Erweiterungen bleiben bewusst in Namensräumen.
 // Dadurch entstehen keine Export-Kollisionen zwischen alten und neuen Komponenten.
 export * as PremiumCore from '../bausteine/fn_core';
