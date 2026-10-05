@@ -1,5 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';
+import {YouTubeSectionFrame} from '../../../../../src/design-system/youtube-stage';
 
 export const MECHANIC_ID = 'daily-five-year-total';
 export const VISUAL_TECHNIQUE_ID = 'year-progress-total-reveal';
@@ -16,17 +17,19 @@ export const YouTubeVisual04Animation: React.FC = () => {
   const day = Math.max(1, Math.round(365 * progress));
   const total = day * 5;
   return (
-    <AbsoluteFill style={{background:'#000', color:'#F4F0E8', fontFamily:'Arial', alignItems:'center', justifyContent:'center'}}>
-      <div style={{width:1400}}>
-        <div style={{fontSize:42, color:'#A7A7A7'}}>5 € × 365 Tage</div>
-        <div style={{fontSize:150, fontWeight:800, marginTop:30}}>{total.toLocaleString('de-DE')} €</div>
-        <div style={{height:36, borderRadius:18, background:'#1C1C1C', marginTop:60, overflow:'hidden'}}>
-          <div style={{height:'100%', width:`${progress*100}%`, background:'#E7C56A'}} />
+    <YouTubeSectionFrame title="Was daraus in einem Jahr wird" icon="clock">
+      <AbsoluteFill style={{color:'#F4F0E8', fontFamily:'Arial', alignItems:'center', justifyContent:'center'}}>
+        <div style={{width:'82%'}}>
+          <div style={{fontSize:30, color:'#A7A7A7'}}>5 € × 365 Tage</div>
+          <div style={{fontSize:122, fontWeight:800, marginTop:20}}>{total.toLocaleString('de-DE')} €</div>
+          <div style={{height:28, borderRadius:16, background:'#1C1C1C', marginTop:44, overflow:'hidden'}}>
+            <div style={{height:'100%', width:`${progress*100}%`, background:'#E7C56A'}} />
+          </div>
+          <div style={{display:'flex', justifyContent:'space-between', marginTop:16, fontSize:24, color:'#A7A7A7'}}>
+            <span>Tag 1</span><span>Tag {day}</span><span>Tag 365</span>
+          </div>
         </div>
-        <div style={{display:'flex', justifyContent:'space-between', marginTop:20, fontSize:30, color:'#A7A7A7'}}>
-          <span>Tag 1</span><span>Tag {day}</span><span>Tag 365</span>
-        </div>
-      </div>
-    </AbsoluteFill>
+      </AbsoluteFill>
+    </YouTubeSectionFrame>
   );
 };

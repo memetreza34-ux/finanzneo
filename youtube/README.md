@@ -18,4 +18,16 @@ Flow: 3 Thumbnail-Kandidaten parallel → Nutzerwahl → Szenenbilder in paralle
 
 Charts/Diagramme frontal und gerade. Mindestens zwei echte Motion-Visuals pro Projekt.
 
-Verbindlich: [Produktionsstandard](PRODUKTIONSSTANDARD.md), [YouTube Motion V3](../docs/YOUTUBE-MOTION-V3.md), `CLAUDE.md`.
+## Verbindliches YouTube-Layout
+
+Zusätzlich gilt [LAYOUTSTANDARD.md](LAYOUTSTANDARD.md). Dieser Layoutstandard überschreibt ältere widersprüchliche Layout-/Caption-Regeln:
+
+- **kein Flow-Bild als Vollbild**
+- **keine Remotion-Animation als Vollbild**
+- jeder Visual Beat hat eine **Zwischenüberschrift + passendes Icon**
+- Bilder und Animationen liegen in einem gerahmten Content-Bereich
+- **keine eingebrannten Untertitel/Captions im Video**
+- Wort-Zeitstempel bleiben nur für Schnitte sowie SRT-/Zeitstempel-Export
+- Menschen niemals erzwingen; Bildinhalt ist frei, solange Welt und Szene passen
+
+Verbindlich: [Produktionsstandard](PRODUKTIONSSTANDARD.md), [Layoutstandard V1](LAYOUTSTANDARD.md), [YouTube Motion V3](../docs/YOUTUBE-MOTION-V3.md), `CLAUDE.md`.

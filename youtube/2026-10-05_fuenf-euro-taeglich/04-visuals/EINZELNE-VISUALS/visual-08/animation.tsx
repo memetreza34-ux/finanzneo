@@ -1,5 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';
+import {YouTubeSectionFrame} from '../../../../../src/design-system/youtube-stage';
 
 export const MECHANIC_ID = 'weekly-limit-conscious-choice';
 export const VISUAL_TECHNIQUE_ID = 'three-step-limit-rail';
@@ -18,15 +19,17 @@ export const YouTubeVisual08Animation: React.FC = () => {
     ['3','Wochenlimit festlegen'],
   ];
   return (
-    <AbsoluteFill style={{background:'#000', color:'#F4F0E8', fontFamily:'Arial', justifyContent:'center', padding:'0 180px'}}>
-      {steps.map(([n,t],i)=>{
-        const p=interpolate(frame,[8+i*24,20+i*24],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
-        return <div key={n} style={{display:'flex', alignItems:'center', gap:42, margin:'18px 0', opacity:p, transform:`translateX(${(1-p)*40}px)`}}>
-          <div style={{fontSize:78, fontWeight:800, color:'#2FCB8B', width:90}}>{n}</div>
-          <div style={{fontSize:62}}>{t}</div>
-        </div>;
-      })}
-      <div style={{marginTop:70, fontSize:48, color:'#E7C56A', opacity:interpolate(frame,[84,102],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})}}>Nicht verbieten. Sichtbar machen.</div>
-    </AbsoluteFill>
+    <YouTubeSectionFrame title="Mach kleine Ausgaben sichtbar" icon="target">
+      <AbsoluteFill style={{color:'#F4F0E8', fontFamily:'Arial', justifyContent:'center', padding:'0 110px', boxSizing:'border-box'}}>
+        {steps.map(([n,t],i)=>{
+          const p=interpolate(frame,[8+i*24,20+i*24],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
+          return <div key={n} style={{display:'flex', alignItems:'center', gap:34, margin:'13px 0', opacity:p, transform:`translateX(${(1-p)*34}px)`}}>
+            <div style={{fontSize:64, fontWeight:800, color:'#2FCB8B', width:78}}>{n}</div>
+            <div style={{fontSize:50}}>{t}</div>
+          </div>;
+        })}
+        <div style={{marginTop:48, fontSize:38, color:'#E7C56A', opacity:interpolate(frame,[84,102],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})}}>Nicht verbieten. Sichtbar machen.</div>
+      </AbsoluteFill>
+    </YouTubeSectionFrame>
   );
 };

@@ -23,7 +23,7 @@ NATÜRLICH — KEIN KI-LOOK:
 Jedes Bild ist eine einfache reale Alltagssituation im stilisierten 3D-Animationsfilm-Look auf tiefem Schwarz. Keine Glas-/Leuchtbalken, Wertblöcke, Neon, Rauch, Funken, Lens Flares, Geldberge, Dashboards, Charts, UI oder abstrakte Finanzskulpturen.
 
 LOOK FEST — INHALT FREI.
-Jeden Sprechbeat einzeln verstehen. Keine Standardlösung wie Person + Tisch + Rechnung wiederverwenden. Gleicher Look bedeutet nicht gleiche Szene. Ort, Kamera, Handlung, Personen und Hauptobjekte müssen zum jeweiligen Satz passen.
+Jeden Sprechbeat einzeln verstehen. Im Bild darf alles vorkommen, was den Satz am besten erklärt: Mensch, Hände, Objekt, Maschine, Fahrzeug, Raum, Detail, Dokument oder Alltagssituation. Menschen sind niemals Pflicht. Keine Standardlösung wie Person + Tisch + Rechnung wiederverwenden. Gleicher Look bedeutet nicht gleiche Szene. Ort, Kamera, Handlung und Hauptobjekte müssen zum jeweiligen Satz passen.
 
 ENTSCHEIDENDER MOMENT — NUR WENN ER PASST.
 Abstrakte Zahlen und Rechenwege gehören zu Remotion.
@@ -44,7 +44,7 @@ Das gewählte Cover ist KEINE Stilreferenz.
 
 THUMBNAIL A
 Temporary file: YouTube Thumbnail A.png
-Stylized 3D animated feature film still, 16:9. A commuter at a station bakery counter receives a coffee and small pastry while a tiny receipt shows 5,00 €. Station bakery, subject large on the right. Big clean white headline on the left: "NUR 5 €?". Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. Close-up of a hand taking a coffee and small pastry from a station bakery counter while a tiny receipt shows 5,00 €. Station bakery, purchase large on the right. Big clean white headline on the left: "NUR 5 €?". Soft natural light, deep black background. Not photorealistic, no logos.
 
 THUMBNAIL B
 Temporary file: YouTube Thumbnail B.png
@@ -65,14 +65,14 @@ Keine Nutzerfreigabe zwischen den beiden Jobs.
 
 BILD 01
 FINAL FILE NAME: YouTube Bild 01 - Fuenf Euro am Morgen.png
-VISUAL_FORM: everyday-scene
+VISUAL_FORM: hands-in-action
 VISUAL_CONCEPT: Ein einzelner 5-€-Kauf wirkt im Moment klein und normal.
-DECISIVE_MOMENT: The commuter receives the purchase while the receipt is visible.
+DECISIVE_MOMENT: A hand takes the coffee and pastry while the receipt is visible.
 VOICEOVER_VISUAL_MATCH: "Fünf Euro fühlen sich nach fast nichts an."
 FRONT_READABILITY_TEST: PASS — purchase moment is obvious in two seconds.
 DATA_INTEGRITY_TEST: 5,00 € only.
-SCENE_SIGNATURE: station bakery; medium close side angle; one customer; coffee + pastry; receipt; handoff.
-Stylized 3D animated feature film still, 16:9. A commuter at a station bakery counter receives a coffee and small pastry, with a small receipt showing 5,00 € beside the purchase. Station bakery counter. Only text: "5,00 €". Soft natural light, deep black background. Not photorealistic, no logos.
+SCENE_SIGNATURE: station bakery; tight close-up; hands only; coffee + pastry; receipt; no face required.
+Stylized 3D animated feature film still, 16:9. Close-up of a hand taking a coffee and small pastry from a station bakery counter, with a small receipt showing 5,00 € beside the purchase. Station bakery counter. Only text: "5,00 €". Soft natural light, deep black background. Not photorealistic, no logos.
 
 BILD 06
 FINAL FILE NAME: YouTube Bild 06 - Kleine Lieferung.png
