@@ -1,0 +1,32 @@
+THUMBNAIL
+FINAL FILE NAME: YouTube Thumbnail - Notgroschen nicht ins Depot.png
+FORMAT: horizontal 16:9
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
+THUMBNAIL_CONCURRENCY: 3
+IMAGE_BATCH_SIZE: 5
+IMAGE_CONCURRENCY: 5
+STYLE_AUTHORITY: finanzneo-youtube-animated-black-v3
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+APPROVED_STYLE_REFERENCES: Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgroschen" (2026-09-17)
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+PRECISION_GRAPHICS_OWNER: REMOTION
+
+Create exactly three separate one-image jobs in parallel: A, B and C. Each uses the same written FinanzNeo animated-film world. After QA, stop exactly once for the user to choose A/B/C. Delete the two non-selected candidates from the Flow folder. The selected image is renamed to the final file name and is never used as style reference.
+
+NATURAL, NOT AI-LOOKING: calm real everyday scenes; no glowing or glass bars, value blocks, neon, smoke or poster drama.
+
+CANDIDATE A
+Only text: "NICHT INS DEPOT"
+Stylized 3D animated feature film still, 16:9. A young woman stands in front of her broken washing machine with the door open and water on the floor, holding a repair bill. Small laundry corner, woman and machine large on the right. Big clean white headline on the left: "NICHT INS DEPOT". Soft natural light, deep black background. Not photorealistic, no logos.
+
+CANDIDATE B
+Only text: "NOTGROSCHEN-FEHLER"
+Stylized 3D animated feature film still, 16:9. A young man stands next to his small car with the hood open at the roadside, phone at his ear, looking worried. Evening roadside, man and car large on the right. Big clean white headline on the left: "NOTGROSCHEN-FEHLER". Soft natural light, deep black background. Not photorealistic, no logos.
+
+CANDIDATE C
+Only text: "3.000 € → 2.400 €?"
+Stylized 3D animated feature film still, 16:9. Two hands count a few euro banknotes on a kitchen table next to a repair bill. Close-up, hands and bill large on the right. Big clean white headline on the left: "3.000 € → 2.400 €?". Soft natural light, deep black background. Not photorealistic, no logos.

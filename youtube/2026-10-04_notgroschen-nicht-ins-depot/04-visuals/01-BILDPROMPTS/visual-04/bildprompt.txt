@@ -1,0 +1,10 @@
+# Visual 04 — kein Google-Flow-Bild mehr
+
+Dieses Visual wurde im neuen System bewusst von `image` auf `animation` umgestellt.
+
+Grund: Der Satz „Wie hoch deine Reserve wirklich sein sollte, hängt von deiner Situation ab“ ist abstrakt. Eine weitere Person-am-Küchentisch-mit-Rechnungen-Szene wäre austauschbar und würde die Bildwelt unnötig wiederholen.
+
+Verbindliche Umsetzung:
+`04-visuals/EINZELNE-VISUALS/visual-04/animation.tsx`
+
+Diesen alten Bildprompt NICHT in Google Flow ausführen.
