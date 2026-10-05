@@ -32,7 +32,7 @@ Flow wählt innerhalb derselben Bildwelt frei, was den Sprechbeat am schnellsten
 - **Object Story** — ein starker echter Gegenstand trägt die Idee (kaputte Waschmaschine mit Reparaturrechnung)
 - **Everyday Scene** — wenige echte Gegenstände an einem kleinen echten Ort
 - **Comparison Scene** — zwei echte Situationen nebeneinander im selben Bild
-- **Creative Idea** — Übertreibung oder Bildidee aus echten Gegenständen, solange sie auf einen Blick lesbar ist
+- **Creative Idea** — Bildidee aus echten Gegenständen; erlaubt, wenn sie sofort sitzt — die naheliegende Alltagsszene geht vor
 - **Hybrid Scene Plate** — Flow liefert die Szene, Remotion legt exakte Zahlen darüber
 
 ### Wann Flow richtig ist
@@ -217,7 +217,7 @@ Sofort verwerfen und denselben Job neu generieren bei:
 - heller oder farbiger Hintergrund
 - winzige isometrische/Diorama-Perspektive, Hauptmotiv zu klein
 - Spielzeug-, Plastik- oder Knete-Look
-- aufgeräumter Endzustand statt Moment
+- steriles Produktfoto ohne Alltagsbezug
 - dieselbe Szene und derselbe Blickwinkel wie das vorige Bild
 - reale identifizierbare Person oder aufgeklebtes echtes Logo
 
@@ -225,7 +225,7 @@ Qualitätsfragen:
 
 1. Sieht es aus wie ein Standbild aus einem stilisierten 3D-Animationsfilm?
 2. Ist genau eine Hauptaussage sofort klar?
-3. Zeigt es einen Moment statt eines Endzustands?
+3. Passt es genau zu dem Satz, der in diesem Moment gesprochen wird?
 4. Ist die Alltagssituation echt und erkennbar — ohne Rätsel?
 5. Ist das Schwarz tief und das Hauptmotiv groß?
 6. Wirkt es natürlich und ruhig — nicht wie ein KI-Poster?
@@ -322,7 +322,13 @@ Der Master-Prompt muss ausdrücklich verlangen:
 - Custom React, SVG, CSS 3D, Canvas, Three.js/R3F und Datenvisualisierung erlaubt
 - bestehende Komponenten sind Werkzeuge, keine Stilpflicht
 - Variation muss in echter Kamera/Layout/Transformation bestehen, nicht nur in neuen Namen
-- Motion nutzt dieselbe FinanzNeo-Premium-Logik; die exakte Farbwahl darf content-spezifisch sein
+- **ein Stil für alle Motion:** flacher Keynote-Datenstil wie der Karten-Baukasten — schwarzer Grund, Inter (große Zahlen auch Bebas Neue), weiße Schrift, Grün `#00D26A` = positiv, Rot `#FF6B6B` = Kosten/Verlust, Gold `#FFC83D` nur als kleiner Geld-Akzent, Grau `#9DB0A6` leise, Linien `#3A3A3A`; kein Glow, kein 3D-Effekt, viel Leerraum
+- große Zahlen als Zählwerk; Werte erscheinen nacheinander im Sprechrhythmus
+- Balken, Flächen und Abstände werden **aus den Werten berechnet**, nie von Hand gesetzt — 3 Monate sind dreimal so hoch wie 1 Monat
+- jede Zahl am Element beschriftet; keine unbeschrifteten „Geldblöcke“, keine Kästen mit dünnen Verbindungslinien
+- Text, Stichwort, Zitat, Tabelle und einfache Schrittfolgen: zuerst Karten aus `src/design-system/karten.tsx`
+- **Timing von außen:** jede Animation nimmt die Prop `beats` (Frames ab Visual-Start) und zeigt pro Beat eine sichtbare Stufe; keine fest eingetragenen Zeitpunkte. Phase 3 setzt `beats` aus `beatCues` und den echten Wort-Zeitstempeln — der versiegelte Code bleibt unverändert.
+- `youtube:animation:validate` prüft Palette, Schrift und `beats`
 - Präzisionsgrafiken dürfen bewusst grafisch und frontal sein; sie müssen nicht wie Flow-Bilder aussehen, aber klar zur Serie gehören
 
 Ein normales YouTube-Projekt darf keine reine Slideshow sein.
@@ -343,7 +349,22 @@ Flow-Szenen dürfen die Kamera frei passend zur Bildidee wählen: frontal, near-
 
 ---
 
-# 8. Audio und Timing
+# 8. Erzählung und Tempo — verbindlich
+
+`STORY_CONTRACT: finanzneo-youtube-story-v1` (Feld `storyContract` in `visual-index.json`)
+
+Ziel: Das Video bleibt unterhaltsam, weil auf dem Bildschirm ständig etwas passiert, das genau zum gesprochenen Satz passt.
+
+- **startCue:** jedes Visual nennt 2–8 wörtliche Skriptwörter, an denen es beginnt. Die Visuals stehen in derselben Reihenfolge wie im Skript.
+- **beatCues:** jede Animation nennt pro `visualBeat` das gesprochene Wort, bei dem diese Stufe erscheint. Nichts erscheint, bevor es gesagt wird.
+- **Tempo:** spätestens alle **8 Sekunden** neue sichtbare Information (geschätzt mit 2,5 gesprochenen Wörtern pro Sekunde). Ein langer Sprechabschnitt bekommt zwei Bilder, ein Bild plus Karte oder mehr Beats — nicht ein Standbild für 15 Sekunden.
+- **Standbilder leben:** Phase 3 gibt jedem Flow-Bild eine langsame, ruhige Kamerafahrt (leichter Push-in oder Schwenk, 2–4 %). Das ersetzt keine neue Information.
+- **Hauptfigur:** `recurringCharacter` beschreibt die eine wiederkehrende Person exakt auf Englisch (z. B. „a woman in her thirties with a short dark bob and a mustard sweater“). Jeder Bildprompt mit einer Person nutzt genau diese Beschreibung — so ist es in jedem Bild dieselbe Figur und das Video erzählt eine kleine Geschichte. Ohne Person: `none — <Grund>`.
+- **Geschichte fortsetzen:** Bilder greifen dieselbe Situation wieder auf (die kaputte Waschmaschine → dieselbe Waschmaschine wird repariert und bezahlt), statt mitten im Video den Ort zu wechseln.
+
+`youtube:validate` prüft Reihenfolge, Cues, Tempo und Hauptfigur.
+
+# 9. Audio und Timing
 
 - genau ein finales Voiceover in `03-audio/`
 - echte Wort-Zeitstempel
@@ -354,13 +375,13 @@ Flow-Szenen dürfen die Kamera frei passend zur Bildidee wählen: frontal, near-
 
 ---
 
-# 9. Publishing
+# 10. Publishing
 
 `05-publishing/` enthält Titelvarianten, finalen Titel, Beschreibung, Kapitel, Keywords/Tags, Hashtags, Thumbnail-Brief, Quellen/Disclaimer, Pinned Comment, Community-Post, Upload-Checkliste und Social-Promo-Texte.
 
 ---
 
-# 10. Startfreigabe
+# 11. Startfreigabe
 
 ```bash
 npm run youtube:validate -- youtube/<Projekt>

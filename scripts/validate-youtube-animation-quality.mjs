@@ -7,6 +7,8 @@ import {
   validateYouTubeMotionVariety,
   YOUTUBE_MOTION_STANDARD_ID,
 } from './lib/youtube-motion-contract.mjs';
+import {YOUTUBE_STORY_CONTRACT_ID} from './lib/youtube-contract.mjs';
+import {validateYouTubeMotionSourceStyle} from './lib/youtube-story-contract.mjs';
 
 const [target] = process.argv.slice(2);
 if (!target) {
@@ -83,6 +85,8 @@ for (const visual of visuals.filter(requiresYouTubeMotion)) {
   if (!/ANIMATION_NARRATIVE/.test(source) || !/START/.test(source) || !/RESULT/.test(source)) {
     errors.push(`${id}: ANIMATION_NARRATIVE mit START und RESULT fehlt.`);
   }
+  // Ein Stil für alle Motion und Stufen-Timing von außen (Erzähl-/Tempo-Vertrag).
+  if (index?.storyContract === YOUTUBE_STORY_CONTRACT_ID) errors.push(...validateYouTubeMotionSourceStyle(source, visual));
   const safeExport = String(visual.animationExport ?? '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const exportPattern = new RegExp(`export\\s+(?:const|function)\\s+${safeExport}\\b`);
   if (!visual.animationExport || !exportPattern.test(source)) errors.push(`${id}: Export ${visual.animationExport ?? '(fehlt)'} wurde nicht gefunden.`);

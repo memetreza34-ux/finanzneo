@@ -18,6 +18,7 @@ ChatGPT erstellt im YouTube-Projektordner ohne offene Platzhalter:
 - alle Google-Flow-Bildprompts in Englisch und mit exakten Dateinamen
 - für jedes Motion-Visual produktionsreife `animation.tsx`
 - pro Motion-Visual `viewerChange`, `animationIntent`, `mechanicId`, `visualTechniqueId`, `techniqueDescription`, freien `compositionFamilyId`, `toolStack`, `motionSignature`, Motion Channels und Visual Beats
+- Erzähl-/Tempo-Vertrag: pro Visual `startCue` (wörtliche Skriptwörter), pro Motion-Visual `beatCues` (ein gesprochenes Wort pro Beat), spätestens alle 8 Sekunden neue Information, eine `recurringCharacter` für alle Bilder mit Person
 - Thumbnail-Prompt und Thumbnail-Brief
 - Titelvarianten, finalen Titel, Beschreibung, Kapitel, Keywords, Hashtags
 - Quellen-/Disclaimer-Text, angehefteten Kommentar, Community-Post und Upload-Checkliste
