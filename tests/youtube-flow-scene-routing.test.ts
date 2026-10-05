@@ -33,9 +33,11 @@ test('YouTube Flow ist meaning-first und Präzisionsgrafiken gehören Remotion',
   assert.match(world, /Charts with axes, exact mathematical diagrams, tables, checklists, UI/i);
 
   assert.match(standard, /BEDEUTUNG ZUERST — FORM FREI/);
-  assert.match(standard, /isoliertes Objekt/i);
-  assert.match(standard, /semantische Objektanordnung/i);
-  assert.match(standard, /visuelle Metapher/i);
-  assert.match(standard, /Person.*Ort.*Oberfläche.*nicht automatisch|Person.*Ort.*Oberfläche/i);
-  assert.match(standard, /Charts|Tabellen|UI/i);
+  assert.match(standard, /keine Standard-Bildform/i);
+  assert.match(standard, /Tisch oder Raum ist niemals Pflicht/i);
+  assert.match(standard, /### Kein Ort-Zwang/);
+  assert.match(standard, /Semantic Object Composition/);
+  assert.match(standard, /Visual Metaphor/);
+  assert.match(standard, /Charts mit Achsen/);
+  assert.match(standard, /UI-Zustände/);
 });
