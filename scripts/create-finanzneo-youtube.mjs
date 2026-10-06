@@ -89,8 +89,11 @@ Ruhig, klar, absichtlich gestaltet. Kein KI-Poster. Keine Glas-/Leuchtbalken, Va
 MENSCHEN / ORT / MOMENT:
 Alles optional. Person nur wenn Gesicht/Körpersprache Bedeutung trägt. Ort nur wenn der Ort Bedeutung trägt. Entscheidender Moment nur wenn die Handlung wichtig ist.
 
+SCHEMA-ILLUSTRATION IST ERLAUBT:
+Flow darf einfache konzeptuelle Ursache/Wirkung-, Vorher/Nachher-, Prozess- und Vergleichsschemata als Illustration erzeugen, wenn sie die Aussage schneller erklären. Einfache illustrative Pfeile oder räumliche Beziehungen sind erlaubt, wenn sie Bedeutung tragen.
+
 PRÄZISION:
-Exakte Charts, Achsen, Tabellen, Checklisten, UI und mathematisch präzise Daten gehören zu Remotion. Flow darf eine konzeptuelle Bildidee liefern, aber keine Präzision vortäuschen.
+Exakte Charts, Achsen, Tabellen, Checklisten, UI, proportional korrekte Datenvisualisierung und mathematisch präzise Werte gehören zu Remotion. Flow darf ein erklärendes Schema liefern, aber keine technische Präzision vortäuschen.
 
 TEXT:
 Kurze deutsche Objektlabels nur wenn nötig. Keine eingebrannten Untertitel, keine langen Sätze, kein Logo.
