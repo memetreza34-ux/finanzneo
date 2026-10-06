@@ -17,9 +17,20 @@ const createReadyFixture = () => {
   const root = mkdtempSync(join(tmpdir(), 'finanzneo-youtube-ready-'));
   for (const path of PHASE_1_FILES) write(root, path, `Finaler Inhalt für ${path}.`);
 
-  const animationSource = `import React from 'react';\nimport {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';\nexport const MECHANIC_ID = 'monthly-buffer-build';\nexport const VISUAL_TECHNIQUE_ID = 'stacked-monthly-depth';\nexport const COMPOSITION_FAMILY_ID = 'reserve-depth-build';\nexport const ANIMATION_NARRATIVE = {START:'leer', MECHANISM:'wächst', RESULT:'drei Monate'};\nexport const YouTubeVisual02Animation: React.FC = () => { const frame=useCurrentFrame(); const p=interpolate(frame,[0,30],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'}); return <AbsoluteFill><div style={{transform:\`translateY(\${(1-p)*20}px)\`}}>Reserve</div></AbsoluteFill>; };\n`;
+  const animationSource = `import React from 'react';\nimport {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';\nexport const MECHANIC_ID = 'monthly-buffer-build';\nexport const VISUAL_TECHNIQUE_ID = 'stacked-monthly-depth';\nexport const COMPOSITION_FAMILY_ID = 'reserve-depth-build';\nexport const RESULT_HOLD_FRAMES = 36;\nexport const ANIMATION_NARRATIVE = {START:'leer', MECHANISM:'wächst', RESULT:'drei Monate'};\nexport const YouTubeVisual02Animation: React.FC = () => { const frame=useCurrentFrame(); const p=interpolate(frame,[0,30],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'}); return <AbsoluteFill><div style={{transform:\`translateY(\${(1-p)*20}px)\`}}>Reserve</div></AbsoluteFill>; };\n`;
 
   const motionContract = {
+    coreMessage: 'Drei Monatsausgaben bilden sichtbar einen Sicherheitspuffer.',
+    visualForm: 'reserve-build schema',
+    twoSecondTakeaway: 'Drei Monatsblöcke ergeben die Reserve.',
+    whyThisForm: 'Der Aufbau zeigt die Reserve klarer als eine statische Zahl.',
+    essentialElements: ['Monatsblock 1', 'Monatsblock 2', 'Monatsblock 3'],
+    clarityPlan: {
+      start: 'Ein Monatsblock ist sichtbar.',
+      change: 'Zwei weitere Monatsblöcke kommen nacheinander hinzu.',
+      result: 'Drei Monatsblöcke stehen als vollständige Reserve.',
+      resultHoldFrames: 36,
+    },
     viewerChange: 'Drei Monatsausgaben erscheinen nacheinander und bilden sichtbar einen wachsenden Sicherheitspuffer.',
     animationIntent: 'Zeigt, wie mehrere Monatsausgaben als Reserve entstehen.',
     mechanicId: 'monthly-buffer-build',
@@ -40,6 +51,7 @@ const createReadyFixture = () => {
   const index = {
     title: 'Notgroschen vollständig erklärt',
     motionStandard: {id: 'finanzneo-youtube-motion-v3'},
+    visualClarityStandard: {id:'finanzneo-youtube-clarity-v1',oneCoreMessagePerBeat:true,visualFormFree:true,twoSecondComprehensionRequired:true,imageWorldUnchanged:true,motionResultHoldMinFrames:30},
     thumbnail: {googleFlowFileName: 'YouTube Thumbnail - Notgroschen.png'},
     visuals: [
       {
@@ -50,6 +62,11 @@ const createReadyFixture = () => {
         chapter: 'Warum du einen Notgroschen brauchst',
         scriptBeat: 'Eine unerwartete Reparatur darf nicht in den Dispo führen.',
         expectedVisual: 'Eine konkrete kaputte Waschmaschine, Reparaturrechnung und Reserve im selben FinanzNeo-Bild.',
+        coreMessage: 'Eine unerwartete Reparatur braucht sofort verfügbares Geld.',
+        visualForm: 'cause-effect illustration',
+        twoSecondTakeaway: 'Schaden → Rechnung → Reserve.',
+        whyThisForm: 'Die drei notwendigen Elemente erklären den Notgroschen direkt.',
+        essentialElements: ['kaputte Waschmaschine', 'Reparaturrechnung', 'Reserve'],
         objectLabels: ['Notgroschen', 'Reparatur'],
       },
       {
