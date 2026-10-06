@@ -318,7 +318,7 @@
       "chapter": "Nutzung",
       "scriptBeat": "Selten und täglich genutzte Dinge unterschiedlich bewerten.",
       "googleFlowFileName": "YouTube Bild 05 - Selten oder taeglich.png",
-      "expectedVisual": "Gleiche Produktfamilie statt zufälliger Gegenstände: fast unbenutzte Wanderschuhe links, deutlich häufiger getragene Alltagssneaker rechts; Nutzungshäufigkeit über Zustand sofort verständlich.",
+      "expectedVisual": "Zwei identische unbranded Alltagsrucksäcke als klarer Vergleich: links fast unbenutzt, rechts dasselbe Modell mit glaubwürdigem Verschleiß durch häufige tägliche Nutzung; keine zusätzlichen Props oder Menschen.",
       "objectLabels": [],
       "planFile": "04-visuals/01-BILDPROMPTS/visual-05/bildprompt.txt",
       "headerTitle": "Selten oder jeden Tag?",
