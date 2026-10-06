@@ -115,3 +115,35 @@ Darin stehen mindestens:
 - `imagePolicy.visualMetaphorsAllowed = true`
 
 `npm run youtube:validate -- youtube/<Projekt>` prüft diesen Vertrag.
+
+
+## 7. Render-Contract ist Pflicht
+
+Zusätzlich zu `layout.json` braucht jedes neue Video:
+
+`06-projektdateien/render-contract.json`
+
+Dieser Vertrag ist **nicht nur Dokumentation**, sondern legt die konkrete Render-Route fest.
+
+Für jeden IMAGE-Beat:
+
+- `component = YouTubeFramedImage`
+- `fullScreen = false`
+- `objectFit = contain`
+- `sourceFile` muss exakt dem `googleFlowFileName` des Beats entsprechen
+- Titel und Icon müssen exakt aus `layout.json` kommen
+
+Für Motion/Data:
+
+- `component = YouTubeSectionFrame`
+- `fullScreen = false`
+
+### Thumbnail-Isolation
+
+Das Thumbnail ist Upload-/Cover-Material und niemals Timeline-Material.
+
+- `thumbnail.timelineEligible = false`
+- keine Datei mit Präfix `YouTube Thumbnail` darf als Szenenquelle gerendert werden
+- A/B/C-Coverkandidaten dürfen niemals in der Timeline auftauchen
+
+Damit reicht es nicht mehr, nur `fullScreenForbidden: true` in JSON zu schreiben: **auch die konkrete Render-Route jedes Beats wird validiert.**
