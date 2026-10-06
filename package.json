@@ -37,6 +37,7 @@
     "youtube:create": "node scripts/create-finanzneo-youtube.mjs",
     "youtube:validate": "node scripts/validate-youtube-all.mjs",
     "youtube:visual-freedom:validate": "node scripts/validate-youtube-visual-freedom.mjs",
+    "youtube:clarity:validate": "node scripts/validate-youtube-visual-clarity.mjs",
     "youtube:animation:validate": "node scripts/validate-youtube-animation-quality.mjs",
     "youtube:phase1:seal": "node scripts/seal-youtube-phase1-animations.mjs",
     "youtube:ready": "node scripts/check-youtube-production-ready.mjs",

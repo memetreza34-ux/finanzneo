@@ -27,9 +27,10 @@ test('YouTube-Ersteller erzeugt Motion V3 plus meaning-first Flow-Master', () =>
     assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx')), true);
     assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-04/data-notes.md')), true);
     assert.equal(existsSync(resolve(absolute, '06-projektdateien/layout.json')), true);
+    assert.equal(existsSync(resolve(absolute, '06-projektdateien/render-contract.json')), true);
 
     const index = JSON.parse(readFileSync(resolve(absolute, '04-visuals/visual-index.json'), 'utf8'));
-    assert.equal(index.version, 3);
+    assert.equal(index.version, 4);
     assert.equal(index.fixedVisualCount, false);
     assert.equal(index.fixedImageAnimationRatio, false);
     assert.equal(index.imageWorld.styleLockId, 'finanzneo-youtube-animated-black-v3');
@@ -53,6 +54,11 @@ test('YouTube-Ersteller erzeugt Motion V3 plus meaning-first Flow-Master', () =>
     assert.equal(index.imageWorld.referencePromptFile, '04-visuals/01-BILDPROMPTS/bildwelt.txt');
     assert.equal(index.thumbnail.planFile, '04-visuals/01-BILDPROMPTS/thumbnail-prompt.txt');
 
+    assert.equal(index.visualClarityStandard.id, 'finanzneo-youtube-clarity-v1');
+    assert.equal(index.visualClarityStandard.oneCoreMessagePerBeat, true);
+    assert.equal(index.visualClarityStandard.visualFormFree, true);
+    assert.equal(index.visualClarityStandard.twoSecondComprehensionRequired, true);
+    assert.equal(index.visualClarityStandard.imageWorldUnchanged, true);
     assert.equal(index.motionStandard.id, 'finanzneo-youtube-motion-v3');
     assert.equal(index.motionStandard.viewerChangeFirstRequired, true);
     assert.equal(index.motionStandard.contentFirstTechniqueSelection, true);
@@ -65,10 +71,19 @@ test('YouTube-Ersteller erzeugt Motion V3 plus meaning-first Flow-Master', () =>
     assert.equal(index.visuals[1].imagePlanFile, '04-visuals/01-BILDPROMPTS/visual-02/bildprompt.txt');
 
     const hybrid = index.visuals[1];
+    assert.equal(typeof hybrid.coreMessage, 'string');
+    assert.equal(typeof hybrid.visualForm, 'string');
+    assert.equal(typeof hybrid.twoSecondTakeaway, 'string');
+    assert.equal(typeof hybrid.whyThisForm, 'string');
+    assert.equal(Array.isArray(hybrid.essentialElements), true);
+    assert.equal(hybrid.clarityPlan.resultHoldFrames, 36);
     assert.equal(typeof hybrid.viewerChange, 'string');
     assert.equal(typeof hybrid.techniqueDescription, 'string');
     assert.equal(Array.isArray(hybrid.toolStack), true);
     assert.deepEqual(Object.keys(hybrid.motionSignature).sort(), ['camera','layout','transformation']);
+
+    const remotionSource = readFileSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx'), 'utf8');
+    assert.match(remotionSource, /RESULT_HOLD_FRAMES = 36/);
 
     const remotionPlan = readFileSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-02/remotion.md'), 'utf8');
     assert.match(remotionPlan, /Viewer Change/);
@@ -82,6 +97,10 @@ test('YouTube-Ersteller erzeugt Motion V3 plus meaning-first Flow-Master', () =>
     assert.match(prompt, /SEMANTISCHE ANORDNUNG/);
     assert.match(prompt, /OPTIONAL LOCATION/i);
     assert.match(prompt, /PRECISION_GRAPHICS_OWNER: REMOTION/);
+    assert.match(prompt, /CORE_MESSAGE:/);
+    assert.match(prompt, /TWO_SECOND_TAKEAWAY:/);
+    assert.match(prompt, /WHY_THIS_FORM:/);
+    assert.match(prompt, /ESSENTIAL_ELEMENTS:/);
     assert.doesNotMatch(prompt, /LEGACY_PROMPT_DNA|premium-physical-editorial-v8|stylized-3d-editorial-v5|SIMPLE EXPLAINER/i);
 
     const imageWorld = readFileSync(resolve(absolute, '04-visuals/01-BILDPROMPTS/bildwelt.txt'), 'utf8');

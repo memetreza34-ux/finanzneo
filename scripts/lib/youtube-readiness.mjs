@@ -12,6 +12,7 @@ import {
   YOUTUBE_MOTION_STANDARD_ID,
 } from './youtube-contract.mjs';
 import {requiresYouTubeImage, requiresYouTubeMotion, validateYouTubeMotionMetadata, validateYouTubeMotionVariety} from './youtube-motion-contract.mjs';
+import {YOUTUBE_VISUAL_CLARITY_STANDARD_ID, validateYouTubeVisualClarity} from './youtube-visual-clarity-contract.mjs';
 
 export const AUDIO_EXTENSIONS = new Set(['.mp3', '.wav', '.aiff', '.aif', '.m4a']);
 export const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif']);
@@ -72,6 +73,12 @@ const isValidTimingWord = (word) => {
 const sha256 = (path) => createHash('sha256').update(readFileSync(path)).digest('hex');
 const sameJson = (left, right) => JSON.stringify(left) === JSON.stringify(right);
 const motionSealContract = (visual) => ({
+  coreMessage: visual?.coreMessage,
+  visualForm: visual?.visualForm,
+  twoSecondTakeaway: visual?.twoSecondTakeaway,
+  whyThisForm: visual?.whyThisForm,
+  essentialElements: visual?.essentialElements,
+  clarityPlan: visual?.clarityPlan,
   viewerChange: visual?.viewerChange,
   animationIntent: visual?.animationIntent,
   mechanicId: visual?.mechanicId,
@@ -113,6 +120,10 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
   if (index?.motionStandard?.id !== YOUTUBE_MOTION_STANDARD_ID) {
     phase1Blockers.push(`${VISUAL_INDEX}: motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
   }
+  const clarityEnabled = index?.visualClarityStandard?.id === YOUTUBE_VISUAL_CLARITY_STANDARD_ID;
+  if (index?.visualClarityStandard && !clarityEnabled) {
+    phase1Blockers.push(`${VISUAL_INDEX}: visualClarityStandard.id muss ${YOUTUBE_VISUAL_CLARITY_STANDARD_ID} sein.`);
+  }
 
   const expectedImages = [];
   const thumbnailFileName = index?.thumbnail?.googleFlowFileName;
@@ -124,6 +135,9 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
 
   for (const visual of visuals) {
     const id = typeof visual?.id === 'string' ? visual.id : 'Unbekanntes Visual';
+    if (clarityEnabled) {
+      for (const error of validateYouTubeVisualClarity(visual)) phase1Blockers.push(`${VISUAL_INDEX}: ${error}`);
+    }
     for (const field of ['chapter', 'scriptBeat']) {
       if (typeof visual?.[field] !== 'string' || !visual[field].trim() || hasPlaceholder(visual[field])) {
         phase1Blockers.push(`${VISUAL_INDEX}: ${id}.${field} fehlt oder enthält einen Platzhalter.`);
@@ -203,6 +217,12 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
         if (isFile(sourcePath) && entry.sha256 !== sha256(sourcePath)) phase1Blockers.push(`${ANIMATION_SEAL}: Hash für ${visual.id} stimmt nicht mehr; Phase 1 erneut validieren und versiegeln.`);
         if (entry.exportName !== visual.animationExport) phase1Blockers.push(`${ANIMATION_SEAL}: Export für ${visual.id} stimmt nicht.`);
         const sealedContract = motionSealContract({
+          coreMessage: entry.coreMessage,
+          visualForm: entry.visualForm,
+          twoSecondTakeaway: entry.twoSecondTakeaway,
+          whyThisForm: entry.whyThisForm,
+          essentialElements: entry.essentialElements,
+          clarityPlan: entry.clarityPlan,
           viewerChange: entry.viewerChange,
           animationIntent: entry.animationIntent,
           mechanicId: entry.mechanicId,

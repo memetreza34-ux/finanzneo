@@ -165,7 +165,16 @@
       "fullScreen": false,
       "renderComponent": "YouTubeFramedImage",
       "objectFit": "contain",
-      "thumbnailEligible": false
+      "thumbnailEligible": false,
+      "coreMessage": "Ein günstiger Kauf kann durch einen nötigen Ersatz am Ende teurer werden.",
+      "visualForm": "cause-effect illustration",
+      "twoSecondTakeaway": "Kaputt → Ersatzkauf → zweimal bezahlt.",
+      "whyThisForm": "Eine direkte Ursache-Wirkung-Illustration erklärt den Ersatzkauf schneller als eine komplette Alltagsszene.",
+      "essentialElements": [
+        "sichtbar kaputter Kopfhörer",
+        "neue Ersatzverpackung",
+        "zwei Kaufbelege"
+      ]
     },
     {
       "id": "visual-02",
@@ -206,7 +215,23 @@
       "headerTitle": "20 + 20 gegen 35",
       "headerIcon": "calculator",
       "fullScreen": false,
-      "renderComponent": "YouTubeSectionFrame"
+      "renderComponent": "YouTubeSectionFrame",
+      "coreMessage": "Zweimal 20 € sind 40 € und damit mehr als einmal 35 €.",
+      "visualForm": "sequential comparison schema",
+      "twoSecondTakeaway": "20 € + 20 € = 40 € > 35 €.",
+      "whyThisForm": "Eine schrittweise Rechnung macht die Kostenfolge ohne Ablenkung exakt sichtbar.",
+      "essentialElements": [
+        "erster Kauf 20 €",
+        "Ersatzkauf 20 €",
+        "Summe 40 €",
+        "Vergleich 35 €"
+      ],
+      "clarityPlan": {
+        "start": "Nur der erste Kauf mit 20 € ist sichtbar.",
+        "change": "Ein zweiter 20-€-Kauf kommt hinzu und bildet 40 €.",
+        "result": "40 € steht klar 35 € gegenüber; 40 € ist als höhere Gesamtausgabe markiert.",
+        "resultHoldFrames": 45
+      }
     },
     {
       "id": "visual-03",
@@ -222,7 +247,15 @@
       "fullScreen": false,
       "renderComponent": "YouTubeFramedImage",
       "objectFit": "contain",
-      "thumbnailEligible": false
+      "thumbnailEligible": false,
+      "coreMessage": "Der Kaufpreis allein sagt wenig; Qualität und Verarbeitung müssen mitgeprüft werden.",
+      "visualForm": "action illustration",
+      "twoSecondTakeaway": "Nicht nur auf den Preis schauen — das Produkt prüfen.",
+      "whyThisForm": "Die konkrete Prüfhandlung an Naht und Reißverschluss transportiert den Gedanken schneller als ein abstraktes Symbol.",
+      "essentialElements": [
+        "zwei ähnliche Rucksäcke",
+        "sichtbare Hand prüft Naht oder Reißverschluss"
+      ]
     },
     {
       "id": "visual-04",
@@ -235,8 +268,8 @@
       "viewerChange": "Drei Fragen erscheinen.",
       "animationIntent": "Kaufprüfschema.",
       "mechanicId": "three-buying-questions",
-      "visualTechniqueId": "question-cards-reveal",
-      "techniqueDescription": "Drei Fragen sequenziell.",
+      "visualTechniqueId": "three-step-decision-schema",
+      "techniqueDescription": "Drei nummerierte Fragen werden nacheinander aufgebaut; am Ende bleibt die vollständige Entscheidungsfolge ruhig stehen.",
       "compositionFamilyId": "decision-framework",
       "toolStack": [
         "React",
@@ -245,23 +278,39 @@
       ],
       "motionSignature": {
         "camera": "statisch frontal",
-        "layout": "Vertikale Dreierliste",
-        "transformation": "Zeilen erscheinen"
+        "layout": "horizontales Drei-Schritte-Schema",
+        "transformation": "Schritte erscheinen nacheinander und bleiben gemeinsam sichtbar"
       },
       "motionChannels": [
-        "Translation",
-        "Opacity"
+        "sequenzieller Schritt-Reveal",
+        "Pfeil-Verbindung der Entscheidungsfolge"
       ],
       "visualBeats": [
-        "Nutzung",
-        "Ersatz",
-        "Reparatur"
+        "Nutzung allein",
+        "Ersatz kommt hinzu",
+        "Reparatur kommt hinzu",
+        "alle drei Fragen als finales Schema"
       ],
       "repeatTechniqueReason": "",
       "headerTitle": "Drei Fragen vor dem Kauf",
       "headerIcon": "list",
       "fullScreen": false,
-      "renderComponent": "YouTubeSectionFrame"
+      "renderComponent": "YouTubeSectionFrame",
+      "coreMessage": "Vor dem Kauf helfen drei Fragen: Nutzung, Ersatzrisiko und Reparierbarkeit.",
+      "visualForm": "three-step decision schema",
+      "twoSecondTakeaway": "Nutzung → Ersatz → Reparatur prüfen.",
+      "whyThisForm": "Ein ruhiges Drei-Schritte-Schema macht die Entscheidungslogik sofort merkbar.",
+      "essentialElements": [
+        "Frage 1 Nutzung",
+        "Frage 2 Ersatz",
+        "Frage 3 Reparatur"
+      ],
+      "clarityPlan": {
+        "start": "Nur Frage 1 zur Nutzung ist aktiv.",
+        "change": "Frage 2 und danach Frage 3 werden nacheinander ergänzt.",
+        "result": "Alle drei Fragen stehen als klare Entscheidungsfolge gleichzeitig sichtbar.",
+        "resultHoldFrames": 45
+      }
     },
     {
       "id": "visual-05",
@@ -269,7 +318,7 @@
       "chapter": "Nutzung",
       "scriptBeat": "Selten und täglich genutzte Dinge unterschiedlich bewerten.",
       "googleFlowFileName": "YouTube Bild 05 - Selten oder taeglich.png",
-      "expectedVisual": "Gleiche Produktfamilie statt zufälliger Gegenstände: fast unbenutzte Wanderschuhe links, deutlich häufiger getragene Alltagssneaker rechts; Nutzungshäufigkeit über Zustand sofort verständlich.",
+      "expectedVisual": "Zwei identische unbranded Alltagsrucksäcke als klarer Vergleich: links fast unbenutzt, rechts dasselbe Modell mit glaubwürdigem Verschleiß durch häufige tägliche Nutzung; keine zusätzlichen Props oder Menschen.",
       "objectLabels": [],
       "planFile": "04-visuals/01-BILDPROMPTS/visual-05/bildprompt.txt",
       "headerTitle": "Selten oder jeden Tag?",
@@ -277,7 +326,16 @@
       "fullScreen": false,
       "renderComponent": "YouTubeFramedImage",
       "objectFit": "contain",
-      "thumbnailEligible": false
+      "thumbnailEligible": false,
+      "coreMessage": "Bei täglicher Nutzung wird Haltbarkeit wichtiger als bei seltener Nutzung.",
+      "visualForm": "usage-frequency comparison illustration",
+      "twoSecondTakeaway": "Selten genutzt ↔ täglich genutzt.",
+      "whyThisForm": "Der direkte Zustandsvergleich derselben Produktfamilie erklärt Nutzungshäufigkeit ohne zusätzliche Handlung.",
+      "essentialElements": [
+        "selten genutztes Produkt",
+        "häufig genutztes Produkt",
+        "klarer Zustandsunterschied"
+      ]
     },
     {
       "id": "visual-06",
@@ -290,8 +348,8 @@
       "viewerChange": "Zwei Rechnungen werden zu 0,20 € und 0,40 €.",
       "animationIntent": "Kosten pro Nutzung exakt sichtbar.",
       "mechanicId": "cost-per-use-example",
-      "visualTechniqueId": "fraction-to-unit-cost",
-      "techniqueDescription": "Zwei Rechenzeilen.",
+      "visualTechniqueId": "sequential-unit-cost-comparison",
+      "techniqueDescription": "Erst Rechnung A, dann Rechnung B, danach nur die beiden Ergebnisse groß im direkten Vergleich.",
       "compositionFamilyId": "data-comparison",
       "toolStack": [
         "React",
@@ -300,25 +358,42 @@
       ],
       "motionSignature": {
         "camera": "statisch frontal",
-        "layout": "Zwei Rechenzeilen",
-        "transformation": "Ergebnisse erscheinen"
+        "layout": "zwei Rechenzeilen plus finaler Ergebnisvergleich",
+        "transformation": "Rechnungen entstehen getrennt; Endwerte werden anschließend hervorgehoben"
       },
       "motionChannels": [
-        "Opacity",
-        "Werte-Reveal"
+        "sequenzieller Rechen-Reveal",
+        "finaler Ergebnisvergleich"
       ],
       "visualBeats": [
-        "40/200",
-        "0,20",
-        "20/50",
-        "0,40"
+        "40 € ÷ 200",
+        "0,20 € Ergebnis",
+        "20 € ÷ 50",
+        "0,40 € Ergebnis",
+        "0,20 € gegen 0,40 €"
       ],
       "repeatTechniqueReason": "",
       "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-06/data-notes.md",
       "headerTitle": "Kosten pro Nutzung",
       "headerIcon": "calculator",
       "fullScreen": false,
-      "renderComponent": "YouTubeSectionFrame"
+      "renderComponent": "YouTubeSectionFrame",
+      "coreMessage": "Ein höherer Kaufpreis kann pro Nutzung günstiger sein.",
+      "visualForm": "step-by-step calculation comparison",
+      "twoSecondTakeaway": "0,20 € pro Nutzung ist günstiger als 0,40 €.",
+      "whyThisForm": "Die zwei Beispielrechnungen müssen nacheinander entstehen und erst danach direkt verglichen werden.",
+      "essentialElements": [
+        "40 € ÷ 200",
+        "0,20 € pro Nutzung",
+        "20 € ÷ 50",
+        "0,40 € pro Nutzung"
+      ],
+      "clarityPlan": {
+        "start": "Zuerst wird nur 40 € ÷ 200 Nutzungen gezeigt.",
+        "change": "Nach dem ersten Ergebnis folgt separat 20 € ÷ 50 Nutzungen.",
+        "result": "Nur die beiden Resultate 0,20 € und 0,40 € stehen groß im direkten Vergleich.",
+        "resultHoldFrames": 45
+      }
     },
     {
       "id": "visual-07",
@@ -334,7 +409,16 @@
       "fullScreen": false,
       "renderComponent": "YouTubeFramedImage",
       "objectFit": "contain",
-      "thumbnailEligible": false
+      "thumbnailEligible": false,
+      "coreMessage": "Austauschbare Teile machen ein Produkt reparierbarer und können seine Nutzungsdauer verlängern.",
+      "visualForm": "technical exploded-detail illustration",
+      "twoSecondTakeaway": "Dieses Teil lässt sich ersetzen.",
+      "whyThisForm": "Ein technischer Detailblick zeigt Reparierbarkeit direkt, ohne Werkstattkulisse oder zusätzliche Symbole.",
+      "essentialElements": [
+        "Kopfhörer-Ohrmuschel",
+        "abgenommenes Ohrpolster",
+        "passendes Ersatzpolster"
+      ]
     },
     {
       "id": "visual-08",
@@ -347,9 +431,9 @@
       "viewerChange": "Kaufpreis wird kleiner, drei Faktoren kommen hinzu.",
       "animationIntent": "Gesamtmodell.",
       "mechanicId": "true-cost-takeaway",
-      "visualTechniqueId": "purchase-price-expands",
-      "techniqueDescription": "Kaufpreis plus drei Faktoren.",
-      "compositionFamilyId": "summary",
+      "visualTechniqueId": "factor-to-total-schema",
+      "techniqueDescription": "Vier Kostenfaktoren bauen sich nacheinander auf und führen anschließend gemeinsam in einen klaren Ergebnisblock.",
+      "compositionFamilyId": "summary-schema",
       "toolStack": [
         "React",
         "CSS",
@@ -357,25 +441,50 @@
       ],
       "motionSignature": {
         "camera": "statisch frontal",
-        "layout": "Zentrum plus Dreierreihe",
-        "transformation": "Scale + Reveals"
+        "layout": "2x2-Faktorenraster links, Ergebnisblock rechts",
+        "transformation": "Faktoren erscheinen sequenziell und führen zum Resultat"
       },
       "motionChannels": [
-        "Scale/Position",
-        "Opacity"
+        "Faktor-Reveal",
+        "Ergebnisblock-Reveal"
       ],
       "visualBeats": [
         "Kaufpreis",
         "Nutzung",
         "Haltbarkeit",
         "Reparierbarkeit",
-        "Payoff"
+        "Echte Kosten"
       ],
       "repeatTechniqueReason": "",
       "headerTitle": "Was wirklich zählt",
       "headerIcon": "target",
       "fullScreen": false,
-      "renderComponent": "YouTubeSectionFrame"
+      "renderComponent": "YouTubeSectionFrame",
+      "coreMessage": "Die echten Kosten hängen nicht nur vom Kaufpreis ab.",
+      "visualForm": "summary schema",
+      "twoSecondTakeaway": "Kaufpreis + Nutzung + Haltbarkeit + Reparierbarkeit → echte Kosten.",
+      "whyThisForm": "Ein Abschluss-Schema bündelt die vier Faktoren übersichtlich und bleibt besser im Gedächtnis als eine weitere Szene.",
+      "essentialElements": [
+        "Kaufpreis",
+        "Nutzung",
+        "Haltbarkeit",
+        "Reparierbarkeit",
+        "Echte Kosten"
+      ],
+      "clarityPlan": {
+        "start": "Nur Kaufpreis ist sichtbar.",
+        "change": "Nutzung, Haltbarkeit und Reparierbarkeit kommen nacheinander hinzu.",
+        "result": "Alle vier Faktoren führen gemeinsam zu einem klaren Ergebnisblock 'Echte Kosten'.",
+        "resultHoldFrames": 45
+      }
     }
-  ]
+  ],
+  "visualClarityStandard": {
+    "id": "finanzneo-youtube-clarity-v1",
+    "oneCoreMessagePerBeat": true,
+    "visualFormFree": true,
+    "twoSecondComprehensionRequired": true,
+    "imageWorldUnchanged": true,
+    "motionResultHoldMinFrames": 30
+  }
 }

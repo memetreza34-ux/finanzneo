@@ -62,8 +62,9 @@ Read in this order:
 1. `CLAUDE.md`
 2. `youtube/PRODUKTIONSSTANDARD.md`
 3. `docs/YOUTUBE-MOTION-V3.md`
-4. `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`
-5. target `04-visuals/visual-index.json`
+4. `youtube/VISUALCLARITY.md`
+5. `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`
+6. target `04-visuals/visual-index.json`
 6. target visual `remotion.md` / `bildprompt.txt` / `data-notes.md`
 7. target `animation.tsx`
 8. official Remotion skills
@@ -72,7 +73,16 @@ Reel-specific safe zones and PhysicalObject requirements do not automatically ap
 
 ## Viewer-change-first technique selection
 
-For each spoken beat, first write `viewerChange` as one clear sentence answering:
+For each spoken beat, first define the clarity contract:
+
+- one `coreMessage`
+- free-form `visualForm`
+- `twoSecondTakeaway`
+- `whyThisForm`
+- only necessary `essentialElements`
+- START → CHANGE → RESULT with at least 30 result-hold frames
+
+Then write `viewerChange` as one clear sentence answering:
 
 > What should the viewer literally see change, reveal, compare, build, break apart or travel through?
 
@@ -191,6 +201,17 @@ The reason must explain why consistency improves understanding, comparison or co
 
 ## Narrative
 
+A YouTube motion visual must visibly progress **and finish in a readable stable state**.
+
+Default clarity rhythm:
+
+1. START — let the viewer understand the starting state.
+2. CHANGE — one main visible transformation or reveal explains the mechanism.
+3. RESULT — make the takeaway unmistakable.
+4. HOLD — keep the result stable for at least 30 frames at 30 fps.
+
+Do not animate multiple competing ideas just to make the scene feel busy.
+
 A YouTube motion visual must visibly progress.
 
 Valid structures include:
@@ -240,7 +261,8 @@ Every Phase-1 `animation.tsx` must:
 - use `useCurrentFrame()`
 - use `interpolate()` and/or `spring()` for frame-driven motion
 - export `MECHANIC_ID`, `VISUAL_TECHNIQUE_ID`, `COMPOSITION_FAMILY_ID`
-- export `ANIMATION_NARRATIVE` containing at least START and RESULT
+- export `ANIMATION_NARRATIVE` containing START, MECHANISM and RESULT
+- export `RESULT_HOLD_FRAMES` matching the project clarity plan and never below 30
 - export the component named in `visual-index.json`
 - contain no placeholder/TODO content
 - contain no CSS animation/transition, timer, Math.random, runtime fetch or remote runtime dependency

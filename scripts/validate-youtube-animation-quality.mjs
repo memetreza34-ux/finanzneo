@@ -7,6 +7,11 @@ import {
   validateYouTubeMotionVariety,
   YOUTUBE_MOTION_STANDARD_ID,
 } from './lib/youtube-motion-contract.mjs';
+import {
+  YOUTUBE_VISUAL_CLARITY_MIN_RESULT_HOLD_FRAMES,
+  YOUTUBE_VISUAL_CLARITY_STANDARD_ID,
+  validateYouTubeVisualClarity,
+} from './lib/youtube-visual-clarity-contract.mjs';
 
 const [target] = process.argv.slice(2);
 if (!target) {
@@ -40,7 +45,11 @@ if (index?.motionStandard?.id !== YOUTUBE_MOTION_STANDARD_ID) {
   errors.push(`motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
 }
 const visuals = Array.isArray(index?.visuals) ? index.visuals : [];
-for (const visual of visuals) errors.push(...validateYouTubeMotionMetadata(visual));
+const clarityEnabled = index?.visualClarityStandard?.id === YOUTUBE_VISUAL_CLARITY_STANDARD_ID;
+for (const visual of visuals) {
+  errors.push(...validateYouTubeMotionMetadata(visual));
+  if (clarityEnabled && requiresYouTubeMotion(visual)) errors.push(...validateYouTubeVisualClarity(visual));
+}
 errors.push(...validateYouTubeMotionVariety(visuals));
 
 const forbiddenSourcePatterns = [
@@ -80,8 +89,17 @@ for (const visual of visuals.filter(requiresYouTubeMotion)) {
   if (!source.includes(`COMPOSITION_FAMILY_ID = '${visual.compositionFamilyId}'`) && !source.includes(`COMPOSITION_FAMILY_ID = "${visual.compositionFamilyId}"`)) {
     errors.push(`${id}: COMPOSITION_FAMILY_ID im Code stimmt nicht mit visual-index.json überein.`);
   }
-  if (!/ANIMATION_NARRATIVE/.test(source) || !/START/.test(source) || !/RESULT/.test(source)) {
-    errors.push(`${id}: ANIMATION_NARRATIVE mit START und RESULT fehlt.`);
+  if (!/ANIMATION_NARRATIVE/.test(source) || !/START/.test(source) || !/MECHANISM/.test(source) || !/RESULT/.test(source)) {
+    errors.push(`${id}: ANIMATION_NARRATIVE mit START, MECHANISM und RESULT fehlt.`);
+  }
+  if (clarityEnabled) {
+    const holdFrames = Number(visual?.clarityPlan?.resultHoldFrames);
+    if (!Number.isFinite(holdFrames) || holdFrames < YOUTUBE_VISUAL_CLARITY_MIN_RESULT_HOLD_FRAMES) {
+      errors.push(`${id}: clarityPlan.resultHoldFrames muss mindestens ${YOUTUBE_VISUAL_CLARITY_MIN_RESULT_HOLD_FRAMES} Frames sein.`);
+    } else {
+      const holdPattern = new RegExp(`RESULT_HOLD_FRAMES\\s*=\\s*${holdFrames}\\b`);
+      if (!holdPattern.test(source)) errors.push(`${id}: RESULT_HOLD_FRAMES im Code stimmt nicht mit clarityPlan.resultHoldFrames überein.`);
+    }
   }
   const safeExport = String(visual.animationExport ?? '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const exportPattern = new RegExp(`export\\s+(?:const|function)\\s+${safeExport}\\b`);
@@ -95,4 +113,4 @@ if (errors.length) {
 }
 
 console.log('\n✓ YouTube Motion V3 erfüllt.');
-console.log('  Viewer-change-first · offene Technik · deterministisch · echte Variety statt umbenannter Wiederholung.');
+console.log('  Viewer-change-first · Klarheit vor Bewegung · START→CHANGE→RESULT · stabiler Result-Hold · offene Technik.');

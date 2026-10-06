@@ -12,9 +12,21 @@ APPROVED_STYLE_REFERENCES: Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgro
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 PRECISION_GRAPHICS_OWNER: REMOTION
 
+LOOK FEST — INHALT FREI — KLARHEIT VOR FORM
 BEDEUTUNG ZUERST — FORM FREI
-Kein scene-first. Kein Menschen- oder Ortszwang. Semantische Objektanordnungen sind erlaubt, wenn jede Position etwas erklärt. Keine dekorativen Spiralen, Trails oder Objektwolken.
+BILDWELT BLEIBT UNVERÄNDERT. Geändert wird nur die visuelle Entscheidung pro Satz.
+
+VOR JEDEM SZENENBILD INTERN FESTLEGEN:
+CORE_MESSAGE — genau eine Kernaussage.
+VISUAL_FORM — frei: Schema, Illustration, Vergleich, Objekt, Detail, Mensch, Szene, Metapher, Hybrid oder jede bessere Form.
+TWO_SECOND_TAKEAWAY — was in etwa zwei Sekunden verstanden werden muss.
+WHY_THIS_FORM — warum diese Darstellung für genau diesen Satz am klarsten ist.
+ESSENTIAL_ELEMENTS — nur Elemente, die die Aussage wirklich tragen.
+
+Kein scene-first. Kein people-first. Kein object-first. Kein Menschen- oder Ortszwang. Schema- und Illustrationsbilder sind ausdrücklich erwünscht, wenn sie schneller erklären als eine reale Szene. Semantische Objektanordnungen sind erlaubt, wenn jede Position etwas erklärt. Keine dekorativen Spiralen, Trails oder Objektwolken.
 ENTSCHEIDENDER MOMENT nur wenn die Handlung selbst die Aussage trägt.
+SCHEMA-ILLUSTRATIONEN SIND ERLAUBT: einfache Ursache/Wirkung-, Vorher/Nachher-, Prozess- oder Vergleichsschemata dürfen als illustrative Szenen gebaut werden, wenn sie die Aussage sofort klären. Präzise Charts, Tabellen, UI und exakte Daten bleiben Remotion.
+
 NATÜRLICH — KEIN KI-LOOK.
 
 PHASE 0 — EIN GOOGLE-FLOW-ORDNER PRO VIDEO
@@ -32,10 +44,10 @@ Stylized 3D animated feature film still, 16:9. One intact durable backpack stand
 
 PHASE B — NUR VISUAL 01, 03, 05, 07
 Vier getrennte one-image jobs parallel. Sofort umbenennen und QA prüfen. Bei FAIL nur dieselbe Nummer neu erzeugen.
-Stylized 3D animated feature film still, 16:9. A visibly broken pair of over-ear headphones dominates the foreground, one earcup hanging loose from the headband. Behind it sits a plain unopened replacement box, with two small receipts arranged below from first purchase to replacement purchase. Clear cause-and-effect, no table or room. No text. Soft natural light, deep black background. Not photorealistic, no logos.
-Stylized 3D animated feature film still, 16:9. A young adult in a shop compares two unbranded backpacks, closely checking the zipper and stitching of one while the other hangs from the opposite hand. Medium shot, simple retail setting fading into black. No text. Soft natural light, deep black background. Not photorealistic, no logos.
-Stylized 3D animated feature film still, 16:9. A clean side-by-side comparison from the same product family: nearly unused hiking shoes on the left and everyday sneakers on the right with clearly visible but believable wear from frequent use. The contrast communicates occasional versus daily use without extra props or people. No text. Soft natural light, deep black background. Not photorealistic, no logos.
-Stylized 3D animated feature film still, 16:9. Tight close-up of one over-ear headphone earcup with its worn ear pad removed, and a clean replacement ear pad aligned exactly beside the attachment ring to show that the part can be replaced. No tools, no table, no room, no text. Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. A visibly broken pair of over-ear headphones dominates the foreground, one earcup hanging loose from the headband. Behind it sits a plain unopened replacement box. Two small receipt stubs form a simple first-purchase-to-replacement sequence beneath them. Clear cause and effect, no room, no table, no decorative objects, no text. Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. A young adult compares two similar unbranded backpacks and closely checks the zipper and stitching of one with their fingers while holding the other nearby. The inspection action is the visual focus; the shop environment is only faintly suggested and not decorative. No text. Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. Two identical unbranded everyday backpacks shown side by side as a clean comparison. The left backpack looks almost unused with crisp fabric and perfect straps; the right backpack is the same model but shows believable wear from frequent daily use, softened fabric and worn handles while still functional. No people, no room, no extra props, no text. Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. Tight technical close-up of one over-ear headphone earcup with its worn ear pad removed. A clean replacement ear pad is aligned exactly beside the exposed attachment ring, clearly showing how the part can be replaced. No tools, no table, no room, no extra parts, no text. Soft natural light, deep black background. Not photorealistic, no logos.
 
 FERTIGER FLOW-ORDNER
 Genau das gewählte Thumbnail plus die vier Szenenbilder, jedes genau einmal. Keine Fehlversuche, Duplikate oder abgelehnten Cover behalten.

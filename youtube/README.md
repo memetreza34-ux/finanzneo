@@ -68,3 +68,20 @@ Jedes neue Projekt braucht neben `layout.json` auch `06-projektdateien/render-co
 - Szenenbilder ausschließlich über ihren exakten `googleFlowFileName`
 
 `youtube:validate` prüft diese Render-Routen jetzt ausdrücklich.
+
+
+## Visual Clarity V1
+
+Zusätzlich gilt `youtube/VISUALCLARITY.md`.
+
+Vor jedem Beat wird zuerst die Aussage geplant:
+
+- ein `coreMessage`
+- freie `visualForm`
+- `twoSecondTakeaway`
+- `whyThisForm`
+- nur notwendige `essentialElements`
+
+Schema- und Illustrationsbilder sind vollwertige Optionen. Die FinanzNeo-Bildwelt selbst bleibt unverändert.
+
+Motion folgt START → CHANGE → RESULT und hält das Resultat mindestens 30 Frames stabil.
