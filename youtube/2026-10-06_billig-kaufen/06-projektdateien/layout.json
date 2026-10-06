@@ -35,24 +35,52 @@
     "sceneFirst": false,
     "peopleRequired": false,
     "placeRequired": false,
-    "realSceneRequired": false,
-    "contentFreeWithinWorld": true,
-    "forcePeopleForbidden": true,
-    "sameWorldNotSameScene": true,
     "semanticObjectCompositionsAllowed": true,
     "visualMetaphorsAllowed": true,
-    "isolatedObjectsAllowed": true,
-    "floatingObjectsAllowedWhenMeaningful": true,
-    "decorativeFloatingObjectsForbidden": true
+    "contentFreeWithinWorld": true,
+    "forcePeopleForbidden": true,
+    "sameWorldNotSameScene": true
   },
   "visuals": [
-    {"id": "visual-01", "title": "Der kleine Kauf", "icon": "receipt"},
-    {"id": "visual-02", "title": "Was 5 € in einer Woche machen", "icon": "calendar"},
-    {"id": "visual-03", "title": "Der 30-Tage-Effekt", "icon": "calendar"},
-    {"id": "visual-04", "title": "Was daraus in einem Jahr wird", "icon": "clock"},
-    {"id": "visual-05", "title": "Warum 5 € so klein wirken", "icon": "repeat"},
-    {"id": "visual-06", "title": "Andere Ausgabe, gleiche Gewohnheit", "icon": "wallet"},
-    {"id": "visual-07", "title": "Der 7-Tage-Test", "icon": "list"},
-    {"id": "visual-08", "title": "Mach kleine Ausgaben sichtbar", "icon": "target"}
+    {
+      "id": "visual-01",
+      "title": "Wenn billig zweimal kostet",
+      "icon": "repeat"
+    },
+    {
+      "id": "visual-02",
+      "title": "20 + 20 gegen 35",
+      "icon": "calculator"
+    },
+    {
+      "id": "visual-03",
+      "title": "Preis ist nur ein Teil",
+      "icon": "tag"
+    },
+    {
+      "id": "visual-04",
+      "title": "Drei Fragen vor dem Kauf",
+      "icon": "list"
+    },
+    {
+      "id": "visual-05",
+      "title": "Selten oder jeden Tag?",
+      "icon": "calendar"
+    },
+    {
+      "id": "visual-06",
+      "title": "Kosten pro Nutzung",
+      "icon": "calculator"
+    },
+    {
+      "id": "visual-07",
+      "title": "Kann ich es reparieren?",
+      "icon": "tool"
+    },
+    {
+      "id": "visual-08",
+      "title": "Was wirklich zählt",
+      "icon": "target"
+    }
   ]
 }

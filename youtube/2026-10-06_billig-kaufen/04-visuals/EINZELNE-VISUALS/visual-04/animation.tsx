@@ -1,35 +1,9 @@
 import React from 'react';
 import {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';
 import {YouTubeSectionFrame} from '../../../../../src/design-system/youtube-stage';
+export const MECHANIC_ID='three-buying-questions';
+export const VISUAL_TECHNIQUE_ID='question-cards-reveal';
+export const COMPOSITION_FAMILY_ID='decision-framework';
+export const ANIMATION_NARRATIVE={"START":"nur Preis","MECHANISM":"drei Fragen","RESULT":"Nutzung, Ersatz, Reparatur"};
 
-export const MECHANIC_ID = 'daily-five-year-total';
-export const VISUAL_TECHNIQUE_ID = 'year-progress-total-reveal';
-export const COMPOSITION_FAMILY_ID = 'precision-progress';
-export const ANIMATION_NARRATIVE = {
-  START: 'Das Jahr beginnt mit 5 € am ersten Tag.',
-  MECHANISM: 'Ein Jahresfortschritt läuft von Tag 1 bis Tag 365 und summiert 5 € pro Tag.',
-  RESULT: 'Am Ende stehen exakt 1.825 €.',
-};
-
-export const YouTubeVisual04Animation: React.FC = () => {
-  const frame = useCurrentFrame();
-  const progress = interpolate(frame, [6, 96], [0,1], {extrapolateLeft:'clamp', extrapolateRight:'clamp'});
-  const day = Math.max(1, Math.round(365 * progress));
-  const total = day * 5;
-  return (
-    <YouTubeSectionFrame title="Was daraus in einem Jahr wird" icon="clock">
-      <AbsoluteFill style={{color:'#F4F0E8', fontFamily:'Arial', alignItems:'center', justifyContent:'center'}}>
-        <div style={{width:'82%'}}>
-          <div style={{fontSize:30, color:'#A7A7A7'}}>5 € × 365 Tage</div>
-          <div style={{fontSize:122, fontWeight:800, marginTop:20}}>{total.toLocaleString('de-DE')} €</div>
-          <div style={{height:28, borderRadius:16, background:'#1C1C1C', marginTop:44, overflow:'hidden'}}>
-            <div style={{height:'100%', width:`${progress*100}%`, background:'#E7C56A'}} />
-          </div>
-          <div style={{display:'flex', justifyContent:'space-between', marginTop:16, fontSize:24, color:'#A7A7A7'}}>
-            <span>Tag 1</span><span>Tag {day}</span><span>Tag 365</span>
-          </div>
-        </div>
-      </AbsoluteFill>
-    </YouTubeSectionFrame>
-  );
-};
+export const YouTubeVisual04Animation:React.FC=()=>{const f=useCurrentFrame();const q=['Wie oft nutze ich es?','Muss ich es ersetzen?','Kann ich es reparieren?'];return <YouTubeSectionFrame title="Drei bessere Fragen" icon="list"><AbsoluteFill style={{padding:'62px 86px',boxSizing:'border-box',fontFamily:'Arial',color:'#F4F0E8',justifyContent:'center'}}>{q.map((t,i)=>{const p=interpolate(f,[12+i*24,24+i*24],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});return <div key={t} style={{fontSize:45,fontWeight:700,padding:'24px 30px',marginBottom:18,border:'2px solid #333',borderRadius:22,opacity:p,transform:`translateX(${(1-p)*34}px)`}}><span style={{color:'#2FCB8B',marginRight:22}}>{i+1}</span>{t}</div>})}</AbsoluteFill></YouTubeSectionFrame>};

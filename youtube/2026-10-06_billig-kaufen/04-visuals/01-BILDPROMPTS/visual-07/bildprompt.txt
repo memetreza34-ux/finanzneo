@@ -1,0 +1,16 @@
+BILD 07
+FINAL FILE NAME: YouTube Bild 07 - Reparierbar.png
+FORMAT: horizontal 16:9
+
+VISUAL_FORM: object-detail
+VISUAL_CONCEPT: Austauschbares Teil macht Reparierbarkeit sichtbar.
+DECISIVE_MOMENT: not-applicable
+VOICEOVER_VISUAL_MATCH: "Und kann ich es reparieren?"
+FRONT_READABILITY_TEST: PASS — Ersatzteil und Anschluss gehören klar zusammen.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT
+Stylized 3D animated feature film still, 16:9. Close-up of over-ear headphones with one ear pad removed, the replacement pad aligned beside the exposed attachment ring and a small screwdriver nearby. Tight technical object detail, no person or room needed. No text. Soft natural light, deep black background. Not photorealistic, no logos.
+
+QA
+PASS nur wenn die Aussage in etwa zwei Sekunden klar ist und kein Element nur Dekoration ist.

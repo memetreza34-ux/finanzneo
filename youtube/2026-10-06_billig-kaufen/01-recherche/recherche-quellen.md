@@ -1,15 +1,11 @@
 # Recherche und Quellen
 
-Dieses Video verwendet keine externe Statistik und keine Behauptung über durchschnittliche Ausgaben.
+Keine externen Statistiken oder Marktpreise.
 
-## Geprüfte Eigenrechnungen
-- 5 € × 7 = 35 €
-- 5 € × 30 = 150 €
-- 5 € × 365 = 1.825 €
+Beispielrechnungen:
+- 20 € + 20 € = 40 €
+- Vergleich: 35 €
+- 40 € / 200 Nutzungen = 0,20 € pro Nutzung
+- 20 € / 50 Nutzungen = 0,40 € pro Nutzung
 
-## Einordnung
-- "30-Tage-Monat" wird ausdrücklich als Rechenbeispiel bezeichnet.
-- Die Beispiele Kaffee, Snack und kleine Lieferung sind Illustrationen, keine Aussage darüber, was Zuschauer tatsächlich täglich kaufen.
-- Das Video gibt keine individuelle Anlage-, Kredit- oder Steuerberatung.
-
-Stand: 05.10.2026.
+Das Skript sagt ausdrücklich: Nicht jedes günstige Produkt ist schlecht und nicht jedes teure hält länger.

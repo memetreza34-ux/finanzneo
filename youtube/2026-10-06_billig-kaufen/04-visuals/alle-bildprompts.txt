@@ -1,104 +1,42 @@
 GOOGLE FLOW MASTER PROMPT — FINANZNEO
-VIDEO: Was dich 5 € am Tag wirklich kosten
+VIDEO: Warum billig kaufen teuer werden kann
 
-DIESEN TEXT 1:1 AUSFÜHREN.
-DIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG IN GOOGLE FLOW.
-NICHT erklären, NICHT zusammenfassen, NICHT nur Prompts zurückgeben. Starte die Bildjobs tatsächlich.
+DIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG.
+Nicht erklären oder zusammenfassen. Bildjobs tatsächlich starten.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
-THUMBNAIL_CONCURRENCY: 3
-IMAGE_BATCH_SIZE: 5
-IMAGE_CONCURRENCY: 5
-STYLE_AUTHORITY: finanzneo-youtube-animated-black-v3
-SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
-APPROVED_STYLE_REFERENCES: Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgroschen" (2026-09-17)
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-GENERATED_IMAGE_ASPECT_RATIO: 16:9
 FLOW_IMAGE_POLICY: meaning-first-free-visual-v2
+STYLE_AUTHORITY: finanzneo-youtube-animated-black-v3
+APPROVED_STYLE_REFERENCES: Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgroschen" (2026-09-17)
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
 PRECISION_GRAPHICS_OWNER: REMOTION
 
-NATÜRLICH — KEIN KI-LOOK:
-Ruhige stilisierte 3D-Animationsfilm-Welt auf tiefem Schwarz. Keine Glas-/Leuchtbalken, Value Blocks, Neon, Rauch, Funken, Lens Flares, Geldberge, Dashboards, generische Finanzcollage oder Deko ohne Erklärwert.
+BEDEUTUNG ZUERST — FORM FREI
+Kein scene-first. Kein Menschen- oder Ortszwang. Semantische Objektanordnungen sind erlaubt, wenn jede Position etwas erklärt. Keine dekorativen Spiralen, Trails oder Objektwolken.
+ENTSCHEIDENDER MOMENT nur wenn die Handlung selbst die Aussage trägt.
+NATÜRLICH — KEIN KI-LOOK.
 
-LOOK FEST — INHALT FREI.
-BEDEUTUNG ZUERST — FORM FREI.
-Jeden Sprechbeat zuerst verstehen. Danach die stärkste Bildform wählen. Isoliertes Objekt, Detail, Hände, Mensch, reale Szene, Vergleich, semantische Objektanordnung oder visuelle Metapher sind gleichberechtigt. Kein scene-first. Kein people-first. Kein Ort-Zwang. Kein Tisch-Zwang.
-
-SEMANTISCHE OBJEKTANORDNUNG:
-Objekte dürfen frei im Schwarzraum stehen oder schweben, wenn ihre Position eine Beziehung erklärt. Ursache/Wirkung, vorher/nachher, Vergleich, Wiederholung oder Auswahl sind sinnvoll. Dekorative Spiralen, Trails, Objektwolken oder zufällige Schweberei sind FAIL.
-
-ENTSCHEIDENDER MOMENT — NUR WENN ER PASST.
-Menschen, Hände, Ort und Handlung sind optional. Exakte Zahlen, Tabellen, Charts, UI und Rechenwege gehören zu Remotion.
-
-============================================================
 PHASE 0 — EIN GOOGLE-FLOW-ORDNER PRO VIDEO
-============================================================
-Arbeite in genau EINEM Google-Flow-Projekt: FinanzNeo – Was dich 5 Euro am Tag kosten.
+Genau ein Flow-Projekt: FinanzNeo – Warum billig kaufen teuer werden kann.
+Alle Outputs horizontal 16:9.
 
-============================================================
-PHASE A — EXAKT 3 THUMBNAILS PARALLEL
-============================================================
-Starte A, B und C gleichzeitig als drei SEPARATE one-image jobs. Kein Multi-Image-Request.
-Prüfe alle drei. Frage genau einmal: Welches Cover: A, B oder C?
-NICHT GEWÄHLTE COVER LÖSCHEN. Gewinner umbenennen in:
-YouTube Thumbnail - Was dich 5 Euro am Tag kosten.png
-Das gewählte Cover ist KEINE Stilreferenz.
+PHASE A — 3 THUMBNAILS PARALLEL
+A/B/C als drei getrennte one-image jobs gleichzeitig starten. Danach einmal A/B/C wählen lassen.
+NICHT GEWÄHLTE COVER LÖSCHEN. Gewinner: YouTube Thumbnail - Warum billig kaufen teuer werden kann.png
+Thumbnail niemals als Stilreferenz verwenden.
 
-THUMBNAIL A
-Temporary file: YouTube Thumbnail A.png
-Stylized 3D animated feature film still, 16:9. A takeaway coffee, a small pastry and one receipt showing 5,00 € form one compact purchase cluster on the right, isolated in black space with no table or person. Big clean white headline on the left: "NUR 5 €?". Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. A broken pair of headphones and a brand-new replacement pair form a clear left-to-right comparison, with two small receipts below the broken-and-replaced path. Big clean white headline on the left: "BILLIG = TEUER?". Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. A surprised young adult holds broken headphones in one hand and a newly boxed replacement in the other, clearly realizing the repeat purchase. Big clean white headline on the left: "ZWEIMAL KAUFEN?". Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. One intact durable backpack stands on the right while two worn-out cheaper backpacks sit on the left as a clear durability comparison. Big clean white headline on the left: "WAS IST GÜNSTIGER?". Soft natural light, deep black background. Not photorealistic, no logos.
 
-THUMBNAIL B
-Temporary file: YouTube Thumbnail B.png
-Stylized 3D animated feature film still, 16:9. One tiny everyday receipt on the left is contrasted with a much thicker grouped bundle of similar small receipts on the right, clearly showing one purchase versus many repetitions without a room or table. Big clean white headline on the left: "1.825 € IM JAHR". Soft natural light, deep black background. Not photorealistic, no logos.
+PHASE B — NUR VISUAL 01, 03, 05, 07
+Vier getrennte one-image jobs parallel. Sofort umbenennen und QA prüfen. Bei FAIL nur dieselbe Nummer neu erzeugen.
+Stylized 3D animated feature film still, 16:9. A broken pair of inexpensive over-ear headphones on the left and an identical new replacement pair on the right, with one small purchase receipt beneath each pair. Clear cause-and-replacement relationship, no room or table required. No text. Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. A young adult in a shop compares two unbranded backpacks, closely checking the zipper and stitching of one while the other hangs from the opposite hand. Medium shot, simple retail setting fading into black. No text. Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. On the left, a nearly unused cordless drill rests inside its storage case; on the right, a well-used everyday backpack shows softened fabric and worn handles but remains intact. Clear side-by-side usage-frequency comparison, no people. No text. Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. Close-up of over-ear headphones with one ear pad removed, the replacement pad aligned beside the exposed attachment ring and a small screwdriver nearby. Tight technical object detail, no person or room needed. No text. Soft natural light, deep black background. Not photorealistic, no logos.
 
-THUMBNAIL C
-Temporary file: YouTube Thumbnail C.png
-Stylized 3D animated feature film still, 16:9. A takeaway coffee, a snack packet and a small food-delivery bag are arranged as three distinct everyday purchases at equal scale on the right, each separated clearly but visually belonging to the same spending pattern. Big clean white headline on the left: "JEDEN TAG 5 €". Soft natural light, deep black background. Not photorealistic, no logos.
-
-============================================================
-PHASE B — NUR DIE ZWEI GEPLANTEN SZENENBILDER
-============================================================
-Visual 02, 03, 04, 05, 07 und 08 sind Remotion und bekommen KEIN Flow-Bild.
-Starte Bild 01 und Bild 06 als zwei SEPARATE one-image jobs parallel.
-rename immediately zum exakten Dateinamen. QA jedes Ergebnis.
-Bei FAIL regenerate only that same number.
-Keine Nutzerfreigabe zwischen den beiden Jobs.
-
-BILD 01
-FINAL FILE NAME: YouTube Bild 01 - Fuenf Euro am Morgen.png
-VISUAL_FORM: semantic-object-composition
-VISUAL_CONCEPT: Ein einzelner 5-€-Kauf soll klein, kompakt und sofort verständlich wirken.
-MEANING_RELATION: Kaffee + Gebäck + 5,00-€-Beleg bilden genau einen Kauf; kein weiterer Kontext ist nötig.
-DECISIVE_MOMENT: not-applicable
-VOICEOVER_VISUAL_MATCH: "Fünf Euro fühlen sich nach fast nichts an."
-FRONT_READABILITY_TEST: PASS — ein kompakter Kaufcluster ist in zwei Sekunden verständlich.
-DATA_INTEGRITY_TEST: 5,00 € only.
-Stylized 3D animated feature film still, 16:9. A takeaway coffee cup, one small pastry and a single paper receipt showing 5,00 € form one compact purchase cluster, isolated against black with no table, room or person. Only text: "5,00 €". Soft natural light, deep black background. Not photorealistic, no logos.
-
-BILD 06
-FINAL FILE NAME: YouTube Bild 06 - Kleine Lieferung.png
-VISUAL_FORM: semantic-object-composition
-VISUAL_CONCEPT: Unterschiedliche kleine Käufe wechseln, die Gewohnheit bleibt dieselbe.
-MEANING_RELATION: Kaffee, Snack und Liefer-Papiertüte stehen als drei verschiedene Kaufarten nebeneinander; ihre gleiche Größe und ruhige Dreierordnung verbindet sie als wiederkehrende kleine Ausgaben.
-DECISIVE_MOMENT: not-applicable
-VOICEOVER_VISUAL_MATCH: "Heute der Kaffee, morgen ein Snack, dann eine kleine Liefergebühr."
-FRONT_READABILITY_TEST: PASS — drei verschiedene kleine Käufe sind sofort erkennbar.
-DATA_INTEGRITY_TEST: not-applicable
-Stylized 3D animated feature film still, 16:9. A takeaway coffee cup, a small snack packet and a small paper food-delivery bag are arranged as three clearly separated everyday purchases at equal scale, with no people, table or room. No text. Soft natural light, deep black background. Not photorealistic, no logos.
-
-============================================================
 FERTIGER FLOW-ORDNER
-============================================================
-Im Ordner liegen genau diese drei finalen Dateien, jeweils genau einmal:
-- YouTube Thumbnail - Was dich 5 Euro am Tag kosten.png
-- YouTube Bild 01 - Fuenf Euro am Morgen.png
-- YouTube Bild 06 - Kleine Lieferung.png
-
-Keine Fehlversuche oder abgelehnten Cover behalten.
-Alle Szenenbilder nach:
-04-visuals/00-ALLE-BILDER-HIER-REIN/
-
-Every output: horizontal 16:9, SEPARATE one-image jobs, rename immediately, regenerate only that same number.
+Genau das gewählte Thumbnail plus die vier Szenenbilder, jedes genau einmal. Keine Fehlversuche, Duplikate oder abgelehnten Cover behalten.
+Finale Bilder nach: 04-visuals/00-ALLE-BILDER-HIER-REIN/

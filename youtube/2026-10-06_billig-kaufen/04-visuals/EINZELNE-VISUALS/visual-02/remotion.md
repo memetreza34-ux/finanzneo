@@ -1,7 +1,16 @@
-# Remotion visual-02
-
-Viewer change: Aus einem einzelnen 5-€-Tag wird eine komplette Woche mit 35 €.
-
-Mechanik: sieben Tagesfelder erscheinen nacheinander. Keine Chart-Achse, kein Dashboard. Die Summe steigt nur durch die sichtbaren Tagesfelder.
-
-States: Mo 5 € → mehrere Tage → So → Woche 35 €.
+# Remotion-Spezifikation visual-02
+MOTION_STANDARD: finanzneo-youtube-motion-v3
+- Kapitel: Beispielrechnung
+- Sprechtext-Bezug: 20 € + 20 € werden 40 €, danach 35 € Vergleich.
+- Viewer Change: 20 € + 20 € werden 40 €, danach 35 € Vergleich.
+- Animation Intent: Der Sprechpunkt wird sichtbar.
+- Mechanik: repeat-purchase-cost
+- Technikbeschreibung: Zwei Kaufbeträge plus Vergleich
+- Tool Stack: React, CSS, Remotion interpolate
+- Composition Family: comparison-math
+- Motion Signature Camera: statische frontale Editorial-Ansicht
+- Motion Signature Layout: gerahmter content-spezifischer Bereich
+- Motion Signature Transformation: mehrere sichtbare Zustände
+- Motion Channels: Opacity + Position/Skalierung oder Werte-Reveal
+- Visual Beats: Start → Mechanik → Ergebnis
+- SFX-Cues: optional

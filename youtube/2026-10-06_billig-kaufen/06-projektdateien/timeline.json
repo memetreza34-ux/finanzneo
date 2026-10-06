@@ -1,17 +1,58 @@
 {
-  "version": 1,
+  "version": 2,
+  "title": "Warum billig kaufen teuer werden kann",
   "fps": 30,
-  "status": "phase1-planning-only",
-  "timingAuthority": "03-audio/word-timings.json after Phase 2",
-  "plannedDurationSeconds": 112,
+  "timingSource": "03-audio/word-timings.json",
+  "cutRule": "voice-beat-and-chapter-driven",
+  "fixedVisualCount": false,
   "visuals": [
-    {"id":"visual-01","plannedStart":0,"plannedEnd":13},
-    {"id":"visual-02","plannedStart":13,"plannedEnd":27},
-    {"id":"visual-03","plannedStart":27,"plannedEnd":40},
-    {"id":"visual-04","plannedStart":40,"plannedEnd":55},
-    {"id":"visual-05","plannedStart":55,"plannedEnd":69},
-    {"id":"visual-06","plannedStart":69,"plannedEnd":83},
-    {"id":"visual-07","plannedStart":83,"plannedEnd":99},
-    {"id":"visual-08","plannedStart":99,"plannedEnd":112}
+    {
+      "id": "visual-01",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-02",
+      "type": "data",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-03",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-04",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-05",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-06",
+      "type": "data",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-07",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-08",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    }
   ]
 }

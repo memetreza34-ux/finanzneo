@@ -1,3 +1,2 @@
 # AUDIO HIER REIN
-
-Genau eine finale Voiceover-Datei ablegen. Danach echte Wort-Zeitstempel in word-timings.json erzeugen.
+Genau ein finales Voiceover ablegen. Danach echte Wort-Zeitstempel erzeugen. Keine Untertitel ins Bild rendern.

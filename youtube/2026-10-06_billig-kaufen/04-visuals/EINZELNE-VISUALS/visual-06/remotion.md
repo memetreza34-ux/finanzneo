@@ -1,13 +1,13 @@
-# Remotion-Spezifikation visual-04
+# Remotion-Spezifikation visual-06
 MOTION_STANDARD: finanzneo-youtube-motion-v3
-- Kapitel: Drei Fragen
-- Sprechtext-Bezug: Nutzung, Ersatz und Reparierbarkeit erscheinen nacheinander.
-- Viewer Change: Nutzung, Ersatz und Reparierbarkeit erscheinen nacheinander.
+- Kapitel: Kosten pro Nutzung
+- Sprechtext-Bezug: 40/200 und 20/50 lösen sich zu 0,20 bzw. 0,40 € auf.
+- Viewer Change: 40/200 und 20/50 lösen sich zu 0,20 bzw. 0,40 € auf.
 - Animation Intent: Der Sprechpunkt wird sichtbar.
-- Mechanik: three-buying-questions
-- Technikbeschreibung: Fragen-Reveal
+- Mechanik: cost-per-use-example
+- Technikbeschreibung: Exakte Rechenzeilen
 - Tool Stack: React, CSS, Remotion interpolate
-- Composition Family: decision-framework
+- Composition Family: data-comparison
 - Motion Signature Camera: statische frontale Editorial-Ansicht
 - Motion Signature Layout: gerahmter content-spezifischer Bereich
 - Motion Signature Transformation: mehrere sichtbare Zustände

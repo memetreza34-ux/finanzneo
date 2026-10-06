@@ -1,28 +1,9 @@
-YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-black-v3
-SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
-APPROVED_STYLE_REFERENCES: Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgroschen" (2026-09-17)
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-GENERATED_IMAGE_ASPECT_RATIO: 16:9
+STYLE_AUTHORITY: finanzneo-youtube-animated-black-v3
 FLOW_IMAGE_POLICY: meaning-first-free-visual-v2
+BEDEUTUNG ZUERST — FORM FREI
 PRECISION_GRAPHICS_OWNER: REMOTION
 
-LOOK FEST — INHALT FREI.
-BEDEUTUNG ZUERST — FORM FREI.
+Zuerst den Gedanken verstehen, danach die stärkste Bildform wählen. Kein scene-first, people-first oder object-first. Menschen, Orte und komplette Szenen sind optional. Isolierte Objekte, Details, Handlungen, Vergleiche, semantische Objektanordnungen und klare visuelle Metaphern sind gleichberechtigt. Frei angeordnete Objekte müssen eine Beziehung erklären. Keine dekorativen Spiralen, Trails oder Objektwolken. Kein Tisch, Raum oder Mensch als Lückenfüller.
 
-Jeder Sprechbeat wird zuerst inhaltlich verstanden. Danach wird die stärkste Bildform gewählt. Es gibt keinen Standard für reale Szene, Mensch, Hände, Tisch, Ort oder Kamera.
-
-Erlaubt und gleichberechtigt:
-- einzelnes Objekt oder Detail
-- Hände / Mensch, wenn sinnvoll
-- reale Alltagsszene
-- Vergleich
-- semantische Objektanordnung
-- visuelle Metapher
-- kreative Idee
-
-Objekte dürfen frei im Schwarzraum stehen, wenn ihre Anordnung etwas erklärt. Keine dekorativen Spiralen, Trails, Objektwolken oder zufällige Schweberei. Jeder Gegenstand muss einen Grund haben.
-
-Gleicher Look bedeutet nicht gleiche Szene. Die Einheit kommt nur aus Animationsfilm-Rendering, Materialien, Licht, Schwarzraum und Farbrollen.
-
-Präzise Zahlen, Charts, Tabellen, Checklisten und UI gehören zu Remotion.
+NATÜRLICH — KEIN KI-LOOK
+Stilisierter 3D-Animationsfilm-Look, tiefes Schwarz, glaubwürdige Materialien, weiches natürliches Licht. Kein Neon, keine Glas-/Leuchtbalken, kein Rauch, keine Funken, keine Geldberge, keine generischen Finanzsymbole. Exakte Charts, Zahlen, Tabellen, Listen und UI gehören zu Remotion.

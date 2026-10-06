@@ -1,0 +1,16 @@
+BILD 05
+FINAL FILE NAME: YouTube Bild 05 - Selten oder taeglich.png
+FORMAT: horizontal 16:9
+
+VISUAL_FORM: comparison-scene
+VISUAL_CONCEPT: Seltene und tägliche Nutzung werden verglichen.
+DECISIVE_MOMENT: not-applicable
+VOICEOVER_VISUAL_MATCH: "Bei Dingen, die du selten nutzt ... bei Dingen, die du jeden Tag brauchst ..."
+FRONT_READABILITY_TEST: PASS — selten und täglich sind klar unterscheidbar.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT
+Stylized 3D animated feature film still, 16:9. On the left, a nearly unused cordless drill rests inside its storage case; on the right, a well-used everyday backpack shows softened fabric and worn handles but remains intact. Clear side-by-side usage-frequency comparison, no people. No text. Soft natural light, deep black background. Not photorealistic, no logos.
+
+QA
+PASS nur wenn die Aussage in etwa zwei Sekunden klar ist und kein Element nur Dekoration ist.
