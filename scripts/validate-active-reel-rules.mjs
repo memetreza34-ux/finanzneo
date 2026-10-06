@@ -11,6 +11,7 @@ const ACTIVE_RULE_FILES = [
   'START-HIER.md',
   'reels/PRODUKTIONSSTANDARD.md',
   'docs/GLOBAL-IMAGE-WORLD-LOCK.md',
+  'docs/IMAGE-PROMPT-BASELINE.md',
   'docs/FINANZNEO-VISUAL-TIMING-AND-CLARITY-STANDARD.md',
   'docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md',
   'docs/COMPONENT-CATALOG.md',
@@ -74,6 +75,7 @@ for (const path of ACTIVE_RULE_FILES) {
 const requiredMarkers = new Map([
   ['README.md', ['3-PHASEN-WORKFLOW.md', 'Produktionsregistry']],
   ['ANLEITUNG.md', ['finanzneo-stylized-3d-animated-black-v9', '#000000', 'phase3Executor']],
+  ['docs/IMAGE-PROMPT-BASELINE.md', ['keine globale kreative Bildformel', 'Bildprompts werden auf Englisch', 'Keine generische Überschrift']],
   ['CLAUDE.md', ['finanzneo-stylized-3d-animated-black-v9', '#000000', 'Visualzone           Y = 320–1400', 'Header Text          56 px']],  ['docs/PHASE-1-ANIMATION-CODE-STANDARD.md', ['PremiumPhysicalStage', '#000000', 'Y 320–1400', 'keine feste Support-Objekt-Anzahl']],
   ['docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md', ['56 px', 'Y = 320–1400', 'SourceNote']],
   ['docs/PHASE-3-COMPLETION-GATE.md', ['Post-Render', 'Caption-/Header-only', 'FINAL_COMPLETE']],
