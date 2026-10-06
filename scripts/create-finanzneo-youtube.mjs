@@ -155,10 +155,21 @@ index.imageWorld.peopleAllowedWhenUseful = true;
 index.imageWorld.precisionGraphicsOwner = 'remotion';
 index.imageWorld.flowInfographicLayoutsForbidden = true;
 index.thumbnail.planFile = '04-visuals/01-BILDPROMPTS/thumbnail-prompt.txt';
+index.thumbnail.timelineEligible = false;
 for (const visual of index.visuals ?? []) {
   const newImagePrompt = `04-visuals/01-BILDPROMPTS/${visual.id}/bildprompt.txt`;
-  if (visual.type === 'image') visual.planFile = newImagePrompt;
+  if (visual.type === 'image') {
+    visual.planFile = newImagePrompt;
+    visual.renderComponent = 'YouTubeFramedImage';
+    visual.objectFit = 'contain';
+    visual.fullScreen = false;
+    visual.thumbnailEligible = false;
+  }
   if (visual.type === 'hybrid') visual.imagePlanFile = newImagePrompt;
+  if (['animation', 'data', 'hybrid'].includes(visual.type)) {
+    visual.renderComponent = 'YouTubeSectionFrame';
+    visual.fullScreen = false;
+  }
 }
 writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`);
 
@@ -189,6 +200,41 @@ const layout = {
 };
 writeFileSync(layoutPath, `${JSON.stringify(layout, null, 2)}\n`);
 
+const renderContractPath = resolve(projectRoot, '06-projektdateien/render-contract.json');
+const headerById = new Map((layout.visuals ?? []).map((visual) => [visual.id, visual]));
+const renderContract = {
+  version: 1,
+  standardId: 'finanzneo-youtube-framed-v1',
+  fullScreenVisualsForbidden: true,
+  thumbnail: {
+    sourceFile: index.thumbnail.googleFlowFileName,
+    timelineEligible: false,
+  },
+  visuals: (index.visuals ?? []).map((visual) => {
+    const header = headerById.get(visual.id) ?? {title: '[HEADER]', icon: '[ICON]'};
+    if (visual.type === 'image') {
+      return {
+        id: visual.id,
+        title: header.title,
+        icon: header.icon,
+        fullScreen: false,
+        component: 'YouTubeFramedImage',
+        sourceFile: visual.googleFlowFileName,
+        objectFit: 'contain',
+      };
+    }
+    return {
+      id: visual.id,
+      title: header.title,
+      icon: header.icon,
+      fullScreen: false,
+      component: 'YouTubeSectionFrame',
+      sourceFile: visual.animationSourceFile ?? null,
+    };
+  }),
+};
+writeFileSync(renderContractPath, `${JSON.stringify(renderContract, null, 2)}\n`);
+
 const readmePath = resolve(projectRoot, 'README.md');
 const readme = readFileSync(readmePath, 'utf8');
 writeFileSync(
@@ -198,5 +244,5 @@ writeFileSync(
 
 console.log('✓ Google Flow: vollständiger Nutzer-Master-Prompt = 04-visuals/alle-bildprompts.txt');
 console.log(`✓ Bildlogik: ${YOUTUBE_FLOW_IMAGE_POLICY_ID} — Bedeutung zuerst, Form frei, Ort/Mensch optional.`);
-console.log('✓ Layout: 06-projektdateien/layout.json mit Frame, Header+Icon und Caption-Off angelegt.');
+console.log('✓ Layout: layout.json + render-contract.json erzwingen Frame, Header+Icon, Caption-Off und Thumbnail-Trennung.');
 console.log(`✓ Bildwelt: ${YOUTUBE_IMAGE_WORLD_LOCK} — Animationsfilm-Look auf Schwarz; Präzisionsgrafiken gehören Remotion.`);
