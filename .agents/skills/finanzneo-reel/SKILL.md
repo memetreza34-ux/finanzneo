@@ -61,22 +61,26 @@ Animation scenes may be longer only when the visible state keeps advancing with 
 
 ## V9 image world
 
-New Flow prompts use `finanzneo-stylized-3d-animated-black-v9`:
+The active image world is `finanzneo-stylized-3d-animated-black-v9`.
 
-- real-life explanatory situations instead of abstract finance icon arrangements
-- recognizable, believable object construction and proportions
-- semi-realistic material/detail structure, but clearly stylized 3D and never photorealistic
-- premium clean presentation
-- deep black background mandatory
-- content/clarity before object count; no fixed supporting-object quota
-- short German labels when they materially improve instant understanding
-- emerald positive, ivory/soft gray neutral, subtle gold money/value, red-orange warning/cost
-- individually written complete prompts
-- no stock-photo/product-photo look, dashboard/app UI, flowchart, tiny boxes, microchip language, unreadable minidiorama or clutter
+It locks only the rendering identity:
 
-If a brand/logo/app appears, keep it recognizable but stylized in the same animated world. Never paste a flat real-world logo, screenshot or photorealistic branded UI into the scene.
+- premium stylized 3D
+- clearly non-photorealistic
+- soft / simplified recognizable forms
+- deep black background
+- FinanzNeo color system
+- clean soft studio lighting
+- consistent materials and rendering across the series
+
+Do not infer scene concepts from legacy image rules. Literal-first, transferability, mandatory real-life context, cause/effect, object-count, label and prompt-length requirements are no longer active.
+
+Image prompts are written in English. Do not automatically add a generic headline to the generated image; text is scene-specific only when explicitly planned.
+
+Canonical baseline: `docs/IMAGE-PROMPT-BASELINE.md`.
 
 Antigravity does not generate the user's final Flow images. Missing exact image = stop and report filename.
+
 
 ## Pure-black Reel background
 
