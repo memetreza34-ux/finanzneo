@@ -22,7 +22,7 @@ Apply `docs/FINANZNEO-VISUAL-SELECTION-RULE.md` before choosing implementation d
 Default decision:
 
 - simple, numeric or data-driven explanation → **pure Remotion**
-- complex, real-world or spatial explanation → **Flow image + Remotion hybrid**
+- a strong still-image base plus meaningful temporal information → **Flow image + Remotion hybrid**
 - SVG → precise paths, charts, connections and vector mechanics
 - icons → semantic shorthand only
 - Lottie → small support motion only
@@ -81,7 +81,7 @@ Do this **without naming a tool, library, existing component or composition fami
 Then:
 
 1. decide the explanatory mechanism,
-2. classify the beat as simple/data-driven vs. complex/real-world/spatial,
+2. decide whether the beat is best served by a still image, native motion, data, or a true hybrid,
 3. choose the visual type using the Visual Selection Rule,
 4. review the previous four motion visuals,
 5. choose or invent the clearest technique,
@@ -98,9 +98,8 @@ Prefer for clear numbers, percentages, charts, simple flows, debt/fee developmen
 
 ### Flow image + Remotion
 
-Prefer when a concrete scene makes the financial mechanism easier to understand: everyday money situations, inflation, emergency fund, overdraft, insurance, complex multi-stage money flows or spatial ETF/index explanations.
+Use when a strong generated still provides the best visual base and Remotion adds genuinely useful temporal information. The image concept itself is scene-specific and must not inherit legacy literal-first, mandatory real-world, cause/effect, label, object-count or metaphor rules.
 
-The still image must already explain the situation. Remotion adds temporal information such as focus, masks, value changes, selective highlights, meaningful 2.5D parallax, path overlays or before/after transformation.
 
 ### SVG
 
