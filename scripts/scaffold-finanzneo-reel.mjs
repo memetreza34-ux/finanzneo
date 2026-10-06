@@ -83,22 +83,54 @@ const sceneFileName = (index) => `Bild ${num(index)} - [KURZER SZENENNAME].png`;
 const coverFileName = 'Bild 00 - [KURZER COVER-NAME].png';
 const animationExportName = (index) => `Scene${num(index)}Animation`;
 
-const STYLE_BLOCK = `FINANZNEO_WORLD_ID: ${WORLD_ID}\n${SERIES_LOCK_MARKER}\nSTYLIZED_3D_LOCK: ${STYLIZED_3D_LOCK_ID}\nPREMIUM_VISUAL_WORLD_LOCK: ${ANIMATED_WORLD_LOCK_ID}\n${GENERATED_IMAGE_ASPECT_MARKER}\n\nSTYLE:\nCreate a clearly stylized 3D finance explainer scene grounded in a believable real-world situation. Keep object construction and proportions recognizable, use semi-realistic material detail and polished stylization, but never become photorealistic or stock-photo-like. Keep the main idea easy to understand within 1–2 seconds.\n\nBACKGROUND:\nUse one seamless deep black background as a strict requirement. Keep it clean, minimal and uninterrupted. No floor-wall boundary, horizon, bright studio environment or colored background zones.\n\nCOMPOSITION:\nContent and clarity come first. Use a clear main subject or main action. Supporting objects have NO fixed count; add only what genuinely helps the explanation. Avoid decorative clutter.\n\nBRANDS + LOGOS:\nIf a brand, bank, app or logo is relevant, keep its identity recognizable but reinterpret it in the same stylized 3D animated world. Never paste a flat real-world logo, website screenshot, app screenshot or photorealistic branded UI into the scene.\n\nCOLORS + LIGHT:\nUse emerald green for positive elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warning/cost. Use clean soft studio lighting, readable shadows and soft contact shadows.\n\nTEXT:\nNo headline, subtitle, CTA or explanatory sentence. Only explicitly requested short German labels may appear.\n\nFORBIDDEN:\nNo realism or photorealism, no product-photo look, no flat pasted real logo, no screenshot-like brand UI, no dashboard, no app UI, no flowchart, no tiny boxes, no floating info cards, no microchip/circuit look, no miniature diorama and no clutter.\n`;
+const STYLE_BLOCK = `FINANZNEO_WORLD_ID: ${WORLD_ID}
+${SERIES_LOCK_MARKER}
+STYLIZED_3D_LOCK: ${STYLIZED_3D_LOCK_ID}
+PREMIUM_VISUAL_WORLD_LOCK: ${ANIMATED_WORLD_LOCK_ID}
+${GENERATED_IMAGE_ASPECT_MARKER}
+
+STYLE:
+Use the established FinanzNeo premium stylized 3D animated look. Keep the rendering clearly non-photorealistic, with soft simplified recognizable forms and polished mature materials.
+
+BACKGROUND:
+Use the established seamless deep black FinanzNeo background.
+
+COLORS + LIGHT:
+Use the FinanzNeo color system: emerald green, warm ivory, soft gray, subtle gold and warm red-orange. Use clean soft studio lighting with readable highlights, shadows and soft contact shadows.
+
+TEXT:
+Do not add a generic headline automatically. Any text must be explicitly requested by the scene-specific prompt.
+`;
 
 const flowInstruction = (fileName) => `${FLOW_AGENT_PROTOCOL_MARKER}\nAKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN\n\nGOOGLE FLOW – FINALER DATEINAME:\n${fileName}\n\nErzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es SOFORT exakt wie oben um und prüfe Motiv + erlaubte Labels + V9-Stil + tiefschwarzen Hintergrund + Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich DIESELBE Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten. Der Dateiname darf nicht sichtbar im Bild erscheinen.\n`;
 
-const imagePrompt = (id, index) => `${flowInstruction(sceneFileName(index))}\nBESCHRIFTUNGEN – EXAKT SO:\n- [KURZES DEUTSCHES OBJEKT-LABEL]\n- [OPTIONALES ZWEITES KURZES LABEL]\n\nIMAGE PROMPT:\nCreate a clear stylized 3D animated finance scene for ${id}. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.\n\n${STYLE_BLOCK}`;
+const imagePrompt = (id, index) => `${flowInstruction(sceneFileName(index))}
 
-const coverPrompt = `${flowInstruction(coverFileName)}\nCOVER-REGEL:\nKeine klassische Headline. Das Thema mit einer sofort verständlichen stylized-3D-animierten Hauptidee zeigen. Support-Objekte nur, wenn sie helfen. Bild 00 bleibt strikt 1:1.\n\nBESCHRIFTUNGEN – EXAKT SO:\n- [KURZES THEMA-LABEL]\n- [OPTIONALES ZWEITES KURZES LABEL]\n\nIMAGE PROMPT:\nCreate a clear stylized 3D animated finance cover with [ONE STRONG MAIN IDEA OR ACTION]. Keep the composition simple and instantly understandable. Add only useful supporting objects and only the specified short German labels.\n\n${STYLE_BLOCK}`;
+IMAGE PROMPT:
+[WRITE THE SCENE-SPECIFIC ENGLISH IMAGE PROMPT HERE.]
 
-const worldPrompt = `FINANZNEO STYLIZED 3D ANIMATED BLACK WORLD — V9\n\n${STYLE_BLOCK}\nPROMPT POLICY:\nKeep individual image prompts medium length. Scene idea first, style second. No fixed supporting-object quota.`;
+${STYLE_BLOCK}`;
+
+const coverPrompt = `${flowInstruction(coverFileName)}
+
+IMAGE PROMPT:
+[WRITE THE SCENE-SPECIFIC ENGLISH COVER PROMPT HERE.]
+
+${STYLE_BLOCK}`;
+
+const worldPrompt = `FINANZNEO STYLIZED 3D ANIMATED BLACK WORLD — V9
+
+${STYLE_BLOCK}
+
+Creative image-prompt formulas are intentionally reset. See docs/IMAGE-PROMPT-BASELINE.md.
+`;
 const imageSceneIds = types.flatMap((t, i) => t === 'image' ? [`scene-${num(i)}`] : []);
 const animationSceneIds = types.flatMap((t, i) => t === 'animation' ? [`scene-${num(i)}`] : []);
 
 write('README.md', `# ${title}\n\nEinfache Struktur:\n- 01-script = Voiceover-Skript\n- 02-audio = finales Voiceover\n- 03-szenen = Cover, V9-Bildprompts, Szenen und Nutzerbilder\n- 04-caption = universelle Caption und Wort-Timings\n- 05-projektdateien = Recherche, Timeline, Phase-3-Handoff\n- 06-export = fertiges Upload-Paket\n\n3 Phasen:\n1. Phase 1 erstellt Recherche, Skript, V9-Bildprompts und jede Animation als fertige animation.tsx.\n2. Nutzer erstellt Flow-Bilder, finales Audio und echte Wortzeiten.\n3. Der konfigurierte Executor integriert exakt diese Assets/Animationen und rendert nur über Preflight + QA.\n\nReel-Canvas: immer statisch #000000, keine Partikel/Aurora/Grid/Glow-Hintergründe.\nV5: Header Y154 / 56 px / max 2 Zeilen, Visual Y320–1400, Caption bottom340.\n`);
 write('01-script/script-fliess-text.txt', '[VOLLSTÄNDIGEN FLIESSTEXT EINFÜGEN]\n');
 write('02-audio/README.md', '# AUDIO HIER REIN\n\nHier genau eine finale Voiceover-Datei ablegen. Danach echte Wort-Zeitstempel erzeugen.\n');
-write('03-szenen/00-ALLE-BILDER-HIER-REIN/README.md', '# ALLE FERTIGEN BILDER HIER REIN\n\nGoogle Flow: genau ein Bild erzeugen → vollständig warten → exakt umbenennen → V9-Stil + Aussage + Labels + tiefschwarzen Hintergrund prüfen → erst dann nächstes Bild. Keine Bildreferenzen. Animationsszenen erhalten kein Bild.\n');
+write('03-szenen/00-ALLE-BILDER-HIER-REIN/README.md', '# ALLE FERTIGEN BILDER HIER REIN\n\nGoogle Flow: genau ein Bild erzeugen → vollständig warten → exakt umbenennen → V9-Bildwelt + Dateiname prüfen → erst dann nächstes Bild. Keine Bildreferenzen. Animationsszenen erhalten kein Bild.\n');
 write('03-szenen/00-cover/cover.txt', coverPrompt);
 write('03-szenen/bildwelt.txt', worldPrompt);
 write('03-szenen/README.md', '# SZENEN\n\nV5: große weiße Header aus natürlichem Text + passendem Linien-Icon. Standard 56 px, min. 50 px, max. 2 Zeilen. Keine Capsule/Chip/Pill, kein erzwungenes ALL CAPS. Header Y154, Visual Y320–1400, Caption bottom340. Bildszenen besitzen bildprompt.txt; Animationsszenen besitzen remotion.md UND eine in Phase 1 vollständig fertigzustellende animation.tsx.\n');
@@ -128,7 +160,7 @@ const scenes = types.map((type, index) => {
     headerTone:'default',
   };
 
-  write(`${dir}/szene.md`, `# ${id}\n\n**Typ:** ${type}\n**Zwischenüberschrift:** [EINFÜGEN — natürliche Aussage/Frage; weiß, 56 px, max. 2 Zeilen + einfaches Icon]\n**Icon:** [EINFÜGEN — inhaltlich passend]\n**Sprechtext:** [EINFÜGEN — nur Wörter dieser Szene]\n\n${type === 'image' ? `**Google-Flow-Dateiname:** ${sceneFileName(index)}\n**Erlaubte kurze Objektlabels:** [EINFÜGEN]\n` : `**Google Flow:** KEIN Bild ${number}; Nummer bleibt reserviert.\n**Animation:** Phase 1 liefert remotion.md + fertige animation.tsx.\n`}`);
+  write(`${dir}/szene.md`, `# ${id}\n\n**Typ:** ${type}\n**Zwischenüberschrift:** [EINFÜGEN — natürliche Aussage/Frage; weiß, 56 px, max. 2 Zeilen + einfaches Icon]\n**Icon:** [EINFÜGEN — inhaltlich passend]\n**Sprechtext:** [EINFÜGEN — nur Wörter dieser Szene]\n\n${type === 'image' ? `**Google-Flow-Dateiname:** ${sceneFileName(index)}\n` : `**Google Flow:** KEIN Bild ${number}; Nummer bleibt reserviert.\n**Animation:** Phase 1 liefert remotion.md + fertige animation.tsx.\n`}`);
 
   if (type === 'image') {
     write(`${dir}/bildprompt.txt`, imagePrompt(id, index));
@@ -136,7 +168,6 @@ const scenes = types.map((type, index) => {
       ...common,
       planFile:`EINZELNE-SZENEN/${id}/bildprompt.txt`,
       googleFlowFileName:sceneFileName(index),
-      objectLabels:['[EINFÜGEN]'],
       expectedVisual:'[EINFÜGEN]',
       imagePresentation:{scale:1.01,sourceCropTop:0,sourceCropBottom:0,cropSafe:true},
     };
