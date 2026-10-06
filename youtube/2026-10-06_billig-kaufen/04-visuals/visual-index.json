@@ -1,0 +1,340 @@
+{
+  "version": 4,
+  "title": "Warum billig kaufen teuer werden kann",
+  "format": "youtube-longform",
+  "shortsForbidden": true,
+  "fixedVisualCount": false,
+  "fixedImageAnimationRatio": false,
+  "video": {
+    "aspectRatio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "thumbnail": {
+    "type": "image",
+    "googleFlowFileName": "YouTube Thumbnail - Warum billig kaufen teuer werden kann.png",
+    "planFile": "04-visuals/01-BILDPROMPTS/thumbnail-prompt.txt",
+    "candidateCount": 3,
+    "concurrency": 3,
+    "temporaryCandidateNames": [
+      "YouTube Thumbnail A.png",
+      "YouTube Thumbnail B.png",
+      "YouTube Thumbnail C.png"
+    ],
+    "textRequired": true,
+    "textMaxLines": 2,
+    "textIdealWords": [
+      2,
+      5
+    ],
+    "mustUseSameV9World": true,
+    "mayBeStyleReference": false
+  },
+  "userCreatesImages": true,
+  "antigravityGeneratesImages": false,
+  "googleFlow": {
+    "protocolId": "finanzneo-flow-sequential-v1",
+    "executionModeId": "finanzneo-youtube-cover3-image5-parallel-v4",
+    "generationMode": "thumbnail3-parallel-then-image5-parallel-batches",
+    "strictSequential": false,
+    "thumbnailCandidateCount": 3,
+    "thumbnailConcurrency": 3,
+    "thumbnailSeparateJobsRequired": true,
+    "thumbnailSelectionRequired": true,
+    "selectedThumbnailMayBeStyleReference": false,
+    "imageBatchSize": 5,
+    "imageConcurrency": 5,
+    "separateOneImageJobsRequired": true,
+    "multiImageRequestForbidden": true,
+    "renameImmediatelyOnReturn": true,
+    "qaEachResult": true,
+    "nextBatchLockedUntilCurrentBatchPasses": true,
+    "retrySameImageOnFailure": true,
+    "userApprovalBetweenBatchesForbidden": true,
+    "finalInventoryQaRequired": true,
+    "finalCollectionDirectory": "04-visuals/00-ALLE-BILDER-HIER-REIN/",
+    "distributeToVisualFolders": false
+  },
+  "imageWorld": {
+    "id": "finanzneo-connected-studio-v3",
+    "seriesLockId": "finanzneo-same-world-v1",
+    "styleLockId": "finanzneo-youtube-animated-black-v3",
+    "generatedImageAspectRatio": "16:9",
+    "horizontalGeneratedImagesRequired": true,
+    "referencePromptFile": "04-visuals/01-BILDPROMPTS/bildwelt.txt",
+    "styleReferenceStrategy": "written-youtube-v9-lock-only",
+    "sameWorldAcrossSeriesRequired": true,
+    "formFree": true,
+    "frontReadableDefault": true,
+    "frontFacingChartsRequired": true,
+    "selectedThumbnailMayBeStyleReference": false,
+    "seamlessSingleBackgroundRequired": true,
+    "objectLabelsOnly": true,
+    "imageWorldFile": "config/finanzneo-image-worlds/finanzneo-youtube-animated-black-v3.txt",
+    "primaryApprovedStyleAnchor": "finanzneo-stylized-3d-animated-black-v9",
+    "approvedStyleReferences": "Reel \"Kurse schwanken\" (2026-09-20) + YouTube \"Notgroschen\" (2026-09-17)",
+    "visualDecisionPolicy": "meaning-first-free-visual-v2",
+    "meaningFirstRequired": true,
+    "sceneFirst": false,
+    "placeRequired": false,
+    "realSceneRequired": false,
+    "peopleRequired": false,
+    "semanticObjectCompositionsAllowed": true,
+    "visualMetaphorsAllowed": true,
+    "decisiveMomentRequired": false,
+    "flowVisualModes": [
+      "isolated-object",
+      "object-detail",
+      "hands-in-action",
+      "character-moment",
+      "everyday-scene",
+      "comparison-scene",
+      "semantic-object-composition",
+      "visual-metaphor",
+      "creative-idea",
+      "hybrid-scene-plate",
+      "object-story"
+    ],
+    "precisionGraphicsOwner": "remotion",
+    "flowInfographicLayoutsForbidden": true
+  },
+  "motionStandard": {
+    "id": "finanzneo-youtube-motion-v3",
+    "viewerChangeFirstRequired": true,
+    "contentFirstTechniqueSelection": true,
+    "openTechniqueSelection": true,
+    "compositionFamiliesAreExamplesOnly": true,
+    "motionSignatureRequired": true,
+    "recentMotionWindow": 4,
+    "customReactAllowed": true,
+    "svgAllowed": true,
+    "css3dAllowed": true,
+    "canvasAllowed": true,
+    "threeAllowed": true,
+    "hybridAllowed": true,
+    "dataVisualizationAllowed": true,
+    "existingComponentsOptional": true,
+    "physicalPrimitivesOptional": true,
+    "semanticVariationRequired": true
+  },
+  "timelineRules": {
+    "timingSource": "03-audio/word-timings.json",
+    "cutsFollowVoiceAndChapters": true,
+    "equalLengthVisualsForbiddenByDefault": true,
+    "beatFirst": true
+  },
+  "audio": {
+    "targetIntegratedLufs": -16,
+    "targetTruePeakDbtp": -1
+  },
+  "publishing": {
+    "youtube": {
+      "titleOptions": "05-publishing/title-options.txt",
+      "finalTitle": "05-publishing/final-title.txt",
+      "description": "05-publishing/description.txt",
+      "chapters": "05-publishing/chapters.txt",
+      "tagsKeywords": "05-publishing/tags-keywords.txt",
+      "hashtags": "05-publishing/hashtags.txt",
+      "thumbnailBrief": "05-publishing/thumbnail-brief.txt",
+      "pinnedComment": "05-publishing/pinned-comment.txt",
+      "communityPost": "05-publishing/community-post.txt",
+      "sourcesDisclaimer": "05-publishing/sources-disclaimer.txt",
+      "uploadChecklist": "05-publishing/upload-checklist.md"
+    },
+    "socialPromo": {
+      "instagram": "05-publishing/social-promo/instagram.txt",
+      "tiktok": "05-publishing/social-promo/tiktok.txt",
+      "facebook": "05-publishing/social-promo/facebook.txt",
+      "snapchat": "05-publishing/social-promo/snapchat.txt"
+    }
+  },
+  "visuals": [
+    {
+      "id": "visual-01",
+      "type": "image",
+      "chapter": "Hook",
+      "scriptBeat": "Zweimal 20 Euro kann teurer werden als einmal 35 Euro.",
+      "googleFlowFileName": "YouTube Bild 01 - Zweimal gekauft.png",
+      "expectedVisual": "Kaputtes Paar links, Ersatzpaar rechts.",
+      "objectLabels": [],
+      "planFile": "04-visuals/01-BILDPROMPTS/visual-01/bildprompt.txt"
+    },
+    {
+      "id": "visual-02",
+      "type": "data",
+      "chapter": "Beispielrechnung",
+      "scriptBeat": "20 + 20 = 40; Vergleich 35.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-02/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx",
+      "animationExport": "YouTubeVisual02Animation",
+      "viewerChange": "Zweiter 20-€-Kauf erhöht auf 40 €, danach 35 €.",
+      "animationIntent": "Ersatzkauf sichtbar.",
+      "mechanicId": "repeat-purchase-cost",
+      "visualTechniqueId": "two-purchases-vs-one",
+      "techniqueDescription": "Zwei Käufe plus Vergleich.",
+      "compositionFamilyId": "comparison-math",
+      "toolStack": [
+        "React",
+        "CSS",
+        "Remotion interpolate"
+      ],
+      "motionSignature": {
+        "camera": "statisch frontal",
+        "layout": "Zwei Spalten",
+        "transformation": "Käufe und Vergleich erscheinen"
+      },
+      "motionChannels": [
+        "Betrags-Reveal",
+        "Opacity"
+      ],
+      "visualBeats": [
+        "20",
+        "plus 20",
+        "40",
+        "35"
+      ],
+      "repeatTechniqueReason": "",
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-02/data-notes.md"
+    },
+    {
+      "id": "visual-03",
+      "type": "image",
+      "chapter": "Preis ist nicht alles",
+      "scriptBeat": "Preis allein sagt wenig.",
+      "googleFlowFileName": "YouTube Bild 03 - Preis ist nicht alles.png",
+      "expectedVisual": "Person prüft Reißverschluss und Naht.",
+      "objectLabels": [],
+      "planFile": "04-visuals/01-BILDPROMPTS/visual-03/bildprompt.txt"
+    },
+    {
+      "id": "visual-04",
+      "type": "animation",
+      "chapter": "Drei Fragen",
+      "scriptBeat": "Nutzung, Ersatzwahrscheinlichkeit und Reparierbarkeit.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-04/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-04/animation.tsx",
+      "animationExport": "YouTubeVisual04Animation",
+      "viewerChange": "Drei Fragen erscheinen.",
+      "animationIntent": "Kaufprüfschema.",
+      "mechanicId": "three-buying-questions",
+      "visualTechniqueId": "question-cards-reveal",
+      "techniqueDescription": "Drei Fragen sequenziell.",
+      "compositionFamilyId": "decision-framework",
+      "toolStack": [
+        "React",
+        "CSS",
+        "Remotion interpolate"
+      ],
+      "motionSignature": {
+        "camera": "statisch frontal",
+        "layout": "Vertikale Dreierliste",
+        "transformation": "Zeilen erscheinen"
+      },
+      "motionChannels": [
+        "Translation",
+        "Opacity"
+      ],
+      "visualBeats": [
+        "Nutzung",
+        "Ersatz",
+        "Reparatur"
+      ],
+      "repeatTechniqueReason": ""
+    },
+    {
+      "id": "visual-05",
+      "type": "image",
+      "chapter": "Nutzung",
+      "scriptBeat": "Selten und täglich genutzte Dinge unterschiedlich bewerten.",
+      "googleFlowFileName": "YouTube Bild 05 - Selten oder taeglich.png",
+      "expectedVisual": "Akkuschrauber vs. Alltagsrucksack.",
+      "objectLabels": [],
+      "planFile": "04-visuals/01-BILDPROMPTS/visual-05/bildprompt.txt"
+    },
+    {
+      "id": "visual-06",
+      "type": "data",
+      "chapter": "Kosten pro Nutzung",
+      "scriptBeat": "40/200=0,20; 20/50=0,40.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-06/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-06/animation.tsx",
+      "animationExport": "YouTubeVisual06Animation",
+      "viewerChange": "Zwei Rechnungen werden zu 0,20 € und 0,40 €.",
+      "animationIntent": "Kosten pro Nutzung exakt sichtbar.",
+      "mechanicId": "cost-per-use-example",
+      "visualTechniqueId": "fraction-to-unit-cost",
+      "techniqueDescription": "Zwei Rechenzeilen.",
+      "compositionFamilyId": "data-comparison",
+      "toolStack": [
+        "React",
+        "CSS",
+        "Remotion interpolate"
+      ],
+      "motionSignature": {
+        "camera": "statisch frontal",
+        "layout": "Zwei Rechenzeilen",
+        "transformation": "Ergebnisse erscheinen"
+      },
+      "motionChannels": [
+        "Opacity",
+        "Werte-Reveal"
+      ],
+      "visualBeats": [
+        "40/200",
+        "0,20",
+        "20/50",
+        "0,40"
+      ],
+      "repeatTechniqueReason": "",
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-06/data-notes.md"
+    },
+    {
+      "id": "visual-07",
+      "type": "image",
+      "chapter": "Reparierbarkeit",
+      "scriptBeat": "Reparierbarkeit kann die Nutzungsdauer beeinflussen.",
+      "googleFlowFileName": "YouTube Bild 07 - Reparierbar.png",
+      "expectedVisual": "Austauschbares Ohrpolster.",
+      "objectLabels": [],
+      "planFile": "04-visuals/01-BILDPROMPTS/visual-07/bildprompt.txt"
+    },
+    {
+      "id": "visual-08",
+      "type": "animation",
+      "chapter": "Merksatz",
+      "scriptBeat": "Kaufpreis ist nur der Anfang.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-08/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-08/animation.tsx",
+      "animationExport": "YouTubeVisual08Animation",
+      "viewerChange": "Kaufpreis wird kleiner, drei Faktoren kommen hinzu.",
+      "animationIntent": "Gesamtmodell.",
+      "mechanicId": "true-cost-takeaway",
+      "visualTechniqueId": "purchase-price-expands",
+      "techniqueDescription": "Kaufpreis plus drei Faktoren.",
+      "compositionFamilyId": "summary",
+      "toolStack": [
+        "React",
+        "CSS",
+        "Remotion interpolate"
+      ],
+      "motionSignature": {
+        "camera": "statisch frontal",
+        "layout": "Zentrum plus Dreierreihe",
+        "transformation": "Scale + Reveals"
+      },
+      "motionChannels": [
+        "Scale/Position",
+        "Opacity"
+      ],
+      "visualBeats": [
+        "Kaufpreis",
+        "Nutzung",
+        "Haltbarkeit",
+        "Reparierbarkeit",
+        "Payoff"
+      ],
+      "repeatTechniqueReason": ""
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+STYLE_AUTHORITY: finanzneo-youtube-animated-black-v3
+FLOW_IMAGE_POLICY: meaning-first-free-visual-v2
+BEDEUTUNG ZUERST — FORM FREI
+PRECISION_GRAPHICS_OWNER: REMOTION
+
+Zuerst den Gedanken verstehen, danach die stärkste Bildform wählen. Kein scene-first, people-first oder object-first. Menschen, Orte und komplette Szenen sind optional. Isolierte Objekte, Details, Handlungen, Vergleiche, semantische Objektanordnungen und klare visuelle Metaphern sind gleichberechtigt. Frei angeordnete Objekte müssen eine Beziehung erklären. Keine dekorativen Spiralen, Trails oder Objektwolken. Kein Tisch, Raum oder Mensch als Lückenfüller.
+
+NATÜRLICH — KEIN KI-LOOK
+Stilisierter 3D-Animationsfilm-Look, tiefes Schwarz, glaubwürdige Materialien, weiches natürliches Licht. Kein Neon, keine Glas-/Leuchtbalken, kein Rauch, keine Funken, keine Geldberge, keine generischen Finanzsymbole. Exakte Charts, Zahlen, Tabellen, Listen und UI gehören zu Remotion.

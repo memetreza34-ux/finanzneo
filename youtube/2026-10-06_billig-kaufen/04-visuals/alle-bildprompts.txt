@@ -1,0 +1,42 @@
+GOOGLE FLOW MASTER PROMPT — FINANZNEO
+VIDEO: Warum billig kaufen teuer werden kann
+
+DIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG.
+Nicht erklären oder zusammenfassen. Bildjobs tatsächlich starten.
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
+FLOW_IMAGE_POLICY: meaning-first-free-visual-v2
+STYLE_AUTHORITY: finanzneo-youtube-animated-black-v3
+APPROVED_STYLE_REFERENCES: Reel "Kurse schwanken" (2026-09-20) + YouTube "Notgroschen" (2026-09-17)
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+PRECISION_GRAPHICS_OWNER: REMOTION
+
+BEDEUTUNG ZUERST — FORM FREI
+Kein scene-first. Kein Menschen- oder Ortszwang. Semantische Objektanordnungen sind erlaubt, wenn jede Position etwas erklärt. Keine dekorativen Spiralen, Trails oder Objektwolken.
+ENTSCHEIDENDER MOMENT nur wenn die Handlung selbst die Aussage trägt.
+NATÜRLICH — KEIN KI-LOOK.
+
+PHASE 0 — EIN GOOGLE-FLOW-ORDNER PRO VIDEO
+Genau ein Flow-Projekt: FinanzNeo – Warum billig kaufen teuer werden kann.
+Alle Outputs horizontal 16:9.
+
+PHASE A — 3 THUMBNAILS PARALLEL
+A/B/C als drei getrennte one-image jobs gleichzeitig starten. Danach einmal A/B/C wählen lassen.
+NICHT GEWÄHLTE COVER LÖSCHEN. Gewinner: YouTube Thumbnail - Warum billig kaufen teuer werden kann.png
+Thumbnail niemals als Stilreferenz verwenden.
+
+Stylized 3D animated feature film still, 16:9. A broken pair of headphones and a brand-new replacement pair form a clear left-to-right comparison, with two small receipts below the broken-and-replaced path. Big clean white headline on the left: "BILLIG = TEUER?". Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. A surprised young adult holds broken headphones in one hand and a newly boxed replacement in the other, clearly realizing the repeat purchase. Big clean white headline on the left: "ZWEIMAL KAUFEN?". Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. One intact durable backpack stands on the right while two worn-out cheaper backpacks sit on the left as a clear durability comparison. Big clean white headline on the left: "WAS IST GÜNSTIGER?". Soft natural light, deep black background. Not photorealistic, no logos.
+
+PHASE B — NUR VISUAL 01, 03, 05, 07
+Vier getrennte one-image jobs parallel. Sofort umbenennen und QA prüfen. Bei FAIL nur dieselbe Nummer neu erzeugen.
+Stylized 3D animated feature film still, 16:9. A broken pair of inexpensive over-ear headphones on the left and an identical new replacement pair on the right, with one small purchase receipt beneath each pair. Clear cause-and-replacement relationship, no room or table required. No text. Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. A young adult in a shop compares two unbranded backpacks, closely checking the zipper and stitching of one while the other hangs from the opposite hand. Medium shot, simple retail setting fading into black. No text. Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. On the left, a nearly unused cordless drill rests inside its storage case; on the right, a well-used everyday backpack shows softened fabric and worn handles but remains intact. Clear side-by-side usage-frequency comparison, no people. No text. Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. Close-up of over-ear headphones with one ear pad removed, the replacement pad aligned beside the exposed attachment ring and a small screwdriver nearby. Tight technical object detail, no person or room needed. No text. Soft natural light, deep black background. Not photorealistic, no logos.
+
+FERTIGER FLOW-ORDNER
+Genau das gewählte Thumbnail plus die vier Szenenbilder, jedes genau einmal. Keine Fehlversuche, Duplikate oder abgelehnten Cover behalten.
+Finale Bilder nach: 04-visuals/00-ALLE-BILDER-HIER-REIN/

@@ -1,0 +1,58 @@
+{
+  "version": 2,
+  "title": "Warum billig kaufen teuer werden kann",
+  "fps": 30,
+  "timingSource": "03-audio/word-timings.json",
+  "cutRule": "voice-beat-and-chapter-driven",
+  "fixedVisualCount": false,
+  "visuals": [
+    {
+      "id": "visual-01",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-02",
+      "type": "data",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-03",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-04",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-05",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-06",
+      "type": "data",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-07",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-08",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    }
+  ]
+}
