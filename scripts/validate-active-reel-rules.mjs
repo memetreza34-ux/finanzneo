@@ -20,7 +20,6 @@ const ACTIVE_RULE_FILES = [
   'docs/PHASE-3-COMPLETION-GATE.md',
   'docs/PLATFORM-PUBLISHING.md',
   'docs/SCENE-INDEX-SCHEMA.md',
-  'docs/FUTURE-IMAGE-STORYTELLING-V3.md',
   '.agents/rules/finanzneo-reel-safety.md',
   '.agents/skills/finanzneo-reel/SKILL.md',
   '.agents/workflows/build-finanzneo-reel.md',
@@ -33,8 +32,6 @@ const ACTIVE_RULE_FILES = [
   'scripts/validate-reel-layout-v5.mjs',
   'scripts/apply-stylized-animated-black-world-v9.mjs',
   'scripts/validate-global-image-world.mjs',
-  'scripts/apply-future-image-storytelling-v3.mjs',
-  'scripts/validate-future-image-storytelling-v3.mjs',
   'scripts/validate-animation-source-quality.mjs',
 ];
 
