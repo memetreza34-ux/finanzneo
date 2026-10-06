@@ -1,6 +1,6 @@
 # FinanzNeo — YouTube-Longform-Produktionsstandard V5
 
-> Aktiver Standard für neue FinanzNeo-YouTube-Videos. Bei YouTube-Konflikten hat dieser Standard zusammen mit `youtube/LAYOUTSTANDARD.md` Vorrang vor älteren Reel-/Caption-/Flow-Regeln in `CLAUDE.md`. Neue Reels sind pausiert; YouTube Shorts sind verboten.
+> Aktiver Standard für neue FinanzNeo-YouTube-Videos. Bei YouTube-Konflikten hat dieser Standard zusammen mit `youtube/LAYOUTSTANDARD.md` und `youtube/VISUALCLARITY.md` Vorrang vor älteren Reel-/Caption-/Flow-Regeln in `CLAUDE.md`. Neue Reels sind pausiert; YouTube Shorts sind verboten.
 
 ## Format
 
@@ -13,7 +13,11 @@
 
 ## Grundprinzip
 
-`LOOK FEST — INHALT FREI — BEDEUTUNG ZUERST — WERKZEUG PASSEND`
+`LOOK FEST — INHALT FREI — BEDEUTUNG ZUERST — KLARHEIT VOR FORM — WERKZEUG PASSEND`
+
+Zusätzliche verbindliche Autorität: `youtube/VISUALCLARITY.md`.
+
+Die kanonische Bildwelt wird dadurch **nicht verändert**. Visual Clarity entscheidet nur über Aussage, Bildform, Informationshierarchie und Motion.
 
 Für jeden gesprochenen Beat wird zuerst geklärt:
 
@@ -356,6 +360,22 @@ Danach alles nach:
 # 8. Motion V3
 
 `MOTION_STANDARD: finanzneo-youtube-motion-v3`
+
+Zusätzlich gilt `VISUAL_CLARITY_STANDARD_ID: finanzneo-youtube-clarity-v1`.
+
+Jede Motion-Szene plant vor der Technik:
+
+- `coreMessage`
+- `visualForm`
+- `twoSecondTakeaway`
+- `whyThisForm`
+- `essentialElements`
+- `clarityPlan.start`
+- `clarityPlan.change`
+- `clarityPlan.result`
+- `clarityPlan.resultHoldFrames >= 30`
+
+Die Animation muss START → eine primäre Veränderung → RESULT klar lesbar machen. Das Resultat bleibt stabil stehen. Mehrere neue Informationen gleichzeitig sind zu vermeiden, wenn sie nicht zwingend zusammengehören.
 
 - mindestens zwei echte Motion-Visuals
 - keine starre Bild-/Animationsquote
