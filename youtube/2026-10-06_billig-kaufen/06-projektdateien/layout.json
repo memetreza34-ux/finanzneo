@@ -14,7 +14,8 @@
     "bottom": 78,
     "headerHeight": 112,
     "gap": 26,
-    "borderRadius": 30
+    "borderRadius": 30,
+    "imageObjectFit": "contain"
   },
   "sectionHeader": {
     "required": true,
@@ -82,5 +83,6 @@
       "title": "Was wirklich zählt",
       "icon": "target"
     }
-  ]
+  ],
+  "thumbnailTimelineForbidden": true
 }
