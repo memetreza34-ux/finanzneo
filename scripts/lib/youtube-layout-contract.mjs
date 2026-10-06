@@ -5,3 +5,6 @@ export const YOUTUBE_SECTION_HEADER_REQUIRED = true;
 export const YOUTUBE_SECTION_ICON_REQUIRED = true;
 export const YOUTUBE_BURNED_CAPTIONS_FORBIDDEN = true;
 export const YOUTUBE_STAGE_COMPONENT = 'YouTubeSectionFrame';
+export const YOUTUBE_IMAGE_COMPONENT = 'YouTubeFramedImage';
+export const YOUTUBE_RENDER_CONTRACT_FILE = '06-projektdateien/render-contract.json';
+export const YOUTUBE_THUMBNAIL_TIMELINE_FORBIDDEN = true;
