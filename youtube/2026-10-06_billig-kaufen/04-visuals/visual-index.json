@@ -29,7 +29,8 @@
       5
     ],
     "mustUseSameV9World": true,
-    "mayBeStyleReference": false
+    "mayBeStyleReference": false,
+    "timelineEligible": false
   },
   "userCreatesImages": true,
   "antigravityGeneratesImages": false,
@@ -156,9 +157,15 @@
       "chapter": "Hook",
       "scriptBeat": "Zweimal 20 Euro kann teurer werden als einmal 35 Euro.",
       "googleFlowFileName": "YouTube Bild 01 - Zweimal gekauft.png",
-      "expectedVisual": "Kaputtes Paar links, Ersatzpaar rechts.",
+      "expectedVisual": "Ein sichtbar gebrochenes Kopfhörerpaar im Vordergrund, dahinter eine schlichte neue Ersatzverpackung; zwei Belege bilden klar die Folge erster Kauf → Ersatzkauf. Keine symmetrisch schwebenden Doppel-Kopfhörer.",
       "objectLabels": [],
-      "planFile": "04-visuals/01-BILDPROMPTS/visual-01/bildprompt.txt"
+      "planFile": "04-visuals/01-BILDPROMPTS/visual-01/bildprompt.txt",
+      "headerTitle": "Wenn billig zweimal kostet",
+      "headerIcon": "repeat",
+      "fullScreen": false,
+      "renderComponent": "YouTubeFramedImage",
+      "objectFit": "contain",
+      "thumbnailEligible": false
     },
     {
       "id": "visual-02",
@@ -195,7 +202,11 @@
         "35"
       ],
       "repeatTechniqueReason": "",
-      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-02/data-notes.md"
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-02/data-notes.md",
+      "headerTitle": "20 + 20 gegen 35",
+      "headerIcon": "calculator",
+      "fullScreen": false,
+      "renderComponent": "YouTubeSectionFrame"
     },
     {
       "id": "visual-03",
@@ -205,7 +216,13 @@
       "googleFlowFileName": "YouTube Bild 03 - Preis ist nicht alles.png",
       "expectedVisual": "Person prüft Reißverschluss und Naht.",
       "objectLabels": [],
-      "planFile": "04-visuals/01-BILDPROMPTS/visual-03/bildprompt.txt"
+      "planFile": "04-visuals/01-BILDPROMPTS/visual-03/bildprompt.txt",
+      "headerTitle": "Preis ist nur ein Teil",
+      "headerIcon": "tag",
+      "fullScreen": false,
+      "renderComponent": "YouTubeFramedImage",
+      "objectFit": "contain",
+      "thumbnailEligible": false
     },
     {
       "id": "visual-04",
@@ -240,7 +257,11 @@
         "Ersatz",
         "Reparatur"
       ],
-      "repeatTechniqueReason": ""
+      "repeatTechniqueReason": "",
+      "headerTitle": "Drei Fragen vor dem Kauf",
+      "headerIcon": "list",
+      "fullScreen": false,
+      "renderComponent": "YouTubeSectionFrame"
     },
     {
       "id": "visual-05",
@@ -248,9 +269,15 @@
       "chapter": "Nutzung",
       "scriptBeat": "Selten und täglich genutzte Dinge unterschiedlich bewerten.",
       "googleFlowFileName": "YouTube Bild 05 - Selten oder taeglich.png",
-      "expectedVisual": "Akkuschrauber vs. Alltagsrucksack.",
+      "expectedVisual": "Gleiche Produktfamilie statt zufälliger Gegenstände: fast unbenutzte Wanderschuhe links, deutlich häufiger getragene Alltagssneaker rechts; Nutzungshäufigkeit über Zustand sofort verständlich.",
       "objectLabels": [],
-      "planFile": "04-visuals/01-BILDPROMPTS/visual-05/bildprompt.txt"
+      "planFile": "04-visuals/01-BILDPROMPTS/visual-05/bildprompt.txt",
+      "headerTitle": "Selten oder jeden Tag?",
+      "headerIcon": "calendar",
+      "fullScreen": false,
+      "renderComponent": "YouTubeFramedImage",
+      "objectFit": "contain",
+      "thumbnailEligible": false
     },
     {
       "id": "visual-06",
@@ -287,7 +314,11 @@
         "0,40"
       ],
       "repeatTechniqueReason": "",
-      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-06/data-notes.md"
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-06/data-notes.md",
+      "headerTitle": "Kosten pro Nutzung",
+      "headerIcon": "calculator",
+      "fullScreen": false,
+      "renderComponent": "YouTubeSectionFrame"
     },
     {
       "id": "visual-07",
@@ -295,9 +326,15 @@
       "chapter": "Reparierbarkeit",
       "scriptBeat": "Reparierbarkeit kann die Nutzungsdauer beeinflussen.",
       "googleFlowFileName": "YouTube Bild 07 - Reparierbar.png",
-      "expectedVisual": "Austauschbares Ohrpolster.",
+      "expectedVisual": "Technischer Close-up eines Kopfhörers mit abgenommenem Ohrpolster und exakt passendem Ersatzpolster; kein Tisch, kein Werkzeug-Dekor.",
       "objectLabels": [],
-      "planFile": "04-visuals/01-BILDPROMPTS/visual-07/bildprompt.txt"
+      "planFile": "04-visuals/01-BILDPROMPTS/visual-07/bildprompt.txt",
+      "headerTitle": "Kann ich es reparieren?",
+      "headerIcon": "tool",
+      "fullScreen": false,
+      "renderComponent": "YouTubeFramedImage",
+      "objectFit": "contain",
+      "thumbnailEligible": false
     },
     {
       "id": "visual-08",
@@ -334,7 +371,11 @@
         "Reparierbarkeit",
         "Payoff"
       ],
-      "repeatTechniqueReason": ""
+      "repeatTechniqueReason": "",
+      "headerTitle": "Was wirklich zählt",
+      "headerIcon": "target",
+      "fullScreen": false,
+      "renderComponent": "YouTubeSectionFrame"
     }
   ]
 }
