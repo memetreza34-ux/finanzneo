@@ -23,13 +23,13 @@ Bildwelt V9:
 finanzneo-stylized-3d-animated-black-v9
 ```
 
-- nicht realistische stylized 3D animated Welt
-- soft rounded shapes, vereinfachte erkennbare Details
-- premium + leicht verspielt
-- tiefschwarzer Hintergrund Pflicht
-- Klarheit/Inhalt vor Objektzahl; keine feste Quote
-- mittel-lange Prompts
-- Marken/Logos erkennbar, aber stilisiert; kein flach aufgeklebtes Real-Logo/Screenshot
+- premium stylized 3D
+- klar nicht fotorealistisch
+- weiche / vereinfachte erkennbare Formen
+- tiefer schwarzer Hintergrund
+- FinanzNeo-Farb- und Lichtsystem
+- keine zusätzliche globale Bildprompt-Formel; siehe `docs/IMAGE-PROMPT-BASELINE.md`
+
 
 ## Phase 2 — Nutzer
 
