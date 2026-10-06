@@ -102,7 +102,7 @@ TEXT:
 Do not add a generic headline automatically. Any text must be explicitly requested by the scene-specific prompt.
 `;
 
-const flowInstruction = (fileName) => `${FLOW_AGENT_PROTOCOL_MARKER}\nAKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN\n\nGOOGLE FLOW – FINALER DATEINAME:\n${fileName}\n\nErzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es SOFORT exakt wie oben um und prüfe Motiv + erlaubte Labels + V9-Stil + tiefschwarzen Hintergrund + Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich DIESELBE Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten. Der Dateiname darf nicht sichtbar im Bild erscheinen.\n`;
+const flowInstruction = (fileName) => `${FLOW_AGENT_PROTOCOL_MARKER}\nAKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN\n\nGOOGLE FLOW – FINALER DATEINAME:\n${fileName}\n\nErzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es SOFORT exakt wie oben um und prüfe V9-Bildwelt + Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich DIESELBE Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten. Der Dateiname darf nicht sichtbar im Bild erscheinen.\n`;
 
 const imagePrompt = (id, index) => `${flowInstruction(sceneFileName(index))}
 
@@ -231,37 +231,16 @@ write('03-szenen/scene-index.json', `${JSON.stringify({
     referenceImageUse:'forbidden',
     style:'stylized-3d-animated-black-v9',
     sameWorldAcrossSeriesRequired:true,
-    supportingObjectCountFlexible:true,
-    supportingObjectsOnlyWhenHelpful:true,
-    clarityBeforeObjectCount:true,
-    contentFirstCompositionRequired:true,
     nonPhotorealisticRequired:true,
     stylized3DAnimatedRequired:true,
     softRoundedGeometryRequired:true,
     simplifiedDetailsRequired:true,
     premiumPlayfulBalanceRequired:true,
-    clearMainSubjectOrActionRequired:true,
     deepBlackBackgroundRequired:true,
     cleanMinimalBackgroundRequired:true,
     subjectSeparationLightingRequired:true,
     softContactShadowsRequired:true,
-    brandMarksRecognizableButStylizedRequired:true,
-    flatPastedRealLogoForbidden:true,
-    screenshotLikeBrandUiForbidden:true,
-    objectLabelsOnly:true,
     headlinesInGeneratedImagesForbidden:true,
-    subtitlesInGeneratedImagesForbidden:true,
-    sentencesInGeneratedImagesForbidden:true,
-    dashboardCompositionForbidden:true,
-    appUiCompositionForbidden:true,
-    flowchartMainCompositionForbidden:true,
-    smallBoxesThinLinesForbidden:true,
-    floatingUiTilesForbidden:true,
-    microchipVisualLanguageForbidden:true,
-    miniatureDioramaForbidden:true,
-    photorealismForbidden:true,
-    productPhotoLookForbidden:true,
-    clutterForbidden:true,
   },
   platformPublishing:{directory:CAPTION_DIRECTORY,...PLATFORM_PUBLISHING_FILES},
   timelineRules:{timingSource:'04-caption/word-timings.json',cutsFollowSentenceStarts:true,cutsFollowSentenceStartsAndMeaningfulPhraseStarts:true,equalLengthScenesForbiddenByDefault:true},
@@ -276,7 +255,7 @@ write('03-szenen/scene-index.json', `${JSON.stringify({
 
 console.log(`✓ Reel-Gerüst erstellt: ${root}`);
 console.log(`  ${imageSceneIds.length} Bildszenen · ${animationSceneIds.length} Remotion-Szenen`);
-console.log(`  Bildwelt: ${ANIMATED_WORLD_LOCK_ID} · 1:1 · deep black · keine feste Objektanzahl · Marken erkennbar aber stilisiert`);
+console.log(`  Bildwelt: ${ANIMATED_WORLD_LOCK_ID} · 1:1 · deep black · kreative Promptregeln zurückgesetzt`);
 console.log(`  Reel-Hintergrund: ${REEL_BACKGROUND_CONTRACT} · statisch #000000 · keine Partikel/Aurora/Grid/Glow-Effekte`);
 console.log('  Reel V5: Header Y154 · 56 px · max 2 Zeilen · Visual Y320–1400 · Caption bottom340');
 console.log('  Animation Safe Zone: hart Y320–1400 · kein Eindringen in Header/Caption');
