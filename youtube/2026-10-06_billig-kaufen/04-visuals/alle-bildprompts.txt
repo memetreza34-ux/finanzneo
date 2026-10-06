@@ -24,7 +24,7 @@ Alle Outputs horizontal 16:9.
 PHASE A — 3 THUMBNAILS PARALLEL
 A/B/C als drei getrennte one-image jobs gleichzeitig starten. Danach einmal A/B/C wählen lassen.
 NICHT GEWÄHLTE COVER LÖSCHEN. Gewinner: YouTube Thumbnail - Warum billig kaufen teuer werden kann.png
-Thumbnail niemals als Stilreferenz verwenden.
+Thumbnail niemals als Stilreferenz verwenden. THUMBNAIL IST NICHT TIMELINE-ELIGIBLE: kein Cover, kein A/B/C-Kandidat und keine Datei mit Präfix "YouTube Thumbnail" darf jemals als Szenenbild im Video verwendet werden.
 
 Stylized 3D animated feature film still, 16:9. A broken pair of headphones and a brand-new replacement pair form a clear left-to-right comparison, with two small receipts below the broken-and-replaced path. Big clean white headline on the left: "BILLIG = TEUER?". Soft natural light, deep black background. Not photorealistic, no logos.
 Stylized 3D animated feature film still, 16:9. A surprised young adult holds broken headphones in one hand and a newly boxed replacement in the other, clearly realizing the repeat purchase. Big clean white headline on the left: "ZWEIMAL KAUFEN?". Soft natural light, deep black background. Not photorealistic, no logos.
@@ -32,10 +32,10 @@ Stylized 3D animated feature film still, 16:9. One intact durable backpack stand
 
 PHASE B — NUR VISUAL 01, 03, 05, 07
 Vier getrennte one-image jobs parallel. Sofort umbenennen und QA prüfen. Bei FAIL nur dieselbe Nummer neu erzeugen.
-Stylized 3D animated feature film still, 16:9. A broken pair of inexpensive over-ear headphones on the left and an identical new replacement pair on the right, with one small purchase receipt beneath each pair. Clear cause-and-replacement relationship, no room or table required. No text. Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. A visibly broken pair of over-ear headphones dominates the foreground, one earcup hanging loose from the headband. Behind it sits a plain unopened replacement box, with two small receipts arranged below from first purchase to replacement purchase. Clear cause-and-effect, no table or room. No text. Soft natural light, deep black background. Not photorealistic, no logos.
 Stylized 3D animated feature film still, 16:9. A young adult in a shop compares two unbranded backpacks, closely checking the zipper and stitching of one while the other hangs from the opposite hand. Medium shot, simple retail setting fading into black. No text. Soft natural light, deep black background. Not photorealistic, no logos.
-Stylized 3D animated feature film still, 16:9. On the left, a nearly unused cordless drill rests inside its storage case; on the right, a well-used everyday backpack shows softened fabric and worn handles but remains intact. Clear side-by-side usage-frequency comparison, no people. No text. Soft natural light, deep black background. Not photorealistic, no logos.
-Stylized 3D animated feature film still, 16:9. Close-up of over-ear headphones with one ear pad removed, the replacement pad aligned beside the exposed attachment ring and a small screwdriver nearby. Tight technical object detail, no person or room needed. No text. Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. A clean side-by-side comparison from the same product family: nearly unused hiking shoes on the left and everyday sneakers on the right with clearly visible but believable wear from frequent use. The contrast communicates occasional versus daily use without extra props or people. No text. Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. Tight close-up of one over-ear headphone earcup with its worn ear pad removed, and a clean replacement ear pad aligned exactly beside the attachment ring to show that the part can be replaced. No tools, no table, no room, no text. Soft natural light, deep black background. Not photorealistic, no logos.
 
 FERTIGER FLOW-ORDNER
 Genau das gewählte Thumbnail plus die vier Szenenbilder, jedes genau einmal. Keine Fehlversuche, Duplikate oder abgelehnten Cover behalten.

@@ -55,3 +55,16 @@ npm run youtube:validate -- youtube/<Projekt>
 Der Wrapper prüft Basisvertrag, Layoutvertrag und Meaning-first-Visualvertrag mit demselben Projektpfad.
 
 Verbindlich: [Produktionsstandard V5](PRODUKTIONSSTANDARD.md), [Layoutstandard V2](LAYOUTSTANDARD.md), [YouTube Motion V3](../docs/YOUTUBE-MOTION-V3.md). Bei widersprüchlichen älteren YouTube-/Reel-Regeln haben die beiden YouTube-Standards Vorrang.
+
+
+## Phase-3 Render-Contract
+
+Jedes neue Projekt braucht neben `layout.json` auch `06-projektdateien/render-contract.json`.
+
+- IMAGE → `YouTubeFramedImage`, `objectFit=contain`, niemals Vollbild
+- MOTION/DATA → `YouTubeSectionFrame`
+- Header + Icon für jeden Beat
+- Thumbnail/Cover niemals in der Timeline
+- Szenenbilder ausschließlich über ihren exakten `googleFlowFileName`
+
+`youtube:validate` prüft diese Render-Routen jetzt ausdrücklich.

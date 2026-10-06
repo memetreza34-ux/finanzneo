@@ -81,7 +81,7 @@ export const YouTubeFramedImage: React.FC<{
   icon: IconName;
   src: string;
   objectFit?: 'cover' | 'contain';
-}> = ({title, icon, src, objectFit = 'cover'}) => (
+}> = ({title, icon, src, objectFit = 'contain'}) => (
   <YouTubeSectionFrame title={title} icon={icon}>
     <Img
       src={src}

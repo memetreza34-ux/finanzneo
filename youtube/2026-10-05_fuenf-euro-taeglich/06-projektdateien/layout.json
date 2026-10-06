@@ -14,7 +14,8 @@
     "bottom": 78,
     "headerHeight": 112,
     "gap": 26,
-    "borderRadius": 30
+    "borderRadius": 30,
+    "imageObjectFit": "contain"
   },
   "sectionHeader": {
     "required": true,
@@ -46,13 +47,46 @@
     "decorativeFloatingObjectsForbidden": true
   },
   "visuals": [
-    {"id": "visual-01", "title": "Der kleine Kauf", "icon": "receipt"},
-    {"id": "visual-02", "title": "Was 5 € in einer Woche machen", "icon": "calendar"},
-    {"id": "visual-03", "title": "Der 30-Tage-Effekt", "icon": "calendar"},
-    {"id": "visual-04", "title": "Was daraus in einem Jahr wird", "icon": "clock"},
-    {"id": "visual-05", "title": "Warum 5 € so klein wirken", "icon": "repeat"},
-    {"id": "visual-06", "title": "Andere Ausgabe, gleiche Gewohnheit", "icon": "wallet"},
-    {"id": "visual-07", "title": "Der 7-Tage-Test", "icon": "list"},
-    {"id": "visual-08", "title": "Mach kleine Ausgaben sichtbar", "icon": "target"}
-  ]
+    {
+      "id": "visual-01",
+      "title": "Der kleine Kauf",
+      "icon": "receipt"
+    },
+    {
+      "id": "visual-02",
+      "title": "Was 5 € in einer Woche machen",
+      "icon": "calendar"
+    },
+    {
+      "id": "visual-03",
+      "title": "Der 30-Tage-Effekt",
+      "icon": "calendar"
+    },
+    {
+      "id": "visual-04",
+      "title": "Was daraus in einem Jahr wird",
+      "icon": "clock"
+    },
+    {
+      "id": "visual-05",
+      "title": "Warum 5 € so klein wirken",
+      "icon": "repeat"
+    },
+    {
+      "id": "visual-06",
+      "title": "Andere Ausgabe, gleiche Gewohnheit",
+      "icon": "wallet"
+    },
+    {
+      "id": "visual-07",
+      "title": "Der 7-Tage-Test",
+      "icon": "list"
+    },
+    {
+      "id": "visual-08",
+      "title": "Mach kleine Ausgaben sichtbar",
+      "icon": "target"
+    }
+  ],
+  "thumbnailTimelineForbidden": true
 }
