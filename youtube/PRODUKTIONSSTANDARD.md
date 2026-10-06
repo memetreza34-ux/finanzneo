@@ -131,39 +131,27 @@ Kanonische YouTube-Bildwelt:
 config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt
 ```
 
-Sie übernimmt die bestehende FinanzNeo-Grundwelt:
+Sie übernimmt ausschließlich die FinanzNeo-Rendering-Sprache für 16:9:
 
-- `finanzneo-connected-studio-v3`
-- `finanzneo-same-world-v1`
-- stilistische Herkunft: `finanzneo-stylized-3d-animated-black-v9`
-- YouTube-Quellbilder horizontal 16:9
+- premium stylized 3D
+- klar nicht fotorealistisch
+- tiefe schwarze Welt
+- FinanzNeo-Farbrollen
+- sauberes weiches Studio-Licht
+- konsistente Materialwirkung
 
-Der freigegebene Stilanker ist die **Waschmaschinen-/Reparatur-/Notgroschen-Szene**. Übernommen werden ausschließlich ihre visuellen Qualitäten: realitätsnahe Alltagssituation, klar stilisiertes Premium-3D, semi-realistische Materialien, große lesbare Objekte, tiefe schwarze Welt mit wenig glaubwürdigem Umgebungskontext, sichtbare Ursache/Wirkung, kontrolliertes Grün/Rot und sauberes Studio-Licht.
+Die frühere globale YouTube-Bildprompt-Formel ist entfernt. Keine Literal-first-, Ursache/Wirkung-, Kontextanker-, Objektzahl-, Label- oder Promptlängen-Regel wird automatisch erzwungen.
 
-Die konkreten Motive des Referenzbildes sind **keine Vorlage**. Waschmaschine, grüner Ordner, Münzen oder Geldfluss dürfen nicht automatisch in andere Themen kopiert werden. Ebenso sind Ordner, Münzstapel, Sparschwein, Pflanzen, Pfeile oder leuchtende Geldpfade keine wiederkehrenden FinanzNeo-YouTube-Pflichtmotive. Jede Szene wird aus dem tatsächlichen Sprechpunkt neu entwickelt.
+Bildprompts bleiben Englisch. Eine generische Überschrift wird nicht automatisch in das KI-Bild gesetzt; Text ist nur erlaubt, wenn die konkrete Szene ihn ausdrücklich vorsieht.
 
-Für neue YouTube-Bilder gilt **Literal first, creative second**:
-
-- konkrete reale Situation zuerst
-- klarer Finanz-/Alltagskontext
-- sichtbarer Bezug zum Voiceover
-- Ursache und Wirkung möglichst im selben Bild verständlich
-- Metapher nur, wenn sie wirklich klarer ist
-- kein generisches Finanzsymbolbild als Default
-- keine flache Infografik oder Präsentationsfolie als Standardbild
-- wichtige Objekte groß und auch im YouTube-Playback sofort lesbar
-- lokaler Umgebungskontext nur, wenn er die Situation glaubwürdiger oder klarer macht; er löst sich in die schwarze FinanzNeo-Welt auf
-- das Standbild muss bereits funktionieren, bevor Remotion-Bewegung hinzukommt
-
-Bildprompts immer Englisch; nur ausdrücklich gewünschte kurze Objektlabels im Bild sind Deutsch. Keine Headline, Untertitel oder erklärenden Sätze im KI-Bild.
-
-Einzige Übergabe an Google Flow:
+Einzige Übergabe an Google Flow bleibt:
 
 ```text
 04-visuals/alle-bildprompts.txt
 ```
 
-Jedes Bild wird einzeln erzeugt, vollständig abgewartet, sofort exakt umbenannt und geprüft. Erst danach folgt das nächste Bild. Alle fertigen Dateien liegen gemeinsam in `04-visuals/00-ALLE-BILDER-HIER-REIN/`.
+Jedes Bild wird einzeln erzeugt, vollständig abgewartet und exakt umbenannt.
+
 
 ## Audio, Timing und Untertitel
 
