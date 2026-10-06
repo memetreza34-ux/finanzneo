@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "standardId": "finanzneo-youtube-framed-v1",
+  "fullScreenVisualsForbidden": true,
+  "thumbnail": {
+    "sourceFile": "YouTube Thumbnail - Warum billig kaufen teuer werden kann.png",
+    "timelineEligible": false
+  },
+  "visuals": [
+    {
+      "id": "visual-01",
+      "title": "Wenn billig zweimal kostet",
+      "icon": "repeat",
+      "fullScreen": false,
+      "component": "YouTubeFramedImage",
+      "sourceFile": "YouTube Bild 01 - Zweimal gekauft.png",
+      "objectFit": "contain"
+    },
+    {
+      "id": "visual-02",
+      "title": "20 + 20 gegen 35",
+      "icon": "calculator",
+      "fullScreen": false,
+      "component": "YouTubeSectionFrame",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx"
+    },
+    {
+      "id": "visual-03",
+      "title": "Preis ist nur ein Teil",
+      "icon": "tag",
+      "fullScreen": false,
+      "component": "YouTubeFramedImage",
+      "sourceFile": "YouTube Bild 03 - Preis ist nicht alles.png",
+      "objectFit": "contain"
+    },
+    {
+      "id": "visual-04",
+      "title": "Drei Fragen vor dem Kauf",
+      "icon": "list",
+      "fullScreen": false,
+      "component": "YouTubeSectionFrame",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-04/animation.tsx"
+    },
+    {
+      "id": "visual-05",
+      "title": "Selten oder jeden Tag?",
+      "icon": "calendar",
+      "fullScreen": false,
+      "component": "YouTubeFramedImage",
+      "sourceFile": "YouTube Bild 05 - Selten oder taeglich.png",
+      "objectFit": "contain"
+    },
+    {
+      "id": "visual-06",
+      "title": "Kosten pro Nutzung",
+      "icon": "calculator",
+      "fullScreen": false,
+      "component": "YouTubeSectionFrame",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-06/animation.tsx"
+    },
+    {
+      "id": "visual-07",
+      "title": "Kann ich es reparieren?",
+      "icon": "tool",
+      "fullScreen": false,
+      "component": "YouTubeFramedImage",
+      "sourceFile": "YouTube Bild 07 - Reparierbar.png",
+      "objectFit": "contain"
+    },
+    {
+      "id": "visual-08",
+      "title": "Was wirklich zählt",
+      "icon": "target",
+      "fullScreen": false,
+      "component": "YouTubeSectionFrame",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-08/animation.tsx"
+    }
+  ]
+}
