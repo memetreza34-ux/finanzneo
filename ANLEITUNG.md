@@ -44,19 +44,16 @@ finanzneo-stylized-3d-animated-black-v9
 ```
 
 - Quellbilder inklusive Cover: 1:1
-- klar stylized 3D animated, nicht photorealistisch
+- premium stylized 3D animated
+- klar nicht fotorealistisch
 - soft rounded, vereinfachte erkennbare Formen
-- nahtloser tiefschwarzer Hintergrund Pflicht
-- Inhalt und Klarheit vor Deko
-- keine feste Objektanzahl
-- Support-Objekte nur, wenn sie helfen
-- Emerald positiv/Fokus
-- Ivory/Soft Gray neutral
-- Gold Geld/Wert
-- Red-Orange Warnung/Kosten
-- keine UI-/Dashboard-/Flowchart-/Microchip-/Diorama-Sprache
-- kein Clutter
-- Marken/Logos erkennbar, aber stilisiert; keine Screenshots/Flat-Paste-Logos
+- nahtloser tiefschwarzer Hintergrund
+- Emerald / Ivory / Soft Gray / Gold / Red-Orange
+- sauberes weiches Studio-Licht
+- gleiche Material- und Rendering-Sprache
+
+Die alte globale Motiv-/Promptlogik ist entfernt. Für neue Bildprompts gilt nur die Reset-Baseline in `docs/IMAGE-PROMPT-BASELINE.md`.
+
 
 ### Phase-1-Animationen
 
@@ -92,7 +89,7 @@ START → SICHTBARER MECHANISMUS → ERGEBNIS
 GENAU EIN Bild erzeugen
 → vollständig warten
 → sofort exakt umbenennen
-→ V9-QA
+→ Bildwelt + Dateiname prüfen
 → bei Fehler dieselbe Bildnummer neu
 → erst dann nächstes Bild
 ```
