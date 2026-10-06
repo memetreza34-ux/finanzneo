@@ -451,3 +451,23 @@ npm run youtube:ready -- youtube/<Projekt>
 ```
 
 Nur ein erfolgreicher Lauf gibt Phase 3 frei.
+
+
+---
+
+# 14. Phase-3 Render-Sicherheit — verbindlich
+
+Der Render darf die kreative Planung nicht durch eine generische Bildmontage ersetzen.
+
+Vor jedem finalen Render:
+
+1. `layout.json` lesen.
+2. `render-contract.json` lesen.
+3. IMAGE-Visuals ausschließlich über `YouTubeFramedImage` rendern.
+4. MOTION/DATA ausschließlich in `YouTubeSectionFrame`.
+5. Zwischenüberschrift + Icon für **jeden** Beat sichtbar rendern.
+6. Flow-Bilder mit `contain` in den Content-Frame setzen; niemals randlos 1920×1080.
+7. Exakte Szenenquelle über `googleFlowFileName`; keine automatische Bildreihenfolge nach Ordnerposition.
+8. Thumbnail/Cover/A-B-C-Kandidat niemals in die Timeline aufnehmen.
+
+Ein Render ist **FAIL**, wenn auch nur ein IMAGE-Beat ohne Header/Frame erscheint oder ein Thumbnail als Szenenbild verwendet wird.
