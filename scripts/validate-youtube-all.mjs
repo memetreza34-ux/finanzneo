@@ -12,6 +12,7 @@ const validators = [
   'scripts/validate-youtube.mjs',
   'scripts/validate-youtube-layout.mjs',
   'scripts/validate-youtube-visual-freedom.mjs',
+  'scripts/validate-youtube-visual-clarity.mjs',
 ];
 
 for (const validator of validators) {
