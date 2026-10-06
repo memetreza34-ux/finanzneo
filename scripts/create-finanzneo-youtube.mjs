@@ -53,6 +53,7 @@ FLOW_IMAGE_POLICY: ${YOUTUBE_FLOW_IMAGE_POLICY_ID}
 PRECISION_GRAPHICS_OWNER: REMOTION
 
 ${YOUTUBE_FLOW_MEANING_FIRST_MARKER}.
+LOOK FEST — INHALT FREI — KLARHEIT VOR FORM.
 Vor jedem Bild zuerst den gesprochenen Gedanken verstehen. Danach die visuell stärkste Form wählen. Es gibt KEIN scene-first, KEIN people-first, KEIN object-first und KEINE Orts-Pflicht.
 
 VISUALFORM IST FREI — BEISPIELE, KEINE WHITELIST:
