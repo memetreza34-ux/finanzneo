@@ -101,33 +101,21 @@ STRIKT VERBOTEN:
 - versiegelten Phase-1-Animationscode verändern
 ```
 
-## 3. Bildprompt erstellen — V9
+## 3. Bildprompt — Reset-Baseline
 
 ```text
-Erstelle einen FinanzNeo-Bildprompt für diesen gesprochenen Satz:
-[SATZ]
+Erstelle den konkreten Bildprompt auf Englisch.
 
 Verbindlich:
-- Quellbild 1:1
-- WORLD LOCK: finanzneo-stylized-3d-animated-black-v9
-- klar nicht-realistische stylized 3D animated Bildwelt
-- soft rounded shapes, vereinfachte erkennbare Details
-- premium, leicht verspielt, nicht technisch
-- tiefschwarzer sauberer Hintergrund Pflicht
-- Inhalt/Klarheit vor Objektzahl; keine feste Anzahl
-- Emerald positiv, Ivory/Soft Gray neutral, Gold Geld/Wert, Rot-Orange Warnung/Kosten
-- keine Headline, kein Untertitel, kein erklärender Satz
-- nur kurze deutsche Objektlabels
-- kein Realismus, Produktfoto, Dashboard, App-UI, Flowchart, Mini-Boxen, Microchip, Diorama, Clutter
-- Prompt mittellang
-- finalen Dateinamen direkt angeben
-- Bildnummer = echte Szenennummer
-
-Falls Marke/Logo/App vorkommt:
-- erkennbar ähnlich, aber stilisiert in derselben 3D-Animationswelt
-- kein flach aufgeklebtes echtes Logo
-- kein Screenshot-/photorealistischer Marken-UI-Look
+- visuelle Welt: finanzneo-stylized-3d-animated-black-v9
+- Reel-Quellbild: 1:1
+- keine generische Überschrift automatisch in das Bild setzen
+- Szene frei aus dem jeweiligen Inhalt entwickeln
+- keine alte Literal-first-, Transferability-, Objektzahl-, Label- oder Promptlängen-Regel übernehmen
 ```
+
+Weitere kreative Bildregeln sind aktuell bewusst nicht global festgelegt. Maßgeblich ist `docs/IMAGE-PROMPT-BASELINE.md`.
+
 
 ## 4. Google Flow
 
