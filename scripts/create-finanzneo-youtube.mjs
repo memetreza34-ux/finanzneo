@@ -55,16 +55,24 @@ PRECISION_GRAPHICS_OWNER: REMOTION
 ${YOUTUBE_FLOW_MEANING_FIRST_MARKER}.
 Vor jedem Bild zuerst den gesprochenen Gedanken verstehen. Danach die visuell stärkste Form wählen. Es gibt KEIN scene-first, KEIN people-first, KEIN object-first und KEINE Orts-Pflicht.
 
-GLEICHBERECHTIGTE FORMEN:
+VISUALFORM IST FREI — BEISPIELE, KEINE WHITELIST:
+- schema illustration / process schema / cause-effect diagram
+- concept illustration
 - isolated object / object detail
 - hands in action
 - character moment
 - everyday scene
-- comparison
+- comparison / before-after
 - semantic object composition
 - visual metaphor
 - creative idea
 - hybrid scene plate
+
+Vor dem Prompt immer festlegen:
+CORE_MESSAGE = eine Aussage.
+TWO_SECOND_TAKEAWAY = was sofort verstanden werden soll.
+WHY_THIS_FORM = warum genau diese Form am klarsten ist.
+ESSENTIAL_ELEMENTS = nur notwendige Elemente.
 
 SEMANTISCHE ANORDNUNG:
 Objekte dürfen frei im Raum stehen oder schweben, wenn ihre Position etwas erklärt: Ursache/Wirkung, vorher/nachher, Vergleich, Wahl, Wiederholung, Hierarchie. Keine dekorativen Spiralen, S-Kurven, Trails oder Objektwolken ohne Bedeutung. Kein Tisch, Raum oder Mensch nur als Lückenfüller.
@@ -91,7 +99,7 @@ FORM: ${YOUTUBE_FLOW_PROMPT_OPENING} <BEST VISUAL IDEA FOR THIS SPOKEN BEAT: obj
 Die optionale Ortszeile darf komplett entfallen. Höchstens ${YOUTUBE_FLOW_PROMPT_MAX_WORDS} Wörter. Keine Stilwörter wie premium, cinematic, epic, dramatic, hyper-detailed.
 
 MEANING QA:
-PASS nur wenn die Aussage in ca. zwei Sekunden klar ist, jedes Element einen Grund hat und die Komposition erklärt statt dekoriert.
+PASS nur wenn genau eine Kernaussage dominiert, die Aussage in ca. zwei Sekunden klar ist, jedes Element einen Grund hat und die Komposition erklärt statt dekoriert. Ein Schema oder eine Illustration ist ausdrücklich richtig, wenn sie schneller erklärt als eine reale Szene.
 
 HARD FAIL — DENSELBEN JOB NEU GENERIEREN:
 unklare Aussage; dekorative Objektanordnung; Person/Tisch/Raum ohne Grund; schwebende Objekte ohne semantische Beziehung; fotorealistisch; alte grün-goldene Symbolwelt; KI-Slop; generiertes Dashboard/UI/Chart; erfundener Text; Hauptinformation zu klein; Wiederholung der letzten Bildform ohne Grund.
@@ -135,6 +143,14 @@ if (existsSync(visualsRoot)) {
 
 const indexPath = resolve(projectRoot, '04-visuals/visual-index.json');
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
+index.visualClarityStandard = {
+  id: 'finanzneo-youtube-clarity-v1',
+  oneCoreMessagePerBeat: true,
+  visualFormFree: true,
+  twoSecondComprehensionRequired: true,
+  imageWorldUnchanged: true,
+  motionResultHoldMinFrames: 30,
+};
 index.imageWorld.referencePromptFile = '04-visuals/01-BILDPROMPTS/bildwelt.txt';
 index.imageWorld.imageWorldFile = YOUTUBE_IMAGE_WORLD_FILE;
 index.imageWorld.primaryApprovedStyleAnchor = 'finanzneo-stylized-3d-animated-black-v9';
