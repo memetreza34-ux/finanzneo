@@ -36,9 +36,12 @@ Antigravity MUST NOT generate or replace final Reel images. The user places all 
 
 Missing image = report exact filename and wait.
 
-V9 prompt direction for future image planning is `finanzneo-stylized-3d-animated-black-v9`: non-realistic stylized 3D animated, soft rounded forms, simplified details, premium/slightly playful, deep-black background, clarity first, no fixed object quota.
+The only global image-direction lock is the visual rendering identity `finanzneo-stylized-3d-animated-black-v9`: premium stylized 3D, clearly non-photorealistic, soft simplified forms, deep-black world, FinanzNeo color system and clean soft studio lighting.
 
-If a brand or logo appears: recognizable but stylized in the same world; never a pasted flat real-world logo, screenshot or photorealistic branded UI.
+Do not reintroduce legacy image-prompt formulas such as literal-first, transferability, mandatory real-life context, cause/effect layouts, object-count rules, mandatory labels or prompt-length rules.
+
+Canonical image baseline: `docs/IMAGE-PROMPT-BASELINE.md`.
+
 
 ## Sealed animation boundary
 
