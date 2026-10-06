@@ -268,8 +268,8 @@
       "viewerChange": "Drei Fragen erscheinen.",
       "animationIntent": "Kaufprüfschema.",
       "mechanicId": "three-buying-questions",
-      "visualTechniqueId": "question-cards-reveal",
-      "techniqueDescription": "Drei Fragen sequenziell.",
+      "visualTechniqueId": "three-step-decision-schema",
+      "techniqueDescription": "Drei nummerierte Fragen werden nacheinander aufgebaut; am Ende bleibt die vollständige Entscheidungsfolge ruhig stehen.",
       "compositionFamilyId": "decision-framework",
       "toolStack": [
         "React",
@@ -278,17 +278,18 @@
       ],
       "motionSignature": {
         "camera": "statisch frontal",
-        "layout": "Vertikale Dreierliste",
-        "transformation": "Zeilen erscheinen"
+        "layout": "horizontales Drei-Schritte-Schema",
+        "transformation": "Schritte erscheinen nacheinander und bleiben gemeinsam sichtbar"
       },
       "motionChannels": [
-        "Translation",
-        "Opacity"
+        "sequenzieller Schritt-Reveal",
+        "Pfeil-Verbindung der Entscheidungsfolge"
       ],
       "visualBeats": [
-        "Nutzung",
-        "Ersatz",
-        "Reparatur"
+        "Nutzung allein",
+        "Ersatz kommt hinzu",
+        "Reparatur kommt hinzu",
+        "alle drei Fragen als finales Schema"
       ],
       "repeatTechniqueReason": "",
       "headerTitle": "Drei Fragen vor dem Kauf",
@@ -347,8 +348,8 @@
       "viewerChange": "Zwei Rechnungen werden zu 0,20 € und 0,40 €.",
       "animationIntent": "Kosten pro Nutzung exakt sichtbar.",
       "mechanicId": "cost-per-use-example",
-      "visualTechniqueId": "fraction-to-unit-cost",
-      "techniqueDescription": "Zwei Rechenzeilen.",
+      "visualTechniqueId": "sequential-unit-cost-comparison",
+      "techniqueDescription": "Erst Rechnung A, dann Rechnung B, danach nur die beiden Ergebnisse groß im direkten Vergleich.",
       "compositionFamilyId": "data-comparison",
       "toolStack": [
         "React",
@@ -357,18 +358,19 @@
       ],
       "motionSignature": {
         "camera": "statisch frontal",
-        "layout": "Zwei Rechenzeilen",
-        "transformation": "Ergebnisse erscheinen"
+        "layout": "zwei Rechenzeilen plus finaler Ergebnisvergleich",
+        "transformation": "Rechnungen entstehen getrennt; Endwerte werden anschließend hervorgehoben"
       },
       "motionChannels": [
-        "Opacity",
-        "Werte-Reveal"
+        "sequenzieller Rechen-Reveal",
+        "finaler Ergebnisvergleich"
       ],
       "visualBeats": [
-        "40/200",
-        "0,20",
-        "20/50",
-        "0,40"
+        "40 € ÷ 200",
+        "0,20 € Ergebnis",
+        "20 € ÷ 50",
+        "0,40 € Ergebnis",
+        "0,20 € gegen 0,40 €"
       ],
       "repeatTechniqueReason": "",
       "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-06/data-notes.md",
@@ -429,9 +431,9 @@
       "viewerChange": "Kaufpreis wird kleiner, drei Faktoren kommen hinzu.",
       "animationIntent": "Gesamtmodell.",
       "mechanicId": "true-cost-takeaway",
-      "visualTechniqueId": "purchase-price-expands",
-      "techniqueDescription": "Kaufpreis plus drei Faktoren.",
-      "compositionFamilyId": "summary",
+      "visualTechniqueId": "factor-to-total-schema",
+      "techniqueDescription": "Vier Kostenfaktoren bauen sich nacheinander auf und führen anschließend gemeinsam in einen klaren Ergebnisblock.",
+      "compositionFamilyId": "summary-schema",
       "toolStack": [
         "React",
         "CSS",
@@ -439,19 +441,19 @@
       ],
       "motionSignature": {
         "camera": "statisch frontal",
-        "layout": "Zentrum plus Dreierreihe",
-        "transformation": "Scale + Reveals"
+        "layout": "2x2-Faktorenraster links, Ergebnisblock rechts",
+        "transformation": "Faktoren erscheinen sequenziell und führen zum Resultat"
       },
       "motionChannels": [
-        "Scale/Position",
-        "Opacity"
+        "Faktor-Reveal",
+        "Ergebnisblock-Reveal"
       ],
       "visualBeats": [
         "Kaufpreis",
         "Nutzung",
         "Haltbarkeit",
         "Reparierbarkeit",
-        "Payoff"
+        "Echte Kosten"
       ],
       "repeatTechniqueReason": "",
       "headerTitle": "Was wirklich zählt",
