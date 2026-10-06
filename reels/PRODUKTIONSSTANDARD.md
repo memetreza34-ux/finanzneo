@@ -80,12 +80,15 @@ Ab scene-02: normaler SceneHeader + Icon + Captions.
 ## 6. Bilder / Google Flow
 
 - exakt ein Bildjob gleichzeitig
-- warten → umbenennen → V9-QA → erst dann nächster Job
+- warten → umbenennen → Bildwelt/Dateiname prüfen → erst dann nächster Job
 - keine Batch-/Parallelgenerierung
-- scene-01 ist automatisch das Cover; kein Bild 00
+- scene-01 ist automatisch das Cover; kein zusätzlicher Bildjob
 - finale Bilder liegen in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
 
-Bildwelt: `finanzneo-stylized-3d-animated-black-v9`. Reale Alltagssituation und Ursache/Wirkung zuerst; klar stilisiertes 3D; niemals fotorealistisch; Deep Black Pflicht.
+Bildwelt: `finanzneo-stylized-3d-animated-black-v9`.
+
+Die Bildwelt definiert nur den visuellen Look. Alte globale Prompt-/Storytelling-Regeln sind entfernt. Bildprompts werden auf Englisch geschrieben; eine generische Überschrift wird nicht automatisch in das KI-Bild gesetzt. Siehe `docs/IMAGE-PROMPT-BASELINE.md`.
+
 
 ## 7. Layout und Safe-Zone
 
