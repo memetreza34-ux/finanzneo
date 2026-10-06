@@ -165,7 +165,16 @@
       "fullScreen": false,
       "renderComponent": "YouTubeFramedImage",
       "objectFit": "contain",
-      "thumbnailEligible": false
+      "thumbnailEligible": false,
+      "coreMessage": "Ein günstiger Kauf kann durch einen nötigen Ersatz am Ende teurer werden.",
+      "visualForm": "cause-effect illustration",
+      "twoSecondTakeaway": "Kaputt → Ersatzkauf → zweimal bezahlt.",
+      "whyThisForm": "Eine direkte Ursache-Wirkung-Illustration erklärt den Ersatzkauf schneller als eine komplette Alltagsszene.",
+      "essentialElements": [
+        "sichtbar kaputter Kopfhörer",
+        "neue Ersatzverpackung",
+        "zwei Kaufbelege"
+      ]
     },
     {
       "id": "visual-02",
@@ -206,7 +215,23 @@
       "headerTitle": "20 + 20 gegen 35",
       "headerIcon": "calculator",
       "fullScreen": false,
-      "renderComponent": "YouTubeSectionFrame"
+      "renderComponent": "YouTubeSectionFrame",
+      "coreMessage": "Zweimal 20 € sind 40 € und damit mehr als einmal 35 €.",
+      "visualForm": "sequential comparison schema",
+      "twoSecondTakeaway": "20 € + 20 € = 40 € > 35 €.",
+      "whyThisForm": "Eine schrittweise Rechnung macht die Kostenfolge ohne Ablenkung exakt sichtbar.",
+      "essentialElements": [
+        "erster Kauf 20 €",
+        "Ersatzkauf 20 €",
+        "Summe 40 €",
+        "Vergleich 35 €"
+      ],
+      "clarityPlan": {
+        "start": "Nur der erste Kauf mit 20 € ist sichtbar.",
+        "change": "Ein zweiter 20-€-Kauf kommt hinzu und bildet 40 €.",
+        "result": "40 € steht klar 35 € gegenüber; 40 € ist als höhere Gesamtausgabe markiert.",
+        "resultHoldFrames": 45
+      }
     },
     {
       "id": "visual-03",
@@ -222,7 +247,15 @@
       "fullScreen": false,
       "renderComponent": "YouTubeFramedImage",
       "objectFit": "contain",
-      "thumbnailEligible": false
+      "thumbnailEligible": false,
+      "coreMessage": "Der Kaufpreis allein sagt wenig; Qualität und Verarbeitung müssen mitgeprüft werden.",
+      "visualForm": "action illustration",
+      "twoSecondTakeaway": "Nicht nur auf den Preis schauen — das Produkt prüfen.",
+      "whyThisForm": "Die konkrete Prüfhandlung an Naht und Reißverschluss transportiert den Gedanken schneller als ein abstraktes Symbol.",
+      "essentialElements": [
+        "zwei ähnliche Rucksäcke",
+        "sichtbare Hand prüft Naht oder Reißverschluss"
+      ]
     },
     {
       "id": "visual-04",
@@ -261,7 +294,22 @@
       "headerTitle": "Drei Fragen vor dem Kauf",
       "headerIcon": "list",
       "fullScreen": false,
-      "renderComponent": "YouTubeSectionFrame"
+      "renderComponent": "YouTubeSectionFrame",
+      "coreMessage": "Vor dem Kauf helfen drei Fragen: Nutzung, Ersatzrisiko und Reparierbarkeit.",
+      "visualForm": "three-step decision schema",
+      "twoSecondTakeaway": "Nutzung → Ersatz → Reparatur prüfen.",
+      "whyThisForm": "Ein ruhiges Drei-Schritte-Schema macht die Entscheidungslogik sofort merkbar.",
+      "essentialElements": [
+        "Frage 1 Nutzung",
+        "Frage 2 Ersatz",
+        "Frage 3 Reparatur"
+      ],
+      "clarityPlan": {
+        "start": "Nur Frage 1 zur Nutzung ist aktiv.",
+        "change": "Frage 2 und danach Frage 3 werden nacheinander ergänzt.",
+        "result": "Alle drei Fragen stehen als klare Entscheidungsfolge gleichzeitig sichtbar.",
+        "resultHoldFrames": 45
+      }
     },
     {
       "id": "visual-05",
@@ -277,7 +325,16 @@
       "fullScreen": false,
       "renderComponent": "YouTubeFramedImage",
       "objectFit": "contain",
-      "thumbnailEligible": false
+      "thumbnailEligible": false,
+      "coreMessage": "Bei täglicher Nutzung wird Haltbarkeit wichtiger als bei seltener Nutzung.",
+      "visualForm": "usage-frequency comparison illustration",
+      "twoSecondTakeaway": "Selten genutzt ↔ täglich genutzt.",
+      "whyThisForm": "Der direkte Zustandsvergleich derselben Produktfamilie erklärt Nutzungshäufigkeit ohne zusätzliche Handlung.",
+      "essentialElements": [
+        "selten genutztes Produkt",
+        "häufig genutztes Produkt",
+        "klarer Zustandsunterschied"
+      ]
     },
     {
       "id": "visual-06",
@@ -318,7 +375,23 @@
       "headerTitle": "Kosten pro Nutzung",
       "headerIcon": "calculator",
       "fullScreen": false,
-      "renderComponent": "YouTubeSectionFrame"
+      "renderComponent": "YouTubeSectionFrame",
+      "coreMessage": "Ein höherer Kaufpreis kann pro Nutzung günstiger sein.",
+      "visualForm": "step-by-step calculation comparison",
+      "twoSecondTakeaway": "0,20 € pro Nutzung ist günstiger als 0,40 €.",
+      "whyThisForm": "Die zwei Beispielrechnungen müssen nacheinander entstehen und erst danach direkt verglichen werden.",
+      "essentialElements": [
+        "40 € ÷ 200",
+        "0,20 € pro Nutzung",
+        "20 € ÷ 50",
+        "0,40 € pro Nutzung"
+      ],
+      "clarityPlan": {
+        "start": "Zuerst wird nur 40 € ÷ 200 Nutzungen gezeigt.",
+        "change": "Nach dem ersten Ergebnis folgt separat 20 € ÷ 50 Nutzungen.",
+        "result": "Nur die beiden Resultate 0,20 € und 0,40 € stehen groß im direkten Vergleich.",
+        "resultHoldFrames": 45
+      }
     },
     {
       "id": "visual-07",
@@ -334,7 +407,16 @@
       "fullScreen": false,
       "renderComponent": "YouTubeFramedImage",
       "objectFit": "contain",
-      "thumbnailEligible": false
+      "thumbnailEligible": false,
+      "coreMessage": "Austauschbare Teile machen ein Produkt reparierbarer und können seine Nutzungsdauer verlängern.",
+      "visualForm": "technical exploded-detail illustration",
+      "twoSecondTakeaway": "Dieses Teil lässt sich ersetzen.",
+      "whyThisForm": "Ein technischer Detailblick zeigt Reparierbarkeit direkt, ohne Werkstattkulisse oder zusätzliche Symbole.",
+      "essentialElements": [
+        "Kopfhörer-Ohrmuschel",
+        "abgenommenes Ohrpolster",
+        "passendes Ersatzpolster"
+      ]
     },
     {
       "id": "visual-08",
@@ -375,7 +457,32 @@
       "headerTitle": "Was wirklich zählt",
       "headerIcon": "target",
       "fullScreen": false,
-      "renderComponent": "YouTubeSectionFrame"
+      "renderComponent": "YouTubeSectionFrame",
+      "coreMessage": "Die echten Kosten hängen nicht nur vom Kaufpreis ab.",
+      "visualForm": "summary schema",
+      "twoSecondTakeaway": "Kaufpreis + Nutzung + Haltbarkeit + Reparierbarkeit → echte Kosten.",
+      "whyThisForm": "Ein Abschluss-Schema bündelt die vier Faktoren übersichtlich und bleibt besser im Gedächtnis als eine weitere Szene.",
+      "essentialElements": [
+        "Kaufpreis",
+        "Nutzung",
+        "Haltbarkeit",
+        "Reparierbarkeit",
+        "Echte Kosten"
+      ],
+      "clarityPlan": {
+        "start": "Nur Kaufpreis ist sichtbar.",
+        "change": "Nutzung, Haltbarkeit und Reparierbarkeit kommen nacheinander hinzu.",
+        "result": "Alle vier Faktoren führen gemeinsam zu einem klaren Ergebnisblock 'Echte Kosten'.",
+        "resultHoldFrames": 45
+      }
     }
-  ]
+  ],
+  "visualClarityStandard": {
+    "id": "finanzneo-youtube-clarity-v1",
+    "oneCoreMessagePerBeat": true,
+    "visualFormFree": true,
+    "twoSecondComprehensionRequired": true,
+    "imageWorldUnchanged": true,
+    "motionResultHoldMinFrames": 30
+  }
 }
