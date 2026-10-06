@@ -9,6 +9,7 @@ import {
 } from './lib/youtube-motion-contract.mjs';
 import {
   YOUTUBE_VISUAL_CLARITY_MIN_RESULT_HOLD_FRAMES,
+  YOUTUBE_VISUAL_CLARITY_STANDARD_ID,
   validateYouTubeVisualClarity,
 } from './lib/youtube-visual-clarity-contract.mjs';
 
@@ -44,9 +45,10 @@ if (index?.motionStandard?.id !== YOUTUBE_MOTION_STANDARD_ID) {
   errors.push(`motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
 }
 const visuals = Array.isArray(index?.visuals) ? index.visuals : [];
+const clarityEnabled = index?.visualClarityStandard?.id === YOUTUBE_VISUAL_CLARITY_STANDARD_ID;
 for (const visual of visuals) {
   errors.push(...validateYouTubeMotionMetadata(visual));
-  if (requiresYouTubeMotion(visual)) errors.push(...validateYouTubeVisualClarity(visual));
+  if (clarityEnabled && requiresYouTubeMotion(visual)) errors.push(...validateYouTubeVisualClarity(visual));
 }
 errors.push(...validateYouTubeMotionVariety(visuals));
 
@@ -90,12 +92,14 @@ for (const visual of visuals.filter(requiresYouTubeMotion)) {
   if (!/ANIMATION_NARRATIVE/.test(source) || !/START/.test(source) || !/MECHANISM/.test(source) || !/RESULT/.test(source)) {
     errors.push(`${id}: ANIMATION_NARRATIVE mit START, MECHANISM und RESULT fehlt.`);
   }
-  const holdFrames = Number(visual?.clarityPlan?.resultHoldFrames);
-  if (!Number.isFinite(holdFrames) || holdFrames < YOUTUBE_VISUAL_CLARITY_MIN_RESULT_HOLD_FRAMES) {
-    errors.push(`${id}: clarityPlan.resultHoldFrames muss mindestens ${YOUTUBE_VISUAL_CLARITY_MIN_RESULT_HOLD_FRAMES} Frames sein.`);
-  } else {
-    const holdPattern = new RegExp(`RESULT_HOLD_FRAMES\\s*=\\s*${holdFrames}\\b`);
-    if (!holdPattern.test(source)) errors.push(`${id}: RESULT_HOLD_FRAMES im Code stimmt nicht mit clarityPlan.resultHoldFrames überein.`);
+  if (clarityEnabled) {
+    const holdFrames = Number(visual?.clarityPlan?.resultHoldFrames);
+    if (!Number.isFinite(holdFrames) || holdFrames < YOUTUBE_VISUAL_CLARITY_MIN_RESULT_HOLD_FRAMES) {
+      errors.push(`${id}: clarityPlan.resultHoldFrames muss mindestens ${YOUTUBE_VISUAL_CLARITY_MIN_RESULT_HOLD_FRAMES} Frames sein.`);
+    } else {
+      const holdPattern = new RegExp(`RESULT_HOLD_FRAMES\\s*=\\s*${holdFrames}\\b`);
+      if (!holdPattern.test(source)) errors.push(`${id}: RESULT_HOLD_FRAMES im Code stimmt nicht mit clarityPlan.resultHoldFrames überein.`);
+    }
   }
   const safeExport = String(visual.animationExport ?? '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const exportPattern = new RegExp(`export\\s+(?:const|function)\\s+${safeExport}\\b`);
