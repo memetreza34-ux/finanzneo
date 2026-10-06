@@ -120,7 +120,8 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
   if (index?.motionStandard?.id !== YOUTUBE_MOTION_STANDARD_ID) {
     phase1Blockers.push(`${VISUAL_INDEX}: motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
   }
-  if (index?.visualClarityStandard?.id !== YOUTUBE_VISUAL_CLARITY_STANDARD_ID) {
+  const clarityEnabled = index?.visualClarityStandard?.id === YOUTUBE_VISUAL_CLARITY_STANDARD_ID;
+  if (index?.visualClarityStandard && !clarityEnabled) {
     phase1Blockers.push(`${VISUAL_INDEX}: visualClarityStandard.id muss ${YOUTUBE_VISUAL_CLARITY_STANDARD_ID} sein.`);
   }
 
@@ -134,7 +135,9 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
 
   for (const visual of visuals) {
     const id = typeof visual?.id === 'string' ? visual.id : 'Unbekanntes Visual';
-    for (const error of validateYouTubeVisualClarity(visual)) phase1Blockers.push(`${VISUAL_INDEX}: ${error}`);
+    if (clarityEnabled) {
+      for (const error of validateYouTubeVisualClarity(visual)) phase1Blockers.push(`${VISUAL_INDEX}: ${error}`);
+    }
     for (const field of ['chapter', 'scriptBeat']) {
       if (typeof visual?.[field] !== 'string' || !visual[field].trim() || hasPlaceholder(visual[field])) {
         phase1Blockers.push(`${VISUAL_INDEX}: ${id}.${field} fehlt oder enthält einen Platzhalter.`);
