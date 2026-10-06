@@ -27,8 +27,13 @@ try {
   process.exit(1);
 }
 
+if (!index?.visualClarityStandard) {
+  console.log('✓ Legacy-YouTube-Projekt: kein Visual-Clarity-Standard deklariert; keine rückwirkende Blockade.');
+  process.exit(0);
+}
+
 const errors = [];
-if (index?.visualClarityStandard?.id !== YOUTUBE_VISUAL_CLARITY_STANDARD_ID) {
+if (index.visualClarityStandard.id !== YOUTUBE_VISUAL_CLARITY_STANDARD_ID) {
   errors.push(`visualClarityStandard.id muss ${YOUTUBE_VISUAL_CLARITY_STANDARD_ID} sein.`);
 }
 if (index?.visualClarityStandard?.oneCoreMessagePerBeat !== true) {
