@@ -25,6 +25,8 @@ ESSENTIAL_ELEMENTS — nur Elemente, die die Aussage wirklich tragen.
 
 Kein scene-first. Kein people-first. Kein object-first. Kein Menschen- oder Ortszwang. Schema- und Illustrationsbilder sind ausdrücklich erwünscht, wenn sie schneller erklären als eine reale Szene. Semantische Objektanordnungen sind erlaubt, wenn jede Position etwas erklärt. Keine dekorativen Spiralen, Trails oder Objektwolken.
 ENTSCHEIDENDER MOMENT nur wenn die Handlung selbst die Aussage trägt.
+SCHEMA-ILLUSTRATIONEN SIND ERLAUBT: einfache Ursache/Wirkung-, Vorher/Nachher-, Prozess- oder Vergleichsschemata dürfen als illustrative Szenen gebaut werden, wenn sie die Aussage sofort klären. Präzise Charts, Tabellen, UI und exakte Daten bleiben Remotion.
+
 NATÜRLICH — KEIN KI-LOOK.
 
 PHASE 0 — EIN GOOGLE-FLOW-ORDNER PRO VIDEO
