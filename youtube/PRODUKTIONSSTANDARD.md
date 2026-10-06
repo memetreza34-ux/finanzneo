@@ -298,6 +298,14 @@ Keine:
 - Absätze
 - erfundenen Logos
 
+## Schema vs. Präzisionsinfografik
+
+**Schema-Illustration ist nicht gleich Präzisionsinfografik.**
+
+Flow darf einfache konzeptuelle Ursache/Wirkung-, Vorher/Nachher-, Prozess-, Größen- oder Vergleichsschemata erzeugen, wenn sie den Satz schneller verständlich machen. Diese Schemata dürfen illustrative Objekte, einfache Pfeile oder räumliche Beziehungen verwenden.
+
+Remotion bleibt zuständig, sobald mathematische oder technische Präzision nötig ist: exakte Zahlen, Achsen, Tabellen, UI, proportional korrekte Charts oder komplexe Infografiken.
+
 ## Präzision
 
 Remotion übernimmt:
