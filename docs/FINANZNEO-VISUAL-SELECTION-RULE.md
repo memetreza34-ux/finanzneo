@@ -21,18 +21,17 @@ Für neue FinanzNeo-Reels gilt pro Szene **genau eine Hauptform**:
 
 ### IMAGE
 
-Nutzen, wenn eine konkrete Alltagssituation oder ein klarer Zustand als starkes Standbild schneller verständlich ist, z. B.:
-
-- kaputte Waschmaschine + Reparaturrechnung + Notgroschen
-- Einkauf / Inflation
-- Rechnung / Versicherung / Vertrag
-- klarer realer Vorher-/Nachher-Zustand
+Nutzen, wenn der Sprechpunkt als starkes Standbild oder als klare Illustration besser funktioniert als als zeitliche Animation.
 
 IMAGE bedeutet:
 - Google-Flow-Bild ist das Hauptvisual
 - Header/Icon und Captions werden von Remotion gerendert
-- kurze funktionale Objektlabels sind erlaubt
-- keine erklärende Remotion-Hauptanimation, Pfeilmechanik, Geldfluss-Animation oder Parallax-Erklärung über dem Bild
+- die konkrete Bildidee wird szenenspezifisch entwickelt
+- diese Auswahlregel schreibt **keine** Literal-first-, Alltagsszenen-, Objekt-, Label- oder Metapher-Formel vor
+- keine erklärende Remotion-Hauptanimation über dem Bild
+
+Kreative Bildprompt-Regeln kommen ausschließlich aus `docs/IMAGE-PROMPT-BASELINE.md` und späteren ausdrücklich neuen Bildstandards.
+
 
 ### ANIMATION
 
