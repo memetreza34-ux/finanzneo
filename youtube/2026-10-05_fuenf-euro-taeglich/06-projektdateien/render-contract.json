@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "standardId": "finanzneo-youtube-framed-v1",
+  "fullScreenVisualsForbidden": true,
+  "thumbnail": {
+    "sourceFile": "YouTube Thumbnail - Was dich 5 Euro am Tag kosten.png",
+    "timelineEligible": false
+  },
+  "visuals": [
+    {
+      "id": "visual-01",
+      "title": "Der kleine Kauf",
+      "icon": "receipt",
+      "fullScreen": false,
+      "component": "YouTubeFramedImage",
+      "sourceFile": "YouTube Bild 01 - Fuenf Euro am Morgen.png",
+      "objectFit": "contain"
+    },
+    {
+      "id": "visual-02",
+      "title": "Was 5 € in einer Woche machen",
+      "icon": "calendar",
+      "fullScreen": false,
+      "component": "YouTubeSectionFrame",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx"
+    },
+    {
+      "id": "visual-03",
+      "title": "Der 30-Tage-Effekt",
+      "icon": "calendar",
+      "fullScreen": false,
+      "component": "YouTubeSectionFrame",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-03/animation.tsx"
+    },
+    {
+      "id": "visual-04",
+      "title": "Was daraus in einem Jahr wird",
+      "icon": "clock",
+      "fullScreen": false,
+      "component": "YouTubeSectionFrame",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-04/animation.tsx"
+    },
+    {
+      "id": "visual-05",
+      "title": "Warum 5 € so klein wirken",
+      "icon": "repeat",
+      "fullScreen": false,
+      "component": "YouTubeSectionFrame",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-05/animation.tsx"
+    },
+    {
+      "id": "visual-06",
+      "title": "Andere Ausgabe, gleiche Gewohnheit",
+      "icon": "wallet",
+      "fullScreen": false,
+      "component": "YouTubeFramedImage",
+      "sourceFile": "YouTube Bild 06 - Kleine Lieferung.png",
+      "objectFit": "contain"
+    },
+    {
+      "id": "visual-07",
+      "title": "Der 7-Tage-Test",
+      "icon": "list",
+      "fullScreen": false,
+      "component": "YouTubeSectionFrame",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-07/animation.tsx"
+    },
+    {
+      "id": "visual-08",
+      "title": "Mach kleine Ausgaben sichtbar",
+      "icon": "target",
+      "fullScreen": false,
+      "component": "YouTubeSectionFrame",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-08/animation.tsx"
+    }
+  ]
+}
