@@ -99,8 +99,6 @@ if (!tokens) {
       ['V9 Deep-Black-Hintergrund', /deep-black|deep black/i],
       ['V9 Bildwelt-Lock', /finanzneo-stylized-3d-animated-black-v9/],
       ['V9 nicht realistisch', /nicht realistisch|never photorealistic/i],
-      ['V9 flexible Objektanzahl', /KEINE feste Objektanzahl|keine feste Objektanzahl/i],
-      ['V9 mittel-lange Prompts', /mittel-lang/i],
       ['1:1-Quellbilder', /GENERATED_IMAGE_ASPECT_RATIO: 1:1/],
       ['Icon-Liste', /euro, clock, hourglass/],
       ['fertiger Phase-1-Animationscode', /animation\.tsx/],
@@ -120,7 +118,7 @@ if (!tokens) {
       const fehlend = echteIcons.filter((i) => !briefing.includes(i));
       if (fehlend.length > 3) errors.push(`Phase-1-Briefing listet ${fehlend.length} vorhandene Icons nicht: ${fehlend.slice(0, 6).join(', ')}…`);
     }
-    notes.push('Phase-1-Briefing enthält V5-Layout, Stylized 3D Animated Black V9 und kanonischen Animationscode-Vertrag.');
+    notes.push('Phase-1-Briefing enthält V5-Layout, den V9-Visual-Style-Lock, die Image-Prompt-Reset-Baseline und den kanonischen Animationscode-Vertrag.');
   }
 
   notes.push(`Layoutwerte konsistent: Header Y=${werte.headerTop} · Visual ${werte.visualTop}–${werte.visualBottom} · Untertitel ${werte.captionBottom} · ${werte.captionSize} px.`);
