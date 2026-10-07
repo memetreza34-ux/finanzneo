@@ -6,7 +6,8 @@ export const ShapeMorphV3:React.FC<{
   from:{width:number;height:number;radius:number;color?:string};
   to:{width:number;height:number;radius:number;color?:string};
   children?:React.ReactNode;
-}> = ({x,y,progress,from,to,children}) => {
+  opacity?:number;
+}> = ({x,y,progress,from,to,children,opacity=1}) => {
   const mix=(a:number,b:number)=>a+(b-a)*progress;
   return <div style={{
     position:'absolute',
@@ -17,6 +18,6 @@ export const ShapeMorphV3:React.FC<{
     borderRadius:mix(from.radius,to.radius),
     background:progress<0.5?(from.color??MOTION_V3.blue):(to.color??MOTION_V3.green),
     display:'flex',alignItems:'center',justifyContent:'center',
-    color:MOTION_V3.white,fontWeight:900,
+    color:MOTION_V3.white,fontWeight:900,opacity,
   }}>{children}</div>;
 };
