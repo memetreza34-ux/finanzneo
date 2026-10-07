@@ -47,11 +47,17 @@ export const InvestmentCrossroadsV3:React.FC=()=>{
   const result=progress(frame,142,170);
   const growth=progress(frame,130,174,Easing.out(Easing.cubic));
 
-  const leftPath='M 470 900 C 380 820 280 745 165 665';
-  const rightPath='M 470 900 C 565 815 680 740 835 655';
+  const leftPath='M 540 960 C 450 860 350 765 250 675';
+  const rightPath='M 540 960 C 635 855 735 760 835 675';
 
   return <EditorialSceneV3 surface="paper" safePadding={0}>
-    <PersonV3 x={410} y={780} scale={0.8+0.2*person} opacity={person}/>
+    <PersonV3 x={480} y={840} scale={0.8+0.2*person} opacity={person}/>
+
+    <div style={{
+      position:'absolute',left:430,top:780,width:220,textAlign:'center',
+      fontFamily:FONT.title,fontSize:40,fontWeight:900,color:MOTION_V3.ink,
+      opacity:person,
+    }}>10.000 €</div>
 
     <svg width="1080" height="1920" viewBox="0 0 1080 1920" style={{position:'absolute',inset:-70}}>
       <DrawnPathV3 d={leftPath} progress={split} stroke={MOTION_V3.blue} width={12}/>
@@ -61,23 +67,23 @@ export const InvestmentCrossroadsV3:React.FC=()=>{
     <PathFollowerV3 d={leftPath} progress={leftTravel} size={54} color={MOTION_V3.blue}>€</PathFollowerV3>
     <PathFollowerV3 d={rightPath} progress={rightTravel} size={54} color={MOTION_V3.greenDark}>€</PathFollowerV3>
 
-    <BankDestination x={55} y={455} opacity={destinations}/>
-    <GrowthDestination x={730} y={430} opacity={destinations} growth={growth}/>
+    <BankDestination x={140} y={465} opacity={destinations}/>
+    <GrowthDestination x={725} y={445} opacity={destinations} growth={growth}/>
 
-    <div style={{position:'absolute',left:42,top:695,width:250,textAlign:'center',fontSize:27,fontWeight:850,color:MOTION_V3.blue,opacity:destinations}}>nur liegen lassen</div>
-    <div style={{position:'absolute',left:705,top:695,width:290,textAlign:'center',fontSize:27,fontWeight:850,color:MOTION_V3.greenDark,opacity:destinations}}>langfristig investieren</div>
+    <div style={{position:'absolute',left:100,top:715,width:300,textAlign:'center',fontSize:27,fontWeight:850,color:MOTION_V3.blue,opacity:destinations}}>Konto</div>
+    <div style={{position:'absolute',left:690,top:715,width:300,textAlign:'center',fontSize:27,fontWeight:850,color:MOTION_V3.greenDark,opacity:destinations}}>Investieren</div>
 
     <div style={{
-      position:'absolute',left:80,top:1210,width:330,height:170,borderRadius:30,
+      position:'absolute',left:120,top:1240,width:330,height:170,borderRadius:30,
       background:'#EEF2F4',border:`2px solid ${MOTION_V3.blue}`,opacity:result,
       display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',
     }}>
-      <div style={{fontSize:23,fontWeight:800,color:MOTION_V3.inkSoft}}>nach vielen Jahren</div>
+      <div style={{fontSize:23,fontWeight:800,color:MOTION_V3.inkSoft}}>ohne Wachstum</div>
       <div style={{fontFamily:FONT.title,fontSize:50,fontWeight:900,color:MOTION_V3.blue}}>10.000 €</div>
     </div>
 
     <div style={{
-      position:'absolute',right:80,top:1210,width:330,height:170,borderRadius:30,
+      position:'absolute',right:120,top:1240,width:330,height:170,borderRadius:30,
       background:'#E9F0EA',border:`2px solid ${MOTION_V3.green}`,opacity:result,
       display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',
       transform:`scale(${0.94+0.06*growth})`
