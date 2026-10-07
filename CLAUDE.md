@@ -6,10 +6,12 @@
 
 - Kanal: **FinanzNeo**
 - Sprache: Deutsch
-- Ziel: Finanzgrundlagen einfach, professionell und verständlich erklären
+- Themen-Scope: **alles rund um Finanzen**, solange ein klarer Bezug zu Geld, finanziellen Entscheidungen, Märkten, Unternehmen, Verbrauchern oder Wirtschaft besteht
+- FinanzNeo ist **kein reiner Einsteigerkanal**. Er darf Grundlagen, fortgeschrittene Themen, aktuelle Finanz-News, Gesetzesänderungen, Rankings/Listicles, Fallbeispiele, Betrugsmaschen, Unternehmen, Banken, Börse, ETFs/Aktien/Krypto, Kredite, Steuern, Versicherungen, Immobilien, Gehalt, Rente, Sozialleistungen, Konsum, Inflation und wirtschaftliche Entwicklungen behandeln
+- Stil: auch komplexe Themen einfach, professionell und verständlich erklären; **die Sprache ist zugänglich, nicht die Themenauswahl eingeschränkt**
 - Reel-Plattformen: TikTok, Instagram Reels, Facebook Reels, Snapchat
 - YouTube: ausschließlich Longform unter `youtube/`; **keine YouTube Shorts**
-- Reel: 1080 × 1920, 9:16, 30 fps; Anfänger-Reels typischerweise ca. 45–70 Sekunden, aber Inhalt und echtes Voiceover entscheiden
+- Reel: 1080 × 1920, 9:16, 30 fps; typischerweise ca. 45–70 Sekunden, aber Inhalt und echtes Voiceover entscheiden
 
 ## 2. Repository-Sicherheit
 
