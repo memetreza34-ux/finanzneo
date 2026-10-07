@@ -1,13 +1,13 @@
 ---
 name: finanzneo-youtube-motion-director
-description: Directs FinanzNeo YouTube Longform motion as simple editorial 2D/2.5D animation that matches the Editorial Finance image world.
+description: Directs FinanzNeo YouTube Longform motion as a YouTube-native 16:9 explainer world with strong metaphors, purposeful motion and brand-compatible editorial design.
 ---
 
 # FinanzNeo YouTube Motion Director V3
 
 ## Goal
 
-Create motion that looks like the moving version of the FinanzNeo Editorial Finance image world.
+Create YouTube-native 16:9 motion with its own visual identity. It should fit FinanzNeo, but it must not copy the static Flow image world one-to-one.
 
 Do not start from a component or effect. Start from the visible change the viewer must understand.
 
@@ -26,13 +26,15 @@ One meaningful motion channel may be enough.
 
 Default:
 
-- 2D / subtle 2.5D
-- matte colors
-- few large shapes
-- low-to-moderate detail
-- light / warm / muted background
-- still camera
-- simple transitions
+- design directly for 1920 × 1080 / 16:9
+- strong hero metaphor
+- wide left / center / right staging
+- 2D / subtle 2.5D by default
+- selective 3D when spatial depth adds meaning
+- scene continuity over slide-like resets
+- meaningful motion every 1–2 seconds when the spoken idea advances
+- camera motion allowed when it helps the story
+- numbers integrated as visual objects
 
 Optional:
 
@@ -62,7 +64,7 @@ Only use optional complexity when it improves understanding.
 Read:
 
 1. `CLAUDE.md`
-2. `docs/FINANZNEO-EDITORIAL-MOTION-V1.md`
+2. `docs/FINANZNEO-YOUTUBE-MOTION-WORLD-V1.md`
 3. `youtube/PRODUKTIONSSTANDARD.md`
 4. `docs/YOUTUBE-MOTION-V3.md`
 5. target `04-visuals/visual-index.json`
@@ -124,11 +126,7 @@ Add a second or third only when each adds information.
 
 ## Camera
 
-Default:
-
-`still`
-
-Use push/follow/reframe only when the viewer benefits from it.
+Default may be still, but YouTube motion may also use push, follow, reframe or zoom-out when the camera reveals or clarifies information. Never move the camera only to create energy.
 
 ## Narrative
 
@@ -186,3 +184,31 @@ Reject when:
 All motion remains deterministic from Remotion frames.
 
 Phase 1 owns creative motion. Phase 3 integrates the sealed source and may not replace the mechanism.
+
+
+## Three-concept rule
+
+Before coding, create three genuinely different visual concepts. Do not submit three cosmetic variations of the same chart or dashboard.
+
+Choose one concept only after comparing:
+- hero object
+- metaphor strength
+- mechanism clarity
+- 16:9 composition
+- payoff strength
+
+## YouTube keyframes
+
+Plan and review:
+- 10% START
+- 35% MECHANISM
+- 65% CONSEQUENCE
+- 90% PAYOFF
+
+The four stills must read as one coherent visual story.
+
+## Hard principle
+
+Do not animate the layout. Animate the idea.
+
+Do not force the Flow image style onto motion when a stronger YouTube-native animation communicates the idea better.
