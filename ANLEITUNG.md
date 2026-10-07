@@ -37,22 +37,24 @@ Assets integrieren + versiegelte Phase-1-Animationen binden
 - kurze deutsche Sätze
 - Zahlen und Fakten prüfen
 
-### V9-Bildwelt
+### Editorial-Finance-Bildwelt
 
 ```text
-finanzneo-stylized-3d-animated-black-v9
+finanzneo-editorial-finance-v1
 ```
 
-- Quellbilder inklusive Cover: 1:1
-- premium stylized 3D animated
-- klar nicht fotorealistisch
-- soft rounded, vereinfachte erkennbare Formen
-- nahtloser tiefschwarzer Hintergrund
-- Emerald / Ivory / Soft Gray / Gold / Red-Orange
-- sauberes weiches Studio-Licht
-- gleiche Material- und Rendering-Sprache
+- Reel-Quellbilder inklusive Cover: 1:1
+- YouTube-Quellbilder: 16:9
+- saubere Editorial-Finanzillustration
+- überwiegend 2D / leichtes 2.5D
+- einfaches 3D nur wenn sinnvoll
+- flexible Hintergründe
+- ein Sprechgedanke = eine klare Bildidee
+- progressive Bildfolgen dürfen das freigegebene vorherige Bild als echte Referenz verwenden
+- kein automatischer Headline-Zwang
+- kein unnötiger AI-Slop
 
-Die alte globale Motiv-/Promptlogik ist entfernt. Für neue Bildprompts gilt nur die Reset-Baseline in `docs/IMAGE-PROMPT-BASELINE.md`.
+Kanonische Quelle: `docs/FINANZNEO-IMAGE-WORLD.md`.
 
 
 ### Phase-1-Animationen
