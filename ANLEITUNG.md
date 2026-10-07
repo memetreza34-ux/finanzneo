@@ -75,9 +75,12 @@ START → SICHTBARER MECHANISMUS → ERGEBNIS
 ```
 
 - Ergebnis mindestens 15 Frames stabil
-- `PremiumPhysicalStage` transparent
-- mindestens ein echtes sichtbares Hauptobjekt
-- keine feste Support-Objekt-Anzahl
+- Motion-Welt: `finanzneo-editorial-motion-v1`
+- 2D / leichtes 2.5D bevorzugt
+- `EditorialMotionStage` für passende helle oder gedämpfte Editorial-Flächen
+- eine klare Hauptbewegung kann vollständig reichen
+- Kamera standardmäßig still
+- kein `PremiumPhysicalStage`-/Physical-Default bei neuen Animationen
 - keine Dummy-/Debug-/Wackelanimation
 - kein `Math.sin/Math.cos` als QA-Hack
 - keine Partikel/Aurora/Grid/Glow-Flächen als Hintergrund
