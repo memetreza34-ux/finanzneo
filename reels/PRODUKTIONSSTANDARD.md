@@ -1,6 +1,6 @@
 # FinanzNeo-Reel-Produktionsstandard
 
-> Bei Widersprüchen gilt immer `CLAUDE.md`.
+> Bei Widersprüchen gilt immer `CLAUDE.md`. Themen-Scope: `docs/CONTENT-SCOPE.md`.
 
 ## 1. Struktur
 
