@@ -21,8 +21,6 @@ import {
   DEFAULT_PHASE3_EXECUTOR,
 } from './lib/reel-scene-schema.mjs';
 
-const STYLIZED_3D_LOCK_ID = 'finanzneo-stylized-3d-editorial-v5';
-const ANIMATED_WORLD_LOCK_ID = 'finanzneo-stylized-3d-animated-black-v9';
 const LAYOUT_VERSION = 'finanzneo-reel-layout-v5';
 const REEL_BACKGROUND_CONTRACT = 'finanzneo-pure-black-background-v1';
 const V5_LAYOUT = {
@@ -83,63 +81,77 @@ const sceneFileName = (index) => `Bild ${num(index)} - [KURZER SZENENNAME].png`;
 const coverFileName = 'Bild 00 - [KURZER COVER-NAME].png';
 const animationExportName = (index) => `Scene${num(index)}Animation`;
 
-const STYLE_BLOCK = `FINANZNEO_WORLD_ID: ${WORLD_ID}
+const STYLE_BLOCK = `FINANZNEO_IMAGE_WORLD: ${WORLD_ID}
 ${SERIES_LOCK_MARKER}
-STYLIZED_3D_LOCK: ${STYLIZED_3D_LOCK_ID}
-PREMIUM_VISUAL_WORLD_LOCK: ${ANIMATED_WORLD_LOCK_ID}
 ${GENERATED_IMAGE_ASPECT_MARKER}
 
 STYLE:
-Use the established FinanzNeo premium stylized 3D animated look. Keep the rendering clearly non-photorealistic, with soft simplified recognizable forms and polished mature materials.
+Use the FinanzNeo Editorial Finance V1 image language. Choose the simplest visual form that makes this exact spoken thought immediately understandable. Prefer clean editorial illustration, mostly 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps.
 
 BACKGROUND:
-Use the established seamless deep black FinanzNeo background.
+Choose the background that makes this image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
 
-COLORS + LIGHT:
-Use the FinanzNeo color system: emerald green, warm ivory, soft gray, subtle gold and warm red-orange. Use clean soft studio lighting with readable highlights, shadows and soft contact shadows.
+COMPOSITION:
+Use a few large readable elements and low-to-moderate detail. Avoid decorative AI spectacle, generic finance UI, neon glow, holograms, miniature cities, floating coin showers and glossy toy-like 3D blocks unless the actual subject specifically requires them.
 
 TEXT:
-Do not add a generic headline automatically. Any text must be explicitly requested by the scene-specific prompt.
+Do not add a generic headline automatically. Numbers, short labels, dates, quotes and document text are allowed when they help explain the image.
 `;
 
-const flowInstruction = (fileName) => `${FLOW_AGENT_PROTOCOL_MARKER}\nAKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN\n\nGOOGLE FLOW – FINALER DATEINAME:\n${fileName}\n\nErzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es SOFORT exakt wie oben um und prüfe V9-Bildwelt + Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich DIESELBE Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten. Der Dateiname darf nicht sichtbar im Bild erscheinen.\n`;
+const flowInstruction = (fileName) => `${FLOW_AGENT_PROTOCOL_MARKER}
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+${fileName}
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es SOFORT exakt wie oben um und prüfe Bildidee + Dateiname. Wenn REFERENCE_IMAGE auf eine vorherige Szene verweist, hänge exakt das bereits freigegebene Bild dieser Szene als Referenz an. Bei Fehler ausschließlich DIESELBE Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten. Der Dateiname darf nicht sichtbar im Bild erscheinen.
+`;
 
 const imagePrompt = (id, index) => `${flowInstruction(sceneFileName(index))}
 
+REFERENCE_IMAGE:
+[NONE OR EXACT APPROVED FILE FROM scene-XX]
+
 IMAGE PROMPT:
-[WRITE THE SCENE-SPECIFIC ENGLISH IMAGE PROMPT HERE.]
+[WRITE THE COMPLETE SCENE-SPECIFIC ENGLISH IMAGE PROMPT HERE. IF THIS CONTINUES A PREVIOUS IMAGE, REPEAT THE FULL COMPOSITION AND DESCRIBE ONLY THE ONE PLANNED ADDITION/CHANGE.]
 
 ${STYLE_BLOCK}`;
 
 const coverPrompt = `${flowInstruction(coverFileName)}
 
+REFERENCE_IMAGE:
+NONE
+
 IMAGE PROMPT:
-[WRITE THE SCENE-SPECIFIC ENGLISH COVER PROMPT HERE.]
+[WRITE THE COMPLETE ENGLISH COVER PROMPT HERE.]
 
 ${STYLE_BLOCK}`;
 
-const worldPrompt = `FINANZNEO STYLIZED 3D ANIMATED BLACK WORLD — V9
+const worldPrompt = `FINANZNEO EDITORIAL FINANCE IMAGE WORLD — V1
 
 ${STYLE_BLOCK}
 
-Creative image-prompt formulas are intentionally reset. See docs/IMAGE-PROMPT-BASELINE.md.
+PROGRESSIVE SEQUENCES:
+If a later scene should keep the same composition and add only one element, use the exact approved prior scene image as the visual reference. The later prompt must still be complete and self-contained.
+
+Canonical rule: docs/FINANZNEO-IMAGE-WORLD.md
 `;
 const imageSceneIds = types.flatMap((t, i) => t === 'image' ? [`scene-${num(i)}`] : []);
 const animationSceneIds = types.flatMap((t, i) => t === 'animation' ? [`scene-${num(i)}`] : []);
 
-write('README.md', `# ${title}\n\nEinfache Struktur:\n- 01-script = Voiceover-Skript\n- 02-audio = finales Voiceover\n- 03-szenen = Cover, V9-Bildprompts, Szenen und Nutzerbilder\n- 04-caption = universelle Caption und Wort-Timings\n- 05-projektdateien = Recherche, Timeline, Phase-3-Handoff\n- 06-export = fertiges Upload-Paket\n\n3 Phasen:\n1. Phase 1 erstellt Recherche, Skript, V9-Bildprompts und jede Animation als fertige animation.tsx.\n2. Nutzer erstellt Flow-Bilder, finales Audio und echte Wortzeiten.\n3. Der konfigurierte Executor integriert exakt diese Assets/Animationen und rendert nur über Preflight + QA.\n\nReel-Canvas: immer statisch #000000, keine Partikel/Aurora/Grid/Glow-Hintergründe.\nV5: Header Y154 / 56 px / max 2 Zeilen, Visual Y320–1400, Caption bottom340.\n`);
+write('README.md', `# ${title}\n\nEinfache Struktur:\n- 01-script = Voiceover-Skript\n- 02-audio = finales Voiceover\n- 03-szenen = Cover, Editorial-Finance-Bildprompts, Szenen und Nutzerbilder\n- 04-caption = universelle Caption und Wort-Timings\n- 05-projektdateien = Recherche, Timeline, Phase-3-Handoff\n- 06-export = fertiges Upload-Paket\n\n3 Phasen:\n1. Phase 1 erstellt Recherche, Skript, FinanzNeo-Bildprompts und jede Animation als fertige animation.tsx.\n2. Nutzer erstellt Flow-Bilder, finales Audio und echte Wortzeiten.\n3. Der konfigurierte Executor integriert exakt diese Assets/Animationen und rendert nur über Preflight + QA.\n\nReel-Canvas: immer statisch #000000, keine Partikel/Aurora/Grid/Glow-Hintergründe.\nV5: Header Y154 / 56 px / max 2 Zeilen, Visual Y320–1400, Caption bottom340.\n`);
 write('01-script/script-fliess-text.txt', '[VOLLSTÄNDIGEN FLIESSTEXT EINFÜGEN]\n');
 write('02-audio/README.md', '# AUDIO HIER REIN\n\nHier genau eine finale Voiceover-Datei ablegen. Danach echte Wort-Zeitstempel erzeugen.\n');
-write('03-szenen/00-ALLE-BILDER-HIER-REIN/README.md', '# ALLE FERTIGEN BILDER HIER REIN\n\nGoogle Flow: genau ein Bild erzeugen → vollständig warten → exakt umbenennen → V9-Bildwelt + Dateiname prüfen → erst dann nächstes Bild. Keine Bildreferenzen. Animationsszenen erhalten kein Bild.\n');
+write('03-szenen/00-ALLE-BILDER-HIER-REIN/README.md', '# ALLE FERTIGEN BILDER HIER REIN\n\nGoogle Flow: genau ein Bild erzeugen → vollständig warten → exakt umbenennen → Bildidee + Dateiname prüfen → erst dann nächstes Bild. Bei geplanten Fortsetzungs-Szenen das freigegebene vorherige Bild als echte Referenz anhängen. Animationsszenen erhalten kein Bild.\n');
 write('03-szenen/00-cover/cover.txt', coverPrompt);
 write('03-szenen/bildwelt.txt', worldPrompt);
 write('03-szenen/README.md', '# SZENEN\n\nV5: große weiße Header aus natürlichem Text + passendem Linien-Icon. Standard 56 px, min. 50 px, max. 2 Zeilen. Keine Capsule/Chip/Pill, kein erzwungenes ALL CAPS. Header Y154, Visual Y320–1400, Caption bottom340. Bildszenen besitzen bildprompt.txt; Animationsszenen besitzen remotion.md UND eine in Phase 1 vollständig fertigzustellende animation.tsx.\n');
 write('04-caption/caption.txt', '[UNIVERSELLE CAPTION FÜR ALLE REEL-PLATTFORMEN EINFÜGEN]\n');
 write('04-caption/word-timings.json', `${JSON.stringify({version:'finanzneo-caption-v1',language:'de',source:'',generatedAt:'',duration:0,wordCount:0,fps:30,subtitleMode:SUBTITLE_MODE,activeWordColor:ACTIVE_WORD_COLOR,words:[],sentences:[]}, null, 2)}\n`);
-write('05-projektdateien/animationen.md', `# ANIMATIONEN\n\nPhase 1 besitzt die kreative und technische Verantwortung. Pro Animationsszene: remotion.md + produktionsreife animation.tsx. Lock: ${ANIMATION_QUALITY_LOCK}.\n\nVisuell: V9 stylized 3D animated auf transparentem Stage über zentralem pure-black Canvas. AnimationStage clippt sichtbar hart auf Y320–1400. Keine Partikel/Aurora/Grid/Glow-Hintergründe.\n\nPflicht: STARTZUSTAND → SICHTBARER MECHANISMUS → EINDEUTIGES ERGEBNIS → Ergebnis mindestens 15 Frames stabil. Keine Dummy-/Debug-/Wackel-/Math.sin-/Math.cos-Bewegung zum Bestehen von QA.\n\n[REMOTION-ANIMATIONEN EINFÜGEN]\n`);
+write('05-projektdateien/animationen.md', `# ANIMATIONEN\n\nPhase 1 besitzt die kreative und technische Verantwortung. Pro Animationsszene: remotion.md + produktionsreife animation.tsx. Lock: ${ANIMATION_QUALITY_LOCK}.\n\nAnimationsstil wird separat durch den Motion-Standard geregelt; die neue statische Bildwelt erzwingt keinen 3D-/Background-Look für Animationen. AnimationStage clippt sichtbar hart auf Y320–1400. Keine Partikel/Aurora/Grid/Glow-Hintergründe.\n\nPflicht: STARTZUSTAND → SICHTBARER MECHANISMUS → EINDEUTIGES ERGEBNIS → Ergebnis mindestens 15 Frames stabil. Keine Dummy-/Debug-/Wackel-/Math.sin-/Math.cos-Bewegung zum Bestehen von QA.\n\n[REMOTION-ANIMATIONEN EINFÜGEN]\n`);
 write('05-projektdateien/recherche-quellen.md', '# RECHERCHE UND QUELLEN\n\n[QUELLEN EINFÜGEN]\n');
 write('05-projektdateien/szenenplan.md', '# SZENENPLAN\n\nFür jede Szene: Typ, Sprechbeat, natürliche Zwischenüberschrift, Icon, Hauptaussage. Bildbeats max. 6 Sekunden.\n\nV5:\n- Header mittig, 56 px (min. 50), max. 2 Zeilen, weißer Text + semantisch gefärbtes 34-px-Icon\n- keine Capsule/Chip/Pill und kein erzwungenes ALL CAPS\n- Header Y154; Visual Y320–1400; Caption bottom340\n- Untertitel enden an Szenengrenzen\n- Animationsszene besitzt fertige animation.tsx aus Phase 1 und bleibt sichtbar in Y320–1400\n\n[SZENENPLAN EINFÜGEN]\n');
-write('05-projektdateien/PHASENSTATUS.md', `# Phasenstatus\n\n- [ ] Phase 1: Inhalt, Fakten, Skript, Szenen, V9-Prompts, Header/Icons, produktionsreife animation.tsx und eine universelle Caption vollständig\n- [ ] Phase 2: alle exakt benannten Bilder, genau ein finales Voiceover und echte Wort-Zeitstempel vorhanden\n- [ ] Phase 3: \`npm run reel:ready -- ${targetArg}\` erfolgreich; Animations-Seal vorhanden; Preflight/Render-QA/Export abgeschlossen\n`);
+write('05-projektdateien/PHASENSTATUS.md', `# Phasenstatus\n\n- [ ] Phase 1: Inhalt, Fakten, Skript, Szenen, Editorial-Finance-Prompts, Header/Icons, produktionsreife animation.tsx und eine universelle Caption vollständig\n- [ ] Phase 2: alle exakt benannten Bilder, genau ein finales Voiceover und echte Wort-Zeitstempel vorhanden\n- [ ] Phase 3: \`npm run reel:ready -- ${targetArg}\` erfolgreich; Animations-Seal vorhanden; Preflight/Render-QA/Export abgeschlossen\n`);
 write('05-projektdateien/technische-hinweise.md', `# TECHNISCHE HINWEISE\n\n- Reel: 1080 × 1920, 9:16, 30 fps\n- Flow-Bilder inklusive Cover: 1:1, keine Bildreferenz\n- Bildwelt: ${ANIMATED_WORLD_LOCK_ID}\n- Flow-Hintergrund: deep black\n- Remotion-Reel-Canvas: #000000 statisch (${REEL_BACKGROUND_CONTRACT})\n- keine Partikel/Aurora/Grid/Glow/Vignette als Reel-Hintergrund\n- Header: Y154, weiß, 56 px, min. 50 px, max. 2 Zeilen, 34-px-Icon\n- Visual: Y320–1400\n- AnimationStage: hart auf Y320–1400 geclippt\n- Captions: bottom340, aktives Wort grün, Rest weiß\n- Animation: fertige Phase-1-animation.tsx, START → MECHANISMUS → ERGEBNIS, Result-Hold >=15 Frames\n- Animation-Hacks/Debug-Platzhalter verboten\n- Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP\n`);
 write('05-projektdateien/timeline.json', `${JSON.stringify({version:2,title,fps:30,timingSource:'04-caption/word-timings.json',cutRule:'voice-sentence-or-meaningful-phrase-start',sceneCount:types.length,scenes:[]}, null, 2)}\n`);
 
@@ -169,13 +181,14 @@ const scenes = types.map((type, index) => {
       planFile:`EINZELNE-SZENEN/${id}/bildprompt.txt`,
       googleFlowFileName:sceneFileName(index),
       expectedVisual:'[EINFÜGEN]',
+      imageSequence:{mode:'independent',referenceSceneId:null,plannedChange:null},
       imagePresentation:{scale:1.01,sourceCropTop:0,sourceCropBottom:0,cropSafe:true},
     };
   }
 
   const animationExport = animationExportName(index);
   const animationSourceFile = `EINZELNE-SZENEN/${id}/animation.tsx`;
-  write(`${dir}/remotion.md`, `# Remotion-Spezifikation ${id}\n\n**Zwischenüberschrift:** [EINFÜGEN — natürliche Schreibweise; 56 px; max. 2 Zeilen; Plain Header]\n**Icon:** [EINFÜGEN]\n**Kanonische Codequelle:** animation.tsx\n**Quality Lock:** ${ANIMATION_QUALITY_LOCK}\n**Visuelle Zielwelt:** ${ANIMATED_WORLD_LOCK_ID}\n**Stage:** transparent über zentralem #000000 Reel-Canvas; sichtbare Ausgabe hart Y320–1400; keine dekorativen Hintergrundeffekte.\n\n## STARTZUSTAND\n[EINFÜGEN]\n\n## SICHTBARER MECHANISMUS\n[EINFÜGEN]\n\n## ERGEBNIS\n[EINFÜGEN]\n\n## RESULT HOLD\nMindestens 15 Frames stabil.\n\n## VERBOTEN\nDummy/Placeholder/Debug-Boxen, wackelnde Rechtecke, Math.sin/Math.cos als künstlicher Frame-Diff, Hintergrundpartikel/Aurora/Grid/Glow, reine Dauerbewegung ohne Aussage, "erst Tests bestehen, später hübsch machen".\n`);
+  write(`${dir}/remotion.md`, `# Remotion-Spezifikation ${id}\n\n**Zwischenüberschrift:** [EINFÜGEN — natürliche Schreibweise; 56 px; max. 2 Zeilen; Plain Header]\n**Icon:** [EINFÜGEN]\n**Kanonische Codequelle:** animation.tsx\n**Quality Lock:** ${ANIMATION_QUALITY_LOCK}\n**Bildwelt:** nicht auf Animationen übertragen; Motion-Standard entscheidet die Animationssprache\n**Stage:** transparent über zentralem #000000 Reel-Canvas; sichtbare Ausgabe hart Y320–1400; keine dekorativen Hintergrundeffekte.\n\n## STARTZUSTAND\n[EINFÜGEN]\n\n## SICHTBARER MECHANISMUS\n[EINFÜGEN]\n\n## ERGEBNIS\n[EINFÜGEN]\n\n## RESULT HOLD\nMindestens 15 Frames stabil.\n\n## VERBOTEN\nDummy/Placeholder/Debug-Boxen, wackelnde Rechtecke, Math.sin/Math.cos als künstlicher Frame-Diff, Hintergrundpartikel/Aurora/Grid/Glow, reine Dauerbewegung ohne Aussage, "erst Tests bestehen, später hübsch machen".\n`);
   write(`03-szenen/${animationSourceFile}`, `import React from 'react';\n\n/**\n * PHASE-1 CANONICAL ANIMATION SOURCE\n * Vor Abschluss von Phase 1 vollständig durch produktionsreifen Code ersetzen.\n * Phase 3 darf diese Quelle später nicht kreativ ersetzen oder verändern.\n *\n * ANIMATION_NARRATIVE\n * START: [EINFÜGEN — konkreter visueller Ausgangszustand]\n * MECHANISM: [EINFÜGEN — konkrete sichtbare Ursache-Wirkungs-Veränderung]\n * RESULT: [EINFÜGEN — eindeutiger visueller Endzustand]\n */\nexport const RESULT_HOLD_FRAMES = 15;\n\nexport const ${animationExport}: React.FC<{durationFrames?: number}> = () => {\n  throw new Error('PHASE 1 ANIMATION CODE NOT COMPLETED');\n};\n`);
 
   return {
@@ -194,7 +207,7 @@ const allSections = types.map((type,index) => {
   return `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nSZENE ${number} – BILDSZENE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${imagePrompt(`scene-${number}`, index)}`;
 }).join('\n');
 
-write('03-szenen/alle-bildprompts.txt', `${AUTONOMY_BLOCK}\nFINANZNEO — EINZIGE ÜBERGABEDATEI FÜR DEN GOOGLE-FLOW-KI-AGENTEN\n\n${FLOW_AGENT_BLOCK}\n\nPREMIUM_VISUAL_WORLD_LOCK: ${ANIMATED_WORLD_LOCK_ID}\nBILDNUMMERIERUNG:\nBildnummer = echte Szenennummer. Animationsnummern bleiben reserviert. Jede Szene bekommt eine frische Komposition. Keine Bildreferenz. Keine feste Objektanzahl.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCOVER\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${coverPrompt}\n${allSections}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nABSCHLUSS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBeende den Auftrag erst, wenn jedes erwartete Bild einzeln erzeugt, exakt umbenannt und nach V9 geprüft wurde. Danach müssen alle Bilder gemeinsam hier liegen:\n03-szenen/00-ALLE-BILDER-HIER-REIN/\n`);
+write('03-szenen/alle-bildprompts.txt', `${AUTONOMY_BLOCK}\nFINANZNEO — EINZIGE ÜBERGABEDATEI FÜR DEN GOOGLE-FLOW-KI-AGENTEN\n\n${FLOW_AGENT_BLOCK}\n\nPREMIUM_VISUAL_WORLD_LOCK: ${ANIMATED_WORLD_LOCK_ID}\nBILDNUMMERIERUNG:\nBildnummer = echte Szenennummer. Animationsnummern bleiben reserviert. Jede Szene bekommt eine frische Komposition. Keine Bildreferenz. Keine feste Objektanzahl.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCOVER\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${coverPrompt}\n${allSections}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nABSCHLUSS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBeende den Auftrag erst, wenn jedes erwartete Bild einzeln erzeugt, exakt umbenannt und nach Editorial-Finance-QA geprüft wurde. Danach müssen alle Bilder gemeinsam hier liegen:\n03-szenen/00-ALLE-BILDER-HIER-REIN/\n`);
 
 write('03-szenen/scene-index.json', `${JSON.stringify({
   version:27,
@@ -220,27 +233,25 @@ write('03-szenen/scene-index.json', `${JSON.stringify({
   imageWorld:{
     id:WORLD_ID,
     seriesLockId:SERIES_LOCK_ID,
-    stylized3DLockId:STYLIZED_3D_LOCK_ID,
-    physicalExplainerLockId:ANIMATED_WORLD_LOCK_ID,
-    premiumVisualWorldLockId:ANIMATED_WORLD_LOCK_ID,
-    animatedWorldLockId:ANIMATED_WORLD_LOCK_ID,
+    authority:'docs/FINANZNEO-IMAGE-WORLD.md',
     generatedImageAspectRatio:GENERATED_IMAGE_ASPECT_RATIO,
     squareGeneratedImagesRequired:true,
     referencePromptFile:'03-szenen/bildwelt.txt',
-    styleReferenceStrategy:'written-style-lock-only',
-    referenceImageUse:'forbidden',
-    style:'stylized-3d-animated-black-v9',
-    sameWorldAcrossSeriesRequired:true,
-    nonPhotorealisticRequired:true,
-    stylized3DAnimatedRequired:true,
-    softRoundedGeometryRequired:true,
-    simplifiedDetailsRequired:true,
-    premiumPlayfulBalanceRequired:true,
-    deepBlackBackgroundRequired:true,
-    cleanMinimalBackgroundRequired:true,
-    subjectSeparationLightingRequired:true,
-    softContactShadowsRequired:true,
-    headlinesInGeneratedImagesForbidden:true,
+    promptLanguage:'en',
+    primaryStyle:'clean-editorial-finance-illustration',
+    flexibleBackgrounds:true,
+    fixedBlackBackgroundForbidden:true,
+    fixed3DRenderingForbidden:true,
+    twoDAllowed:true,
+    subtleTwoPointFiveDAllowed:true,
+    selectiveSimple3DAllowed:true,
+    firstGlanceUnderstandingRequired:true,
+    oneCoreIdeaPerImageRequired:true,
+    progressiveSequencesAllowed:true,
+    approvedPriorImageReferenceAllowed:true,
+    continuationReferenceRequiredWhenDeclared:true,
+    genericHeadlineByDefault:false,
+    aiSlopAvoidanceRequired:true,
   },
   platformPublishing:{directory:CAPTION_DIRECTORY,...PLATFORM_PUBLISHING_FILES},
   timelineRules:{timingSource:'04-caption/word-timings.json',cutsFollowSentenceStarts:true,cutsFollowSentenceStartsAndMeaningfulPhraseStarts:true,equalLengthScenesForbiddenByDefault:true},
@@ -255,7 +266,7 @@ write('03-szenen/scene-index.json', `${JSON.stringify({
 
 console.log(`✓ Reel-Gerüst erstellt: ${root}`);
 console.log(`  ${imageSceneIds.length} Bildszenen · ${animationSceneIds.length} Remotion-Szenen`);
-console.log(`  Bildwelt: ${ANIMATED_WORLD_LOCK_ID} · 1:1 · deep black · kreative Promptregeln zurückgesetzt`);
+console.log(`  Bildwelt: ${WORLD_ID} · 1:1 · flexible Hintergründe · Editorial 2D/2.5D · progressive Referenzfolgen erlaubt`);
 console.log(`  Reel-Hintergrund: ${REEL_BACKGROUND_CONTRACT} · statisch #000000 · keine Partikel/Aurora/Grid/Glow-Effekte`);
 console.log('  Reel V5: Header Y154 · 56 px · max 2 Zeilen · Visual Y320–1400 · Caption bottom340');
 console.log('  Animation Safe Zone: hart Y320–1400 · kein Eindringen in Header/Caption');
