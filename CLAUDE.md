@@ -116,44 +116,50 @@ FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
 - Logik: Hook → Problem → Erklärung → Beispiel → Lösung/Merksatz; CTA nur wenn er wirklich passt
 - Zahlen nur nach Prüfung; Beispielannahmen klar kennzeichnen
 
-## 6. Bildwelt — V9 Visual Style Only
+## 6. Bildwelt — Editorial Finance V1
 
 Verbindlich:
 
 ```text
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
 ```
 
-Die Bildwelt sperrt nur die visuelle Identität:
+Kanonische Quelle: `docs/FINANZNEO-IMAGE-WORLD.md`.
 
-- premium stylized 3D
-- klar nicht fotorealistisch
-- weiche, vereinfachte und erkennbare Formen
-- tiefer schwarzer Hintergrund
-- Emerald / Ivory / Soft Gray / Gold / Red-Orange
-- sauberes weiches Studio-Licht
-- konsistente Materialwirkung
-
-Die neue Standardlogik lautet:
+Grundlogik:
 
 ```text
 1 gesprochener Gedanke
 → 1 einfache visuelle Idee
-→ sofort verständlich
-→ erst danach FinanzNeo-Bildwelt anwenden
+→ auf den ersten Blick verständlich
+→ dann die passende Editorial-Darstellung wählen
 ```
 
-Bevorzugt werden einfache Metaphern, Zahl+Objekt, einfache Illustrationen, Diagramme/Charts, Prozesse, Timelines oder Text+Illustration. Keine dieser Formen ist Pflicht; entscheidend ist die einfachste verständliche Darstellung.
+Die Bildwelt ist flexibel:
 
-Keine unnötige KI-Komplexität: keine automatisch erzeugten Neon-/Glow-Finanzwelten, futuristischen Dashboards, Miniaturstädte, schwebenden Coin-Szenen oder dekorativen „cinematic finance“-Kompositionen.
+- saubere Editorial-Finanzillustration
+- überwiegend 2D oder leichtes 2.5D
+- einfaches 3D nur wenn es dem Motiv wirklich hilft
+- Hintergründe frei nach Motiv: warmes Off-White, Creme, helles Grau, gedämpfte Farbe, Anthrazit oder Schwarz
+- Metaphern, Diagramme, Timelines, Vergleiche, Dokumente, Personen, Unternehmen/Marken und einfache Alltagsszenen sind erlaubt
+- Text im Bild darf Zahlen, kurze Labels, Daten, Zitate oder Dokumenttext enthalten, wenn er erklärt statt dekoriert
+- kein automatischer Headline-Zwang
+- Finanzobjekte sind nicht in jedem Bild Pflicht; eine einfache allgemeine Metapher darf den Satz besser erklären
 
-Bildprompts werden auf Englisch geschrieben. Sie beschreiben zuerst das **konkrete Motiv** und erst danach kurz die FinanzNeo-Bildwelt. Eine generische Überschrift wird nicht automatisch in das KI-Bild gesetzt; Zahlen, kurze Labels, Zitate oder Datumsangaben sind erlaubt, wenn sie die Erklärung tragen.
+AI-Slop vermeiden: keine automatisch hinzugefügten Neon-Finanzwelten, Hologramme, Coin-Regen, futuristischen Dashboards, Miniaturstädte, Energie-Netzwerke, Podeste, Spielzeug-3D-Blöcke oder „cinematic finance“-Dekoration ohne echten Erklärwert.
 
-Kanonische Bildlogik: `docs/IMAGE-PROMPT-BASELINE.md`.
-Die Bildwelt selbst bleibt: `config/finanzneo-image-world-lock.json`.
+### Progressive Bildfolgen
+
+Mehrere Bildszenen dürfen dieselbe Grundkomposition stufenweise weiterentwickeln. Wenn Szene B auf Szene A aufbaut:
+
+1. Szene A vollständig erzeugen und freigeben.
+2. Für Szene B das **exakte freigegebene Bild aus Szene A als echte Bildreferenz anhängen**.
+3. Der Prompt von Szene B bleibt vollständig und selbstständig formuliert.
+4. Nur die geplante neue Information ergänzen oder ändern.
+5. Für weitere Schritte jeweils das zuletzt freigegebene Bild als Referenz verwenden.
+
+Nur „wie vorher“ oder „gleiches Bild“ in Textform reicht nicht ohne echte Referenzdatei.
 
 
 ## 7. Google Flow — Strict Single Job V3
