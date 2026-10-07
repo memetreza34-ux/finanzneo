@@ -11,7 +11,7 @@ if (!target) {
 
 const LEGACY_CONTRACT_ID = 'finanzneo-phase1-individual-motion-v1';
 const CONTRACT_ID = 'finanzneo-phase1-hybrid-motion-v2';
-const LIBRARY_ID = 'finanzneo-editorial-motion-library-v1';
+const LIBRARY_ID = 'finanzneo-editorial-motion-v3-library';
 const LEGACY_LIBRARY_ID = 'finanzneo-finance-motion-library-v1';
 const root = resolve(target);
 const indexPath = resolve(root, '03-szenen/scene-index.json');
