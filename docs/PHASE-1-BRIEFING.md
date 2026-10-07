@@ -141,6 +141,9 @@ ANIMATION — EDITORIAL MOTION V1
 
 Phase 1 ist vollständig verantwortlich. Für jede Animationsszene müssen `remotion.md` UND eine fertige `animation.tsx` existieren.
 
+Technischer Qualitäts-Lock:
+- `finanzneo-phase1-animation-code-v1`
+
 Aktive Motion-Welt:
 - `finanzneo-editorial-motion-v1`
 - Visual Target: `finanzneo-editorial-finance-v1`
