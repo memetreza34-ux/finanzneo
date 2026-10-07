@@ -34,6 +34,14 @@ import {
   TaxBracketsV2,
 } from '../finance-motion/editorial-v2';
 import {
+  MortgageResetV3,
+  MORTGAGE_RESET_V3_FRAMES,
+  InvestmentCrossroadsV3,
+  INVESTMENT_CROSSROADS_V3_FRAMES,
+  RecurringCostsV3,
+  RECURRING_COSTS_V3_FRAMES,
+} from '../finance-motion/v3/examples';
+import {
   EDITORIAL_EXAMPLE_FRAMES,
   EditorialMotion01Transfer,
   EditorialMotion02BudgetSplit,
@@ -144,6 +152,10 @@ export const ExperimentCompositions: React.FC = () => (
     <Composition id="EditorialV2Diversification" component={DiversificationNetworkV2} durationInFrames={180} fps={FPS} {...VERTICAL} />
     <Composition id="EditorialV2LoanPaydown" component={LoanPaydownV2} durationInFrames={180} fps={FPS} {...VERTICAL} />
     <Composition id="EditorialV2TaxBrackets" component={TaxBracketsV2} durationInFrames={180} fps={FPS} {...VERTICAL} />
+
+    <Composition id="EditorialV3MortgageReset" component={MortgageResetV3} durationInFrames={MORTGAGE_RESET_V3_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialV3InvestmentCrossroads" component={InvestmentCrossroadsV3} durationInFrames={INVESTMENT_CROSSROADS_V3_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialV3RecurringCosts" component={RecurringCostsV3} durationInFrames={RECURRING_COSTS_V3_FRAMES} fps={FPS} {...VERTICAL} />
 
     <Composition
       id="ReelsTestFinanceHeaderCaptionMotion"
