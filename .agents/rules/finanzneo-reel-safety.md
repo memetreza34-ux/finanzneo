@@ -36,11 +36,18 @@ Antigravity MUST NOT generate or replace final Reel images. The user places all 
 
 Missing image = report exact filename and wait.
 
-The only global image-direction lock is the visual rendering identity `finanzneo-stylized-3d-animated-black-v9`: premium stylized 3D, clearly non-photorealistic, soft simplified forms, deep-black world, FinanzNeo color system and clean soft studio lighting.
+The canonical still-image world is `finanzneo-editorial-finance-v1`, defined only in `docs/FINANZNEO-IMAGE-WORLD.md`.
 
-Do not reintroduce legacy image-prompt formulas such as literal-first, transferability, mandatory real-life context, cause/effect layouts, object-count rules, mandatory labels or prompt-length rules.
+Still images:
+- prioritize one simple visual idea per spoken thought
+- may use 2D, subtle 2.5D or selective simple 3D
+- may use light, muted or dark backgrounds depending on the scene
+- may use metaphors, charts, timelines, documents, companies/brands and simple scenes
+- must avoid unnecessary AI-spectacle and clutter
 
-Canonical image baseline: `docs/IMAGE-PROMPT-BASELINE.md`.
+For progressive image sequences, an approved previous scene image may be used as a real Flow reference. The next prompt must remain complete and should add/change only the planned element.
+
+Do not reintroduce the retired black-3D image world or legacy image-world rules.
 
 
 ## Sealed animation boundary
