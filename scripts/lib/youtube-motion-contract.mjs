@@ -53,8 +53,8 @@ export const validateYouTubeMotionMetadata = (visual) => {
     }
   };
 
-  // Content-first: Erst beschreiben, was der Zuschauer tatsächlich sehen soll,
-  // danach Mechanik und Technik festlegen.
+  // YouTube-native: Erst sichtbare Veränderung und starke Metapher bestimmen,
+  // dann drei Konzepte vergleichen, Keyframes planen und erst danach Technik wählen.
   requiredString('viewerChange');
   requiredString('animationIntent');
   requiredString('mechanicId');
