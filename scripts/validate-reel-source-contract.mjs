@@ -29,6 +29,7 @@ import {
   validatePhase3Executor,
   validateSceneShape,
 } from './lib/reel-scene-schema.mjs';
+import {EDITORIAL_MOTION_LOCK} from './lib/editorial-motion-contract.mjs';
 
 const PURE_BLACK_CONTRACT = 'finanzneo-pure-black-background-v1';
 
@@ -150,9 +151,20 @@ const phase1Animation = index.phase1AnimationCode ?? {};
 assert(phase1Animation.required === true, 'phase1AnimationCode.required muss true sein.');
 assert(phase1Animation.qualityLock === ANIMATION_QUALITY_LOCK, `phase1AnimationCode.qualityLock muss ${ANIMATION_QUALITY_LOCK} sein.`);
 assert(phase1Animation.phase3MayNotReplaceCanonicalAnimation === true, 'Phase 3 darf kanonischen Phase-1-Animationscode nicht ersetzen.');
-assert(phase1Animation.pureBlackCanvasRequired === true, 'Animationen müssen den Pure-Black-Canvas-Vertrag erben.');
-assert(phase1Animation.transparentAnimationStageRequired === true, 'PremiumPhysicalStage muss transparent bleiben.');
-assert(phase1Animation.decorativeBackgroundEffectsForbidden === true, 'Dekorative Animations-Hintergründe müssen verboten sein.');
+if (phase1Animation.visualMotionLock === EDITORIAL_MOTION_LOCK) {
+  assert(phase1Animation.visualTargetWorld === 'finanzneo-editorial-finance-v1', 'Editorial Motion muss auf die neue Editorial-Finance-Bildwelt zielen.');
+  assert(phase1Animation.editorialTwoDPreferred === true, 'Editorial Motion muss 2D/2.5D bevorzugen.');
+  assert(phase1Animation.fixed3DStyleForbidden === true, 'Fester 3D-Animationsstil muss deaktiviert sein.');
+  assert(phase1Animation.flexibleAnimationSurface === true, 'Editorial Motion braucht flexible Animationsflächen.');
+  assert(phase1Animation.pureBlackAnimationSurfaceRequired === false, 'Editorial Motion darf keinen schwarzen Animationsflächen-Zwang haben.');
+  assert(phase1Animation.minimumMotionNeededPreferred === true, 'Editorial Motion muss minimale verständliche Bewegung bevorzugen.');
+  assert(phase1Animation.cameraMovementRequired === false, 'Kamerabewegung darf nicht Pflicht sein.');
+  assert(phase1Animation.decorativeBackgroundEffectsForbidden === true, 'Dekorative Animations-Hintergrundeffekte müssen verboten sein.');
+} else {
+  assert(phase1Animation.pureBlackCanvasRequired === true, 'Legacy-Animationen müssen den Pure-Black-Canvas-Vertrag erben.');
+  assert(phase1Animation.transparentAnimationStageRequired === true, 'Legacy PremiumPhysicalStage muss transparent bleiben.');
+  assert(phase1Animation.decorativeBackgroundEffectsForbidden === true, 'Dekorative Animations-Hintergründe müssen verboten sein.');
+}
 
 const phase3 = index.phase3CompletionContract ?? {};
 assert(phase3.reelBackgroundContractId === PURE_BLACK_CONTRACT, `Phase 3 braucht ${PURE_BLACK_CONTRACT}.`);
