@@ -122,7 +122,7 @@ Sprechpunkt
 → START → AKTION → REAKTION → ERGEBNIS → RESULT HOLD
 ```
 
-Pflicht: eine klar sichtbare inhaltliche Veränderung und mindestens 15 Frames Ergebnis-Hold. Eine einzige Hauptbewegung darf reichen. Kamera ist standardmäßig still. Neue Animationen folgen `finanzneo-editorial-motion-v1` und dürfen nicht in die alte Physical-/Glossy-3D-Sprache zurückfallen. Keine feste Animationsbibliothek als kreatives Auswahlmenü.
+Pflicht: eine klar sichtbare inhaltliche Veränderung und mindestens 15 Frames Ergebnis-Hold. Eine einzige Hauptbewegung darf reichen. Vor Coding: 3 visuelle Konzepte → stärkstes wählen → 10/35/65/90-Keyframes → Motion-Grammatik. Kamera ist standardmäßig still. Neue Animationen folgen `finanzneo-editorial-motion-v3` und dürfen nicht in die alte Physical-/Glossy-3D-Sprache zurückfallen. Keine feste Animationsbibliothek als kreatives Auswahlmenü.
 
 Quality Guards V1 lesen zusätzlich die **echte `animation.tsx`**. Unterschiedliche `MECHANIC_ID`, Labels, Icons oder Lotties reichen nicht, wenn tatsächliche Hauptobjekte und Komposition sichtbar gleich bleiben. Wiederholung braucht konkrete inhaltliche Begründung.
 
