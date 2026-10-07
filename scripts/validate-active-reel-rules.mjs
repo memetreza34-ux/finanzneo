@@ -80,7 +80,7 @@ const requiredMarkers = new Map([
   ['README.md', ['3-PHASEN-WORKFLOW.md', 'Produktionsregistry']],
   ['ANLEITUNG.md', ['finanzneo-editorial-finance-v1', '#000000', 'phase3Executor']],
   ['docs/FINANZNEO-IMAGE-WORLD.md', ['finanzneo-editorial-finance-v1', 'ONE SPOKEN THOUGHT', 'Progressive image sequences']],
-  ['docs/FINANZNEO-EDITORIAL-MOTION-V3.md', ['finanzneo-editorial-motion-v3', 'three visual concepts', '10% / 35% / 65% / 90%']],
+  ['docs/FINANZNEO-EDITORIAL-MOTION-V3.md', ['finanzneo-editorial-motion-v3', '3 visual concepts', '10% / 35% / 65% / 90%']],
   ['CLAUDE.md', ['finanzneo-editorial-finance-v1', '#000000', 'Visualzone           Y = 320–1400', 'Header Text          56 px']],  ['docs/PHASE-1-ANIMATION-CODE-STANDARD.md', ['finanzneo-editorial-motion-v3', 'finanzneo-editorial-motion-v3-library', 'EDITORIAL_VISUAL_NARRATIVE', 'PremiumPhysicalStage']],
   ['docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md', ['56 px', 'Y = 320–1400', 'SourceNote']],
   ['docs/PHASE-3-COMPLETION-GATE.md', ['Post-Render', 'Caption-/Header-only', 'FINAL_COMPLETE']],
