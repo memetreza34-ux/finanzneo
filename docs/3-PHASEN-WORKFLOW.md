@@ -11,24 +11,25 @@ Phase 1 liefert vollständig:
 - Dramaturgie und Szenenplan
 - natürliche Header + Icons
 - Bild-/Animations-Zuordnung
-- V9-Flow-Prompts + exakte Dateinamen
+- Editorial-Finance-Flow-Prompts + exakte Dateinamen
 - pro Animationsszene `remotion.md` + **produktionsreife `animation.tsx`**
 - Master- und Plattform-Captions
 
 Phase 1 besitzt die kreative Animation. Phase 3 darf nichts Fehlendes erfinden oder durch einen technisch leichteren Hack ersetzen.
 
-Bildwelt V9:
+Bildwelt:
 
 ```text
-finanzneo-stylized-3d-animated-black-v9
+finanzneo-editorial-finance-v1
 ```
 
-- premium stylized 3D
-- klar nicht fotorealistisch
-- weiche / vereinfachte erkennbare Formen
-- tiefer schwarzer Hintergrund
-- FinanzNeo-Farb- und Lichtsystem
-- keine zusätzliche globale Bildprompt-Formel; siehe `docs/IMAGE-PROMPT-BASELINE.md`
+- einfache Editorial-Finanzillustration
+- 2D / leichtes 2.5D bevorzugt; einfaches 3D optional
+- flexible Hintergründe
+- ein Gedanke = eine klare Bildidee
+- Metaphern, Charts, Timelines, Dokumente, Vergleiche, Unternehmen/Marken und Alltagsszenen frei nach Inhalt
+- progressive Folgen dürfen das vorherige freigegebene Bild als echte Referenz verwenden
+- Details: `docs/FINANZNEO-IMAGE-WORLD.md`
 
 
 ## Phase 2 — Nutzer
@@ -36,7 +37,7 @@ finanzneo-stylized-3d-animated-black-v9
 1. `03-szenen/alle-bildprompts.txt` verwenden.
 2. Strict Single Job: **ein Bild → warten → exakt umbenennen → QA → nächstes Bild**.
 3. Cover und Szenenbilder bleiben `1:1`.
-4. Keine Bildreferenz verwenden.
+4. Bei unabhängigen Szenen keine Referenz nötig. Bei geplanten progressiven Bildfolgen das exakte freigegebene vorherige Bild als Referenz anhängen.
 5. Alle finalen Bilder gemeinsam nach `03-szenen/00-ALLE-BILDER-HIER-REIN/`.
 6. Genau ein finales Voiceover nach `02-audio/`.
 7. Aus exakt diesem Audio echte Wort-Timings erzeugen.
