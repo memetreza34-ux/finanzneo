@@ -96,9 +96,9 @@ if (!tokens) {
       ['V5 Visual 320–1400', /Visualzone\s+Y320[–-]1400|320[–-]1400/],
       ['V5 Caption bottom 340', /bottom340|bottom\s*=\s*340|340 px/],
       ['Untertitel ohne Vorgreifen', /kein Wort der nächsten Szene/i],
-      ['V9 Deep-Black-Hintergrund', /deep-black|deep black/i],
-      ['V9 Bildwelt-Lock', /finanzneo-stylized-3d-animated-black-v9/],
-      ['V9 nicht realistisch', /nicht realistisch|never photorealistic/i],
+      ['Editorial-Finance-Bildwelt', /finanzneo-editorial-finance-v1/],
+      ['flexible Hintergründe', /flexible Hintergründe|kein Schwarz-Zwang/i],
+      ['progressive Referenzfolgen', /Referenz.*vorherige|progressive/i],
       ['1:1-Quellbilder', /GENERATED_IMAGE_ASPECT_RATIO: 1:1/],
       ['Icon-Liste', /euro, clock, hourglass/],
       ['fertiger Phase-1-Animationscode', /animation\.tsx/],
@@ -118,7 +118,7 @@ if (!tokens) {
       const fehlend = echteIcons.filter((i) => !briefing.includes(i));
       if (fehlend.length > 3) errors.push(`Phase-1-Briefing listet ${fehlend.length} vorhandene Icons nicht: ${fehlend.slice(0, 6).join(', ')}…`);
     }
-    notes.push('Phase-1-Briefing enthält V5-Layout, den V9-Visual-Style-Lock, die Image-Prompt-Reset-Baseline und den kanonischen Animationscode-Vertrag.');
+    notes.push('Phase-1-Briefing enthält V5-Layout, Editorial Finance V1, progressive Referenzfolgen und den kanonischen Animationscode-Vertrag.');
   }
 
   notes.push(`Layoutwerte konsistent: Header Y=${werte.headerTop} · Visual ${werte.visualTop}–${werte.visualBottom} · Untertitel ${werte.captionBottom} · ${werte.captionSize} px.`);
@@ -127,7 +127,7 @@ if (!tokens) {
 const gehirn = read('CLAUDE.md');
 if (gehirn && !gehirn.includes('PHASE-1-BRIEFING') && !/Phase 1\s*[—-]\s*ChatGPT/.test(gehirn)) errors.push('CLAUDE.md enthält weder Verweis noch verbindliche Phase-1-Regeln.');
 if (gehirn && !gehirn.includes('PHASE-1-ANIMATION-CODE-STANDARD') && !gehirn.includes('finanzneo-phase1-animation-code-v1')) errors.push('CLAUDE.md enthält weder Verweis noch den verbindlichen Phase-1-Animationscode-Standard.');
-if (gehirn && !gehirn.includes('finanzneo-stylized-3d-animated-black-v9')) errors.push('CLAUDE.md enthält den aktuellen V9-Bildwelt-Lock nicht.');
+if (gehirn && !gehirn.includes('finanzneo-editorial-finance-v1')) errors.push('CLAUDE.md enthält die aktuelle Editorial-Finance-Bildwelt nicht.');
 const master = read('MASTER-PROMPTS.md');
 if (master && !master.includes('PHASE-1-BRIEFING')) errors.push('MASTER-PROMPTS.md verweist nicht auf das Phase-1-Briefing.');
 
