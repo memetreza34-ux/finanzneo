@@ -21,7 +21,7 @@
 - Recherche + Quellen
 - thematisch frei innerhalb des gesamten Finanzbereichs
 - verständliches Skript auch bei fortgeschrittenen Themen
-- Szenenplan und V9-Flow-Prompts
+- Szenenplan und Editorial-Finance-Flow-Prompts
 - Header + Icons
 - fertige kanonische `animation.tsx` je Animationsszene
 - Sound-Cue-Plan
@@ -81,14 +81,18 @@ Ab scene-02: normaler SceneHeader + Icon + Captions.
 ## 6. Bilder / Google Flow
 
 - exakt ein Bildjob gleichzeitig
-- warten → umbenennen → Bildwelt/Dateiname prüfen → erst dann nächster Job
+- warten → umbenennen → Bildidee/Dateiname prüfen → erst dann nächster Job
 - keine Batch-/Parallelgenerierung
 - scene-01 ist automatisch das Cover; kein zusätzlicher Bildjob
 - finale Bilder liegen in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
 
-Bildwelt: `finanzneo-stylized-3d-animated-black-v9`.
+Bildwelt: `finanzneo-editorial-finance-v1`.
 
-Die Bildwelt definiert nur den visuellen Look. Alte globale Prompt-/Storytelling-Regeln sind entfernt. Bildprompts werden auf Englisch geschrieben; eine generische Überschrift wird nicht automatisch in das KI-Bild gesetzt. Siehe `docs/IMAGE-PROMPT-BASELINE.md`.
+Kanonische Quelle: `docs/FINANZNEO-IMAGE-WORLD.md`.
+
+Für jedes Standbild gilt: ein gesprochener Gedanke → eine einfache visuelle Idee → sofort verständlich. Flow darf Metaphern, Illustrationen, Diagramme, Timelines, Vergleiche, Dokumente, Unternehmen/Marken und andere passende statische Visuals erzeugen. Hintergrund und Darstellungsart sind flexibel.
+
+Bei einer geplanten stufenweisen Bildfolge wird das exakt freigegebene vorherige Szenenbild als echte Referenz an Flow angehängt. Der Folgeprompt bleibt trotzdem vollständig und beschreibt nur eine kleine geplante Ergänzung/Änderung.
 
 
 ## 7. Layout und Safe-Zone
