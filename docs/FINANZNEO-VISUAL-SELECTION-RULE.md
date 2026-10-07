@@ -4,19 +4,19 @@
 
 ## Kernprinzip
 
-Nicht zuerst fragen, welches Tool verfügbar ist. Zuerst bestimmen:
-
 ```text
 Sprechpunkt
 → was muss der Zuschauer sichtbar verstehen?
-→ was ist die einfachste visuelle Darstellung dafür?
-→ Metapher / Zahl+Objekt / Illustration / Diagramm / Prozess / Timeline / Text+Illustration
-→ erst danach Werkzeug wählen
+→ was ist die einfachste visuelle Darstellung?
+→ IMAGE oder ANIMATION
+→ erst danach Werkzeug/Technik
 ```
 
 **Ein Gedanke = eine klare visuelle Idee.**
 
-Der Zuschauer soll die Hauptaussage möglichst auf den ersten Blick verstehen. Komplexer Inhalt bedeutet nicht automatisch komplexes Bild oder komplexe Animation.
+Für statische Visuals ist Google Flow das Standardwerkzeug. Flow darf alle statischen Bildformen erstellen: Illustration, Metapher, Chart, Timeline, Vergleich, Dokument, Zahlengrafik, Zitatbild, Unternehmen/Marke oder eine passende einfache Szene.
+
+Nur echte zeitliche Bewegung/Transformation ist eine ANIMATION-Szene und wird in Remotion gebaut.
 
 
 ## Reels — harte exklusive Auswahl
@@ -25,16 +25,19 @@ Für neue FinanzNeo-Reels gilt pro Szene **genau eine Hauptform**:
 
 ### IMAGE
 
-Nutzen, wenn der Sprechpunkt als starkes Standbild oder als klare Illustration besser funktioniert als als zeitliche Animation.
+Nutzen, wenn der gesprochene Gedanke als statisches Visual vollständig verständlich wird.
 
 IMAGE bedeutet:
-- Google-Flow-Bild ist das Hauptvisual
-- Header/Icon und Captions werden von Remotion gerendert
-- die konkrete Bildidee wird szenenspezifisch entwickelt
-- diese Auswahlregel schreibt **keine** Literal-first-, Alltagsszenen-, Objekt-, Label- oder Metapher-Formel vor
+- Google Flow erstellt das komplette statische Visual
+- erlaubt sind Illustrationen, Metaphern, Charts, Timelines, Vergleiche, Dokumente, Zahlenvisuals, Zitate, Unternehmen/Marken und andere passende statische Formen
+- die einfachste klare Darstellung gewinnt
+- ein Finanzobjekt ist nicht zwingend nötig
+- Hintergrund und 2D/2.5D/selektives 3D werden nach Motiv gewählt
+- mehrere IMAGE-Szenen dürfen eine progressive Folge bilden
+- bei progressiver Folge wird das freigegebene vorherige Bild als echte Referenz verwendet
 - keine erklärende Remotion-Hauptanimation über dem Bild
 
-Kreative Bildprompt-Regeln kommen ausschließlich aus `docs/IMAGE-PROMPT-BASELINE.md` und späteren ausdrücklich neuen Bildstandards.
+Kanonische Bildwelt: `docs/FINANZNEO-IMAGE-WORLD.md`.
 
 
 ### ANIMATION
