@@ -137,11 +137,22 @@ Die Bildwelt sperrt nur die visuelle Identität:
 - sauberes weiches Studio-Licht
 - konsistente Materialwirkung
 
-Die frühere globale Bildprompt-Logik ist entfernt. Es gibt keine Pflicht mehr für Literal-first, reale Alltagsszenen, Ursache/Wirkung, Transferability-Test, Kontextanker, Objektanzahl, Pflicht-Labels, Prompt-Länge oder eine feste Metapher-Regel.
+Die neue Standardlogik lautet:
 
-Bildprompts werden auf Englisch geschrieben. Eine generische Überschrift wird nicht automatisch in das KI-Bild gesetzt; Text kommt nur hinein, wenn die konkrete Szene ihn ausdrücklich braucht.
+```text
+1 gesprochener Gedanke
+→ 1 einfache visuelle Idee
+→ sofort verständlich
+→ erst danach FinanzNeo-Bildwelt anwenden
+```
 
-Kanonische Reset-Regel: `docs/IMAGE-PROMPT-BASELINE.md`.
+Bevorzugt werden einfache Metaphern, Zahl+Objekt, einfache Illustrationen, Diagramme/Charts, Prozesse, Timelines oder Text+Illustration. Keine dieser Formen ist Pflicht; entscheidend ist die einfachste verständliche Darstellung.
+
+Keine unnötige KI-Komplexität: keine automatisch erzeugten Neon-/Glow-Finanzwelten, futuristischen Dashboards, Miniaturstädte, schwebenden Coin-Szenen oder dekorativen „cinematic finance“-Kompositionen.
+
+Bildprompts werden auf Englisch geschrieben. Sie beschreiben zuerst das **konkrete Motiv** und erst danach kurz die FinanzNeo-Bildwelt. Eine generische Überschrift wird nicht automatisch in das KI-Bild gesetzt; Zahlen, kurze Labels, Zitate oder Datumsangaben sind erlaubt, wenn sie die Erklärung tragen.
+
+Kanonische Bildlogik: `docs/IMAGE-PROMPT-BASELINE.md`.
 Die Bildwelt selbst bleibt: `config/finanzneo-image-world-lock.json`.
 
 
