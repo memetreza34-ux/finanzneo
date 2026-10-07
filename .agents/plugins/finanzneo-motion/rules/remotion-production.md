@@ -4,20 +4,14 @@ These rules apply whenever Antigravity authors, reviews or integrates FinanzNeo 
 
 ## Authority
 
-The repository contract wins over generic agent advice:
-
 1. `CLAUDE.md`
-2. target reel `03-szenen/scene-index.json`
-3. target scene `szene.md` / `remotion.md`
-4. canonical `animation.tsx`
-5. FinanzNeo motion skills/rules
-6. installed official Remotion Agent Skills
+2. `docs/FINANZNEO-EDITORIAL-MOTION-V1.md`
+3. target reel `03-szenen/scene-index.json`
+4. target scene `szene.md` / `remotion.md`
+5. canonical `animation.tsx`
+6. FinanzNeo motion skills/rules
 
-Official Remotion skills are best-practice guidance. They must never override FinanzNeo layout, visual-world, seal, safety or completion contracts.
-
-## Remotion is the timeline authority
-
-All productive motion is deterministic from the Remotion frame timeline.
+## Deterministic timeline
 
 Use:
 
@@ -25,126 +19,95 @@ Use:
 - `interpolate()`
 - `spring()`
 - deliberate easing
-- `Sequence`/frame windows where useful
+- frame windows
 
-Do not use CSS keyframe animations, CSS transitions, timers, random runtime state or network-dependent motion.
+Do not use CSS keyframes, CSS transitions, random runtime state or network-dependent motion.
 
 ## Scene language
 
-Every animation is a short explanatory story:
-
 ```text
 START
-→ TRIGGER
-→ PHYSICAL ACTION
-→ REACTION
+→ MEANINGFUL CHANGE
 → RESULT
 → RESULT HOLD
 ```
 
-The spoken beat and visible action must describe the same mechanism.
-
-## Voice-to-visual pacing
-
-VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v1
-
-The visible story must advance with the spoken story. Each meaningful spoken thought gets a visible change. An animation may contain multiple sub-beats inside one scene. Do not use camera drift, zoom or idle floating as a substitute for new information. Result holds are short readability windows, not filler.
+The spoken beat and visible change must describe the same idea.
 
 ## Motion density
 
-Use enough coordinated motion to make the mechanism feel alive, but not busy.
+Use the minimum amount of movement needed.
 
-As a practical target, use 4–8 meaningful motion channels when the scene naturally supports them. Examples:
+A single strong change is valid and often preferred.
 
-- hero translation
-- secondary reaction
-- fill/balance state
-- money path
-- paper settle
-- controlled scale/recoil
-- subtle camera push/parallax
-- Lottie accent
-- result confirmation
+Do not target a fixed number of motion channels.
 
-Do not create meaningless motion only to reach a channel count.
+Additional reactions are allowed only when they make the mechanism clearer.
 
-## Physics character
+## Editorial visual language
 
-Different object types should not move identically.
+For new animations:
 
-- heavy appliance / container: slow, weighted, low overshoot
-- invoice / paper: light movement with small settle
-- money: quicker spring with controlled overshoot
-- account: restrained recoil and stabilization
-- warning: short emphasis, never constant flashing
-- calendar/page: crisp flip/change
-- confirmation: quick clean reveal then stable hold
+- 2D / subtle 2.5D preferred
+- matte shapes
+- few large elements
+- light or muted editorial surfaces preferred
+- dark surface allowed when justified
+- simple 3D only when depth truly helps
+- camera still by default
+
+Do not use old `PremiumPhysicalStage` / `Physical*` primitives in new Editorial Motion scenes.
 
 ## Camera
 
-Camera/depth motion is support, never the explanation itself.
+Camera is optional support.
 
-Allowed when helpful:
+Default:
 
-- subtle push-in toward the key action
-- slight foreground/midground parallax
-- tiny result settle
+```text
+still
+```
 
-Avoid constant zooming, unnecessary rotations or motion sickness.
+Use a push, follow or reframe only when it helps the viewer understand a spatial relation or important change.
 
-## Three.js / React Three Fiber
+## Three.js / R3F
 
-Use Three/R3F only when genuine spatial depth, perspective or object interaction benefits from it.
+Use only when genuine spatial depth is important.
 
-Do not turn simple scenes into expensive 3D merely for novelty.
-
-Three layers remain synchronized to the Remotion frame timeline and must preserve the pure-black canvas/safe-zone contract.
+Do not turn simple finance explanations into 3D scenes for novelty.
 
 ## Lottie
 
-Lottie is a support layer governed by `lottie-motion.md`.
+Lottie is a support layer.
 
-Use it for compact vector acting and accents. Do not let it replace a stronger real-world Remotion mechanism.
+No generic downloaded Lottie should become the main visual.
+
+## Background / surface
+
+New motion may use `EditorialMotionStage` with a cream, off-white, light-gray, muted-green or justified dark surface.
+
+No particle, aurora, grid, hologram or energy background.
 
 ## Representative-frame review
 
-Before sealing an animation, inspect representative states rather than only the first frame:
+Inspect:
 
 - start
-- first trigger
-- middle of mechanism
-- near-result
+- mid-change
+- result
 - final hold
-
-The scene must remain readable and centered throughout the action.
-
-## Audio relationship
-
-Every important visible event should be evaluated for a possible subtle SFX cue. Follow `sound-design.md`.
-
-Do not add sound merely because an object moves. Add it when the sound increases physicality, timing clarity or polish.
-
-## No remote production dependencies
-
-The final render must be reproducible from committed/local assets. No remote Lottie URLs, remote sound URLs, runtime APIs or network-only assets.
-
-## Phase ownership
-
-Before Phase-1 seal, motion may be improved intentionally.
-
-After Phase-1 seal, Phase 3 integrates the exact sealed animation source and committed support assets. If the mechanism needs creative redesign, return to Phase 1 instead of silently editing Phase 3.
 
 ## Hard rejection
 
-Reject a scene if it becomes:
+Reject if the animation becomes:
 
-- PowerPoint-like
+- glossy black 3D by habit
+- neon / hologram / coin-spectacle
 - dashboard/app-UI-like
-- three cards plus arrows
-- progress-bar driven
-- text-led instead of action-led
-- abstract finance symbolism where a real situation is possible
-- visually tiny inside excessive empty space
-- overpacked with simultaneous accents
-- dependent on background motion
-- dependent on a remote service at render time
+- progress-bar driven when a clearer mechanism exists
+- text-led instead of visually explanatory
+- overloaded with simultaneous movement
+- dependent on constant camera movement
+- dependent on old Physical primitives
+- decorative rather than explanatory
+- remote-service dependent at render time
