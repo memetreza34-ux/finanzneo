@@ -7,6 +7,7 @@ import {
   DumbbellV3,
   PlayTileV3,
   ReceiptV3,
+  CalendarV3,
   MOTION_V3,
   progress,
   editorialSpring,
@@ -27,7 +28,8 @@ export const RecurringCostsV3:React.FC=()=>{
   const merge=progress(frame,68,112,Easing.inOut(Easing.cubic));
   const receipt=editorialSpring(frame,108,fps,'snappy');
   const month=progress(frame,118,146);
-  const annual=progress(frame,146,180,Easing.out(Easing.cubic));
+  const annual=progress(frame,148,182,Easing.out(Easing.cubic));
+  const calendar=editorialSpring(frame,138,fps,'soft');
 
   const phoneX=interpolate(merge,[0,1],[105,365],CLAMP);
   const phoneY=interpolate(merge,[0,1],[590,820],CLAMP);
@@ -49,23 +51,35 @@ export const RecurringCostsV3:React.FC=()=>{
       <div style={{position:'absolute',left:8,top:100,width:180,textAlign:'center',fontFamily:FONT.title,fontSize:34,fontWeight:900,color:MOTION_V3.blue}}>35 €</div>
     </div>
 
-    <div style={{position:'absolute',left:365,top:760,opacity:receipt}}>
-      <ReceiptV3 x={0} y={0} title="Monatlich" amount="71 €" scale={0.9+0.1*receipt}/>
+    <div style={{position:'absolute',left:420,top:735,opacity:receipt}}>
+      <ReceiptV3 x={0} y={0} title="Monatlich" amount="71 €" scale={0.92+0.08*receipt}/>
+    </div>
+
+    <div style={{
+      position:'absolute',left:250,top:1140,width:250,height:120,borderRadius:28,
+      background:MOTION_V3.green,color:'#FFF',display:'flex',flexDirection:'column',
+      alignItems:'center',justifyContent:'center',
+      opacity:month,transform:`scale(${0.92+0.08*month})`
+    }}>
+      <div style={{fontSize:22,fontWeight:850}}>PRO MONAT</div>
+      <div style={{fontFamily:FONT.title,fontSize:50,fontWeight:900}}>71 €</div>
+    </div>
+
+    <div style={{position:'absolute',left:520,top:1115,opacity:calendar,transform:`scale(${0.78+0.22*calendar})`}}>
+      <CalendarV3 x={0} y={0} year="×12" scale={0.72} accent={MOTION_V3.blue}/>
     </div>
 
     <ShapeMorphV3
-      x={485}
-      y={1240}
+      x={785}
+      y={1200}
       progress={annual}
-      from={{width:250,height:110,radius:28,color:MOTION_V3.green}}
-      to={{width:380,height:170,radius:34,color:MOTION_V3.orange}}
+      from={{width:210,height:100,radius:26,color:MOTION_V3.green}}
+      to={{width:330,height:165,radius:34,color:MOTION_V3.orange}}
     >
       <div style={{textAlign:'center',fontFamily:FONT.title,fontWeight:900,color:'#FFF'}}>
-        <div style={{fontSize:annual<0.5?26:24}}>{annual<0.5?'PRO MONAT':'PRO JAHR'}</div>
-        <div style={{fontSize:annual<0.5?46:58}}>
-          {annual<0.5
-            ? `${Math.round(interpolate(month,[0,1],[0,71],CLAMP))} €`
-            : `${Math.round(interpolate(annual,[0,1],[71,852],CLAMP))} €`}
+        <div style={{fontSize:22}}>PRO JAHR</div>
+        <div style={{fontSize:58}}>
+          {`${Math.round(interpolate(annual,[0,1],[71,852],CLAMP))} €`}
         </div>
       </div>
     </ShapeMorphV3>
@@ -74,7 +88,7 @@ export const RecurringCostsV3:React.FC=()=>{
       position:'absolute',left:150,right:150,top:1450,textAlign:'center',
       fontSize:28,fontWeight:800,color:MOTION_V3.inkSoft,opacity:annual,
     }}>
-      Drei kleine Beträge werden zusammen zu einem großen Jahresbetrag.
+      Aus kleinen Monatskosten werden 852 € im Jahr.
     </div>
   </EditorialSceneV3>;
 };
