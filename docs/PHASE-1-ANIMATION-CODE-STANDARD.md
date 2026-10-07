@@ -102,12 +102,12 @@ CAMERA_ROLE: still
 
 Keine Kamerafahrt nur für Dynamik.
 
-## Editorial Motion Library V1
+## Editorial Motion Library V2
 
 Neue Library:
 
 ```text
-src/finance-motion/editorial-v1.tsx
+src/finance-motion/editorial-v2.tsx
 ```
 
 Aktuelle Mechaniken:
@@ -164,7 +164,7 @@ RESULT_HOLD_FRAMES >= 15
 
 Bei `library-best-fit`:
 
-- aus `src/finance-motion/editorial-v1.tsx` importieren
+- aus `src/finance-motion/editorial-v2.tsx` importieren
 - Werte, Labels, Gewichtungen und Timing exakt aus dem Sprechpunkt ableiten
 - keine Template-Füllwerte
 - die Mechanik darf wiederverwendet werden
