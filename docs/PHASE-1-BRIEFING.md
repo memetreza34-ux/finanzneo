@@ -83,45 +83,57 @@ UNTERTITEL
 - kein Wort der nächsten Szene vor der Szenengrenze
 
 ════════════════════════════════════════
-BILDWELT — V9 VISUAL STYLE ONLY
+BILDWELT — EDITORIAL FINANCE V1
 ════════════════════════════════════════
 
-Jeder Bildprompt nutzt:
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 
-VISUELLER LOCK
-- premium stylized 3D
-- klar nicht fotorealistisch
-- weiche / vereinfachte erkennbare Formen
-- tiefer schwarzer Hintergrund
-- FinanzNeo-Farbrollen
-- sauberes weiches Studio-Licht
-- gleiche Material- und Rendering-Sprache
+Kernregel:
+1 gesprochener Gedanke → 1 einfache visuelle Idee → auf den ersten Blick verständlich.
 
-BILDLOGIK
-- 1 gesprochener Gedanke = 1 einfache visuelle Idee
-- Bildidee möglichst auf den ersten Blick verständlich
-- zuerst die einfachste Form wählen: einfache Metapher, Zahl+Objekt, Illustration, Diagramm/Chart, Prozess, Timeline oder Text+Illustration
-- keine Form ist Pflicht; Klarheit entscheidet
-- keine unnötige KI-Komplexität, Neon-Finanzoptik, Miniaturwelt, Hologramm-/Dashboard-Look oder dekorative Coin-Szenen
-- konkrete Prompts auf Englisch schreiben
-- im Prompt zuerst das konkrete Motiv beschreiben, danach nur kurz die V9-Bildwelt ergänzen
-- keine generische Überschrift automatisch in das Bild setzen
-- Zahlen, kurze Labels, Zitate und Datumsangaben sind erlaubt, wenn sie die Erklärung tragen
-- historische Reel-Prompts und Experimente sind keine Regelquelle
+Darstellung frei nach Inhalt:
+- einfache Metapher
+- Zahl + Objekt
+- Editorial-Illustration
+- Diagramm / Chart
+- Prozess
+- Timeline
+- Vergleich
+- Dokument
+- Zitat + Illustration
+- Unternehmen / Marke
+- einfache Alltagsszene
+
+Stil:
+- überwiegend 2D oder leichtes 2.5D
+- einfaches 3D nur wenn sinnvoll
+- matte, ruhige Farben
+- flexible Hintergründe; kein Schwarz-Zwang
+- wenige große Elemente
+- keine unnötige KI-Spektakel-Optik
+
+Bildprompts:
+- Englisch
+- zuerst das exakte Motiv beschreiben
+- keine generische Headline automatisch
+- Zahlen, kurze Labels, Daten und Zitate erlaubt, wenn hilfreich
+
+Progressive Folge:
+- bei „gleiches Bild + eine Änderung“ das exakte freigegebene vorherige Szenenbild wirklich als Referenz anhängen
+- Prompt trotzdem vollständig wiederholen
+- pro Schritt möglichst nur eine neue Information
+
+Kanonische Quelle: docs/FINANZNEO-IMAGE-WORLD.md
 
 GOOGLE FLOW — STRICT SINGLE JOB
 - maximal 1 laufender Bildjob
-- auf Ergebnis warten
+- vollständig warten
 - sofort exakt umbenennen
-- Bildwelt + Dateiname prüfen
-- erst danach nächsten Bildblock starten
-
-Kanonische Reset-Regel: docs/IMAGE-PROMPT-BASELINE.md
+- Bildidee + Dateiname prüfen
+- erst danach nächster Bildblock
+- Referenzbild nur dann anhängen, wenn die Szene ausdrücklich als Fortsetzung geplant ist
 
 ════════════════════════════════════════
 ANIMATION — V9-KOMPATIBLER PHASE-1-CODE
@@ -219,8 +231,8 @@ ABSCHLUSSPRÜFUNG PHASE 1
 - keine Platzhalter außer expliziten Phase-2-Timingfeldern
 - Fakten geprüft
 - Bildbeats max. 6 s planbar
-- V9-Bildwelt in jedem Bildprompt
-- jeder Bildprompt verwendet den aktiven V9-Visual-Style-Lock
+- aktive Editorial-Finance-Bildwelt in jedem Bildprompt
+- jede Bildidee ist auf den konkreten Sprechgedanken zugeschnitten
 - Bildprompts sind Englisch
 - keine generische Überschrift automatisch im KI-Bild
 - jede Animation erfüllt den Phase-1-Animationsvertrag und passt visuell zur V9-Welt
