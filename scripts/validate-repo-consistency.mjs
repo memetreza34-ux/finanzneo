@@ -103,6 +103,8 @@ if (!tokens) {
       ['Icon-Liste', /euro, clock, hourglass/],
       ['fertiger Phase-1-Animationscode', /animation\.tsx/],
       ['Animationscode-Lock', /finanzneo-phase1-animation-code-v1/],
+      ['Editorial-Motion-Welt', /finanzneo-editorial-motion-v1/],
+      ['Editorial-Motion-Library', /finanzneo-editorial-motion-library-v1/],
       ['Math.sin-Hack verboten', /Math\.sin\/Math\.cos|Math\.sin/],
       ['Abschlussprüfung', /ABSCHLUSSPRÜFUNG PHASE 1/],
     ];
@@ -118,7 +120,7 @@ if (!tokens) {
       const fehlend = echteIcons.filter((i) => !briefing.includes(i));
       if (fehlend.length > 3) errors.push(`Phase-1-Briefing listet ${fehlend.length} vorhandene Icons nicht: ${fehlend.slice(0, 6).join(', ')}…`);
     }
-    notes.push('Phase-1-Briefing enthält V5-Layout, Editorial Finance V1, progressive Referenzfolgen und den kanonischen Animationscode-Vertrag.');
+    notes.push('Phase-1-Briefing enthält V5-Layout, Editorial Finance V1, Editorial Motion V1 und den kanonischen Animationscode-Vertrag.');
   }
 
   notes.push(`Layoutwerte konsistent: Header Y=${werte.headerTop} · Visual ${werte.visualTop}–${werte.visualBottom} · Untertitel ${werte.captionBottom} · ${werte.captionSize} px.`);
