@@ -30,7 +30,7 @@ Sprechpunkt
 Neue Animationen folgen:
 
 ```text
-MOTION_WORLD: finanzneo-editorial-motion-v1
+MOTION_WORLD: finanzneo-editorial-motion-v3
 VISUAL_TARGET_WORLD: finanzneo-editorial-finance-v1
 ```
 
@@ -79,13 +79,13 @@ Sprechpunkt
 ## Editorial Motion Library
 
 ```text
-FINANCE_MOTION_LIBRARY: finanzneo-editorial-motion-library-v1
+FINANCE_MOTION_LIBRARY: finanzneo-editorial-motion-v3-library
 ```
 
 Die Library liegt unter:
 
 ```text
-src/finance-motion/editorial-v2.tsx
+src/finance-motion/v3
 ```
 
 Wiederverwendung ist erlaubt, wenn dieselbe Mechanik tatsächlich wieder die klarste Erklärung ist.
@@ -116,3 +116,16 @@ Eine Animation ist erst richtig geplant, wenn man ohne Code erklären kann:
 ## Kurzregel
 
 > **Nicht möglichst viel animieren. Genau das animieren, was den Satz verständlicher macht — im selben Editorial-Stil wie die neue Bildwelt.**
+
+
+## V3 Design-Phase vor jedem Code
+
+Vor jeder neuen Animation sind drei visuell unterschiedliche Konzepte Pflicht. Danach wird das stärkste gewählt und als vier Keyframes bei 10 %, 35 %, 65 % und 90 % geplant.
+
+Erst dann wird eine Motion-Grammatik gewählt:
+
+```text
+DRAW / FOLLOW / REVEAL / SPLIT / MERGE / STACK / SHIFT / SWAP / EMPHASIZE / COUNT
+```
+
+V3 bevorzugt bewegte Editorial-Illustrationen und konkrete Objekte gegenüber Dashboard-/Card-Kompositionen.
