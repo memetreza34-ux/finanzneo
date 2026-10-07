@@ -73,6 +73,7 @@ export const RecurringCostsV3:React.FC=()=>{
       x={785}
       y={1200}
       progress={annual}
+      opacity={annual}
       from={{width:210,height:100,radius:26,color:MOTION_V3.green}}
       to={{width:330,height:165,radius:34,color:MOTION_V3.orange}}
     >
