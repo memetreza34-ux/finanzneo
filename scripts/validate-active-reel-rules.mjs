@@ -75,7 +75,7 @@ const requiredMarkers = new Map([
   ['README.md', ['3-PHASEN-WORKFLOW.md', 'Produktionsregistry']],
   ['ANLEITUNG.md', ['finanzneo-editorial-finance-v1', '#000000', 'phase3Executor']],
   ['docs/FINANZNEO-IMAGE-WORLD.md', ['finanzneo-editorial-finance-v1', 'ONE SPOKEN THOUGHT', 'Progressive image sequences']],
-  ['CLAUDE.md', ['finanzneo-editorial-finance-v1', '#000000', 'Visualzone           Y = 320–1400', 'Header Text          56 px']],  ['docs/PHASE-1-ANIMATION-CODE-STANDARD.md', ['PremiumPhysicalStage', '#000000', 'Y 320–1400', 'keine feste Support-Objekt-Anzahl']],
+  ['CLAUDE.md', ['finanzneo-editorial-finance-v1', '#000000', 'Visualzone           Y = 320–1400', 'Header Text          56 px']],  ['docs/PHASE-1-ANIMATION-CODE-STANDARD.md', ['finanzneo-editorial-motion-v1', 'finanzneo-editorial-motion-library-v1', 'EDITORIAL_VISUAL_NARRATIVE', 'PremiumPhysicalStage']],
   ['docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md', ['56 px', 'Y = 320–1400', 'SourceNote']],
   ['docs/PHASE-3-COMPLETION-GATE.md', ['Post-Render', 'Caption-/Header-only', 'FINAL_COMPLETE']],
   ['docs/PLATFORM-PUBLISHING.md', ['caption-universal.txt', 'keine separaten Plattform-Captiondateien']],
@@ -87,7 +87,7 @@ const requiredMarkers = new Map([
   ['src/brand/components/SceneHeader.tsx', ['WebkitLineClamp', 'H.maxLines', "whiteSpace: 'normal'"]],
   ['scripts/scaffold-finanzneo-reel.mjs', ['visualBottom: 1400', 'fontSize:56', 'visualSafeZone:{top:320,bottom:1400']],
   ['scripts/apply-reel-layout-v5.mjs', ['visualBottom: 1400', 'fontSize: 56', 'hardClipAnimations: true']],
-  ['scripts/validate-reel-layout-v5.mjs', ['visualBottom === 1400', 'fontSize === 56', 'hardClipAnimations === true']],  ['scripts/create-finanzneo-reel.mjs', ['apply-finanzneo-image-world-v1.mjs', 'Visual Y320–1400']],]);
+  ['scripts/validate-reel-layout-v5.mjs', ['visualBottom === 1400', 'fontSize === 56', 'hardClipAnimations === true']],  ['scripts/create-finanzneo-reel.mjs', ['apply-finanzneo-image-world-v1.mjs', 'apply-editorial-motion-v1.mjs', 'Visual Y320–1400']],]);
 
 for (const [path, markers] of requiredMarkers) {
   if (!existsSync(path)) continue;
@@ -106,5 +106,5 @@ if (errors.length) {
 console.log('\n✓ Aktive Reel-Regelquellen sind auf Editorial Finance V1 / Pure-Black-Canvas / Final-Layout ausgerichtet.');
 console.log('✓ Keine aktive V4/V7/V8-Bildwelt, feste Objektquote, alte Y320–1480-Visualzone oder Partikel-Dekorationsregel gefunden.');
 console.log('✓ Alte Image-World-Regeln sind aus den aktiven Regelquellen entfernt; progressive Referenzbilder sind erlaubt.');
-console.log('✓ Header 56 px/max. 2 Zeilen, Visual Y320–1400 und Animation-Safe-Zone sind konsistent.');
+console.log('✓ Editorial Motion V1 ist für neue Animationen aktiv; Layout-/Safe-Zone-Regeln bleiben technisch unverändert.');
 console.log('✓ Phase 1, Phase 2 und Phase 3 verweisen auf denselben aktuellen Produktionsstand.');
