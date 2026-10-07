@@ -136,7 +136,7 @@ GOOGLE FLOW — STRICT SINGLE JOB
 - Referenzbild nur dann anhängen, wenn die Szene ausdrücklich als Fortsetzung geplant ist
 
 ════════════════════════════════════════
-ANIMATION — EDITORIAL MOTION V1
+ANIMATION — EDITORIAL MOTION V3
 ════════════════════════════════════════
 
 Phase 1 ist vollständig verantwortlich. Für jede Animationsszene müssen `remotion.md` UND eine fertige `animation.tsx` existieren.
@@ -145,12 +145,19 @@ Technischer Qualitäts-Lock:
 - `finanzneo-phase1-animation-code-v1`
 
 Aktive Motion-Welt:
-- `finanzneo-editorial-motion-v1`
+- `finanzneo-editorial-motion-v3`
 - Visual Target: `finanzneo-editorial-finance-v1`
-- Library: `finanzneo-editorial-motion-library-v1`
+- Library: `finanzneo-editorial-motion-v3-library`
 
 Kanonische Regel:
-- `docs/FINANZNEO-EDITORIAL-MOTION-V1.md`
+- `docs/FINANZNEO-EDITORIAL-MOTION-V3.md`
+
+V3 DESIGN-PROZESS
+- 3 visuelle Konzepte vor dem Coding
+- stärkstes Konzept auswählen
+- Keyframes 10 % / 35 % / 65 % / 90 % planen
+- Motion-Grammatik wählen
+- erst danach animation.tsx bauen
 
 PFLICHTLOGIK
 SPRECHPUNKT → SICHTBARE FRAGE → EINFACHSTE KLARE VERÄNDERUNG → EINDEUTIGES ERGEBNIS → Ergebnis mindestens 15 Frames stabil.
@@ -229,8 +236,8 @@ ABSCHLUSSPRÜFUNG PHASE 1
 - jede Bildidee ist auf den konkreten Sprechgedanken zugeschnitten
 - Bildprompts sind Englisch
 - keine generische Überschrift automatisch im KI-Bild
-- jede Animation erfüllt den Phase-1-Animationsvertrag und passt visuell zur V9-Welt
-- Animations-Stage erzeugt keinen eigenen Hintergrund
+- jede Animation erfüllt den Phase-1-Animationsvertrag und passt visuell zur Editorial-Finance-Bildwelt
+- Animations-Stage darf eine zur Szene passende Editorial-Fläche innerhalb der Visualzone nutzen
 - Animationen sehen ohne Ton verständlich und hochwertig aus
 - keine kreative Arbeit für Phase 3 übrig
 ```
