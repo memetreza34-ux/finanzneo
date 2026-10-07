@@ -16,7 +16,7 @@ The animation must help a beginner understand the spoken sentence faster and mor
 Read in this order:
 
 1. `CLAUDE.md`
-2. `docs/FINANZNEO-EDITORIAL-MOTION-V1.md`
+2. `docs/FINANZNEO-EDITORIAL-MOTION-V3.md`
 3. target reel `03-szenen/scene-index.json`
 4. target scene `szene.md`
 5. target scene `remotion.md`
@@ -199,7 +199,7 @@ Reject and redesign if:
 For the prepared multi-example test, use:
 
 ```bash
-npm run render:editorial-motion-v2
+npm run render:editorial-motion-v3
 ```
 
 Do not redesign the prepared examples during render QA. Antigravity should render and inspect them exactly as authored.
