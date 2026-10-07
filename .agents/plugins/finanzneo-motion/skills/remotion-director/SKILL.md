@@ -39,7 +39,13 @@ Default visual language:
 - no forced camera movement
 - no decorative finance spectacle
 
-New library:
+Preferred high-quality library:
+
+```text
+src/finance-motion/editorial-v2.tsx
+```
+
+Legacy fallback only:
 
 ```text
 src/finance-motion/editorial-v1.tsx
@@ -176,7 +182,7 @@ Reject and redesign if:
 1. read the spoken beat;
 2. write one sentence describing what must visibly change;
 3. choose the simplest editorial mechanism;
-4. check `src/finance-motion/editorial-v1.tsx` for a genuine best fit;
+4. check `src/finance-motion/editorial-v2.tsx` first for a genuine best fit; use `editorial-v1.tsx` only as legacy fallback;
 5. otherwise build a custom Editorial Motion scene;
 6. use `EDITORIAL_MOTION_COLORS`;
 7. implement deterministic Remotion motion;
@@ -190,7 +196,7 @@ Reject and redesign if:
 For the prepared multi-example test, use:
 
 ```bash
-npm run render:editorial-motion-examples
+npm run render:editorial-motion-v2
 ```
 
 Do not redesign the prepared examples during render QA. Antigravity should render and inspect them exactly as authored.
