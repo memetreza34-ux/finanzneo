@@ -45,7 +45,7 @@ const steps = [
   ['scripts/apply-phase3-completion-contract.mjs', [target]],
   ['scripts/apply-reel-layout-v5.mjs', [target]],
   ['scripts/apply-phase1-animation-code-contract.mjs', [target]],
-  ['scripts/apply-editorial-motion-v1.mjs', [target]],
+  ['scripts/apply-editorial-motion-v3.mjs', [target]],
   ['scripts/apply-scene01-cover-export-contract.mjs', [target]],
   ['scripts/apply-visual-beat-contract.mjs', [target]],
   ['scripts/apply-future-cover-hook-v3.mjs', [target]],
@@ -70,9 +70,9 @@ console.log('  Cover Hook V3: Hero-Bild + exakter Titel ab Frame 0; Captions ab 
 console.log('  Szene-Typen: exakt IMAGE oder ANIMATION — kein Bild+Animations-Hybrid als Hauptvisual.');
 console.log('  IMAGE: Bild + Titel/Header/Icon + Caption; keine erklärende Remotion-Hauptanimation über dem Bild.');
 console.log('  ANIMATION: Remotion-Hauptanimation + Header/Icon + Caption; kein Flow-Bild als Hauptvisual.');
-console.log('  Motion: FinanzNeo Editorial Motion V1 · bewegte Version der neuen Bildwelt · 2D/2.5D bevorzugt · minimale klare Bewegung.');
-console.log('  Motion Direction: Inhalt -> Verständnisziel -> beste Mechanik -> Editorial Motion Library Best-Fit oder Custom-Build.');
-console.log('  Editorial Motion Library: passende Mechaniken parametrisieren und wiederverwenden; keine passende Mechanik = individuell bauen.');
+console.log('  Motion: FinanzNeo Editorial Motion V3 · bewegte Version der neuen Bildwelt · 2D/2.5D bevorzugt · minimale klare Bewegung.');
+console.log('  Motion Direction: Inhalt -> Verständnisziel -> beste Mechanik -> V3 Motion Grammar + Best-Fit oder Custom-Build.');
+console.log('  Editorial Motion V3: erst 3 visuelle Konzepte, dann 4 Keyframes, Motion-Grammatik und erst danach Remotion-Code.');
 console.log('  Source Diversity Guard: tatsächliche animation.tsx-Primitives werden verglichen; Metadaten allein reichen nicht.');
 console.log('  Animation Safe Zone: X72–1008 · Visual Y320–1400 · perspektivischer Innenabstand + Post-Render-Rand-QA.');
 console.log('  Lottie/Icons/SVG sind Support, nicht automatisch eine neue Hauptanimation.');
