@@ -8,10 +8,10 @@ import {
   editorialMotionContractFields,
 } from '../scripts/lib/editorial-motion-contract.mjs';
 
-test('Editorial Motion V1 targets the new Editorial Finance image world', () => {
+test('Editorial Motion V3 targets the new Editorial Finance image world', () => {
   const contract = editorialMotionContractFields();
-  assert.equal(EDITORIAL_MOTION_LOCK, 'finanzneo-editorial-motion-v1');
-  assert.equal(EDITORIAL_MOTION_LIBRARY_ID, 'finanzneo-editorial-motion-library-v1');
+  assert.equal(EDITORIAL_MOTION_LOCK, 'finanzneo-editorial-motion-v3');
+  assert.equal(EDITORIAL_MOTION_LIBRARY_ID, 'finanzneo-editorial-motion-v3-library');
   assert.equal(EDITORIAL_IMAGE_WORLD_ID, 'finanzneo-editorial-finance-v1');
   assert.equal(contract.visualTargetWorld, EDITORIAL_IMAGE_WORLD_ID);
   assert.equal(contract.editorialTwoDPreferred, true);
@@ -32,9 +32,9 @@ test('new Editorial Motion does not require retired Physical primitives', () => 
   assert.equal(contract.physicalObjectsOptional, true);
   assert.equal(contract.materialDepthLightingRequired, false);
 
-  const library = readFileSync('src/finance-motion/editorial-v1.tsx', 'utf8');
-  assert.match(library, /EDITORIAL_FINANCE_MOTION_REGISTRY/);
-  assert.match(library, /EditorialMotionStage/);
+  const library = readFileSync('src/finance-motion/v3/index.ts', 'utf8');
+  assert.match(library, /EDITORIAL_MOTION_V3_REGISTRY/);
+  assert.match(library, /MOTION_GRAMMAR/);
   assert.doesNotMatch(library, /PremiumPhysicalStage/);
   assert.doesNotMatch(library, /<Physical(?:Object|Tag|Rail|Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack)\b/);
 });
@@ -46,14 +46,14 @@ test('new Reel creation applies Editorial Motion instead of Premium Physical Mot
 });
 
 test('Editorial Motion library includes simple finance and metaphor mechanisms', () => {
-  const library = readFileSync('src/finance-motion/editorial-v1.tsx', 'utf8');
+  const library = readFileSync('src/finance-motion/v3/index.ts', 'utf8');
   for (const id of [
-    'money-transfer',
-    'value-growth',
-    'loan-paydown',
-    'finance-timeline',
-    'mountain-progress',
-    'document-cost-increase',
+    'mortgage-reset',
+    'investment-crossroads',
+    'recurring-costs',
+    'mortgage-reset',
+    'investment-crossroads',
+    'recurring-costs',
   ]) {
     assert.match(library, new RegExp("id:'" + id + "'"));
   }
