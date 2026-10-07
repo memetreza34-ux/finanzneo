@@ -26,6 +26,14 @@ import {
   EDITORIAL_MOTION_EXAMPLE_FRAMES,
 } from '../reels-test/EditorialMotionExample';
 import {
+  SalaryCurveV2,
+  BudgetDonutV2,
+  CompoundCurveV2,
+  DiversificationNetworkV2,
+  LoanPaydownV2,
+  TaxBracketsV2,
+} from '../finance-motion/editorial-v2';
+import {
   EDITORIAL_EXAMPLE_FRAMES,
   EditorialMotion01Transfer,
   EditorialMotion02BudgetSplit,
@@ -129,6 +137,13 @@ export const ExperimentCompositions: React.FC = () => (
     <Composition id="EditorialMotion12CompoundGrowth" component={EditorialMotion12CompoundGrowth} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
     <Composition id="EditorialMotion13MountainGoal" component={EditorialMotion13MountainGoal} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
     <Composition id="EditorialMotion14LateFee" component={EditorialMotion14LateFee} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+
+    <Composition id="EditorialV2SalaryCurve" component={SalaryCurveV2} durationInFrames={180} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialV2BudgetDonut" component={BudgetDonutV2} durationInFrames={180} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialV2CompoundCurve" component={CompoundCurveV2} durationInFrames={180} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialV2Diversification" component={DiversificationNetworkV2} durationInFrames={180} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialV2LoanPaydown" component={LoanPaydownV2} durationInFrames={180} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialV2TaxBrackets" component={TaxBracketsV2} durationInFrames={180} fps={FPS} {...VERTICAL} />
 
     <Composition
       id="ReelsTestFinanceHeaderCaptionMotion"
