@@ -14,6 +14,8 @@
 README.md
 ```
 
+Kanonischer Themen-Scope: `docs/CONTENT-SCOPE.md`.
+
 ## Format und Inhalt
 
 - eigenständiges längeres Finanzvideo, kein verlängertes Reel
