@@ -152,7 +152,23 @@ write('05-projektdateien/animationen.md', `# ANIMATIONEN\n\nPhase 1 besitzt die 
 write('05-projektdateien/recherche-quellen.md', '# RECHERCHE UND QUELLEN\n\n[QUELLEN EINFÜGEN]\n');
 write('05-projektdateien/szenenplan.md', '# SZENENPLAN\n\nFür jede Szene: Typ, Sprechbeat, natürliche Zwischenüberschrift, Icon, Hauptaussage. Bildbeats max. 6 Sekunden.\n\nV5:\n- Header mittig, 56 px (min. 50), max. 2 Zeilen, weißer Text + semantisch gefärbtes 34-px-Icon\n- keine Capsule/Chip/Pill und kein erzwungenes ALL CAPS\n- Header Y154; Visual Y320–1400; Caption bottom340\n- Untertitel enden an Szenengrenzen\n- Animationsszene besitzt fertige animation.tsx aus Phase 1 und bleibt sichtbar in Y320–1400\n\n[SZENENPLAN EINFÜGEN]\n');
 write('05-projektdateien/PHASENSTATUS.md', `# Phasenstatus\n\n- [ ] Phase 1: Inhalt, Fakten, Skript, Szenen, Editorial-Finance-Prompts, Header/Icons, produktionsreife animation.tsx und eine universelle Caption vollständig\n- [ ] Phase 2: alle exakt benannten Bilder, genau ein finales Voiceover und echte Wort-Zeitstempel vorhanden\n- [ ] Phase 3: \`npm run reel:ready -- ${targetArg}\` erfolgreich; Animations-Seal vorhanden; Preflight/Render-QA/Export abgeschlossen\n`);
-write('05-projektdateien/technische-hinweise.md', `# TECHNISCHE HINWEISE\n\n- Reel: 1080 × 1920, 9:16, 30 fps\n- Flow-Bilder inklusive Cover: 1:1, keine Bildreferenz\n- Bildwelt: ${ANIMATED_WORLD_LOCK_ID}\n- Flow-Hintergrund: deep black\n- Remotion-Reel-Canvas: #000000 statisch (${REEL_BACKGROUND_CONTRACT})\n- keine Partikel/Aurora/Grid/Glow/Vignette als Reel-Hintergrund\n- Header: Y154, weiß, 56 px, min. 50 px, max. 2 Zeilen, 34-px-Icon\n- Visual: Y320–1400\n- AnimationStage: hart auf Y320–1400 geclippt\n- Captions: bottom340, aktives Wort grün, Rest weiß\n- Animation: fertige Phase-1-animation.tsx, START → MECHANISMUS → ERGEBNIS, Result-Hold >=15 Frames\n- Animation-Hacks/Debug-Platzhalter verboten\n- Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP\n`);
+write('05-projektdateien/technische-hinweise.md', `# TECHNISCHE HINWEISE
+
+- Reel: 1080 × 1920, 9:16, 30 fps
+- Flow-Bilder inklusive Cover: 1:1
+- Bildwelt: ${WORLD_ID}
+- Flow-Hintergrund: flexibel nach Motiv
+- Progressive Bildfolge: freigegebenes vorheriges Bild als echte Referenz anhängen
+- Remotion-Reel-Canvas: #000000 statisch (${REEL_BACKGROUND_CONTRACT})
+- keine Partikel/Aurora/Grid/Glow/Vignette als Reel-Hintergrund
+- Header: Y154, weiß, 56 px, min. 50 px, max. 2 Zeilen, 34-px-Icon
+- Visual: Y320–1400
+- AnimationStage: hart auf Y320–1400 geclippt
+- Captions: bottom340, aktives Wort grün, Rest weiß
+- Animation: fertige Phase-1-animation.tsx, START → MECHANISMUS → ERGEBNIS, Result-Hold >=15 Frames
+- Animation-Hacks/Debug-Platzhalter verboten
+- Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP
+`);
 write('05-projektdateien/timeline.json', `${JSON.stringify({version:2,title,fps:30,timingSource:'04-caption/word-timings.json',cutRule:'voice-sentence-or-meaningful-phrase-start',sceneCount:types.length,scenes:[]}, null, 2)}\n`);
 
 const scenes = types.map((type, index) => {
@@ -207,7 +223,28 @@ const allSections = types.map((type,index) => {
   return `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nSZENE ${number} – BILDSZENE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${imagePrompt(`scene-${number}`, index)}`;
 }).join('\n');
 
-write('03-szenen/alle-bildprompts.txt', `${AUTONOMY_BLOCK}\nFINANZNEO — EINZIGE ÜBERGABEDATEI FÜR DEN GOOGLE-FLOW-KI-AGENTEN\n\n${FLOW_AGENT_BLOCK}\n\nPREMIUM_VISUAL_WORLD_LOCK: ${ANIMATED_WORLD_LOCK_ID}\nBILDNUMMERIERUNG:\nBildnummer = echte Szenennummer. Animationsnummern bleiben reserviert. Jede Szene bekommt eine frische Komposition. Keine Bildreferenz. Keine feste Objektanzahl.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCOVER\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${coverPrompt}\n${allSections}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nABSCHLUSS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBeende den Auftrag erst, wenn jedes erwartete Bild einzeln erzeugt, exakt umbenannt und nach Editorial-Finance-QA geprüft wurde. Danach müssen alle Bilder gemeinsam hier liegen:\n03-szenen/00-ALLE-BILDER-HIER-REIN/\n`);
+write('03-szenen/alle-bildprompts.txt', `${AUTONOMY_BLOCK}
+FINANZNEO — EINZIGE ÜBERGABEDATEI FÜR DEN GOOGLE-FLOW-KI-AGENTEN
+
+${FLOW_AGENT_BLOCK}
+
+FINANZNEO_IMAGE_WORLD: ${WORLD_ID}
+BILDNUMMERIERUNG:
+Bildnummer = echte Szenennummer. Animationsnummern bleiben reserviert. Bei unabhängigen Szenen ohne Referenz arbeiten. Bei geplanten progressiven Folgen das exakt freigegebene vorherige Bild als echte Referenz anhängen.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COVER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+${coverPrompt}
+${allSections}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ABSCHLUSS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Beende den Auftrag erst, wenn jedes erwartete Bild einzeln erzeugt, exakt umbenannt und nach Editorial-Finance-QA geprüft wurde. Danach müssen alle Bilder gemeinsam hier liegen:
+03-szenen/00-ALLE-BILDER-HIER-REIN/
+`);
 
 write('03-szenen/scene-index.json', `${JSON.stringify({
   version:27,
