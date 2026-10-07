@@ -127,26 +127,27 @@ Der Phase-1-Seal schützt danach sowohl den Motion-Code als auch den kreativen V
 
 ## Bildwelt und Google Flow
 
-`IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1`
+`IMAGE_WORLD: finanzneo-editorial-finance-v1`
 
-Kanonische YouTube-Bildwelt:
+Kanonische Bildwelt:
 
 ```text
-config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt
+docs/FINANZNEO-IMAGE-WORLD.md
 ```
 
-Sie übernimmt ausschließlich die FinanzNeo-Rendering-Sprache für 16:9:
+Für alle statischen YouTube-Visuals gilt:
 
-- premium stylized 3D
-- klar nicht fotorealistisch
-- tiefe schwarze Welt
-- FinanzNeo-Farbrollen
-- sauberes weiches Studio-Licht
-- konsistente Materialwirkung
+- ein gesprochener Gedanke → eine einfache visuelle Idee
+- auf den ersten Blick verständlich
+- Flow darf Metaphern, Illustrationen, Charts, Timelines, Vergleiche, Dokumente, Zahlenvisuals, Zitate, Unternehmen/Marken und einfache Szenen vollständig erzeugen
+- 2D oder leichtes 2.5D bevorzugt; einfaches 3D nur wenn sinnvoll
+- Hintergründe flexibel; kein Schwarz-Zwang
+- wenige große, gut lesbare Elemente
+- keine dekorative AI-Slop-Finanzoptik ohne Erklärwert
+- Bildprompts bleiben Englisch
+- keine generische Headline automatisch; Zahlen, kurze Labels, Daten, Zitate und Dokumenttext sind erlaubt, wenn hilfreich
 
-Die frühere globale YouTube-Bildprompt-Formel ist entfernt. Keine Literal-first-, Ursache/Wirkung-, Kontextanker-, Objektzahl-, Label- oder Promptlängen-Regel wird automatisch erzwungen.
-
-Bildprompts bleiben Englisch. Eine generische Überschrift wird nicht automatisch in das KI-Bild gesetzt; Text ist nur erlaubt, wenn die konkrete Szene ihn ausdrücklich vorsieht.
+Progressive Bildfolgen sind ausdrücklich erlaubt. Wenn Visual B nur eine Erweiterung von Visual A ist, wird das exakt freigegebene Bild A als echte Referenz an Flow angehängt. Der Prompt von B bleibt vollständig und beschreibt nur die geplante Ergänzung/Änderung.
 
 Einzige Übergabe an Google Flow bleibt:
 
@@ -154,7 +155,7 @@ Einzige Übergabe an Google Flow bleibt:
 04-visuals/alle-bildprompts.txt
 ```
 
-Jedes Bild wird einzeln erzeugt, vollständig abgewartet und exakt umbenannt.
+Jedes Bild wird einzeln erzeugt, vollständig abgewartet, exakt umbenannt und geprüft.
 
 
 ## Audio, Timing und Untertitel
