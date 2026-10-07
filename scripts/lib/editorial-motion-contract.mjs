@@ -13,7 +13,10 @@ export const editorialMotionContractFields = () => ({
   customAnimationAllowed: true,
   libraryUseNeverForced: true,
   reusableMechanicsPreferred: true,
+  libraryReuseMayRepeatAcrossScenes: true,
   libraryParametersMustFollowSceneContent: true,
+  requirePremiumPhysicalStage: false,
+  requirePhysicalObjects: false,
 
   editorialTwoDPreferred: true,
   subtleTwoPointFiveDAllowed: true,
