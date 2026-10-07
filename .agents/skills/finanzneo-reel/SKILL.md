@@ -59,25 +59,22 @@ Static image beats should normally last about 1.8–3.4 seconds and must not rem
 
 Animation scenes may be longer only when the visible state keeps advancing with the voiceover. Final cuts follow real word timings from Phase 2, never equal-length scene padding. The 60/40 image-animation mix is guidance, not a quota.
 
-## V9 image world
+## Editorial Finance image world
 
-The active image world is `finanzneo-stylized-3d-animated-black-v9`.
+The active still-image world is `finanzneo-editorial-finance-v1`.
 
-It locks only the rendering identity:
+Canonical authority: `docs/FINANZNEO-IMAGE-WORLD.md`.
 
-- premium stylized 3D
-- clearly non-photorealistic
-- soft / simplified recognizable forms
-- deep black background
-- FinanzNeo color system
-- clean soft studio lighting
-- consistent materials and rendering across the series
+For IMAGE scenes:
+- one spoken thought = one simple visual idea
+- use the simplest static form that explains it immediately
+- Flow may create metaphors, illustrations, charts, timelines, comparisons, documents, quote visuals, company/brand visuals or simple scenes
+- backgrounds are flexible
+- 2D / subtle 2.5D is preferred; simple 3D is optional
+- avoid AI-slop spectacle and visual clutter
+- no automatic generic headline
 
-Do not infer scene concepts from legacy image rules. Literal-first, transferability, mandatory real-life context, cause/effect, object-count, label and prompt-length requirements are no longer active.
-
-Image prompts are written in English. Do not automatically add a generic headline to the generated image; text is scene-specific only when explicitly planned.
-
-Canonical baseline: `docs/IMAGE-PROMPT-BASELINE.md`.
+Progressive IMAGE sequences are allowed. When declared, use the exact approved previous scene image as the actual Flow reference and change only the planned element while keeping the new prompt self-contained.
 
 Antigravity does not generate the user's final Flow images. Missing exact image = stop and report filename.
 
