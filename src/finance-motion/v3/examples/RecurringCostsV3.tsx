@@ -70,7 +70,7 @@ export const RecurringCostsV3:React.FC=()=>{
     </div>
 
     <ShapeMorphV3
-      x={785}
+      x={850}
       y={1200}
       progress={annual}
       opacity={annual}
