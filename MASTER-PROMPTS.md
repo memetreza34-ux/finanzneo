@@ -12,7 +12,7 @@ Vor Reels lesen:
 
 ## 1. Phase 1 — ChatGPT bereitet komplett vor
 
-Phase 1 liefert Recherche, szenenweises Skript, V9-Bildprompts, natürliche Header,
+Phase 1 liefert Recherche, szenenweises Skript, Editorial-Finance-Bildprompts, natürliche Header,
 Remotion-Spezifikationen und für jede Animationsszene bereits die finale
 `animation.tsx`. Phase 3 darf keine fehlende Animation erfinden.
 
@@ -101,20 +101,31 @@ STRIKT VERBOTEN:
 - versiegelten Phase-1-Animationscode verändern
 ```
 
-## 3. Bildprompt — Reset-Baseline
+## 3. Bildprompt
 
 ```text
 Erstelle den konkreten Bildprompt auf Englisch.
 
-Verbindlich:
-- visuelle Welt: finanzneo-stylized-3d-animated-black-v9
-- Reel-Quellbild: 1:1
-- keine generische Überschrift automatisch in das Bild setzen
-- Szene frei aus dem jeweiligen Inhalt entwickeln
-- keine alte Literal-first-, Transferability-, Objektzahl-, Label- oder Promptlängen-Regel übernehmen
+Bildwelt:
+finanzneo-editorial-finance-v1
+
+Regel:
+1 gesprochener Gedanke → 1 einfache visuelle Idee → sofort verständlich.
+
+Wähle frei die passendste statische Form: Metapher, Illustration, Zahl+Objekt, Diagramm, Timeline, Vergleich, Dokument, Zitat+Illustration, Unternehmen/Marke oder eine andere simple Lösung.
+
+Hintergrund frei nach Motiv; kein Schwarz-Zwang.
+2D/2.5D bevorzugt; einfaches 3D nur wenn sinnvoll.
+Keine generische Headline automatisch.
+Kein AI-Slop oder dekoratives Finanz-Spektakel ohne Erklärwert.
+
+Wenn eine Szene auf dem vorherigen Bild stufenweise aufbaut:
+- das exakte freigegebene vorherige Bild als echte Referenz anhängen
+- den vollständigen Prompt erneut schreiben
+- nur die geplante Ergänzung/Änderung hinzufügen
 ```
 
-Weitere kreative Bildregeln sind aktuell bewusst nicht global festgelegt. Maßgeblich ist `docs/IMAGE-PROMPT-BASELINE.md`.
+Kanonische Quelle: `docs/FINANZNEO-IMAGE-WORLD.md`.
 
 
 ## 4. Google Flow
@@ -125,7 +136,7 @@ Strict Single Job V3:
 2. GENAU EIN Bild starten
 3. intern auf Ergebnis warten
 4. sofort exakt umbenennen
-5. V9-QA
+5. Editorial-Finance-QA
 6. bei Fehler dieselbe Bildnummer wiederholen
 7. erst nach PASS nächsten Bildblock freischalten
 
