@@ -62,7 +62,8 @@
     "upgrade": "npx remotion upgrade",
     "validate:consistency": "node scripts/validate-repo-consistency.mjs",
     "reel:export": "node scripts/export-reel.mjs",
-    "reel:image-world:v1": "node scripts/apply-finanzneo-image-world-v1.mjs"
+    "reel:image-world:v1": "node scripts/apply-finanzneo-image-world-v1.mjs",
+    "reel:animation:editorial": "node scripts/apply-editorial-motion-v1.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "^8.18.0",
