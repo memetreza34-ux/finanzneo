@@ -73,27 +73,34 @@ docs/FINANZNEO-VISUAL-SELECTION-RULE.md
 
 ## Remotion / Motion V3
 
+Kanonische YouTube-Motion-Welt:
+
+```text
+docs/FINANZNEO-YOUTUBE-MOTION-WORLD-V1.md
+```
+
 `MOTION_STANDARD: finanzneo-youtube-motion-v3`
 
-`MOTION_WORLD: finanzneo-editorial-motion-v1`
+`MOTION_WORLD: finanzneo-youtube-explain-motion-v1`
 
 ### Grundregel
 
-YouTube-Animationen sind die **bewegte Version der neuen Editorial-Finance-Bildwelt**.
+YouTube-Animationen nutzen eine **eigene 16:9 Motion-Welt**. Sie soll zur FinanzNeo-Marke passen, muss die statische Bildwelt aber nicht 1:1 kopieren.
 
 Default:
 
-- 2D / leichtes 2.5D
-- matte Formen
-- wenige große Elemente
-- helle oder gedämpfte Flächen
-- Kamera still
-- einfachste klare Bewegung
-- 3D nur wenn räumliche Tiefe wirklich hilft
+- 1920 × 1080 / 16:9 wird direkt komponiert
+- moderner Editorial-Explainer statt animierter Dashboard-Optik
+- starke visuelle Metapher vor Text
+- 2D / 2.5D bevorzugt, 3D bei echtem Mehrwert
+- breite Komposition mit Left/Center/Right-Staging
+- Kamera darf folgen, pushen oder reframen, wenn es die Story verbessert
+- Szene soll sich über mehrere Zustände weiterentwickeln statt ständig neu zu starten
+- die statische Flow-Bildwelt ist Markenreferenz, aber keine Zwangsschablone
 
 Custom React, SVG, Canvas, Paths/Shapes, Datenvisualisierung, Dokument-Motion, Timelines, Vergleiche, Lottie als Support und bei Bedarf selektives 3D bleiben erlaubt.
 
-Neue Editorial-Motion-Szenen dürfen **nicht** auf `PremiumPhysicalStage` oder alte `Physical*`-Primitives zurückfallen.
+Neue Motion-Szenen dürfen nicht auf `PremiumPhysicalStage`, generische Dashboard-Karten oder alte `Physical*`-Primitives als Default zurückfallen.
 
 Jedes Motion-Visual braucht:
 
