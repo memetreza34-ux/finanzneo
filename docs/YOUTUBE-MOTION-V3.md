@@ -2,24 +2,25 @@
 
 `MOTION_STANDARD: finanzneo-youtube-motion-v3`
 
-`MOTION_WORLD: finanzneo-editorial-motion-v1`
+`MOTION_WORLD: finanzneo-youtube-explain-motion-v1`
 
 Dieser Standard gilt nur für YouTube-Longform-Motion. Bildwelt, Header, Untertitel und Publishing werden hier nicht gestaltet.
 
 ## Ziel
 
-YouTube-Animationen sollen wie die **bewegte Version der FinanzNeo Editorial Finance Bildwelt** wirken.
+YouTube-Animationen bekommen eine **eigene Motion-Welt für 16:9**. Sie muss zur FinanzNeo-Marke passen, darf aber deutlich dynamischer und eigenständiger sein als die statische Flow-Bildwelt.
 
-Die visuelle Familie bleibt:
-
-- sauber
-- editorial
-- überwiegend 2D / leichtes 2.5D
-- matte Farben
-- wenige große Elemente
-- geringe bis mittlere Detailtiefe
-- flexible helle, gedämpfte oder begründet dunkle Hintergründe
-- einfaches 3D nur wenn räumliche Tiefe wirklich beim Verständnis hilft
+Die Motion-Welt priorisiert:
+- direkte 1920 × 1080 / 16:9-Komposition
+- starke visuelle Metaphern
+- breite räumliche Inszenierung
+- fortlaufende Szenenentwicklung
+- 2D / 2.5D als Basis
+- selektives 3D, Perspektive und Parallax wenn sinnvoll
+- Kamera-Bewegung, wenn sie Information enthüllt
+- große Objekte statt Karten-UI
+- integrierte Zahlen statt aufgesetzte Labels
+- klare Payoffs
 
 ## Core rule
 
@@ -54,15 +55,14 @@ Es gibt keine feste Bild-/Animationsquote.
 ## Editorial Motion style
 
 Default:
-
-- 2D / subtle 2.5D
-- matte Flächen
-- klare Vektorformen
-- große gut lesbare Hauptobjekte
-- Kamera still
-- wenig Motion
-- keine künstliche Tiefenwirkung
-- keine glänzende Materialshow
+- 16:9 wide staging
+- one strong hero idea
+- evolving scene instead of repeated screen resets
+- 2D / 2.5D first
+- depth, crop and overlap allowed
+- camera may move when it supports the story
+- meaningful visual progression every 1–2 seconds when the spoken idea advances
+- text remains secondary
 
 Nicht als Standard verwenden:
 
@@ -138,7 +138,7 @@ Camera drift oder Background motion zählt nicht als neuer Beat.
 Default:
 
 ```text
-motionSignature.camera = still
+motionSignature.camera = still | push | follow | reframe | zoom-out
 ```
 
 Push, follow oder reframe nur wenn es die Erklärung verbessert.
@@ -249,3 +249,14 @@ Die letzte Frage für jede Szene:
 > Ist diese Bewegung die einfachste gute Möglichkeit, genau diesen Satz sichtbar zu machen?
 
 Wenn weniger Motion genauso verständlich wäre, wird reduziert.
+
+
+## Canonical motion world
+
+```text
+docs/FINANZNEO-YOUTUBE-MOTION-WORLD-V1.md
+```
+
+This document is the authority for the visual identity of new YouTube motion scenes.
+
+The static Editorial Finance image world is no longer a visual cage for motion. It remains a brand reference only.
