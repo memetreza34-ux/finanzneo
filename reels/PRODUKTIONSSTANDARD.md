@@ -19,7 +19,8 @@
 
 ### Phase 1 — ChatGPT / Motion Authoring
 - Recherche + Quellen
-- anfängerfreundliches Skript
+- thematisch frei innerhalb des gesamten Finanzbereichs
+- verständliches Skript auch bei fortgeschrittenen Themen
 - Szenenplan und V9-Flow-Prompts
 - Header + Icons
 - fertige kanonische `animation.tsx` je Animationsszene
