@@ -106,6 +106,9 @@ if (index) {
   assert(index.googleFlow?.generationMode === 'one-image-at-a-time' && index.googleFlow?.strictSequential === true, 'Google Flow muss strikt Bild für Bild arbeiten.');
   assert(index.googleFlow?.waitForCurrentImage === true && index.googleFlow?.renameBeforeNext === true && index.googleFlow?.qaBeforeNext === true, 'Google Flow muss warten, umbenennen und prüfen, bevor es fortfährt.');
   assert(index.googleFlow?.retrySameImageOnFailure === true, 'Fehlerhafte Bilder müssen unter derselben Nummer neu erzeugt werden.');
+  assert(index.googleFlow?.referenceImagesAllowed === true, 'Bildreferenzen müssen erlaubt sein.');
+  assert(index.googleFlow?.continuationReferenceRequiredWhenDeclared === true, 'Deklarierte Fortsetzungs-Visuals müssen eine Referenz verwenden.');
+  assert(index.googleFlow?.referenceMustUseApprovedPriorImage === true, 'Referenz muss aus einem freigegebenen vorherigen Bild stammen.');
   assert(index.googleFlow?.finalCollectionDirectory === `${IMAGE_INBOX}/`, 'Finaler gemeinsamer Bilderordner ist falsch.');
   assert(index.googleFlow?.distributeToVisualFolders === false, 'Google Flow darf Bilder nicht auf Visual-Ordner verteilen.');
   assert(index.timelineRules?.cutsFollowVoiceAndChapters === true && index.timelineRules?.beatFirst === true, 'Schnitte müssen Voiceover/Beats/Kapiteln folgen.');
@@ -139,6 +142,10 @@ if (index) {
       imageFileNames.add(visual.googleFlowFileName);
       const imagePlan = visual.type === 'hybrid' ? visual.imagePlanFile : visual.planFile;
       assert(typeof imagePlan === 'string' && imagePlan.endsWith('/bildprompt.txt') && existsSync(resolve(root, imagePlan)), `${id}: bildprompt.txt fehlt.`);
+      if (visual.imageSequence?.mode === 'continuation') {
+        assert(typeof visual.imageSequence.referenceVisualId === 'string' && visual.imageSequence.referenceVisualId.trim(), `${id}: continuation benötigt referenceVisualId.`);
+        assert(typeof visual.imageSequence.plannedChange === 'string' && visual.imageSequence.plannedChange.trim(), `${id}: continuation benötigt plannedChange.`);
+      }
       if (typeof imagePlan === 'string' && existsSync(resolve(root, imagePlan))) {
         const prompt = readFileSync(resolve(root, imagePlan), 'utf8');
         for (const marker of ['REFERENCE_IMAGE:', 'IMAGE PROMPT:', 'FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1']) {
