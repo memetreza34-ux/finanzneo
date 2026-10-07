@@ -25,7 +25,7 @@ const validators = [
   'scripts/validate-future-reel-phase1-motion-direction-v1.mjs',
   'scripts/validate-reel-quality-guards-v1.mjs',
   'scripts/validate-reel-layout-v5.mjs',
-  'scripts/validate-premium-visual-contract.mjs',
+  'scripts/validate-finanzneo-image-world.mjs',
   'scripts/validate-animation-source-quality.mjs',
   'scripts/validate-flow-autonomous-contract.mjs',
   'scripts/validate-phase3-contract.mjs',
