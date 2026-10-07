@@ -102,12 +102,17 @@ VISUELLER LOCK
 - sauberes weiches Studio-Licht
 - gleiche Material- und Rendering-Sprache
 
-BILDPROMPT-RESET
+BILDLOGIK
+- 1 gesprochener Gedanke = 1 einfache visuelle Idee
+- Bildidee möglichst auf den ersten Blick verständlich
+- zuerst die einfachste Form wählen: einfache Metapher, Zahl+Objekt, Illustration, Diagramm/Chart, Prozess, Timeline oder Text+Illustration
+- keine Form ist Pflicht; Klarheit entscheidet
+- keine unnötige KI-Komplexität, Neon-Finanzoptik, Miniaturwelt, Hologramm-/Dashboard-Look oder dekorative Coin-Szenen
 - konkrete Prompts auf Englisch schreiben
+- im Prompt zuerst das konkrete Motiv beschreiben, danach nur kurz die V9-Bildwelt ergänzen
 - keine generische Überschrift automatisch in das Bild setzen
-- keine Literal-first-, Alltagsszenen-, Ursache/Wirkung-, Transferability-, Kontextanker-, Objektzahl-, Pflichtlabel- oder Promptlängen-Regel mehr anwenden
+- Zahlen, kurze Labels, Zitate und Datumsangaben sind erlaubt, wenn sie die Erklärung tragen
 - historische Reel-Prompts und Experimente sind keine Regelquelle
-- Szene wird frei für den jeweiligen Sprechpunkt geplant; die neue kreative Bildlogik wird separat aufgebaut
 
 GOOGLE FLOW — STRICT SINGLE JOB
 - maximal 1 laufender Bildjob
