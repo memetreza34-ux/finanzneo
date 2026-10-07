@@ -1,6 +1,6 @@
-# FinanzNeo Editorial Motion V1
+# FinanzNeo Editorial Motion — Base Visual Language
 
-`MOTION_WORLD: finanzneo-editorial-motion-v1`
+`ACTIVE_MOTION_WORLD: finanzneo-editorial-motion-v3`
 
 This is the canonical visual direction for **new FinanzNeo animations**.
 
@@ -239,3 +239,17 @@ This library is the higher-quality reference implementation for new motion exper
 - fewer generic cards and more content-shaped compositions
 
 Use V2 as the quality reference before inventing another visual system.
+
+
+## Active production implementation
+
+The preferred production implementation is now:
+
+```text
+finanzneo-editorial-motion-v3
+src/finance-motion/v3
+```
+
+Canonical V3 process and QA: `docs/FINANZNEO-EDITORIAL-MOTION-V3.md`.
+
+V1/V2 code remains only as an experiment/legacy reference unless a specific scene genuinely requires it.
