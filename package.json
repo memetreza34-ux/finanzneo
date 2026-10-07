@@ -15,7 +15,6 @@
     "typecheck": "tsc --noEmit",
     "build": "npx remotion bundle src/index.ts",
     "reel:create": "node scripts/create-finanzneo-reel.mjs",
-    "reel:visual-world:v9": "node scripts/apply-stylized-animated-black-world-v9.mjs",
     "reel:sort-images": "node scripts/sort-reel-images.mjs",
     "reel:validate": "node scripts/validate-reel.mjs",
     "reel:ready": "node scripts/check-reel-production-ready.mjs",
@@ -48,7 +47,7 @@
     "validate:design-system": "node scripts/validate-design-system.mjs",
     "validate:finance": "node scripts/validate-finance.mjs",
     "validate:reel-template": "node scripts/validate-reel-template.mjs",
-    "validate:image-world": "node scripts/validate-global-image-world.mjs",
+    "validate:image-world": "node scripts/validate-finanzneo-image-world.mjs",
     "validate:reel-background": "node scripts/validate-reel-background.mjs",
     "validate:active-reel-rules": "node scripts/validate-active-reel-rules.mjs",
     "validate:bausteine-deps": "node scripts/validate-bausteine-dependencies.mjs",
@@ -62,7 +61,8 @@
     "render:template-demo": "npx remotion render src/index.ts ReelTemplateDemo out/reel-template-demo.mp4 --scale=0.5",
     "upgrade": "npx remotion upgrade",
     "validate:consistency": "node scripts/validate-repo-consistency.mjs",
-    "reel:export": "node scripts/export-reel.mjs"
+    "reel:export": "node scripts/export-reel.mjs",
+    "reel:image-world:v1": "node scripts/apply-finanzneo-image-world-v1.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "^8.18.0",
