@@ -11,6 +11,7 @@ const ACTIVE_RULE_FILES = [
   'START-HIER.md',
   'reels/PRODUKTIONSSTANDARD.md',
   'docs/FINANZNEO-IMAGE-WORLD.md',
+  'docs/FINANZNEO-EDITORIAL-MOTION-V1.md',
   'docs/FINANZNEO-VISUAL-TIMING-AND-CLARITY-STANDARD.md',
   'docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md',
   'docs/COMPONENT-CATALOG.md',
@@ -33,6 +34,10 @@ const ACTIVE_RULE_FILES = [
   'scripts/apply-finanzneo-image-world-v1.mjs',
   'scripts/validate-finanzneo-image-world.mjs',
   'scripts/validate-animation-source-quality.mjs',
+  'scripts/apply-editorial-motion-v1.mjs',
+  'scripts/lib/editorial-motion-contract.mjs',
+  'src/brand/components/EditorialMotion.tsx',
+  'src/finance-motion/editorial-v1.tsx',
 ];
 
 const errors = [];
@@ -75,6 +80,7 @@ const requiredMarkers = new Map([
   ['README.md', ['3-PHASEN-WORKFLOW.md', 'Produktionsregistry']],
   ['ANLEITUNG.md', ['finanzneo-editorial-finance-v1', '#000000', 'phase3Executor']],
   ['docs/FINANZNEO-IMAGE-WORLD.md', ['finanzneo-editorial-finance-v1', 'ONE SPOKEN THOUGHT', 'Progressive image sequences']],
+  ['docs/FINANZNEO-EDITORIAL-MOTION-V1.md', ['finanzneo-editorial-motion-v1', 'minimum amount of motion', 'camera role']],
   ['CLAUDE.md', ['finanzneo-editorial-finance-v1', '#000000', 'Visualzone           Y = 320–1400', 'Header Text          56 px']],  ['docs/PHASE-1-ANIMATION-CODE-STANDARD.md', ['finanzneo-editorial-motion-v1', 'finanzneo-editorial-motion-library-v1', 'EDITORIAL_VISUAL_NARRATIVE', 'PremiumPhysicalStage']],
   ['docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md', ['56 px', 'Y = 320–1400', 'SourceNote']],
   ['docs/PHASE-3-COMPLETION-GATE.md', ['Post-Render', 'Caption-/Header-only', 'FINAL_COMPLETE']],
