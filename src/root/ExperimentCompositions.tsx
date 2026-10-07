@@ -26,6 +26,23 @@ import {
   EDITORIAL_MOTION_EXAMPLE_FRAMES,
 } from '../reels-test/EditorialMotionExample';
 import {
+  EDITORIAL_EXAMPLE_FRAMES,
+  EditorialMotion01Transfer,
+  EditorialMotion02BudgetSplit,
+  EditorialMotion03SalaryGrowth,
+  EditorialMotion04FeeDrag,
+  EditorialMotion05PortfolioSplit,
+  EditorialMotion06Rebalancing,
+  EditorialMotion07Diversification,
+  EditorialMotion08LoanPaydown,
+  EditorialMotion09DepositProtection,
+  EditorialMotion10ScenarioCompare,
+  EditorialMotion11Timeline,
+  EditorialMotion12CompoundGrowth,
+  EditorialMotion13MountainGoal,
+  EditorialMotion14LateFee,
+} from '../reels-test/EditorialMotionExamplesV1';
+import {
   FinanceHeaderCaptionMotion,
   FINANCE_HEADER_CAPTION_MOTION_FRAMES,
 } from '../reels-test/FinanceHeaderCaptionMotion';
@@ -97,6 +114,21 @@ export const ExperimentCompositions: React.FC = () => (
       fps={FPS}
       {...VERTICAL}
     />
+
+    <Composition id="EditorialMotion01Transfer" component={EditorialMotion01Transfer} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion02BudgetSplit" component={EditorialMotion02BudgetSplit} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion03SalaryGrowth" component={EditorialMotion03SalaryGrowth} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion04FeeDrag" component={EditorialMotion04FeeDrag} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion05PortfolioSplit" component={EditorialMotion05PortfolioSplit} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion06Rebalancing" component={EditorialMotion06Rebalancing} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion07Diversification" component={EditorialMotion07Diversification} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion08LoanPaydown" component={EditorialMotion08LoanPaydown} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion09DepositProtection" component={EditorialMotion09DepositProtection} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion10ScenarioCompare" component={EditorialMotion10ScenarioCompare} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion11Timeline" component={EditorialMotion11Timeline} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion12CompoundGrowth" component={EditorialMotion12CompoundGrowth} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion13MountainGoal" component={EditorialMotion13MountainGoal} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion14LateFee" component={EditorialMotion14LateFee} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
 
     <Composition
       id="ReelsTestFinanceHeaderCaptionMotion"
