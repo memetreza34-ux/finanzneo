@@ -25,7 +25,7 @@ finanzneo-finance-motion-library-v1
 Visuelles Ziel bleibt unverändert:
 
 ```text
-finanzneo-stylized-3d-animated-black-v9
+finanzneo-premium-physical-animation-v2
 ```
 
 Der technische Lock bleibt für bestehende Seals stabil. Die neue Library ersetzt keine Bildwelt und migriert keine bestehenden Reels.
