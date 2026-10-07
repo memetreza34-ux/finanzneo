@@ -11,7 +11,8 @@ if (!target) {
 
 const LEGACY_CONTRACT_ID = 'finanzneo-phase1-individual-motion-v1';
 const CONTRACT_ID = 'finanzneo-phase1-hybrid-motion-v2';
-const LIBRARY_ID = 'finanzneo-finance-motion-library-v1';
+const LIBRARY_ID = 'finanzneo-editorial-motion-library-v1';
+const LEGACY_LIBRARY_ID = 'finanzneo-finance-motion-library-v1';
 const root = resolve(target);
 const indexPath = resolve(root, '03-szenen/scene-index.json');
 if (!existsSync(indexPath)) {
@@ -122,7 +123,9 @@ if (contract.id === LEGACY_CONTRACT_ID) {
 if (contract.id !== CONTRACT_ID) {
   fail(`phase1MotionDirectionContract.id muss ${CONTRACT_ID} oder ${LEGACY_CONTRACT_ID} sein.`);
 } else {
-  if (contract.financeMotionLibraryId !== LIBRARY_ID) fail(`phase1MotionDirectionContract.financeMotionLibraryId muss ${LIBRARY_ID} sein.`);
+  if (![LIBRARY_ID, LEGACY_LIBRARY_ID].includes(contract.financeMotionLibraryId)) {
+    fail(`phase1MotionDirectionContract.financeMotionLibraryId muss ${LIBRARY_ID} oder ${LEGACY_LIBRARY_ID} sein.`);
+  }
   for (const key of [
     'appliesToNewReelsOnly',
     'legacyReelsUntouched',
@@ -148,7 +151,7 @@ if (contract.id !== CONTRACT_ID) {
   } else {
     const policy = readFileSync(policyPath, 'utf8');
     if (!policy.includes(`PHASE1_MOTION_DIRECTION: ${CONTRACT_ID}`)) fail('phase1-motion-direction-v1.md enthält den Hybrid-Vertragsmarker nicht.');
-    if (!policy.includes(`FINANCE_MOTION_LIBRARY: ${LIBRARY_ID}`)) fail('phase1-motion-direction-v1.md enthält den Library-Marker nicht.');
+    if (!policy.includes(`FINANCE_MOTION_LIBRARY: ${contract.financeMotionLibraryId}`)) fail('phase1-motion-direction-v1.md enthält den passenden Library-Marker nicht.');
     if (!/Sprechpunkt/i.test(policy) || !/Verständnisziel/i.test(policy) || !/Library ist Werkzeug/i.test(policy)) {
       fail('phase1-motion-direction-v1.md muss Content-first-Reihenfolge und Library-als-Werkzeug-Regel festlegen.');
     }
