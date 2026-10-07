@@ -34,14 +34,15 @@ test('new Editorial Motion does not require retired Physical primitives', () => 
 
   const library = readFileSync('src/finance-motion/v3/index.ts', 'utf8');
   assert.match(library, /EDITORIAL_MOTION_V3_REGISTRY/);
-  assert.match(library, /MOTION_GRAMMAR/);
+  const tokens = readFileSync('src/finance-motion/v3/motion-tokens.ts','utf8');
+  assert.match(tokens, /MOTION_GRAMMAR/);
   assert.doesNotMatch(library, /PremiumPhysicalStage/);
   assert.doesNotMatch(library, /<Physical(?:Object|Tag|Rail|Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack)\b/);
 });
 
 test('new Reel creation applies Editorial Motion instead of Premium Physical Motion', () => {
   const create = readFileSync('scripts/create-finanzneo-reel.mjs', 'utf8');
-  assert.match(create, /apply-editorial-motion-v1\.mjs/);
+  assert.match(create, /apply-editorial-motion-v3\.mjs/);
   assert.doesNotMatch(create, /\['scripts\/apply-premium-animation-v2\.mjs', \[target\]\]/);
 });
 
