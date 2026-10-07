@@ -67,7 +67,7 @@ export const SalaryCurveV2:React.FC<{durationFrames?:number}> = ({durationFrames
   const draw=p(frame,20,126,Easing.inOut(Easing.cubic));
   const evo=evolvePath(draw,path);
   const len=getLength(path);
-  const point=getPointAtLength(path,len*draw);
+  const point=getPointAtLength(path,len*draw) ?? {x:150,y:1160};
   const first=p(frame,8,22);
   const payoff=p(frame,128,148);
   const bounce=pop(frame,132,fps);
@@ -187,7 +187,7 @@ export const CompoundCurveV2:React.FC<{durationFrames?:number}> = ({durationFram
   const draw=p(frame,20,130,Easing.inOut(Easing.cubic));
   const evo=evolvePath(draw,path);
   const len=getLength(path);
-  const marker=getPointAtLength(path,len*draw);
+  const marker=getPointAtLength(path,len*draw) ?? {x:145,y:1180};
   const endPop=pop(frame,128,fps);
 
   return <Surface tone="green">
