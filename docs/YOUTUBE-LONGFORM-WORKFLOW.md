@@ -61,12 +61,12 @@ Der Agent arbeitet strikt:
 GENAU EIN BILD ERZEUGEN
 → VOLLSTÄNDIG WARTEN
 → SOFORT EXAKT UMBENENNEN
-→ LITERALEN SPRECHPUNKT + KONTEXT + LABELS + HINTERGRUND + 16:9 + DATEINAME PRÜFEN
+→ SPRECHPUNKT + FIRST-GLANCE-KLARHEIT + 16:9 + DATEINAME PRÜFEN
 → ERST DANN DAS NÄCHSTE BILD
 ```
 
-- Bilder folgen dem visuellen Lock `finanzneo-youtube-grounded-3d-black-v1`; weitere kreative Promptregeln sind nicht global festgelegt.
-- Nicht Motiv, Komposition oder Labels eines anderen Bildes als Standardvorlage kopieren.
+- Bilder folgen `finanzneo-editorial-finance-v1` aus `docs/FINANZNEO-IMAGE-WORLD.md`.
+- Unabhängige Bilder frei neu gestalten. Bei geplanten progressiven Folgen das freigegebene vorherige Bild als echte Referenz anhängen und nur die geplante Änderung ergänzen.
 - Fehlerhafte Bildnummer wiederholen; nie parallel oder als Batch fortfahren.
 - Nicht-Bild-Visualnummern überspringen, aber nicht neu nummerieren.
 - Alle fertigen Dateien gemeinsam nach `04-visuals/00-ALLE-BILDER-HIER-REIN/` legen.
