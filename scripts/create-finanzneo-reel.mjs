@@ -4,7 +4,7 @@
 // Neue Reels erhalten Cover Hook V3: Titel ab Frame 0, Captions ab erstem gesprochenen Wort.
 // Zusätzlich gelten Quality Guards V1: IMAGE xor ANIMATION, tatsächliche Source-Diversität
 // und horizontale Animation-Safe-Zone mit Post-Render-Rand-QA.
-// Bildwelt V9 bleibt aktiv; die frühere globale Image-Storytelling-Formel ist entfernt.
+// Neue Reels verwenden die kanonische FinanzNeo Editorial Finance Image World V1.
 
 import {spawnSync} from 'node:child_process';
 import {existsSync, readdirSync, rmSync, rmdirSync} from 'node:fs';
@@ -41,7 +41,7 @@ const run = (script, scriptArgs = []) => spawnSync(process.execPath, [resolve(sc
 const steps = [
   ['scripts/scaffold-finanzneo-reel.mjs', args],
   ['scripts/apply-flow-autonomous-contract.mjs', [target]],
-  ['scripts/apply-stylized-animated-black-world-v9.mjs', [target]],
+  ['scripts/apply-finanzneo-image-world-v1.mjs', [target]],
   ['scripts/apply-phase3-completion-contract.mjs', [target]],
   ['scripts/apply-reel-layout-v5.mjs', [target]],
   ['scripts/apply-phase1-animation-code-contract.mjs', [target]],
@@ -65,7 +65,7 @@ for (const [script, scriptArgs] of steps) {
 
 console.log('\n✓ Neues Reel vollständig angelegt.');
 console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob.');
-console.log('  Bildwelt V9 bleibt aktiv; kreative Bildprompt-Regeln wurden auf die Reset-Baseline zurückgesetzt.');
+console.log('  Bildwelt: FinanzNeo Editorial Finance V1 · einfache first-glance Visuals · flexible Hintergründe · progressive Referenzfolgen erlaubt.');
 console.log('  Cover Hook V3: Hero-Bild + exakter Titel ab Frame 0; Captions ab erstem gesprochenen Wort.');
 console.log('  Szene-Typen: exakt IMAGE oder ANIMATION — kein Bild+Animations-Hybrid als Hauptvisual.');
 console.log('  IMAGE: Bild + Titel/Header/Icon + Caption; keine erklärende Remotion-Hauptanimation über dem Bild.');
