@@ -160,6 +160,13 @@ if (phase1Animation.visualMotionLock === EDITORIAL_MOTION_LOCK) {
   assert(phase1Animation.minimumMotionNeededPreferred === true, 'Editorial Motion muss minimale verständliche Bewegung bevorzugen.');
   assert(phase1Animation.cameraMovementRequired === false, 'Kamerabewegung darf nicht Pflicht sein.');
   assert(phase1Animation.decorativeBackgroundEffectsForbidden === true, 'Dekorative Animations-Hintergrundeffekte müssen verboten sein.');
+  assert(phase1Animation.conceptCandidatesRequired === 3, 'Editorial Motion V3 braucht drei visuelle Konzeptkandidaten.');
+  assert(phase1Animation.keyframeQaRequired === true, 'Editorial Motion V3 braucht Keyframe-QA.');
+  assert(JSON.stringify(phase1Animation.keyframeQaPercentages) === JSON.stringify([10,35,65,90]), 'Editorial Motion V3 Keyframes müssen 10/35/65/90 sein.');
+  assert(phase1Animation.motionGrammarRequired === true, 'Editorial Motion V3 braucht Motion-Grammatik.');
+  assert(phase1Animation.animatedEditorialIllustrationPreferred === true, 'Editorial Motion V3 muss bewegte Editorial-Illustrationen bevorzugen.');
+  assert(phase1Animation.uiFirstCompositionForbidden === true, 'UI-first-Kompositionen müssen in Editorial Motion V3 verboten sein.');
+  assert(phase1Animation.nativeRemotionGeometryPreferred === true, 'Editorial Motion V3 muss native Remotion-Geometrie bevorzugen.');
 } else {
   assert(phase1Animation.pureBlackCanvasRequired === true, 'Legacy-Animationen müssen den Pure-Black-Canvas-Vertrag erben.');
   assert(phase1Animation.transparentAnimationStageRequired === true, 'Legacy PremiumPhysicalStage muss transparent bleiben.');
