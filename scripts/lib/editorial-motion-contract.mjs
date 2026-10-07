@@ -1,5 +1,5 @@
-export const EDITORIAL_MOTION_LOCK = 'finanzneo-editorial-motion-v1';
-export const EDITORIAL_MOTION_LIBRARY_ID = 'finanzneo-editorial-motion-library-v1';
+export const EDITORIAL_MOTION_LOCK = 'finanzneo-editorial-motion-v3';
+export const EDITORIAL_MOTION_LIBRARY_ID = 'finanzneo-editorial-motion-v3-library';
 export const EDITORIAL_IMAGE_WORLD_ID = 'finanzneo-editorial-finance-v1';
 
 export const editorialMotionContractFields = () => ({
@@ -58,6 +58,17 @@ export const editorialMotionContractFields = () => ({
   dashboardCompositionForbidden: true,
   genericInfoCardsAsMainLanguageForbidden: true,
   decorativeMotionDoesNotCountAsExplanation: true,
+
+  conceptCandidatesRequired: 3,
+  keyframeQaRequired: true,
+  keyframeQaPercentages: [10, 35, 65, 90],
+  motionGrammarRequired: true,
+  motionGrammar: ['draw','follow','reveal','split','merge','stack','shift','swap','emphasize','count'],
+  animatedEditorialIllustrationPreferred: true,
+  chartInCardAsDefaultForbidden: true,
+  uiFirstCompositionForbidden: true,
+  nativeRemotionGeometryPreferred: true,
+  v3ImplementationPath: 'src/finance-motion/v3',
 });
 
 export const validateEditorialMotionSceneMetadata = (scene) => {
