@@ -183,3 +183,14 @@ Reject and redesign if:
 8. inspect START, MID-CHANGE, RESULT and RESULT HOLD;
 9. run the animation validator;
 10. only then seal Phase 1 animation code.
+
+
+## Editorial Motion example lab
+
+For the prepared multi-example test, use:
+
+```bash
+npm run render:editorial-motion-examples
+```
+
+Do not redesign the prepared examples during render QA. Antigravity should render and inspect them exactly as authored.
