@@ -77,10 +77,19 @@ if (hybridV2) {
   if (index.phase1AnimationCode?.requirePremiumPhysicalStage !== false) fail('PremiumPhysicalStage darf im Hybrid-Vertrag nicht verpflichtend sein.');
   if (index.phase1AnimationCode?.requirePhysicalObjects !== false) fail('Physical-Primitives dürfen im Hybrid-Vertrag nicht verpflichtend sein.');
 
-  const libraryPath = resolve(process.cwd(), editorialV1 ? 'src/finance-motion/editorial-v1.tsx' : 'src/finance-motion/index.tsx');
-  librarySource = existsSync(libraryPath) ? readFileSync(libraryPath, 'utf8') : '';
-  const registryMarker = editorialV1 ? 'EDITORIAL_FINANCE_MOTION_REGISTRY' : 'FINANCE_MOTION_REGISTRY';
-  if (!librarySource.includes(registryMarker)) fail(`${libraryPath} bzw. ${registryMarker} fehlt.`);
+  if (editorialV1) {
+    const v2Path = resolve(process.cwd(), 'src/finance-motion/editorial-v2.tsx');
+    const v1Path = resolve(process.cwd(), 'src/finance-motion/editorial-v1.tsx');
+    const v2Source = existsSync(v2Path) ? readFileSync(v2Path, 'utf8') : '';
+    const v1Source = existsSync(v1Path) ? readFileSync(v1Path, 'utf8') : '';
+    librarySource = v2Source + '\n' + v1Source;
+    if (!v2Source.includes('EDITORIAL_MOTION_V2_REGISTRY')) fail('src/finance-motion/editorial-v2.tsx bzw. EDITORIAL_MOTION_V2_REGISTRY fehlt.');
+    if (!v1Source.includes('EDITORIAL_FINANCE_MOTION_REGISTRY')) fail('Legacy Editorial Motion V1 registry fehlt.');
+  } else {
+    const libraryPath = resolve(process.cwd(), 'src/finance-motion/index.tsx');
+    librarySource = existsSync(libraryPath) ? readFileSync(libraryPath, 'utf8') : '';
+    if (!librarySource.includes('FINANCE_MOTION_REGISTRY')) fail(`${libraryPath} bzw. FINANCE_MOTION_REGISTRY fehlt.`);
+  }
 }
 
 const validateSharedNarratives = (id, source, editorial = false) => {
@@ -208,7 +217,7 @@ for (const scene of animations) {
       fail(`${id}: FINANCE_MOTION_ID "${financeMotionId}" ist nicht in FINANCE_MOTION_REGISTRY registriert.`);
     }
     if (editorialV1) {
-      if (!/finance-motion\/editorial-v1/.test(source)) fail(`${id}: Editorial library-best-fit muss aus src/finance-motion/editorial-v1 importieren.`);
+      if (!/finance-motion\/editorial-v(?:1|2)/.test(source)) fail(`${id}: Editorial library-best-fit muss aus src/finance-motion/editorial-v2 (bevorzugt) oder editorial-v1 importieren.`);
     } else if (!/finance-motion/.test(source)) {
       fail(`${id}: library-best-fit muss aus src/finance-motion importieren.`);
     }
