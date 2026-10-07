@@ -263,7 +263,7 @@ Streng verboten als Reel-Hintergrund:
 
 Hintergrundbewegung zählt niemals als Szenenanimation oder QA-Nachweis.
 
-## 11. Phase-1-Animationscode — Editorial Motion V1
+## 11. Phase-1-Animationscode — Editorial Motion V3
 
 Basis-Lock:
 
@@ -274,7 +274,7 @@ finanzneo-phase1-animation-code-v1
 Aktive Motion-Welt für neue Reels:
 
 ```text
-finanzneo-editorial-motion-v1
+finanzneo-editorial-motion-v3
 ```
 
 Visuelles Ziel:
@@ -283,7 +283,14 @@ Visuelles Ziel:
 finanzneo-editorial-finance-v1
 ```
 
-Kanonische Regel: `docs/FINANZNEO-EDITORIAL-MOTION-V1.md`.
+Kanonische Regel: `docs/FINANZNEO-EDITORIAL-MOTION-V3.md`.
+
+V3 Pflichtprozess vor dem Coding:
+- Drei visuell unterschiedliche Konzepte entwickeln.
+- Das stärkste Konzept wählen.
+- Keyframes 10 % / 35 % / 65 % / 90 % planen.
+- Motion-Grammatik wählen: DRAW / FOLLOW / REVEAL / SPLIT / MERGE / STACK / SHIFT / SWAP / EMPHASIZE / COUNT.
+- Erst danach Remotion-Code schreiben.
 
 Pflichtlogik:
 
@@ -312,7 +319,7 @@ Bei Library-Best-Fit:
 
 ```text
 src/finance-motion/editorial-v1.tsx
-FINANCE_MOTION_LIBRARY: finanzneo-editorial-motion-library-v1
+FINANCE_MOTION_LIBRARY: finanzneo-editorial-motion-v3-library
 ```
 
 Bei Custom-Build:
