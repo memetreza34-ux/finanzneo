@@ -50,13 +50,18 @@ Bei progressiven Bildfolgen wird das freigegebene vorherige Bild als echte Refer
 
 ## Animationen
 
-Native Remotion-Animationen folgen weiterhin der V9-Sprache:
+Native Remotion-Animationen folgen `finanzneo-editorial-motion-v1`:
 
-- zentraler Reel-Canvas statisch `#000000`
-- `PremiumPhysicalStage` transparent
-- keine Partikel, Aurora, Grid, Vignette oder dekorative Background-Bewegung
-- Bewegung erklärt die Aussage
-- Background-Motion zählt niemals als Erkläranimation
+- Animation ist die bewegte Version der Editorial-Finance-Bildwelt
+- 2D / leichtes 2.5D bevorzugt
+- matte, einfache Formen und wenige große Elemente
+- `EditorialMotionStage` darf innerhalb der Visualzone eine helle oder gedämpfte Fläche erzeugen
+- der äußere Reel-Canvas bleibt technisch unverändert
+- eine klare Hauptbewegung kann vollständig reichen
+- Kamera standardmäßig still
+- keine Partikel, Aurora, Grid, Hologramme oder dekorative Background-Bewegung
+- keine alten Physical-Primitives als neue Default-Sprache
+- Bewegung erklärt die Aussage; Background-Motion zählt niemals als Erkläranimation
 
 ## QA vor Freigabe
 
