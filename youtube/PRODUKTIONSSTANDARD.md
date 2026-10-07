@@ -54,23 +54,22 @@ Erlaubte Visualtypen:
 
 `VISUAL_SELECTION_STANDARD: finanzneo-visual-selection-v1`
 
-Vor der konkreten Technik wird die Visualart festgelegt:
+Vor der Technik wird entschieden, ob der Sprechpunkt als **statisches Visual** oder als **echte zeitliche Veränderung** besser funktioniert.
 
-- **einfache, zahlen-/datengetriebene Erklärung → pure Remotion**
-- **komplexe, reale oder räumliche Erklärung → Bild + Remotion Hybrid**
-- **SVG → präzise Pfade, Charts, Linien, Verbindungen und Vektor-Mechaniken**
-- **Icons → semantische Kurzschrift / Support**
-- **Lottie → kleine Support-Bewegung, niemals Hauptstil**
+- **statische Aussage → Google Flow IMAGE**
+  - auch Charts, Timelines, Vergleiche, Dokumente, Zahlenvisuals, Metaphern, Unternehmen/Marken und komplexe statische Erklärbilder dürfen vollständig von Flow erzeugt werden
+- **sichtbare Entwicklung/Bewegung über Zeit → Remotion ANIMATION**
+- **HYBRID** nur wenn ein starkes Flow-Standbild plus echte zeitliche Remotion-Information nachweislich besser erklärt
+- SVG, Icons, Lottie und andere Techniken sind Werkzeuge innerhalb einer Animations-/Hybrid-Szene, nicht automatisch ein eigener Inhaltstyp
 
-Komplexes Thema bedeutet nicht automatisch komplexe Animation. Ziel ist, schwierige Finanzlogik so einfach sichtbar zu machen, dass der Zuschauer die Erklärung versteht und nicht die technische Komplexität wahrnimmt.
-
-Icons, Lottie und SVG werden nur ergänzt, wenn sie einen konkreten Erklärwert haben. Ein vorhandenes Asset ist niemals allein ein Grund für die Visualwahl.
+Komplexes Thema bedeutet nicht automatisch Animation. Wenn eine komplexe Aussage als klares statisches Bild verständlich ist, bleibt sie IMAGE.
 
 Kanonische Detailregel:
 
 ```text
 docs/FINANZNEO-VISUAL-SELECTION-RULE.md
 ```
+
 
 ## Remotion / Motion V3
 
