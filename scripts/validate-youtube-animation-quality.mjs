@@ -6,6 +6,8 @@ import {
   validateYouTubeMotionMetadata,
   validateYouTubeMotionVariety,
   YOUTUBE_MOTION_STANDARD_ID,
+  YOUTUBE_EDITORIAL_MOTION_WORLD_ID,
+  YOUTUBE_EDITORIAL_VISUAL_TARGET_ID,
 } from './lib/youtube-motion-contract.mjs';
 
 const [target] = process.argv.slice(2);
@@ -39,6 +41,15 @@ const errors = [];
 if (index?.motionStandard?.id !== YOUTUBE_MOTION_STANDARD_ID) {
   errors.push(`motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
 }
+if (index?.motionStandard?.visualMotionWorld !== YOUTUBE_EDITORIAL_MOTION_WORLD_ID) {
+  errors.push(`motionStandard.visualMotionWorld muss ${YOUTUBE_EDITORIAL_MOTION_WORLD_ID} sein.`);
+}
+if (index?.motionStandard?.visualTargetWorld !== YOUTUBE_EDITORIAL_VISUAL_TARGET_ID) {
+  errors.push(`motionStandard.visualTargetWorld muss ${YOUTUBE_EDITORIAL_VISUAL_TARGET_ID} sein.`);
+}
+if (index?.motionStandard?.minimumMotionPreferred !== true) errors.push('motionStandard.minimumMotionPreferred muss true sein.');
+if (index?.motionStandard?.cameraStillDefault !== true) errors.push('motionStandard.cameraStillDefault muss true sein.');
+if (index?.motionStandard?.fixed3DStyleForbidden !== true) errors.push('motionStandard.fixed3DStyleForbidden muss true sein.');
 const visuals = Array.isArray(index?.visuals) ? index.visuals : [];
 for (const visual of visuals) errors.push(...validateYouTubeMotionMetadata(visual));
 errors.push(...validateYouTubeMotionVariety(visuals));
@@ -67,6 +78,9 @@ for (const visual of visuals.filter(requiresYouTubeMotion)) {
     if (pattern.test(source)) errors.push(`${id}: ${message}`);
   }
   if (!/useCurrentFrame\s*\(/.test(source)) errors.push(`${id}: useCurrentFrame() fehlt.`);
+  if (/PremiumPhysicalStage|<Physical(?:Object|Tag|Rail|Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack)\b/.test(source)) {
+    errors.push(`${id}: neue YouTube Editorial Motion darf nicht auf alte PremiumPhysical-/Physical-Primitives zurückfallen.`);
+  }
   if (!/\b(interpolate|spring)\s*\(/.test(source)) errors.push(`${id}: mindestens interpolate() oder spring() muss echte Frame-Motion steuern.`);
   if (!source.includes(`MECHANIC_ID = '${visual.mechanicId}'`) && !source.includes(`MECHANIC_ID = "${visual.mechanicId}"`)) {
     errors.push(`${id}: MECHANIC_ID im Code stimmt nicht mit visual-index.json überein.`);
@@ -92,4 +106,4 @@ if (errors.length) {
 }
 
 console.log('\n✓ YouTube Motion V3 erfüllt.');
-console.log('  Viewer-change-first · offene Technik · deterministisch · echte Variety statt umbenannter Wiederholung.');
+console.log('  Editorial Motion V1 · minimale klare Bewegung · Viewer-change-first · deterministisch · kein 3D-/Physical-Default.');
