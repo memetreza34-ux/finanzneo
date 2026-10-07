@@ -49,7 +49,7 @@ index.phase1AnimationCode = {
   qualityLock: ANIMATION_QUALITY_LOCK,
   canonicalSourceRequiredForEveryAnimation: true,
   phase3MayNotReplaceCanonicalAnimation: true,
-  financeMotionLibraryId: 'finanzneo-finance-motion-library-v1',
+  financeMotionLibraryId: 'finanzneo-editorial-motion-library-v1',
   libraryBestFitPreferred: true,
   libraryUseNeverForced: true,
   customAnimationAllowed: true,
@@ -64,11 +64,11 @@ index.phase1AnimationCode = {
   genericCardRowsForbidden: true,
   progressBarAsPrimaryStoryForbidden: true,
   motionDirectorMarkersRequired: ['MOTION_SOURCE', 'FINANCE_MOTION_ID', 'MECHANIC_ID', 'FOCAL_PATH', 'PRIMARY_ACTION', 'CAMERA_ROLE', 'PAYOFF'],
-  narrativeMarkersRequired: ['START', 'MECHANISM', 'RESULT', 'HERO', 'SUPPORT', 'MATERIAL', 'DEPTH'],
+  narrativeMarkersRequired: ['START', 'MECHANISM', 'RESULT', 'HERO', 'SUPPORT', 'SURFACE', 'SHAPE_LANGUAGE'],
   resultHoldFramesMin: 15,
 };
 
 writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`, 'utf8');
 console.log(`✓ Phase-1-Animationscode-Vertrag gesetzt: ${scenes.filter((s) => s?.type === 'animation').length} Animation(en).`);
-console.log('  Finance Motion Library zuerst prüfen; bei fehlendem Best-Fit individuelle Animation bauen.');
-console.log('  Keine Pflicht mehr für einzigartige Mechanik, Physical-Primitives oder künstlich viele Motion-Channels.');
+console.log('  Editorial Motion Library zuerst prüfen; bei fehlendem Best-Fit individuelle Animation bauen.');
+console.log('  Animationen bleiben simpel: keine Pflicht für Physical-Primitives, 3D, Kamerafahrt oder künstlich viele Motion-Channels.');
