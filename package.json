@@ -66,7 +66,8 @@
     "reel:animation:editorial": "node scripts/apply-editorial-motion-v1.mjs",
     "render:editorial-motion-example": "npx remotion render src/index.ts EditorialMotionSalaryJump out/editorial-motion-salary-jump.mp4",
     "render:editorial-motion-examples": "node scripts/render-editorial-motion-examples.mjs",
-    "render:editorial-motion-v2": "node scripts/render-editorial-motion-v2.mjs"
+    "render:editorial-motion-v2": "node scripts/render-editorial-motion-v2.mjs",
+    "render:editorial-motion-v3": "node scripts/render-editorial-motion-v3.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "^8.18.0",
