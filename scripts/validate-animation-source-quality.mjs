@@ -32,8 +32,8 @@ const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 const scenes = Array.isArray(index.scenes) ? index.scenes : [];
 const animations = scenes.filter((scene) => scene?.type === 'animation');
 const hybridV2 = index.phase1MotionDirectionContract?.id === HYBRID_CONTRACT_ID;
-const editorialV1 = index.phase1AnimationCode?.visualMotionLock === EDITORIAL_MOTION_LOCK;
-const activeLibraryId = editorialV1 ? EDITORIAL_MOTION_LIBRARY_ID : LEGACY_LIBRARY_ID;
+const editorialV3 = index.phase1AnimationCode?.visualMotionLock === EDITORIAL_MOTION_LOCK;
+const activeLibraryId = editorialV3 ? EDITORIAL_MOTION_LIBRARY_ID : LEGACY_LIBRARY_ID;
 const errors = [];
 const fail = (message) => errors.push(message);
 const placeholder = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONAL|THEMA|NAME|LABEL|METAPHOR|DESCRIBE|PLACE EACH|ONE LARGE|library-best-fit|custom-build|library-slug|none|SEMANTISCHE|WAS DAS AUGE|HAUPTBEWEGUNG|KLARER|HAUPTMOTIV|NUR NÖTIGE)[^\]]*)\]|TODO|TBD|PLACEHOLDER|PHASE 1 ANIMATION CODE NOT COMPLETED/i;
@@ -48,7 +48,7 @@ if (index.phase1AnimationCode?.phase3MayNotReplaceCanonicalAnimation !== true) f
 if (index.phase1AnimationCode?.supportingObjectCountFlexible !== true) fail('Animationskomposition braucht supportingObjectCountFlexible=true.');
 if (index.phase1AnimationCode?.clarityBeforeObjectCount !== true) fail('Animationskomposition braucht clarityBeforeObjectCount=true.');
 
-if (editorialV1) {
+if (editorialV3) {
   if (index.phase1AnimationCode?.visualTargetWorld !== 'finanzneo-editorial-finance-v1') fail('Editorial Motion muss auf finanzneo-editorial-finance-v1 zielen.');
   if (index.phase1AnimationCode?.financeMotionLibraryId !== EDITORIAL_MOTION_LIBRARY_ID) fail(`Editorial Motion Library muss ${EDITORIAL_MOTION_LIBRARY_ID} sein.`);
   if (index.phase1AnimationCode?.editorialTwoDPreferred !== true) fail('Editorial Motion muss 2D/2.5D bevorzugen.');
@@ -59,6 +59,11 @@ if (editorialV1) {
   if (index.phase1AnimationCode?.multipleMotionChannelsRequired !== false) fail('Mehrere Motion-Channels dürfen nicht Pflicht sein.');
   if (index.phase1AnimationCode?.cameraMovementRequired !== false) fail('Kamerabewegung darf nicht Pflicht sein.');
   if (index.phase1AnimationCode?.decorativeBackgroundEffectsForbidden !== true) fail('Dekorative Animations-Hintergrundeffekte müssen verboten sein.');
+  if (index.phase1AnimationCode?.conceptCandidatesRequired !== 3) fail('Editorial Motion V3 braucht genau drei Konzeptkandidaten vor dem Coding.');
+  if (index.phase1AnimationCode?.keyframeQaRequired !== true) fail('Editorial Motion V3 braucht Keyframe-QA.');
+  if (JSON.stringify(index.phase1AnimationCode?.keyframeQaPercentages) !== JSON.stringify([10,35,65,90])) fail('Editorial Motion V3 Keyframe-QA muss 10/35/65/90 verwenden.');
+  if (index.phase1AnimationCode?.motionGrammarRequired !== true) fail('Editorial Motion V3 braucht Motion-Grammatik.');
+  if (index.phase1AnimationCode?.animatedEditorialIllustrationPreferred !== true) fail('Editorial Motion V3 muss bewegte Editorial-Illustrationen bevorzugen.');
 } else {
   if (index.phase1AnimationCode?.premiumVisualLock !== PREMIUM_ANIMATION_LOCK) fail(`phase1AnimationCode.premiumVisualLock muss ${PREMIUM_ANIMATION_LOCK} sein.`);
   if (index.phase1AnimationCode?.sameVisualLanguageAsFlowImages !== true) fail('Legacy-Animationen müssen ihre bisherige visuelle Sprache respektieren.');
@@ -77,13 +82,16 @@ if (hybridV2) {
   if (index.phase1AnimationCode?.requirePremiumPhysicalStage !== false) fail('PremiumPhysicalStage darf im Hybrid-Vertrag nicht verpflichtend sein.');
   if (index.phase1AnimationCode?.requirePhysicalObjects !== false) fail('Physical-Primitives dürfen im Hybrid-Vertrag nicht verpflichtend sein.');
 
-  if (editorialV1) {
+  if (editorialV3) {
+    const v3Path = resolve(process.cwd(), 'src/finance-motion/v3/index.ts');
     const v2Path = resolve(process.cwd(), 'src/finance-motion/editorial-v2.tsx');
     const v1Path = resolve(process.cwd(), 'src/finance-motion/editorial-v1.tsx');
+    const v3Source = existsSync(v3Path) ? readFileSync(v3Path, 'utf8') : '';
     const v2Source = existsSync(v2Path) ? readFileSync(v2Path, 'utf8') : '';
     const v1Source = existsSync(v1Path) ? readFileSync(v1Path, 'utf8') : '';
-    librarySource = v2Source + '\n' + v1Source;
-    if (!v2Source.includes('EDITORIAL_MOTION_V2_REGISTRY')) fail('src/finance-motion/editorial-v2.tsx bzw. EDITORIAL_MOTION_V2_REGISTRY fehlt.');
+    librarySource = v3Source + '\n' + v2Source + '\n' + v1Source;
+    if (!v3Source.includes('EDITORIAL_MOTION_V3_REGISTRY')) fail('src/finance-motion/v3/index.ts bzw. EDITORIAL_MOTION_V3_REGISTRY fehlt.');
+    if (!v2Source.includes('EDITORIAL_MOTION_V2_REGISTRY')) fail('Legacy Editorial Motion V2 registry fehlt.');
     if (!v1Source.includes('EDITORIAL_FINANCE_MOTION_REGISTRY')) fail('Legacy Editorial Motion V1 registry fehlt.');
   } else {
     const libraryPath = resolve(process.cwd(), 'src/finance-motion/index.tsx');
@@ -128,7 +136,7 @@ const validateSharedNarratives = (id, source, editorial = false) => {
 
 for (const scene of animations) {
   const id = scene.id ?? 'unbekannte Animation';
-  if (editorialV1) errors.push(...validateEditorialMotionSceneMetadata(scene));
+  if (editorialV3) errors.push(...validateEditorialMotionSceneMetadata(scene));
   else errors.push(...validatePremiumAnimationSceneMetadata(scene));
   if (scene.animationQualityLock !== ANIMATION_QUALITY_LOCK) fail(`${id}: animationQualityLock fehlt/falsch.`);
   if (typeof scene.animationSourceFile !== 'string' || !scene.animationSourceFile.trim()) {
@@ -154,8 +162,8 @@ for (const scene of animations) {
   if (placeholder.test(source)) fail(`${id}: animation.tsx enthält Platzhalter/TODO.`);
   if (hackWords.test(source)) fail(`${id}: animation.tsx enthält Platzhalter-/Hack-Sprache.`);
   if (/Math\.(?:sin|cos)\s*\(/.test(source)) fail(`${id}: Math.sin/Math.cos als Dauer-Wackelbewegung ist im Produktionscode gesperrt.`);
-  if (!editorialV1 && /\b(?:color|background(?:Color)?)\s*:\s*['"](?:black|#000(?:000)?)['"]/i.test(source)) fail(`${id}: Legacy-Szene darf keinen eigenen schwarzen Hintergrund definieren; der zentrale Canvas ist bereits #000000.`);
-  if (editorialV1 && /PremiumPhysicalStage|<Physical(?:Object|Tag|Rail|Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack)\b/.test(source)) {
+  if (!editorialV3 && /\b(?:color|background(?:Color)?)\s*:\s*['"](?:black|#000(?:000)?)['"]/i.test(source)) fail(`${id}: Legacy-Szene darf keinen eigenen schwarzen Hintergrund definieren; der zentrale Canvas ist bereits #000000.`);
+  if (editorialV3 && /PremiumPhysicalStage|<Physical(?:Object|Tag|Rail|Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack)\b/.test(source)) {
     fail(`${id}: neue Editorial-Motion darf nicht auf die alten PremiumPhysical-/Physical-Primitives zurückfallen.`);
   }
   if (!source.includes(scene.animationExport)) fail(`${id}: Export ${scene.animationExport} ist im kanonischen Code nicht auffindbar.`);
@@ -201,7 +209,7 @@ for (const scene of animations) {
 
     const motionChannels = [...source.matchAll(/const\s+[A-Za-z0-9_]+\s*=\s*(?:interpolate|spring)\s*\(/g)].length;
     if (motionChannels < 3) fail(`${id}: Legacy-Vertrag erwartet mehrere koordinierte Motion-Channels.`);
-    validateSharedNarratives(id, source, editorialV1);
+    validateSharedNarratives(id, source, editorialV3);
     continue;
   }
 
@@ -216,8 +224,8 @@ for (const scene of animations) {
     } else if (!librarySource.includes(`id: '${financeMotionId}'`) && !librarySource.includes(`id:'${financeMotionId}'`)) {
       fail(`${id}: FINANCE_MOTION_ID "${financeMotionId}" ist nicht in FINANCE_MOTION_REGISTRY registriert.`);
     }
-    if (editorialV1) {
-      if (!/finance-motion\/editorial-v(?:1|2)/.test(source)) fail(`${id}: Editorial library-best-fit muss aus src/finance-motion/editorial-v2 (bevorzugt) oder editorial-v1 importieren.`);
+    if (editorialV3) {
+      if (!/finance-motion\/(?:v3|editorial-v(?:1|2))/.test(source)) fail(`${id}: Editorial library-best-fit muss aus src/finance-motion/v3 (bevorzugt) oder einem Legacy-Editorial-Pfad importieren.`);
     } else if (!/finance-motion/.test(source)) {
       fail(`${id}: library-best-fit muss aus src/finance-motion importieren.`);
     }
@@ -228,8 +236,8 @@ for (const scene of animations) {
     if (financeMotionId !== 'none') fail(`${id}: custom-build muss FINANCE_MOTION_ID: none setzen.`);
     if (statSync(sourcePath).size < 2200) fail(`${id}: Custom-animation.tsx ist zu klein/leer; individuelle Animation braucht eine ausgearbeitete visuelle Geschichte.`);
     if (!/useCurrentFrame/.test(source)) fail(`${id}: Custom-Animation muss useCurrentFrame nutzen und framegenau sein.`);
-    if (editorialV1) {
-      if (!/EDITORIAL_MOTION_COLORS/.test(source)) fail(`${id}: Editorial Custom-Animation muss EDITORIAL_MOTION_COLORS verwenden.`);
+    if (editorialV3) {
+      if (!/(?:MOTION_V3|EDITORIAL_MOTION_COLORS)/.test(source)) fail(`${id}: Editorial Custom-Animation muss MOTION_V3 oder EDITORIAL_MOTION_COLORS verwenden.`);
     } else if (!/ANIMATION_COLORS/.test(source)) {
       fail(`${id}: Custom-Animation muss die zentrale ANIMATION_COLORS-Palette verwenden.`);
     }
@@ -248,7 +256,7 @@ for (const scene of animations) {
     if (!value || value.length < min || placeholder.test(value)) fail(`${id}: ${label} fehlt/ist zu vage.`);
   }
 
-  validateSharedNarratives(id, source, editorialV1);
+  validateSharedNarratives(id, source, editorialV3);
 }
 
 if (errors.length) {
@@ -259,7 +267,7 @@ if (errors.length) {
 
 if (hybridV2) {
   console.log(`\n✓ ${animations.length} kanonische Phase-1-Animation(en) erfüllen den Hybrid-Animationsvertrag.`);
-  console.log(`✓ Aktive Motion-Welt: ${editorialV1 ? EDITORIAL_MOTION_LOCK : PREMIUM_ANIMATION_LOCK}.`);
+  console.log(`✓ Aktive Motion-Welt: ${editorialV3 ? EDITORIAL_MOTION_LOCK : PREMIUM_ANIMATION_LOCK}.`);
   console.log('✓ Library-Best-Fit darf wiederverwendet und parametrisiert werden; Custom-Build bleibt erlaubt.');
   console.log('✓ Qualität wird über Focal Path, Hauptaktion, Payoff und Start -> Mechanismus -> Ergebnis geprüft.');
 } else {
