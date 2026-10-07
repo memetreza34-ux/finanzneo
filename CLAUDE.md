@@ -249,7 +249,7 @@ Der einzige produktive Reel-Hintergrund ist:
 statisch
 ```
 
-`FinanceBackground` darf keine optische Variante erzeugen. `PremiumPhysicalStage` bleibt transparent.
+`FinanceBackground` bleibt der technische äußere Reel-Canvas. Neue Animationen dürfen innerhalb ihrer Visualzone über `EditorialMotionStage` eine ruhige helle oder gedämpfte Editorial-Fläche erzeugen. Das verändert weder Header noch Captions noch den äußeren Reel-Canvas.
 
 Streng verboten als Reel-Hintergrund:
 
@@ -263,7 +263,7 @@ Streng verboten als Reel-Hintergrund:
 
 Hintergrundbewegung zählt niemals als Szenenanimation oder QA-Nachweis.
 
-## 11. Phase-1-Animationscode
+## 11. Phase-1-Animationscode — Editorial Motion V1
 
 Basis-Lock:
 
@@ -271,86 +271,91 @@ Basis-Lock:
 finanzneo-phase1-animation-code-v1
 ```
 
-Kompatibilitäts-Lock:
+Aktive Motion-Welt für neue Reels:
 
 ```text
-finanzneo-premium-physical-animation-v2
+finanzneo-editorial-motion-v1
 ```
 
-Visuelles Ziel bleibt **V9**.
+Visuelles Ziel:
+
+```text
+finanzneo-editorial-finance-v1
+```
+
+Kanonische Regel: `docs/FINANZNEO-EDITORIAL-MOTION-V1.md`.
 
 Pflichtlogik:
 
 ```text
-STARTZUSTAND
-→ SICHTBARER MECHANISMUS
+SPRECHPUNKT
+→ WAS MUSS SICH SICHTBAR VERÄNDERN?
+→ EINFACHSTE KLARE MOTION
 → EINDEUTIGES ERGEBNIS
 → Ergebnis mindestens 15 Frames stabil
 ```
 
-Pflicht:
+Neue Animationen:
 
-- `useCurrentFrame`
-- `ANIMATION_COLORS`
-- `prog`, `interpolate` oder `spring`
-- `PremiumPhysicalStage`
-- mindestens **ein echtes sichtbares Hauptobjekt**
-- semantische Materialrolle
-- korrekter Exportname
-- `RESULT_HOLD_FRAMES >= 15`
-- `ANIMATION_NARRATIVE` START / MECHANISM / RESULT
-- `PREMIUM_VISUAL_NARRATIVE` HERO / SUPPORT / MATERIAL / DEPTH
+- 2D oder leichtes 2.5D bevorzugen
+- matte, ruhige Formen
+- wenige große Elemente
+- Creme / Off-White / Hellgrau / gedämpfte Farbe als bevorzugte Animationsfläche
+- Dark nur wenn inhaltlich sinnvoll
+- einfaches 3D nur wenn Tiefe wirklich hilft
+- Kamera standardmäßig still
+- **eine** klare Hauptbewegung kann vollständig reichen
+- keine Pflicht für mehrere Motion-Channels
+- keine Pflicht für Physical Objects
 
-**Keine feste Support-Objekt-Anzahl.** Klarheit entscheidet.
-
-Animationen müssen Inhalt **erklären und unterhaltsam visualisieren**, nicht nur Pixel bewegen.
-
-
-### Cinematic Real-World Animation — Pflicht
-
-Eine Animationsszene ist eine **kleine visuelle Geschichte**, keine bewegte Infografik.
-
-Für jede Animationsszene verbindlich:
+Bei Library-Best-Fit:
 
 ```text
-REALE AUSGANGSSITUATION
-→ KONKRETE PHYSISCHE HAUPTAKTION
-→ SICHTBARE URSACHE / WIRKUNG
-→ EINDEUTIGES ERGEBNIS
+src/finance-motion/editorial-v1.tsx
+FINANCE_MOTION_LIBRARY: finanzneo-editorial-motion-library-v1
 ```
 
-- reale bzw. unmittelbar erkennbare Gegenstände verwenden, wenn der Inhalt sie hergibt: Rechnung, Konto, Waschmaschine, Kalender, Geldstapel, Reservebehälter usw.
-- mindestens zwei konkrete Realwelt-Objekte/-Instanzen tragen die Handlung
-- jede Szene erhält eine eindeutige `MECHANIC_ID`; dieselbe Mechanik nicht mehrfach im Reel wiederholen
-- `PRIMARY_ACTION` beschreibt die wirkliche physische Zustandsänderung
-- mehrere koordinierte Motion-Channels statt einer einzigen globalen Progress-Variable
-- deutsche Labels nur unterstützend; die Handlung muss auch ohne Text verständlich sein
-- Animationen müssen visuell dieselbe Qualität und Welt wie die Flow-Bilder erreichen
-- bei Future-V3-Reels muss die physische Hauptmechanik im echten Render ausreichend groß/füllend sein; Post-Render-QA verlangt Peak-Visualbelegung >= 0,15 und Median >= 0,12 im visuellen Kern
+Bei Custom-Build:
 
-Als Hauptsprache **verboten**:
+- `useCurrentFrame`
+- `EDITORIAL_MOTION_COLORS`
+- `prog`, `interpolate` oder `spring`
+- framegenaue sichtbare Veränderung
+- gleiche Editorial-Sprache wie die Flow-Bildwelt
 
-- drei beschriftete Kästen/Karten nach dem Muster `A → B → C`
-- Lade- oder Fortschrittsbalken als Ersatz für die eigentliche Animation
-- reine Texttafeln mit Fade/Scale
-- generische Shield-/Arrow-/Coin-Symbolik, wenn eine konkrete Alltagssituation darstellbar ist
-- wiederholte identische Mechanik über mehrere Animationsszenen
+Pflichtkommentare:
 
-Zentrale konkrete Primitives stehen über `src/design-system` bereit: `PhysicalBill`, `PhysicalAccount`, `PhysicalWasher`, `PhysicalReserveTank`, `PhysicalCalendarPage`, `PhysicalCoinStack`. Generische `PhysicalObject`, `PhysicalTag` und `PhysicalRail` sind nur Support; insbesondere `PhysicalRail` darf niemals die Geschichte allein tragen.
+```text
+ANIMATION_NARRATIVE
+START
+MECHANISM
+RESULT
 
-Streng verboten:
+EDITORIAL_VISUAL_NARRATIVE
+HERO
+SUPPORT
+SURFACE
+SHAPE_LANGUAGE
+```
 
-- Dummy-/Placeholder-Komponenten
-- Debug-Flächen
-- wackelnde Rechtecke
-- `Math.sin` / `Math.cos` als Frame-Diff-Hack
-- reine Zoom/Fade/Popup-Bewegung als komplette Erklärung
-- Dashboard-/Control-Panel-Hauptkomposition
-- Flowchart-Hauptkomposition
-- kleine Boxen mit dünnen Linien
-- generische Info-Cards als Hauptsprache
-- reine Texttafel
-- Hintergrundbewegung als Animationsnachweis
+Streng nicht als neue Default-Sprache verwenden:
+
+- `PremiumPhysicalStage`
+- alte `Physical*`-Primitives
+- glänzende 3D-Münzen
+- Podeste
+- Metall-/Material-Showcase
+- Neon / Hologramm / Coin-Spektakel
+- Dashboard-/Control-Panel-Look
+- Partikel-/Aurora-/Grid-Hintergrund
+- unnötige Kamerafahrt
+- künstlich viele Motion-Channels
+- reine Bewegung nur für Frame-Diff
+- Dummy-/Placeholder-/Debug-Flächen
+- `Math.sin` / `Math.cos` als Dauerwackeln
+
+Animationen müssen die Aussage **einfacher** machen und wie die bewegte Version der neuen FinanzNeo-Bildwelt aussehen.
+
 
 ## 12. Phase-3-Seal und Dispatch
 
