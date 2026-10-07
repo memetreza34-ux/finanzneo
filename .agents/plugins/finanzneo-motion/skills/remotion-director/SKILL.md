@@ -194,3 +194,34 @@ npm run render:editorial-motion-examples
 ```
 
 Do not redesign the prepared examples during render QA. Antigravity should render and inspect them exactly as authored.
+
+
+## Official Remotion skills — required for advanced motion work
+
+The workspace bootstrap already installs the official `remotion-dev/skills` pack for Antigravity.
+
+For non-trivial animation work, consult these installed skills instead of guessing APIs:
+
+- `/remotion-best-practices`
+- `/remotion-markup`
+- `/remotion-docs`
+- `/remotion-studio`
+- `/remotion-render`
+
+Use `/remotion-docs` before introducing a Remotion package/API that is not already familiar.
+
+## Preferred native Remotion toolkit
+
+Before adding another animation library, prefer the packages already present in this repo:
+
+- `@remotion/paths` for drawn paths, path-following and SVG geometry
+- `@remotion/shapes` for editable vector primitives and pie/arrow/callout geometry
+- `@remotion/transitions` for scene-to-scene showcase transitions
+- `@remotion/layout-utils` for text/layout fitting
+- `@remotion/effects` for restrained canvas effects only when they improve the editorial look
+- `@remotion/motion-blur` only for fast movement where blur materially improves readability
+- `@remotion/lottie` for small support motions
+- `@remotion/three` only when spatial depth is necessary
+- `recharts` for data-heavy charts when native SVG would be unnecessarily complex
+
+Do not install another runtime animation framework merely to make a scene feel more sophisticated. First use Remotion's native timing, paths, shapes, sequences and spring/interpolation system properly.
