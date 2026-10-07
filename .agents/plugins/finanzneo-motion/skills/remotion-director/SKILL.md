@@ -42,7 +42,7 @@ Default visual language:
 Preferred high-quality library:
 
 ```text
-src/finance-motion/editorial-v2.tsx
+src/finance-motion/v3
 ```
 
 Legacy fallback only:
@@ -182,11 +182,14 @@ Reject and redesign if:
 1. read the spoken beat;
 2. write one sentence describing what must visibly change;
 3. choose the simplest editorial mechanism;
-4. check `src/finance-motion/editorial-v2.tsx` first for a genuine best fit; use `editorial-v1.tsx` only as legacy fallback;
-5. otherwise build a custom Editorial Motion scene;
-6. use `EDITORIAL_MOTION_COLORS`;
-7. implement deterministic Remotion motion;
-8. inspect START, MID-CHANGE, RESULT and RESULT HOLD;
+4. develop three distinct visual concepts before coding;
+5. choose the strongest concept and plan 10% / 35% / 65% / 90% keyframes;
+6. choose motion grammar verbs (DRAW, FOLLOW, REVEAL, SPLIT, MERGE, STACK, SHIFT, SWAP, EMPHASIZE, COUNT);
+7. check `src/finance-motion/v3` first for a genuine best fit;
+8. otherwise build a custom V3 scene using native Remotion geometry;
+9. implement deterministic Remotion motion;
+10. render MP4 plus 10/35/65/90 keyframes;
+11. inspect the four keyframes as a visual story;
 9. run the animation validator;
 10. only then seal Phase 1 animation code.
 
@@ -231,3 +234,21 @@ Before adding another animation library, prefer the packages already present in 
 - `recharts` for data-heavy charts when native SVG would be unnecessarily complex
 
 Do not install another runtime animation framework merely to make a scene feel more sophisticated. First use Remotion's native timing, paths, shapes, sequences and spring/interpolation system properly.
+
+
+## V3 hard quality gate
+
+Before coding, write **three different visual concepts**. Do not produce three cosmetic variations of one chart.
+
+Before acceptance, render and inspect four stills:
+
+```text
+10% START
+35% CHANGE
+65% PAYOFF BUILD
+90% RESULT HOLD
+```
+
+If those stills resemble four dashboard states instead of one coherent editorial visual story, redesign the scene.
+
+Prefer animated editorial objects, paths, masks, geometric transformation and real visual metaphors over generic cards.
