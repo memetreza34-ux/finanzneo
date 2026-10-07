@@ -75,7 +75,7 @@ START → SICHTBARER MECHANISMUS → ERGEBNIS
 ```
 
 - Ergebnis mindestens 15 Frames stabil
-- Motion-Welt: `finanzneo-editorial-motion-v1`
+- Motion-Welt: `finanzneo-editorial-motion-v3`
 - 2D / leichtes 2.5D bevorzugt
 - `EditorialMotionStage` für passende helle oder gedämpfte Editorial-Flächen
 - eine klare Hauptbewegung kann vollständig reichen
