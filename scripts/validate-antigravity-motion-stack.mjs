@@ -77,7 +77,7 @@ if (!errors.length) {
   if (!/loop\s*=\s*false/.test(lottie)) fail('LottieBox muss standardmäßig deterministisch ohne Endlos-Loop laufen (loop=false).');
 
   const director = read('.agents/plugins/finanzneo-motion/skills/remotion-director/SKILL.md');
-  for (const marker of ['EDITORIAL MOTION', 'START', 'MEANINGFUL CHANGE', 'RESULT HOLD', 'useCurrentFrame()', 'minimum motion', 'Lottie']) {
+  for (const marker of ['EDITORIAL MOTION', 'START', 'MEANINGFUL CHANGE', 'RESULT HOLD', 'useCurrentFrame()', 'Minimum motion', 'Lottie']) {
     if (!director.includes(marker)) fail(`remotion-director Skill fehlt Pflichtmarker: ${marker}`);
   }
 
