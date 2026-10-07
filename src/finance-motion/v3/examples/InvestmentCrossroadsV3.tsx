@@ -50,7 +50,7 @@ export const InvestmentCrossroadsV3:React.FC=()=>{
   const leftPath='M 470 900 C 380 820 280 745 165 665';
   const rightPath='M 470 900 C 565 815 680 740 835 655';
 
-  return <EditorialSceneV3 surface="paper">
+  return <EditorialSceneV3 surface="paper" safePadding={0}>
     <PersonV3 x={410} y={780} scale={0.8+0.2*person} opacity={person}/>
 
     <svg width="1080" height="1920" viewBox="0 0 1080 1920" style={{position:'absolute',inset:-70}}>
