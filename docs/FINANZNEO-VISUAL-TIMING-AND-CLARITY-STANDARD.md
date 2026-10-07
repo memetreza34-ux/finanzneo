@@ -50,7 +50,9 @@ Bei progressiven Bildfolgen wird das freigegebene vorherige Bild als echte Refer
 
 ## Animationen
 
-Native Remotion-Animationen folgen `finanzneo-editorial-motion-v1`:
+Native Remotion-Animationen folgen `finanzneo-editorial-motion-v3`:
+
+Vor dem Coding: drei visuelle Konzepte → stärkstes Konzept → 10 % / 35 % / 65 % / 90 %-Keyframes → Motion-Grammatik.
 
 - Animation ist die bewegte Version der Editorial-Finance-Bildwelt
 - 2D / leichtes 2.5D bevorzugt
