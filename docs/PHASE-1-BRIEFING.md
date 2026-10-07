@@ -136,79 +136,70 @@ GOOGLE FLOW — STRICT SINGLE JOB
 - Referenzbild nur dann anhängen, wenn die Szene ausdrücklich als Fortsetzung geplant ist
 
 ════════════════════════════════════════
-ANIMATION — V9-KOMPATIBLER PHASE-1-CODE
+ANIMATION — EDITORIAL MOTION V1
 ════════════════════════════════════════
 
 Phase 1 ist vollständig verantwortlich. Für jede Animationsszene müssen `remotion.md` UND eine fertige `animation.tsx` existieren.
 
-Technische Locks:
-- animationQualityLock: finanzneo-phase1-animation-code-v1
-- animationPremiumVisualLock: finanzneo-premium-physical-animation-v2
+Aktive Motion-Welt:
+- `finanzneo-editorial-motion-v1`
+- Visual Target: `finanzneo-editorial-finance-v1`
+- Library: `finanzneo-editorial-motion-library-v1`
 
-Animations-Lock: finanzneo-premium-physical-animation-v2
+Kanonische Regel:
+- `docs/FINANZNEO-EDITORIAL-MOTION-V1.md`
 
 PFLICHTLOGIK
-STARTZUSTAND → SICHTBARER PHYSISCHER MECHANISMUS → EINDEUTIGES ERGEBNIS → Ergebnis mindestens 15 Frames stabil.
+SPRECHPUNKT → SICHTBARE FRAGE → EINFACHSTE KLARE VERÄNDERUNG → EINDEUTIGES ERGEBNIS → Ergebnis mindestens 15 Frames stabil.
+
+VISUELLE RICHTUNG
+- 2D / leichtes 2.5D bevorzugt
+- matte, einfache Formen
+- wenige große Elemente
+- Creme / Off-White / Hellgrau / gedämpfte Farbe bevorzugt
+- Dark nur wenn sinnvoll
+- einfaches 3D nur wenn Tiefe Verständnis verbessert
+- eine klare Bewegung darf reichen
+- Kamera standardmäßig still
 
 PFLICHT IM CODE
-- useCurrentFrame
-- ANIMATION_COLORS
-- prog/interpolate/spring
-- PremiumPhysicalStage
-- mindestens ein echtes PhysicalObject als sichtbares Hauptmotiv
-- KEINE feste Support-Objekt-Anzahl
-- mindestens eine semantische Materialrolle neutral/money/warning/positive
-- RESULT_HOLD_FRAMES >= 15
-- korrekter Exportname SceneXXAnimation
+- `useCurrentFrame`
+- bei Custom: `EDITORIAL_MOTION_COLORS`
+- `prog` / `interpolate` / `spring`
+- `RESULT_HOLD_FRAMES >= 15`
+- korrekter Exportname `SceneXXAnimation`
 
 Pflichtkommentare:
 
+```text
 ANIMATION_NARRATIVE
-START: konkrete sichtbare Ausgangslage
+START: konkrete Ausgangslage
 MECHANISM: konkrete sichtbare Veränderung
-RESULT: konkretes sichtbares Ergebnis
+RESULT: konkretes Ergebnis
 
-PREMIUM_VISUAL_NARRATIVE
-HERO: klares Hauptobjekt oder Hauptaktion
-SUPPORT: nur sinnvolle Support-Objekte; keine feste Anzahl
-MATERIAL: Material-/Farblogik
-DEPTH: Vordergrund/Hauptmotiv/Hintergrund + Lichttrennung
+EDITORIAL_VISUAL_NARRATIVE
+HERO: klares Hauptmotiv
+SUPPORT: nur wirklich nötige Elemente
+SURFACE: cream | off-white | light-gray | muted-color | dark wenn begründet
+SHAPE_LANGUAGE: flat | subtle-2.5d | selective-simple-3d
+```
 
-ANIMATIONS-ZIELWELT
-- klar nicht realistisch
-- stylized 3D animated
-- weiche, abgerundete Formen
-- einfache verständliche Objektaktion
-- Visualzone Y320–1400 sinnvoll nutzen
-- sichtbare Ausgabe bleibt hart innerhalb Y320–1400
-- PremiumPhysicalStage bleibt TRANSPARENT
-- der einzige Remotion-Reel-Hintergrund ist zentral und statisch #000000
-
-ANIMATIONS-HINTERGRUND STRENG VERBOTEN
-- FNBgAurora
-- FNBgParticles
-- FNBgGrid
-- FNBgRadial
-- Partikelfelder
-- Aurora-/Glow-Flächen
-- bewegte Grids
-- dekorative Hintergrund-Gradienten/Vignetten
-- Hintergrundbewegung als Frame-Diff-Hack
-
-WEITER STRENG VERBOTEN
-- Dashboard-/Control-Panel-Look
-- Flowchart als Hauptkomposition
-- kleine Kästen mit dünnen Linien
-- generische Info-Cards als Hauptsprache
-- reine Texttafel
-- Dummy/Placeholder/Debug/Testflächen
-- Math.sin/Math.cos-Wackel-Hack
-- reine Zoom/Fade/Popup-Bewegung als komplette Erklärung
-- Bewegung nur für Frame-Diff
-- „erst Tests bestehen, später hübsch machen“
+NEUE ANIMATIONEN DÜRFEN NICHT IN DIE ALTE DEFAULT-WELT ZURÜCKFALLEN
+- kein `PremiumPhysicalStage`
+- keine alten `Physical*`-Primitives als neue Hauptsprache
+- kein schwarzer 3D-Zwang
+- keine glänzenden Coins / Podeste / Metalloptik
+- kein Neon-/Hologramm-/Dashboard-Look
+- keine künstlich vielen Motion-Channels
+- keine unnötige Kamerafahrt
+- keine Partikel-/Aurora-/Grid-Hintergründe
+- keine Dummy-/Placeholder-/Debug-Flächen
+- kein `Math.sin` / `Math.cos`-Wackel-Hack
+- keine Bewegung nur für Frame-Diff
 
 Phase 3 darf den fertigen Phase-1-Code nicht ersetzen oder vereinfachen.
 
+PHASE-3-DISPATCH
 PHASE-3-DISPATCH
 Jede Animationsszene muss als type=animation mit animationId in der Composition vorkommen und über customAnimations[animationId] an die exakte Phase-1-Komponente gebunden werden. Fehlendes Binding muss den Render hart abbrechen. Kein CTA-/Caption-only-/Dummy-Fallback.
 
