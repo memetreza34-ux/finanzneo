@@ -85,7 +85,7 @@ FINANCE_MOTION_LIBRARY: finanzneo-editorial-motion-library-v1
 Die Library liegt unter:
 
 ```text
-src/finance-motion/editorial-v1.tsx
+src/finance-motion/editorial-v2.tsx
 ```
 
 Wiederverwendung ist erlaubt, wenn dieselbe Mechanik tatsächlich wieder die klarste Erklärung ist.
