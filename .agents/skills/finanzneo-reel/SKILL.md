@@ -1,6 +1,6 @@
 ---
 name: finanzneo-reel
-description: Safely executes or reviews FinanzNeo Reel production while preserving the three-phase contract, V9 explanatory image world, cinematic Remotion motion, controlled Lottie/SFX enhancement, Playwright visual QA, sealed animations, pure-black canvas and completion gates.
+description: Safely executes or reviews FinanzNeo Reel production while preserving the three-phase contract, Editorial Finance image world, Editorial Motion V3, controlled Lottie/SFX enhancement, Playwright visual QA, sealed animations, pure-black canvas and completion gates.
 ---
 
 # FinanzNeo Reel Skill
@@ -103,20 +103,17 @@ Remotion remains the timeline/render authority.
 
 ### Animation language
 
-Every animation should read as:
+New animation scenes follow `finanzneo-editorial-motion-v3`.
 
-```text
-START
-→ TRIGGER
-→ PHYSICAL ACTION
-→ REACTION
-→ RESULT
-→ RESULT HOLD
-```
+Before code:
+1. develop three distinct visual concepts;
+2. choose the strongest;
+3. plan keyframes at 10%, 35%, 65%, 90%;
+4. choose motion grammar verbs;
+5. build with `src/finance-motion/v3` or a custom V3 composition.
 
-Prefer real-world objects and concrete cause/effect. Aim for several meaningful motion channels with different physical character rather than one global progress value controlling everything identically.
+Prefer animated editorial illustrations, paths, real objects and geometric transformations over dashboard/card layouts.
 
-Camera movement, Three.js and Lottie are support tools. None of them may replace the explanatory mechanism.
 
 ### Lottie
 
