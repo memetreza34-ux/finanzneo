@@ -145,7 +145,7 @@ Technische Locks:
 - animationQualityLock: finanzneo-phase1-animation-code-v1
 - animationPremiumVisualLock: finanzneo-premium-physical-animation-v2
 
-Visuelles Ziel: finanzneo-stylized-3d-animated-black-v9
+Animations-Lock: finanzneo-premium-physical-animation-v2
 
 PFLICHTLOGIK
 STARTZUSTAND → SICHTBARER PHYSISCHER MECHANISMUS → EINDEUTIGES ERGEBNIS → Ergebnis mindestens 15 Frames stabil.
