@@ -20,7 +20,9 @@ Du erstellst Phase 1 eines FinanzNeo-Reels.
 THEMA: [THEMA]
 
 ZIEL
-FinanzNeo erklärt Finanzgrundlagen auf Deutsch für Einsteiger. Direkte Du-Ansprache, einfach, professionell, visuell hochwertig. Plattformen: TikTok, Instagram Reels, Facebook Reels, Snapchat. Keine YouTube Shorts.
+FinanzNeo behandelt auf Deutsch **alles rund um Finanzen**. Das Thema darf Grundlagen oder fortgeschritten sein, zeitlos oder aktuell, praktisch oder analytisch. Erlaubt sind unter anderem Geld, Sparen, Investieren, Börse, ETFs, Aktien, Krypto, Banken, Kredite, Schulden, Steuern, Versicherungen, Immobilien, Gehalt, Rente, Sozialleistungen, Verbraucherfinanzen, Betrugsmaschen, Unternehmen, Finanzmärkte, Inflation, Wirtschaft mit klarem Finanzbezug, Gesetze/Regeländerungen sowie Formate wie „5 Dinge…“, Rankings, Vergleiche, Mythen und aktuelle Finanz-News.
+
+Direkte Du-Ansprache, einfach, professionell, visuell hochwertig. **Einfach erklären ist Stil, keine Themenbegrenzung.** Plattformen: TikTok, Instagram Reels, Facebook Reels, Snapchat. Keine YouTube Shorts.
 
 FORMAT
 - 1080×1920, 9:16, 30 fps
@@ -44,7 +46,7 @@ Bild = Zustand/Situation/Gegenstand/Beispiel.
 Animation = Veränderung/Mechanismus/Rechnung/Vergleich/Vorher-Nachher.
 
 Logik: Hook → Problem → Erklärung → Beispiel → Lösung/Merksatz → CTA.
-Zahlen nur nach Prüfung. Keine individuelle Anlageempfehlung.
+Zahlen, Datenstände und aktuelle Änderungen nur nach Prüfung. Bei News, Gesetzen, Steuern, Leistungen, Märkten oder anderen zeitabhängigen Themen immer aktuell recherchieren und Quellen dokumentieren. Keine individuelle Anlageempfehlung.
 
 LAYOUT V5
 - Header Y154
