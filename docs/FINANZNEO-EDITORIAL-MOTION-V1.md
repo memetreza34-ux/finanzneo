@@ -205,3 +205,37 @@ Approve when:
 - one meaningful change explains the spoken point
 - the result is obvious and readable
 - the scene feels designed, not generated or overproduced
+
+
+## Remotion-native implementation quality ladder
+
+For new high-quality motion, use the strongest **native Remotion** representation that fits the idea:
+
+1. **Core timeline** — `useCurrentFrame`, `interpolate`, `spring`, `Sequence`, `Easing`.
+2. **Paths** — `@remotion/paths` for line drawing, route following, growth curves and connected diagrams.
+3. **Shapes** — `@remotion/shapes` for pie pieces, circles, callouts and editable vector geometry.
+4. **Layout utils** — fit or measure text when labels must adapt to data.
+5. **Transitions** — only between genuinely different visual states/scenes, never as filler.
+6. **Effects / motion blur** — restrained use only when a fast movement or paper/vector treatment genuinely benefits.
+7. **Lottie** — small support motion.
+8. **Three.js** — only when the information is spatial and cannot be explained as clean 2D/2.5D.
+
+The default is **not** plain CSS boxes if a path, shape or data-driven geometry communicates the idea more naturally.
+
+### Preferred V2 implementation library
+
+```text
+src/finance-motion/editorial-v2.tsx
+```
+
+This library is the higher-quality reference implementation for new motion experiments. It demonstrates:
+
+- SVG path drawing with `evolvePath()`
+- markers that follow a path with `getPointAtLength()`
+- native `<Pie />` and `<Circle />` shapes
+- staged reveals with `Sequence` / frame windows
+- `spring()` for meaningful object entrances
+- `Easing` for non-linear financial curves
+- fewer generic cards and more content-shaped compositions
+
+Use V2 as the quality reference before inventing another visual system.
