@@ -23,6 +23,8 @@ export const editorialMotionContractFields = () => ({
   selectiveSimple3DAllowed: true,
   fixed3DStyleForbidden: true,
   physicalObjectsOptional: true,
+  supportingObjectCountFlexible: true,
+  clarityBeforeObjectCount: true,
   materialDepthLightingRequired: false,
 
   flexibleAnimationSurface: true,
