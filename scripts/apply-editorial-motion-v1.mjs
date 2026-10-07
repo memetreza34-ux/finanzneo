@@ -55,7 +55,7 @@ Content-first:
 1. Sprechpunkt verstehen.
 2. Sichtbare Frage bestimmen.
 3. Einfachste verständliche Veränderung wählen.
-4. Editorial Motion Library auf echten Best-Fit prüfen.
+4. Editorial Motion V2 Library auf echten Best-Fit prüfen.
 5. Best-Fit parametrisieren oder individuell bauen.
 6. Ergebnis mindestens 15 Frames lesbar halten.
 
@@ -71,7 +71,10 @@ Nicht als Default:
 - dauernde Kamera-Bewegung
 - dekorative Rotation/Bounce
 
-Neue Library-Imports bei Best-Fit:
+Bevorzugte Library-Imports bei Best-Fit:
+src/finance-motion/editorial-v2.tsx
+
+Legacy-Fallback nur wenn nötig:
 src/finance-motion/editorial-v1.tsx
 `;
 
