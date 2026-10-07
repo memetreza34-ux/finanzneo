@@ -36,7 +36,7 @@ export const RecurringCostsV3:React.FC=()=>{
   const gymX=interpolate(merge,[0,1],[755,465],CLAMP);
   const gymY=interpolate(merge,[0,1],[650,850],CLAMP);
 
-  return <EditorialSceneV3 surface="mist">
+  return <EditorialSceneV3 surface="mist" safePadding={0}>
     <div style={{position:'absolute',left:phoneX,top:phoneY,opacity:phone*(1-merge),transform:`scale(${0.9+0.1*phone})`}}>
       <PhoneV3 x={0} y={0} label="Mobilfunk" amount="19 €"/>
     </div>
