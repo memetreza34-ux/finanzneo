@@ -367,6 +367,15 @@ export const TaxBracketsV2:React.FC<{durationFrames?:number}> = ({durationFrames
   </Surface>;
 };
 
+export const EDITORIAL_MOTION_V2_REGISTRY = [
+  {id:'salary-curve',component:'SalaryCurveV2'},
+  {id:'budget-donut',component:'BudgetDonutV2'},
+  {id:'compound-curve',component:'CompoundCurveV2'},
+  {id:'diversification-network',component:'DiversificationNetworkV2'},
+  {id:'loan-paydown-editorial',component:'LoanPaydownV2'},
+  {id:'tax-brackets',component:'TaxBracketsV2'},
+] as const;
+
 export const EDITORIAL_MOTION_V2 = {
   salaryCurve:SalaryCurveV2,
   budgetDonut:BudgetDonutV2,
