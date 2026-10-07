@@ -13,6 +13,8 @@
 - YouTube: ausschließlich Longform unter `youtube/`; **keine YouTube Shorts**
 - Reel: 1080 × 1920, 9:16, 30 fps; typischerweise ca. 45–70 Sekunden, aber Inhalt und echtes Voiceover entscheiden
 
+Kanonischer Themen-Scope: `docs/CONTENT-SCOPE.md`.
+
 ## 2. Repository-Sicherheit
 
 - nie direkt auf `main` arbeiten
@@ -108,7 +110,7 @@ FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
 - Kompatibilitätsbasis älterer Reels: statischer Bildbeat ca. 1,8–3,4 s, max. 4,5 s. **Neue Future-V3-Reels:** ideal 1,8–3,0 s; ab ca. 3,6 s aktiv einen zusätzlichen Visual Beat prüfen; ohne neue sichtbare Information **hart max. 4,0 s**
 - Animationen dürfen länger sein, müssen aber währenddessen mehrere klar unterschiedliche Zustände zeigen; Kamera-Push/Zoom allein zählt nicht als neuer Beat
 - Voiceover und Visual müssen gemeinsam fortschreiten: ist die Bildaussage bereits verstanden, darf das Bild nicht unnötig stehen bleiben
-- ungefähr 60 % Bild / 40 % Animation ist nur ein Richtwert; bei einfachen Anfänger-Erklärungen sind bewusst mehr Bilder erlaubt
+- ungefähr 60 % Bild / 40 % Animation ist nur ein Richtwert; bei einfachen Erklärungen sind bewusst mehr Bilder erlaubt
 - echte Wort-Zeitstempel bestimmen finale Schnitte und Szenendauern; keine künstlich gleich langen Szenen
 - kurze klare Sätze, kein unnötiger Fachjargon
 - Logik: Hook → Problem → Erklärung → Beispiel → Lösung/Merksatz; CTA nur wenn er wirklich passt
