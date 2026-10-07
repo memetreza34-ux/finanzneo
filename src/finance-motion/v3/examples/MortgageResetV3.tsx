@@ -30,7 +30,7 @@ export const MortgageResetV3:React.FC=()=>{
   const link=progress(frame,126,158,Easing.out(Easing.cubic));
   const finalHold=progress(frame,158,176);
 
-  return <EditorialSceneV3 surface="cream">
+  return <EditorialSceneV3 surface="cream" safePadding={0}>
     <HouseV3 x={70} y={650} scale={0.72+0.28*houseIn} opacity={houseIn}/>
 
     <div style={{
