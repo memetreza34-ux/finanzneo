@@ -48,7 +48,13 @@ if (index?.motionStandard?.visualTargetWorld !== YOUTUBE_EDITORIAL_VISUAL_TARGET
   errors.push(`motionStandard.visualTargetWorld muss ${YOUTUBE_EDITORIAL_VISUAL_TARGET_ID} sein.`);
 }
 if (index?.motionStandard?.minimumMotionPreferred !== true) errors.push('motionStandard.minimumMotionPreferred muss true sein.');
-if (index?.motionStandard?.cameraStillDefault !== true) errors.push('motionStandard.cameraStillDefault muss true sein.');
+if (index?.motionStandard?.cameraStillDefault !== false) errors.push('motionStandard.cameraStillDefault muss false sein; Kamera wird story-driven gewählt.');
+if (index?.motionStandard?.cameraStoryDriven !== true) errors.push('motionStandard.cameraStoryDriven muss true sein.');
+if (index?.motionStandard?.staticImageStyleCopyRequired !== false) errors.push('motionStandard.staticImageStyleCopyRequired muss false sein.');
+if (index?.motionStandard?.youtubeNativeCompositionRequired !== true) errors.push('motionStandard.youtubeNativeCompositionRequired muss true sein.');
+if (index?.motionStandard?.conceptCandidatesRequired !== 3) errors.push('motionStandard.conceptCandidatesRequired muss 3 sein.');
+if (index?.motionStandard?.keyframeQaRequired !== true) errors.push('motionStandard.keyframeQaRequired muss true sein.');
+if (JSON.stringify(index?.motionStandard?.keyframeQaPercentages) !== JSON.stringify([10,35,65,90])) errors.push('motionStandard.keyframeQaPercentages muss 10/35/65/90 sein.');
 if (index?.motionStandard?.fixed3DStyleForbidden !== true) errors.push('motionStandard.fixed3DStyleForbidden muss true sein.');
 const visuals = Array.isArray(index?.visuals) ? index.visuals : [];
 for (const visual of visuals) errors.push(...validateYouTubeMotionMetadata(visual));
