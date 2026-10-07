@@ -107,13 +107,33 @@ export const validateSceneShape = (scene, {index = 0} = {}) => {
       }
     }
 
-    // objectLabels sind hilfreiche Metadaten, aber keine zweite Wahrheit neben
-    // dem eigentlichen Bildprompt. Wenn vorhanden, müssen sie sauber sein.
+    // objectLabels sind optionale Metadaten.
     if (scene.objectLabels !== undefined) {
       if (!Array.isArray(scene.objectLabels)) {
         fehler.push(`${id}.objectLabels muss eine Liste sein.`);
       } else if (scene.objectLabels.some((label) => typeof label !== 'string' || !label.trim() || hatPlatzhalter(label))) {
         fehler.push(`${id}.objectLabels enthalten ungültige Werte oder Platzhalter.`);
+      }
+    }
+
+    // Progressive Bildfolge: optional, aber strukturiert.
+    if (scene.imageSequence !== undefined) {
+      const sequence = scene.imageSequence;
+      if (!sequence || typeof sequence !== 'object' || Array.isArray(sequence)) {
+        fehler.push(`${id}.imageSequence muss ein Objekt sein.`);
+      } else {
+        const mode = sequence.mode;
+        if (!['independent', 'continuation'].includes(mode)) {
+          fehler.push(`${id}.imageSequence.mode muss independent oder continuation sein.`);
+        }
+        if (mode === 'continuation') {
+          if (typeof sequence.referenceSceneId !== 'string' || !/^scene-\d{2}$/.test(sequence.referenceSceneId)) {
+            fehler.push(`${id}.imageSequence.referenceSceneId muss bei continuation eine scene-XX-ID sein.`);
+          }
+          if (typeof sequence.plannedChange !== 'string' || !sequence.plannedChange.trim() || hatPlatzhalter(sequence.plannedChange)) {
+            fehler.push(`${id}.imageSequence.plannedChange muss bei continuation konkret beschrieben sein.`);
+          }
+        }
       }
     }
   }
