@@ -2,135 +2,169 @@
 
 `MOTION_STANDARD: finanzneo-youtube-motion-v3`
 
-Dieser Standard gilt nur für eigenständige YouTube-Longform-Projekte unter `youtube/`. Bestehende Reels, Reel-Safe-Zones, Reel-Cover-Verträge und Reel-Image-World-Dateien werden dadurch nicht verändert.
+`MOTION_WORLD: finanzneo-editorial-motion-v1`
+
+Dieser Standard gilt nur für YouTube-Longform-Motion. Bildwelt, Header, Untertitel und Publishing werden hier nicht gestaltet.
 
 ## Ziel
 
-Longform darf nicht wie ein gestrecktes Reel oder eine Folge derselben Animation mit anderen Zahlen wirken.
+YouTube-Animationen sollen wie die **bewegte Version der FinanzNeo Editorial Finance Bildwelt** wirken.
 
-**Eine visuelle Welt, aber keine feste Animationsart.**
+Die visuelle Familie bleibt:
 
-Für jeden gesprochenen Gedanken wird zuerst entschieden, was der Zuschauer sichtbar erleben soll. Erst danach wird die konkrete Technik gewählt.
+- sauber
+- editorial
+- überwiegend 2D / leichtes 2.5D
+- matte Farben
+- wenige große Elemente
+- geringe bis mittlere Detailtiefe
+- flexible helle, gedämpfte oder begründet dunkle Hintergründe
+- einfaches 3D nur wenn räumliche Tiefe wirklich beim Verständnis hilft
+
+## Core rule
+
+```text
+SCRIPT BEAT
+→ VIEWER CHANGE
+→ SIMPLEST CLEAR MOTION
+→ RESULT
+```
+
+Die Motion-Komplexität richtet sich nach dem Inhalt, nicht nach dem Wunsch nach mehr Effekten.
+
+Eine einzige starke sichtbare Veränderung kann vollständig reichen.
 
 ## Viewer-change-first
 
-Reihenfolge:
+`viewerChange` beantwortet:
 
-```text
-Skript
-→ gesprochene Gedanken
-→ sichtbare Visual Beats
-→ viewerChange
-→ beste Visualart
-→ beste Technik
-→ produktionsreife Quelle
-```
+> Was soll der Zuschauer tatsächlich sehen, das sich verändert, enthüllt, vergleicht, aufbaut, zerlegt oder bewegt?
 
-`viewerChange` beantwortet in einem klaren Satz:
-
-> Was soll der Zuschauer tatsächlich sehen, das sich verändert, enthüllt, vergleicht, aufbaut, zerlegt oder räumlich erschließt?
-
-Beispiel:
-
-```text
-Kleine monatliche Einzahlungen kommen regelmäßig hinzu,
-während der durch Rendite entstandene Anteil zunehmend schneller wächst
-und am Ende einen großen Teil des Gesamtwerts ausmacht.
-```
-
-Erst danach darf eine Technik gewählt werden.
+Erst danach wird die Technik gewählt.
 
 ## Visualtypen
 
 - `image`: statisches 16:9-Flow-Bild
-- `animation`: vollständig native Remotion-Motion
-- `hybrid`: 16:9-Flow-Bild + bedeutungsvolle Remotion-Komposition
+- `animation`: native Remotion-Motion
+- `hybrid`: Flow-Bild + bedeutungsvolle Remotion-Veränderung
 - `data`: verifizierte Daten-/Chart-/Modellanimation
 
-Es gibt keine feste Szenenzahl und keine feste Bild-/Animationsquote.
+Es gibt keine feste Bild-/Animationsquote.
 
-## Visual Selection V1
+## Editorial Motion style
 
-`VISUAL_SELECTION_STANDARD: finanzneo-visual-selection-v1`
+Default:
 
-Kanonische Regel:
+- 2D / subtle 2.5D
+- matte Flächen
+- klare Vektorformen
+- große gut lesbare Hauptobjekte
+- Kamera still
+- wenig Motion
+- keine künstliche Tiefenwirkung
+- keine glänzende Materialshow
 
-```text
-docs/FINANZNEO-VISUAL-SELECTION-RULE.md
-```
+Nicht als Standard verwenden:
 
-Vor der Technik wird die Visualart gewählt:
-
-- einfache, zahlen-/datengetriebene Erklärung → **pure Remotion**
-- komplexe, reale oder räumliche Erklärung → **Flow image + Remotion hybrid**
-- SVG → präzise Vektor-/Pfad-/Chartmechanik
-- Icons → semantischer Support
-- Lottie → kleine Support-Bewegung
-
-Die technische Umsetzung darf komplex sein. Die Erklärung für den Zuschauer soll dadurch **einfacher**, nicht komplizierter werden.
-
-Ein vorhandenes Lottie, Icon, Component oder 3D-Tool ist niemals allein ein Grund für die Visualwahl.
+- `PremiumPhysicalStage`
+- `Physical*`-Primitives
+- schwarze Glossy-3D-Welt
+- Goldmünzen/Podeste als generische Finanzsprache
+- Neon / Glow / Hologramm
+- futuristische Dashboards
+- Partikel-/Aurora-/Grid-Hintergründe
+- permanente Kamerafahrten
+- dekorative Bounce-/Spin-Bewegung
 
 ## Offene Technik
 
-Remotion und Web-Technologien sind Werkzeuge, keine Animationsbibliothek mit fester Endmenge.
-
-Erlaubt sind unter anderem:
+Erlaubt, wenn sinnvoll:
 
 - Custom React / DOM
 - SVG / Paths / Shapes
-- CSS 3D / perspective
 - masks / clip-path
 - Canvas
-- Three.js / React Three Fiber / `@remotion/three`
-- Motion Blur
-- Remotion Effects
-- Layout Utils
-- Lottie als Support
-- konsistente SVG-Icons als Support
-- kinetic typography
+- data visualization
 - document motion
 - timelines
-- data visualization
-- simulations
-- camera journeys
+- comparisons
+- simple simulations
 - image compositing / 2.5D
-- spatial object animation
-- material transformation
-- network/process visualization
-- map or geographic motion
-- combinations of several techniques
-- a new custom technique when it explains the content better
+- Lottie als Support
+- Three.js / R3F nur bei echtem räumlichem Nutzen
+- neue Kombinationen, wenn sie den Beat besser erklären
 
-Bestehende FinanzNeo-Komponenten sind optionale Werkzeuge. `PremiumPhysicalStage` und `Physical*` are not mandatory for YouTube.
+Werkzeuge folgen dem Inhalt.
 
-## Composition Families are descriptions, not a whitelist
+## Motion channels
 
-Useful example family names:
+Es gibt **keine Pflicht für mehrere Motion-Channels**.
 
-- `spatial-3d`
+Mindestens eine sichtbare erklärende Veränderung ist nötig.
+
+Beispiele:
+
+- ein Balken wächst
+- eine Linie wird sichtbar
+- eine Zahl verändert sich
+- ein Dokument erhält eine neue Kostenzeile
+- ein Vergleich wechselt Zustand
+- eine Timeline verlängert sich
+- ein Portfolio verschiebt Gewichte
+
+Mehrere Motion-Channels sind erlaubt, wenn jeder davon zusätzliche Information trägt.
+
+## Visual beats
+
+Mindestens:
+
+```text
+START
+→ RESULT
+```
+
+Bei komplexeren Szenen:
+
+```text
+START
+→ MECHANISM
+→ RESULT
+```
+
+Camera drift oder Background motion zählt nicht als neuer Beat.
+
+## Kamera
+
+Default:
+
+```text
+motionSignature.camera = still
+```
+
+Push, follow oder reframe nur wenn es die Erklärung verbessert.
+
+## Composition families
+
+`compositionFamilyId` bleibt frei beschreibbar.
+
+Beispiele:
+
 - `vector-motion`
-- `css-3d`
-- `kinetic-type`
 - `data-viz`
 - `timeline`
 - `document-motion`
-- `image-composite`
-- `simulation`
 - `comparison`
-- `camera-journey`
-- `physical-process`
-- `material-transformation`
+- `image-composite`
+- `simple-simulation`
 - `map-journey`
-- `macro-to-micro`
-- `network-simulation`
+- `selective-2.5d`
 - `custom`
 
-These names are examples only. A scene may use a new `compositionFamilyId` without changing the repository contract first.
+3D-Familien sind erlaubt, aber nicht Default.
 
-## Required Motion V3 metadata
+## Required metadata
 
-Every `animation`, `hybrid` or `data` visual defines:
+Jedes Motion-Visual definiert:
 
 ```text
 viewerChange
@@ -149,158 +183,69 @@ animationSourceFile
 animationExport
 ```
 
-Meaning:
+`motionChannels` braucht mindestens **eine** sinnvolle erklärende Bewegung.
 
-- `viewerChange`: what the viewer literally sees change
-- `animationIntent`: why that visible change explains the spoken idea
-- `mechanicId`: semantic mechanism of the scene
-- `visualTechniqueId`: specific implementation concept
-- `techniqueDescription`: short concrete description of how the visual works
-- `compositionFamilyId`: free descriptive category; not restricted to a predefined list
-- `toolStack`: actual implementation tools / methods
-- `motionSignature.camera`: dominant camera behavior
-- `motionSignature.layout`: dominant spatial/compositional arrangement
-- `motionSignature.transformation`: dominant visible transformation
-- `motionChannels`: at least two meaningful simultaneous/sequential motion channels
-- `visualBeats`: at least two visibly different information states
+`visualBeats` braucht mindestens zwei Zustände.
 
-## Anti-fake-variation
+## Variety
 
-Changing only a name, color or label is not a new animation.
+Variation ist semantisch, nicht kosmetisch.
 
-The validator blocks unreasoned repetition of:
+Nicht künstlich neue Animationen erfinden, wenn dieselbe Mechanik für einen direkten Vergleich absichtlich gleich bleiben sollte.
 
-- identical `visualTechniqueId`
-- identical `mechanicId`
-- identical `techniqueDescription`
-- more than two consecutive motion visuals from the same family
-- the same full `motionSignature` (`camera + layout + transformation`) within the previous four motion visuals
-
-This catches patterns such as:
-
-- the same cards sliding in with different labels
-- the same coin stack with new numbers
-- the same camera push with a renamed technique ID
-- the same three-column layout with different colors
-
-## Repetition is still allowed
-
-Variety is not an end in itself.
-
-If the same technique is genuinely the clearest way to explain a later beat, it may be reused with a concrete `repeatTechniqueReason`.
-
-Bad reason:
-
-```text
-Looks good.
-```
-
-Good reason:
-
-```text
-This is the second half of the same before/after comparison;
-using the identical camera and layout is necessary so the viewer can compare the two states directly.
-```
-
-## Technique selection rule
-
-For every motion beat:
-
-1. Write `viewerChange` without naming a tool or existing component.
-2. Decide the explanatory mechanism.
-3. Classify the beat as simple/data-driven vs. complex/real-world/spatial.
-4. Select `animation`, `hybrid`, `data` or `image` using Visual Selection V1.
-5. Review the previous four motion visuals.
-6. Choose or invent the clearest technique.
-7. Record technique, tools and motion signature.
-8. Build production-ready `animation.tsx`.
-9. Validate actual diversity and source quality.
-
-Do not choose a technique because it is easy to code or because a component already exists.
-
-## Narrative progression
-
-A YouTube motion visual must visibly progress. Valid structures include:
-
-- START → TRANSFORMATION → RESULT
-- QUESTION → REVEAL → CONSEQUENCE
-- BEFORE → MECHANISM → AFTER
-- DATA INPUT → CHANGE → COMPARISON
-- CAMERA ENTRY → DISCOVERY → PAYOFF
-- IMAGE ESTABLISH → MASK/DEPTH REVEAL → EXPLANATION
-- OBJECT ASSEMBLY → SYSTEM BEHAVIOR → OUTCOME
-- DOCUMENT STATE → MARK/COMPARE → DECISION
-
-Camera drift or background motion alone is not a meaningful new beat.
-
-## Longform rhythm
-
-Do not cut on a fixed timer. Voiceover thought, visual information and chapter logic decide timing.
-
-A long visual is allowed when it continues to reveal meaningful information. A static state must not remain while several new spoken thoughts arrive without a visual reason.
+Wiederholung ist erlaubt, wenn `repeatTechniqueReason` erklärt, warum die Konsistenz dem Verständnis dient.
 
 ## Hybrid visuals
 
-Use `hybrid` when a strong Flow image provides the detailed FinanzNeo world and Remotion adds meaningful temporal information, for example:
+`hybrid` nur wenn ein Flow-Bild eine starke statische Basis liefert und Remotion echte Information ergänzt.
 
-- controlled 2.5D parallax
-- masks / focus reveals
-- value changes
-- selective object highlights
-- document annotations
-- before/after transitions
-- chart overlays
-- depth compositing
+Gut:
 
-Do not add motion only to avoid a static image.
+- Wert ändert sich
+- Objekt wird gezielt markiert
+- Dokument wird annotiert
+- Vorher/Nachher wird sichtbar
+- einfache Maske enthüllt relevanten Bereich
 
-## Support layers: SVG, Icons, Lottie
+Nicht:
 
-- SVG may be a main explanatory mechanism when precise vector logic is clearest.
-- Icons are semantic shorthand and support, not a substitute for a complex scene.
-- Lottie is support for small self-contained cues such as warning, check, search, document or status actions.
-- Several tools may be combined only when every added layer contributes information.
+- Parallax nur damit sich etwas bewegt
+- Glow/Zoom als künstliche Dynamik
 
 ## Data visuals
 
-Verified data may use charts, counters, tables, axes or model simulations when they are the clearest explanation. They do not need physical real-world objects.
+Charts, Achsen, Tabellen, Counter und Modellvisualisierungen dürfen flach und editorial sein.
 
-Never fabricate values for visual drama.
+Keine erfundenen Werte für visuelle Dramatik.
 
 ## Source requirements
 
-Every Phase-1 `animation.tsx` must:
+Jede Phase-1-`animation.tsx` muss:
 
-- use `useCurrentFrame()`
-- use `interpolate()` and/or `spring()` for frame-driven motion
-- export `MECHANIC_ID`, `VISUAL_TECHNIQUE_ID`, `COMPOSITION_FAMILY_ID`
-- export `ANIMATION_NARRATIVE` containing at least START and RESULT
-- export the component named in `visual-index.json`
-- contain no placeholder/TODO content
-- contain no CSS animation/transition, timer, `Math.random`, runtime fetch or remote runtime dependency
-
-All productive motion remains deterministic from the Remotion frame timeline.
+- `useCurrentFrame()` verwenden
+- `interpolate()` und/oder `spring()` verwenden
+- `MECHANIC_ID`, `VISUAL_TECHNIQUE_ID`, `COMPOSITION_FAMILY_ID` exportieren
+- `ANIMATION_NARRATIVE` mit START und RESULT enthalten
+- deterministisch sein
+- keine Platzhalter/TODOs enthalten
+- keine Runtime-Fetches, Timer, CSS animation/transition oder `Math.random` enthalten
+- keine alten `PremiumPhysicalStage`-/`Physical*`-Primitives für neue Editorial Motion verwenden
 
 ## Phase-1 seal
 
-Before Phase 2:
+Vor Phase 2:
 
 ```bash
 npm run youtube:animation:validate -- youtube/<Projekt>
 npm run youtube:phase1:seal -- youtube/<Projekt>
 ```
 
-Motion V3 seals both:
-
-- the source-code hash
-- the creative contract: viewer change, intent, mechanism, technique description, tool stack, motion signature, channels and beats
-
-Phase 3 may retime/integrate the sealed source, captions, local SFX and final assets. It may not replace the sealed mechanism with an easier animation.
+Phase 3 darf die versiegelte Mechanik nicht kreativ ersetzen.
 
 ## Quality target
 
-The video should feel visually varied because **the ideas are explained in different ways**, not because random effects were added.
+Die letzte Frage für jede Szene:
 
-The final question for every motion scene is:
+> Ist diese Bewegung die einfachste gute Möglichkeit, genau diesen Satz sichtbar zu machen?
 
-> If I removed the voiceover, can I still see the important change this sentence is talking about?
+Wenn weniger Motion genauso verständlich wäre, wird reduziert.
