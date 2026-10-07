@@ -9,9 +9,9 @@ Header, Untertitel, Cover, Audio, Flow-Bilder und die restliche Video-Struktur w
 ## Aktive Motion-Welt für neue Reels
 
 ```text
-MOTION_WORLD: finanzneo-editorial-motion-v1
+MOTION_WORLD: finanzneo-editorial-motion-v3
 VISUAL_TARGET_WORLD: finanzneo-editorial-finance-v1
-FINANCE_MOTION_LIBRARY: finanzneo-editorial-motion-library-v1
+FINANCE_MOTION_LIBRARY: finanzneo-editorial-motion-v3-library
 ```
 
 Kanonische visuelle Regel:
@@ -107,7 +107,7 @@ Keine Kamerafahrt nur für Dynamik.
 Neue Library:
 
 ```text
-src/finance-motion/editorial-v2.tsx
+src/finance-motion/v3
 ```
 
 Aktuelle Mechaniken:
@@ -164,7 +164,7 @@ RESULT_HOLD_FRAMES >= 15
 
 Bei `library-best-fit`:
 
-- aus `src/finance-motion/editorial-v2.tsx` importieren
+- aus `src/finance-motion/v3` importieren
 - Werte, Labels, Gewichtungen und Timing exakt aus dem Sprechpunkt ableiten
 - keine Template-Füllwerte
 - die Mechanik darf wiederverwendet werden
@@ -219,3 +219,19 @@ Eine neue Animationsszene ist fertig, wenn:
 - Start, Mechanismus und Ergebnis klar sind
 - das Ergebnis mindestens 15 Frames stabil bleibt
 - keine kreative Nacharbeit in Phase 3 nötig ist
+
+
+## V3 Pflichtprozess vor dem Coding
+
+Für jede neue Animationsszene:
+
+1. Drei visuelle Konzepte entwickeln.
+2. Das stärkste Konzept auswählen.
+3. Vier repräsentative Keyframes planen: 10 %, 35 %, 65 %, 90 %.
+4. Passende Motion-Grammatik wählen: DRAW, FOLLOW, REVEAL, SPLIT, MERGE, STACK, SHIFT, SWAP, EMPHASIZE, COUNT.
+5. Erst danach Remotion-Code schreiben.
+6. Nach dem Render dieselben vier Keyframes als PNG prüfen.
+
+Bevorzugte Implementierung: `src/finance-motion/v3`.
+
+V3 bevorzugt bewegte Editorial-Illustrationen und content-shaped compositions gegenüber animierten Karten oder Dashboard-Flächen.
