@@ -1,4 +1,6 @@
 export const YOUTUBE_MOTION_STANDARD_ID = 'finanzneo-youtube-motion-v3';
+export const YOUTUBE_EDITORIAL_MOTION_WORLD_ID = 'finanzneo-editorial-motion-v1';
+export const YOUTUBE_EDITORIAL_VISUAL_TARGET_ID = 'finanzneo-editorial-finance-v1';
 
 export const YOUTUBE_VISUAL_TYPES = ['image', 'animation', 'hybrid', 'data'];
 export const YOUTUBE_MOTION_VISUAL_TYPES = new Set(['animation', 'hybrid', 'data']);
@@ -65,8 +67,8 @@ export const validateYouTubeMotionMetadata = (visual) => {
   if (!validStringArray(visual?.toolStack, 1)) {
     errors.push(`${id}: toolStack benötigt mindestens 1 konkretes Werkzeug / Verfahren.`);
   }
-  if (!validStringArray(visual?.motionChannels, 2)) {
-    errors.push(`${id}: motionChannels benötigt mindestens 2 sinnvolle Kanäle.`);
+  if (!validStringArray(visual?.motionChannels, 1)) {
+    errors.push(`${id}: motionChannels benötigt mindestens 1 sinnvolle erklärende Bewegung.`);
   }
   if (!validStringArray(visual?.visualBeats, 2)) {
     errors.push(`${id}: visualBeats benötigt mindestens 2 sichtbare Zustände.`);
