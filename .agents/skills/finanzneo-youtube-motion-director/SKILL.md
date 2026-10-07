@@ -98,7 +98,10 @@ Prefer for clear numbers, percentages, charts, simple flows, debt/fee developmen
 
 ### Flow image + Remotion
 
-Use when a strong generated still provides the best visual base and Remotion adds genuinely useful temporal information. The image concept itself is scene-specific and must not inherit legacy literal-first, mandatory real-world, cause/effect, label, object-count or metaphor rules.
+Use when a strong generated still provides the best visual base and Remotion adds genuinely useful temporal information.
+
+Static-image authority is `docs/FINANZNEO-IMAGE-WORLD.md`: simple first-glance editorial visuals, flexible backgrounds, 2D/2.5D by default, selective simple 3D, and approved prior-image references for progressive sequences.
+
 
 
 ### SVG
