@@ -12,6 +12,8 @@ Dieses Dokument ist die verbindliche Übergabe an Phase 1. Bei Widersprüchen gi
 
 ---
 
+Kanonischer Themen-Scope: `docs/CONTENT-SCOPE.md`.
+
 ## Briefing zum Kopieren
 
 ```text
