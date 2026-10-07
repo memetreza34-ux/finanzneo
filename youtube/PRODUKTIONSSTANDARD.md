@@ -16,14 +16,16 @@ README.md
 
 ## Format und Inhalt
 
-- eigenständiges längeres Finanz-Erklärvideo, kein verlängertes Reel
+- eigenständiges längeres Finanzvideo, kein verlängertes Reel
+- Themen-Scope: **alles rund um Finanzen**; Grundlagen, fortgeschrittene Themen, aktuelle Finanz-News, Gesetze/Regeländerungen, Unternehmen, Banken, Märkte, Börse, ETFs/Aktien/Krypto, Kredite, Steuern, Versicherungen, Immobilien, Gehalt, Rente, Verbraucherfinanzen, Betrugsmaschen und Wirtschaft mit klarem Finanzbezug sind zulässig
+- auch Listen-, Ranking-, Vergleichs-, Fallstudien-, News- und „X Dinge…“-Formate sind zulässig
 - keine YouTube Shorts
 - 1920 × 1080, horizontal 16:9, 30 fps
 - Länge folgt dem Thema; keine künstlichen Füllpassagen
 - Hook ohne langes Intro
 - Kapitel mit klaren Zwischenzielen und Payoffs
-- einfache Sprache für Finanzanfänger
-- Zahlen, Annahmen und Datenstand prüfbar dokumentieren
+- klare, zugängliche Sprache; komplexe Themen werden einfach erklärt, ohne die Themenauswahl auf Anfängerstoff zu begrenzen
+- Zahlen, Annahmen und Datenstand prüfbar dokumentieren; aktuelle Themen immer mit aktuellem Recherche- und Quellenstand
 - keine individuelle Anlageberatung oder garantierte Rendite
 
 ## Viewer-change-first Visualplanung
