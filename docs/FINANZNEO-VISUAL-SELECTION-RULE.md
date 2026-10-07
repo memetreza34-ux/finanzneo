@@ -9,11 +9,15 @@ Nicht zuerst fragen, welches Tool verfügbar ist. Zuerst bestimmen:
 ```text
 Sprechpunkt
 → was muss der Zuschauer sichtbar verstehen?
-→ welche einfachste visuelle Form erklärt genau das?
+→ was ist die einfachste visuelle Darstellung dafür?
+→ Metapher / Zahl+Objekt / Illustration / Diagramm / Prozess / Timeline / Text+Illustration
 → erst danach Werkzeug wählen
 ```
 
-Komplexer Inhalt bedeutet nicht automatisch komplexe Animation.
+**Ein Gedanke = eine klare visuelle Idee.**
+
+Der Zuschauer soll die Hauptaussage möglichst auf den ersten Blick verstehen. Komplexer Inhalt bedeutet nicht automatisch komplexes Bild oder komplexe Animation.
+
 
 ## Reels — harte exklusive Auswahl
 
@@ -85,15 +89,15 @@ Für YouTube Longform darf weiterhin eine echte Bild+Remotion-Kombination gewäh
 
 ## Qualitätsfragen
 
-Jeder Beat muss sichtbar mindestens eine konkrete Frage beantworten:
-- Was verändert sich?
-- Was wächst oder schrumpft?
-- Was kostet Geld?
-- Wo fließt Geld hin?
-- Was bleibt übrig?
-- Was wird verglichen?
-- Was ist Ursache und Wirkung?
+Jeder Beat muss mindestens diese Fragen bestehen:
+
+- Versteht man die Hauptidee ohne langes Nachdenken?
+- Ist die Darstellung einfacher als eine vollständige Szene?
+- Gibt es unnötige Dekoration oder KI-typische Komplexität?
+- Passt das Visual exakt zum gesprochenen Gedanken?
+- Wäre eine einfache Metapher, Zahl, Illustration, Grafik, Prozessdarstellung oder Timeline klarer?
+
 
 ## Kurzregel
 
-> **Reels: entweder IMAGE oder ANIMATION. Bilder bleiben ruhig und selbsterklärend; Animationen werden individuell aus dem Sprechpunkt entwickelt. SVG, Icons und Lottie sind Werkzeuge. YouTube Longform darf bei echtem Mehrwert weiterhin Hybrid nutzen.**
+> **Ein Gedanke = eine einfache visuelle Idee. Erst die klarste Darstellung wählen, dann das Werkzeug. FinanzNeo-Bildwelt beibehalten, aber keine unnötige KI-Komplexität hinzufügen.**
