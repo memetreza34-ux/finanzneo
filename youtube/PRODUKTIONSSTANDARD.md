@@ -75,29 +75,42 @@ docs/FINANZNEO-VISUAL-SELECTION-RULE.md
 
 `MOTION_STANDARD: finanzneo-youtube-motion-v3`
 
+`MOTION_WORLD: finanzneo-editorial-motion-v1`
+
 ### Grundregel
 
-**Eine FinanzNeo-Welt, aber keine feste Animationsart.**
+YouTube-Animationen sind die **bewegte Version der neuen Editorial-Finance-Bildwelt**.
 
-Die visuelle Technik wird erst gewählt, nachdem feststeht, was der Zuschauer tatsächlich sehen soll. Custom React, SVG, CSS 3D, Canvas, Three.js/R3F, Masks, Paths/Shapes, Motion Blur, Effects, Lottie als Support, konsistente SVG-Icons als Support, Datenvisualisierung, Bild+Motion-Hybrid sowie neue sinnvolle Kombinationen sind erlaubt.
+Default:
 
-Die bekannten Familien wie `spatial-3d`, `timeline`, `document-motion`, `data-viz`, `simulation` oder `camera-journey` sind **nur Beispiele zur Beschreibung**, keine Whitelist. Neue `compositionFamilyId`-Werte dürfen jederzeit entstehen, wenn sie die Szene besser beschreiben.
+- 2D / leichtes 2.5D
+- matte Formen
+- wenige große Elemente
+- helle oder gedämpfte Flächen
+- Kamera still
+- einfachste klare Bewegung
+- 3D nur wenn räumliche Tiefe wirklich hilft
 
-`PremiumPhysicalStage`, `Physical*` und bestehende FinanzNeo-Komponenten sind **optionale Werkzeuge**, keine Pflichtvorlagen.
+Custom React, SVG, Canvas, Paths/Shapes, Datenvisualisierung, Dokument-Motion, Timelines, Vergleiche, Lottie als Support und bei Bedarf selektives 3D bleiben erlaubt.
+
+Neue Editorial-Motion-Szenen dürfen **nicht** auf `PremiumPhysicalStage` oder alte `Physical*`-Primitives zurückfallen.
 
 Jedes Motion-Visual braucht:
 
 - produktionsreife `animation.tsx` bereits in Phase 1
-- `viewerChange` — was der Zuschauer konkret sichtbar verändern/enthüllen/vergleichen/reisen sehen soll
-- `animationIntent` — warum genau diese Veränderung den gesprochenen Punkt erklärt
+- `viewerChange`
+- `animationIntent`
 - `mechanicId`
 - `visualTechniqueId`
 - `techniqueDescription`
 - freien `compositionFamilyId`
 - `toolStack`
 - `motionSignature` mit `camera`, `layout`, `transformation`
-- mindestens zwei sinnvolle Motion Channels
-- mindestens zwei sichtbare Visual Beats
+- mindestens **eine** sinnvolle erklärende Motion
+- mindestens zwei sichtbare Visual Beats: Start + Result
+
+Eine klare Hauptbewegung darf vollständig reichen. Mehr Motion ist kein Qualitätsmerkmal.
+
 
 ### Echte Vielfalt statt umbenannter Wiederholung
 
