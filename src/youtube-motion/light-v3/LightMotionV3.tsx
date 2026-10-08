@@ -1,6 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Freeze, Sequence, useCurrentFrame} from 'remotion';
-import {FONT} from '../../brand';
+import {AbsoluteFill, Sequence} from 'remotion';
 import {ReorderingBars, ReorderingTable, BuildingDonut, LIGHT, LightStage, SmallLabel, TracedTrendChart} from './charts';
 import {CashFlowSystem, ComparisonDelta, HeatmapTransition, WaffleProgress} from './systems';
 import type {DonutPart, RankDatum, TrendPoint} from './core';
@@ -104,25 +103,3 @@ export const YouTubeLightMotionV3:React.FC = () => <AbsoluteFill style={{backgro
   })}
 </AbsoluteFill>;
 
-// Four 1920x2160 contact-sheet frames: one per 10/35/65/90% checkpoint.
-// Freeze gives every thumbnail the exact same local frame as the full scene.
-export const YOUTUBE_LIGHT_MOTION_V3_QA_FRAMES = 4;
-export const QA_CHECKPOINTS = [0.10, 0.35, 0.65, 0.90] as const;
-export const YouTubeLightMotionV3QA:React.FC = () => {
-  const frame = useCurrentFrame();
-  const local = Math.round((MOTION_V3_SCENE_FRAMES - 1) * QA_CHECKPOINTS[Math.min(frame, 3)]);
-  return <AbsoluteFill style={{background:'#E6EBE7', fontFamily:FONT.body}}>
-    {MOTION_V3_SCENES.map((scene, index) => {
-      const Scene=scene.component;
-      const x=(index%2)*960, y=Math.floor(index/2)*540;
-      return <div key={scene.id} style={{
-        position:'absolute',left:x,top:y,width:960,height:540,overflow:'hidden',
-        border:'2px solid #DFE6E0',boxSizing:'border-box',
-      }}>
-        <div style={{position:'absolute',left:0,top:0,width:1920,height:1080,transform:'scale(.5)',transformOrigin:'top left'}}>
-          <Freeze frame={local}><Scene/></Freeze>
-        </div>
-      </div>;
-    })}
-  </AbsoluteFill>;
-};
