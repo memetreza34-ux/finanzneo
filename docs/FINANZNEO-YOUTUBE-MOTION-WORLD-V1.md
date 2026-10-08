@@ -1,378 +1,407 @@
-# FinanzNeo YouTube Motion World V1
+# FinanzNeo YouTube Open Motion Direction V1
 
-MOTION_WORLD: finanzneo-youtube-explain-motion-v1
+MOTION_WORLD: finanzneo-youtube-open-motion-v1
 
-This is the canonical visual and motion direction for new FinanzNeo YouTube animations.
+This is **not a fixed art style**.
 
-It is intentionally its own motion world. It must feel compatible with the overall FinanzNeo brand, but it does not have to imitate the static Flow image world one-to-one.
+It is an open creative framework for high-quality FinanzNeo YouTube animation.
 
-## 1. Core goal
+The only permanent visual format rule is:
 
-The animation should feel like a professionally directed YouTube explainer, not like an animated dashboard, moving infographic template, slideshow with easing, generic finance preset, or a forced copy of the static image style.
-
-Target:
-
-clear visual storytelling + strong metaphor + purposeful motion + clean composition
-
-## 2. Format first
-
-All new YouTube animation concepts are designed for:
-
+```text
 1920 × 1080
 16:9
 landscape
+```
 
-Do not design for 9:16 first and adapt later.
+Everything else may change from scene to scene when the result is better.
 
-Use wide staging:
-- left / center / right composition
-- large negative-space areas
-- objects may enter from screen edges
-- cropped foreground objects are allowed
-- depth through overlap is allowed
-- avoid vertical-stack thinking
+---
 
-## 3. Independent motion world
+## 1. Highest priority
 
-The motion world may develop its own visual grammar.
+> Build the best animation for the idea.
 
-It stays compatible with FinanzNeo through:
-- clarity
-- restrained color palette
-- clean typography
-- simple strong shapes
+Do not force the animation to match:
+
+- the static Flow image world
+- a previous animation
+- a light editorial style
+- a dark style
+- 2D
+- 2.5D
+- 3D
+- one palette
+- one background system
+- one camera language
+- one metaphor family
+
+The animation is judged primarily by:
+
+1. clarity
+2. visual quality
+3. storytelling
+4. pacing
+5. payoff
+6. fit to the spoken idea
+
+Brand consistency is useful when it improves the video, but it is **not a creative cage**.
+
+---
+
+## 2. Completely open art direction
+
+For any scene, Antigravity / Remotion may choose:
+
+- bright background
+- dark background
+- black background
+- white background
+- colored world
+- flat 2D
+- graphic 2D
 - editorial illustration
-- serious but accessible tone
-- no AI-slop aesthetics
+- minimal comparison
+- clean infographic
+- cinematic 2.5D
+- full 3D
+- abstract geometry
+- physical-object metaphor
+- data visualization
+- map
+- timeline
+- document animation
+- simulation
+- split-screen comparison
+- kinetic typography
+- object transformation
+- network visualization
+- camera journey
+- image + motion hybrid
+- completely custom visual language
 
-Motion may be more dynamic, spatial, layered, metaphorical, cinematic, illustrative or abstract than the static Flow world.
+A scene may look very different from the previous scene if that makes the explanation stronger.
 
-Do not reject a strong animation merely because it does not look exactly like a static Flow image.
+---
 
-Judge it by:
-1. does it fit the brand?
-2. does it explain the idea?
-3. does it feel intentional?
-4. does it look good in motion?
-5. does it feel native to YouTube?
+## 3. Static image world is optional inspiration only
 
-## 4. Visual character
+The FinanzNeo static image world may be used when it helps.
 
-Preferred:
-- modern editorial explainer
-- flat 2D with selective 2.5D
-- controlled depth through scale and overlap
-- large simple objects
-- strong silhouette
-- clean geometry
-- human-designed asymmetry
-- moderate texture where helpful
-- restrained shadows
-- selective gradients only when they improve form
-- soft motion blur only for genuinely fast movement
-- wide compositions with clear focal hierarchy
+It is **not** a requirement for motion.
 
-Allowed when useful:
-- dark scenes
-- selective 3D
-- perspective
-- parallax
-- camera pushes
-- masks
-- path-following
-- morphing
-- simulated physical movement
-- diagrammatic motion
-- abstract metaphor
+Never reject a strong animation because:
 
-Not required:
-- cream background
-- exact Flow palette
-- identical illustration rendering
-- identical object style
-- static-image consistency at all costs
+- the background is dark
+- the palette differs from Flow
+- the rendering style is different
+- the scene is more cinematic
+- the scene is more technical
+- the scene is more minimal
+- the scene uses 3D
+- the scene uses a simple comparison instead of a metaphor
 
-## 5. Strong visual idea first
+The question is:
 
-Every animation starts with one strong visual idea.
+> Does this animation explain the point well and look good?
+
+---
+
+## 4. Simple is allowed
+
+A strong scene does not need a complex metaphor.
+
+Examples of fully valid animation:
+
+### Comparison
+
+```text
+left: 100 €
+right: 135 €
+→ both values build
+→ difference becomes visible
+→ +35 € locks in
+```
+
+### Before / after
+
+```text
+before state
+→ one meaningful transformation
+→ after state
+```
+
+### Bar / line / number
+
+A chart is completely valid when a chart is the clearest solution.
+
+Do not reject it merely because it is "too simple".
+
+The problem is not simplicity.
+
+The problem is **generic or weak execution**.
+
+---
+
+## 5. Complex is also allowed
+
+When the concept benefits from richer visual storytelling, use it.
 
 Examples:
-- inflation -> same money, smaller basket
-- compound interest -> snowball, accelerating curve or multiplying layers
-- ETF -> one investment branching into many companies
-- debt -> heavy block getting chipped away payment by payment
-- tax brackets -> income physically entering stacked zones
-- subscriptions -> many small streams merging into one annual cost
-- career growth -> staircase, path, elevator or branching opportunity
-- risk -> one fragile point versus distributed support
 
-The metaphor should explain the idea before labels do.
+- camera moving through a financial system
+- 3D blocks representing debt
+- dark-space network showing money flow
+- products physically disappearing from a shopping basket
+- house transforming as mortgage conditions change
+- snowball accelerating for compounding
+- abstract geometry showing diversification
+- cinematic macro-to-micro transition
 
-## 6. Scene continuity
+Complexity is allowed when it creates understanding or a stronger payoff.
 
-Prefer one evolving scene over repeated resets.
+---
 
-Good:
-START -> object appears -> relationship forms -> something changes -> consequence becomes visible -> payoff remains
+## 6. No default background
 
-Avoid unnecessary screen resets or slide-like cuts.
+There is no background default.
 
-The viewer should feel: I am watching one idea develop.
+Choose per scene:
 
-## 7. Motion grammar
+- cream
+- white
+- light gray
+- muted color
+- strong color
+- dark charcoal
+- black
+- gradient
+- illustrated environment
+- spatial 3D environment
 
-Preferred motion verbs:
-- DRAW
-- FOLLOW
-- REVEAL
-- SPLIT
-- MERGE
-- STACK
-- SHIFT
-- SWAP
-- MORPH
-- COUNT
-- ACCELERATE
-- DECELERATE
-- COLLIDE
-- PUSH
-- PULL
-- EXPAND
-- CONTRACT
-- CONNECT
-- DISCONNECT
-- EMPHASIZE
-- TRANSFORM
+Background is part of the scene concept.
 
-These are building blocks, not templates.
+---
 
-## 8. Motion density
+## 7. No default dimensionality
 
-More motion is not automatically better, but YouTube animation should feel alive.
-
-Preferred rule:
-Every 1–2 seconds, something meaningful should happen when the spoken idea advances.
-
-Meaningful examples:
-- object enters
-- path connects
-- value changes
-- object transforms
-- relationship changes
-- scale changes
-- consequence appears
-- composition reframes
-
-Decorative drift does not count.
-
-## 9. Camera
-
-Camera motion is allowed.
+There is no forced 2D or 3D hierarchy.
 
 Use:
-- slow push-in
-- lateral follow
-- subtle reframe
-- zoom-out to reveal consequence
-- focus shift between two areas
 
-Only when camera movement helps the explanation.
+- 2D when it is strongest
+- 2.5D when depth helps
+- full 3D when spatial thinking helps
+- pure typography when typography is strongest
+- charts when charts are strongest
+- objects when objects are strongest
 
-Avoid:
-- constant zoom
-- random parallax
-- camera movement only for energy
-- dramatic sweeps on simple concepts
+Technique follows the idea.
 
-Default can still be static.
+---
 
-## 10. Text
+## 8. No forced motion grammar
 
-Text supports the animation.
+The existing motion verbs are inspiration, not a whitelist:
 
-Preferred:
-- numbers
-- short labels
-- percentages
-- one-word categories
-- short contrast labels
+```text
+DRAW
+FOLLOW
+REVEAL
+SPLIT
+MERGE
+STACK
+SHIFT
+SWAP
+MORPH
+COUNT
+ACCELERATE
+DECELERATE
+COLLIDE
+PUSH
+PULL
+EXPAND
+CONTRACT
+CONNECT
+DISCONNECT
+EMPHASIZE
+TRANSFORM
+COMPARE
+SIMULATE
+ROTATE
+FOLD
+BREAK
+ASSEMBLE
+DISSOLVE
+ZOOM
+TRACK
+```
 
-Avoid:
-- paragraphs
-- subtitles baked into the animation
-- explanation cards
-- giant generic headlines inside the scene
-- UI panels full of copy
+New motion mechanisms are always allowed.
 
-If the scene only works because text explains it, the visual idea is too weak.
+---
 
-## 11. Numbers
+## 9. Camera is completely story-driven
 
-Financial numbers may become visual objects.
+Camera may be:
 
-They may:
-- grow
-- count
-- slide
-- split
-- replace
-- lock into position
-- attach to objects
+- static
+- push-in
+- pull-out
+- pan
+- follow
+- track
+- orbit
+- reframe
+- zoom
+- macro-to-micro
+- top-down
+- perspective shift
 
-Numbers should feel integrated, not pasted on top.
+There is no camera default.
 
-## 12. Color
+Only reject camera movement when it harms clarity or looks decorative/cheap.
 
-Use semantic color roles:
-- green = growth / positive / progress
-- orange-red = cost / risk / loss / warning
-- blue = neutral financial / institution
-- gold = value / money only when useful
-- charcoal = structure / text
-- warm neutral = common background
+---
 
-Additional muted colors are allowed.
+## 10. Three-concept rule stays
 
-Brand compatibility matters more than strict palette policing.
+Before coding, create three genuinely different concepts.
 
-## 13. Depth
+But the concepts should be **maximally free**.
 
-Depth may improve YouTube motion.
+Example for "fees reduce returns":
 
-Use:
-- overlap
-- object scale
-- foreground / midground / background
-- crop
-- perspective
-- shadow
-- 2.5D layers
+```text
+A — minimal comparison:
+two growing lines, one dragged down by fees
 
-3D is allowed when it clarifies physical stacking, containers, spatial flow, stage progression or scale.
+B — physical metaphor:
+a bucket fills while a leak removes money
 
-Do not use 3D merely to look expensive.
+C — dark 3D:
+investment blocks travel forward while fee blocks are removed from the stack
+```
 
-## 14. Native Remotion toolkit
+These may belong to completely different visual worlds.
 
-Prefer first:
-- useCurrentFrame
-- interpolate
-- spring
-- Easing
-- Sequence
-- @remotion/paths
-- @remotion/shapes
-- SVG
-- CSS transforms
-- masks / clip paths
+Choose the strongest, not the most brand-consistent.
 
-Then when useful:
-- @remotion/transitions
-- @remotion/layout-utils
-- @remotion/effects
-- @remotion/motion-blur
-- @remotion/lottie
-- @remotion/three
-- recharts
+---
 
-No additional runtime animation framework should be installed by default.
+## 11. Keyframe QA stays
 
-## 15. Three-concept rule
+Plan:
 
-Before coding, Antigravity creates three genuinely different visual concepts.
-
-Bad:
-A: bar chart
-B: bar chart with circles
-C: bar chart with different colors
-
-Good:
-A: shrinking shopping basket
-B: price tags pushing products out
-C: the same 100 euro note moving through increasingly expensive stores
-
-Then choose the strongest concept.
-
-## 16. Keyframe planning
-
-Before coding, plan:
 - 10% START
 - 35% MECHANISM
 - 65% CONSEQUENCE
 - 90% PAYOFF
 
-The four stills should already communicate the story.
+Judge:
 
-Keyframe QA asks:
-- does the scene read?
-- does it have a hero?
-- is there visual progression?
-- is the payoff strong?
-- does it feel like YouTube motion?
-- does it fit FinanzNeo?
+- is the idea readable?
+- is the composition strong?
+- does the motion progress?
+- is the payoff satisfying?
+- does it look professionally authored?
+- would a viewer understand it quickly?
 
-It is not required to look identical to the static image world.
+Do **not** judge:
 
-## 17. Composition rule
+- does it match the static image world?
+- is the background always light?
+- is it always editorial?
+- is it always 2D?
 
-A scene usually has:
-- one HERO
-- only necessary SUPPORT
-- enough SPACE for motion
-- a clear PAYOFF ZONE
+---
 
-Avoid filling the entire canvas.
+## 12. Variety across a video
 
-## 18. Quality bar
+Different scenes may use different worlds.
 
-A scene should feel:
-- authored
-- deliberate
-- smooth
-- visually intelligent
-- easy to follow
-- satisfying at payoff
-- not obviously template-based
+Example:
 
-FAIL:
-- generic card UI
-- generic dashboard
-- animated text presentation
-- plain chart with labels
-- random entrance animation
-- repeated fade-up everywhere
-- weak payoff
-- large unused empty center
-- motion without meaning
-- same composition reused everywhere
+```text
+Scene 1 → minimal white comparison
+Scene 2 → dark 3D money flow
+Scene 3 → colorful flat illustration
+Scene 4 → clean data visualization
+Scene 5 → cinematic house metaphor
+```
 
-PASS:
-- strong metaphor
-- clear hierarchy
-- scene evolves continuously
-- movement explains mechanism
-- ending feels earned
-- 16:9 is used intentionally
-- visually distinct when content differs
+This is allowed.
 
-## 19. Example directions
+The whole video is held together by:
 
-Inflation:
-100 euro enters -> basket is full -> prices rise -> products disappear -> same 100 euro remains -> basket ends half empty
+- topic
+- narration
+- editing quality
+- typography when used
+- pacing
+- sound
+- professional execution
 
-ETF:
-one investment block -> ETF hub -> branches into companies -> companies move independently -> hub remains stable
+Not by forcing every animation into one art style.
 
-Subscriptions:
-phone + streaming + gym + cloud -> small monthly streams -> merge -> monthly total -> x12 calendar -> annual cost lands large
+---
 
-Compound interest:
-small amount -> first gain -> gain joins base -> next gain is larger -> rhythm accelerates -> final value lands
+## 13. What is actually forbidden
 
-## 20. Final rules
+Only reject visual choices for real quality reasons:
 
-Do not animate the layout. Animate the idea.
+- unreadable
+- misleading
+- factually wrong
+- visually broken
+- obviously cheap
+- accidental overlap
+- poor pacing
+- motion with no purpose
+- incoherent hierarchy
+- copied placeholder animation
+- visual noise that hides the idea
 
-Do not force the static image world onto motion when a stronger YouTube-native animation communicates the idea better.
+Do not forbid an entire style family in advance.
 
-The animation world may have its own identity as long as it remains clearly FinanzNeo.
+---
+
+## 14. Technology is open
+
+Use whatever already available in the repo is best:
+
+- Remotion core
+- SVG
+- CSS
+- Canvas
+- @remotion/paths
+- @remotion/shapes
+- @remotion/transitions
+- @remotion/layout-utils
+- @remotion/effects
+- @remotion/motion-blur
+- Lottie
+- Three.js / R3F
+- Recharts
+- custom React
+- image compositing
+
+New libraries may be added when they provide a real capability that the existing stack cannot express well.
+
+Do not add libraries only for novelty.
+
+---
+
+## 15. Final creative rule
+
+> **There is no required animation world. There is only a required quality level.**
+
+And:
+
+> **Choose the visual world independently for every scene.**
+
+The static image style, previous animations, palette and dimensionality are references — never hard constraints.
+
+The animation may be simple or complex, bright or dark, flat or 3D, literal or abstract.
+
+The only question is whether it is the best animation for the idea.
