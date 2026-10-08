@@ -67,6 +67,12 @@ Vor dem Coding:
 4. Remotion bauen
 5. visuell prüfen
 
+## Kanonische Motion Engine
+
+Für neue Animationsimplementierungen zuerst `docs/YOUTUBE-LIGHT-MOTION-V3-ENGINE.md` und `src/youtube-motion/light-v3/` verwenden. Der alte Beispielcode ist nur Legacy/Referenz. Die V3-Bibliothek trennt Daten und Motion-Mechaniken von Charts, Tabellen, Icons und Flows.
+
+Vor Freigabe `npm run qa:youtube-light-motion-v3` ausführen und die Kontaktbögen bei 10/35/65/90 Prozent visuell prüfen. Render-Erfolg ersetzt keine visuelle Qualitätsprüfung.
+
 ## Technik
 
 Bevorzugt:
