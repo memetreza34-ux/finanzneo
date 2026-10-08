@@ -19,7 +19,7 @@ src/youtube-motion/light-v3/
   core.ts             frame math, stable ranking, arcs, path sampling, Bézier movement
   charts.tsx          data-driven table and bar reflow, donut build, continuous trend
   systems.tsx         moving cashflow tokens, value heatmap, waffle, delta comparison
-  LightMotionV3.tsx   isolated example scenes, showcase composition, visual QA sheet
+  LightMotionV3.tsx   isolated example scenes and the full video composition
   index.ts            optional API import
 ```
 
@@ -27,7 +27,6 @@ Composition IDs:
 
 ```text
 YouTubeLightMotionV3       complete 8-scene motion lab
-YouTubeLightMotionV3QA     4-frame 2-column contact sheet (each of 8 scenes)
 RankRaceV3
 DonutBuildV3
 TrendTraceV3
@@ -90,7 +89,7 @@ out/youtube-light-motion-v3/qa/contact-90.png
 out/youtube-light-motion-v3/qa/manifest.json
 ```
 
-Each contact sheet tiles the **same exact frame** of all 8 standalone compositions.
+Each contact sheet tiles eight scenes sampled **from the already rendered MP4** at 10/35/65/90%. Individual source frames are saved as `qa/frame-01.png` through `qa/frame-32.png`. The script fails if contact sheets are byte-identical.
 
 The QA script checks that files were rendered and have nontrivial size. It does **not** claim aesthetic approval, detect every collision or infer human readability. Review all contact sheets and the full motion video at 100% and 50% display scale.
 
