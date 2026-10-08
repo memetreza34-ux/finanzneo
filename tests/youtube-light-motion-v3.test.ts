@@ -75,5 +75,8 @@ test('V3 scenes stay light and QA captures four points',()=>{
   }
   assert.ok(scenes.includes('MOTION_V3_SCENE_FRAMES = 165'));
   assert.ok(qa.includes('[10,35,65,90]'));
-  assert.ok(qa.includes('statSync(path).size<1000'));
+  assert.ok(qa.includes('statSync(p).size<1000'));
+  assert.ok(qa.includes('sourceVideo:movie'));
+  assert.ok(qa.includes('byte-identical'));
+  assert.ok(qa.includes('sourceFrameIndices:frames'));
 });
