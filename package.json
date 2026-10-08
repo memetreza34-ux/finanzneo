@@ -68,7 +68,8 @@
     "render:editorial-motion-examples": "node scripts/render-editorial-motion-examples.mjs",
     "render:editorial-motion-v2": "node scripts/render-editorial-motion-v2.mjs",
     "render:editorial-motion-v3": "node scripts/render-editorial-motion-v3.mjs",
-    "reel:animation:editorial:v1": "node scripts/apply-editorial-motion-v1.mjs"
+    "reel:animation:editorial:v1": "node scripts/apply-editorial-motion-v1.mjs",
+    "render:youtube-motion-examples": "node scripts/render-youtube-motion-examples.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "^8.18.0",
