@@ -73,6 +73,10 @@ import {
   OPEN_MOTION_SHOWCASE_FRAMES,
 } from '../youtube-motion/showcase/OpenMotionShowcase';
 import {
+  LightMotionShowcaseV2,
+  LIGHT_MOTION_SHOWCASE_FRAMES,
+} from '../youtube-motion/showcase-v2/LightMotionShowcaseV2';
+import {
   FinanceImageSceneTest,
   FINANCE_IMAGE_SCENE_TEST_FRAMES,
 } from '../reels-test/FinanceImageSceneTest';
@@ -171,6 +175,7 @@ export const ExperimentCompositions: React.FC = () => (
     <Composition id="YouTubeMotionETFNetwork" component={YouTubeMotionETFNetwork} durationInFrames={YOUTUBE_MOTION_EXAMPLE_FRAMES} fps={FPS} {...WIDE} />
     <Composition id="YouTubeMotionSubscriptions" component={YouTubeMotionSubscriptions} durationInFrames={YOUTUBE_MOTION_EXAMPLE_FRAMES} fps={FPS} {...WIDE} />
     <Composition id="YouTubeOpenMotionShowcase" component={OpenMotionShowcase} durationInFrames={OPEN_MOTION_SHOWCASE_FRAMES} fps={FPS} {...WIDE} />
+    <Composition id="YouTubeLightMotionShowcaseV2" component={LightMotionShowcaseV2} durationInFrames={LIGHT_MOTION_SHOWCASE_FRAMES} fps={FPS} {...WIDE} />
 
     <Composition
       id="ReelsTestFinanceHeaderCaptionMotion"
