@@ -102,8 +102,6 @@ import {
   MOTION_V3_SCENE_FRAMES,
   YouTubeLightMotionV3,
   YOUTUBE_LIGHT_MOTION_V3_FRAMES,
-  YouTubeLightMotionV3QA,
-  YOUTUBE_LIGHT_MOTION_V3_QA_FRAMES,
 } from '../youtube-motion/light-v3/LightMotionV3';
 import {FORMAT} from '../brand/tokens';
 
@@ -185,7 +183,6 @@ export const ExperimentCompositions: React.FC = () => (
     <Composition id="YouTubeOpenMotionShowcase" component={OpenMotionShowcase} durationInFrames={OPEN_MOTION_SHOWCASE_FRAMES} fps={FPS} {...WIDE} />
     <Composition id="YouTubeLightMotionShowcaseV2" component={LightMotionShowcaseV2} durationInFrames={LIGHT_MOTION_SHOWCASE_FRAMES} fps={FPS} {...WIDE} />
     <Composition id="YouTubeLightMotionV3" component={YouTubeLightMotionV3} durationInFrames={YOUTUBE_LIGHT_MOTION_V3_FRAMES} fps={FPS} {...WIDE} />
-    <Composition id="YouTubeLightMotionV3QA" component={YouTubeLightMotionV3QA} durationInFrames={YOUTUBE_LIGHT_MOTION_V3_QA_FRAMES} fps={FPS} width={1920} height={2160} />
     {MOTION_V3_SCENES.map((scene) => (
       <Composition key={scene.id} id={scene.id} component={scene.component} durationInFrames={MOTION_V3_SCENE_FRAMES} fps={FPS} {...WIDE}/>
     ))}
