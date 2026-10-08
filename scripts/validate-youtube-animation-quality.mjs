@@ -47,7 +47,8 @@ if (index?.motionStandard?.visualMotionWorld !== YOUTUBE_EDITORIAL_MOTION_WORLD_
 if (index?.motionStandard?.visualTargetWorld !== YOUTUBE_EDITORIAL_VISUAL_TARGET_ID) {
   errors.push(`motionStandard.visualTargetWorld muss ${YOUTUBE_EDITORIAL_VISUAL_TARGET_ID} sein.`);
 }
-if (index?.motionStandard?.minimumMotionPreferred !== true) errors.push('motionStandard.minimumMotionPreferred muss true sein.');
+if (index?.motionStandard?.minimumMotionPreferred !== false) errors.push('motionStandard.minimumMotionPreferred muss false sein; Motion-Dichte wird pro Szene gewählt.');
+if (index?.motionStandard?.motionDensityStoryDriven !== true) errors.push('motionStandard.motionDensityStoryDriven muss true sein.');
 if (index?.motionStandard?.cameraStillDefault !== false) errors.push('motionStandard.cameraStillDefault muss false sein; Kamera wird story-driven gewählt.');
 if (index?.motionStandard?.cameraStoryDriven !== true) errors.push('motionStandard.cameraStoryDriven muss true sein.');
 if (index?.motionStandard?.staticImageStyleCopyRequired !== false) errors.push('motionStandard.staticImageStyleCopyRequired muss false sein.');
