@@ -1,262 +1,208 @@
 # FinanzNeo YouTube Motion V3
 
-`MOTION_STANDARD: finanzneo-youtube-motion-v3`
+MOTION_STANDARD: finanzneo-youtube-motion-v3
+MOTION_WORLD: finanzneo-youtube-open-motion-v1
 
-`MOTION_WORLD: finanzneo-youtube-explain-motion-v1`
+Dieser Standard gilt für YouTube-Longform-Motion in 16:9.
 
-Dieser Standard gilt nur für YouTube-Longform-Motion. Bildwelt, Header, Untertitel und Publishing werden hier nicht gestaltet.
+Die zentrale Regel lautet:
 
-## Ziel
+> Es gibt **keine feste Animationswelt**. Für jede Szene wird die beste visuelle Welt neu gewählt.
 
-YouTube-Animationen bekommen eine **eigene Motion-Welt für 16:9**. Sie muss zur FinanzNeo-Marke passen, darf aber deutlich dynamischer und eigenständiger sein als die statische Flow-Bildwelt.
+Kanonische Detailregel:
 
-Die Motion-Welt priorisiert:
-- direkte 1920 × 1080 / 16:9-Komposition
-- starke visuelle Metaphern
-- breite räumliche Inszenierung
-- fortlaufende Szenenentwicklung
-- 2D / 2.5D als Basis
-- selektives 3D, Perspektive und Parallax wenn sinnvoll
-- Kamera-Bewegung, wenn sie Information enthüllt
-- große Objekte statt Karten-UI
-- integrierte Zahlen statt aufgesetzte Labels
-- klare Payoffs
+```text
+docs/FINANZNEO-YOUTUBE-MOTION-WORLD-V1.md
+```
+
+## Fest bleibt nur
+
+- 1920 × 1080
+- 16:9
+- deterministische Remotion-Animation
+- klare inhaltliche Erklärung
+- saubere technische Ausführung
+- hochwertige visuelle Qualität
+
+## Nicht festgelegt
+
+Nicht festgelegt sind:
+
+- Hintergrund
+- Palette
+- 2D / 2.5D / 3D
+- Kamera
+- Illustrationsstil
+- Metapher
+- Chart / Vergleich / Objektwelt
+- hell / dunkel
+- statische Bildwelt
+- vorherige Animationswelt
+
+Jede Szene darf eine komplett andere Art-Direction haben.
+
+## Erlaubte Richtungen
+
+Alles ist erlaubt, wenn es für den Sprechpunkt gut funktioniert:
+
+- minimaler Zahlenvergleich
+- Before / After
+- Chart
+- Timeline
+- Dokument
+- Split-Screen
+- Editorial Illustration
+- geometrische Abstraktion
+- dunkle technische Welt
+- helle minimalistische Welt
+- Full 3D
+- 2.5D
+- physische Metapher
+- Simulation
+- Netzwerk
+- Map
+- Kamera-Reise
+- kinetic typography
+- Bild + Remotion
+- komplett eigene Custom-Welt
+
+Keine dieser Richtungen ist Standard oder Pflicht.
 
 ## Core rule
 
 ```text
 SCRIPT BEAT
 → VIEWER CHANGE
-→ SIMPLEST CLEAR MOTION
-→ RESULT
+→ 3 VERSCHIEDENE KONZEPTE / ART-DIRECTIONS
+→ BESTE IDEE WÄHLEN
+→ KEYFRAMES PLANEN
+→ REMOTION BAUEN
+→ PAYOFF
 ```
 
-Die Motion-Komplexität richtet sich nach dem Inhalt, nicht nach dem Wunsch nach mehr Effekten.
+## Drei Konzepte
 
-Eine einzige starke sichtbare Veränderung kann vollständig reichen.
+Vor dem Coding müssen drei wirklich unterschiedliche Ansätze entstehen.
 
-## Viewer-change-first
+Beispiel "Gebühren":
 
-`viewerChange` beantwortet:
+A — einfacher Vergleich:
+zwei Linien wachsen, eine endet sichtbar niedriger.
 
-> Was soll der Zuschauer tatsächlich sehen, das sich verändert, enthüllt, vergleicht, aufbaut, zerlegt oder bewegt?
+B — physische Metapher:
+ein Tank füllt sich, während Gebühren unten herauslaufen.
 
-Erst danach wird die Technik gewählt.
+C — dunkle 3D-Welt:
+Kapitalblöcke bewegen sich durch ein System und Gebühren werden herausgezogen.
 
-## Visualtypen
+Alle drei sind valide.
 
-- `image`: statisches 16:9-Flow-Bild
-- `animation`: native Remotion-Motion
-- `hybrid`: Flow-Bild + bedeutungsvolle Remotion-Veränderung
-- `data`: verifizierte Daten-/Chart-/Modellanimation
+Gewählt wird die stärkste Lösung — nicht die, die am ähnlichsten zur Bildwelt aussieht.
 
-Es gibt keine feste Bild-/Animationsquote.
+## Keyframe QA
 
-## Editorial Motion style
+Pflicht:
 
-Default:
-- 16:9 wide staging
-- one strong hero idea
-- evolving scene instead of repeated screen resets
-- 2D / 2.5D first
-- depth, crop and overlap allowed
-- camera may move when it supports the story
-- meaningful visual progression every 1–2 seconds when the spoken idea advances
-- text remains secondary
+- 10 % START
+- 35 % MECHANISMUS
+- 65 % KONSEQUENZ
+- 90 % PAYOFF
 
-Nicht als Standard verwenden:
+Bewertet werden:
 
-- `PremiumPhysicalStage`
-- `Physical*`-Primitives
-- schwarze Glossy-3D-Welt
-- Goldmünzen/Podeste als generische Finanzsprache
-- Neon / Glow / Hologramm
-- futuristische Dashboards
-- Partikel-/Aurora-/Grid-Hintergründe
-- permanente Kamerafahrten
-- dekorative Bounce-/Spin-Bewegung
+- Verständlichkeit
+- Komposition
+- visuelle Entwicklung
+- Timing
+- professioneller Eindruck
+- Stärke des Ergebnisses
 
-## Offene Technik
-
-Erlaubt, wenn sinnvoll:
-
-- Custom React / DOM
-- SVG / Paths / Shapes
-- masks / clip-path
-- Canvas
-- data visualization
-- document motion
-- timelines
-- comparisons
-- simple simulations
-- image compositing / 2.5D
-- Lottie als Support
-- Three.js / R3F nur bei echtem räumlichem Nutzen
-- neue Kombinationen, wenn sie den Beat besser erklären
-
-Werkzeuge folgen dem Inhalt.
-
-## Motion channels
-
-Es gibt **keine Pflicht für mehrere Motion-Channels**.
-
-Mindestens eine sichtbare erklärende Veränderung ist nötig.
-
-Beispiele:
-
-- ein Balken wächst
-- eine Linie wird sichtbar
-- eine Zahl verändert sich
-- ein Dokument erhält eine neue Kostenzeile
-- ein Vergleich wechselt Zustand
-- eine Timeline verlängert sich
-- ein Portfolio verschiebt Gewichte
-
-Mehrere Motion-Channels sind erlaubt, wenn jeder davon zusätzliche Information trägt.
-
-## Visual beats
-
-Mindestens:
-
-```text
-START
-→ RESULT
-```
-
-Bei komplexeren Szenen:
-
-```text
-START
-→ MECHANISM
-→ RESULT
-```
-
-Camera drift oder Background motion zählt nicht als neuer Beat.
+Nicht bewertet wird, ob die Szene wie Flow oder eine frühere Animation aussieht.
 
 ## Kamera
 
-Default:
+Es gibt keinen Kamera-Default.
 
-```text
-motionSignature.camera = still | push | follow | reframe | zoom-out
-```
+Erlaubt:
 
-Push, follow oder reframe nur wenn es die Erklärung verbessert.
+- still
+- push
+- pull
+- pan
+- follow
+- orbit
+- track
+- reframe
+- zoom
+- macro-to-micro
 
-## Composition families
+Kamera wird nur nach Story-Nutzen bewertet.
 
-`compositionFamilyId` bleibt frei beschreibbar.
+## Technik
 
-Beispiele:
+Offen:
 
-- `vector-motion`
-- `data-viz`
-- `timeline`
-- `document-motion`
-- `comparison`
-- `image-composite`
-- `simple-simulation`
-- `map-journey`
-- `selective-2.5d`
-- `custom`
+- React / DOM
+- SVG
+- Canvas
+- @remotion/paths
+- @remotion/shapes
+- @remotion/transitions
+- @remotion/layout-utils
+- @remotion/effects
+- @remotion/motion-blur
+- Lottie
+- Three.js / R3F
+- Recharts
+- Bildkomposition
+- Custom-Techniken
 
-3D-Familien sind erlaubt, aber nicht Default.
+Auch neue Libraries sind erlaubt, wenn sie eine echte Lücke schließen.
 
-## Required metadata
+## Einfach und komplex sind beide erlaubt
 
-Jedes Motion-Visual definiert:
+Ein simpler Vergleich kann 10/10 sein.
 
-```text
-viewerChange
-animationIntent
-mechanicId
-visualTechniqueId
-techniqueDescription
-compositionFamilyId
-toolStack[]
-motionSignature.camera
-motionSignature.layout
-motionSignature.transformation
-motionChannels[]
-visualBeats[]
-animationSourceFile
-animationExport
-```
+Eine aufwendige 3D-Szene kann ebenfalls 10/10 sein.
 
-`motionChannels` braucht mindestens **eine** sinnvolle erklärende Bewegung.
+Komplexität ist kein Qualitätsmerkmal.
 
-`visualBeats` braucht mindestens zwei Zustände.
-
-## Variety
-
-Variation ist semantisch, nicht kosmetisch.
-
-Nicht künstlich neue Animationen erfinden, wenn dieselbe Mechanik für einen direkten Vergleich absichtlich gleich bleiben sollte.
-
-Wiederholung ist erlaubt, wenn `repeatTechniqueReason` erklärt, warum die Konsistenz dem Verständnis dient.
-
-## Hybrid visuals
-
-`hybrid` nur wenn ein Flow-Bild eine starke statische Basis liefert und Remotion echte Information ergänzt.
-
-Gut:
-
-- Wert ändert sich
-- Objekt wird gezielt markiert
-- Dokument wird annotiert
-- Vorher/Nachher wird sichtbar
-- einfache Maske enthüllt relevanten Bereich
-
-Nicht:
-
-- Parallax nur damit sich etwas bewegt
-- Glow/Zoom als künstliche Dynamik
-
-## Data visuals
-
-Charts, Achsen, Tabellen, Counter und Modellvisualisierungen dürfen flach und editorial sein.
-
-Keine erfundenen Werte für visuelle Dramatik.
+Die Qualität hängt davon ab, wie gut der visuelle Mechanismus zum Inhalt passt.
 
 ## Source requirements
 
-Jede Phase-1-`animation.tsx` muss:
+Produktive animation.tsx:
 
-- `useCurrentFrame()` verwenden
-- `interpolate()` und/oder `spring()` verwenden
-- `MECHANIC_ID`, `VISUAL_TECHNIQUE_ID`, `COMPOSITION_FAMILY_ID` exportieren
-- `ANIMATION_NARRATIVE` mit START und RESULT enthalten
-- deterministisch sein
-- keine Platzhalter/TODOs enthalten
-- keine Runtime-Fetches, Timer, CSS animation/transition oder `Math.random` enthalten
-- keine alten `PremiumPhysicalStage`-/`Physical*`-Primitives für neue Editorial Motion verwenden
+- nutzt useCurrentFrame()
+- nutzt interpolate() und/oder spring()
+- ist deterministisch
+- enthält keine Platzhalter
+- hat keinen Runtime-Fetch
+- nutzt keine Timer/CSS-Animation als Render-Mechanik
+- exportiert die vereinbarten Motion-Metadaten
+- hat START und RESULT
 
-## Phase-1 seal
+## Was wirklich verboten ist
 
-Vor Phase 2:
+Nur echte Qualitätsprobleme:
 
-```bash
-npm run youtube:animation:validate -- youtube/<Projekt>
-npm run youtube:phase1:seal -- youtube/<Projekt>
-```
+- unlesbar
+- irreführend
+- faktisch falsch
+- kaputt
+- schlechte Hierarchie
+- schlechtes Timing
+- sinnlose Bewegung
+- offensichtlicher Placeholder
+- zufällige Überschneidungen
+- visuelles Chaos, das die Erklärung zerstört
 
-Phase 3 darf die versiegelte Mechanik nicht kreativ ersetzen.
+Eine komplette Stilfamilie wird **nicht** im Voraus verboten.
 
-## Quality target
+## Final rule
 
-Die letzte Frage für jede Szene:
+> There is no required animation style. There is only a required quality level.
 
-> Ist diese Bewegung die einfachste gute Möglichkeit, genau diesen Satz sichtbar zu machen?
+Und:
 
-Wenn weniger Motion genauso verständlich wäre, wird reduziert.
-
-
-## Canonical motion world
-
-```text
-docs/FINANZNEO-YOUTUBE-MOTION-WORLD-V1.md
-```
-
-This document is the authority for the visual identity of new YouTube motion scenes.
-
-The static Editorial Finance image world is no longer a visual cage for motion. It remains a brand reference only.
+> Jede Szene darf ihre eigene visuelle Welt bekommen.
