@@ -81,33 +81,23 @@ docs/FINANZNEO-YOUTUBE-MOTION-WORLD-V1.md
 
 `MOTION_STANDARD: finanzneo-youtube-motion-v3`
 
-`MOTION_WORLD: finanzneo-youtube-open-motion-v1`
+`MOTION_WORLD: finanzneo-youtube-light-motion-v2`
 
 ### Grundregel
 
-YouTube-Animationen haben **keine feste Art-Direction**.
+YouTube-Animationen folgen einer hellen, sauberen 2D-Richtung.
 
-Fest bleibt nur:
+Fest:
 - 1920 × 1080 / 16:9
-- produktionsreife Remotion-Ausführung
-- klare Erklärung
-- hohe visuelle Qualität
+- heller Hintergrund
+- 2D / flache Grafik / Editorial
+- kein Full-3D und keine pseudo-3D-Blöcke
+- keine dunklen oder schwarzen Szenen
+- keine großen generischen Szenenüberschriften
 
-Pro Szene darf frei gewählt werden:
-- hell oder dunkel
-- 2D / 2.5D / Full 3D
-- Vergleich / Chart / Timeline / Dokument / Objektmetapher / abstrakte Welt
-- statische oder bewegte Kamera
-- komplett andere Palette oder Umgebung
-- bestehende Komponenten oder komplett eigener Aufbau
+Unterschiedliche Designs bleiben ausdrücklich erlaubt: Vergleiche, Charts, Tabellen, Icons, Dokumente, Timelines, Prozesse, Flow-Diagramme, Karten, abstrakte 2D-Geometrie und andere helle Custom-Designs.
 
-Die statische Flow-Bildwelt ist **nur optionale Inspiration**. Auch eine komplett andere Animationswelt ist erlaubt, wenn sie besser funktioniert.
-
-Ein einfacher Vergleich kann genauso richtig sein wie eine aufwendige 3D-Szene.
-
-Custom React, SVG, Canvas, Paths/Shapes, Datenvisualisierung, Dokument-Motion, Timelines, Vergleiche, Lottie, Three.js/R3F und neue sinnvolle Kombinationen sind gleichberechtigte Werkzeuge.
-
-Keine Stilfamilie wird pauschal verboten. Ablehnung erfolgt nur bei echten Qualitäts- oder Verständlichkeitsproblemen.
+Text in der Animation ist nur inhaltsbezogen: Werte, Kategorien, Prozentwerte, Tabellenköpfe und kurze Callouts.
 
 Jedes Motion-Visual braucht:
 
