@@ -56,7 +56,7 @@ if (index?.motionStandard?.youtubeNativeCompositionRequired !== true) errors.pus
 if (index?.motionStandard?.conceptCandidatesRequired !== 3) errors.push('motionStandard.conceptCandidatesRequired muss 3 sein.');
 if (index?.motionStandard?.keyframeQaRequired !== true) errors.push('motionStandard.keyframeQaRequired muss true sein.');
 if (JSON.stringify(index?.motionStandard?.keyframeQaPercentages) !== JSON.stringify([10,35,65,90])) errors.push('motionStandard.keyframeQaPercentages muss 10/35/65/90 sein.');
-if (index?.motionStandard?.fixed3DStyleForbidden !== true) errors.push('motionStandard.fixed3DStyleForbidden muss true sein; damit ist nur ein erzwungener 3D-Stil verboten, nicht 3D selbst.');
+if (index?.motionStandard?.fixed3DStyleForbidden !== true) errors.push('motionStandard.fixed3DStyleForbidden muss true sein; YouTube Light Motion nutzt keine 3D-Szene.');
 if (index?.motionStandard?.fixedArtDirectionForbidden !== false) errors.push('motionStandard.fixedArtDirectionForbidden muss false sein.');
 if (index?.motionStandard?.darkBackgroundAllowed !== false) errors.push('motionStandard.darkBackgroundAllowed muss false sein.');
 if (index?.motionStandard?.blackBackgroundAllowed !== false) errors.push('motionStandard.blackBackgroundAllowed muss false sein.');
@@ -127,4 +127,4 @@ if (errors.length) {
 }
 
 console.log('\n✓ YouTube Motion V3 erfüllt.');
-console.log('  Open Motion · 16:9 · freie Art-Direction pro Szene · Viewer-change-first · deterministisch.');
+console.log('  Light Motion V3 · helles 2D · 16:9 · Viewer-change-first · deterministisch.');
