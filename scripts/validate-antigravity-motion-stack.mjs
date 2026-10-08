@@ -77,7 +77,7 @@ if (!errors.length) {
   if (!/loop\s*=\s*false/.test(lottie)) fail('LottieBox muss standardmäßig deterministisch ohne Endlos-Loop laufen (loop=false).');
 
   const director = read('.agents/plugins/finanzneo-motion/skills/remotion-director/SKILL.md');
-  for (const marker of ['START', 'TRIGGER', 'PHYSICAL ACTION', 'RESULT HOLD', 'useCurrentFrame()', 'Lottie', 'Sound']) {
+  for (const marker of ['EDITORIAL MOTION', 'START', 'MEANINGFUL CHANGE', 'RESULT HOLD', 'useCurrentFrame()', 'Minimum motion', 'Lottie']) {
     if (!director.includes(marker)) fail(`remotion-director Skill fehlt Pflichtmarker: ${marker}`);
   }
 
@@ -138,7 +138,7 @@ if (errors.length) {
 }
 
 console.log('\n✓ Antigravity FinanzNeo Motion Stack vollständig.');
-console.log('✓ Lottie Creator MCP + Remotion Director + Sound Design + Playwright Visual QA Skills/Rules vorhanden.');
+console.log('✓ Lottie Creator MCP + Editorial Remotion Director + Sound Design + Playwright Visual QA Skills/Rules vorhanden.');
 console.log('✓ Antigravity PreInvocation-Bootstrap für offizielle Remotion Skills und ElevenLabs sound-effects konfiguriert.');
 console.log('✓ Playwright CLI ist der definierte token-effiziente Visual-QA-Weg für Remotion Studio.');
 console.log('✓ Lottie rendert standardmäßig ohne Endlos-Loop.');

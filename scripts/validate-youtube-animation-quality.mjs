@@ -6,6 +6,8 @@ import {
   validateYouTubeMotionMetadata,
   validateYouTubeMotionVariety,
   YOUTUBE_MOTION_STANDARD_ID,
+  YOUTUBE_EDITORIAL_MOTION_WORLD_ID,
+  YOUTUBE_EDITORIAL_VISUAL_TARGET_ID,
 } from './lib/youtube-motion-contract.mjs';
 
 const [target] = process.argv.slice(2);
@@ -39,9 +41,37 @@ const errors = [];
 if (index?.motionStandard?.id !== YOUTUBE_MOTION_STANDARD_ID) {
   errors.push(`motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
 }
+if (index?.motionStandard?.visualMotionWorld !== YOUTUBE_EDITORIAL_MOTION_WORLD_ID) {
+  errors.push(`motionStandard.visualMotionWorld muss ${YOUTUBE_EDITORIAL_MOTION_WORLD_ID} sein.`);
+}
+if (index?.motionStandard?.visualTargetWorld !== YOUTUBE_EDITORIAL_VISUAL_TARGET_ID) {
+  errors.push(`motionStandard.visualTargetWorld muss ${YOUTUBE_EDITORIAL_VISUAL_TARGET_ID} sein.`);
+}
+if (index?.motionStandard?.minimumMotionPreferred !== false) errors.push('motionStandard.minimumMotionPreferred muss false sein; Motion-Dichte wird pro Szene gewählt.');
+if (index?.motionStandard?.motionDensityStoryDriven !== true) errors.push('motionStandard.motionDensityStoryDriven muss true sein.');
+if (index?.motionStandard?.cameraStillDefault !== true) errors.push('motionStandard.cameraStillDefault muss true sein.');
+if (index?.motionStandard?.cameraStoryDriven !== false) errors.push('motionStandard.cameraStoryDriven muss false sein.');
+if (index?.motionStandard?.staticImageStyleCopyRequired !== false) errors.push('motionStandard.staticImageStyleCopyRequired muss false sein.');
+if (index?.motionStandard?.youtubeNativeCompositionRequired !== true) errors.push('motionStandard.youtubeNativeCompositionRequired muss true sein.');
+if (index?.motionStandard?.conceptCandidatesRequired !== 3) errors.push('motionStandard.conceptCandidatesRequired muss 3 sein.');
+if (index?.motionStandard?.keyframeQaRequired !== true) errors.push('motionStandard.keyframeQaRequired muss true sein.');
+if (JSON.stringify(index?.motionStandard?.keyframeQaPercentages) !== JSON.stringify([10,35,65,90])) errors.push('motionStandard.keyframeQaPercentages muss 10/35/65/90 sein.');
+if (index?.motionStandard?.fixed3DStyleForbidden !== true) errors.push('motionStandard.fixed3DStyleForbidden muss true sein; YouTube Light Motion nutzt keine 3D-Szene.');
+if (index?.motionStandard?.fixedArtDirectionForbidden !== false) errors.push('motionStandard.fixedArtDirectionForbidden muss false sein.');
+if (index?.motionStandard?.darkBackgroundAllowed !== false) errors.push('motionStandard.darkBackgroundAllowed muss false sein.');
+if (index?.motionStandard?.blackBackgroundAllowed !== false) errors.push('motionStandard.blackBackgroundAllowed muss false sein.');
+if (index?.motionStandard?.full3DAllowed !== false) errors.push('motionStandard.full3DAllowed muss false sein.');
+if (index?.motionStandard?.simpleComparisonAllowed !== true) errors.push('motionStandard.simpleComparisonAllowed muss true sein.');
+if (index?.motionStandard?.chartAllowed !== true) errors.push('motionStandard.chartAllowed muss true sein.');
+if (index?.motionStandard?.sceneArtDirectionOpen !== false) errors.push('motionStandard.sceneArtDirectionOpen muss false sein.');
+if (index?.motionStandard?.mixedStyleAcrossScenesAllowed !== true) errors.push('motionStandard.mixedStyleAcrossScenesAllowed muss true sein.');
+if (index?.motionStandard?.brandStyleMatchRequired !== false) errors.push('motionStandard.brandStyleMatchRequired muss false sein.');
+if (index?.motionStandard?.lightBackgroundRequired !== true) errors.push('motionStandard.lightBackgroundRequired muss true sein.');
+if (index?.motionStandard?.flat2DPreferred !== true) errors.push('motionStandard.flat2DPreferred muss true sein.');
+if (index?.motionStandard?.genericSceneHeadlinesForbidden !== true) errors.push('motionStandard.genericSceneHeadlinesForbidden muss true sein.');
 const visuals = Array.isArray(index?.visuals) ? index.visuals : [];
 for (const visual of visuals) errors.push(...validateYouTubeMotionMetadata(visual));
-errors.push(...validateYouTubeMotionVariety(visuals));
+const varietyNotes = validateYouTubeMotionVariety(visuals);
 
 const forbiddenSourcePatterns = [
   [/\bMath\.random\s*\(/, 'Math.random ist in produktiver Motion verboten.'],
@@ -85,6 +115,11 @@ for (const visual of visuals.filter(requiresYouTubeMotion)) {
   if (!visual.animationExport || !exportPattern.test(source)) errors.push(`${id}: Export ${visual.animationExport ?? '(fehlt)'} wurde nicht gefunden.`);
 }
 
+if (varietyNotes.length) {
+  console.warn('\nYouTube Motion Variety Hinweise (nicht blockierend):');
+  varietyNotes.forEach((note) => console.warn(`- ${note}`));
+}
+
 if (errors.length) {
   console.error('\nYouTube Motion V3 verletzt:\n');
   errors.forEach((error) => console.error(`- ${error}`));
@@ -92,4 +127,4 @@ if (errors.length) {
 }
 
 console.log('\n✓ YouTube Motion V3 erfüllt.');
-console.log('  Viewer-change-first · offene Technik · deterministisch · echte Variety statt umbenannter Wiederholung.');
+console.log('  Light Motion V3 · helles 2D · 16:9 · Viewer-change-first · deterministisch.');

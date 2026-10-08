@@ -66,20 +66,68 @@ const visualFileName = (index) => `YouTube Bild ${numberOf(index)} - [KURZER NAM
 const thumbnailFileName = 'YouTube Thumbnail - [KURZER NAME].png';
 const exportNameFor = (index) => `YouTubeVisual${numberOf(index)}Animation`;
 
-const styleBlock = `${WORLD_ID_MARKER}\n${SERIES_LOCK_MARKER}\n${GENERATED_IMAGE_ASPECT_MARKER}\nIMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1\n\nLiteral first, creative second. Show the concrete real-world financial situation described by the script beat before considering any metaphor. The viewer should understand the approximate situation without a subtitle. Show cause/effect in the same frame when possible. A metaphor is optional and must only be used when it communicates the beat more clearly than the literal situation. Avoid generic finance-symbol collections.\n\nPremium clearly stylized 3D FinanzNeo world, never photorealistic: believable everyday objects, semi-realistic material cues, large readable hero objects, deep seamless black as the dominant world, only as much local real-world context as the explanation needs. Emerald green for positive/solution/value when semantically correct, warm red-orange for cost/risk/loss, warm ivory and soft gray for neutral objects, subtle gold only for money/value. Clean soft studio lighting, readable contact shadows, controlled highlights and strong subject separation. Do not reuse green folders, coin stacks, glowing money ribbons, piggy banks, plants or arrows as recurring defaults. Use only explicitly requested short German object labels near their objects. No headline, subtitle, explanatory sentence, random text, photorealism, dashboard, app screen, floating info cards, flowchart, tiny diorama, generic finance icon kit or unrelated decorative props.\n\nUse ONE single seamless deep-black world across the horizontal 16:9 image. Local context may dissolve into black when it improves credibility. Compose for a wide YouTube frame with important objects large enough for mobile, laptop and TV playback. Horizontal 16:9 source image; width approximately 1.7778 times height.\n`;
+const styleBlock = `${WORLD_ID_MARKER}
+${SERIES_LOCK_MARKER}
+${GENERATED_IMAGE_ASPECT_MARKER}
 
-const flowStep = (fileName, referenceText) => `${FLOW_AGENT_PROTOCOL_MARKER}\nCURRENT SINGLE STEP — DO NOT JUMP AHEAD\n\nFINAL FILE NAME:\n${fileName}\n\nGenerate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. ${referenceText} If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.\n`;
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE:
+Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+
+BACKGROUND:
+Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
+
+VISUAL FREEDOM:
+Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+
+TEXT:
+No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful.
+
+FORMAT:
+Horizontal 16:9 source image.
+`;
+
+const flowStep = (fileName) => `${FLOW_AGENT_PROTOCOL_MARKER}
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+
+FINAL FILE NAME:
+${fileName}
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world and uses horizontal 16:9. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+`;
 
 const promptFor = (index) => {
   const name = visualFileName(index);
-  return `${flowStep(name, 'Use the approved FinanzNeo YouTube visual world, but never copy another scene subject, composition or labels.')}\nLITERAL_REAL_WORLD_SITUATION: [DESCRIBE THE EXACT REAL SITUATION]\nREAL_WORLD_CONTEXT_ANCHOR: [BANK / HOME / SHOP / CONTRACT / MARKET / OTHER CONCRETE CONTEXT]\nVOICEOVER_VISUAL_MATCH: [EXPLAIN HOW THIS FRAME DIRECTLY SHOWS THE SCRIPT BEAT]\nTRANSFERABILITY_TEST: [PASS — EXPLAIN WHY THIS IMAGE WOULD NOT FIT FIVE OTHER FINANCE TOPICS]\nVISUAL_STRATEGY: [literal OR metaphor]\nMETAPHOR_JUSTIFICATION: [NONE IF LITERAL; OTHERWISE WHY METAPHOR IS CLEARER]\n\nIMAGE PROMPT:\nShow [THE EXACT CONCRETE SITUATION AND CAUSE/EFFECT]. Include only these short German object labels if needed: [LABELS].\n\n${styleBlock}`;
+  return `${flowStep(name)}
+REFERENCE_IMAGE:
+[NONE OR EXACT APPROVED FILE FROM visual-XX]
+
+IMAGE PROMPT:
+[WRITE THE COMPLETE ENGLISH PROMPT FOR THIS EXACT STATIC VISUAL. DESCRIBE THE VISUAL ITSELF FIRST. IF THIS IS A PROGRESSIVE CONTINUATION, REPEAT THE FULL COMPOSITION AND ADD ONLY THE ONE PLANNED CHANGE.]
+
+${styleBlock}`;
 };
 
-const thumbnailPrompt = `${flowStep(thumbnailFileName, 'Use the approved FinanzNeo YouTube visual world. The thumbnail is not a mandatory subject template for following scenes.')}\nTHUMBNAIL PROMPT:\nCreate a high-impact 16:9 YouTube thumbnail that communicates [CORE PROMISE OR TENSION] with one instantly understandable concrete situation. Prefer a literal financial context over an abstract metaphor. Use a clear focal point, strong foreground-background separation and generous space for optional typography that will be added later in Remotion. Do not generate headline text inside the image.\n\n${styleBlock}`;
+const thumbnailPrompt = `${flowStep(thumbnailFileName)}
+REFERENCE_IMAGE:
+NONE
+
+THUMBNAIL PROMPT:
+[WRITE A COMPLETE ENGLISH THUMBNAIL PROMPT WITH ONE CLEAR FOCAL IDEA. DO NOT FORCE THE NORMAL VIDEO-IMAGE COMPOSITION.]
+
+${styleBlock}`;
 
 const motionTemplate = (index, type) => {
   const exportName = exportNameFor(index);
-  return `import React from 'react';\nimport {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';\n\nexport const MECHANIC_ID = '[MECHANIC_ID]';\nexport const VISUAL_TECHNIQUE_ID = '[VISUAL_TECHNIQUE_ID]';\nexport const COMPOSITION_FAMILY_ID = '[COMPOSITION_FAMILY_ID]';\nexport const ANIMATION_NARRATIVE = {\n  START: '[START STATE]',\n  MECHANISM: '[VISIBLE CHANGE]',\n  RESULT: '[CLEAR RESULT]',\n};\n\nexport const ${exportName}: React.FC = () => {\n  const frame = useCurrentFrame();\n  const progress = interpolate(frame, [0, 30], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});\n  return (\n    <AbsoluteFill>\n      {/* PLACEHOLDER: replace in Phase 1 with production-ready ${type} motion chosen from viewerChange, not from a preset animation list. */}\n      <div style={{opacity: progress}}>[EINFÜGEN]</div>\n    </AbsoluteFill>\n  );\n};\n`;
+  return `import React from 'react';\nimport {AbsoluteFill, useCurrentFrame} from 'remotion';\n\nexport const MECHANIC_ID = '[MECHANIC_ID]';\nexport const VISUAL_TECHNIQUE_ID = '[VISUAL_TECHNIQUE_ID]';\nexport const COMPOSITION_FAMILY_ID = '[COMPOSITION_FAMILY_ID]';\nexport const ANIMATION_NARRATIVE = {\n  START: '[START STATE]',\n  MECHANISM: '[VISIBLE CHANGE]',\n  RESULT: '[CLEAR RESULT]',\n};\n\nexport const ${exportName}: React.FC = () => {\n  const frame = useCurrentFrame();\n  // No example fade: select an actual motion mechanism from the plan.\n  void frame;\n  return <AbsoluteFill style={{background:'#FAF8F2'}}>{/* TODO: Phase 1 requires a real visual mechanism and final rendering. */}</AbsoluteFill>;\n};\n`;
 };
 
 const visuals = types.map((type, index) => {
@@ -98,14 +146,22 @@ const visuals = types.map((type, index) => {
     Object.assign(base, {
       googleFlowFileName: visualFileName(index),
       expectedVisual: '[VISUAL DESCRIPTION]',
-      objectLabels: ['[LABEL]'],
+      imageSequence:{mode:'independent',referenceVisualId:null,plannedChange:null},
     });
   }
 
   if (requiresYouTubeMotion({type})) {
     const animationSourceFile = `${directory}/animation.tsx`;
     const animationExport = exportNameFor(index);
-    write(`${directory}/remotion.md`, `# Remotion-Spezifikation ${id}\n\nMOTION_STANDARD: ${YOUTUBE_MOTION_STANDARD_ID}\n\n- Kapitel: [CHAPTER]\n- Sprechtext-Bezug: [SCRIPT BEAT]\n- Viewer Change — was soll der Zuschauer tatsächlich sehen, das sich verändert/revealt/vergleicht/bewegt?: [VIEWER CHANGE]\n- Animation Intent — warum erklärt genau diese Veränderung den Punkt?: [ANIMATION INTENT]\n- Mechanik: [MECHANIC]\n- Technikbeschreibung: [TECHNIQUE DESCRIPTION]\n- Tool Stack: [TOOL STACK]\n- Composition Family: [FREE DESCRIPTIVE FAMILY; EXAMPLES ARE NOT A WHITELIST]\n- Motion Signature Camera: [CAMERA BEHAVIOR]\n- Motion Signature Layout: [SPATIAL / COMPOSITIONAL ARRANGEMENT]\n- Motion Signature Transformation: [PRIMARY VISIBLE TRANSFORMATION]\n- Startzustand: [START]\n- sichtbare Mechanik/Transformation: [TRANSFORMATION]\n- Resultat: [RESULT]\n- Motion Channels: [AT LEAST TWO MEANINGFUL CHANNELS]\n- SFX-Cues: [OPTIONAL FRAME-BOUND EVENTS]\n\nWähle die Technik erst NACH dem Viewer Change. Eine neue Technik darf frei erfunden/kombiniert werden, wenn sie den Inhalt besser erklärt. Nicht künstlich variieren; Wiederholung ist erlaubt, wenn sie wirklich die beste Erklärung ist und begründet wird.\n`);
+    write(`${directory}/remotion.md`, `# Remotion-Spezifikation ${id}\n\nMOTION_STANDARD: ${YOUTUBE_MOTION_STANDARD_ID}\n\n- Kapitel: [CHAPTER]\n- Sprechtext-Bezug: [SCRIPT BEAT]\n- Viewer Change — was soll der Zuschauer tatsächlich sehen, das sich verändert/revealt/vergleicht/bewegt?: [VIEWER CHANGE]\n- Animation Intent — warum erklärt genau diese Veränderung den Punkt?: [ANIMATION INTENT]\n- Mechanik: [MECHANIC]\n- Technikbeschreibung: [TECHNIQUE DESCRIPTION]\n- Tool Stack: [TOOL STACK]\n- Composition Family: [FREE DESCRIPTIVE FAMILY; EXAMPLES ARE NOT A WHITELIST]\n- Motion Signature Camera: [STILL | PUSH | FOLLOW | REFRAME | ZOOM-OUT — CHOOSE FOR STORY]\n- Motion Signature Layout: [SPATIAL / COMPOSITIONAL ARRANGEMENT]\n- Motion Signature Transformation: [PRIMARY VISIBLE TRANSFORMATION]\n- Startzustand: [START]\n- sichtbare Mechanik/Transformation: [TRANSFORMATION]\n- Resultat: [RESULT]\n- Concept A: [DISTINCT VISUAL CONCEPT]
+- Concept B: [DISTINCT VISUAL CONCEPT]
+- Concept C: [DISTINCT VISUAL CONCEPT]
+- Chosen Concept: [BEST CONCEPT + WHY]
+- Keyframe 10%: [START]
+- Keyframe 35%: [MECHANISM]
+- Keyframe 65%: [CONSEQUENCE]
+- Keyframe 90%: [PAYOFF]
+- Motion Channels: [AT LEAST ONE MEANINGFUL EXPLANATORY CHANGE]\n- SFX-Cues: [OPTIONAL FRAME-BOUND EVENTS]\n\nWähle die Technik erst NACH dem Viewer Change. Eine neue Technik darf frei erfunden/kombiniert werden, wenn sie den Inhalt besser erklärt. Nicht künstlich variieren; Wiederholung ist erlaubt, wenn sie wirklich die beste Erklärung ist und begründet wird.\n`);
     write(animationSourceFile, motionTemplate(index, type));
     Object.assign(base, {
       planFile: `${directory}/remotion.md`,
@@ -124,7 +180,7 @@ const visuals = types.map((type, index) => {
         transformation: '[TRANSFORMATION]',
       },
       repeatTechniqueReason: '',
-      motionChannels: ['[CHANNEL 1]', '[CHANNEL 2]'],
+      motionChannels: ['[PRIMARY CHANGE]'],
       visualBeats: ['[START]', '[RESULT]'],
     });
   } else {
@@ -157,12 +213,13 @@ write('02-script/kapitel-dramaturgie.md', '# Kapitel und Dramaturgie\n\n[HOOK, K
 write('02-script/retention-plan.md', '# Retention-Plan\n\n[OFFENE FRAGEN, PAYOFFS, PATTERN-INTERRUPTS, VISUELLE RHYTHMUSWECHSEL UND ÜBERGÄNGE EINFÜGEN]\n');
 write('03-audio/README.md', '# AUDIO HIER REIN\n\nGenau eine finale Voiceover-Datei ablegen. Danach aus genau dieser Datei echte Wort-Zeitstempel in `word-timings.json` erzeugen.\n');
 write('03-audio/word-timings.json', `${JSON.stringify({version:'finanzneo-caption-v1',language:'de',source:'',generatedAt:'',duration:0,wordCount:0,fps:YOUTUBE_VIDEO_FPS,subtitleMode:SUBTITLE_MODE,activeWordColor:ACTIVE_WORD_COLOR,words:[],sentences:[]}, null, 2)}\n`);
-write(`${IMAGE_INBOX}/README.md`, '# ALLE FERTIGEN 16:9-BILDER HIER REIN\n\nThumbnail und Video-Bilder einzeln erzeugen, sofort exakt umbenennen, prüfen und erst danach das nächste Bild starten. Keine Batches.\n');
+write(`${IMAGE_INBOX}/README.md`, '# ALLE FERTIGEN 16:9-BILDER HIER REIN\n\nThumbnail und Video-Bilder einzeln erzeugen, sofort exakt umbenennen, prüfen und erst danach das nächste Bild starten. Keine Batches. Bei progressiven Folgen das freigegebene vorherige Bild als Referenz anhängen.\n');
 write('04-visuals/bildwelt.txt', `FINANZNEO YOUTUBE IMAGE WORLD\n\n${styleBlock}`);
 write('04-visuals/thumbnail-prompt.txt', thumbnailPrompt);
-write('04-visuals/alle-bildprompts.txt', `FINANZNEO — SINGLE HANDOFF FILE FOR THE GOOGLE FLOW AI AGENT\n\n${FLOW_AGENT_PROTOCOL_MARKER}\n\nSTRICT SEQUENTIAL WORKFLOW:\n1. Read the full file once, then work from top to bottom on only the current image block.\n2. Generate exactly ONE image. Never generate a batch and never prepare the next image in parallel.\n3. Wait until the current image is fully complete.\n4. Rename it immediately to the exact final file name stated in its block.\n5. Verify literal situation, context, labels, seamless background, 16:9 format, same-world lock and file name.\n6. If anything fails, regenerate the same image number and replace the failed file. Do not move on.\n7. Continue only after the current image passes.\n8. Skip non-image blocks without closing the numbering gap.\n9. At the end, place every generated and correctly named image together in ${IMAGE_INBOX}/.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nTHUMBNAIL\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${thumbnailPrompt}\n${promptSections}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nFINISH\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nFinish only after every expected image has been generated one at a time, renamed immediately and verified. All final files must be together in ${IMAGE_INBOX}/.\n`);
+write('04-visuals/alle-bildprompts.txt', `FINANZNEO — SINGLE HANDOFF FILE FOR THE GOOGLE FLOW AI AGENT\n\n${FLOW_AGENT_PROTOCOL_MARKER}\n\nSTRICT SEQUENTIAL WORKFLOW:\n1. Read the full file once, then work from top to bottom on only the current image block.\n2. Generate exactly ONE image. Never generate a batch and never prepare the next image in parallel.\n3. Wait until the current image is fully complete.\n4. Rename it immediately to the exact final file name stated in its block.\n5. Verify script-beat fit, first-glance clarity, Editorial Finance style, 16:9 format and file name. For a continuation visual, also verify that the approved reference composition is preserved and only the planned change was made.\n6. If anything fails, regenerate the same image number and replace the failed file. Do not move on.\n7. Continue only after the current image passes.\n8. Skip non-image blocks without closing the numbering gap.\n9. At the end, place every generated and correctly named image together in ${IMAGE_INBOX}/.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nTHUMBNAIL\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${thumbnailPrompt}\n${promptSections}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nFINISH\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nFinish only after every expected image has been generated one at a time, renamed immediately and verified. All final files must be together in ${IMAGE_INBOX}/.\n`);
 write('06-projektdateien/visual-plan.md', '# Visual-Plan — Viewer Change First\n\n1. Skript in gesprochene Gedanken zerlegen.\n2. Jedem Gedanken einen sichtbaren Visual Beat geben.\n3. Für jeden Motion-Beat zuerst in einem Satz festlegen: Was soll der Zuschauer tatsächlich sehen, das sich verändert, enthüllt, vergleicht oder räumlich erschließt?\n4. Erst danach den besten Typ und die beste konkrete Technik wählen.\n5. Technik darf frei erfunden oder kombiniert werden; Familien sind nur Beschreibungen, keine Whitelist.\n6. Vor Freigabe die letzten vier Motion-Visuals auf echte Wiederholung von Kamera, Layout und Transformation prüfen.\n\nKeine feste Visualzahl. Keine feste Bild-/Animationsquote. Keine Standardanimation. Keine bestehende Komponente auswählen, bevor klar ist, was der Zuschauer sehen soll. Variation dient der Erklärung, nicht der Effekthascherei.\n');
-write('06-projektdateien/remotion-plan.md', `# Remotion-Plan — ${YOUTUBE_MOTION_STANDARD_ID}\n\n- Ausgabe: 1920 × 1080, 16:9, 30 fps\n- Viewer Change zuerst; Technik danach.\n- Remotion hat keine vorgegebene kreative Obergrenze.\n- Erlaubt: Custom React, SVG, CSS 3D, Canvas, Three.js/R3F, Masks, clip-path, Paths, Shapes, Motion Blur, Effects, Lottie als Support, Datenvisualisierung, Bild+Motion-Hybrid und neue sinnvolle Kombinationen.\n- Composition Families sind freie Beschreibungen, keine erlaubte Endmenge.\n- Bestehende FinanzNeo-Komponenten sind optionale Werkzeuge, keine Pflichtvorlagen.\n- Pro Motion-Visual: viewerChange + animationIntent + mechanicId + visualTechniqueId + techniqueDescription + toolStack + motionSignature + mehrere Motion Channels + mehrere sichtbare Beats.\n- Anti-Fake-Variation: neuer Name allein reicht nicht; Kamera + Layout + Transformation werden gegen die letzten vier Motion-Visuals geprüft.\n- Wiederholung bleibt erlaubt, wenn sie für den Inhalt wirklich die beste Lösung ist und mit repeatTechniqueReason begründet wird.\n- Schnitte und finale Dauern folgen dem finalen Voiceover.\n`);
+write('06-projektdateien/remotion-plan.md', `# Remotion-Plan — ${YOUTUBE_MOTION_STANDARD_ID}\n\n- Ausgabe: 1920 × 1080, 16:9, 30 fps\n- Viewer Change zuerst; Technik danach.\n- Motion World: finanzneo-youtube-light-motion-v2. Die Animation bleibt hell, sauber und 2D. Unterschiedliche Designs sind erlaubt, aber keine dunklen Welten, kein Full-3D und keine großen generischen Szenenüberschriften. Die aktuelle Mechanik/Visual-Bibliothek liegt unter src/youtube-motion/light-v3/.
+Wähle pro Szene frei zwischen Vergleich, Chart, Tabelle, Icons, Dokument, Timeline, Prozess, Flow-Diagramm, Route, abstrakter 2D-Geometrie oder einer anderen hellen Custom-Lösung.\n- Erlaubt: Custom React, SVG, Canvas, Masks, clip-path, Paths, Shapes, Motion Blur, Effects, Lottie als Support, Datenvisualisierung, Bild+Motion-Hybrid und neue sinnvolle Kombinationen.\n- Composition Families sind freie Beschreibungen, keine erlaubte Endmenge.\n- Neue kanonische Light-2D-Bibliothek: src/youtube-motion/light-v3/. Dort sind Mechanik/Core von Visual-Komponenten getrennt.\n- Bestehende FinanzNeo-Komponenten sind optionale Werkzeuge, keine Pflichtvorlagen.\n- Pro Motion-Visual: viewerChange + animationIntent + mechanicId + visualTechniqueId + techniqueDescription + toolStack + motionSignature + mindestens eine klare erklärende Bewegung + Start/Result-Beats.\n- Anti-Fake-Variation: neuer Name allein reicht nicht; Kamera + Layout + Transformation werden gegen die letzten vier Motion-Visuals geprüft.\n- Wiederholung bleibt erlaubt, wenn sie für den Inhalt wirklich die beste Lösung ist und mit repeatTechniqueReason begründet wird.\n- Schnitte und finale Dauern folgen dem finalen Voiceover.\n`);
 write('06-projektdateien/PHASENSTATUS.md', `# Phasenstatus\n\n- [ ] Phase 1 vollständig und ohne Platzhalter\n- [ ] \`npm run youtube:animation:validate -- ${targetArg}\` erfolgreich\n- [ ] \`npm run youtube:phase1:seal -- ${targetArg}\` erfolgreich\n- [ ] Phase 2: alle exakten 16:9-Bilder, ein finales Voiceover und echte Wort-Timings vorhanden\n- [ ] Phase 3: \`npm run youtube:ready -- ${targetArg}\` erfolgreich; Produktion und QA abgeschlossen\n`);
 write('06-projektdateien/timeline.json', `${JSON.stringify({version:2,title,fps:YOUTUBE_VIDEO_FPS,timingSource:'03-audio/word-timings.json',cutRule:'voice-beat-and-chapter-driven',fixedVisualCount:false,visuals:visuals.map((visual) => ({id:visual.id,type:visual.type,startFrame:0,durationFrames:0}))}, null, 2)}\n`);
 write('04-visuals/visual-index.json', `${JSON.stringify({
@@ -176,9 +233,9 @@ write('04-visuals/visual-index.json', `${JSON.stringify({
   thumbnail:{type:'image',googleFlowFileName:thumbnailFileName,planFile:'04-visuals/thumbnail-prompt.txt'},
   userCreatesImages:true,
   antigravityGeneratesImages:false,
-  googleFlow:{protocolId:FLOW_AGENT_PROTOCOL_ID,generationMode:'one-image-at-a-time',strictSequential:true,waitForCurrentImage:true,renameBeforeNext:true,qaBeforeNext:true,retrySameImageOnFailure:true,finalCollectionDirectory:`${IMAGE_INBOX}/`,distributeToVisualFolders:false},
-  imageWorld:{id:WORLD_ID,seriesLockId:SERIES_LOCK_ID,generatedImageAspectRatio:GENERATED_IMAGE_ASPECT_RATIO,horizontalGeneratedImagesRequired:true,referencePromptFile:'04-visuals/bildwelt.txt',styleReferenceStrategy:'canonical-youtube-image-world',sameWorldAcrossSeriesRequired:true,literalFirst:true,metaphorOptional:true,seamlessSingleBackgroundRequired:true,objectLabelsOnly:true},
-  motionStandard:{id:YOUTUBE_MOTION_STANDARD_ID,viewerChangeFirstRequired:true,openTechniqueSelection:true,compositionFamiliesAreExamplesOnly:true,motionSignatureRequired:true,recentMotionWindow:4,customReactAllowed:true,svgAllowed:true,css3dAllowed:true,canvasAllowed:true,threeAllowed:true,hybridAllowed:true,dataVisualizationAllowed:true,existingComponentsOptional:true,physicalPrimitivesOptional:true,semanticVariationRequired:true},
+  googleFlow:{protocolId:FLOW_AGENT_PROTOCOL_ID,generationMode:'one-image-at-a-time',strictSequential:true,waitForCurrentImage:true,renameBeforeNext:true,qaBeforeNext:true,retrySameImageOnFailure:true,referenceImagesAllowed:true,continuationReferenceRequiredWhenDeclared:true,referenceMustUseApprovedPriorImage:true,finalCollectionDirectory:`${IMAGE_INBOX}/`,distributeToVisualFolders:false},
+  imageWorld:{id:WORLD_ID,seriesLockId:SERIES_LOCK_ID,authority:'docs/FINANZNEO-IMAGE-WORLD.md',generatedImageAspectRatio:GENERATED_IMAGE_ASPECT_RATIO,horizontalGeneratedImagesRequired:true,referencePromptFile:'04-visuals/bildwelt.txt',promptLanguage:'en',primaryStyle:'clean-editorial-finance-illustration',flexibleBackgrounds:true,fixedBlackBackgroundForbidden:true,fixed3DRenderingForbidden:true,twoDAllowed:true,subtleTwoPointFiveDAllowed:true,selectiveSimple3DAllowed:true,firstGlanceUnderstandingRequired:true,oneCoreIdeaPerImageRequired:true,progressiveSequencesAllowed:true,approvedPriorImageReferenceAllowed:true,genericHeadlineByDefault:false,aiSlopAvoidanceRequired:true},
+  motionStandard:{id:YOUTUBE_MOTION_STANDARD_ID,visualMotionWorld:'finanzneo-youtube-light-motion-v2',visualTargetWorld:'finanzneo-youtube-light-motion-v2',minimumMotionPreferred:false,motionDensityStoryDriven:true,cameraStillDefault:true,cameraStoryDriven:false,staticImageStyleCopyRequired:false,youtubeNativeCompositionRequired:true,conceptCandidatesRequired:3,keyframeQaRequired:true,keyframeQaPercentages:[10,35,65,90],fixed3DStyleForbidden:true,fixedArtDirectionForbidden:false,flexibleBackgrounds:true,darkBackgroundAllowed:false,blackBackgroundAllowed:false,full3DAllowed:false,simpleComparisonAllowed:true,chartAllowed:true,sceneArtDirectionOpen:false,mixedStyleAcrossScenesAllowed:true,brandStyleMatchRequired:false,lightBackgroundRequired:true,flat2DPreferred:true,genericSceneHeadlinesForbidden:true,viewerChangeFirstRequired:true,openTechniqueSelection:true,compositionFamiliesAreExamplesOnly:true,motionSignatureRequired:true,recentMotionWindow:4,customReactAllowed:true,svgAllowed:true,css3dAllowed:false,canvasAllowed:true,threeAllowed:false,hybridAllowed:true,dataVisualizationAllowed:true,existingComponentsOptional:true,physicalPrimitivesOptional:true,semanticVariationRequired:false},
   timelineRules:{timingSource:'03-audio/word-timings.json',cutsFollowVoiceAndChapters:true,equalLengthVisualsForbiddenByDefault:true,beatFirst:true},
   audio:{targetIntegratedLufs:-16,targetTruePeakDbtp:-1},
   publishing:{youtube:YOUTUBE_PUBLISHING_FILES,socialPromo:SOCIAL_PROMO_FILES},

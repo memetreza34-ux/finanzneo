@@ -22,9 +22,60 @@ import {
   FINANCE_MOTION_LAB_FRAMES as FINANCE_MOTION_LIBRARY_LAB_V1_FRAMES,
 } from '../reels-test/FinanceMotionLibraryLabV1';
 import {
+  EditorialMotionExample,
+  EDITORIAL_MOTION_EXAMPLE_FRAMES,
+} from '../reels-test/EditorialMotionExample';
+import {
+  SalaryCurveV2,
+  BudgetDonutV2,
+  CompoundCurveV2,
+  DiversificationNetworkV2,
+  LoanPaydownV2,
+  TaxBracketsV2,
+} from '../finance-motion/editorial-v2';
+import {
+  MortgageResetV3,
+  MORTGAGE_RESET_V3_FRAMES,
+  InvestmentCrossroadsV3,
+  INVESTMENT_CROSSROADS_V3_FRAMES,
+  RecurringCostsV3,
+  RECURRING_COSTS_V3_FRAMES,
+} from '../finance-motion/v3/examples';
+import {
+  EDITORIAL_EXAMPLE_FRAMES,
+  EditorialMotion01Transfer,
+  EditorialMotion02BudgetSplit,
+  EditorialMotion03SalaryGrowth,
+  EditorialMotion04FeeDrag,
+  EditorialMotion05PortfolioSplit,
+  EditorialMotion06Rebalancing,
+  EditorialMotion07Diversification,
+  EditorialMotion08LoanPaydown,
+  EditorialMotion09DepositProtection,
+  EditorialMotion10ScenarioCompare,
+  EditorialMotion11Timeline,
+  EditorialMotion12CompoundGrowth,
+  EditorialMotion13MountainGoal,
+  EditorialMotion14LateFee,
+} from '../reels-test/EditorialMotionExamplesV1';
+import {
   FinanceHeaderCaptionMotion,
   FINANCE_HEADER_CAPTION_MOTION_FRAMES,
 } from '../reels-test/FinanceHeaderCaptionMotion';
+import {
+  YOUTUBE_MOTION_EXAMPLE_FRAMES,
+  YouTubeMotionInflation,
+  YouTubeMotionETFNetwork,
+  YouTubeMotionSubscriptions,
+} from '../youtube-motion/examples/YouTubeMotionExamplesV1';
+import {
+  OpenMotionShowcase,
+  OPEN_MOTION_SHOWCASE_FRAMES,
+} from '../youtube-motion/showcase/OpenMotionShowcase';
+import {
+  LightMotionShowcaseV2,
+  LIGHT_MOTION_SHOWCASE_FRAMES,
+} from '../youtube-motion/showcase-v2/LightMotionShowcaseV2';
 import {
   FinanceImageSceneTest,
   FINANCE_IMAGE_SCENE_TEST_FRAMES,
@@ -46,6 +97,12 @@ import {
 } from '../production/reel-template';
 import {EinlagensicherungReel} from '../reels/einlagensicherung-100000/EinlagensicherungReel';
 import {TOTAL_FRAMES as EINLAGENSICHERUNG_LEGACY_FRAMES} from '../reels/einlagensicherung-100000/timeline';
+import {
+  MOTION_V3_SCENES,
+  MOTION_V3_SCENE_FRAMES,
+  YouTubeLightMotionV3,
+  YOUTUBE_LIGHT_MOTION_V3_FRAMES,
+} from '../youtube-motion/light-v3/LightMotionV3';
 import {FORMAT} from '../brand/tokens';
 
 const FPS = FORMAT.fps;
@@ -85,6 +142,50 @@ export const ExperimentCompositions: React.FC = () => (
       fps={FPS}
       {...VERTICAL}
     />
+
+    <Composition
+      id="EditorialMotionSalaryJump"
+      component={EditorialMotionExample}
+      durationInFrames={EDITORIAL_MOTION_EXAMPLE_FRAMES}
+      fps={FPS}
+      {...VERTICAL}
+    />
+
+    <Composition id="EditorialMotion01Transfer" component={EditorialMotion01Transfer} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion02BudgetSplit" component={EditorialMotion02BudgetSplit} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion03SalaryGrowth" component={EditorialMotion03SalaryGrowth} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion04FeeDrag" component={EditorialMotion04FeeDrag} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion05PortfolioSplit" component={EditorialMotion05PortfolioSplit} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion06Rebalancing" component={EditorialMotion06Rebalancing} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion07Diversification" component={EditorialMotion07Diversification} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion08LoanPaydown" component={EditorialMotion08LoanPaydown} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion09DepositProtection" component={EditorialMotion09DepositProtection} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion10ScenarioCompare" component={EditorialMotion10ScenarioCompare} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion11Timeline" component={EditorialMotion11Timeline} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion12CompoundGrowth" component={EditorialMotion12CompoundGrowth} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion13MountainGoal" component={EditorialMotion13MountainGoal} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialMotion14LateFee" component={EditorialMotion14LateFee} durationInFrames={EDITORIAL_EXAMPLE_FRAMES} fps={FPS} {...VERTICAL} />
+
+    <Composition id="EditorialV2SalaryCurve" component={SalaryCurveV2} durationInFrames={180} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialV2BudgetDonut" component={BudgetDonutV2} durationInFrames={180} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialV2CompoundCurve" component={CompoundCurveV2} durationInFrames={180} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialV2Diversification" component={DiversificationNetworkV2} durationInFrames={180} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialV2LoanPaydown" component={LoanPaydownV2} durationInFrames={180} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialV2TaxBrackets" component={TaxBracketsV2} durationInFrames={180} fps={FPS} {...VERTICAL} />
+
+    <Composition id="EditorialV3MortgageReset" component={MortgageResetV3} durationInFrames={MORTGAGE_RESET_V3_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialV3InvestmentCrossroads" component={InvestmentCrossroadsV3} durationInFrames={INVESTMENT_CROSSROADS_V3_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="EditorialV3RecurringCosts" component={RecurringCostsV3} durationInFrames={RECURRING_COSTS_V3_FRAMES} fps={FPS} {...VERTICAL} />
+
+    <Composition id="YouTubeMotionInflation" component={YouTubeMotionInflation} durationInFrames={YOUTUBE_MOTION_EXAMPLE_FRAMES} fps={FPS} {...WIDE} />
+    <Composition id="YouTubeMotionETFNetwork" component={YouTubeMotionETFNetwork} durationInFrames={YOUTUBE_MOTION_EXAMPLE_FRAMES} fps={FPS} {...WIDE} />
+    <Composition id="YouTubeMotionSubscriptions" component={YouTubeMotionSubscriptions} durationInFrames={YOUTUBE_MOTION_EXAMPLE_FRAMES} fps={FPS} {...WIDE} />
+    <Composition id="YouTubeOpenMotionShowcase" component={OpenMotionShowcase} durationInFrames={OPEN_MOTION_SHOWCASE_FRAMES} fps={FPS} {...WIDE} />
+    <Composition id="YouTubeLightMotionShowcaseV2" component={LightMotionShowcaseV2} durationInFrames={LIGHT_MOTION_SHOWCASE_FRAMES} fps={FPS} {...WIDE} />
+    <Composition id="YouTubeLightMotionV3" component={YouTubeLightMotionV3} durationInFrames={YOUTUBE_LIGHT_MOTION_V3_FRAMES} fps={FPS} {...WIDE} />
+    {MOTION_V3_SCENES.map((scene) => (
+      <Composition key={scene.id} id={scene.id} component={scene.component} durationInFrames={MOTION_V3_SCENE_FRAMES} fps={FPS} {...WIDE}/>
+    ))}
 
     <Composition
       id="ReelsTestFinanceHeaderCaptionMotion"

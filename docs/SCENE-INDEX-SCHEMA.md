@@ -53,11 +53,43 @@ Zusätzlich verpflichtend:
 {
   "googleFlowFileName": "Bild 01 - Beispiel.png",
   "expectedVisual": "Konkrete sichtbare Bildidee",
-  "imagePresentation": "contain"
+  "imagePresentation": {
+    "scale": 1.01,
+    "sourceCropTop": 0,
+    "sourceCropBottom": 0,
+    "cropSafe": true
+  },
+  "imageSequence": {
+    "mode": "independent",
+    "referenceSceneId": null,
+    "plannedChange": null
+  }
 }
 ```
 
-`objectLabels` dürfen als hilfreiche Metadaten vorkommen, sind aber keine zweite Wahrheit neben dem eigentlichen Bildprompt.
+`imageSequence.mode`:
+
+- `independent`: eigenständiges Bild, keine Referenz nötig
+- `continuation`: stufenweise Fortsetzung einer früheren Bildszene
+
+Bei `continuation`:
+
+```json
+{
+  "imageSequence": {
+    "mode": "continuation",
+    "referenceSceneId": "scene-04",
+    "plannedChange": "Füge zusätzlich das Label 100.000 € am mittleren Bergabschnitt hinzu."
+  }
+}
+```
+
+Dann wird das **exakt freigegebene Bild** aus `referenceSceneId` in Google Flow wirklich als Bildreferenz angehängt. Der Folgeprompt bleibt trotzdem vollständig und selbstständig formuliert.
+
+Kanonische Bildwelt: `docs/FINANZNEO-IMAGE-WORLD.md`.
+
+`objectLabels` dürfen als optionale Metadaten vorkommen, sind aber keine zweite Wahrheit neben dem eigentlichen Bildprompt.
+
 
 ## Animationsszene — V5
 

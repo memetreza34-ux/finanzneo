@@ -1,6 +1,6 @@
 # FinanzNeo-Reel-Produktionsstandard
 
-> Bei Widersprüchen gilt immer `CLAUDE.md`.
+> Bei Widersprüchen gilt immer `CLAUDE.md`. Themen-Scope: `docs/CONTENT-SCOPE.md`.
 
 ## 1. Struktur
 
@@ -19,8 +19,9 @@
 
 ### Phase 1 — ChatGPT / Motion Authoring
 - Recherche + Quellen
-- anfängerfreundliches Skript
-- Szenenplan und V9-Flow-Prompts
+- thematisch frei innerhalb des gesamten Finanzbereichs
+- verständliches Skript auch bei fortgeschrittenen Themen
+- Szenenplan und Editorial-Finance-Flow-Prompts
 - Header + Icons
 - fertige kanonische `animation.tsx` je Animationsszene
 - Sound-Cue-Plan
@@ -80,12 +81,19 @@ Ab scene-02: normaler SceneHeader + Icon + Captions.
 ## 6. Bilder / Google Flow
 
 - exakt ein Bildjob gleichzeitig
-- warten → umbenennen → V9-QA → erst dann nächster Job
+- warten → umbenennen → Bildidee/Dateiname prüfen → erst dann nächster Job
 - keine Batch-/Parallelgenerierung
-- scene-01 ist automatisch das Cover; kein Bild 00
+- scene-01 ist automatisch das Cover; kein zusätzlicher Bildjob
 - finale Bilder liegen in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
 
-Bildwelt: `finanzneo-stylized-3d-animated-black-v9`. Reale Alltagssituation und Ursache/Wirkung zuerst; klar stilisiertes 3D; niemals fotorealistisch; Deep Black Pflicht.
+Bildwelt: `finanzneo-editorial-finance-v1`.
+
+Kanonische Quelle: `docs/FINANZNEO-IMAGE-WORLD.md`.
+
+Für jedes Standbild gilt: ein gesprochener Gedanke → eine einfache visuelle Idee → sofort verständlich. Flow darf Metaphern, Illustrationen, Diagramme, Timelines, Vergleiche, Dokumente, Unternehmen/Marken und andere passende statische Visuals erzeugen. Hintergrund und Darstellungsart sind flexibel.
+
+Bei einer geplanten stufenweisen Bildfolge wird das exakt freigegebene vorherige Szenenbild als echte Referenz an Flow angehängt. Der Folgeprompt bleibt trotzdem vollständig und beschreibt nur eine kleine geplante Ergänzung/Änderung.
+
 
 ## 7. Layout und Safe-Zone
 
@@ -114,7 +122,7 @@ Sprechpunkt
 → START → AKTION → REAKTION → ERGEBNIS → RESULT HOLD
 ```
 
-Pflicht: konkrete Ursache/Wirkung, mehrere koordinierte Motion-Channels, mindestens 15 Frames Ergebnis-Hold. Keine feste Animationsbibliothek als kreatives Auswahlmenü.
+Pflicht: eine klar sichtbare inhaltliche Veränderung und mindestens 15 Frames Ergebnis-Hold. Eine einzige Hauptbewegung darf reichen. Vor Coding: 3 visuelle Konzepte → stärkstes wählen → 10/35/65/90-Keyframes → Motion-Grammatik. Kamera ist standardmäßig still. Neue Animationen folgen `finanzneo-editorial-motion-v3` und dürfen nicht in die alte Physical-/Glossy-3D-Sprache zurückfallen. Keine feste Animationsbibliothek als kreatives Auswahlmenü.
 
 Quality Guards V1 lesen zusätzlich die **echte `animation.tsx`**. Unterschiedliche `MECHANIC_ID`, Labels, Icons oder Lotties reichen nicht, wenn tatsächliche Hauptobjekte und Komposition sichtbar gleich bleiben. Wiederholung braucht konkrete inhaltliche Begründung.
 

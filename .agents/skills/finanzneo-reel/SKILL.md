@@ -1,6 +1,6 @@
 ---
 name: finanzneo-reel
-description: Safely executes or reviews FinanzNeo Reel production while preserving the three-phase contract, V9 explanatory image world, cinematic Remotion motion, controlled Lottie/SFX enhancement, Playwright visual QA, sealed animations, pure-black canvas and completion gates.
+description: Safely executes or reviews FinanzNeo Reel production while preserving the three-phase contract, Editorial Finance image world, Editorial Motion V3, controlled Lottie/SFX enhancement, Playwright visual QA, sealed animations, pure-black canvas and completion gates.
 ---
 
 # FinanzNeo Reel Skill
@@ -59,24 +59,25 @@ Static image beats should normally last about 1.8–3.4 seconds and must not rem
 
 Animation scenes may be longer only when the visible state keeps advancing with the voiceover. Final cuts follow real word timings from Phase 2, never equal-length scene padding. The 60/40 image-animation mix is guidance, not a quota.
 
-## V9 image world
+## Editorial Finance image world
 
-New Flow prompts use `finanzneo-stylized-3d-animated-black-v9`:
+The active still-image world is `finanzneo-editorial-finance-v1`.
 
-- real-life explanatory situations instead of abstract finance icon arrangements
-- recognizable, believable object construction and proportions
-- semi-realistic material/detail structure, but clearly stylized 3D and never photorealistic
-- premium clean presentation
-- deep black background mandatory
-- content/clarity before object count; no fixed supporting-object quota
-- short German labels when they materially improve instant understanding
-- emerald positive, ivory/soft gray neutral, subtle gold money/value, red-orange warning/cost
-- individually written complete prompts
-- no stock-photo/product-photo look, dashboard/app UI, flowchart, tiny boxes, microchip language, unreadable minidiorama or clutter
+Canonical authority: `docs/FINANZNEO-IMAGE-WORLD.md`.
 
-If a brand/logo/app appears, keep it recognizable but stylized in the same animated world. Never paste a flat real-world logo, screenshot or photorealistic branded UI into the scene.
+For IMAGE scenes:
+- one spoken thought = one simple visual idea
+- use the simplest static form that explains it immediately
+- Flow may create metaphors, illustrations, charts, timelines, comparisons, documents, quote visuals, company/brand visuals or simple scenes
+- backgrounds are flexible
+- 2D / subtle 2.5D is preferred; simple 3D is optional
+- avoid AI-slop spectacle and visual clutter
+- no automatic generic headline
+
+Progressive IMAGE sequences are allowed. When declared, use the exact approved previous scene image as the actual Flow reference and change only the planned element while keeping the new prompt self-contained.
 
 Antigravity does not generate the user's final Flow images. Missing exact image = stop and report filename.
+
 
 ## Pure-black Reel background
 
@@ -102,20 +103,17 @@ Remotion remains the timeline/render authority.
 
 ### Animation language
 
-Every animation should read as:
+New animation scenes follow `finanzneo-editorial-motion-v3`.
 
-```text
-START
-→ TRIGGER
-→ PHYSICAL ACTION
-→ REACTION
-→ RESULT
-→ RESULT HOLD
-```
+Before code:
+1. develop three distinct visual concepts;
+2. choose the strongest;
+3. plan keyframes at 10%, 35%, 65%, 90%;
+4. choose motion grammar verbs;
+5. build with `src/finance-motion/v3` or a custom V3 composition.
 
-Prefer real-world objects and concrete cause/effect. Aim for several meaningful motion channels with different physical character rather than one global progress value controlling everything identically.
+Prefer animated editorial illustrations, paths, real objects and geometric transformations over dashboard/card layouts.
 
-Camera movement, Three.js and Lottie are support tools. None of them may replace the explanatory mechanism.
 
 ### Lottie
 

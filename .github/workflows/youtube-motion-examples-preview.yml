@@ -1,0 +1,42 @@
+name: YouTube Motion Examples Preview
+
+on:
+  push:
+    branches:
+      - reset-image-prompt-rules
+    paths:
+      - 'src/youtube-motion/examples/**'
+      - 'src/root/ExperimentCompositions.tsx'
+      - 'scripts/render-youtube-motion-examples.mjs'
+      - 'package.json'
+      - '.github/workflows/youtube-motion-examples-preview.yml'
+  workflow_dispatch:
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Render YouTube motion examples
+        run: npm run render:youtube-motion-examples
+
+      - name: Upload preview pack
+        uses: actions/upload-artifact@v4
+        with:
+          name: youtube-motion-examples-v1
+          path: out/youtube-motion-v1/*.mp4
+          if-no-files-found: error
+          retention-days: 7

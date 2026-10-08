@@ -1,0 +1,43 @@
+name: Editorial Motion Preview
+
+on:
+  push:
+    branches:
+      - reset-image-prompt-rules
+    paths:
+      - 'src/reels-test/EditorialMotionExample.tsx'
+      - 'src/root/ExperimentCompositions.tsx'
+      - 'src/brand/components/EditorialMotion.tsx'
+      - 'src/brand/**'
+      - 'package.json'
+      - '.github/workflows/editorial-motion-preview.yml'
+  workflow_dispatch:
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Abhängigkeiten installieren
+        run: npm ci
+
+      - name: Editorial Motion Beispiel rendern
+        run: npm run render:editorial-motion-example
+
+      - name: MP4 als Artefakt hochladen
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-motion-salary-jump
+          path: out/editorial-motion-salary-jump.mp4
+          if-no-files-found: error
+          retention-days: 7

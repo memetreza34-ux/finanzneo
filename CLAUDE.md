@@ -6,10 +6,14 @@
 
 - Kanal: **FinanzNeo**
 - Sprache: Deutsch
-- Ziel: Finanzgrundlagen einfach, professionell und verständlich erklären
+- Themen-Scope: **alles rund um Finanzen**, solange ein klarer Bezug zu Geld, finanziellen Entscheidungen, Märkten, Unternehmen, Verbrauchern oder Wirtschaft besteht
+- FinanzNeo ist **kein reiner Einsteigerkanal**. Er darf Grundlagen, fortgeschrittene Themen, aktuelle Finanz-News, Gesetzesänderungen, Rankings/Listicles, Fallbeispiele, Betrugsmaschen, Unternehmen, Banken, Börse, ETFs/Aktien/Krypto, Kredite, Steuern, Versicherungen, Immobilien, Gehalt, Rente, Sozialleistungen, Konsum, Inflation und wirtschaftliche Entwicklungen behandeln
+- Stil: auch komplexe Themen einfach, professionell und verständlich erklären; **die Sprache ist zugänglich, nicht die Themenauswahl eingeschränkt**
 - Reel-Plattformen: TikTok, Instagram Reels, Facebook Reels, Snapchat
 - YouTube: ausschließlich Longform unter `youtube/`; **keine YouTube Shorts**
-- Reel: 1080 × 1920, 9:16, 30 fps; Anfänger-Reels typischerweise ca. 45–70 Sekunden, aber Inhalt und echtes Voiceover entscheiden
+- Reel: 1080 × 1920, 9:16, 30 fps; typischerweise ca. 45–70 Sekunden, aber Inhalt und echtes Voiceover entscheiden
+
+Kanonischer Themen-Scope: `docs/CONTENT-SCOPE.md`.
 
 ## 2. Repository-Sicherheit
 
@@ -106,174 +110,57 @@ FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
 - Kompatibilitätsbasis älterer Reels: statischer Bildbeat ca. 1,8–3,4 s, max. 4,5 s. **Neue Future-V3-Reels:** ideal 1,8–3,0 s; ab ca. 3,6 s aktiv einen zusätzlichen Visual Beat prüfen; ohne neue sichtbare Information **hart max. 4,0 s**
 - Animationen dürfen länger sein, müssen aber währenddessen mehrere klar unterschiedliche Zustände zeigen; Kamera-Push/Zoom allein zählt nicht als neuer Beat
 - Voiceover und Visual müssen gemeinsam fortschreiten: ist die Bildaussage bereits verstanden, darf das Bild nicht unnötig stehen bleiben
-- ungefähr 60 % Bild / 40 % Animation ist nur ein Richtwert; bei einfachen Anfänger-Erklärungen sind bewusst mehr Bilder erlaubt
+- ungefähr 60 % Bild / 40 % Animation ist nur ein Richtwert; bei einfachen Erklärungen sind bewusst mehr Bilder erlaubt
 - echte Wort-Zeitstempel bestimmen finale Schnitte und Szenendauern; keine künstlich gleich langen Szenen
 - kurze klare Sätze, kein unnötiger Fachjargon
 - Logik: Hook → Problem → Erklärung → Beispiel → Lösung/Merksatz; CTA nur wenn er wirklich passt
 - Zahlen nur nach Prüfung; Beispielannahmen klar kennzeichnen
 
-## 6. Bildwelt — Stylized 3D Animated Black V9
+## 6. Bildwelt — Editorial Finance V1
 
 Verbindlich:
 
 ```text
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
 ```
 
-### Kernziel
+Kanonische Quelle: `docs/FINANZNEO-IMAGE-WORLD.md`.
 
-Die Bilder sind **visuelle Erklärszenen**, keine Dekoration und keine Sammlung hübscher Finanzsymbole.
-
-- Inhalt und Situation **realitätsnah aus dem Alltag gedacht**
-- Rendering klar **stylized 3D**, niemals fotorealistisch
-- reale Gegenstände behalten glaubwürdige Proportionen, Konstruktion und erkennbare Details
-- semi-realistische Objektstruktur und Materialwirkung, aber sichtbar stilisierte Darstellung
-- hochwertig, sauber und professionell; nicht wie Spielzeug oder Icon-Pack
-- der gesprochene Punkt muss im Bild direkt verständlich werden
-- gleiche Welt über das gesamte Reel
-
-### Erklärlogik — Pflicht
-
-Jedes Bild beantwortet visuell:
+Grundlogik:
 
 ```text
-Was passiert?
-→ Was ist betroffen?
-→ Was löst oder verändert es?
+1 gesprochener Gedanke
+→ 1 einfache visuelle Idee
+→ auf den ersten Blick verständlich
+→ dann die passende Editorial-Darstellung wählen
 ```
 
-- konkrete reale Situation zuerst
-- Ursache und Wirkung möglichst im selben Frame sichtbar
-- vollständige, zusammenhängende Szene statt isolierter Einzelobjekte
-- vertraute reale Gegenstände verwenden, wenn sie passen: z. B. Waschmaschine, Rechnung, Konto-Unterlagen, Kalender, Smartphone, Einkaufsbeutel, Haushaltskosten
-- Zuschauer soll die Aussage in ca. 1–2 Sekunden auch ohne Ton verstehen
-- Zuschauer darf keine Metapher entschlüsseln müssen
-- Schild, Pfeil, Münzen, Tresor usw. dürfen nur unterstützen; sie dürfen die reale Situation nie ersetzen
+Die Bildwelt ist flexibel:
 
-### Hintergrund
+- saubere Editorial-Finanzillustration
+- überwiegend 2D oder leichtes 2.5D
+- einfaches 3D nur wenn es dem Motiv wirklich hilft
+- Hintergründe frei nach Motiv: warmes Off-White, Creme, helles Grau, gedämpfte Farbe, Anthrazit oder Schwarz
+- Metaphern, Diagramme, Timelines, Vergleiche, Dokumente, Personen, Unternehmen/Marken und einfache Alltagsszenen sind erlaubt
+- Text im Bild darf Zahlen, kurze Labels, Daten, Zitate oder Dokumenttext enthalten, wenn er erklärt statt dekoriert
+- kein automatischer Headline-Zwang
+- Finanzobjekte sind nicht in jedem Bild Pflicht; eine einfache allgemeine Metapher darf den Satz besser erklären
 
-Jedes Flow-Bild nutzt einen **nahtlosen deep-black Hintergrund**.
+AI-Slop vermeiden: keine automatisch hinzugefügten Neon-Finanzwelten, Hologramme, Coin-Regen, futuristischen Dashboards, Miniaturstädte, Energie-Netzwerke, Podeste, Spielzeug-3D-Blöcke oder „cinematic finance“-Dekoration ohne echten Erklärwert.
 
-Ein kleiner realitätsnaher Szenenkontext ist erlaubt, wenn er die Erklärung besser macht, z. B. ein Ausschnitt aus Waschecke, Küche, Schreibtisch oder Bankumgebung. Dieser Kontext muss optisch in die schwarze Welt übergehen und darf nicht vom Inhalt ablenken.
+### Progressive Bildfolgen
 
-Verboten:
+Mehrere Bildszenen dürfen dieselbe Grundkomposition stufenweise weiterentwickeln. Wenn Szene B auf Szene A aufbaut:
 
-- helle Studiowelt
-- störende farbige Hintergrundzonen
-- dekorative Partikel-/Glow-Welt
-- Hintergrund, der wichtiger wirkt als die Erklärung
+1. Szene A vollständig erzeugen und freigeben.
+2. Für Szene B das **exakte freigegebene Bild aus Szene A als echte Bildreferenz anhängen**.
+3. Der Prompt von Szene B bleibt vollständig und selbstständig formuliert.
+4. Nur die geplante neue Information ergänzen oder ändern.
+5. Für weitere Schritte jeweils das zuletzt freigegebene Bild als Referenz verwenden.
 
-### Komposition
+Nur „wie vorher“ oder „gleiches Bild“ in Textform reicht nicht ohne echte Referenzdatei.
 
-Es gibt **keine feste Objektanzahl**.
-
-- eine vollständige Hauptsituation oder Hauptaktion
-- so viele reale Kontextobjekte wie nötig, so wenige wie möglich
-- Support-Objekte nur, wenn sie erklären
-- keine Props zum Auffüllen
-- wichtige Gegenstände groß und sofort erkennbar
-- keine winzige Miniaturdarstellung, in der Rechnung, Label oder Handlung nicht lesbar sind
-- kein generisches Finance-Icon-Arrangement als Haupterklärung
-
-### Deutsche Labels
-
-Kurze deutsche Objektlabels sind **ausdrücklich erlaubt und erwünscht**, wenn sie Mehrdeutigkeit verhindern.
-
-Beispiele:
-
-- `Notgroschen`
-- `Girokonto`
-- `Tagesgeld`
-- `Reparatur 280 €`
-- `Dispo`
-- `Dauerauftrag`
-- `Urlaub`
-- `Shopping`
-
-Regeln:
-
-- Label direkt am passenden Objekt oder Zustand
-- kurz und gut lesbar
-- keine Headline
-- kein Untertitel
-- kein CTA
-- kein langer erklärender Satz
-
-### Marken und Logos
-
-Wenn inhaltlich nötig:
-
-- Kernidentität erkennbar, aber in derselben stylized-3D-Welt neu interpretiert
-- keine flach aufgeklebten echten Logos
-- keine Website-/App-Screenshots
-- keine fotorealistischen Markenprodukte
-
-### Farbrollen
-
-- Emerald Green = positiv / bevorzugt
-- Warm Ivory + Soft Gray = neutral
-- Gold = Geld / Wert
-- Warm Red-Orange = Warnung / Kosten / Verlust
-- Deep Black = Hintergrund
-
-### Prompt-Qualität — Pflicht
-
-Jeder konkrete Bildprompt wird **individuell und vollständig für exakt den Sprechpunkt geschrieben**.
-
-Verboten:
-
-- nur Stichwörter
-- ein kurzer Ein-Satz-Prompt
-- generische Prompt-Vorlage als fertige Lieferung
-- „Tresor + Schild + Münzen“ als Ersatz für die eigentliche Situation
-- Google Flow die Bedeutung selbst interpretieren lassen
-
-Reihenfolge jedes fertigen Prompts:
-
-```text
-konkrete reale Situation + sichtbare Ursache/Wirkung
-→ exakte kurze deutsche Labels, wenn hilfreich
-→ Style
-→ Background
-→ Composition
-→ Brands/Logos falls relevant
-→ Colors/Light
-→ Text
-→ Forbidden
-```
-
-Einzelprompts bleiben **mittel-lang**, aber vollständig genug, dass Situation, Gegenstände, Beziehung und Aussage eindeutig festgelegt sind.
-
-### Streng verboten
-
-- Fotorealismus / Stockfoto-Look
-- generische Finance-Icon-Komposition als Haupterklärung
-- nur Tresor + Schild + Münzen + Pfeil ohne reale Situation
-- abstraktes Symbolrätsel, das Interpretation verlangt
-- Produktfoto-Look ohne Erklärsituation
-- Dashboard / App UI als Hauptkomposition
-- Flowchart als Hauptkomposition
-- kleine Kästen / Floating-Info-Cards
-- Microchip-/Circuit-Look
-- winzige Miniatur-Diorama-Darstellung mit schlechter Lesbarkeit
-- unnötiger Clutter
-
-### Bild-QA
-
-Bild verwerfen und **dieselbe Bildnummer neu erzeugen**, wenn:
-
-- es hübsch aussieht, aber den Sprechpunkt nicht direkt erklärt
-- man erst interpretieren muss, was Symbole bedeuten
-- die reale Alltagssituation nicht erkennbar ist
-- Ursache und Wirkung unklar bleiben
-- notwendige deutsche Labels fehlen oder falsch zugeordnet sind
-- reale Gegenstände wie generische Icons/Spielzeug wirken
-- es fotorealistisch wird
-- der Hintergrund nicht deep black bleibt
-- UI/Flowchart/Clutter die Erklärung verdrängen
 
 ## 7. Google Flow — Strict Single Job V3
 
@@ -362,7 +249,7 @@ Der einzige produktive Reel-Hintergrund ist:
 statisch
 ```
 
-`FinanceBackground` darf keine optische Variante erzeugen. `PremiumPhysicalStage` bleibt transparent.
+`FinanceBackground` bleibt der technische äußere Reel-Canvas. Neue Animationen dürfen innerhalb ihrer Visualzone über `EditorialMotionStage` eine ruhige helle oder gedämpfte Editorial-Fläche erzeugen. Das verändert weder Header noch Captions noch den äußeren Reel-Canvas.
 
 Streng verboten als Reel-Hintergrund:
 
@@ -376,7 +263,7 @@ Streng verboten als Reel-Hintergrund:
 
 Hintergrundbewegung zählt niemals als Szenenanimation oder QA-Nachweis.
 
-## 11. Phase-1-Animationscode
+## 11. Phase-1-Animationscode — Editorial Motion V3
 
 Basis-Lock:
 
@@ -384,86 +271,98 @@ Basis-Lock:
 finanzneo-phase1-animation-code-v1
 ```
 
-Kompatibilitäts-Lock:
+Aktive Motion-Welt für neue Reels:
 
 ```text
-finanzneo-premium-physical-animation-v2
+finanzneo-editorial-motion-v3
 ```
 
-Visuelles Ziel bleibt **V9**.
+Visuelles Ziel:
+
+```text
+finanzneo-editorial-finance-v1
+```
+
+Kanonische Regel: `docs/FINANZNEO-EDITORIAL-MOTION-V3.md`.
+
+V3 Pflichtprozess vor dem Coding:
+- Drei visuell unterschiedliche Konzepte entwickeln.
+- Das stärkste Konzept wählen.
+- Keyframes 10 % / 35 % / 65 % / 90 % planen.
+- Motion-Grammatik wählen: DRAW / FOLLOW / REVEAL / SPLIT / MERGE / STACK / SHIFT / SWAP / EMPHASIZE / COUNT.
+- Erst danach Remotion-Code schreiben.
 
 Pflichtlogik:
 
 ```text
-STARTZUSTAND
-→ SICHTBARER MECHANISMUS
+SPRECHPUNKT
+→ WAS MUSS SICH SICHTBAR VERÄNDERN?
+→ EINFACHSTE KLARE MOTION
 → EINDEUTIGES ERGEBNIS
 → Ergebnis mindestens 15 Frames stabil
 ```
 
-Pflicht:
+Neue Animationen:
 
-- `useCurrentFrame`
-- `ANIMATION_COLORS`
-- `prog`, `interpolate` oder `spring`
-- `PremiumPhysicalStage`
-- mindestens **ein echtes sichtbares Hauptobjekt**
-- semantische Materialrolle
-- korrekter Exportname
-- `RESULT_HOLD_FRAMES >= 15`
-- `ANIMATION_NARRATIVE` START / MECHANISM / RESULT
-- `PREMIUM_VISUAL_NARRATIVE` HERO / SUPPORT / MATERIAL / DEPTH
+- 2D oder leichtes 2.5D bevorzugen
+- matte, ruhige Formen
+- wenige große Elemente
+- Creme / Off-White / Hellgrau / gedämpfte Farbe als bevorzugte Animationsfläche
+- Dark nur wenn inhaltlich sinnvoll
+- einfaches 3D nur wenn Tiefe wirklich hilft
+- Kamera standardmäßig still
+- **eine** klare Hauptbewegung kann vollständig reichen
+- keine Pflicht für mehrere Motion-Channels
+- keine Pflicht für Physical Objects
 
-**Keine feste Support-Objekt-Anzahl.** Klarheit entscheidet.
-
-Animationen müssen Inhalt **erklären und unterhaltsam visualisieren**, nicht nur Pixel bewegen.
-
-
-### Cinematic Real-World Animation — Pflicht
-
-Eine Animationsszene ist eine **kleine visuelle Geschichte**, keine bewegte Infografik.
-
-Für jede Animationsszene verbindlich:
+Bei Library-Best-Fit:
 
 ```text
-REALE AUSGANGSSITUATION
-→ KONKRETE PHYSISCHE HAUPTAKTION
-→ SICHTBARE URSACHE / WIRKUNG
-→ EINDEUTIGES ERGEBNIS
+src/finance-motion/editorial-v1.tsx
+FINANCE_MOTION_LIBRARY: finanzneo-editorial-motion-v3-library
 ```
 
-- reale bzw. unmittelbar erkennbare Gegenstände verwenden, wenn der Inhalt sie hergibt: Rechnung, Konto, Waschmaschine, Kalender, Geldstapel, Reservebehälter usw.
-- mindestens zwei konkrete Realwelt-Objekte/-Instanzen tragen die Handlung
-- jede Szene erhält eine eindeutige `MECHANIC_ID`; dieselbe Mechanik nicht mehrfach im Reel wiederholen
-- `PRIMARY_ACTION` beschreibt die wirkliche physische Zustandsänderung
-- mehrere koordinierte Motion-Channels statt einer einzigen globalen Progress-Variable
-- deutsche Labels nur unterstützend; die Handlung muss auch ohne Text verständlich sein
-- Animationen müssen visuell dieselbe Qualität und Welt wie die Flow-Bilder erreichen
-- bei Future-V3-Reels muss die physische Hauptmechanik im echten Render ausreichend groß/füllend sein; Post-Render-QA verlangt Peak-Visualbelegung >= 0,15 und Median >= 0,12 im visuellen Kern
+Bei Custom-Build:
 
-Als Hauptsprache **verboten**:
+- `useCurrentFrame`
+- `EDITORIAL_MOTION_COLORS`
+- `prog`, `interpolate` oder `spring`
+- framegenaue sichtbare Veränderung
+- gleiche Editorial-Sprache wie die Flow-Bildwelt
 
-- drei beschriftete Kästen/Karten nach dem Muster `A → B → C`
-- Lade- oder Fortschrittsbalken als Ersatz für die eigentliche Animation
-- reine Texttafeln mit Fade/Scale
-- generische Shield-/Arrow-/Coin-Symbolik, wenn eine konkrete Alltagssituation darstellbar ist
-- wiederholte identische Mechanik über mehrere Animationsszenen
+Pflichtkommentare:
 
-Zentrale konkrete Primitives stehen über `src/design-system` bereit: `PhysicalBill`, `PhysicalAccount`, `PhysicalWasher`, `PhysicalReserveTank`, `PhysicalCalendarPage`, `PhysicalCoinStack`. Generische `PhysicalObject`, `PhysicalTag` und `PhysicalRail` sind nur Support; insbesondere `PhysicalRail` darf niemals die Geschichte allein tragen.
+```text
+ANIMATION_NARRATIVE
+START
+MECHANISM
+RESULT
 
-Streng verboten:
+EDITORIAL_VISUAL_NARRATIVE
+HERO
+SUPPORT
+SURFACE
+SHAPE_LANGUAGE
+```
 
-- Dummy-/Placeholder-Komponenten
-- Debug-Flächen
-- wackelnde Rechtecke
-- `Math.sin` / `Math.cos` als Frame-Diff-Hack
-- reine Zoom/Fade/Popup-Bewegung als komplette Erklärung
-- Dashboard-/Control-Panel-Hauptkomposition
-- Flowchart-Hauptkomposition
-- kleine Boxen mit dünnen Linien
-- generische Info-Cards als Hauptsprache
-- reine Texttafel
-- Hintergrundbewegung als Animationsnachweis
+Streng nicht als neue Default-Sprache verwenden:
+
+- `PremiumPhysicalStage`
+- alte `Physical*`-Primitives
+- glänzende 3D-Münzen
+- Podeste
+- Metall-/Material-Showcase
+- Neon / Hologramm / Coin-Spektakel
+- Dashboard-/Control-Panel-Look
+- Partikel-/Aurora-/Grid-Hintergrund
+- unnötige Kamerafahrt
+- künstlich viele Motion-Channels
+- reine Bewegung nur für Frame-Diff
+- Dummy-/Placeholder-/Debug-Flächen
+- `Math.sin` / `Math.cos` als Dauerwackeln
+
+Animationen müssen die Aussage **einfacher** machen und wie die bewegte Version der neuen FinanzNeo-Bildwelt aussehen.
+
 
 ## 12. Phase-3-Seal und Dispatch
 

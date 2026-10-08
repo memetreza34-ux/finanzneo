@@ -90,9 +90,14 @@ if (index) {
   assert(index.imageWorld?.seriesLockId === SERIES_LOCK_ID, 'FinanzNeo Same-World-Lock fehlt.');
   assert(index.imageWorld?.generatedImageAspectRatio === GENERATED_IMAGE_ASPECT_RATIO, 'YouTube-Quellbilder müssen 16:9 sein.');
   assert(index.imageWorld?.horizontalGeneratedImagesRequired === true, 'Horizontale 16:9-Quellbilder müssen verpflichtend sein.');
-  assert(index.imageWorld?.sameWorldAcrossSeriesRequired === true, 'Dieselbe Bildwelt muss für die ganze Serie vorgeschrieben sein.');
-  assert(index.imageWorld?.literalFirst === true && index.imageWorld?.metaphorOptional === true, 'YouTube-Bilder müssen Literal-first V3 verwenden.');
-  assert(index.imageWorld?.styleReferenceStrategy === 'approved-thumbnail-style-only', 'Das freigegebene Thumbnail muss reine Stilreferenz sein.');
+  assert(index.imageWorld?.authority === 'docs/FINANZNEO-IMAGE-WORLD.md', 'Kanonische Bildwelt-Quelle fehlt.');
+  assert(index.imageWorld?.promptLanguage === 'en', 'YouTube-Bildprompts müssen Englisch sein.');
+  assert(index.imageWorld?.flexibleBackgrounds === true, 'YouTube-Bilder müssen flexible Hintergründe erlauben.');
+  assert(index.imageWorld?.fixedBlackBackgroundForbidden === true, 'Schwarzer Pflicht-Hintergrund darf nicht aktiv sein.');
+  assert(index.imageWorld?.fixed3DRenderingForbidden === true, 'Fester 3D-Renderstil darf nicht aktiv sein.');
+  assert(index.imageWorld?.firstGlanceUnderstandingRequired === true, 'First-glance clarity muss aktiv sein.');
+  assert(index.imageWorld?.progressiveSequencesAllowed === true, 'Progressive Bildfolgen müssen erlaubt sein.');
+  assert(index.imageWorld?.approvedPriorImageReferenceAllowed === true, 'Freigegebene Vorbild-Referenzen müssen erlaubt sein.');
   assert(index.imageWorld?.referencePromptFile === '04-visuals/bildwelt.txt', 'referencePromptFile ist falsch.');
   assert(index.motionStandard?.id === YOUTUBE_MOTION_STANDARD_ID, `motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
   assert(index.motionStandard?.contentFirstTechniqueSelection === true, 'Motion-Technik muss aus dem Inhalt gewählt werden.');
@@ -101,6 +106,9 @@ if (index) {
   assert(index.googleFlow?.generationMode === 'one-image-at-a-time' && index.googleFlow?.strictSequential === true, 'Google Flow muss strikt Bild für Bild arbeiten.');
   assert(index.googleFlow?.waitForCurrentImage === true && index.googleFlow?.renameBeforeNext === true && index.googleFlow?.qaBeforeNext === true, 'Google Flow muss warten, umbenennen und prüfen, bevor es fortfährt.');
   assert(index.googleFlow?.retrySameImageOnFailure === true, 'Fehlerhafte Bilder müssen unter derselben Nummer neu erzeugt werden.');
+  assert(index.googleFlow?.referenceImagesAllowed === true, 'Bildreferenzen müssen erlaubt sein.');
+  assert(index.googleFlow?.continuationReferenceRequiredWhenDeclared === true, 'Deklarierte Fortsetzungs-Visuals müssen eine Referenz verwenden.');
+  assert(index.googleFlow?.referenceMustUseApprovedPriorImage === true, 'Referenz muss aus einem freigegebenen vorherigen Bild stammen.');
   assert(index.googleFlow?.finalCollectionDirectory === `${IMAGE_INBOX}/`, 'Finaler gemeinsamer Bilderordner ist falsch.');
   assert(index.googleFlow?.distributeToVisualFolders === false, 'Google Flow darf Bilder nicht auf Visual-Ordner verteilen.');
   assert(index.timelineRules?.cutsFollowVoiceAndChapters === true && index.timelineRules?.beatFirst === true, 'Schnitte müssen Voiceover/Beats/Kapiteln folgen.');
@@ -134,10 +142,14 @@ if (index) {
       imageFileNames.add(visual.googleFlowFileName);
       const imagePlan = visual.type === 'hybrid' ? visual.imagePlanFile : visual.planFile;
       assert(typeof imagePlan === 'string' && imagePlan.endsWith('/bildprompt.txt') && existsSync(resolve(root, imagePlan)), `${id}: bildprompt.txt fehlt.`);
+      if (visual.imageSequence?.mode === 'continuation') {
+        assert(typeof visual.imageSequence.referenceVisualId === 'string' && visual.imageSequence.referenceVisualId.trim(), `${id}: continuation benötigt referenceVisualId.`);
+        assert(typeof visual.imageSequence.plannedChange === 'string' && visual.imageSequence.plannedChange.trim(), `${id}: continuation benötigt plannedChange.`);
+      }
       if (typeof imagePlan === 'string' && existsSync(resolve(root, imagePlan))) {
         const prompt = readFileSync(resolve(root, imagePlan), 'utf8');
-        for (const marker of ['LITERAL_REAL_WORLD_SITUATION:', 'REAL_WORLD_CONTEXT_ANCHOR:', 'VOICEOVER_VISUAL_MATCH:', 'TRANSFERABILITY_TEST:', 'VISUAL_STRATEGY:', 'METAPHOR_JUSTIFICATION:']) {
-          assert(prompt.includes(marker), `${id}: Literal-first Marker fehlt: ${marker}`);
+        for (const marker of ['REFERENCE_IMAGE:', 'IMAGE PROMPT:', 'FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1']) {
+          assert(prompt.includes(marker), `${id}: Bildprompt-Marker fehlt: ${marker}`);
         }
       }
     }
@@ -166,7 +178,7 @@ if (existsSync(resolve(root, ALL_PROMPTS))) {
   assert(prompts.includes('regenerate the same image number'), 'Wiederholungsregel für fehlerhafte Bilder fehlt.');
   assert(prompts.includes(IMAGE_INBOX), 'Gemeinsamer Bilderordner fehlt in der Flow-Übergabe.');
   assert(prompts.includes('horizontal 16:9'), 'Horizontales 16:9-Quellbild fehlt in der Flow-Übergabe.');
-  assert(prompts.includes('Literal first, creative second'), 'Literal-first Bildlogik fehlt in der Flow-Übergabe.');
+  assert(prompts.includes('FinanzNeo Editorial Finance V1'), 'Editorial-Finance-Bildlogik fehlt in der Flow-Übergabe.');
   assert(!/square 1:1 source image|portrait 9:16|vertical 9:16 image/i.test(prompts), 'YouTube-Prompts enthalten ein falsches Quellbildformat.');
 }
 
@@ -188,4 +200,4 @@ if (errors.length > 0) {
 }
 
 console.log('\n✓ YouTube-Longform-Vertrag erfüllt.');
-console.log('  16:9 · Beat-first · Literal-first V3 · Motion V2 · sequenzieller Flow · keine Shorts');
+console.log('  16:9 · Beat-first · Editorial Finance V1 · progressive Referenzen erlaubt · sequenzieller Flow · keine Shorts');

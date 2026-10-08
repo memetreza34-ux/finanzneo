@@ -4,16 +4,20 @@
 
 ## Kernprinzip
 
-Nicht zuerst fragen, welches Tool verfügbar ist. Zuerst bestimmen:
-
 ```text
 Sprechpunkt
 → was muss der Zuschauer sichtbar verstehen?
-→ welche einfachste visuelle Form erklärt genau das?
-→ erst danach Werkzeug wählen
+→ was ist die einfachste visuelle Darstellung?
+→ IMAGE oder ANIMATION
+→ erst danach Werkzeug/Technik
 ```
 
-Komplexer Inhalt bedeutet nicht automatisch komplexe Animation.
+**Ein Gedanke = eine klare visuelle Idee.**
+
+Für statische Visuals ist Google Flow das Standardwerkzeug. Flow darf alle statischen Bildformen erstellen: Illustration, Metapher, Chart, Timeline, Vergleich, Dokument, Zahlengrafik, Zitatbild, Unternehmen/Marke oder eine passende einfache Szene.
+
+Nur echte zeitliche Bewegung/Transformation ist eine ANIMATION-Szene und wird in Remotion gebaut.
+
 
 ## Reels — harte exklusive Auswahl
 
@@ -21,18 +25,20 @@ Für neue FinanzNeo-Reels gilt pro Szene **genau eine Hauptform**:
 
 ### IMAGE
 
-Nutzen, wenn eine konkrete Alltagssituation oder ein klarer Zustand als starkes Standbild schneller verständlich ist, z. B.:
-
-- kaputte Waschmaschine + Reparaturrechnung + Notgroschen
-- Einkauf / Inflation
-- Rechnung / Versicherung / Vertrag
-- klarer realer Vorher-/Nachher-Zustand
+Nutzen, wenn der gesprochene Gedanke als statisches Visual vollständig verständlich wird.
 
 IMAGE bedeutet:
-- Google-Flow-Bild ist das Hauptvisual
-- Header/Icon und Captions werden von Remotion gerendert
-- kurze funktionale Objektlabels sind erlaubt
-- keine erklärende Remotion-Hauptanimation, Pfeilmechanik, Geldfluss-Animation oder Parallax-Erklärung über dem Bild
+- Google Flow erstellt das komplette statische Visual
+- erlaubt sind Illustrationen, Metaphern, Charts, Timelines, Vergleiche, Dokumente, Zahlenvisuals, Zitate, Unternehmen/Marken und andere passende statische Formen
+- die einfachste klare Darstellung gewinnt
+- ein Finanzobjekt ist nicht zwingend nötig
+- Hintergrund und 2D/2.5D/selektives 3D werden nach Motiv gewählt
+- mehrere IMAGE-Szenen dürfen eine progressive Folge bilden
+- bei progressiver Folge wird das freigegebene vorherige Bild als echte Referenz verwendet
+- keine erklärende Remotion-Hauptanimation über dem Bild
+
+Kanonische Bildwelt: `docs/FINANZNEO-IMAGE-WORLD.md`.
+
 
 ### ANIMATION
 
@@ -86,15 +92,15 @@ Für YouTube Longform darf weiterhin eine echte Bild+Remotion-Kombination gewäh
 
 ## Qualitätsfragen
 
-Jeder Beat muss sichtbar mindestens eine konkrete Frage beantworten:
-- Was verändert sich?
-- Was wächst oder schrumpft?
-- Was kostet Geld?
-- Wo fließt Geld hin?
-- Was bleibt übrig?
-- Was wird verglichen?
-- Was ist Ursache und Wirkung?
+Jeder Beat muss mindestens diese Fragen bestehen:
+
+- Versteht man die Hauptidee ohne langes Nachdenken?
+- Ist die Darstellung einfacher als eine vollständige Szene?
+- Gibt es unnötige Dekoration oder KI-typische Komplexität?
+- Passt das Visual exakt zum gesprochenen Gedanken?
+- Wäre eine einfache Metapher, Zahl, Illustration, Grafik, Prozessdarstellung oder Timeline klarer?
+
 
 ## Kurzregel
 
-> **Reels: entweder IMAGE oder ANIMATION. Bilder bleiben ruhig und selbsterklärend; Animationen werden individuell aus dem Sprechpunkt entwickelt. SVG, Icons und Lottie sind Werkzeuge. YouTube Longform darf bei echtem Mehrwert weiterhin Hybrid nutzen.**
+> **Ein Gedanke = eine einfache visuelle Idee. Erst die klarste Darstellung wählen, dann das Werkzeug. FinanzNeo-Bildwelt beibehalten, aber keine unnötige KI-Komplexität hinzufügen.**

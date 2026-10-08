@@ -1,0 +1,37 @@
+name: Editorial Motion V2 Preview
+
+on:
+  push:
+    branches:
+      - reset-image-prompt-rules
+    paths:
+      - 'src/finance-motion/editorial-v2.tsx'
+      - 'src/root/ExperimentCompositions.tsx'
+      - 'scripts/render-editorial-motion-v2.mjs'
+      - 'package.json'
+      - '.github/workflows/editorial-motion-v2-preview.yml'
+  workflow_dispatch:
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Render V2 examples
+        run: npm run render:editorial-motion-v2
+      - name: Upload MP4 examples
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-motion-v2
+          path: out/editorial-motion-v2/*.mp4
+          if-no-files-found: error
+          retention-days: 7
