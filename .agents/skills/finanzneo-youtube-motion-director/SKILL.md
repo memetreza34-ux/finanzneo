@@ -1,63 +1,177 @@
 ---
 name: finanzneo-youtube-motion-director
-description: Directs FinanzNeo YouTube Longform motion as a YouTube-native 16:9 explainer world with strong metaphors, purposeful motion and brand-compatible editorial design.
+description: Directs high-quality FinanzNeo YouTube Longform animation with completely open scene-by-scene art direction in 16:9.
 ---
 
-# FinanzNeo YouTube Motion Director V3
+# FinanzNeo YouTube Motion Director — Open Direction
 
 ## Goal
 
-Create YouTube-native 16:9 motion with its own visual identity. It should fit FinanzNeo, but it must not copy the static Flow image world one-to-one.
+Create the **best animation for the spoken idea**.
 
-Do not start from a component or effect. Start from the visible change the viewer must understand.
+Do not force a fixed animation world.
 
-## Core rule
+The only permanent presentation constraint is:
 
 ```text
-spoken beat
-→ viewerChange
-→ simplest clear motion
-→ result
+1920 × 1080
+16:9
 ```
 
-One meaningful motion channel may be enough.
+Everything else is selected per scene.
 
-## Visual language
+## Creative freedom
 
-Default:
+You may freely choose:
 
-- design directly for 1920 × 1080 / 16:9
-- strong hero metaphor
-- wide left / center / right staging
-- 2D / subtle 2.5D by default
-- selective 3D when spatial depth adds meaning
-- scene continuity over slide-like resets
-- meaningful motion every 1–2 seconds when the spoken idea advances
-- camera motion allowed when it helps the story
-- numbers integrated as visual objects
+- light or dark
+- white or black
+- colorful or muted
+- flat 2D
+- editorial illustration
+- infographic
+- minimal comparison
+- kinetic typography
+- 2.5D
+- full 3D
+- physical metaphor
+- abstract geometry
+- data visualization
+- simulation
+- timeline
+- map
+- document motion
+- split screen
+- camera journey
+- hybrid image + motion
+- a completely custom visual world
 
-Optional:
+The static Flow image world is optional inspiration only.
 
-- dark surface
-- spatial depth
-- 3D
-- camera movement
+Do not copy it merely for consistency.
 
-Only use optional complexity when it improves understanding.
+## Core decision
 
-## Do not default to
+Ask:
 
-- `PremiumPhysicalStage`
-- old `Physical*` primitives
-- glossy black 3D
-- coin stacks
-- podiums
-- neon glow
-- holograms
-- dashboards
-- particle backgrounds
-- constant zoom/parallax
-- multiple motion channels just for activity
+> What would make this specific sentence easiest and most satisfying to understand?
+
+Then choose the art direction and motion mechanism.
+
+## Simple is valid
+
+A comparison with two numbers can be the best animation.
+
+A single growing line can be the best animation.
+
+A before/after transformation can be the best animation.
+
+Do not reject simplicity.
+
+Reject weak execution.
+
+## Complex is valid
+
+Use rich 3D, camera movement, simulations or layered environments when they genuinely improve the explanation or payoff.
+
+Do not reject complexity merely because a simpler brand style exists.
+
+## Background
+
+No default.
+
+Use whatever is strongest:
+
+- cream
+- white
+- gray
+- color
+- dark charcoal
+- black
+- gradient
+- illustrated space
+- 3D environment
+
+## Camera
+
+No default.
+
+Allowed:
+
+- still
+- push
+- pull
+- pan
+- follow
+- orbit
+- track
+- reframe
+- zoom
+- macro-to-micro
+
+Camera must serve the story.
+
+## Three-concept preflight
+
+Before coding, create three **genuinely different** concepts.
+
+They may use completely different visual worlds.
+
+For each state:
+
+- concept
+- visual world
+- hero
+- mechanism
+- payoff
+- tool choice
+
+Choose the strongest concept based on explanation + visual quality.
+
+Do not choose based on similarity to previous scenes.
+
+## Keyframe QA
+
+Plan:
+
+- 10% START
+- 35% MECHANISM
+- 65% CONSEQUENCE
+- 90% PAYOFF
+
+Review for:
+
+- clarity
+- composition
+- progression
+- visual quality
+- payoff
+
+Never fail a scene because it differs from the static image world.
+
+## Tools
+
+Use any appropriate stack already available:
+
+- Remotion
+- SVG
+- CSS
+- Canvas
+- @remotion/paths
+- @remotion/shapes
+- @remotion/transitions
+- @remotion/layout-utils
+- @remotion/effects
+- @remotion/motion-blur
+- Lottie
+- Three.js / R3F
+- Recharts
+- custom React
+- image compositing
+
+Use the official Remotion skills/docs when uncertain.
+
+A new library is allowed when it solves a real capability gap.
 
 ## Authority
 
@@ -67,148 +181,39 @@ Read:
 2. `docs/FINANZNEO-YOUTUBE-MOTION-WORLD-V1.md`
 3. `youtube/PRODUKTIONSSTANDARD.md`
 4. `docs/YOUTUBE-MOTION-V3.md`
-5. target `04-visuals/visual-index.json`
-6. target visual `remotion.md`
-7. target `animation.tsx`
+5. target visual plan
+6. target animation source
 
-## Viewer-change-first
+## Hard rejection criteria
 
-Write one sentence:
+Reject only for actual problems:
 
-> What should the viewer literally see change?
+- unclear
+- misleading
+- visually broken
+- low quality
+- poor pacing
+- weak hierarchy
+- meaningless motion
+- accidental overlap
+- unfinished / placeholder
+- factually wrong
 
-Then choose the simplest implementation.
+Do not reject because of:
 
-## Tool roles
+- dark background
+- black background
+- different palette
+- different art style
+- 3D
+- minimal comparison
+- chart
+- physical metaphor
+- abstract style
+- cinematic style
 
-### Pure Remotion
+## Final rule
 
-Good for:
+> There is no required animation style. There is only a required quality level.
 
-- values
-- percentages
-- charts
-- timelines
-- simple comparisons
-- debt / fee development
-- document changes
-
-### Flow image + Remotion
-
-Use only when the static image is a strong base and motion adds actual information.
-
-### SVG
-
-Use for:
-
-- lines
-- curves
-- charts
-- paths
-- weighting
-- simple geometric relations
-
-### Lottie
-
-Small support action only.
-
-### 3D
-
-Only when actual spatial depth is part of the explanation.
-
-## Motion density
-
-No fixed count.
-
-One channel is valid.
-
-Add a second or third only when each adds information.
-
-## Camera
-
-Default may be still, but YouTube motion may also use push, follow, reframe or zoom-out when the camera reveals or clarifies information. Never move the camera only to create energy.
-
-## Narrative
-
-Minimum:
-
-```text
-START
-→ RESULT
-```
-
-Common:
-
-```text
-START
-→ MECHANISM
-→ RESULT
-```
-
-The result should remain readable.
-
-## Required metadata
-
-Every motion-capable visual defines:
-
-- `viewerChange`
-- `animationIntent`
-- `mechanicId`
-- `visualTechniqueId`
-- `techniqueDescription`
-- `compositionFamilyId`
-- `toolStack`
-- `motionSignature.camera`
-- `motionSignature.layout`
-- `motionSignature.transformation`
-- at least one meaningful `motionChannels` entry
-- at least two `visualBeats`
-- `animationSourceFile`
-- `animationExport`
-
-## Quality rejection
-
-Reject when:
-
-- it looks like the retired black glossy 3D world
-- it relies on old Physical primitives
-- it is more complicated than the sentence
-- the camera is the main attraction
-- too many elements move
-- the scene looks like an app/dashboard
-- decorative effects dominate
-- a simpler editorial animation would communicate the same idea better
-
-## Production
-
-All motion remains deterministic from Remotion frames.
-
-Phase 1 owns creative motion. Phase 3 integrates the sealed source and may not replace the mechanism.
-
-
-## Three-concept rule
-
-Before coding, create three genuinely different visual concepts. Do not submit three cosmetic variations of the same chart or dashboard.
-
-Choose one concept only after comparing:
-- hero object
-- metaphor strength
-- mechanism clarity
-- 16:9 composition
-- payoff strength
-
-## YouTube keyframes
-
-Plan and review:
-- 10% START
-- 35% MECHANISM
-- 65% CONSEQUENCE
-- 90% PAYOFF
-
-The four stills must read as one coherent visual story.
-
-## Hard principle
-
-Do not animate the layout. Animate the idea.
-
-Do not force the Flow image style onto motion when a stronger YouTube-native animation communicates the idea better.
+Choose the visual world independently for every scene.
