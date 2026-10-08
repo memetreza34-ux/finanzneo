@@ -9,9 +9,7 @@ export const YOUTUBE_IMAGE_VISUAL_TYPES = new Set(['image', 'hybrid']);
 // Beispiele zur Inspiration, ausdrücklich KEINE Whitelist.
 // Neue compositionFamilyId-Werte sind erlaubt, wenn sie die konkrete Szene besser beschreiben.
 export const YOUTUBE_MOTION_FAMILY_EXAMPLES = [
-  'spatial-3d',
   'vector-motion',
-  'css-3d',
   'kinetic-type',
   'data-viz',
   'timeline',
@@ -19,12 +17,16 @@ export const YOUTUBE_MOTION_FAMILY_EXAMPLES = [
   'image-composite',
   'simulation',
   'comparison',
-  'camera-journey',
   'physical-process',
   'material-transformation',
   'map-journey',
-  'macro-to-micro',
   'network-simulation',
+  'rank-reflow',
+  'segmented-donut',
+  'data-heatmap',
+  'flow-token',
+  'waffle-grid',
+  'trend-trace',
   'custom',
 ];
 
@@ -53,8 +55,8 @@ export const validateYouTubeMotionMetadata = (visual) => {
     }
   };
 
-  // Open Motion: Erst sichtbare Veränderung bestimmen, dann drei bewusst unterschiedliche
-  // Art-Directions/Konzepte vergleichen und erst danach Technik wählen.
+  // Light Motion: Zuerst sichtbare Veränderung, drei unterschiedliche 2D-Konzepte
+  // und geeignete Mechaniken planen; Technik ist kein Selbstzweck.
   requiredString('viewerChange');
   requiredString('animationIntent');
   requiredString('mechanicId');
