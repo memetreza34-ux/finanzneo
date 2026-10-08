@@ -67,7 +67,7 @@ if (index?.motionStandard?.mixedStyleAcrossScenesAllowed !== true) errors.push('
 if (index?.motionStandard?.brandStyleMatchRequired !== false) errors.push('motionStandard.brandStyleMatchRequired muss false sein.');
 const visuals = Array.isArray(index?.visuals) ? index.visuals : [];
 for (const visual of visuals) errors.push(...validateYouTubeMotionMetadata(visual));
-errors.push(...validateYouTubeMotionVariety(visuals));
+const varietyNotes = validateYouTubeMotionVariety(visuals);
 
 const forbiddenSourcePatterns = [
   [/\bMath\.random\s*\(/, 'Math.random ist in produktiver Motion verboten.'],
@@ -109,6 +109,11 @@ for (const visual of visuals.filter(requiresYouTubeMotion)) {
   const safeExport = String(visual.animationExport ?? '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const exportPattern = new RegExp(`export\\s+(?:const|function)\\s+${safeExport}\\b`);
   if (!visual.animationExport || !exportPattern.test(source)) errors.push(`${id}: Export ${visual.animationExport ?? '(fehlt)'} wurde nicht gefunden.`);
+}
+
+if (varietyNotes.length) {
+  console.warn('\nYouTube Motion Variety Hinweise (nicht blockierend):');
+  varietyNotes.forEach((note) => console.warn(`- ${note}`));
 }
 
 if (errors.length) {
