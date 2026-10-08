@@ -70,7 +70,8 @@
     "render:editorial-motion-v3": "node scripts/render-editorial-motion-v3.mjs",
     "reel:animation:editorial:v1": "node scripts/apply-editorial-motion-v1.mjs",
     "render:youtube-motion-examples": "node scripts/render-youtube-motion-examples.mjs",
-    "render:youtube-open-motion-showcase": "npx remotion render src/index.ts YouTubeOpenMotionShowcase out/youtube-open-motion-showcase.mp4 --codec=h264 --crf=18"
+    "render:youtube-open-motion-showcase": "npx remotion render src/index.ts YouTubeOpenMotionShowcase out/youtube-open-motion-showcase.mp4 --codec=h264 --crf=18",
+    "render:youtube-light-motion-showcase": "npx remotion render src/index.ts YouTubeLightMotionShowcaseV2 out/youtube-light-motion-showcase-v2.mp4 --codec=h264 --crf=18"
   },
   "dependencies": {
     "@react-three/fiber": "^8.18.0",
