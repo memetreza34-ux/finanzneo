@@ -1,0 +1,42 @@
+name: YouTube Light Motion V3 — Render and QA
+
+on:
+  push:
+    branches:
+      - reset-image-prompt-rules
+    paths:
+      - 'src/youtube-motion/light-v3/**'
+      - 'src/root/ExperimentCompositions.tsx'
+      - 'scripts/qa-youtube-light-motion-v3.mjs'
+      - 'tests/youtube-light-motion-v3.test.ts'
+      - 'package.json'
+      - '.github/workflows/youtube-light-motion-v3.yml'
+  workflow_dispatch:
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: TypeScript typecheck
+        run: npm run typecheck
+      - name: Light Motion V3 regression tests
+        run: node --import tsx --test tests/youtube-light-motion-v3.test.ts
+      - name: Render complete 16:9 V3 showcase
+        run: npm run render:youtube-light-motion-v3
+      - name: Render QA contact sheets for all eight scenes
+        run: npm run qa:youtube-light-motion-v3
+      - name: Upload showcase and QA previews
+        uses: actions/upload-artifact@v4
+        with:
+          name: youtube-light-motion-v3-preview
+          path: out/youtube-light-motion-v3/
+          if-no-files-found: error
+          retention-days: 7
