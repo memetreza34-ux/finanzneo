@@ -55,7 +55,16 @@ if (index?.motionStandard?.youtubeNativeCompositionRequired !== true) errors.pus
 if (index?.motionStandard?.conceptCandidatesRequired !== 3) errors.push('motionStandard.conceptCandidatesRequired muss 3 sein.');
 if (index?.motionStandard?.keyframeQaRequired !== true) errors.push('motionStandard.keyframeQaRequired muss true sein.');
 if (JSON.stringify(index?.motionStandard?.keyframeQaPercentages) !== JSON.stringify([10,35,65,90])) errors.push('motionStandard.keyframeQaPercentages muss 10/35/65/90 sein.');
-if (index?.motionStandard?.fixed3DStyleForbidden !== true) errors.push('motionStandard.fixed3DStyleForbidden muss true sein.');
+if (index?.motionStandard?.fixed3DStyleForbidden !== true) errors.push('motionStandard.fixed3DStyleForbidden muss true sein; damit ist nur ein erzwungener 3D-Stil verboten, nicht 3D selbst.');
+if (index?.motionStandard?.fixedArtDirectionForbidden !== true) errors.push('motionStandard.fixedArtDirectionForbidden muss true sein.');
+if (index?.motionStandard?.darkBackgroundAllowed !== true) errors.push('motionStandard.darkBackgroundAllowed muss true sein.');
+if (index?.motionStandard?.blackBackgroundAllowed !== true) errors.push('motionStandard.blackBackgroundAllowed muss true sein.');
+if (index?.motionStandard?.full3DAllowed !== true) errors.push('motionStandard.full3DAllowed muss true sein.');
+if (index?.motionStandard?.simpleComparisonAllowed !== true) errors.push('motionStandard.simpleComparisonAllowed muss true sein.');
+if (index?.motionStandard?.chartAllowed !== true) errors.push('motionStandard.chartAllowed muss true sein.');
+if (index?.motionStandard?.sceneArtDirectionOpen !== true) errors.push('motionStandard.sceneArtDirectionOpen muss true sein.');
+if (index?.motionStandard?.mixedStyleAcrossScenesAllowed !== true) errors.push('motionStandard.mixedStyleAcrossScenesAllowed muss true sein.');
+if (index?.motionStandard?.brandStyleMatchRequired !== false) errors.push('motionStandard.brandStyleMatchRequired muss false sein.');
 const visuals = Array.isArray(index?.visuals) ? index.visuals : [];
 for (const visual of visuals) errors.push(...validateYouTubeMotionMetadata(visual));
 errors.push(...validateYouTubeMotionVariety(visuals));
@@ -84,9 +93,6 @@ for (const visual of visuals.filter(requiresYouTubeMotion)) {
     if (pattern.test(source)) errors.push(`${id}: ${message}`);
   }
   if (!/useCurrentFrame\s*\(/.test(source)) errors.push(`${id}: useCurrentFrame() fehlt.`);
-  if (/PremiumPhysicalStage|<Physical(?:Object|Tag|Rail|Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack)\b/.test(source)) {
-    errors.push(`${id}: neue YouTube Editorial Motion darf nicht auf alte PremiumPhysical-/Physical-Primitives zurückfallen.`);
-  }
   if (!/\b(interpolate|spring)\s*\(/.test(source)) errors.push(`${id}: mindestens interpolate() oder spring() muss echte Frame-Motion steuern.`);
   if (!source.includes(`MECHANIC_ID = '${visual.mechanicId}'`) && !source.includes(`MECHANIC_ID = "${visual.mechanicId}"`)) {
     errors.push(`${id}: MECHANIC_ID im Code stimmt nicht mit visual-index.json überein.`);
@@ -112,4 +118,4 @@ if (errors.length) {
 }
 
 console.log('\n✓ YouTube Motion V3 erfüllt.');
-console.log('  Editorial Motion V1 · minimale klare Bewegung · Viewer-change-first · deterministisch · kein 3D-/Physical-Default.');
+console.log('  Open Motion · 16:9 · freie Art-Direction pro Szene · Viewer-change-first · deterministisch.');
