@@ -8,7 +8,7 @@ export const SCENE_FRAMES=96;
 
 export const P={
   cream:'#F4F0E7', paper:'#FBFAF6', ink:'#202824', muted:'#69736D', line:'#D8DCD7',
-  green:'#4F8A67', green2:'#75A98A', blue:'#5C82A3', orange:'#D77858', gold:'#C79C45',
+  green:'#4F8A67', greenDark:'#346449', green2:'#75A98A', blue:'#5C82A3', orange:'#D77858', gold:'#C79C45',
   red:'#C95E58', purple:'#8270A6', cyan:'#5B9DA2', white:'#FFFFFF',
   dark:'#0D1117', dark2:'#151B23', dark3:'#1E2632', neon:'#60E59A', darkText:'#DDE7E1',
 } as const;
