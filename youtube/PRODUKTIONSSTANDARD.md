@@ -73,10 +73,11 @@ docs/FINANZNEO-VISUAL-SELECTION-RULE.md
 
 ## Remotion / Motion V3
 
-Kanonische YouTube-Motion-Welt:
+Kanonische YouTube-Motion-Welt und wiederverwendbare V3-Engine:
 
 ```text
 docs/FINANZNEO-YOUTUBE-MOTION-WORLD-V1.md
+docs/YOUTUBE-LIGHT-MOTION-V3-ENGINE.md
 ```
 
 `MOTION_STANDARD: finanzneo-youtube-motion-v3`
@@ -113,7 +114,9 @@ Jedes Motion-Visual braucht:
 - mindestens **eine** sinnvolle erklärende Motion
 - mindestens zwei sichtbare Visual Beats: Start + Result
 
-Eine klare Hauptbewegung darf vollständig reichen. Mehr Motion ist kein Qualitätsmerkmal.
+Eine klare Hauptbewegung darf vollständig reichen. Mehr Motion ist kein Qualitätsmerkmal. Neue YouTube-Visuals verwenden nach Möglichkeit die datengetriebenen Mechaniken unter `src/youtube-motion/light-v3/`; ein isolierter Demo-Effekt ist keine Freigabe.
+
+Kontaktbogen und kompletter Clip müssen nach dem Render visuell geprüft werden. Der dedizierte Test liefert 10/35/65/90-Prozent-Frames; automatischer Build-Erfolg allein ist keine ästhetische Freigabe.
 
 
 ### Echte Vielfalt statt umbenannter Wiederholung
