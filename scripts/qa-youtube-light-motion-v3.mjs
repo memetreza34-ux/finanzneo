@@ -25,7 +25,7 @@ const scenes=[
 const run=(args)=>{
   const result=spawnSync('ffmpeg',args,{stdio:'inherit'});
   if(result.error || result.status!==0) {
-    throw new Error('ffmpeg failed: '+args.join(' ')+' (exit '+String(result.status)+')');
+    throw new Error('ffmpeg failed: '+args.join(' ')+' (exit '+String(result.status)+', error '+(result.error?.message ?? 'none')+')');
   }
 };
 const required=(p)=>{
