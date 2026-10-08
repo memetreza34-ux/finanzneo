@@ -69,6 +69,10 @@ import {
   YouTubeMotionSubscriptions,
 } from '../youtube-motion/examples/YouTubeMotionExamplesV1';
 import {
+  OpenMotionShowcase,
+  OPEN_MOTION_SHOWCASE_FRAMES,
+} from '../youtube-motion/showcase/OpenMotionShowcase';
+import {
   FinanceImageSceneTest,
   FINANCE_IMAGE_SCENE_TEST_FRAMES,
 } from '../reels-test/FinanceImageSceneTest';
@@ -166,6 +170,7 @@ export const ExperimentCompositions: React.FC = () => (
     <Composition id="YouTubeMotionInflation" component={YouTubeMotionInflation} durationInFrames={YOUTUBE_MOTION_EXAMPLE_FRAMES} fps={FPS} {...WIDE} />
     <Composition id="YouTubeMotionETFNetwork" component={YouTubeMotionETFNetwork} durationInFrames={YOUTUBE_MOTION_EXAMPLE_FRAMES} fps={FPS} {...WIDE} />
     <Composition id="YouTubeMotionSubscriptions" component={YouTubeMotionSubscriptions} durationInFrames={YOUTUBE_MOTION_EXAMPLE_FRAMES} fps={FPS} {...WIDE} />
+    <Composition id="YouTubeOpenMotionShowcase" component={OpenMotionShowcase} durationInFrames={OPEN_MOTION_SHOWCASE_FRAMES} fps={FPS} {...WIDE} />
 
     <Composition
       id="ReelsTestFinanceHeaderCaptionMotion"
