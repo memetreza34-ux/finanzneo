@@ -1,208 +1,85 @@
 # FinanzNeo YouTube Motion V3
 
 MOTION_STANDARD: finanzneo-youtube-motion-v3
-MOTION_WORLD: finanzneo-youtube-open-motion-v1
+MOTION_WORLD: finanzneo-youtube-light-motion-v2
 
-Dieser Standard gilt für YouTube-Longform-Motion in 16:9.
+YouTube-Longform wird direkt für 1920 × 1080 / 16:9 gestaltet.
 
-Die zentrale Regel lautet:
+## Aktive Richtung
 
-> Es gibt **keine feste Animationswelt**. Für jede Szene wird die beste visuelle Welt neu gewählt.
+- hell
+- sauber
+- 2D / flache Grafik
+- unterschiedliche Designs erlaubt
+- kein Full-3D
+- keine pseudo-3D-Blöcke
+- keine dunklen oder schwarzen Szenen
+- keine großen generischen Szenenüberschriften
 
-Kanonische Detailregel:
+Die statische Flow-Bildwelt muss nicht 1:1 kopiert werden. Die Motion-Welt darf eigene Designs entwickeln, solange sie hell, klar und hochwertig bleibt.
 
-```text
-docs/FINANZNEO-YOUTUBE-MOTION-WORLD-V1.md
-```
+## Erlaubte Designfamilien
 
-## Fest bleibt nur
-
-- 1920 × 1080
-- 16:9
-- deterministische Remotion-Animation
-- klare inhaltliche Erklärung
-- saubere technische Ausführung
-- hochwertige visuelle Qualität
-
-## Nicht festgelegt
-
-Nicht festgelegt sind:
-
-- Hintergrund
-- Palette
-- 2D / 2.5D / 3D
-- Kamera
-- Illustrationsstil
-- Metapher
-- Chart / Vergleich / Objektwelt
-- hell / dunkel
-- statische Bildwelt
-- vorherige Animationswelt
-
-Jede Szene darf eine komplett andere Art-Direction haben.
-
-## Erlaubte Richtungen
-
-Alles ist erlaubt, wenn es für den Sprechpunkt gut funktioniert:
-
-- minimaler Zahlenvergleich
-- Before / After
-- Chart
+- minimaler Vergleich
+- Tabelle
+- KPI / Stats
+- Balken-, Linien-, Donut-, Waterfall- und andere Diagramme
 - Timeline
+- Icons
+- Flow-Diagramm
+- Funnel
 - Dokument
-- Split-Screen
-- Editorial Illustration
-- geometrische Abstraktion
-- dunkle technische Welt
-- helle minimalistische Welt
-- Full 3D
-- 2.5D
-- physische Metapher
-- Simulation
-- Netzwerk
-- Map
-- Kamera-Reise
-- kinetic typography
-- Bild + Remotion
-- komplett eigene Custom-Welt
+- Prozess
+- Route / Journey
+- Heatmap
+- Scatterplot
+- Progress / Gauge
+- abstrakte 2D-Geometrie
+- helle Custom-Illustration
 
-Keine dieser Richtungen ist Standard oder Pflicht.
+## Text
 
-## Core rule
+Nur inhaltsbezogene Texte:
 
-```text
-SCRIPT BEAT
-→ VIEWER CHANGE
-→ 3 VERSCHIEDENE KONZEPTE / ART-DIRECTIONS
-→ BESTE IDEE WÄHLEN
-→ KEYFRAMES PLANEN
-→ REMOTION BAUEN
-→ PAYOFF
-```
+- Werte
+- Kategorien
+- Prozentwerte
+- Tabellenköpfe
+- Achsen
+- kurze Callouts
 
-## Drei Konzepte
+Keine Präsentationsüberschriften wie:
 
-Vor dem Coding müssen drei wirklich unterschiedliche Ansätze entstehen.
+- "BAR CHART"
+- "STATS"
+- "TIMELINE"
+- "WATERFALL"
 
-Beispiel "Gebühren":
+und keine großen erklärenden Headlines innerhalb der Animationsfläche.
 
-A — einfacher Vergleich:
-zwei Linien wachsen, eine endet sichtbar niedriger.
+## Planung
 
-B — physische Metapher:
-ein Tank füllt sich, während Gebühren unten herauslaufen.
+Vor dem Coding:
 
-C — dunkle 3D-Welt:
-Kapitalblöcke bewegen sich durch ein System und Gebühren werden herausgezogen.
-
-Alle drei sind valide.
-
-Gewählt wird die stärkste Lösung — nicht die, die am ähnlichsten zur Bildwelt aussieht.
-
-## Keyframe QA
-
-Pflicht:
-
-- 10 % START
-- 35 % MECHANISMUS
-- 65 % KONSEQUENZ
-- 90 % PAYOFF
-
-Bewertet werden:
-
-- Verständlichkeit
-- Komposition
-- visuelle Entwicklung
-- Timing
-- professioneller Eindruck
-- Stärke des Ergebnisses
-
-Nicht bewertet wird, ob die Szene wie Flow oder eine frühere Animation aussieht.
-
-## Kamera
-
-Es gibt keinen Kamera-Default.
-
-Erlaubt:
-
-- still
-- push
-- pull
-- pan
-- follow
-- orbit
-- track
-- reframe
-- zoom
-- macro-to-micro
-
-Kamera wird nur nach Story-Nutzen bewertet.
+1. drei unterschiedliche helle 2D-Konzepte
+2. stärkstes Konzept auswählen
+3. 10 / 35 / 65 / 90 Prozent Keyframes planen
+4. Remotion bauen
+5. visuell prüfen
 
 ## Technik
 
-Offen:
+Bevorzugt:
 
-- React / DOM
-- SVG
-- Canvas
+- React / SVG / CSS
 - @remotion/paths
 - @remotion/shapes
-- @remotion/transitions
-- @remotion/layout-utils
-- @remotion/effects
-- @remotion/motion-blur
-- Lottie
-- Three.js / R3F
-- Recharts
-- Bildkomposition
-- Custom-Techniken
+- Recharts wenn sinnvoll
+- Masks / Clip Paths
+- deterministische Frame-Animation
 
-Auch neue Libraries sind erlaubt, wenn sie eine echte Lücke schließen.
-
-## Einfach und komplex sind beide erlaubt
-
-Ein simpler Vergleich kann 10/10 sein.
-
-Eine aufwendige 3D-Szene kann ebenfalls 10/10 sein.
-
-Komplexität ist kein Qualitätsmerkmal.
-
-Die Qualität hängt davon ab, wie gut der visuelle Mechanismus zum Inhalt passt.
-
-## Source requirements
-
-Produktive animation.tsx:
-
-- nutzt useCurrentFrame()
-- nutzt interpolate() und/oder spring()
-- ist deterministisch
-- enthält keine Platzhalter
-- hat keinen Runtime-Fetch
-- nutzt keine Timer/CSS-Animation als Render-Mechanik
-- exportiert die vereinbarten Motion-Metadaten
-- hat START und RESULT
-
-## Was wirklich verboten ist
-
-Nur echte Qualitätsprobleme:
-
-- unlesbar
-- irreführend
-- faktisch falsch
-- kaputt
-- schlechte Hierarchie
-- schlechtes Timing
-- sinnlose Bewegung
-- offensichtlicher Placeholder
-- zufällige Überschneidungen
-- visuelles Chaos, das die Erklärung zerstört
-
-Eine komplette Stilfamilie wird **nicht** im Voraus verboten.
+Three.js ist für normale YouTube-Szenen nicht der Standard und Full-3D ist in dieser Richtung nicht vorgesehen.
 
 ## Final rule
 
-> There is no required animation style. There is only a required quality level.
-
-Und:
-
-> Jede Szene darf ihre eigene visuelle Welt bekommen.
+> Light, clean, 2D, content-first. Different designs are welcome. No decorative headline. No 3D.
