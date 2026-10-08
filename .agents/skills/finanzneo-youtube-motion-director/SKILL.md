@@ -1,219 +1,98 @@
 ---
 name: finanzneo-youtube-motion-director
-description: Directs high-quality FinanzNeo YouTube Longform animation with completely open scene-by-scene art direction in 16:9.
+description: Directs clean light 16:9 FinanzNeo YouTube motion with varied 2D designs, no dark worlds, no 3D and no generic scene headlines.
 ---
 
-# FinanzNeo YouTube Motion Director — Open Direction
+# FinanzNeo YouTube Motion Director — Light Motion V2
 
 ## Goal
 
-Create the **best animation for the spoken idea**.
+Create the best **light, clean 2D animation** for the spoken idea.
 
-Do not force a fixed animation world.
+Fixed:
+- 1920 × 1080
+- 16:9
+- light background
+- flat / graphic / editorial 2D
+- no full 3D
+- no dark scene world
+- no generic scene headline
 
-The only permanent presentation constraint is:
+## Text
 
-```text
-1920 × 1080
-16:9
-```
+Only use text that belongs to the content:
+- values
+- labels
+- categories
+- percentages
+- table headers
+- short callouts
 
-Everything else is selected per scene.
+Do not add:
+- scene numbers
+- demo labels
+- giant generic titles
+- "BAR CHART", "STATS", "TIMELINE" style headings
+- paragraphs
 
-## Creative freedom
+## Different designs are encouraged
 
-You may freely choose:
-
-- light or dark
-- white or black
-- colorful or muted
-- flat 2D
-- editorial illustration
-- infographic
-- minimal comparison
-- kinetic typography
-- 2.5D
-- full 3D
-- physical metaphor
-- abstract geometry
-- data visualization
-- simulation
+A new scene may use:
+- Swiss minimal
+- pastel geometry
+- clean charts
+- icon flow
+- table
+- comparison
+- document
+- process
 - timeline
-- map
-- document motion
-- split screen
-- camera journey
-- hybrid image + motion
-- a completely custom visual world
+- flow diagram
+- route
+- flat illustration
+- abstract 2D shapes
 
-The static Flow image world is optional inspiration only.
+The design may change completely between scenes as long as it stays light, clean and 2D.
 
-Do not copy it merely for consistency.
+## Avoid
 
-## Core decision
+- black / dark backgrounds
+- 3D
+- pseudo-3D blocks
+- perspective-heavy experiments
+- glossy materials
+- neon / hologram
+- decorative motion
+- oversized headings
 
-Ask:
+## Three concepts
 
-> What would make this specific sentence easiest and most satisfying to understand?
+Before coding, create three genuinely different **light 2D** concepts.
 
-Then choose the art direction and motion mechanism.
+They should differ in visual mechanism, not only color.
 
-## Simple is valid
-
-A comparison with two numbers can be the best animation.
-
-A single growing line can be the best animation.
-
-A before/after transformation can be the best animation.
-
-Do not reject simplicity.
-
-Reject weak execution.
-
-## Complex is valid
-
-Use rich 3D, camera movement, simulations or layered environments when they genuinely improve the explanation or payoff.
-
-Do not reject complexity merely because a simpler brand style exists.
-
-## Background
-
-No default.
-
-Use whatever is strongest:
-
-- cream
-- white
-- gray
-- color
-- dark charcoal
-- black
-- gradient
-- illustrated space
-- 3D environment
-
-## Camera
-
-No default.
-
-Allowed:
-
-- still
-- push
-- pull
-- pan
-- follow
-- orbit
-- track
-- reframe
-- zoom
-- macro-to-micro
-
-Camera must serve the story.
-
-## Three-concept preflight
-
-Before coding, create three **genuinely different** concepts.
-
-They may use completely different visual worlds.
-
-For each state:
-
-- concept
-- visual world
-- hero
-- mechanism
-- payoff
-- tool choice
-
-Choose the strongest concept based on explanation + visual quality.
-
-Do not choose based on similarity to previous scenes.
-
-## Keyframe QA
+## Keyframes
 
 Plan:
+- 10% start
+- 35% mechanism
+- 65% consequence
+- 90% payoff
 
-- 10% START
-- 35% MECHANISM
-- 65% CONSEQUENCE
-- 90% PAYOFF
+## Tooling
 
-Review for:
-
-- clarity
-- composition
-- progression
-- visual quality
-- payoff
-
-Never fail a scene because it differs from the static image world.
-
-## Tools
-
-Use any appropriate stack already available:
-
+Prefer:
 - Remotion
 - SVG
 - CSS
-- Canvas
 - @remotion/paths
 - @remotion/shapes
-- @remotion/transitions
-- @remotion/layout-utils
-- @remotion/effects
-- @remotion/motion-blur
-- Lottie
-- Three.js / R3F
-- Recharts
-- custom React
-- image compositing
+- Recharts when useful
+- masks / clip paths
+- deterministic React motion
 
-Use the official Remotion skills/docs when uncertain.
-
-A new library is allowed when it solves a real capability gap.
-
-## Authority
-
-Read:
-
-1. `CLAUDE.md`
-2. `docs/FINANZNEO-YOUTUBE-MOTION-WORLD-V1.md`
-3. `youtube/PRODUKTIONSSTANDARD.md`
-4. `docs/YOUTUBE-MOTION-V3.md`
-5. target visual plan
-6. target animation source
-
-## Hard rejection criteria
-
-Reject only for actual problems:
-
-- unclear
-- misleading
-- visually broken
-- low quality
-- poor pacing
-- weak hierarchy
-- meaningless motion
-- accidental overlap
-- unfinished / placeholder
-- factually wrong
-
-Do not reject because of:
-
-- dark background
-- black background
-- different palette
-- different art style
-- 3D
-- minimal comparison
-- chart
-- physical metaphor
-- abstract style
-- cinematic style
+Do not reach for Three.js for normal YouTube scenes.
 
 ## Final rule
 
-> There is no required animation style. There is only a required quality level.
-
-Choose the visual world independently for every scene.
+> Light, clean, 2D, content-first. No decorative headline. No 3D.
