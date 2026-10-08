@@ -81,26 +81,33 @@ docs/FINANZNEO-YOUTUBE-MOTION-WORLD-V1.md
 
 `MOTION_STANDARD: finanzneo-youtube-motion-v3`
 
-`MOTION_WORLD: finanzneo-youtube-explain-motion-v1`
+`MOTION_WORLD: finanzneo-youtube-open-motion-v1`
 
 ### Grundregel
 
-YouTube-Animationen nutzen eine **eigene 16:9 Motion-Welt**. Sie soll zur FinanzNeo-Marke passen, muss die statische Bildwelt aber nicht 1:1 kopieren.
+YouTube-Animationen haben **keine feste Art-Direction**.
 
-Default:
+Fest bleibt nur:
+- 1920 × 1080 / 16:9
+- produktionsreife Remotion-Ausführung
+- klare Erklärung
+- hohe visuelle Qualität
 
-- 1920 × 1080 / 16:9 wird direkt komponiert
-- moderner Editorial-Explainer statt animierter Dashboard-Optik
-- starke visuelle Metapher vor Text
-- 2D / 2.5D bevorzugt, 3D bei echtem Mehrwert
-- breite Komposition mit Left/Center/Right-Staging
-- Kamera darf folgen, pushen oder reframen, wenn es die Story verbessert
-- Szene soll sich über mehrere Zustände weiterentwickeln statt ständig neu zu starten
-- die statische Flow-Bildwelt ist Markenreferenz, aber keine Zwangsschablone
+Pro Szene darf frei gewählt werden:
+- hell oder dunkel
+- 2D / 2.5D / Full 3D
+- Vergleich / Chart / Timeline / Dokument / Objektmetapher / abstrakte Welt
+- statische oder bewegte Kamera
+- komplett andere Palette oder Umgebung
+- bestehende Komponenten oder komplett eigener Aufbau
 
-Custom React, SVG, Canvas, Paths/Shapes, Datenvisualisierung, Dokument-Motion, Timelines, Vergleiche, Lottie als Support und bei Bedarf selektives 3D bleiben erlaubt.
+Die statische Flow-Bildwelt ist **nur optionale Inspiration**. Auch eine komplett andere Animationswelt ist erlaubt, wenn sie besser funktioniert.
 
-Neue Motion-Szenen dürfen nicht auf `PremiumPhysicalStage`, generische Dashboard-Karten oder alte `Physical*`-Primitives als Default zurückfallen.
+Ein einfacher Vergleich kann genauso richtig sein wie eine aufwendige 3D-Szene.
+
+Custom React, SVG, Canvas, Paths/Shapes, Datenvisualisierung, Dokument-Motion, Timelines, Vergleiche, Lottie, Three.js/R3F und neue sinnvolle Kombinationen sind gleichberechtigte Werkzeuge.
+
+Keine Stilfamilie wird pauschal verboten. Ablehnung erfolgt nur bei echten Qualitäts- oder Verständlichkeitsproblemen.
 
 Jedes Motion-Visual braucht:
 
@@ -123,15 +130,9 @@ Eine klare Hauptbewegung darf vollständig reichen. Mehr Motion ist kein Qualit�
 
 Ein neuer Technikname allein zählt nicht als neue Animation.
 
-Die CI prüft zusätzlich:
+Technische Wiederholungschecks sind nur Hinweise auf mögliche Copy-Paste-Motion und **keine kreative Stilgrenze**.
 
-- doppelte `visualTechniqueId`
-- doppelte `mechanicId`
-- identische `techniqueDescription`
-- mehr als zwei gleiche Familien direkt hintereinander
-- identische Kombination aus **Kamera + Layout + Transformation** innerhalb der letzten vier Motion-Visuals
-
-Wiederholung bleibt erlaubt, wenn sie für den Inhalt tatsächlich die beste Lösung ist. Dann braucht sie eine konkrete `repeatTechniqueReason`.
+Die gleiche Mechanik, gleiche Familie oder gleiche Kamera darf wiederholt werden, wenn sie für den Inhalt die beste Lösung ist. Unterschiedliche Szenen dürfen ebenso komplett unterschiedliche Welten nutzen.
 
 Das Ziel ist **nicht**, zwanghaft jeden Effekt nur einmal zu verwenden. Das Ziel ist, für jeden Gedanken die klarste visuelle Erklärung zu wählen und bequeme Copy-Paste-Motion zu verhindern.
 
