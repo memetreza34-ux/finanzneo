@@ -21,11 +21,17 @@ VISUAL_FORM: everyday-scene
 VISUAL_CONCEPT: Die unerwartete Reparatur ist da — genau jetzt wird der Notgroschen gebraucht.
 DECISIVE_MOMENT: not-applicable — the broken machine and the bill already say it.
 VOICEOVER_VISUAL_MATCH: Script: "Dein Notgroschen hat nur einen Job: Er muss da sein, wenn plötzlich etwas kaputtgeht."
-FRONT_READABILITY_TEST: PASS — main idea is large, close and understandable in about two seconds.
+FRONT_READABILITY_TEST: PASS — one obvious everyday scene, large and clear in about two seconds.
 DATA_INTEGRITY_TEST: not-applicable
+SCENE_SIGNATURE_PLACE: small laundry corner
+SCENE_SIGNATURE_CAMERA: low three-quarter close view
+SCENE_SIGNATURE_SUBJECT: broken washing machine
+SCENE_SIGNATURE_ACTION: visible aftermath of the breakdown, no person
+SCENE_SIGNATURE_PROPS: puddle + repair bill
+SCENE_SIGNATURE_DIFFERENCE: no workshop, no kitchen table, no finance symbols
 
 IMAGE PROMPT
 Stylized 3D animated feature film still, 16:9. A washing machine with its door hanging open and a small puddle of water in front of it, a repair bill lying on top. Small laundry corner. Only text: "Reparatur 800 €". Soft natural light, deep black background. Not photorealistic, no logos.
 
 QA
-PASS only if it is clearly a stylized 3D animated feature-film still on deep black, the scene is not a dashboard/infographic, the main objects are large, and every allowed label is spelled exactly.
+PASS only if it is clearly a stylized 3D animated feature-film still on deep black, the scene is not a dashboard/infographic, the main objects are large, every allowed label is spelled exactly, and the Scene Signature is respected.

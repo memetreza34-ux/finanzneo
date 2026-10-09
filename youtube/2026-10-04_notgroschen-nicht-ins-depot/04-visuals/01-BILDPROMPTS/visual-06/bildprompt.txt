@@ -19,13 +19,19 @@ CREATE EXACTLY ONE IMAGE.
 
 VISUAL_FORM: everyday-scene
 VISUAL_CONCEPT: Der Notgroschen ist sofort verfügbar: die Reparatur wird direkt bezahlt.
-DECISIVE_MOMENT: The woman pays the repair right away while the mechanic hands back the car key.
+DECISIVE_MOMENT: The woman taps her bank card while the mechanic hands the car key back.
 VOICEOVER_VISUAL_MATCH: Script: "Für den Notgroschen zählt deshalb nicht maximale Rendite, sondern Liquidität und Stabilität."
-FRONT_READABILITY_TEST: PASS — main idea is large, close and understandable in about two seconds.
+FRONT_READABILITY_TEST: PASS — one obvious everyday action, large and clear in about two seconds.
 DATA_INTEGRITY_TEST: not-applicable
+SCENE_SIGNATURE_PLACE: small car repair shop counter
+SCENE_SIGNATURE_CAMERA: medium side two-shot
+SCENE_SIGNATURE_SUBJECT: payment and key handover
+SCENE_SIGNATURE_ACTION: card at terminal while mechanic returns the key
+SCENE_SIGNATURE_PROPS: bank card + terminal + car key
+SCENE_SIGNATURE_DIFFERENCE: no laundry corner, no kitchen table, no static object arrangement
 
 IMAGE PROMPT
-Stylized 3D animated feature film still, 16:9. A woman pays at a small car repair shop counter with her bank card while the mechanic hands her the car key back. Repair shop counter. No text. Soft natural light, deep black background. Not photorealistic, no logos.
+Stylized 3D animated feature film still, 16:9. A woman taps her bank card at a small car repair shop counter while the mechanic hands her the car key back. Repair shop counter, medium side view. No text. Soft natural light, deep black background. Not photorealistic, no logos.
 
 QA
-PASS only if it is clearly a stylized 3D animated feature-film still on deep black, the scene is not a dashboard/infographic, the main objects are large, and every allowed label is spelled exactly.
+PASS only if it is clearly a stylized 3D animated feature-film still on deep black, the payment and key handover are readable at once, it does not look like visual-01, and the Scene Signature is respected.
