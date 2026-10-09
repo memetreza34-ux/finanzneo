@@ -56,3 +56,16 @@ Fehler in der Motion bedeuten **zurück an Claude Code Opus 5.5**, Änderung am 
 ## Versions- und Branch-Schutz
 
 Die aktuelle Light-2D-Motion-V3 ist auf dem separaten PR-#122-Branch; ältere Motion-Libraries unter `src/finance-motion/` und frühere Renderbeispiele bleiben Legacy/Experimente. Nicht ungeprüft mit alten Reels oder YouTube-Layouts vermischen. Neues Motion-Ownership gilt erst auf Branches/Checkouts, die diese Konfiguration enthalten. Keine automatischen Merges, Pull Requests oder externen Claude-Code-Aufrufe werden dadurch ausgelöst.
+
+## Sofort testbarer Motion-Benchmark
+
+Ein reproduzierbarer, isolierter 12-Sekunden-Test ist definiert in `tests/claude-motion/README.md`. Er verlangt für **9,99 € × 12 = 119,88 €** eine professionelle 1920×1080-Motion-Szene statt einer weiteren Demo-Library. Alle Testdateien liegen auf dem Test-Feature-Branch; Produktionsvideos bleiben unberührt.
+
+```bash
+npm ci
+npm run motion:claude:test:setup
+npm run motion:claude:test:preflight
+claude --agent finanzneo-motion-director
+```
+
+Im gestarteten Claude Code: **`/finanzneo-motion-test`** eingeben. Der Agent erstellt erst dann die Szene und testet sie. Die Ergebnisse liegen unter `out/claude-motion-test/`; technische Checks allein sind kein gestalterischer PASS. Bei einem anderen Git-Checkout ist erst der vollständige Test-Branch auszuchecken.

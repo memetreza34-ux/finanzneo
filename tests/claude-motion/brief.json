@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "purpose": "Isolierter echter Claude-Code-Motion-Test; keine produktive YouTube-Szene und kein Ersatz fuer ein fertiges Video",
+  "composition_id": "ClaudeMotionSubscriptionYearTest",
+  "component_export": "SubscriptionYearTest",
+  "source_file": "src/youtube-motion/tests/SubscriptionYearTest.tsx",
+  "composition_registry": "src/root/ExperimentCompositions.tsx",
+  "input_entry": "src/index.ts",
+  "output_video": "out/claude-motion-test/SubscriptionYearTest.mp4",
+  "output_dir": "out/claude-motion-test",
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "duration_frames": 360,
+  "monthly_cents": 999,
+  "months": 12,
+  "yearly_cents": 11988,
+  "checkpoints_percent": [
+    10,
+    35,
+    65,
+    90
+  ]
+}
