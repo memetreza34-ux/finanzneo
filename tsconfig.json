@@ -10,5 +10,5 @@
     "skipLibCheck": true,
     "outDir": "dist"
   },
-  "include": ["src", "public/captions"]
+  "include": ["src", "public/captions", "youtube/**/animation.tsx"]
 }

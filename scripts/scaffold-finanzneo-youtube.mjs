@@ -93,10 +93,10 @@ const promptFor = (index) => {
 
 const thumbnailPrompt = `${FLOW_AGENT_PROTOCOL_MARKER}\nYOUTUBE THUMBNAIL PHASE — THREE SEPARATE JOBS IN PARALLEL\n\nCreate exactly three separate 16:9 thumbnail candidates A, B and C as three concurrent one-image jobs. All three use the written ${YOUTUBE_IMAGE_WORLD_LOCK} world directly. No candidate is a style reference for another image.\n\nTEXT RULE FOR ALL THREE: visible German hook text is required, max 2 lines, ideally 2–5 words, directly about the real video content. Clean front-facing white/ivory typography with at most one emerald or red-orange emphasis. Never giant metallic/extruded gold 3D text.\n\nTHUMBNAIL A/B/C: three different simple, natural ideas for the same topic — for example a person, a hand action and one strong real object. Each shows the obvious everyday scene of the topic, never a symbol that must be decoded.\nPROMPT FORM FOR ALL THREE: Stylized 3D animated feature film still, 16:9. [WHAT YOU SEE — ONE CONCRETE SENTENCE]. [PLACE — SHORT]. Big clean white headline on the left: "[HOOK]". Soft natural light, deep black background. Not photorealistic, no logos.\n\nForbidden for all three unless content genuinely requires it: giant gold percentage statues, trophy plinths, glossy gold luxury staging, generic glass money jars, decorative coin mountains, generic finance icon collage.\n\nTemporary names: YouTube Thumbnail A.png, YouTube Thumbnail B.png, YouTube Thumbnail C.png. After all three pass QA, stop once and ask A/B/C. Delete the two non-selected candidates from the Flow folder and rename the selected candidate to ${thumbnailFileName}. The selected thumbnail is NOT a style reference for scene images.\n\n${styleBlock}`;
 
-const motionTemplate = (index, type) => {
+const motionTemplate = (index, type, kitImport) => {
   const exportName = exportNameFor(index);
   return `import React from 'react';
-import {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';
+import {DATEN, DatenBuehne, Kopf, Quelle, Saeulen, Text, Zaehlwerk, euroText} from '${kitImport}';
 
 export const MECHANIC_ID = '[MECHANIC_ID]';
 export const VISUAL_TECHNIQUE_ID = '[VISUAL_TECHNIQUE_ID]';
@@ -107,26 +107,23 @@ export const ANIMATION_NARRATIVE = {
   RESULT: '[CLEAR RESULT]',
 };
 
-// Ein Stil für alle FinanzNeo-YouTube-Motion: schwarzer Grund, Inter, Farben des Karten-Baukastens.
-const INK = '#FFFFFF';
-const QUIET = '#9DB0A6';
-const GREEN = '#00D26A';
-const RED = '#FF6B6B';
+// Ein Stil für alle FinanzNeo-YouTube-Motion: der Daten-Baukasten (src/design-system/daten.tsx).
+// Zaehlwerk, Saeulen, Balken, Punkteraster, Topf, LinienDiagramm, ZielLinie — Größen entstehen
+// dort aus den Werten, jede Zahl steht am Element. Referenz: Composition DemoDatenBaukasten.
+// Passt kein Baustein, eigene Mechanik bauen — mit DATEN-Farben, Inter und skala(), nie Größen von Hand.
 
 // Phase 3 setzt beats aus den beatCues und den echten Wort-Zeitstempeln (Frames ab Visual-Start).
-// Die Standardwerte gelten nur für die Vorschau. Größen immer aus den Werten berechnen, nie von Hand.
-const PREVIEW_BEATS = [0, 45];
+// Die Standardwerte gelten nur für die Vorschau.
+const PREVIEW_BEATS = [0, 30, 90];
 
 export const ${exportName}: React.FC<{beats?: number[]}> = ({beats}) => {
-  const frame = useCurrentFrame();
   const at = (step: number) => beats?.[step] ?? PREVIEW_BEATS[step];
-  const reveal = (step: number) => interpolate(frame, [at(step), at(step) + 15], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
-    <AbsoluteFill style={{backgroundColor: '#000000', fontFamily: 'Inter', color: INK}}>
+    <DatenBuehne>
       {/* PLACEHOLDER: replace in Phase 1 with production-ready ${type} motion chosen from viewerChange. One visible step per beat. */}
-      <div style={{opacity: reveal(0), color: QUIET}}>[EINFÜGEN]</div>
-      <div style={{opacity: reveal(1), color: GREEN, borderColor: RED}}>[EINFÜGEN]</div>
-    </AbsoluteFill>
+      <Kopf ueberzeile="[EINFÜGEN]" titel="[EINFÜGEN]" ab={at(0)} />
+      <Quelle ab={at(1)}>[EINFÜGEN: Beispielrechnung oder Quelle]</Quelle>
+    </DatenBuehne>
   );
 };
 `;
@@ -157,7 +154,8 @@ const visuals = types.map((type, index) => {
     const animationSourceFile = `${directory}/animation.tsx`;
     const animationExport = exportNameFor(index);
     write(`${directory}/remotion.md`, `# Remotion-Spezifikation ${id}\n\nMOTION_STANDARD: ${YOUTUBE_MOTION_STANDARD_ID}\n\n- Kapitel: [CHAPTER]\n- Sprechtext-Bezug: [SCRIPT BEAT]\n- Viewer Change — was soll der Zuschauer tatsächlich sehen, das sich verändert/revealt/vergleicht/bewegt?: [VIEWER CHANGE]\n- Animation Intent — warum erklärt genau diese Veränderung den Punkt?: [ANIMATION INTENT]\n- Mechanik: [MECHANIC]\n- Technikbeschreibung: [TECHNIQUE DESCRIPTION]\n- Tool Stack: [TOOL STACK]\n- Composition Family: [FREE DESCRIPTIVE FAMILY; EXAMPLES ARE NOT A WHITELIST]\n- Motion Signature Camera: [CAMERA BEHAVIOR]\n- Motion Signature Layout: [SPATIAL / COMPOSITIONAL ARRANGEMENT]\n- Motion Signature Transformation: [PRIMARY VISIBLE TRANSFORMATION]\n- Startzustand: [START]\n- sichtbare Mechanik/Transformation: [TRANSFORMATION]\n- Resultat: [RESULT]\n- Motion Channels: [AT LEAST TWO MEANINGFUL CHANNELS]\n- SFX-Cues: [OPTIONAL FRAME-BOUND EVENTS]\n\nWähle die Technik erst NACH dem Viewer Change. Eine neue Technik darf frei erfunden/kombiniert werden, wenn sie den Inhalt besser erklärt. Nicht künstlich variieren; Wiederholung ist erlaubt, wenn sie wirklich die beste Erklärung ist und begründet wird.\n`);
-    write(animationSourceFile, motionTemplate(index, type));
+    const kitImport = relative(resolve(root, directory), resolve('src/design-system/daten')).split(sep).join('/');
+    write(animationSourceFile, motionTemplate(index, type, kitImport.startsWith('.') ? kitImport : `./${kitImport}`));
     Object.assign(base, {
       planFile: `${directory}/remotion.md`,
       animationSourceFile,

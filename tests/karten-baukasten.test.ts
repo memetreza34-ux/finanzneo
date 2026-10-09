@@ -24,8 +24,9 @@ test('YouTube-Animationsprüfung erkennt Karten-Szenen gezielt, ohne die Motion-
   const validator = read('scripts/validate-youtube-animation-quality.mjs');
   assert.match(validator, /const nutztKarten = /);
   assert.match(validator, /StichwortKarte\|ZitatKarte\|TabellenKarte\|IconAblauf\|Zeitstrahl/);
-  assert.match(validator, /if \(!nutztKarten && !\/useCurrentFrame/);
-  assert.match(validator, /if \(!nutztKarten && !\/\\b\(interpolate\|spring\)/);
+  assert.match(validator, /const bausteinMotion = nutztKarten \|\| nutztDaten;/);
+  assert.match(validator, /if \(!bausteinMotion && !\/useCurrentFrame/);
+  assert.match(validator, /if \(!bausteinMotion && !\/\\b\(interpolate\|spring\)/);
 });
 
 test('Regeln erlauben die Karten ausdrücklich', () => {
