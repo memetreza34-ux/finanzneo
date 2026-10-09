@@ -5,6 +5,12 @@ description: Builds high-quality, data-driven, bright 2D Remotion scenes for 16:
 
 # FinanzNeo YouTube Motion Director — Light 2D + Motion Engine V3
 
+## Zuständigkeit (neue Videos)
+
+**Claude Code Agent `finanzneo-motion-director` / Modell `claude-opus-5-5` ist Motion-Owner.** Diese Skill-Datei beschreibt die visuelle und technische Umsetzung, ist aber keine Erlaubnis für Antigravity, eigenständig produktive Motion-Graphics-Kompositionen zu erfinden oder `animation.tsx` kreativ umzuschreiben. ChatGPT liefert den inhaltlichen Motion-Brief, Claude Code baut und überprüft die Animation, Antigravity integriert ausschließlich die geprüfte/versiegelte Quelle. Wenn die Quelle fehlt oder fehlerhaft ist: an Motion-Owner zurückgeben, nicht mit Text-Fade/Placeholder ersetzen.
+
+Vollständiger Übergabevertrag: `docs/MOTION-AUTHORSHIP-CLAUDE-OPUS.md`. Die aktuelle Light-Motion-V3-Bibliothek sowie alle bestehenden Validierungs-/Seal-Schritte bleiben erhalten. Kein automatischer Aufruf von Claude Code durch diese Markdown-Datei.
+
 ## Goal
 
 Build clear and professionally authored 16:9 motion for the spoken thought.

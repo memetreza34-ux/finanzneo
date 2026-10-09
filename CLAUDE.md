@@ -26,7 +26,7 @@ Kanonischer Themen-Scope: `docs/CONTENT-SCOPE.md`.
 
 ## 3. Drei Phasen — harte Verantwortungsgrenze
 
-### Phase 1 — ChatGPT
+### Phase 1 — ChatGPT (Content/Storyboard) + Claude Code Opus 5.5 (Motion)
 
 Phase 1 liefert vollständig:
 
@@ -37,10 +37,12 @@ Phase 1 liefert vollständig:
 - Google-Flow-Prompts
 - natürliche Szenenüberschriften + passende Icons
 - Remotion-Spezifikationen
-- **produktionsreife `animation.tsx` für jede Animationsszene**
+- **produktionsreife `animation.tsx` für jede Animationsszene — erstellt und visuell geprüft durch Claude Code Opus 5.5**
 - genau eine universelle Social-Caption: `04-caption/caption.txt`
 
-Phase 1 ist erst fertig, wenn keine Platzhalter mehr vorkommen und Phase 3 keine kreative Animation mehr erfinden muss.
+**Motion-Verantwortung für NEUE Reel- und YouTube-Projekte:** ChatGPT plant Recherche, Skript, visuelle Beats, Bildprompts und den inhaltlichen Motion-Brief; der projektspezifische Claude-Code-Agent `finanzneo-motion-director` mit `model: claude-opus-5-5` übernimmt allein die kreative Umsetzung und Korrektur produktiver Motion Graphics. Dies umfasst die finale Remotion-`animation.tsx`, echte Daten-/Wertbindung und die visuelle Prüfung am gerenderten Video. Antigravity darf Motion planen und integrieren, jedoch keine kreative Neufassung oder vereinfachende Ersatzanimation schreiben. Für Fixes an der Motion-Quelle erneut Claude Code einsetzen und danach neu validieren/versiegeln. Die aktive YouTube-Light-V3-Engine und die Reel-Editorial-V3-Regeln gelten jeweils unverändert. Details: `docs/MOTION-AUTHORSHIP-CLAUDE-OPUS.md`. Die reine Repository-Konfiguration startet Claude Code **nicht** selbst.
+
+Phase 1 ist erst fertig, wenn keine Platzhalter mehr vorkommen, alle Motion-Quellen geprüft sind und Phase 3 keine kreative Animation mehr erfinden muss.
 
 ### Phase 2 — Nutzer
 
