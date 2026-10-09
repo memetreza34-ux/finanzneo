@@ -86,3 +86,13 @@ Bei bestehenden Dateien:
 6. erst danach alte Direktimporte entfernen.
 
 Große einmalige Renames oder Löschaktionen sind ausdrücklich nicht Teil normaler Produktionsarbeit. Legacy-Code wird schrittweise entfernt, sobald er nachweislich nicht mehr referenziert wird.
+
+## YouTube-Motion: Daten-Baukasten
+
+Für Zahlen, Beträge, Vergleiche und Verläufe in YouTube-Videos (16:9): `src/design-system/daten.tsx`, Rechenlogik in `daten-rechnung.ts`, Referenz-Composition `DemoDatenBaukasten`.
+
+```ts
+import {DatenBuehne, Kopf, Quelle, Topf, Saeulen, Zaehlwerk} from '../../../../../src/design-system/daten';
+```
+
+Bewusst ein eigener Importpfad (nicht über `index.ts`), damit keine Namen mit älteren Bausteinen kollidieren. Versiegelte Animationen nutzen ihn — bestehende Bausteine nur additiv erweitern.

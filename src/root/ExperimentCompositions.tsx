@@ -50,6 +50,7 @@ import {FORMAT} from '../brand/tokens';
 
 import {ZinseszinsLinienDiagramm, ZINSESZINS_DIAGRAMM_FRAMES} from '../reels-test/ZinseszinsLinienDiagramm';
 import {KartenBaukastenDemo, KARTEN_DEMO_FRAMES} from '../reels-test/KartenBaukastenDemo';
+import {DatenBaukastenDemo, DATEN_DEMO_FRAMES} from '../reels-test/DatenBaukastenDemo';
 
 const FPS = FORMAT.fps;
 const VERTICAL = FORMAT.vertical;
@@ -58,6 +59,7 @@ const WIDE = FORMAT.landscape;
 export const ExperimentCompositions: React.FC = () => (
   <>
     <Composition id="DemoKartenBaukasten" component={KartenBaukastenDemo} durationInFrames={KARTEN_DEMO_FRAMES} fps={FPS} {...WIDE} />
+    <Composition id="DemoDatenBaukasten" component={DatenBaukastenDemo} durationInFrames={DATEN_DEMO_FRAMES} fps={FPS} {...WIDE} />
     <Composition id="DemoZinseszinsLinienDiagramm" component={ZinseszinsLinienDiagramm} durationInFrames={ZINSESZINS_DIAGRAMM_FRAMES} fps={FPS} {...WIDE} />
 
     <Composition

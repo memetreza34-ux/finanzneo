@@ -71,8 +71,17 @@ for (const visual of visuals.filter(requiresYouTubeMotion)) {
   // Karten aus dem Karten-Baukasten tragen ihre Frame-Motion selbst (src/design-system/karten.tsx).
   const nutztKarten = /from\s+['"][^'"]*design-system(?:\/karten|\/index)?['"]/.test(source)
     && /\b(StichwortKarte|ZitatKarte|TabellenKarte|IconAblauf|Zeitstrahl)\b/.test(source);
-  if (!nutztKarten && !/useCurrentFrame\s*\(/.test(source)) errors.push(`${id}: useCurrentFrame() fehlt.`);
-  if (!nutztKarten && !/\b(interpolate|spring)\s*\(/.test(source)) errors.push(`${id}: mindestens interpolate() oder spring() muss echte Frame-Motion steuern.`);
+  // Bausteine aus dem Daten-Baukasten ebenfalls (src/design-system/daten.tsx).
+  const nutztDaten = /from\s+['"][^'"]*design-system\/daten['"]/.test(source)
+    && /\b(Zaehlwerk|Saeulen|Balken|Punkteraster|Topf|LinienDiagramm|ZielLinie)\b/.test(source);
+  const bausteinMotion = nutztKarten || nutztDaten;
+  if (!bausteinMotion && !/useCurrentFrame\s*\(/.test(source)) errors.push(`${id}: useCurrentFrame() fehlt.`);
+  if (!bausteinMotion && !/\b(interpolate|spring)\s*\(/.test(source)) errors.push(`${id}: mindestens interpolate() oder spring() muss echte Frame-Motion steuern.`);
+  // Größen von Hand („width: 430 - 110 * p“) zeigen keinen Wert — sie müssen aus den Zahlen folgen.
+  const handGroesse = /\b\w*(?:width|height|Width|Height|breite|Breite|hoehe|Hoehe)\w*\s*[:=]\s*-?\d+(?:\.\d+)?\s*[-+]\s*\d+(?:\.\d+)?\s*\*/;
+  if (index?.storyContract === YOUTUBE_STORY_CONTRACT_ID && handGroesse.test(source)) {
+    errors.push(`${id}: Breite/Höhe ist von Hand gesetzt (Zahl ± Zahl × Fortschritt). Größen aus den Werten berechnen — skala() bzw. Bausteine aus src/design-system/daten.tsx.`);
+  }
   if (!source.includes(`MECHANIC_ID = '${visual.mechanicId}'`) && !source.includes(`MECHANIC_ID = "${visual.mechanicId}"`)) {
     errors.push(`${id}: MECHANIC_ID im Code stimmt nicht mit visual-index.json überein.`);
   }

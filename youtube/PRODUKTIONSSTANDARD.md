@@ -327,6 +327,8 @@ Der Master-Prompt muss ausdrücklich verlangen:
 - Balken, Flächen und Abstände werden **aus den Werten berechnet**, nie von Hand gesetzt — 3 Monate sind dreimal so hoch wie 1 Monat
 - jede Zahl am Element beschriftet; keine unbeschrifteten „Geldblöcke“, keine Kästen mit dünnen Verbindungslinien
 - Text, Stichwort, Zitat, Tabelle und einfache Schrittfolgen: zuerst Karten aus `src/design-system/karten.tsx`
+- Zahlen, Beträge, Vergleiche und Verläufe: zuerst der **Daten-Baukasten** `src/design-system/daten.tsx` — `Zaehlwerk`, `Saeulen` (auch gestapelt), `Balken`, `Punkteraster`, `Topf` (Entnahme/Zufluss), `LinienDiagramm`, `ZielLinie`, dazu `Kopf`, `Quelle`, `Legende`. Die Bausteine berechnen Größen aus den Werten und schreiben jede Zahl ans Element. Referenz: Composition `DemoDatenBaukasten`. Neue `animation.tsx` startet aus dieser Vorlage; passt kein Baustein, eigene Mechanik mit `DATEN`-Farben und `skala()` bauen
+- `youtube:animation:validate` lehnt in neuen Projekten Größen von Hand ab (`width: 430 - 110 * p`)
 - **Timing von außen:** jede Animation nimmt die Prop `beats` (Frames ab Visual-Start) und zeigt pro Beat eine sichtbare Stufe; keine fest eingetragenen Zeitpunkte. Phase 3 setzt `beats` aus `beatCues` und den echten Wort-Zeitstempeln — der versiegelte Code bleibt unverändert.
 - `youtube:animation:validate` prüft Palette, Schrift und `beats`
 - Präzisionsgrafiken dürfen bewusst grafisch und frontal sein; sie müssen nicht wie Flow-Bilder aussehen, aber klar zur Serie gehören
