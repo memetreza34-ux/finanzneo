@@ -40,3 +40,9 @@ Verbindlich:
 - `CLAUDE.md`
 
 `youtube:ready` gibt Phase 3 nur frei, wenn Recherche, Skript, Visuals, produktionsreife und Motion-V3-versiegelte Quellen, Publishing-Paket, alle exakten 16:9-Nutzerbilder, genau ein finales Voiceover und echte Wort-Timings vollständig sind.
+
+## Claude Code Motion Test (isoliertes Experiment)
+
+Zum Test des mit `claude-opus-5-5` konfigurierten Motion-Directors ohne Produktionsvideo:
+`tests/claude-motion/README.md`. Der Test startet mit `claude --agent finanzneo-motion-director`
+und dem Slash-Befehl `/finanzneo-motion-test` im zugehörigen Feature-Branch.

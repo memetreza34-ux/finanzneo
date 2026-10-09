@@ -11,7 +11,7 @@
     "setup:check": "node scripts/check-setup.mjs",
     "studio": "npx remotion studio",
     "lint": "eslint . --max-warnings=0",
-    "test": "node --import tsx --test tests/*.test.ts",
+    "test": "node --import tsx --test tests/*.test.ts tests/claude-motion-preflight.test.mjs",
     "typecheck": "tsc --noEmit",
     "build": "npx remotion bundle src/index.ts",
     "reel:create": "node scripts/create-finanzneo-reel.mjs",
@@ -73,7 +73,11 @@
     "render:youtube-open-motion-showcase": "npx remotion render src/index.ts YouTubeOpenMotionShowcase out/youtube-open-motion-showcase.mp4 --codec=h264 --crf=18",
     "render:youtube-light-motion-showcase": "npx remotion render src/index.ts YouTubeLightMotionShowcaseV2 out/youtube-light-motion-showcase-v2.mp4 --codec=h264 --crf=18",
     "render:youtube-light-motion-v3": "npx remotion render src/index.ts YouTubeLightMotionV3 out/youtube-light-motion-v3/showcase.mp4 --codec=h264 --crf=18",
-    "qa:youtube-light-motion-v3": "node scripts/qa-youtube-light-motion-v3.mjs"
+    "qa:youtube-light-motion-v3": "node scripts/qa-youtube-light-motion-v3.mjs",
+    "motion:claude:test:setup": "node scripts/qa-claude-motion-test.mjs --setup",
+    "motion:claude:test:preflight": "node --test tests/claude-motion-preflight.test.mjs",
+    "motion:claude:test:render": "npx remotion render src/index.ts ClaudeMotionSubscriptionYearTest out/claude-motion-test/SubscriptionYearTest.mp4 --codec=h264 --crf=18",
+    "motion:claude:test:qa": "node scripts/qa-claude-motion-test.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "^8.18.0",
