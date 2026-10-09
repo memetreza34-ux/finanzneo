@@ -24,9 +24,9 @@ Read in this order:
 
 ## Three phases
 
-### Phase 1 — ChatGPT / motion authoring
+### Phase 1 — ChatGPT content / Claude Code Opus 5.5 motion
 
-Owns research, beginner-friendly scene-by-scene script, Flow prompts, headers/icons, captions and the final production-ready `animation.tsx` for every animation scene.
+ChatGPT owns research, script, Flow prompts, headers/icons, captions, and the content-specific motion briefs. The project agent `finanzneo-motion-director` running Claude Code `claude-opus-5-5` exclusively authors, renders, visually reviews, and fixes each final production-ready `animation.tsx`. Antigravity may scaffold and later integrate, but must never invent, simplify or replace the motion implementation. If motion is incomplete, return to Phase 1; do not start Phase 2/3 or the animation seal. See `docs/MOTION-AUTHORSHIP-CLAUDE-OPUS.md`.
 
 Phase 1 may use the FinanzNeo Motion Stack while authoring:
 
