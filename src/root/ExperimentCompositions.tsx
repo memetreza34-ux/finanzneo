@@ -104,6 +104,7 @@ import {
   YOUTUBE_LIGHT_MOTION_V3_FRAMES,
 } from '../youtube-motion/light-v3/LightMotionV3';
 import {FORMAT} from '../brand/tokens';
+import {DatenBaukastenDemo, DATEN_DEMO_FRAMES} from '../reels-test/DatenBaukastenDemo';
 
 const FPS = FORMAT.fps;
 const VERTICAL = FORMAT.vertical;
@@ -183,6 +184,7 @@ export const ExperimentCompositions: React.FC = () => (
     <Composition id="YouTubeOpenMotionShowcase" component={OpenMotionShowcase} durationInFrames={OPEN_MOTION_SHOWCASE_FRAMES} fps={FPS} {...WIDE} />
     <Composition id="YouTubeLightMotionShowcaseV2" component={LightMotionShowcaseV2} durationInFrames={LIGHT_MOTION_SHOWCASE_FRAMES} fps={FPS} {...WIDE} />
     <Composition id="YouTubeLightMotionV3" component={YouTubeLightMotionV3} durationInFrames={YOUTUBE_LIGHT_MOTION_V3_FRAMES} fps={FPS} {...WIDE} />
+    <Composition id="DemoDatenBaukasten" component={DatenBaukastenDemo} durationInFrames={DATEN_DEMO_FRAMES} fps={FPS} {...WIDE} />
     {MOTION_V3_SCENES.map((scene) => (
       <Composition key={scene.id} id={scene.id} component={scene.component} durationInFrames={MOTION_V3_SCENE_FRAMES} fps={FPS} {...WIDE}/>
     ))}
