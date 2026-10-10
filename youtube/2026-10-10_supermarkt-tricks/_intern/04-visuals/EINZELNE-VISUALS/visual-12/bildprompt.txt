@@ -13,7 +13,7 @@ REFERENCE_IMAGE:
 NONE
 
 IMAGE PROMPT:
-Flat 2D editorial illustration, not a photo. A close-up comparison of two shopping cart handles on a light background. Left: a normal horizontal bar handle labeled "normaler Griff". Right: a handle with two parallel vertical grips labeled "neuer Griff", with a hand holding it. Next to the right handle, a bold green label "+25 % ausgegeben". Clean, simple, product-diagram style.
+Soft hand-drawn 2D editorial illustration, not a photo. A close-up comparison of two shopping cart handles on a light background. Left: a normal horizontal bar handle labeled "normaler Griff". Right: a handle with two parallel vertical grips labeled "neuer Griff", with a hand holding it. Next to the right handle, a bold green label "+25 % ausgegeben". Clean, simple, product-diagram style.
 
 FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
 FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
@@ -26,10 +26,10 @@ CORE:
 One spoken thought becomes one simple visual idea that is understandable at first glance.
 
 STYLE (STRICT):
-Flat 2D editorial illustration in a clean vector look. Never photorealistic, never a photo, never a 3D render. No realistic materials, no photographic lighting, no depth of field, no film grain, no realistic paper or wood textures. People are simplified illustrated characters. Matte restrained colors, clear outlines and silhouettes, large readable elements, low detail, generous empty space. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
 
 BACKGROUND:
-Light, calm illustration backgrounds: warm off-white, cream, light gray or a soft muted color.
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
 
 ANTI-AI-SLOP:
 Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
