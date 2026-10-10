@@ -4,11 +4,14 @@
 //
 //   npm run youtube:render -- youtube/<Projekt>
 //
-// Ergebnis: out/youtube/<Projekt>/<Projekt>.mp4 plus Kontaktbogen (10/35/65/90 %).
+// Ergebnis in youtube/<Projekt>/5-export/: video.mp4, cover.png, caption.txt (Titel +
+// YouTube-Beschreibung) und untertitel-zeitstempel.txt („00:00 Satz“ je Zeile, für die
+// YouTube-Untertitel). Zwischenstände und Kontaktbogen liegen unter out/youtube/<Projekt>/.
 
 import {spawnSync} from 'node:child_process';
-import {mkdirSync} from 'node:fs';
+import {copyFileSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {basename, resolve} from 'node:path';
+import {EXPORT_DIR, EXPORT_FILES, IMAGE_INBOX, VISUAL_INDEX, WORD_TIMINGS, YOUTUBE_PUBLISHING_FILES, internWurzel} from './lib/youtube-contract.mjs';
 
 const projekt = process.argv[2];
 if (!projekt) {
@@ -57,6 +60,24 @@ for (const p of [10, 35, 65, 90]) args.push('-ss', String((dauer * p) / 100), '-
 args.push('-filter_complex', '[0:v]scale=960:540[a];[1:v]scale=960:540[b];[2:v]scale=960:540[c];[3:v]scale=960:540[d];[a][b]hstack[t];[c][d]hstack[u];[t][u]vstack', '-frames:v', '1', resolve(out, 'kontaktbogen.png'));
 lauf('ffmpeg', args, 'Kontaktbogen 10/35/65/90 %');
 
-console.log(`\n✓ Fertig: ${final}`);
+// ─── Export-Ordner: nur was für den Upload gebraucht wird ───────────────────
+const intern = internWurzel(projekt);
+const liesIntern = (rel) => readFileSync(resolve(intern, rel), 'utf8').trim();
+mkdirSync(resolve(intern, EXPORT_DIR), {recursive: true});
+copyFileSync(final, resolve(intern, EXPORT_FILES.video));
+const index = JSON.parse(liesIntern(VISUAL_INDEX));
+copyFileSync(resolve(intern, IMAGE_INBOX, index.thumbnail.googleFlowFileName), resolve(intern, EXPORT_FILES.cover));
+writeFileSync(resolve(intern, EXPORT_FILES.caption), `${liesIntern(YOUTUBE_PUBLISHING_FILES.finalTitle)}\n\n${liesIntern(YOUTUBE_PUBLISHING_FILES.description)}\n`);
+const zeit = (sek) => {
+  const s = Math.floor(sek);
+  const h = Math.floor(s / 3600);
+  const mmss = `${String(Math.floor((s % 3600) / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
+  return h > 0 ? `${String(h).padStart(2, '0')}:${mmss}` : mmss;
+};
+const timing = JSON.parse(liesIntern(WORD_TIMINGS));
+writeFileSync(resolve(intern, EXPORT_FILES.untertitel), `${timing.sentences.map((satz) => `${zeit(satz.start)} ${satz.text}`).join('\n')}\n`);
+
+console.log(`\n✓ Fertig: ${resolve(intern, EXPORT_DIR)}`);
+console.log('  video.mp4 · cover.png · caption.txt · untertitel-zeitstempel.txt');
 console.log(`  ${dauer.toFixed(1)} s · 1920 × 1080 · ${lufs} LUFS · Peak ${peak} dBFS`);
 console.log('  Danach: ganzes Video ansehen — technische Prüfung ersetzt keine Sichtprüfung.');

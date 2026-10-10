@@ -2,6 +2,25 @@
 
 Dieser Bereich ist ausschließlich für eigenständige längere FinanzNeo-Videos. Keine YouTube Shorts und keine gestreckten Reel-Kopien.
 
+## Ordner eines Projekts
+
+```text
+1-script/            Sprechtext
+2-bildprompts/       alle Flow-Prompts (5er-Batches)
+3-bilder-hier-rein/  Flow-Bilder rein
+4-audio-hier-rein/   Sprachaufnahme rein
+5-export/            Cover, Video, Caption, Untertitel mit Zeitstempeln
+_intern/             alles andere
+```
+
+## Ablauf
+
+```bash
+npm run youtube:create -- --target youtube/<Projekt> --title "Titel"
+npm run youtube:zusammenbau -- youtube/<Projekt> --whisper <whisper.json>
+npm run youtube:render -- youtube/<Projekt>
+```
+
 ## Neues Projekt
 
 ```bash

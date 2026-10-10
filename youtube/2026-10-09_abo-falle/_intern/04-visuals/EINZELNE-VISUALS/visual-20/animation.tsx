@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
-import {DATEN, DatenBuehne, Text, Zaehlwerk, euroText, skala} from '../../../../../src/design-system/daten';
+import {DATEN, DatenBuehne, Text, Zaehlwerk, euroText, skala} from '../../../../../../src/design-system/daten';
 
 export const MECHANIC_ID = 'yearly-cost-stacks-turn-into-savings';
 export const VISUAL_TECHNIQUE_ID = 'cumulative-years-then-swap-to-savings';

@@ -1,7 +1,7 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
 import {evolvePath} from '@remotion/paths';
-import {DATEN, DatenBuehne, Text, euroText} from '../../../../../src/design-system/daten';
+import {DATEN, DatenBuehne, Text, euroText} from '../../../../../../src/design-system/daten';
 
 export const MECHANIC_ID = 'subscription-list-times-twelve-strike';
 export const VISUAL_TECHNIQUE_ID = 'notepad-rows-yearly-recount';

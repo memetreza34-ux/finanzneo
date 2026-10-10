@@ -29,7 +29,7 @@
     "referenceImagesAllowed": true,
     "continuationReferenceRequiredWhenDeclared": true,
     "referenceMustUseApprovedPriorImage": true,
-    "finalCollectionDirectory": "04-visuals/00-ALLE-BILDER-HIER-REIN/",
+    "finalCollectionDirectory": "../3-bilder-hier-rein/",
     "distributeToVisualFolders": false
   },
   "imageWorld": {

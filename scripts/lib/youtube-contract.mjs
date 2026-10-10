@@ -1,3 +1,4 @@
+import {basename, resolve} from 'node:path';
 import {
   FLOW_AGENT_PROTOCOL_ID,
   FLOW_AGENT_PROTOCOL_MARKER,
@@ -40,10 +41,37 @@ export const YOUTUBE_VIDEO_WIDTH = 1920;
 export const YOUTUBE_VIDEO_HEIGHT = 1080;
 export const YOUTUBE_VIDEO_FPS = 30;
 
+// Projektordner (Arman, 10.10.2026): nur das Nötige sichtbar, alles andere unter _intern/.
+//
+//   youtube/<Projekt>/
+//   ├── 1-script/script.txt              Sprechtext
+//   ├── 2-bildprompts/bildprompts.txt    alle Flow-Prompts inkl. Thumbnail (5er-Batches)
+//   ├── 3-bilder-hier-rein/              Flow-Bilder
+//   ├── 4-audio-hier-rein/               genau eine Sprachaufnahme
+//   ├── 5-export/                        cover.png · video.mp4 · caption.txt · untertitel-zeitstempel.txt
+//   └── _intern/                         Recherche, Visual-Index, Animationen, Zeitplan, Publishing …
+//
+// Alle Pfade unten sind relativ zu _intern/ (der „root“ aller YouTube-Skripte).
+export const INTERN_DIR = '_intern';
+export const SCRIPT_FILE = '../1-script/script.txt';
+export const ALL_PROMPTS = '../2-bildprompts/bildprompts.txt';
+export const IMAGE_INBOX = '../3-bilder-hier-rein';
+export const AUDIO_INBOX = '../4-audio-hier-rein';
+export const EXPORT_DIR = '../5-export';
+export const EXPORT_FILES = {
+  cover: `${EXPORT_DIR}/cover.png`,
+  video: `${EXPORT_DIR}/video.mp4`,
+  caption: `${EXPORT_DIR}/caption.txt`,
+  untertitel: `${EXPORT_DIR}/untertitel-zeitstempel.txt`,
+};
 export const VISUAL_INDEX = '04-visuals/visual-index.json';
-export const ALL_PROMPTS = '04-visuals/alle-bildprompts.txt';
-export const IMAGE_INBOX = '04-visuals/00-ALLE-BILDER-HIER-REIN';
 export const WORD_TIMINGS = '03-audio/word-timings.json';
+
+/** Projektpfad (youtube/<Projekt>) → interner root. Akzeptiert auch direkt den _intern-Pfad. */
+export const internWurzel = (projekt) => {
+  const pfad = resolve(projekt);
+  return basename(pfad) === INTERN_DIR ? pfad : resolve(pfad, INTERN_DIR);
+};
 export const ANIMATION_SEAL = '06-projektdateien/animation-seal.json';
 
 export const SUBTITLE_MODE = 'sentence-with-audio-synced-active-word';
@@ -73,7 +101,7 @@ export const SOCIAL_PROMO_FILES = {
 export const PHASE_1_FILES = [
   '01-recherche/briefing.md',
   '01-recherche/recherche-quellen.md',
-  '02-script/script-fliess-text.txt',
+  SCRIPT_FILE,
   '02-script/kapitel-dramaturgie.md',
   '02-script/retention-plan.md',
   ALL_PROMPTS,

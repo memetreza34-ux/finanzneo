@@ -2,17 +2,21 @@
 
 > Bei Widersprüchen gilt `CLAUDE.md`. Für YouTube-Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V3.md`. Für die Wahl zwischen Remotion, Bild+Remotion, SVG, Icons und Lottie gilt `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`.
 
-## Projektstruktur
+## Projektstruktur — einfach (Arman, 10.10.2026)
+
+Sichtbar ist nur, was der Nutzer anfasst. Alles andere liegt unter `_intern/` (Recherche, Visual-Index, Animationen, Zeitplan, Seal, Publishing-Details).
 
 ```text
-01-recherche/
-02-script/
-03-audio/
-04-visuals/
-05-publishing/
-06-projektdateien/
-README.md
+youtube/<Projekt>/
+├── 1-script/script.txt              Sprechtext zum Einsprechen
+├── 2-bildprompts/bildprompts.txt    alle Flow-Prompts inkl. Thumbnail, in 5er-Batches
+├── 3-bilder-hier-rein/              fertige Flow-Bilder, exakt benannt
+├── 4-audio-hier-rein/               genau eine Sprachaufnahme
+├── 5-export/                        cover.png · video.mp4 · caption.txt · untertitel-zeitstempel.txt
+└── _intern/                         alles andere
 ```
+
+`5-export/` füllt `npm run youtube:render` automatisch: `caption.txt` = finaler Titel + YouTube-Beschreibung, `untertitel-zeitstempel.txt` = Sprechtext satzweise mit Zeit ab `00:00` für die YouTube-Untertitel.
 
 Kanonischer Themen-Scope: `docs/CONTENT-SCOPE.md`.
 
@@ -167,7 +171,7 @@ Progressive Bildfolgen sind ausdrücklich erlaubt. Wenn Visual B nur eine Erweit
 Einzige Übergabe an Google Flow bleibt:
 
 ```text
-04-visuals/alle-bildprompts.txt
+2-bildprompts/bildprompts.txt
 ```
 
 Bilder werden in Batches von bis zu **5 gleichzeitig** erzeugt (`finanzneo-flow-batch5-v1`, Arman 10.10.2026): jedes Bild ein eigener Job, sofort exakt umbenannt und geprüft; Fehler werden im selben Batch neu erzeugt, erst dann startet der nächste Batch. Fortsetzungen mit Referenzbild liegen immer in einem späteren Batch. **Alle sichtbaren Texte im Bild sind deutsch.**
@@ -175,17 +179,17 @@ Bilder werden in Batches von bis zu **5 gleichzeitig** erzeugt (`finanzneo-flow-
 
 ## Audio, Timing und Untertitel
 
-- genau ein finales Voiceover in `03-audio/`
+- genau ein finales Voiceover in `4-audio-hier-rein/`
 - echte Wort-Zeitstempel aus genau diesem Audio
 - Schnitte folgen Sprache, Visual Beats, Kapiteln und Payoffs
 - keine pauschal gleich langen Visuals
 - **keine eingebrannten Untertitel** im YouTube-Video (Arman, 10.10.2026); Wort-Zeitstempel steuern nur Schnitte und Animationsstufen
-- `youtube:zusammenbau` legt `05-publishing/untertitel.srt` als optionale, zuschaltbare YouTube-Untertitelspur ab; `--untertitel` brennt sie nur auf ausdrücklichen Wunsch ein
+- `youtube:render` legt `5-export/untertitel-zeitstempel.txt` (Satz für Satz ab `00:00`) für die YouTube-Untertitel ab; `--untertitel` beim Zusammenbau brennt Untertitel nur auf ausdrücklichen Wunsch ein
 - Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP
 
 ## Vollständiges Publishing-Paket
 
-`05-publishing/` enthält:
+`_intern/05-publishing/` enthält (für den Upload reicht `5-export/caption.txt`):
 
 - fünf belastbare Titelvarianten und einen finalen Titel
 - vollständige Beschreibung

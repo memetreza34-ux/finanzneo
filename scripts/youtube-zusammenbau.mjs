@@ -4,23 +4,23 @@
 //   npm run youtube:zusammenbau -- youtube/<Projekt> [--whisper <whisper.json>] [--vorschau]
 //
 // --whisper   erzeugt 03-audio/word-timings.json: Die Wörter kommen aus dem Skript
-//             (02-script/script-fliess-text.txt), die Zeiten aus Whisper. Whisper schreibt
+//             (1-script/script.txt), die Zeiten aus Whisper. Whisper schreibt
 //             Zahlen als Ziffern und verhört sich gelegentlich — das Skript bleibt die Wahrheit,
 //             Whisper liefert nur die Zeit. Nicht zuordenbare Wörter werden zwischen den
 //             sicheren Ankern nach Zeichenlänge verteilt.
 // --vorschau  erlaubt fehlende Nutzerbilder (sichtbar markiert). Ohne --vorschau bricht der
 //             Zusammenbau ab, wenn ein Bild fehlt.
 // --untertitel brennt Untertitel ins Video. Standard für YouTube: keine eingebrannten
-//             Untertitel (Arman, 10.10.2026) — stattdessen 05-publishing/untertitel.srt als
-//             optionale, zuschaltbare YouTube-Untertitelspur.
+//             Untertitel (Arman, 10.10.2026); die Zeitstempel-Datei schreibt youtube:render
+//             nach 5-export/.
 //
-// Ergebnis: 06-projektdateien/timeline.json (Frames, Beats, Bilder), Medien unter
+// Ergebnis: _intern/06-projektdateien/timeline.json (Frames, Beats, Bilder), Medien unter
 // public/youtube/<Projekt>/ und src/youtube-projekt/projekte.generated.ts.
 
 import {copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync} from 'node:fs';
 import {basename, relative, resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
-import {ACTIVE_WORD_COLOR, SUBTITLE_MODE} from './lib/youtube-contract.mjs';
+import {ACTIVE_WORD_COLOR, AUDIO_INBOX, IMAGE_INBOX, INTERN_DIR, SCRIPT_FILE, SUBTITLE_MODE, internWurzel} from './lib/youtube-contract.mjs';
 
 const args = process.argv.slice(2);
 const wert = (name) => {
@@ -33,8 +33,9 @@ if (!projektArg) {
   process.exit(1);
 }
 const repo = process.cwd();
-const root = resolve(projektArg);
-const slug = basename(root);
+const projektRoot = resolve(projektArg);
+const root = internWurzel(projektArg);
+const slug = basename(projektRoot);
 const vorschau = args.includes('--vorschau');
 const fehler = [];
 const lies = (p) => JSON.parse(readFileSync(p, 'utf8'));
@@ -50,19 +51,19 @@ const tokens = (text) => text.split(/\s+/).map((t) => t.trim()).filter(Boolean);
 
 // ─── Audio ───────────────────────────────────────────────────────────────────
 const AUDIO = ['.wav', '.mp3', '.m4a', '.aiff', '.aif'];
-const audioDatei = readdirSync(resolve(root, '03-audio')).find((f) => AUDIO.some((e) => f.toLowerCase().endsWith(e)));
+const audioDatei = readdirSync(resolve(root, AUDIO_INBOX)).find((f) => AUDIO.some((e) => f.toLowerCase().endsWith(e)));
 if (!audioDatei) {
-  console.error('Kein Voiceover in 03-audio/.');
+  console.error('Keine Sprachaufnahme in 4-audio-hier-rein/.');
   process.exit(1);
 }
-const audioPfad = resolve(root, '03-audio', audioDatei);
+const audioPfad = resolve(root, AUDIO_INBOX, audioDatei);
 const dauerSek = Number(spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', audioPfad], {encoding: 'utf8'}).stdout.trim());
 
 // ─── 1. Wortzeiten aus Skript + Whisper ──────────────────────────────────────
 const timingPfad = resolve(root, '03-audio/word-timings.json');
 const whisperArg = wert('--whisper');
 if (whisperArg) {
-  const skript = readFileSync(resolve(root, '02-script/script-fliess-text.txt'), 'utf8').replace(/^\s*\[[^\]]*\]\s*$/gm, '');
+  const skript = readFileSync(resolve(root, SCRIPT_FILE), 'utf8').replace(/^\s*\[[^\]]*\]\s*$/gm, '');
   const s = tokens(skript).map((wort) => ({wort, n: norm(wort)})).filter((t) => t.n);
   const w = lies(resolve(whisperArg)).segments.flatMap((seg) => seg.words).map((x) => ({n: norm(x.word), start: x.start, end: x.end})).filter((x) => x.n);
 
@@ -145,7 +146,7 @@ if (whisperArg) {
   schreibJson(timingPfad, {
     version: 'finanzneo-caption-v1',
     language: 'de',
-    source: `03-audio/${audioDatei}`,
+    source: `4-audio-hier-rein/${audioDatei}`,
     generatedAt: new Date().toISOString(),
     duration: Math.round(dauerSek * 1000) / 1000,
     wordCount: woerter.length,
@@ -204,7 +205,7 @@ visuals.forEach((v, k) => {
 const publicDir = resolve(repo, 'public/youtube', slug);
 mkdirSync(resolve(publicDir, 'bilder'), {recursive: true});
 copyFileSync(audioPfad, resolve(publicDir, audioDatei));
-const inbox = resolve(root, '04-visuals/00-ALLE-BILDER-HIER-REIN');
+const inbox = resolve(root, IMAGE_INBOX);
 for (const v of visuals) {
   if (v.type !== 'image') continue;
   const quelle = resolve(inbox, v.googleFlowFileName ?? '');
@@ -213,7 +214,7 @@ for (const v of visuals) {
     v.bild = `youtube/${slug}/bilder/${v.googleFlowFileName}`;
   } else {
     v.bild = null;
-    if (!vorschau) fehler.push(`${v.id}: Bild fehlt: 04-visuals/00-ALLE-BILDER-HIER-REIN/${v.googleFlowFileName}`);
+    if (!vorschau) fehler.push(`${v.id}: Bild fehlt: 3-bilder-hier-rein/${v.googleFlowFileName}`);
   }
 }
 
@@ -244,35 +245,22 @@ const zeitplan = {
 };
 schreibJson(resolve(root, '06-projektdateien/timeline.json'), zeitplan);
 
-// Optionale Untertitelspur für YouTube (nicht eingebrannt).
-const srtZeit = (sek) => {
-  const ms = Math.max(0, Math.round(sek * 1000));
-  const h = String(Math.floor(ms / 3600000)).padStart(2, '0');
-  const m = String(Math.floor((ms % 3600000) / 60000)).padStart(2, '0');
-  const s = String(Math.floor((ms % 60000) / 1000)).padStart(2, '0');
-  return `${h}:${m}:${s},${String(ms % 1000).padStart(3, '0')}`;
-};
-writeFileSync(
-  resolve(root, '05-publishing/untertitel.srt'),
-  timing.sentences.map((satz, k) => `${k + 1}\n${srtZeit(satz.start)} --> ${srtZeit(satz.end)}\n${satz.text}\n`).join('\n'),
-);
-
 // ─── 4. Registry für Remotion ────────────────────────────────────────────────
 const projekte = readdirSync(resolve(repo, 'youtube'), {withFileTypes: true})
-  .filter((d) => d.isDirectory() && existsSync(resolve(repo, 'youtube', d.name, '06-projektdateien/timeline.json')))
+  .filter((d) => d.isDirectory() && existsSync(resolve(repo, 'youtube', d.name, INTERN_DIR, '06-projektdateien/timeline.json')))
   .map((d) => d.name)
   .filter((name) => {
-    try {return Array.isArray(lies(resolve(repo, 'youtube', name, '06-projektdateien/timeline.json')).captions);} catch {return false;}
+    try {return Array.isArray(lies(resolve(repo, 'youtube', name, INTERN_DIR, '06-projektdateien/timeline.json')).captions);} catch {return false;}
   })
   .sort();
 const zeilen = ['// GENERIERT von scripts/youtube-zusammenbau.mjs — nicht von Hand ändern.', "import type React from 'react';", "import type {YouTubeZeitplan} from './YouTubeVideo';", ''];
 const eintraege = [];
 projekte.forEach((name, p) => {
-  const idx = lies(resolve(repo, 'youtube', name, '04-visuals/visual-index.json'));
-  zeilen.push(`import zeitplan${p} from '../../youtube/${name}/06-projektdateien/timeline.json';`);
+  const idx = lies(resolve(repo, 'youtube', name, INTERN_DIR, '04-visuals/visual-index.json'));
+  zeilen.push(`import zeitplan${p} from '../../youtube/${name}/${INTERN_DIR}/06-projektdateien/timeline.json';`);
   const anim = [];
   for (const v of idx.visuals.filter((x) => x.animationSourceFile)) {
-    const pfad = relative(resolve(repo, 'src/youtube-projekt'), resolve(repo, 'youtube', name, v.animationSourceFile)).replace(/\.tsx$/, '');
+    const pfad = relative(resolve(repo, 'src/youtube-projekt'), resolve(repo, 'youtube', name, INTERN_DIR, v.animationSourceFile)).replace(/\.tsx$/, '');
     const alias = `P${p}_${v.id.replace(/-/g, '_')}`;
     zeilen.push(`import {${v.animationExport} as ${alias}} from '${pfad}';`);
     anim.push(`'${v.id}': ${alias}`);

@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
-import {DATEN, DatenBuehne, Text, Zaehlwerk, euroText} from '../../../../../src/design-system/daten';
+import {DATEN, DatenBuehne, Text, Zaehlwerk, euroText} from '../../../../../../src/design-system/daten';
 
 export const MECHANIC_ID = 'free-trial-days-flip-to-monthly-debits';
 export const VISUAL_TECHNIQUE_ID = 'day-strip-scrub-then-month-row';

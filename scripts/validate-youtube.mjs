@@ -29,6 +29,9 @@ import {
   YOUTUBE_FLOW_PROTOCOL_ID,
   YOUTUBE_FLOW_PROTOCOL_MARKER,
   YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE,
+  AUDIO_INBOX,
+  EXPORT_DIR,
+  internWurzel,
 } from './lib/youtube-contract.mjs';
 import {
   requiresYouTubeImage,
@@ -43,7 +46,7 @@ if (!target) {
   process.exit(1);
 }
 
-const root = resolve(target);
+const root = internWurzel(target);
 const relativeTarget = relative(resolve('youtube'), root);
 if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(sep).includes('..')) {
   console.error('Ziel muss ein YouTube-Projekt unter youtube/ sein.');
@@ -53,7 +56,7 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
 const errors = [];
 const assert = (condition, message) => { if (!condition) errors.push(message); };
 const read = (relativePath) => readFileSync(resolve(root, relativePath), 'utf8');
-const requiredDirectories = ['01-recherche', '02-script', '03-audio', '04-visuals', '05-publishing', '06-projektdateien', IMAGE_INBOX];
+const requiredDirectories = ['01-recherche', '02-script', '03-audio', '04-visuals', '05-publishing', '06-projektdateien', '../1-script', '../2-bildprompts', IMAGE_INBOX, AUDIO_INBOX, EXPORT_DIR];
 for (const directory of requiredDirectories) {
   assert(existsSync(resolve(root, directory)) && statSync(resolve(root, directory)).isDirectory(), `${directory}/ fehlt.`);
 }
@@ -66,7 +69,7 @@ const findForbidden = (directory) => {
     else if (FORBIDDEN_YOUTUBE_ARTIFACTS.includes(entry.toLowerCase())) errors.push(`YouTube-Shorts-Artefakt verboten: ${path}`);
   }
 };
-findForbidden(root);
+findForbidden(resolve(root, '..'));
 
 let index = null;
 if (!existsSync(resolve(root, VISUAL_INDEX))) {
@@ -196,7 +199,7 @@ if (existsSync(resolve(root, ALL_PROMPTS))) {
   }
   assert(prompts.includes('Rename it immediately') || prompts.includes('rename it immediately'), 'Sofortige Umbenennung fehlt.');
   assert(prompts.includes('regenerate the same image number'), 'Wiederholungsregel für fehlerhafte Bilder fehlt.');
-  assert(prompts.includes(IMAGE_INBOX), 'Gemeinsamer Bilderordner fehlt in der Flow-Übergabe.');
+  assert(prompts.includes(IMAGE_INBOX.replace(/^\.\.\//, '')), 'Gemeinsamer Bilderordner fehlt in der Flow-Übergabe.');
   assert(prompts.includes('horizontal 16:9'), 'Horizontales 16:9-Quellbild fehlt in der Flow-Übergabe.');
   assert(prompts.includes('FinanzNeo Editorial Finance V1'), 'Editorial-Finance-Bildlogik fehlt in der Flow-Übergabe.');
   assert(!/square 1:1 source image|portrait 9:16|vertical 9:16 image/i.test(prompts), 'YouTube-Prompts enthalten ein falsches Quellbildformat.');

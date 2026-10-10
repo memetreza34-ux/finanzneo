@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
-import {DATEN, DatenBuehne, Quelle, Text, Zaehlwerk, euroText, skala} from '../../../../../src/design-system/daten';
+import {DATEN, DatenBuehne, Quelle, Text, Zaehlwerk, euroText, skala} from '../../../../../../src/design-system/daten';
 
 export const MECHANIC_ID = 'monthly-column-replicates-into-year';
 export const VISUAL_TECHNIQUE_ID = 'column-compare-then-twelvefold-row';

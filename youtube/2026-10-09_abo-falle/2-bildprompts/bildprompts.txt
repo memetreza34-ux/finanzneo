@@ -11,7 +11,7 @@ STRICT SEQUENTIAL WORKFLOW:
 6. If anything fails, regenerate the same image number and replace the failed file. Do not move on.
 7. Continue only after the current image passes.
 8. Skip non-image blocks without closing the numbering gap.
-9. At the end, place every generated and correctly named image together in 04-visuals/00-ALLE-BILDER-HIER-REIN/.
+9. At the end, place every generated and correctly named image together in 3-bilder-hier-rein/.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 THUMBNAIL
@@ -749,4 +749,4 @@ Horizontal 16:9 source image.
 FINISH
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Finish only after every expected image has been generated one at a time, renamed immediately and verified. All final files must be together in 04-visuals/00-ALLE-BILDER-HIER-REIN/.
+Finish only after every expected image has been generated one at a time, renamed immediately and verified. All final files must be together in 3-bilder-hier-rein/.

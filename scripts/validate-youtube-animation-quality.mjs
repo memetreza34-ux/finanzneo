@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import {internWurzel} from './lib/youtube-contract.mjs';
 import {existsSync, readFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 import {
@@ -16,7 +17,7 @@ if (!target) {
   process.exit(1);
 }
 
-const root = resolve(target);
+const root = internWurzel(target);
 const relativeTarget = relative(resolve('youtube'), root);
 if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(sep).includes('..')) {
   console.error('Ziel muss ein YouTube-Projekt unter youtube/ sein.');

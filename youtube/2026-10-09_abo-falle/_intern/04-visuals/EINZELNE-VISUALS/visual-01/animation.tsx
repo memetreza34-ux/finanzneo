@@ -1,6 +1,6 @@
 import React from 'react';
 import {Freeze, interpolate, useCurrentFrame} from 'remotion';
-import {ABO_JAHR_FRAMES, ABO_JAHR_MARKEN, AboJahr} from '../../../../../src/youtube-motion/szenen/AboJahr';
+import {ABO_JAHR_FRAMES, ABO_JAHR_MARKEN, AboJahr} from '../../../../../../src/youtube-motion/szenen/AboJahr';
 
 export const MECHANIC_ID = 'card-to-chip-monthly-stack-merge';
 export const VISUAL_TECHNIQUE_ID = 'magic-move-calendar-year-bar';

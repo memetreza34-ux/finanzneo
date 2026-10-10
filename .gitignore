@@ -76,3 +76,6 @@ youtube/**/03-audio/*.wav
 youtube/**/03-audio/quelle/
 youtube/**/04-visuals/_verworfen/
 youtube/**/04-visuals/_flow-download/
+youtube/**/4-audio-hier-rein/*.wav
+youtube/**/4-audio-hier-rein/*.mp3
+youtube/**/4-audio-hier-rein/*.m4a

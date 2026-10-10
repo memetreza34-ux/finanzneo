@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import {internWurzel} from './lib/youtube-contract.mjs';
 import {createHash} from 'node:crypto';
 import {existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
@@ -10,7 +11,7 @@ if (!target) {
   console.error('Nutzung: npm run youtube:phase1:seal -- youtube/<Projekt>');
   process.exit(1);
 }
-const root = resolve(target);
+const root = internWurzel(target);
 const relativeTarget = relative(resolve('youtube'), root);
 if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(sep).includes('..')) {
   console.error('Ziel muss ein YouTube-Projekt unter youtube/ sein.');

@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
-import {DATEN, DatenBuehne, Quelle, Text} from '../../../../../src/design-system/daten';
+import {DATEN, DatenBuehne, Quelle, Text} from '../../../../../../src/design-system/daten';
 
 export const MECHANIC_ID = 'auto-renewal-lock-versus-monthly-exits';
 export const VISUAL_TECHNIQUE_ID = 'two-contract-timelines-split';

@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {DATEN, DatenBuehne, Punkteraster, Quelle, Text, Zaehlwerk, rasterGroesse} from '../../../../../src/design-system/daten';
+import {DATEN, DatenBuehne, Punkteraster, Quelle, Text, Zaehlwerk, rasterGroesse} from '../../../../../../src/design-system/daten';
 
 export const MECHANIC_ID = 'hundred-households-recolor-share';
 export const VISUAL_TECHNIQUE_ID = 'unit-grid-recolor';

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import {AUDIO_INBOX, internWurzel} from './lib/youtube-contract.mjs';
 import {spawnSync} from 'node:child_process';
 import {relative, resolve, sep} from 'node:path';
 import {analyzeYouTubeReadiness, isSixteenNineDimensions} from './lib/youtube-readiness.mjs';
@@ -10,7 +11,7 @@ if (!target) {
   process.exit(1);
 }
 
-const root = resolve(target);
+const root = internWurzel(target);
 const relativeTarget = relative(resolve('youtube'), root);
 if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(sep).includes('..')) {
   console.error('Ziel muss ein YouTube-Projekt unter youtube/ sein.');
@@ -48,7 +49,7 @@ const ensureProbeSucceeded = (probe, mediaFile) => {
   }
 };
 
-const audioFile = resolve(root, '03-audio', result.audioFiles[0]);
+const audioFile = resolve(root, AUDIO_INBOX, result.audioFiles[0]);
 const audioProbe = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', audioFile], {encoding: 'utf8'});
 ensureProbeSucceeded(audioProbe, audioFile);
 

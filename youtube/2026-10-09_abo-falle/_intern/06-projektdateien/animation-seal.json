@@ -38,7 +38,7 @@
         "119,88 € im Jahr"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "b89e67b34f39433d15f77b2282de7a17967136b11d04e117584712a0ef5a057b"
+      "sha256": "09b42cf56ba1c0490c77315e29e07b4625a8dd71cb6dea416caead506349863c"
     },
     {
       "id": "visual-03",
@@ -72,7 +72,7 @@
         "744 € im Jahr"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "70f265d09cf0fef81564f36fd84f958b2d3807f8da5a798f7d237c1439bea7e4"
+      "sha256": "1a4f17e1fed1fd12b5252d2e027d613244e45b208a61a47b0e5098fba032059c"
     },
     {
       "id": "visual-04",
@@ -104,7 +104,7 @@
         "19 von 100 über 100 € im Monat"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "0e221b3809ad8f498e4bd90be3226262046457a4c1344ca93725069017f12fef"
+      "sha256": "eaa627b6457838dfe910e77ce81cc08894518026e0d97b0132c2513d6bc355bc"
     },
     {
       "id": "visual-07",
@@ -139,7 +139,7 @@
         "jeden Monat −12,99 €"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "f15c954793bbbd32f69c9e030eb48efd579ac41046a3234dfb84d6a61ace1a44"
+      "sha256": "1bfd88790432b80f05610be1799f81ff42e112fca7286cc7e126047e0df435ca"
     },
     {
       "id": "visual-11",
@@ -177,7 +177,7 @@
         "monatlich kündbar"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "e4d3ff848c45cd60f815f131401d081bfddeb181bd2f75965248683558820c4b"
+      "sha256": "750006af313c9e998bc9b2174f4b6fead8f0d6145596b848017a5883cb9531f2"
     },
     {
       "id": "visual-17",
@@ -213,7 +213,7 @@
         "zwei gestrichen, 335,64 €"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "70cb36e37375d751f1add9547d4c80afd6087ad5d6cb1bbc7bd8aece113c1b70"
+      "sha256": "e9c055ec1a6c9d9f9b6d12b4475d48ddc8278b166f783b094d9ddec6ebf5281b"
     },
     {
       "id": "visual-20",
@@ -249,7 +249,7 @@
         "≈ 240 € bleiben"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "2115c8254488993cfc3736a51f9e57e30be559c2a52a7c83e8e9cd91e4b0cc1e"
+      "sha256": "5ccceee0d42c35dd7aee1fc6294bfaf03e09d3be18d54ac83db316ac447f2285"
     }
   ]
 }
