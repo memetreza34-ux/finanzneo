@@ -5,288 +5,6022 @@
   "timingSource": "03-audio/word-timings.json",
   "cutRule": "voice-beat-and-chapter-driven",
   "fixedVisualCount": false,
+  "vorschau": false,
+  "durationFrames": 11932,
+  "audio": "youtube/2026-10-10_supermarkt-tricks/voiceover.wav",
+  "untertitel": false,
   "visuals": [
     {
       "id": "visual-01",
       "type": "image",
       "startFrame": 0,
-      "durationFrames": 0
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 119,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 01 - Nur Milch und Brot.png"
     },
     {
       "id": "visual-02",
       "type": "animation",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 119,
+      "beats": [
+        0,
+        52,
+        149,
+        192
+      ],
+      "akzente": [],
+      "durationFrames": 245
     },
     {
       "id": "visual-03",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 364,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 157,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 03 - Supermarkt als Bauplan.png"
     },
     {
       "id": "visual-04",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 521,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 320,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 04 - Neun Tricks.png"
     },
     {
       "id": "visual-05",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 841,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 337,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 05 - Eingang Obst und Blumen.png"
     },
     {
       "id": "visual-06",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 1178,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 252,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 06 - Fussspuren werden langsamer.png"
     },
     {
       "id": "visual-07",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 1430,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 279,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 07 - Milch ganz hinten.png"
     },
     {
       "id": "visual-08",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 1709,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 97,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 08 - Langer Weg zur Milch.png"
     },
     {
       "id": "visual-09",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 1806,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 110,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 09 - Wagen mit Extras.png"
     },
     {
       "id": "visual-10",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 1916,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 284,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 10 - Wagen frueher und heute.png"
     },
     {
       "id": "visual-11",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 2200,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 158,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 11 - Halb leerer Wagen.png"
     },
     {
       "id": "visual-12",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 2358,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 408,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 12 - Griff plus 25 Prozent.png"
     },
     {
       "id": "visual-13",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 2766,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 121,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 13 - Musik im Supermarkt.png"
     },
     {
       "id": "visual-14",
       "type": "data",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 2887,
+      "beats": [
+        0,
+        94,
+        128,
+        178,
+        279
+      ],
+      "akzente": [],
+      "durationFrames": 562
     },
     {
       "id": "visual-15",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 3449,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 317,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 15 - Regalzonen.png"
     },
     {
       "id": "visual-16",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 3766,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 189,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 16 - Augenhoehe teuer.png"
     },
     {
       "id": "visual-17",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 3955,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 199,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 17 - Bueckzone guenstig.png"
     },
     {
       "id": "visual-18",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 4154,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 173,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 18 - Blick nach oben und unten.png"
     },
     {
       "id": "visual-19",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 4327,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 323,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 19 - Rotes Rabattschild.png"
     },
     {
       "id": "visual-20",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 4650,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 227,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 20 - Tiefpreis Knaller.png"
     },
     {
       "id": "visual-21",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 4877,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 211,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 21 - Preisangabenverordnung.png"
     },
     {
       "id": "visual-22",
       "type": "animation",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 5088,
+      "beats": [
+        0,
+        98,
+        241,
+        286,
+        370
+      ],
+      "akzente": [],
+      "durationFrames": 421
     },
     {
       "id": "visual-23",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 5509,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 300,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 23 - Ausnahmen Aktion.png"
     },
     {
       "id": "visual-24",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 5809,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 156,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 24 - Grosspackung XXL.png"
     },
     {
       "id": "visual-25",
       "type": "data",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 5965,
+      "beats": [
+        0,
+        84,
+        158,
+        250,
+        346
+      ],
+      "akzente": [],
+      "durationFrames": 439
     },
     {
       "id": "visual-26",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 6404,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 177,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 26 - Grundpreis Lupe.png"
     },
     {
       "id": "visual-27",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 6581,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 153,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 27 - Halbe Packung im Muell.png"
     },
     {
       "id": "visual-28",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 6734,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 345,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 28 - Kasse Quengelware.png"
     },
     {
       "id": "visual-29",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 7079,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 315,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 29 - Kind greift nach Suessem.png"
     },
     {
       "id": "visual-30",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 7394,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 356,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 30 - Gleiche Packung weniger Inhalt.png"
     },
     {
       "id": "visual-31",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 7750,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 127,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 31 - Mogelpackung Luft.png"
     },
     {
       "id": "visual-32",
       "type": "data",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 7877,
+      "beats": [
+        0,
+        95,
+        174,
+        352,
+        470
+      ],
+      "akzente": [],
+      "durationFrames": 629
     },
     {
       "id": "visual-33",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 8506,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 410,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 33 - Mogelpackung des Jahres.png"
     },
     {
       "id": "visual-34",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 8916,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 474,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 34 - Rekord Mogelpackungen.png"
     },
     {
       "id": "visual-35",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 9390,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 206,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 35 - Fuellmenge winzig.png"
     },
     {
       "id": "visual-36",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 9596,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 221,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 36 - Grundpreis steigt.png"
     },
     {
       "id": "visual-37",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 9817,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 319,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 37 - Haelfte ungeplant.png"
     },
     {
       "id": "visual-38",
       "type": "animation",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 10136,
+      "beats": [
+        0,
+        94,
+        219,
+        278,
+        323
+      ],
+      "akzente": [],
+      "durationFrames": 405
     },
     {
       "id": "visual-39",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 10541,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 169,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 39 - 520 Euro ungeplant.png"
     },
     {
       "id": "visual-40",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 10710,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 185,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 40 - Fuenf Regeln Checkliste.png"
     },
     {
       "id": "visual-41",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 10895,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 111,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 41 - Regel Einkaufszettel.png"
     },
     {
       "id": "visual-42",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 11006,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 174,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 42 - Regel nicht hungrig.png"
     },
     {
       "id": "visual-43",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 11180,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 140,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 43 - Regel Korb statt Wagen.png"
     },
     {
       "id": "visual-44",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 11320,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 126,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 44 - Regel Grundpreis.png"
     },
     {
       "id": "visual-45",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 11446,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 182,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 45 - Regel oben und unten.png"
     },
     {
       "id": "visual-46",
       "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "startFrame": 11628,
+      "beats": [],
+      "akzente": [],
+      "durationFrames": 304,
+      "bild": "youtube/2026-10-10_supermarkt-tricks/bilder/YouTube Bild 46 - Entspannt rausgehen.png"
+    }
+  ],
+  "captions": [
+    {
+      "start": 0,
+      "end": 55,
+      "words": [
+        {
+          "text": "Du",
+          "start": 0,
+          "end": 10
+        },
+        {
+          "text": "gehst",
+          "start": 10,
+          "end": 17
+        },
+        {
+          "text": "in",
+          "start": 17,
+          "end": 20
+        },
+        {
+          "text": "den",
+          "start": 20,
+          "end": 25
+        },
+        {
+          "text": "Supermarkt.",
+          "start": 25,
+          "end": 38
+        }
+      ]
     },
     {
-      "id": "visual-47",
-      "type": "image",
-      "startFrame": 0,
-      "durationFrames": 0
+      "start": 55,
+      "end": 116,
+      "words": [
+        {
+          "text": "Du",
+          "start": 55,
+          "end": 58
+        },
+        {
+          "text": "brauchst",
+          "start": 58,
+          "end": 69
+        },
+        {
+          "text": "nur",
+          "start": 69,
+          "end": 74
+        },
+        {
+          "text": "Milch",
+          "start": 74,
+          "end": 85
+        },
+        {
+          "text": "und",
+          "start": 85,
+          "end": 88
+        },
+        {
+          "text": "Brot.",
+          "start": 88,
+          "end": 98
+        }
+      ]
+    },
+    {
+      "start": 119,
+      "end": 263,
+      "words": [
+        {
+          "text": "Und",
+          "start": 119,
+          "end": 128
+        },
+        {
+          "text": "an",
+          "start": 128,
+          "end": 133
+        },
+        {
+          "text": "der",
+          "start": 133,
+          "end": 136
+        },
+        {
+          "text": "Kasse",
+          "start": 136,
+          "end": 145
+        },
+        {
+          "text": "stehen",
+          "start": 145,
+          "end": 157
+        },
+        {
+          "text": "plötzlich",
+          "start": 157,
+          "end": 171
+        },
+        {
+          "text": "vierzig",
+          "start": 171,
+          "end": 214
+        },
+        {
+          "text": "Euro",
+          "start": 214,
+          "end": 225
+        },
+        {
+          "text": "auf",
+          "start": 225,
+          "end": 231
+        },
+        {
+          "text": "dem",
+          "start": 231,
+          "end": 235
+        },
+        {
+          "text": "Display.",
+          "start": 235,
+          "end": 245
+        }
+      ]
+    },
+    {
+      "start": 268,
+      "end": 311,
+      "words": [
+        {
+          "text": "Das",
+          "start": 268,
+          "end": 275
+        },
+        {
+          "text": "ist",
+          "start": 275,
+          "end": 278
+        },
+        {
+          "text": "kein",
+          "start": 278,
+          "end": 284
+        },
+        {
+          "text": "Zufall.",
+          "start": 284,
+          "end": 296
+        }
+      ]
+    },
+    {
+      "start": 311,
+      "end": 352,
+      "words": [
+        {
+          "text": "Das",
+          "start": 311,
+          "end": 316
+        },
+        {
+          "text": "ist",
+          "start": 316,
+          "end": 319
+        },
+        {
+          "text": "geplant.",
+          "start": 319,
+          "end": 334
+        }
+      ]
+    },
+    {
+      "start": 364,
+      "end": 447,
+      "words": [
+        {
+          "text": "Ein",
+          "start": 364,
+          "end": 375
+        },
+        {
+          "text": "Supermarkt",
+          "start": 375,
+          "end": 390
+        },
+        {
+          "text": "ist",
+          "start": 390,
+          "end": 395
+        },
+        {
+          "text": "bis",
+          "start": 395,
+          "end": 402
+        },
+        {
+          "text": "ins",
+          "start": 402,
+          "end": 410
+        },
+        {
+          "text": "Detail",
+          "start": 410,
+          "end": 423
+        },
+        {
+          "text": "darauf",
+          "start": 423,
+          "end": 430
+        },
+        {
+          "text": "ausgelegt,",
+          "start": 430,
+          "end": 445
+        }
+      ]
+    },
+    {
+      "start": 447,
+      "end": 514,
+      "words": [
+        {
+          "text": "dass",
+          "start": 447,
+          "end": 450
+        },
+        {
+          "text": "du",
+          "start": 450,
+          "end": 454
+        },
+        {
+          "text": "mehr",
+          "start": 454,
+          "end": 464
+        },
+        {
+          "text": "kaufst,",
+          "start": 464,
+          "end": 477
+        },
+        {
+          "text": "als",
+          "start": 477,
+          "end": 479
+        },
+        {
+          "text": "du",
+          "start": 479,
+          "end": 485
+        },
+        {
+          "text": "wolltest.",
+          "start": 485,
+          "end": 496
+        }
+      ]
+    },
+    {
+      "start": 521,
+      "end": 597,
+      "words": [
+        {
+          "text": "In",
+          "start": 521,
+          "end": 538
+        },
+        {
+          "text": "diesem",
+          "start": 538,
+          "end": 543
+        },
+        {
+          "text": "Video",
+          "start": 543,
+          "end": 551
+        },
+        {
+          "text": "zeige",
+          "start": 551,
+          "end": 558
+        },
+        {
+          "text": "ich",
+          "start": 558,
+          "end": 562
+        },
+        {
+          "text": "dir",
+          "start": 562,
+          "end": 565
+        },
+        {
+          "text": "neun",
+          "start": 565,
+          "end": 579
+        },
+        {
+          "text": "Tricks,",
+          "start": 579,
+          "end": 589
+        }
+      ]
+    },
+    {
+      "start": 597,
+      "end": 667,
+      "words": [
+        {
+          "text": "die",
+          "start": 597,
+          "end": 608
+        },
+        {
+          "text": "dich",
+          "start": 608,
+          "end": 613
+        },
+        {
+          "text": "jeden",
+          "start": 613,
+          "end": 620
+        },
+        {
+          "text": "Monat",
+          "start": 620,
+          "end": 631
+        },
+        {
+          "text": "Geld",
+          "start": 631,
+          "end": 638
+        },
+        {
+          "text": "kosten.",
+          "start": 638,
+          "end": 649
+        }
+      ]
+    },
+    {
+      "start": 669,
+      "end": 759,
+      "words": [
+        {
+          "text": "Und",
+          "start": 669,
+          "end": 678
+        },
+        {
+          "text": "den",
+          "start": 678,
+          "end": 682
+        },
+        {
+          "text": "teuersten",
+          "start": 682,
+          "end": 694
+        },
+        {
+          "text": "davon",
+          "start": 694,
+          "end": 703
+        },
+        {
+          "text": "bemerkst",
+          "start": 703,
+          "end": 730
+        },
+        {
+          "text": "du",
+          "start": 730,
+          "end": 732
+        },
+        {
+          "text": "fast",
+          "start": 732,
+          "end": 737
+        },
+        {
+          "text": "nie.",
+          "start": 737,
+          "end": 746
+        }
+      ]
+    },
+    {
+      "start": 759,
+      "end": 814,
+      "words": [
+        {
+          "text": "Denn",
+          "start": 759,
+          "end": 772
+        },
+        {
+          "text": "er",
+          "start": 772,
+          "end": 775
+        },
+        {
+          "text": "ist",
+          "start": 775,
+          "end": 779
+        },
+        {
+          "text": "völlig",
+          "start": 779,
+          "end": 785
+        },
+        {
+          "text": "legal.",
+          "start": 785,
+          "end": 796
+        }
+      ]
+    },
+    {
+      "start": 841,
+      "end": 912,
+      "words": [
+        {
+          "text": "Trick",
+          "start": 841,
+          "end": 855
+        },
+        {
+          "text": "eins",
+          "start": 855,
+          "end": 864
+        },
+        {
+          "text": "beginnt",
+          "start": 864,
+          "end": 877
+        },
+        {
+          "text": "schon",
+          "start": 877,
+          "end": 880
+        },
+        {
+          "text": "an",
+          "start": 880,
+          "end": 885
+        },
+        {
+          "text": "der",
+          "start": 885,
+          "end": 888
+        },
+        {
+          "text": "Tür.",
+          "start": 888,
+          "end": 894
+        }
+      ]
+    },
+    {
+      "start": 917,
+      "end": 1026,
+      "words": [
+        {
+          "text": "Gleich",
+          "start": 917,
+          "end": 927
+        },
+        {
+          "text": "am",
+          "start": 927,
+          "end": 932
+        },
+        {
+          "text": "Eingang:",
+          "start": 932,
+          "end": 942
+        },
+        {
+          "text": "Obst,",
+          "start": 957,
+          "end": 971
+        },
+        {
+          "text": "Gemüse,",
+          "start": 979,
+          "end": 991
+        },
+        {
+          "text": "Blumen.",
+          "start": 1003,
+          "end": 1010
+        }
+      ]
+    },
+    {
+      "start": 1026,
+      "end": 1081,
+      "words": [
+        {
+          "text": "Oft",
+          "start": 1026,
+          "end": 1031
+        },
+        {
+          "text": "riecht",
+          "start": 1031,
+          "end": 1037
+        },
+        {
+          "text": "es",
+          "start": 1037,
+          "end": 1041
+        },
+        {
+          "text": "nach",
+          "start": 1041,
+          "end": 1045
+        },
+        {
+          "text": "frischem",
+          "start": 1045,
+          "end": 1054
+        },
+        {
+          "text": "Brot.",
+          "start": 1054,
+          "end": 1063
+        }
+      ]
+    },
+    {
+      "start": 1084,
+      "end": 1148,
+      "words": [
+        {
+          "text": "Das",
+          "start": 1084,
+          "end": 1090
+        },
+        {
+          "text": "wirkt",
+          "start": 1090,
+          "end": 1099
+        },
+        {
+          "text": "frisch",
+          "start": 1099,
+          "end": 1115
+        },
+        {
+          "text": "und",
+          "start": 1115,
+          "end": 1120
+        },
+        {
+          "text": "gesund.",
+          "start": 1120,
+          "end": 1130
+        }
+      ]
+    },
+    {
+      "start": 1155,
+      "end": 1178,
+      "words": [
+        {
+          "text": "Du",
+          "start": 1155,
+          "end": 1159
+        },
+        {
+          "text": "fühlst",
+          "start": 1159,
+          "end": 1167
+        },
+        {
+          "text": "dich",
+          "start": 1167,
+          "end": 1170
+        },
+        {
+          "text": "wohl.",
+          "start": 1170,
+          "end": 1178
+        }
+      ]
+    },
+    {
+      "start": 1178,
+      "end": 1240,
+      "words": [
+        {
+          "text": "Und",
+          "start": 1178,
+          "end": 1195
+        },
+        {
+          "text": "du",
+          "start": 1195,
+          "end": 1204
+        },
+        {
+          "text": "wirst",
+          "start": 1204,
+          "end": 1207
+        },
+        {
+          "text": "langsamer.",
+          "start": 1207,
+          "end": 1222
+        }
+      ]
+    },
+    {
+      "start": 1243,
+      "end": 1289,
+      "words": [
+        {
+          "text": "Genau",
+          "start": 1243,
+          "end": 1252
+        },
+        {
+          "text": "das",
+          "start": 1252,
+          "end": 1256
+        },
+        {
+          "text": "ist",
+          "start": 1256,
+          "end": 1261
+        },
+        {
+          "text": "das",
+          "start": 1261,
+          "end": 1265
+        },
+        {
+          "text": "Ziel.",
+          "start": 1265,
+          "end": 1271
+        }
+      ]
+    },
+    {
+      "start": 1296,
+      "end": 1354,
+      "words": [
+        {
+          "text": "Wer",
+          "start": 1296,
+          "end": 1299
+        },
+        {
+          "text": "langsam",
+          "start": 1299,
+          "end": 1306
+        },
+        {
+          "text": "geht,",
+          "start": 1306,
+          "end": 1315
+        },
+        {
+          "text": "sieht",
+          "start": 1327,
+          "end": 1329
+        },
+        {
+          "text": "mehr.",
+          "start": 1329,
+          "end": 1336
+        }
+      ]
+    },
+    {
+      "start": 1358,
+      "end": 1423,
+      "words": [
+        {
+          "text": "Und",
+          "start": 1358,
+          "end": 1361
+        },
+        {
+          "text": "wer",
+          "start": 1361,
+          "end": 1366
+        },
+        {
+          "text": "mehr",
+          "start": 1366,
+          "end": 1371
+        },
+        {
+          "text": "sieht,",
+          "start": 1371,
+          "end": 1378
+        },
+        {
+          "text": "kauft",
+          "start": 1394,
+          "end": 1399
+        },
+        {
+          "text": "mehr.",
+          "start": 1399,
+          "end": 1405
+        }
+      ]
+    },
+    {
+      "start": 1430,
+      "end": 1541,
+      "words": [
+        {
+          "text": "Trick",
+          "start": 1430,
+          "end": 1444
+        },
+        {
+          "text": "zwei:",
+          "start": 1444,
+          "end": 1453
+        },
+        {
+          "text": "Was",
+          "start": 1468,
+          "end": 1471
+        },
+        {
+          "text": "du",
+          "start": 1471,
+          "end": 1475
+        },
+        {
+          "text": "wirklich",
+          "start": 1475,
+          "end": 1480
+        },
+        {
+          "text": "brauchst,",
+          "start": 1480,
+          "end": 1499
+        },
+        {
+          "text": "steht",
+          "start": 1506,
+          "end": 1509
+        },
+        {
+          "text": "weit",
+          "start": 1509,
+          "end": 1516
+        },
+        {
+          "text": "weg.",
+          "start": 1516,
+          "end": 1523
+        }
+      ]
+    },
+    {
+      "start": 1543,
+      "end": 1626,
+      "words": [
+        {
+          "text": "Milch,",
+          "start": 1543,
+          "end": 1552
+        },
+        {
+          "text": "Butter",
+          "start": 1555,
+          "end": 1559
+        },
+        {
+          "text": "und",
+          "start": 1559,
+          "end": 1565
+        },
+        {
+          "text": "Eier",
+          "start": 1565,
+          "end": 1574
+        },
+        {
+          "text": "liegen",
+          "start": 1574,
+          "end": 1591
+        },
+        {
+          "text": "in",
+          "start": 1591,
+          "end": 1597
+        },
+        {
+          "text": "vielen",
+          "start": 1597,
+          "end": 1600
+        },
+        {
+          "text": "Märkten",
+          "start": 1600,
+          "end": 1612
+        },
+        {
+          "text": "ganz",
+          "start": 1612,
+          "end": 1618
+        },
+        {
+          "text": "hinten.",
+          "start": 1618,
+          "end": 1626
+        }
+      ]
+    },
+    {
+      "start": 1626,
+      "end": 1709,
+      "words": [
+        {
+          "text": "Du",
+          "start": 1626,
+          "end": 1646
+        },
+        {
+          "text": "willst",
+          "start": 1646,
+          "end": 1663
+        },
+        {
+          "text": "nur",
+          "start": 1663,
+          "end": 1669
+        },
+        {
+          "text": "schnell",
+          "start": 1669,
+          "end": 1676
+        },
+        {
+          "text": "eine",
+          "start": 1676,
+          "end": 1682
+        },
+        {
+          "text": "Sache",
+          "start": 1682,
+          "end": 1689
+        },
+        {
+          "text": "holen.",
+          "start": 1689,
+          "end": 1699
+        }
+      ]
+    },
+    {
+      "start": 1709,
+      "end": 1804,
+      "words": [
+        {
+          "text": "Aber",
+          "start": 1709,
+          "end": 1714
+        },
+        {
+          "text": "dein",
+          "start": 1714,
+          "end": 1719
+        },
+        {
+          "text": "Weg",
+          "start": 1719,
+          "end": 1726
+        },
+        {
+          "text": "führt",
+          "start": 1726,
+          "end": 1733
+        },
+        {
+          "text": "an",
+          "start": 1733,
+          "end": 1739
+        },
+        {
+          "text": "hunderten",
+          "start": 1739,
+          "end": 1755
+        },
+        {
+          "text": "anderen",
+          "start": 1755,
+          "end": 1760
+        },
+        {
+          "text": "Produkten",
+          "start": 1760,
+          "end": 1777
+        },
+        {
+          "text": "vorbei.",
+          "start": 1777,
+          "end": 1786
+        }
+      ]
+    },
+    {
+      "start": 1806,
+      "end": 1889,
+      "words": [
+        {
+          "text": "Und",
+          "start": 1806,
+          "end": 1814
+        },
+        {
+          "text": "irgendwas",
+          "start": 1814,
+          "end": 1823
+        },
+        {
+          "text": "davon",
+          "start": 1823,
+          "end": 1834
+        },
+        {
+          "text": "landet",
+          "start": 1834,
+          "end": 1849
+        },
+        {
+          "text": "dann",
+          "start": 1849,
+          "end": 1852
+        },
+        {
+          "text": "doch",
+          "start": 1852,
+          "end": 1858
+        },
+        {
+          "text": "im",
+          "start": 1858,
+          "end": 1863
+        },
+        {
+          "text": "Wagen.",
+          "start": 1863,
+          "end": 1871
+        }
+      ]
+    },
+    {
+      "start": 1916,
+      "end": 2003,
+      "words": [
+        {
+          "text": "Trick",
+          "start": 1916,
+          "end": 1922
+        },
+        {
+          "text": "drei:",
+          "start": 1922,
+          "end": 1931
+        },
+        {
+          "text": "der",
+          "start": 1955,
+          "end": 1958
+        },
+        {
+          "text": "Einkaufswagen",
+          "start": 1958,
+          "end": 1975
+        },
+        {
+          "text": "selbst.",
+          "start": 1975,
+          "end": 1985
+        }
+      ]
+    },
+    {
+      "start": 2012,
+      "end": 2116,
+      "words": [
+        {
+          "text": "Laut",
+          "start": 2012,
+          "end": 2018
+        },
+        {
+          "text": "dem",
+          "start": 2018,
+          "end": 2022
+        },
+        {
+          "text": "Handelsforschungsinstitut",
+          "start": 2022,
+          "end": 2057
+        },
+        {
+          "text": "EHI",
+          "start": 2057,
+          "end": 2081
+        },
+        {
+          "text": "sind",
+          "start": 2081,
+          "end": 2092
+        },
+        {
+          "text": "Einkaufswagen",
+          "start": 2092,
+          "end": 2112
+        },
+        {
+          "text": "in",
+          "start": 2112,
+          "end": 2116
+        }
+      ]
+    },
+    {
+      "start": 2116,
+      "end": 2182,
+      "words": [
+        {
+          "text": "den",
+          "start": 2116,
+          "end": 2118
+        },
+        {
+          "text": "letzten",
+          "start": 2118,
+          "end": 2126
+        },
+        {
+          "text": "Jahren",
+          "start": 2126,
+          "end": 2132
+        },
+        {
+          "text": "deutlich",
+          "start": 2132,
+          "end": 2140
+        },
+        {
+          "text": "größer",
+          "start": 2140,
+          "end": 2156
+        },
+        {
+          "text": "geworden.",
+          "start": 2156,
+          "end": 2164
+        }
+      ]
+    },
+    {
+      "start": 2200,
+      "end": 2300,
+      "words": [
+        {
+          "text": "Ein",
+          "start": 2200,
+          "end": 2204
+        },
+        {
+          "text": "halb",
+          "start": 2204,
+          "end": 2213
+        },
+        {
+          "text": "leerer",
+          "start": 2213,
+          "end": 2222
+        },
+        {
+          "text": "Wagen",
+          "start": 2222,
+          "end": 2229
+        },
+        {
+          "text": "fühlt",
+          "start": 2229,
+          "end": 2240
+        },
+        {
+          "text": "sich",
+          "start": 2240,
+          "end": 2245
+        },
+        {
+          "text": "an",
+          "start": 2245,
+          "end": 2251
+        },
+        {
+          "text": "wie",
+          "start": 2251,
+          "end": 2257
+        },
+        {
+          "text": "ein",
+          "start": 2257,
+          "end": 2262
+        },
+        {
+          "text": "halber",
+          "start": 2262,
+          "end": 2272
+        },
+        {
+          "text": "Einkauf.",
+          "start": 2272,
+          "end": 2283
+        }
+      ]
+    },
+    {
+      "start": 2300,
+      "end": 2350,
+      "words": [
+        {
+          "text": "Also",
+          "start": 2300,
+          "end": 2309
+        },
+        {
+          "text": "legst",
+          "start": 2309,
+          "end": 2323
+        },
+        {
+          "text": "du",
+          "start": 2323,
+          "end": 2326
+        },
+        {
+          "text": "nach.",
+          "start": 2326,
+          "end": 2332
+        }
+      ]
+    },
+    {
+      "start": 2358,
+      "end": 2425,
+      "words": [
+        {
+          "text": "Forscher",
+          "start": 2358,
+          "end": 2375
+        },
+        {
+          "text": "der",
+          "start": 2375,
+          "end": 2378
+        },
+        {
+          "text": "Universität",
+          "start": 2378,
+          "end": 2395
+        },
+        {
+          "text": "Innsbruck",
+          "start": 2395,
+          "end": 2411
+        },
+        {
+          "text": "haben",
+          "start": 2411,
+          "end": 2416
+        },
+        {
+          "text": "in",
+          "start": 2416,
+          "end": 2420
+        },
+        {
+          "text": "einem",
+          "start": 2420,
+          "end": 2425
+        }
+      ]
+    },
+    {
+      "start": 2425,
+      "end": 2475,
+      "words": [
+        {
+          "text": "Test",
+          "start": 2425,
+          "end": 2432
+        },
+        {
+          "text": "sogar",
+          "start": 2432,
+          "end": 2441
+        },
+        {
+          "text": "nur",
+          "start": 2441,
+          "end": 2449
+        },
+        {
+          "text": "den",
+          "start": 2449,
+          "end": 2455
+        },
+        {
+          "text": "Griff",
+          "start": 2455,
+          "end": 2464
+        },
+        {
+          "text": "verändert.",
+          "start": 2464,
+          "end": 2475
+        }
+      ]
+    },
+    {
+      "start": 2475,
+      "end": 2537,
+      "words": [
+        {
+          "text": "Mit",
+          "start": 2475,
+          "end": 2507
+        },
+        {
+          "text": "dem",
+          "start": 2507,
+          "end": 2512
+        },
+        {
+          "text": "neuen",
+          "start": 2512,
+          "end": 2518
+        },
+        {
+          "text": "Griff",
+          "start": 2518,
+          "end": 2527
+        },
+        {
+          "text": "haben",
+          "start": 2527,
+          "end": 2532
+        },
+        {
+          "text": "die",
+          "start": 2532,
+          "end": 2537
+        }
+      ]
+    },
+    {
+      "start": 2537,
+      "end": 2622,
+      "words": [
+        {
+          "text": "Kunden",
+          "start": 2537,
+          "end": 2543
+        },
+        {
+          "text": "rund",
+          "start": 2543,
+          "end": 2551
+        },
+        {
+          "text": "fünfundzwanzig",
+          "start": 2551,
+          "end": 2574
+        },
+        {
+          "text": "Prozent",
+          "start": 2574,
+          "end": 2585
+        },
+        {
+          "text": "mehr",
+          "start": 2585,
+          "end": 2594
+        },
+        {
+          "text": "ausgegeben.",
+          "start": 2594,
+          "end": 2604
+        }
+      ]
+    },
+    {
+      "start": 2633,
+      "end": 2664,
+      "words": [
+        {
+          "text": "Ein",
+          "start": 2633,
+          "end": 2639
+        },
+        {
+          "text": "anderer",
+          "start": 2639,
+          "end": 2651
+        },
+        {
+          "text": "Griff.",
+          "start": 2651,
+          "end": 2664
+        }
+      ]
+    },
+    {
+      "start": 2664,
+      "end": 2738,
+      "words": [
+        {
+          "text": "Fünfundzwanzig",
+          "start": 2664,
+          "end": 2696
+        },
+        {
+          "text": "Prozent",
+          "start": 2696,
+          "end": 2710
+        },
+        {
+          "text": "mehr.",
+          "start": 2710,
+          "end": 2720
+        }
+      ]
+    },
+    {
+      "start": 2766,
+      "end": 2882,
+      "words": [
+        {
+          "text": "Trick",
+          "start": 2766,
+          "end": 2772
+        },
+        {
+          "text": "vier",
+          "start": 2772,
+          "end": 2781
+        },
+        {
+          "text": "hörst",
+          "start": 2788,
+          "end": 2798
+        },
+        {
+          "text": "du,",
+          "start": 2798,
+          "end": 2801
+        },
+        {
+          "text": "aber",
+          "start": 2806,
+          "end": 2807
+        },
+        {
+          "text": "du",
+          "start": 2807,
+          "end": 2811
+        },
+        {
+          "text": "achtest",
+          "start": 2811,
+          "end": 2824
+        },
+        {
+          "text": "nicht",
+          "start": 2824,
+          "end": 2831
+        },
+        {
+          "text": "darauf:",
+          "start": 2831,
+          "end": 2840
+        },
+        {
+          "text": "die",
+          "start": 2849,
+          "end": 2853
+        },
+        {
+          "text": "Musik.",
+          "start": 2853,
+          "end": 2864
+        }
+      ]
+    },
+    {
+      "start": 2887,
+      "end": 2956,
+      "words": [
+        {
+          "text": "In",
+          "start": 2887,
+          "end": 2896
+        },
+        {
+          "text": "einer",
+          "start": 2896,
+          "end": 2902
+        },
+        {
+          "text": "bekannten",
+          "start": 2902,
+          "end": 2913
+        },
+        {
+          "text": "Studie",
+          "start": 2913,
+          "end": 2926
+        },
+        {
+          "text": "aus",
+          "start": 2926,
+          "end": 2931
+        },
+        {
+          "text": "den",
+          "start": 2931,
+          "end": 2935
+        },
+        {
+          "text": "USA",
+          "start": 2935,
+          "end": 2947
+        },
+        {
+          "text": "lief",
+          "start": 2947,
+          "end": 2956
+        }
+      ]
+    },
+    {
+      "start": 2956,
+      "end": 3061,
+      "words": [
+        {
+          "text": "in",
+          "start": 2956,
+          "end": 2960
+        },
+        {
+          "text": "einem",
+          "start": 2960,
+          "end": 2965
+        },
+        {
+          "text": "Supermarkt",
+          "start": 2965,
+          "end": 2981
+        },
+        {
+          "text": "mal",
+          "start": 2981,
+          "end": 2992
+        },
+        {
+          "text": "schnelle,",
+          "start": 2992,
+          "end": 3007
+        },
+        {
+          "text": "mal",
+          "start": 3015,
+          "end": 3017
+        },
+        {
+          "text": "langsame",
+          "start": 3017,
+          "end": 3032
+        },
+        {
+          "text": "Musik.",
+          "start": 3032,
+          "end": 3043
+        }
+      ]
+    },
+    {
+      "start": 3065,
+      "end": 3165,
+      "words": [
+        {
+          "text": "Bei",
+          "start": 3065,
+          "end": 3068
+        },
+        {
+          "text": "langsamer",
+          "start": 3068,
+          "end": 3082
+        },
+        {
+          "text": "Musik",
+          "start": 3082,
+          "end": 3094
+        },
+        {
+          "text": "gingen",
+          "start": 3094,
+          "end": 3107
+        },
+        {
+          "text": "die",
+          "start": 3107,
+          "end": 3111
+        },
+        {
+          "text": "Kunden",
+          "start": 3111,
+          "end": 3121
+        },
+        {
+          "text": "langsamer.",
+          "start": 3121,
+          "end": 3147
+        }
+      ]
+    },
+    {
+      "start": 3166,
+      "end": 3281,
+      "words": [
+        {
+          "text": "Und",
+          "start": 3166,
+          "end": 3173
+        },
+        {
+          "text": "der",
+          "start": 3173,
+          "end": 3180
+        },
+        {
+          "text": "Umsatz",
+          "start": 3180,
+          "end": 3194
+        },
+        {
+          "text": "lag",
+          "start": 3194,
+          "end": 3205
+        },
+        {
+          "text": "um",
+          "start": 3205,
+          "end": 3212
+        },
+        {
+          "text": "rund",
+          "start": 3212,
+          "end": 3218
+        },
+        {
+          "text": "achtunddreißig",
+          "start": 3218,
+          "end": 3241
+        },
+        {
+          "text": "Prozent",
+          "start": 3241,
+          "end": 3251
+        },
+        {
+          "text": "höher.",
+          "start": 3251,
+          "end": 3263
+        }
+      ]
+    },
+    {
+      "start": 3283,
+      "end": 3320,
+      "words": [
+        {
+          "text": "Die",
+          "start": 3283,
+          "end": 3289
+        },
+        {
+          "text": "Studie",
+          "start": 3289,
+          "end": 3299
+        },
+        {
+          "text": "ist",
+          "start": 3299,
+          "end": 3303
+        },
+        {
+          "text": "alt.",
+          "start": 3303,
+          "end": 3310
+        }
+      ]
+    },
+    {
+      "start": 3320,
+      "end": 3421,
+      "words": [
+        {
+          "text": "Aber",
+          "start": 3320,
+          "end": 3326
+        },
+        {
+          "text": "ruhige",
+          "start": 3326,
+          "end": 3336
+        },
+        {
+          "text": "Hintergrundmusik",
+          "start": 3336,
+          "end": 3346
+        },
+        {
+          "text": "hörst",
+          "start": 3346,
+          "end": 3372
+        },
+        {
+          "text": "du",
+          "start": 3372,
+          "end": 3374
+        },
+        {
+          "text": "im",
+          "start": 3374,
+          "end": 3377
+        },
+        {
+          "text": "Supermarkt",
+          "start": 3377,
+          "end": 3390
+        },
+        {
+          "text": "bis",
+          "start": 3390,
+          "end": 3394
+        },
+        {
+          "text": "heute.",
+          "start": 3394,
+          "end": 3403
+        }
+      ]
+    },
+    {
+      "start": 3449,
+      "end": 3509,
+      "words": [
+        {
+          "text": "Trick",
+          "start": 3449,
+          "end": 3457
+        },
+        {
+          "text": "fünf:",
+          "start": 3457,
+          "end": 3464
+        },
+        {
+          "text": "das",
+          "start": 3475,
+          "end": 3478
+        },
+        {
+          "text": "Regal.",
+          "start": 3478,
+          "end": 3491
+        }
+      ]
+    },
+    {
+      "start": 3523,
+      "end": 3572,
+      "words": [
+        {
+          "text": "Ein",
+          "start": 3523,
+          "end": 3527
+        },
+        {
+          "text": "Regal",
+          "start": 3527,
+          "end": 3539
+        },
+        {
+          "text": "hat",
+          "start": 3539,
+          "end": 3544
+        },
+        {
+          "text": "Zonen.",
+          "start": 3544,
+          "end": 3557
+        }
+      ]
+    },
+    {
+      "start": 3572,
+      "end": 3621,
+      "words": [
+        {
+          "text": "Ganz",
+          "start": 3572,
+          "end": 3577
+        },
+        {
+          "text": "oben",
+          "start": 3577,
+          "end": 3586
+        },
+        {
+          "text": "die",
+          "start": 3586,
+          "end": 3591
+        },
+        {
+          "text": "Reckzone.",
+          "start": 3591,
+          "end": 3621
+        }
+      ]
+    },
+    {
+      "start": 3621,
+      "end": 3694,
+      "words": [
+        {
+          "text": "In",
+          "start": 3621,
+          "end": 3624
+        },
+        {
+          "text": "der",
+          "start": 3624,
+          "end": 3627
+        },
+        {
+          "text": "Mitte,",
+          "start": 3627,
+          "end": 3632
+        },
+        {
+          "text": "auf",
+          "start": 3632,
+          "end": 3638
+        },
+        {
+          "text": "Augenhöhe,",
+          "start": 3638,
+          "end": 3656
+        },
+        {
+          "text": "die",
+          "start": 3656,
+          "end": 3665
+        },
+        {
+          "text": "Sichtzone.",
+          "start": 3665,
+          "end": 3682
+        }
+      ]
+    },
+    {
+      "start": 3694,
+      "end": 3758,
+      "words": [
+        {
+          "text": "Ganz",
+          "start": 3694,
+          "end": 3700
+        },
+        {
+          "text": "unten",
+          "start": 3700,
+          "end": 3710
+        },
+        {
+          "text": "die",
+          "start": 3710,
+          "end": 3722
+        },
+        {
+          "text": "Bückzone.",
+          "start": 3722,
+          "end": 3740
+        }
+      ]
+    },
+    {
+      "start": 3766,
+      "end": 3845,
+      "words": [
+        {
+          "text": "Auf",
+          "start": 3766,
+          "end": 3772
+        },
+        {
+          "text": "Augenhöhe",
+          "start": 3772,
+          "end": 3792
+        },
+        {
+          "text": "greifen",
+          "start": 3792,
+          "end": 3802
+        },
+        {
+          "text": "wir",
+          "start": 3802,
+          "end": 3806
+        },
+        {
+          "text": "am",
+          "start": 3806,
+          "end": 3811
+        },
+        {
+          "text": "häufigsten",
+          "start": 3811,
+          "end": 3825
+        },
+        {
+          "text": "zu.",
+          "start": 3825,
+          "end": 3832
+        }
+      ]
+    },
+    {
+      "start": 3845,
+      "end": 3893,
+      "words": [
+        {
+          "text": "Darum",
+          "start": 3845,
+          "end": 3854
+        },
+        {
+          "text": "stehen",
+          "start": 3854,
+          "end": 3859
+        },
+        {
+          "text": "dort",
+          "start": 3859,
+          "end": 3866
+        },
+        {
+          "text": "oft",
+          "start": 3866,
+          "end": 3874
+        },
+        {
+          "text": "die",
+          "start": 3874,
+          "end": 3878
+        },
+        {
+          "text": "Produkte,",
+          "start": 3878,
+          "end": 3889
+        }
+      ]
+    },
+    {
+      "start": 3893,
+      "end": 3955,
+      "words": [
+        {
+          "text": "an",
+          "start": 3893,
+          "end": 3896
+        },
+        {
+          "text": "denen",
+          "start": 3896,
+          "end": 3900
+        },
+        {
+          "text": "der",
+          "start": 3900,
+          "end": 3906
+        },
+        {
+          "text": "Markt",
+          "start": 3906,
+          "end": 3912
+        },
+        {
+          "text": "besonders",
+          "start": 3912,
+          "end": 3921
+        },
+        {
+          "text": "gut",
+          "start": 3921,
+          "end": 3928
+        },
+        {
+          "text": "verdient.",
+          "start": 3928,
+          "end": 3939
+        }
+      ]
+    },
+    {
+      "start": 3955,
+      "end": 4052,
+      "words": [
+        {
+          "text": "Günstige",
+          "start": 3955,
+          "end": 3970
+        },
+        {
+          "text": "Alternativen",
+          "start": 3970,
+          "end": 3991
+        },
+        {
+          "text": "stehen",
+          "start": 3991,
+          "end": 3999
+        },
+        {
+          "text": "dagegen",
+          "start": 3999,
+          "end": 4005
+        },
+        {
+          "text": "oft",
+          "start": 4005,
+          "end": 4015
+        },
+        {
+          "text": "weiter",
+          "start": 4015,
+          "end": 4024
+        },
+        {
+          "text": "unten.",
+          "start": 4024,
+          "end": 4036
+        }
+      ]
+    },
+    {
+      "start": 4052,
+      "end": 4139,
+      "words": [
+        {
+          "text": "Du",
+          "start": 4052,
+          "end": 4055
+        },
+        {
+          "text": "musst",
+          "start": 4055,
+          "end": 4061
+        },
+        {
+          "text": "dich",
+          "start": 4061,
+          "end": 4066
+        },
+        {
+          "text": "buchstäblich",
+          "start": 4066,
+          "end": 4082
+        },
+        {
+          "text": "bücken,",
+          "start": 4082,
+          "end": 4093
+        },
+        {
+          "text": "um",
+          "start": 4099,
+          "end": 4108
+        },
+        {
+          "text": "zu",
+          "start": 4108,
+          "end": 4112
+        },
+        {
+          "text": "sparen.",
+          "start": 4112,
+          "end": 4121
+        }
+      ]
+    },
+    {
+      "start": 4154,
+      "end": 4232,
+      "words": [
+        {
+          "text": "Die",
+          "start": 4154,
+          "end": 4162
+        },
+        {
+          "text": "Gegenwehr",
+          "start": 4162,
+          "end": 4172
+        },
+        {
+          "text": "ist",
+          "start": 4172,
+          "end": 4177
+        },
+        {
+          "text": "einfach:",
+          "start": 4177,
+          "end": 4189
+        },
+        {
+          "text": "Schau",
+          "start": 4204,
+          "end": 4209
+        },
+        {
+          "text": "einmal",
+          "start": 4209,
+          "end": 4217
+        },
+        {
+          "text": "nach",
+          "start": 4217,
+          "end": 4224
+        },
+        {
+          "text": "oben",
+          "start": 4224,
+          "end": 4232
+        }
+      ]
+    },
+    {
+      "start": 4232,
+      "end": 4325,
+      "words": [
+        {
+          "text": "und",
+          "start": 4232,
+          "end": 4245
+        },
+        {
+          "text": "einmal",
+          "start": 4245,
+          "end": 4255
+        },
+        {
+          "text": "nach",
+          "start": 4255,
+          "end": 4261
+        },
+        {
+          "text": "unten,",
+          "start": 4261,
+          "end": 4272
+        },
+        {
+          "text": "bevor",
+          "start": 4282,
+          "end": 4286
+        },
+        {
+          "text": "du",
+          "start": 4286,
+          "end": 4290
+        },
+        {
+          "text": "zugreifst.",
+          "start": 4290,
+          "end": 4307
+        }
+      ]
+    },
+    {
+      "start": 4327,
+      "end": 4397,
+      "words": [
+        {
+          "text": "Trick",
+          "start": 4327,
+          "end": 4331
+        },
+        {
+          "text": "sechs:",
+          "start": 4331,
+          "end": 4340
+        },
+        {
+          "text": "das",
+          "start": 4354,
+          "end": 4356
+        },
+        {
+          "text": "rote",
+          "start": 4356,
+          "end": 4369
+        },
+        {
+          "text": "Schild.",
+          "start": 4369,
+          "end": 4379
+        }
+      ]
+    },
+    {
+      "start": 4403,
+      "end": 4474,
+      "words": [
+        {
+          "text": "Rot,",
+          "start": 4403,
+          "end": 4415
+        },
+        {
+          "text": "groß,",
+          "start": 4424,
+          "end": 4433
+        },
+        {
+          "text": "mit",
+          "start": 4439,
+          "end": 4441
+        },
+        {
+          "text": "Prozentzeichen.",
+          "start": 4441,
+          "end": 4462
+        }
+      ]
+    },
+    {
+      "start": 4474,
+      "end": 4547,
+      "words": [
+        {
+          "text": "Dein",
+          "start": 4474,
+          "end": 4478
+        },
+        {
+          "text": "Gehirn",
+          "start": 4478,
+          "end": 4490
+        },
+        {
+          "text": "sagt",
+          "start": 4490,
+          "end": 4495
+        },
+        {
+          "text": "sofort:",
+          "start": 4495,
+          "end": 4504
+        },
+        {
+          "text": "Angebot!",
+          "start": 4504,
+          "end": 4529
+        }
+      ]
+    },
+    {
+      "start": 4551,
+      "end": 4645,
+      "words": [
+        {
+          "text": "Aber",
+          "start": 4551,
+          "end": 4558
+        },
+        {
+          "text": "nicht",
+          "start": 4558,
+          "end": 4567
+        },
+        {
+          "text": "jedes",
+          "start": 4567,
+          "end": 4577
+        },
+        {
+          "text": "rote",
+          "start": 4577,
+          "end": 4589
+        },
+        {
+          "text": "Schild",
+          "start": 4589,
+          "end": 4598
+        },
+        {
+          "text": "ist",
+          "start": 4598,
+          "end": 4603
+        },
+        {
+          "text": "ein",
+          "start": 4603,
+          "end": 4608
+        },
+        {
+          "text": "echter",
+          "start": 4608,
+          "end": 4614
+        },
+        {
+          "text": "Rabatt.",
+          "start": 4614,
+          "end": 4627
+        }
+      ]
+    },
+    {
+      "start": 4650,
+      "end": 4787,
+      "words": [
+        {
+          "text": "Wörter",
+          "start": 4650,
+          "end": 4663
+        },
+        {
+          "text": "wie",
+          "start": 4663,
+          "end": 4669
+        },
+        {
+          "text": "Tiefpreis",
+          "start": 4669,
+          "end": 4700
+        },
+        {
+          "text": "oder",
+          "start": 4700,
+          "end": 4705
+        },
+        {
+          "text": "Knaller",
+          "start": 4705,
+          "end": 4723
+        },
+        {
+          "text": "klingen",
+          "start": 4723,
+          "end": 4741
+        },
+        {
+          "text": "nach",
+          "start": 4741,
+          "end": 4755
+        },
+        {
+          "text": "Ersparnis.",
+          "start": 4755,
+          "end": 4787
+        }
+      ]
+    },
+    {
+      "start": 4787,
+      "end": 4859,
+      "words": [
+        {
+          "text": "Oft",
+          "start": 4787,
+          "end": 4794
+        },
+        {
+          "text": "ist",
+          "start": 4794,
+          "end": 4799
+        },
+        {
+          "text": "es",
+          "start": 4799,
+          "end": 4803
+        },
+        {
+          "text": "einfach",
+          "start": 4803,
+          "end": 4811
+        },
+        {
+          "text": "der",
+          "start": 4811,
+          "end": 4816
+        },
+        {
+          "text": "ganz",
+          "start": 4816,
+          "end": 4820
+        },
+        {
+          "text": "normale",
+          "start": 4820,
+          "end": 4831
+        },
+        {
+          "text": "Preis.",
+          "start": 4831,
+          "end": 4841
+        }
+      ]
+    },
+    {
+      "start": 4877,
+      "end": 4950,
+      "words": [
+        {
+          "text": "Bei",
+          "start": 4877,
+          "end": 4882
+        },
+        {
+          "text": "echten",
+          "start": 4882,
+          "end": 4894
+        },
+        {
+          "text": "Rabatten",
+          "start": 4894,
+          "end": 4907
+        },
+        {
+          "text": "hilft",
+          "start": 4907,
+          "end": 4915
+        },
+        {
+          "text": "dir",
+          "start": 4915,
+          "end": 4919
+        },
+        {
+          "text": "das",
+          "start": 4919,
+          "end": 4924
+        },
+        {
+          "text": "Gesetz.",
+          "start": 4924,
+          "end": 4932
+        }
+      ]
+    },
+    {
+      "start": 4958,
+      "end": 5088,
+      "words": [
+        {
+          "text": "Seit",
+          "start": 4958,
+          "end": 4967
+        },
+        {
+          "text": "Mai",
+          "start": 4967,
+          "end": 4973
+        },
+        {
+          "text": "zweitausendzweiundzwanzig",
+          "start": 4973,
+          "end": 5000
+        },
+        {
+          "text": "gilt",
+          "start": 5000,
+          "end": 5015
+        },
+        {
+          "text": "in",
+          "start": 5015,
+          "end": 5020
+        },
+        {
+          "text": "der",
+          "start": 5020,
+          "end": 5023
+        },
+        {
+          "text": "Preisangabenverordnung",
+          "start": 5023,
+          "end": 5060
+        },
+        {
+          "text": "eine",
+          "start": 5060,
+          "end": 5068
+        },
+        {
+          "text": "wichtige",
+          "start": 5068,
+          "end": 5078
+        },
+        {
+          "text": "Regel.",
+          "start": 5078,
+          "end": 5088
+        }
+      ]
+    },
+    {
+      "start": 5088,
+      "end": 5166,
+      "words": [
+        {
+          "text": "Wer",
+          "start": 5088,
+          "end": 5116
+        },
+        {
+          "text": "mit",
+          "start": 5116,
+          "end": 5119
+        },
+        {
+          "text": "einer",
+          "start": 5119,
+          "end": 5125
+        },
+        {
+          "text": "Preissenkung",
+          "start": 5125,
+          "end": 5146
+        },
+        {
+          "text": "wirbt,",
+          "start": 5146,
+          "end": 5155
+        }
+      ]
+    },
+    {
+      "start": 5166,
+      "end": 5279,
+      "words": [
+        {
+          "text": "muss",
+          "start": 5166,
+          "end": 5171
+        },
+        {
+          "text": "sich",
+          "start": 5171,
+          "end": 5176
+        },
+        {
+          "text": "auf",
+          "start": 5176,
+          "end": 5180
+        },
+        {
+          "text": "den",
+          "start": 5180,
+          "end": 5186
+        },
+        {
+          "text": "niedrigsten",
+          "start": 5186,
+          "end": 5203
+        },
+        {
+          "text": "Preis",
+          "start": 5203,
+          "end": 5212
+        },
+        {
+          "text": "der",
+          "start": 5212,
+          "end": 5219
+        },
+        {
+          "text": "letzten",
+          "start": 5219,
+          "end": 5227
+        },
+        {
+          "text": "dreißig",
+          "start": 5227,
+          "end": 5239
+        },
+        {
+          "text": "Tage",
+          "start": 5239,
+          "end": 5250
+        },
+        {
+          "text": "beziehen.",
+          "start": 5250,
+          "end": 5261
+        }
+      ]
+    },
+    {
+      "start": 5285,
+      "end": 5352,
+      "words": [
+        {
+          "text": "Früher",
+          "start": 5285,
+          "end": 5294
+        },
+        {
+          "text": "konnte",
+          "start": 5294,
+          "end": 5302
+        },
+        {
+          "text": "ein",
+          "start": 5302,
+          "end": 5307
+        },
+        {
+          "text": "Händler",
+          "start": 5307,
+          "end": 5315
+        },
+        {
+          "text": "den",
+          "start": 5315,
+          "end": 5320
+        },
+        {
+          "text": "Preis",
+          "start": 5320,
+          "end": 5329
+        },
+        {
+          "text": "kurz",
+          "start": 5329,
+          "end": 5336
+        },
+        {
+          "text": "hochsetzen",
+          "start": 5336,
+          "end": 5352
+        }
+      ]
+    },
+    {
+      "start": 5352,
+      "end": 5456,
+      "words": [
+        {
+          "text": "und",
+          "start": 5352,
+          "end": 5358
+        },
+        {
+          "text": "danach",
+          "start": 5358,
+          "end": 5365
+        },
+        {
+          "text": "groß",
+          "start": 5365,
+          "end": 5374
+        },
+        {
+          "text": "minus",
+          "start": 5374,
+          "end": 5390
+        },
+        {
+          "text": "fünfundzwanzig",
+          "start": 5390,
+          "end": 5408
+        },
+        {
+          "text": "Prozent",
+          "start": 5408,
+          "end": 5422
+        },
+        {
+          "text": "draufschreiben.",
+          "start": 5422,
+          "end": 5438
+        }
+      ]
+    },
+    {
+      "start": 5458,
+      "end": 5503,
+      "words": [
+        {
+          "text": "Das",
+          "start": 5458,
+          "end": 5463
+        },
+        {
+          "text": "ist",
+          "start": 5463,
+          "end": 5467
+        },
+        {
+          "text": "heute",
+          "start": 5467,
+          "end": 5473
+        },
+        {
+          "text": "verboten.",
+          "start": 5473,
+          "end": 5485
+        }
+      ]
+    },
+    {
+      "start": 5509,
+      "end": 5623,
+      "words": [
+        {
+          "text": "Aber",
+          "start": 5509,
+          "end": 5514
+        },
+        {
+          "text": "Achtung:",
+          "start": 5514,
+          "end": 5524
+        },
+        {
+          "text": "Für",
+          "start": 5537,
+          "end": 5540
+        },
+        {
+          "text": "schnell",
+          "start": 5540,
+          "end": 5551
+        },
+        {
+          "text": "verderbliche",
+          "start": 5551,
+          "end": 5571
+        },
+        {
+          "text": "Ware",
+          "start": 5571,
+          "end": 5580
+        },
+        {
+          "text": "gibt",
+          "start": 5580,
+          "end": 5587
+        },
+        {
+          "text": "es",
+          "start": 5587,
+          "end": 5591
+        },
+        {
+          "text": "Ausnahmen.",
+          "start": 5591,
+          "end": 5605
+        }
+      ]
+    },
+    {
+      "start": 5631,
+      "end": 5698,
+      "words": [
+        {
+          "text": "Und",
+          "start": 5631,
+          "end": 5639
+        },
+        {
+          "text": "ein",
+          "start": 5639,
+          "end": 5645
+        },
+        {
+          "text": "Schild,",
+          "start": 5645,
+          "end": 5653
+        },
+        {
+          "text": "auf",
+          "start": 5654,
+          "end": 5658
+        },
+        {
+          "text": "dem",
+          "start": 5658,
+          "end": 5662
+        },
+        {
+          "text": "gar",
+          "start": 5662,
+          "end": 5671
+        },
+        {
+          "text": "kein",
+          "start": 5671,
+          "end": 5677
+        },
+        {
+          "text": "Rabatt",
+          "start": 5677,
+          "end": 5686
+        },
+        {
+          "text": "steht,",
+          "start": 5686,
+          "end": 5696
+        }
+      ]
+    },
+    {
+      "start": 5698,
+      "end": 5801,
+      "words": [
+        {
+          "text": "sondern",
+          "start": 5698,
+          "end": 5703
+        },
+        {
+          "text": "nur",
+          "start": 5703,
+          "end": 5710
+        },
+        {
+          "text": "Aktion,",
+          "start": 5710,
+          "end": 5729
+        },
+        {
+          "text": "fällt",
+          "start": 5729,
+          "end": 5752
+        },
+        {
+          "text": "nicht",
+          "start": 5752,
+          "end": 5760
+        },
+        {
+          "text": "unter",
+          "start": 5760,
+          "end": 5768
+        },
+        {
+          "text": "diese",
+          "start": 5768,
+          "end": 5774
+        },
+        {
+          "text": "Regel.",
+          "start": 5774,
+          "end": 5783
+        }
+      ]
+    },
+    {
+      "start": 5809,
+      "end": 5884,
+      "words": [
+        {
+          "text": "Trick",
+          "start": 5809,
+          "end": 5821
+        },
+        {
+          "text": "sieben:",
+          "start": 5821,
+          "end": 5832
+        },
+        {
+          "text": "die",
+          "start": 5842,
+          "end": 5845
+        },
+        {
+          "text": "Großpackung.",
+          "start": 5845,
+          "end": 5866
+        }
+      ]
+    },
+    {
+      "start": 5888,
+      "end": 5940,
+      "words": [
+        {
+          "text": "Groß",
+          "start": 5888,
+          "end": 5899
+        },
+        {
+          "text": "heißt",
+          "start": 5899,
+          "end": 5914
+        },
+        {
+          "text": "billig.",
+          "start": 5914,
+          "end": 5927
+        }
+      ]
+    },
+    {
+      "start": 5940,
+      "end": 5965,
+      "words": [
+        {
+          "text": "Das",
+          "start": 5940,
+          "end": 5945
+        },
+        {
+          "text": "denken",
+          "start": 5945,
+          "end": 5952
+        },
+        {
+          "text": "die",
+          "start": 5952,
+          "end": 5958
+        },
+        {
+          "text": "meisten.",
+          "start": 5958,
+          "end": 5965
+        }
+      ]
+    },
+    {
+      "start": 5965,
+      "end": 6038,
+      "words": [
+        {
+          "text": "Das",
+          "start": 5965,
+          "end": 5984
+        },
+        {
+          "text": "stimmt",
+          "start": 5984,
+          "end": 6001
+        },
+        {
+          "text": "aber",
+          "start": 6001,
+          "end": 6005
+        },
+        {
+          "text": "nicht",
+          "start": 6005,
+          "end": 6011
+        },
+        {
+          "text": "immer.",
+          "start": 6011,
+          "end": 6020
+        }
+      ]
+    },
+    {
+      "start": 6049,
+      "end": 6120,
+      "words": [
+        {
+          "text": "Verbrauchertests",
+          "start": 6049,
+          "end": 6065
+        },
+        {
+          "text": "finden",
+          "start": 6065,
+          "end": 6074
+        },
+        {
+          "text": "immer",
+          "start": 6074,
+          "end": 6085
+        },
+        {
+          "text": "wieder",
+          "start": 6085,
+          "end": 6091
+        },
+        {
+          "text": "Großpackungen,",
+          "start": 6091,
+          "end": 6113
+        }
+      ]
+    },
+    {
+      "start": 6120,
+      "end": 6214,
+      "words": [
+        {
+          "text": "die",
+          "start": 6120,
+          "end": 6123
+        },
+        {
+          "text": "pro",
+          "start": 6123,
+          "end": 6133
+        },
+        {
+          "text": "Kilo",
+          "start": 6133,
+          "end": 6142
+        },
+        {
+          "text": "teurer",
+          "start": 6142,
+          "end": 6155
+        },
+        {
+          "text": "sind",
+          "start": 6155,
+          "end": 6164
+        },
+        {
+          "text": "als",
+          "start": 6164,
+          "end": 6171
+        },
+        {
+          "text": "die",
+          "start": 6171,
+          "end": 6176
+        },
+        {
+          "text": "kleine",
+          "start": 6176,
+          "end": 6184
+        },
+        {
+          "text": "Packung.",
+          "start": 6184,
+          "end": 6196
+        }
+      ]
+    },
+    {
+      "start": 6215,
+      "end": 6272,
+      "words": [
+        {
+          "text": "Darum",
+          "start": 6215,
+          "end": 6229
+        },
+        {
+          "text": "gibt",
+          "start": 6229,
+          "end": 6233
+        },
+        {
+          "text": "es",
+          "start": 6233,
+          "end": 6239
+        },
+        {
+          "text": "den",
+          "start": 6239,
+          "end": 6242
+        },
+        {
+          "text": "Grundpreis.",
+          "start": 6242,
+          "end": 6260
+        }
+      ]
+    },
+    {
+      "start": 6272,
+      "end": 6311,
+      "words": [
+        {
+          "text": "Er",
+          "start": 6272,
+          "end": 6275
+        },
+        {
+          "text": "muss",
+          "start": 6275,
+          "end": 6279
+        },
+        {
+          "text": "am",
+          "start": 6279,
+          "end": 6283
+        },
+        {
+          "text": "Regal",
+          "start": 6283,
+          "end": 6293
+        },
+        {
+          "text": "stehen.",
+          "start": 6293,
+          "end": 6301
+        }
+      ]
+    },
+    {
+      "start": 6311,
+      "end": 6401,
+      "words": [
+        {
+          "text": "Also",
+          "start": 6311,
+          "end": 6316
+        },
+        {
+          "text": "der",
+          "start": 6316,
+          "end": 6328
+        },
+        {
+          "text": "Preis",
+          "start": 6328,
+          "end": 6337
+        },
+        {
+          "text": "pro",
+          "start": 6337,
+          "end": 6345
+        },
+        {
+          "text": "Kilo",
+          "start": 6345,
+          "end": 6360
+        },
+        {
+          "text": "oder",
+          "start": 6360,
+          "end": 6367
+        },
+        {
+          "text": "pro",
+          "start": 6367,
+          "end": 6374
+        },
+        {
+          "text": "Liter.",
+          "start": 6374,
+          "end": 6383
+        }
+      ]
+    },
+    {
+      "start": 6404,
+      "end": 6469,
+      "words": [
+        {
+          "text": "Das",
+          "start": 6404,
+          "end": 6407
+        },
+        {
+          "text": "ist",
+          "start": 6407,
+          "end": 6410
+        },
+        {
+          "text": "die",
+          "start": 6410,
+          "end": 6415
+        },
+        {
+          "text": "kleine",
+          "start": 6415,
+          "end": 6424
+        },
+        {
+          "text": "Zahl",
+          "start": 6424,
+          "end": 6436
+        },
+        {
+          "text": "unter",
+          "start": 6436,
+          "end": 6446
+        },
+        {
+          "text": "dem",
+          "start": 6446,
+          "end": 6450
+        },
+        {
+          "text": "großen",
+          "start": 6450,
+          "end": 6459
+        },
+        {
+          "text": "Preis.",
+          "start": 6459,
+          "end": 6469
+        }
+      ]
+    },
+    {
+      "start": 6469,
+      "end": 6568,
+      "words": [
+        {
+          "text": "Und",
+          "start": 6469,
+          "end": 6475
+        },
+        {
+          "text": "eigentlich",
+          "start": 6475,
+          "end": 6491
+        },
+        {
+          "text": "die",
+          "start": 6491,
+          "end": 6500
+        },
+        {
+          "text": "wichtigste",
+          "start": 6500,
+          "end": 6520
+        },
+        {
+          "text": "Zahl",
+          "start": 6520,
+          "end": 6527
+        },
+        {
+          "text": "am",
+          "start": 6527,
+          "end": 6531
+        },
+        {
+          "text": "ganzen",
+          "start": 6531,
+          "end": 6537
+        },
+        {
+          "text": "Regal.",
+          "start": 6537,
+          "end": 6550
+        }
+      ]
+    },
+    {
+      "start": 6581,
+      "end": 6667,
+      "words": [
+        {
+          "text": "Und",
+          "start": 6581,
+          "end": 6587
+        },
+        {
+          "text": "selbst",
+          "start": 6587,
+          "end": 6590
+        },
+        {
+          "text": "eine",
+          "start": 6590,
+          "end": 6596
+        },
+        {
+          "text": "wirklich",
+          "start": 6596,
+          "end": 6602
+        },
+        {
+          "text": "günstige",
+          "start": 6602,
+          "end": 6622
+        },
+        {
+          "text": "Großpackung",
+          "start": 6622,
+          "end": 6643
+        },
+        {
+          "text": "wird",
+          "start": 6643,
+          "end": 6648
+        },
+        {
+          "text": "teuer,",
+          "start": 6648,
+          "end": 6660
+        }
+      ]
+    },
+    {
+      "start": 6667,
+      "end": 6721,
+      "words": [
+        {
+          "text": "wenn",
+          "start": 6667,
+          "end": 6673
+        },
+        {
+          "text": "die",
+          "start": 6673,
+          "end": 6676
+        },
+        {
+          "text": "Hälfte",
+          "start": 6676,
+          "end": 6683
+        },
+        {
+          "text": "im",
+          "start": 6683,
+          "end": 6683
+        },
+        {
+          "text": "Müll",
+          "start": 6683,
+          "end": 6692
+        },
+        {
+          "text": "landet.",
+          "start": 6692,
+          "end": 6703
+        }
+      ]
+    },
+    {
+      "start": 6734,
+      "end": 6802,
+      "words": [
+        {
+          "text": "Trick",
+          "start": 6734,
+          "end": 6743
+        },
+        {
+          "text": "acht:",
+          "start": 6743,
+          "end": 6753
+        },
+        {
+          "text": "die",
+          "start": 6770,
+          "end": 6772
+        },
+        {
+          "text": "Kasse.",
+          "start": 6772,
+          "end": 6784
+        }
+      ]
+    },
+    {
+      "start": 6804,
+      "end": 6832,
+      "words": [
+        {
+          "text": "Du",
+          "start": 6804,
+          "end": 6813
+        },
+        {
+          "text": "stehst",
+          "start": 6813,
+          "end": 6818
+        },
+        {
+          "text": "in",
+          "start": 6818,
+          "end": 6822
+        },
+        {
+          "text": "der",
+          "start": 6822,
+          "end": 6826
+        },
+        {
+          "text": "Schlange.",
+          "start": 6826,
+          "end": 6832
+        }
+      ]
+    },
+    {
+      "start": 6832,
+      "end": 6890,
+      "words": [
+        {
+          "text": "Du",
+          "start": 6832,
+          "end": 6854
+        },
+        {
+          "text": "hast",
+          "start": 6854,
+          "end": 6857
+        },
+        {
+          "text": "nichts",
+          "start": 6857,
+          "end": 6861
+        },
+        {
+          "text": "zu",
+          "start": 6861,
+          "end": 6866
+        },
+        {
+          "text": "tun.",
+          "start": 6866,
+          "end": 6872
+        }
+      ]
+    },
+    {
+      "start": 6893,
+      "end": 7072,
+      "words": [
+        {
+          "text": "Und",
+          "start": 6893,
+          "end": 6900
+        },
+        {
+          "text": "genau",
+          "start": 6900,
+          "end": 6912
+        },
+        {
+          "text": "da",
+          "start": 6912,
+          "end": 6921
+        },
+        {
+          "text": "liegen",
+          "start": 6921,
+          "end": 6937
+        },
+        {
+          "text": "Süßigkeiten,",
+          "start": 6937,
+          "end": 6957
+        },
+        {
+          "text": "Kaugummis,",
+          "start": 6957,
+          "end": 7000
+        },
+        {
+          "text": "Batterien",
+          "start": 7000,
+          "end": 7018
+        },
+        {
+          "text": "und",
+          "start": 7018,
+          "end": 7032
+        },
+        {
+          "text": "kleine",
+          "start": 7032,
+          "end": 7041
+        },
+        {
+          "text": "Getränke.",
+          "start": 7041,
+          "end": 7054
+        }
+      ]
+    },
+    {
+      "start": 7079,
+      "end": 7160,
+      "words": [
+        {
+          "text": "Die",
+          "start": 7079,
+          "end": 7088
+        },
+        {
+          "text": "Verbraucherzentrale",
+          "start": 7088,
+          "end": 7112
+        },
+        {
+          "text": "nennt",
+          "start": 7112,
+          "end": 7120
+        },
+        {
+          "text": "das",
+          "start": 7120,
+          "end": 7125
+        },
+        {
+          "text": "Quengelware.",
+          "start": 7125,
+          "end": 7149
+        }
+      ]
+    },
+    {
+      "start": 7160,
+      "end": 7240,
+      "words": [
+        {
+          "text": "Weil",
+          "start": 7160,
+          "end": 7167
+        },
+        {
+          "text": "Kinder",
+          "start": 7167,
+          "end": 7178
+        },
+        {
+          "text": "genau",
+          "start": 7178,
+          "end": 7190
+        },
+        {
+          "text": "dort",
+          "start": 7190,
+          "end": 7198
+        },
+        {
+          "text": "anfangen",
+          "start": 7198,
+          "end": 7210
+        },
+        {
+          "text": "zu",
+          "start": 7210,
+          "end": 7215
+        },
+        {
+          "text": "quengeln.",
+          "start": 7215,
+          "end": 7225
+        }
+      ]
+    },
+    {
+      "start": 7240,
+      "end": 7309,
+      "words": [
+        {
+          "text": "Kleine",
+          "start": 7240,
+          "end": 7249
+        },
+        {
+          "text": "Preise,",
+          "start": 7249,
+          "end": 7261
+        },
+        {
+          "text": "schnelle",
+          "start": 7274,
+          "end": 7280
+        },
+        {
+          "text": "Entscheidung.",
+          "start": 7280,
+          "end": 7291
+        }
+      ]
+    },
+    {
+      "start": 7311,
+      "end": 7382,
+      "words": [
+        {
+          "text": "Ein",
+          "start": 7311,
+          "end": 7317
+        },
+        {
+          "text": "Euro",
+          "start": 7317,
+          "end": 7324
+        },
+        {
+          "text": "hier,",
+          "start": 7324,
+          "end": 7331
+        },
+        {
+          "text": "zwei",
+          "start": 7347,
+          "end": 7351
+        },
+        {
+          "text": "Euro",
+          "start": 7351,
+          "end": 7359
+        },
+        {
+          "text": "da.",
+          "start": 7359,
+          "end": 7364
+        }
+      ]
+    },
+    {
+      "start": 7394,
+      "end": 7448,
+      "words": [
+        {
+          "text": "Und",
+          "start": 7394,
+          "end": 7414
+        },
+        {
+          "text": "jetzt",
+          "start": 7414,
+          "end": 7418
+        },
+        {
+          "text": "Trick",
+          "start": 7418,
+          "end": 7426
+        },
+        {
+          "text": "neun.",
+          "start": 7426,
+          "end": 7438
+        }
+      ]
+    },
+    {
+      "start": 7448,
+      "end": 7467,
+      "words": [
+        {
+          "text": "Der",
+          "start": 7448,
+          "end": 7451
+        },
+        {
+          "text": "teuerste.",
+          "start": 7451,
+          "end": 7467
+        }
+      ]
+    },
+    {
+      "start": 7467,
+      "end": 7526,
+      "words": [
+        {
+          "text": "Und",
+          "start": 7467,
+          "end": 7485
+        },
+        {
+          "text": "er",
+          "start": 7485,
+          "end": 7488
+        },
+        {
+          "text": "ist",
+          "start": 7488,
+          "end": 7492
+        },
+        {
+          "text": "völlig",
+          "start": 7492,
+          "end": 7499
+        },
+        {
+          "text": "legal.",
+          "start": 7499,
+          "end": 7508
+        }
+      ]
+    },
+    {
+      "start": 7535,
+      "end": 7595,
+      "words": [
+        {
+          "text": "Die",
+          "start": 7535,
+          "end": 7543
+        },
+        {
+          "text": "Packung",
+          "start": 7543,
+          "end": 7555
+        },
+        {
+          "text": "sieht",
+          "start": 7555,
+          "end": 7562
+        },
+        {
+          "text": "gleich",
+          "start": 7562,
+          "end": 7568
+        },
+        {
+          "text": "aus.",
+          "start": 7568,
+          "end": 7577
+        }
+      ]
+    },
+    {
+      "start": 7599,
+      "end": 7661,
+      "words": [
+        {
+          "text": "Der",
+          "start": 7599,
+          "end": 7604
+        },
+        {
+          "text": "Preis",
+          "start": 7604,
+          "end": 7612
+        },
+        {
+          "text": "bleibt",
+          "start": 7612,
+          "end": 7622
+        },
+        {
+          "text": "gleich",
+          "start": 7622,
+          "end": 7631
+        },
+        {
+          "text": "oder",
+          "start": 7631,
+          "end": 7643
+        },
+        {
+          "text": "steigt",
+          "start": 7643,
+          "end": 7654
+        },
+        {
+          "text": "sogar.",
+          "start": 7654,
+          "end": 7661
+        }
+      ]
+    },
+    {
+      "start": 7661,
+      "end": 7736,
+      "words": [
+        {
+          "text": "Aber",
+          "start": 7661,
+          "end": 7686
+        },
+        {
+          "text": "es",
+          "start": 7686,
+          "end": 7691
+        },
+        {
+          "text": "ist",
+          "start": 7691,
+          "end": 7696
+        },
+        {
+          "text": "weniger",
+          "start": 7696,
+          "end": 7706
+        },
+        {
+          "text": "drin.",
+          "start": 7706,
+          "end": 7718
+        }
+      ]
+    },
+    {
+      "start": 7750,
+      "end": 7795,
+      "words": [
+        {
+          "text": "Das",
+          "start": 7750,
+          "end": 7753
+        },
+        {
+          "text": "nennt",
+          "start": 7753,
+          "end": 7759
+        },
+        {
+          "text": "man",
+          "start": 7759,
+          "end": 7764
+        },
+        {
+          "text": "Shrinkflation.",
+          "start": 7764,
+          "end": 7795
+        }
+      ]
+    },
+    {
+      "start": 7795,
+      "end": 7870,
+      "words": [
+        {
+          "text": "Oder",
+          "start": 7795,
+          "end": 7819
+        },
+        {
+          "text": "einfach:",
+          "start": 7819,
+          "end": 7828
+        },
+        {
+          "text": "Mogelpackung.",
+          "start": 7828,
+          "end": 7852
+        }
+      ]
+    },
+    {
+      "start": 7877,
+      "end": 7972,
+      "words": [
+        {
+          "text": "Das",
+          "start": 7877,
+          "end": 7890
+        },
+        {
+          "text": "bekannteste",
+          "start": 7890,
+          "end": 7904
+        },
+        {
+          "text": "Beispiel",
+          "start": 7904,
+          "end": 7913
+        },
+        {
+          "text": "ist",
+          "start": 7913,
+          "end": 7922
+        },
+        {
+          "text": "Milka",
+          "start": 7922,
+          "end": 7936
+        },
+        {
+          "text": "Alpenmilch.",
+          "start": 7936,
+          "end": 7960
+        }
+      ]
+    },
+    {
+      "start": 7972,
+      "end": 8051,
+      "words": [
+        {
+          "text": "Die",
+          "start": 7972,
+          "end": 7982
+        },
+        {
+          "text": "Tafel",
+          "start": 7982,
+          "end": 7993
+        },
+        {
+          "text": "ist",
+          "start": 7993,
+          "end": 7996
+        },
+        {
+          "text": "von",
+          "start": 7996,
+          "end": 8000
+        },
+        {
+          "text": "hundert",
+          "start": 8000,
+          "end": 8009
+        },
+        {
+          "text": "auf",
+          "start": 8009,
+          "end": 8014
+        },
+        {
+          "text": "neunzig",
+          "start": 8014,
+          "end": 8028
+        },
+        {
+          "text": "Gramm",
+          "start": 8028,
+          "end": 8039
+        },
+        {
+          "text": "geschrumpft.",
+          "start": 8039,
+          "end": 8051
+        }
+      ]
+    },
+    {
+      "start": 8051,
+      "end": 8132,
+      "words": [
+        {
+          "text": "Und",
+          "start": 8051,
+          "end": 8071
+        },
+        {
+          "text": "der",
+          "start": 8071,
+          "end": 8075
+        },
+        {
+          "text": "Preis",
+          "start": 8075,
+          "end": 8081
+        },
+        {
+          "text": "ist",
+          "start": 8081,
+          "end": 8086
+        },
+        {
+          "text": "gleichzeitig",
+          "start": 8086,
+          "end": 8098
+        },
+        {
+          "text": "von",
+          "start": 8098,
+          "end": 8106
+        },
+        {
+          "text": "einem",
+          "start": 8106,
+          "end": 8132
+        }
+      ]
+    },
+    {
+      "start": 8132,
+      "end": 8229,
+      "words": [
+        {
+          "text": "Euro",
+          "start": 8132,
+          "end": 8151
+        },
+        {
+          "text": "neunundvierzig",
+          "start": 8151,
+          "end": 8151
+        },
+        {
+          "text": "auf",
+          "start": 8151,
+          "end": 8158
+        },
+        {
+          "text": "einen",
+          "start": 8158,
+          "end": 8182
+        },
+        {
+          "text": "Euro",
+          "start": 8182,
+          "end": 8200
+        },
+        {
+          "text": "neunundneunzig",
+          "start": 8200,
+          "end": 8200
+        },
+        {
+          "text": "gestiegen.",
+          "start": 8200,
+          "end": 8213
+        }
+      ]
+    },
+    {
+      "start": 8229,
+      "end": 8323,
+      "words": [
+        {
+          "text": "Rechnet",
+          "start": 8229,
+          "end": 8246
+        },
+        {
+          "text": "man",
+          "start": 8246,
+          "end": 8254
+        },
+        {
+          "text": "das",
+          "start": 8254,
+          "end": 8262
+        },
+        {
+          "text": "auf",
+          "start": 8262,
+          "end": 8269
+        },
+        {
+          "text": "die",
+          "start": 8269,
+          "end": 8273
+        },
+        {
+          "text": "gleiche",
+          "start": 8273,
+          "end": 8288
+        },
+        {
+          "text": "Menge",
+          "start": 8288,
+          "end": 8294
+        },
+        {
+          "text": "um,",
+          "start": 8294,
+          "end": 8305
+        }
+      ]
+    },
+    {
+      "start": 8326,
+      "end": 8491,
+      "words": [
+        {
+          "text": "ist",
+          "start": 8326,
+          "end": 8332
+        },
+        {
+          "text": "das",
+          "start": 8332,
+          "end": 8339
+        },
+        {
+          "text": "eine",
+          "start": 8339,
+          "end": 8347
+        },
+        {
+          "text": "versteckte",
+          "start": 8347,
+          "end": 8371
+        },
+        {
+          "text": "Preiserhöhung",
+          "start": 8371,
+          "end": 8401
+        },
+        {
+          "text": "von",
+          "start": 8401,
+          "end": 8410
+        },
+        {
+          "text": "über",
+          "start": 8410,
+          "end": 8422
+        },
+        {
+          "text": "achtundvierzig",
+          "start": 8422,
+          "end": 8451
+        },
+        {
+          "text": "Prozent.",
+          "start": 8451,
+          "end": 8473
+        }
+      ]
+    },
+    {
+      "start": 8506,
+      "end": 8608,
+      "words": [
+        {
+          "text": "Die",
+          "start": 8506,
+          "end": 8531
+        },
+        {
+          "text": "Verbraucherzentrale",
+          "start": 8531,
+          "end": 8555
+        },
+        {
+          "text": "Hamburg",
+          "start": 8555,
+          "end": 8567
+        },
+        {
+          "text": "hat",
+          "start": 8567,
+          "end": 8584
+        },
+        {
+          "text": "Milka",
+          "start": 8584,
+          "end": 8596
+        },
+        {
+          "text": "dafür",
+          "start": 8596,
+          "end": 8608
+        }
+      ]
+    },
+    {
+      "start": 8608,
+      "end": 8744,
+      "words": [
+        {
+          "text": "zur",
+          "start": 8608,
+          "end": 8615
+        },
+        {
+          "text": "Mogelpackung",
+          "start": 8615,
+          "end": 8646
+        },
+        {
+          "text": "des",
+          "start": 8646,
+          "end": 8651
+        },
+        {
+          "text": "Jahres",
+          "start": 8651,
+          "end": 8662
+        },
+        {
+          "text": "zweitausendfünfundzwanzig",
+          "start": 8662,
+          "end": 8693
+        },
+        {
+          "text": "gewählt.",
+          "start": 8693,
+          "end": 8726
+        }
+      ]
+    },
+    {
+      "start": 8746,
+      "end": 8816,
+      "words": [
+        {
+          "text": "Fast",
+          "start": 8746,
+          "end": 8756
+        },
+        {
+          "text": "fünfunddreißigtausend",
+          "start": 8756,
+          "end": 8785
+        },
+        {
+          "text": "Menschen",
+          "start": 8785,
+          "end": 8795
+        },
+        {
+          "text": "haben",
+          "start": 8795,
+          "end": 8801
+        },
+        {
+          "text": "abgestimmt.",
+          "start": 8801,
+          "end": 8816
+        }
+      ]
+    },
+    {
+      "start": 8816,
+      "end": 8911,
+      "words": [
+        {
+          "text": "Zwei",
+          "start": 8816,
+          "end": 8848
+        },
+        {
+          "text": "Drittel",
+          "start": 8848,
+          "end": 8857
+        },
+        {
+          "text": "davon",
+          "start": 8857,
+          "end": 8866
+        },
+        {
+          "text": "für",
+          "start": 8866,
+          "end": 8878
+        },
+        {
+          "text": "Milka.",
+          "start": 8878,
+          "end": 8893
+        }
+      ]
+    },
+    {
+      "start": 8916,
+      "end": 8981,
+      "words": [
+        {
+          "text": "Und",
+          "start": 8916,
+          "end": 8930
+        },
+        {
+          "text": "Milka",
+          "start": 8930,
+          "end": 8938
+        },
+        {
+          "text": "ist",
+          "start": 8938,
+          "end": 8942
+        },
+        {
+          "text": "kein",
+          "start": 8942,
+          "end": 8947
+        },
+        {
+          "text": "Einzelfall.",
+          "start": 8947,
+          "end": 8964
+        }
+      ]
+    },
+    {
+      "start": 8981,
+      "end": 9178,
+      "words": [
+        {
+          "text": "Die",
+          "start": 8981,
+          "end": 8984
+        },
+        {
+          "text": "Verbraucherzentrale",
+          "start": 8984,
+          "end": 9010
+        },
+        {
+          "text": "hat",
+          "start": 9010,
+          "end": 9014
+        },
+        {
+          "text": "allein",
+          "start": 9014,
+          "end": 9025
+        },
+        {
+          "text": "im",
+          "start": 9025,
+          "end": 9031
+        },
+        {
+          "text": "Jahr",
+          "start": 9031,
+          "end": 9035
+        },
+        {
+          "text": "zweitausendfünfundzwanzig",
+          "start": 9035,
+          "end": 9072
+        },
+        {
+          "text": "siebenundsiebzig",
+          "start": 9072,
+          "end": 9094
+        },
+        {
+          "text": "neue",
+          "start": 9094,
+          "end": 9119
+        },
+        {
+          "text": "Mogelpackungen",
+          "start": 9119,
+          "end": 9144
+        },
+        {
+          "text": "gelistet.",
+          "start": 9144,
+          "end": 9160
+        }
+      ]
+    },
+    {
+      "start": 9182,
+      "end": 9214,
+      "words": [
+        {
+          "text": "Ein",
+          "start": 9182,
+          "end": 9187
+        },
+        {
+          "text": "Rekord.",
+          "start": 9187,
+          "end": 9196
+        }
+      ]
+    },
+    {
+      "start": 9227,
+      "end": 9282,
+      "words": [
+        {
+          "text": "Im",
+          "start": 9227,
+          "end": 9232
+        },
+        {
+          "text": "Schnitt",
+          "start": 9232,
+          "end": 9239
+        },
+        {
+          "text": "waren",
+          "start": 9239,
+          "end": 9245
+        },
+        {
+          "text": "diese",
+          "start": 9245,
+          "end": 9251
+        },
+        {
+          "text": "Produkte",
+          "start": 9251,
+          "end": 9264
+        },
+        {
+          "text": "versteckt",
+          "start": 9264,
+          "end": 9282
+        }
+      ]
+    },
+    {
+      "start": 9282,
+      "end": 9370,
+      "words": [
+        {
+          "text": "um",
+          "start": 9282,
+          "end": 9287
+        },
+        {
+          "text": "gut",
+          "start": 9287,
+          "end": 9292
+        },
+        {
+          "text": "achtundzwanzig",
+          "start": 9292,
+          "end": 9311
+        },
+        {
+          "text": "Prozent",
+          "start": 9311,
+          "end": 9328
+        },
+        {
+          "text": "teurer",
+          "start": 9328,
+          "end": 9338
+        },
+        {
+          "text": "geworden.",
+          "start": 9338,
+          "end": 9352
+        }
+      ]
+    },
+    {
+      "start": 9390,
+      "end": 9435,
+      "words": [
+        {
+          "text": "Grundsätzlich",
+          "start": 9390,
+          "end": 9406
+        },
+        {
+          "text": "ist",
+          "start": 9406,
+          "end": 9410
+        },
+        {
+          "text": "das",
+          "start": 9410,
+          "end": 9415
+        },
+        {
+          "text": "erlaubt,",
+          "start": 9415,
+          "end": 9431
+        }
+      ]
+    },
+    {
+      "start": 9435,
+      "end": 9517,
+      "words": [
+        {
+          "text": "solange",
+          "start": 9435,
+          "end": 9443
+        },
+        {
+          "text": "die",
+          "start": 9443,
+          "end": 9448
+        },
+        {
+          "text": "richtige",
+          "start": 9448,
+          "end": 9457
+        },
+        {
+          "text": "Füllmenge",
+          "start": 9457,
+          "end": 9474
+        },
+        {
+          "text": "auf",
+          "start": 9474,
+          "end": 9479
+        },
+        {
+          "text": "der",
+          "start": 9479,
+          "end": 9482
+        },
+        {
+          "text": "Packung",
+          "start": 9482,
+          "end": 9491
+        },
+        {
+          "text": "steht.",
+          "start": 9491,
+          "end": 9499
+        }
+      ]
+    },
+    {
+      "start": 9524,
+      "end": 9593,
+      "words": [
+        {
+          "text": "Nur",
+          "start": 9524,
+          "end": 9539
+        },
+        {
+          "text": "schaut",
+          "start": 9539,
+          "end": 9550
+        },
+        {
+          "text": "da",
+          "start": 9550,
+          "end": 9554
+        },
+        {
+          "text": "kaum",
+          "start": 9554,
+          "end": 9560
+        },
+        {
+          "text": "jemand",
+          "start": 9560,
+          "end": 9567
+        },
+        {
+          "text": "hin.",
+          "start": 9567,
+          "end": 9575
+        }
+      ]
+    },
+    {
+      "start": 9596,
+      "end": 9673,
+      "words": [
+        {
+          "text": "Dein",
+          "start": 9596,
+          "end": 9601
+        },
+        {
+          "text": "Schutz",
+          "start": 9601,
+          "end": 9607
+        },
+        {
+          "text": "ist",
+          "start": 9607,
+          "end": 9616
+        },
+        {
+          "text": "wieder",
+          "start": 9616,
+          "end": 9626
+        },
+        {
+          "text": "der",
+          "start": 9626,
+          "end": 9634
+        },
+        {
+          "text": "Grundpreis.",
+          "start": 9634,
+          "end": 9655
+        }
+      ]
+    },
+    {
+      "start": 9680,
+      "end": 9778,
+      "words": [
+        {
+          "text": "Steigt",
+          "start": 9680,
+          "end": 9694
+        },
+        {
+          "text": "er,",
+          "start": 9694,
+          "end": 9697
+        },
+        {
+          "text": "obwohl",
+          "start": 9699,
+          "end": 9703
+        },
+        {
+          "text": "der",
+          "start": 9703,
+          "end": 9707
+        },
+        {
+          "text": "Preis",
+          "start": 9707,
+          "end": 9713
+        },
+        {
+          "text": "gleich",
+          "start": 9713,
+          "end": 9719
+        },
+        {
+          "text": "bleibt,",
+          "start": 9719,
+          "end": 9728
+        },
+        {
+          "text": "ist",
+          "start": 9739,
+          "end": 9743
+        },
+        {
+          "text": "weniger",
+          "start": 9743,
+          "end": 9751
+        },
+        {
+          "text": "drin.",
+          "start": 9751,
+          "end": 9760
+        }
+      ]
+    },
+    {
+      "start": 9817,
+      "end": 9877,
+      "words": [
+        {
+          "text": "Wie",
+          "start": 9817,
+          "end": 9821
+        },
+        {
+          "text": "viel",
+          "start": 9821,
+          "end": 9826
+        },
+        {
+          "text": "kosten",
+          "start": 9826,
+          "end": 9835
+        },
+        {
+          "text": "dich",
+          "start": 9835,
+          "end": 9842
+        },
+        {
+          "text": "diese",
+          "start": 9842,
+          "end": 9850
+        },
+        {
+          "text": "Tricks?",
+          "start": 9850,
+          "end": 9859
+        }
+      ]
+    },
+    {
+      "start": 9887,
+      "end": 9943,
+      "words": [
+        {
+          "text": "Eine",
+          "start": 9887,
+          "end": 9893
+        },
+        {
+          "text": "genaue",
+          "start": 9893,
+          "end": 9902
+        },
+        {
+          "text": "Zahl",
+          "start": 9902,
+          "end": 9910
+        },
+        {
+          "text": "gibt",
+          "start": 9910,
+          "end": 9916
+        },
+        {
+          "text": "es",
+          "start": 9916,
+          "end": 9921
+        },
+        {
+          "text": "nicht.",
+          "start": 9921,
+          "end": 9926
+        }
+      ]
+    },
+    {
+      "start": 9943,
+      "end": 10000,
+      "words": [
+        {
+          "text": "Aber",
+          "start": 9943,
+          "end": 9948
+        },
+        {
+          "text": "Untersuchungen",
+          "start": 9948,
+          "end": 9968
+        },
+        {
+          "text": "zeigen",
+          "start": 9968,
+          "end": 9975
+        },
+        {
+          "text": "seit",
+          "start": 9975,
+          "end": 9983
+        },
+        {
+          "text": "Jahrzehnten:",
+          "start": 9983,
+          "end": 10000
+        }
+      ]
+    },
+    {
+      "start": 10000,
+      "end": 10131,
+      "words": [
+        {
+          "text": "Ungefähr",
+          "start": 10000,
+          "end": 10025
+        },
+        {
+          "text": "die",
+          "start": 10025,
+          "end": 10031
+        },
+        {
+          "text": "Hälfte",
+          "start": 10031,
+          "end": 10045
+        },
+        {
+          "text": "aller",
+          "start": 10045,
+          "end": 10053
+        },
+        {
+          "text": "Einkäufe",
+          "start": 10053,
+          "end": 10068
+        },
+        {
+          "text": "im",
+          "start": 10068,
+          "end": 10072
+        },
+        {
+          "text": "Supermarkt",
+          "start": 10072,
+          "end": 10085
+        },
+        {
+          "text": "ist",
+          "start": 10085,
+          "end": 10091
+        },
+        {
+          "text": "nicht",
+          "start": 10091,
+          "end": 10099
+        },
+        {
+          "text": "geplant.",
+          "start": 10099,
+          "end": 10113
+        }
+      ]
+    },
+    {
+      "start": 10136,
+      "end": 10193,
+      "words": [
+        {
+          "text": "Machen",
+          "start": 10136,
+          "end": 10146
+        },
+        {
+          "text": "wir",
+          "start": 10146,
+          "end": 10150
+        },
+        {
+          "text": "ein",
+          "start": 10150,
+          "end": 10153
+        },
+        {
+          "text": "einfaches",
+          "start": 10153,
+          "end": 10168
+        },
+        {
+          "text": "Rechenbeispiel.",
+          "start": 10168,
+          "end": 10185
+        }
+      ]
+    },
+    {
+      "start": 10193,
+      "end": 10230,
+      "words": [
+        {
+          "text": "Nur",
+          "start": 10193,
+          "end": 10198
+        },
+        {
+          "text": "eine",
+          "start": 10198,
+          "end": 10201
+        },
+        {
+          "text": "Annahme.",
+          "start": 10201,
+          "end": 10213
+        }
+      ]
+    },
+    {
+      "start": 10230,
+      "end": 10304,
+      "words": [
+        {
+          "text": "Du",
+          "start": 10230,
+          "end": 10246
+        },
+        {
+          "text": "kaufst",
+          "start": 10246,
+          "end": 10256
+        },
+        {
+          "text": "jede",
+          "start": 10256,
+          "end": 10259
+        },
+        {
+          "text": "Woche",
+          "start": 10259,
+          "end": 10266
+        },
+        {
+          "text": "Dinge",
+          "start": 10266,
+          "end": 10274
+        },
+        {
+          "text": "für",
+          "start": 10274,
+          "end": 10280
+        },
+        {
+          "text": "zehn",
+          "start": 10280,
+          "end": 10289
+        },
+        {
+          "text": "Euro,",
+          "start": 10289,
+          "end": 10300
+        }
+      ]
+    },
+    {
+      "start": 10304,
+      "end": 10355,
+      "words": [
+        {
+          "text": "die",
+          "start": 10304,
+          "end": 10306
+        },
+        {
+          "text": "du",
+          "start": 10306,
+          "end": 10310
+        },
+        {
+          "text": "eigentlich",
+          "start": 10310,
+          "end": 10319
+        },
+        {
+          "text": "gar",
+          "start": 10319,
+          "end": 10328
+        },
+        {
+          "text": "nicht",
+          "start": 10328,
+          "end": 10332
+        },
+        {
+          "text": "kaufen",
+          "start": 10332,
+          "end": 10339
+        },
+        {
+          "text": "wolltest.",
+          "start": 10339,
+          "end": 10355
+        }
+      ]
+    },
+    {
+      "start": 10355,
+      "end": 10459,
+      "words": [
+        {
+          "text": "Zehn",
+          "start": 10355,
+          "end": 10387
+        },
+        {
+          "text": "Euro",
+          "start": 10387,
+          "end": 10396
+        },
+        {
+          "text": "pro",
+          "start": 10396,
+          "end": 10402
+        },
+        {
+          "text": "Woche",
+          "start": 10402,
+          "end": 10408
+        },
+        {
+          "text": "sind",
+          "start": 10408,
+          "end": 10414
+        },
+        {
+          "text": "über",
+          "start": 10414,
+          "end": 10421
+        },
+        {
+          "text": "vierzig",
+          "start": 10421,
+          "end": 10432
+        },
+        {
+          "text": "Euro",
+          "start": 10432,
+          "end": 10442
+        },
+        {
+          "text": "im",
+          "start": 10442,
+          "end": 10448
+        },
+        {
+          "text": "Monat.",
+          "start": 10448,
+          "end": 10459
+        }
+      ]
+    },
+    {
+      "start": 10459,
+      "end": 10541,
+      "words": [
+        {
+          "text": "Und",
+          "start": 10459,
+          "end": 10484
+        },
+        {
+          "text": "fünfhundertzwanzig",
+          "start": 10484,
+          "end": 10514
+        },
+        {
+          "text": "Euro",
+          "start": 10514,
+          "end": 10529
+        },
+        {
+          "text": "im",
+          "start": 10529,
+          "end": 10535
+        },
+        {
+          "text": "Jahr.",
+          "start": 10535,
+          "end": 10541
+        }
+      ]
+    },
+    {
+      "start": 10541,
+      "end": 10710,
+      "words": [
+        {
+          "text": "Fünfhundertzwanzig",
+          "start": 10541,
+          "end": 10613
+        },
+        {
+          "text": "Euro",
+          "start": 10613,
+          "end": 10625
+        },
+        {
+          "text": "für",
+          "start": 10625,
+          "end": 10631
+        },
+        {
+          "text": "Dinge,",
+          "start": 10631,
+          "end": 10637
+        },
+        {
+          "text": "die",
+          "start": 10643,
+          "end": 10646
+        },
+        {
+          "text": "nie",
+          "start": 10646,
+          "end": 10654
+        },
+        {
+          "text": "auf",
+          "start": 10654,
+          "end": 10661
+        },
+        {
+          "text": "deinem",
+          "start": 10661,
+          "end": 10668
+        },
+        {
+          "text": "Zettel",
+          "start": 10668,
+          "end": 10676
+        },
+        {
+          "text": "standen.",
+          "start": 10676,
+          "end": 10705
+        }
+      ]
+    },
+    {
+      "start": 10710,
+      "end": 10826,
+      "words": [
+        {
+          "text": "Die",
+          "start": 10710,
+          "end": 10726
+        },
+        {
+          "text": "gute",
+          "start": 10726,
+          "end": 10732
+        },
+        {
+          "text": "Nachricht:",
+          "start": 10732,
+          "end": 10746
+        },
+        {
+          "text": "Gegen",
+          "start": 10746,
+          "end": 10771
+        },
+        {
+          "text": "jeden",
+          "start": 10771,
+          "end": 10780
+        },
+        {
+          "text": "dieser",
+          "start": 10780,
+          "end": 10787
+        },
+        {
+          "text": "Tricks",
+          "start": 10787,
+          "end": 10796
+        },
+        {
+          "text": "kannst",
+          "start": 10796,
+          "end": 10804
+        },
+        {
+          "text": "du",
+          "start": 10804,
+          "end": 10806
+        },
+        {
+          "text": "dich",
+          "start": 10806,
+          "end": 10810
+        },
+        {
+          "text": "wehren.",
+          "start": 10810,
+          "end": 10819
+        }
+      ]
+    },
+    {
+      "start": 10826,
+      "end": 10889,
+      "words": [
+        {
+          "text": "Mit",
+          "start": 10826,
+          "end": 10831
+        },
+        {
+          "text": "fünf",
+          "start": 10831,
+          "end": 10840
+        },
+        {
+          "text": "einfachen",
+          "start": 10840,
+          "end": 10861
+        },
+        {
+          "text": "Regeln.",
+          "start": 10861,
+          "end": 10871
+        }
+      ]
+    },
+    {
+      "start": 10895,
+      "end": 10948,
+      "words": [
+        {
+          "text": "Erstens:",
+          "start": 10895,
+          "end": 10911
+        },
+        {
+          "text": "Geh",
+          "start": 10918,
+          "end": 10920
+        },
+        {
+          "text": "mit",
+          "start": 10920,
+          "end": 10924
+        },
+        {
+          "text": "Einkaufszettel.",
+          "start": 10924,
+          "end": 10948
+        }
+      ]
+    },
+    {
+      "start": 10948,
+      "end": 10998,
+      "words": [
+        {
+          "text": "Und",
+          "start": 10948,
+          "end": 10964
+        },
+        {
+          "text": "kauf,",
+          "start": 10964,
+          "end": 10970
+        },
+        {
+          "text": "was",
+          "start": 10970,
+          "end": 10975
+        },
+        {
+          "text": "draufsteht.",
+          "start": 10975,
+          "end": 10980
+        }
+      ]
+    },
+    {
+      "start": 11006,
+      "end": 11076,
+      "words": [
+        {
+          "text": "Zweitens:",
+          "start": 11006,
+          "end": 11023
+        },
+        {
+          "text": "Geh",
+          "start": 11038,
+          "end": 11041
+        },
+        {
+          "text": "nicht",
+          "start": 11041,
+          "end": 11047
+        },
+        {
+          "text": "hungrig",
+          "start": 11047,
+          "end": 11062
+        },
+        {
+          "text": "einkaufen.",
+          "start": 11062,
+          "end": 11076
+        }
+      ]
+    },
+    {
+      "start": 11076,
+      "end": 11178,
+      "words": [
+        {
+          "text": "Mit",
+          "start": 11076,
+          "end": 11098
+        },
+        {
+          "text": "leerem",
+          "start": 11098,
+          "end": 11105
+        },
+        {
+          "text": "Magen",
+          "start": 11105,
+          "end": 11117
+        },
+        {
+          "text": "wirkt",
+          "start": 11117,
+          "end": 11125
+        },
+        {
+          "text": "jede",
+          "start": 11125,
+          "end": 11130
+        },
+        {
+          "text": "Packung",
+          "start": 11130,
+          "end": 11143
+        },
+        {
+          "text": "verlockender.",
+          "start": 11143,
+          "end": 11160
+        }
+      ]
+    },
+    {
+      "start": 11180,
+      "end": 11253,
+      "words": [
+        {
+          "text": "Drittens:",
+          "start": 11180,
+          "end": 11197
+        },
+        {
+          "text": "Wenn",
+          "start": 11216,
+          "end": 11219
+        },
+        {
+          "text": "du",
+          "start": 11219,
+          "end": 11222
+        },
+        {
+          "text": "nur",
+          "start": 11222,
+          "end": 11227
+        },
+        {
+          "text": "wenig",
+          "start": 11227,
+          "end": 11231
+        },
+        {
+          "text": "brauchst,",
+          "start": 11231,
+          "end": 11246
+        }
+      ]
+    },
+    {
+      "start": 11253,
+      "end": 11312,
+      "words": [
+        {
+          "text": "nimm",
+          "start": 11253,
+          "end": 11255
+        },
+        {
+          "text": "einen",
+          "start": 11255,
+          "end": 11262
+        },
+        {
+          "text": "Korb",
+          "start": 11262,
+          "end": 11275
+        },
+        {
+          "text": "statt",
+          "start": 11275,
+          "end": 11279
+        },
+        {
+          "text": "einen",
+          "start": 11279,
+          "end": 11285
+        },
+        {
+          "text": "Wagen.",
+          "start": 11285,
+          "end": 11294
+        }
+      ]
+    },
+    {
+      "start": 11320,
+      "end": 11393,
+      "words": [
+        {
+          "text": "Viertens:",
+          "start": 11320,
+          "end": 11336
+        },
+        {
+          "text": "Schau",
+          "start": 11355,
+          "end": 11358
+        },
+        {
+          "text": "auf",
+          "start": 11358,
+          "end": 11358
+        },
+        {
+          "text": "den",
+          "start": 11358,
+          "end": 11365
+        },
+        {
+          "text": "Grundpreis.",
+          "start": 11365,
+          "end": 11387
+        }
+      ]
+    },
+    {
+      "start": 11393,
+      "end": 11438,
+      "words": [
+        {
+          "text": "Nicht",
+          "start": 11393,
+          "end": 11396
+        },
+        {
+          "text": "auf",
+          "start": 11396,
+          "end": 11401
+        },
+        {
+          "text": "das",
+          "start": 11401,
+          "end": 11405
+        },
+        {
+          "text": "rote",
+          "start": 11405,
+          "end": 11412
+        },
+        {
+          "text": "Schild.",
+          "start": 11412,
+          "end": 11420
+        }
+      ]
+    },
+    {
+      "start": 11446,
+      "end": 11537,
+      "words": [
+        {
+          "text": "Fünftens:",
+          "start": 11446,
+          "end": 11461
+        },
+        {
+          "text": "Schau",
+          "start": 11476,
+          "end": 11479
+        },
+        {
+          "text": "nach",
+          "start": 11479,
+          "end": 11483
+        },
+        {
+          "text": "oben",
+          "start": 11483,
+          "end": 11494
+        },
+        {
+          "text": "und",
+          "start": 11494,
+          "end": 11504
+        },
+        {
+          "text": "nach",
+          "start": 11504,
+          "end": 11509
+        },
+        {
+          "text": "unten.",
+          "start": 11509,
+          "end": 11519
+        }
+      ]
+    },
+    {
+      "start": 11539,
+      "end": 11627,
+      "words": [
+        {
+          "text": "Das",
+          "start": 11539,
+          "end": 11543
+        },
+        {
+          "text": "günstigste",
+          "start": 11543,
+          "end": 11560
+        },
+        {
+          "text": "Produkt",
+          "start": 11560,
+          "end": 11567
+        },
+        {
+          "text": "steht",
+          "start": 11567,
+          "end": 11576
+        },
+        {
+          "text": "selten",
+          "start": 11576,
+          "end": 11587
+        },
+        {
+          "text": "auf",
+          "start": 11587,
+          "end": 11593
+        },
+        {
+          "text": "Augenhöhe.",
+          "start": 11593,
+          "end": 11609
+        }
+      ]
+    },
+    {
+      "start": 11628,
+      "end": 11675,
+      "words": [
+        {
+          "text": "Supermärkte",
+          "start": 11628,
+          "end": 11645
+        },
+        {
+          "text": "sind",
+          "start": 11645,
+          "end": 11650
+        },
+        {
+          "text": "nicht",
+          "start": 11650,
+          "end": 11656
+        },
+        {
+          "text": "böse.",
+          "start": 11656,
+          "end": 11665
+        }
+      ]
+    },
+    {
+      "start": 11675,
+      "end": 11764,
+      "words": [
+        {
+          "text": "Sie",
+          "start": 11675,
+          "end": 11678
+        },
+        {
+          "text": "sind",
+          "start": 11678,
+          "end": 11683
+        },
+        {
+          "text": "einfach",
+          "start": 11683,
+          "end": 11692
+        },
+        {
+          "text": "sehr",
+          "start": 11692,
+          "end": 11701
+        },
+        {
+          "text": "gut",
+          "start": 11701,
+          "end": 11710
+        },
+        {
+          "text": "darin,",
+          "start": 11710,
+          "end": 11719
+        },
+        {
+          "text": "dich",
+          "start": 11720,
+          "end": 11723
+        },
+        {
+          "text": "zum",
+          "start": 11723,
+          "end": 11728
+        },
+        {
+          "text": "Kaufen",
+          "start": 11728,
+          "end": 11736
+        },
+        {
+          "text": "zu",
+          "start": 11736,
+          "end": 11743
+        },
+        {
+          "text": "bringen.",
+          "start": 11743,
+          "end": 11748
+        }
+      ]
+    },
+    {
+      "start": 11764,
+      "end": 11855,
+      "words": [
+        {
+          "text": "Aber",
+          "start": 11764,
+          "end": 11768
+        },
+        {
+          "text": "wenn",
+          "start": 11768,
+          "end": 11773
+        },
+        {
+          "text": "du",
+          "start": 11773,
+          "end": 11775
+        },
+        {
+          "text": "die",
+          "start": 11775,
+          "end": 11780
+        },
+        {
+          "text": "Tricks",
+          "start": 11780,
+          "end": 11788
+        },
+        {
+          "text": "kennst,",
+          "start": 11788,
+          "end": 11800
+        },
+        {
+          "text": "verlieren",
+          "start": 11810,
+          "end": 11823
+        },
+        {
+          "text": "sie",
+          "start": 11823,
+          "end": 11825
+        },
+        {
+          "text": "ihre",
+          "start": 11825,
+          "end": 11831
+        },
+        {
+          "text": "Macht.",
+          "start": 11831,
+          "end": 11837
+        }
+      ]
+    },
+    {
+      "start": 11861,
+      "end": 11911,
+      "words": [
+        {
+          "text": "Abonnier",
+          "start": 11861,
+          "end": 11875
+        },
+        {
+          "text": "FinanzNeo.",
+          "start": 11875,
+          "end": 11893
+        }
+      ]
     }
   ]
 }

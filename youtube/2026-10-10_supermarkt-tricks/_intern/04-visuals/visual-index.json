@@ -649,7 +649,7 @@
         "Wer mit einer Preissenkung",
         "niedrigsten Preis",
         "kurz hochsetzen",
-        "minus dreißig Prozent",
+        "minus fünfundzwanzig Prozent",
         "Das ist heute verboten"
       ]
     },
@@ -1209,25 +1209,6 @@
         "Person",
         "kleine Tüte",
         "kurzer Kassenbon"
-      ]
-    },
-    {
-      "id": "visual-47",
-      "type": "image",
-      "chapter": "Fazit",
-      "scriptBeat": "Welcher Trick hat dich schon mal erwischt?",
-      "googleFlowFileName": "YouTube Bild 47 - Welcher Trick.png",
-      "expectedVisual": "Große Sprechblase „Welcher Trick?“ mit kleinen Zahlenkarten 1–9 darunter",
-      "imageSequence": {
-        "mode": "independent",
-        "referenceVisualId": null,
-        "plannedChange": null
-      },
-      "planFile": "04-visuals/EINZELNE-VISUALS/visual-47/bildprompt.txt",
-      "startCue": "Schreib mir in die Kommentare",
-      "objectLabels": [
-        "Sprechblase",
-        "Zahlen 1–9"
       ]
     }
   ]

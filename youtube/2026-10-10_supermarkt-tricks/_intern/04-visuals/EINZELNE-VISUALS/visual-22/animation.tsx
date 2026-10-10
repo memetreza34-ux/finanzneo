@@ -41,7 +41,7 @@ const CLAMP = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 const weich = Easing.bezier(0.33, 0, 0.2, 1);
 const p = (frame: number, von: number, bis: number) => interpolate(frame, [von, bis], [0, 1], {...CLAMP, easing: weich});
 
-// beats: [„Wer mit einer Preissenkung“, „niedrigsten Preis“, „kurz hochsetzen“, „minus dreißig Prozent“, „Das ist heute verboten“]
+// beats: [„Wer mit einer Preissenkung“, „niedrigsten Preis“, „kurz hochsetzen“, „minus fünfundzwanzig Prozent“, „Das ist heute verboten“]
 const PREVIEW_BEATS = [0, 114, 275, 334, 389];
 
 const DIAGRAMM = {links: 300, rechts: 1250, unten: 760, hoehe: 430};
