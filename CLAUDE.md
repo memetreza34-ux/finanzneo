@@ -164,7 +164,26 @@ Mehrere Bildszenen dürfen dieselbe Grundkomposition stufenweise weiterentwickel
 Nur „wie vorher“ oder „gleiches Bild“ in Textform reicht nicht ohne echte Referenzdatei.
 
 
-## 7. Google Flow — Strict Single Job V3
+## 7. Google Flow
+
+### YouTube — Batches zu je 5 (aktiv, Arman 10.10.2026)
+
+```text
+YOUTUBE_FLOW_PROTOCOL: finanzneo-flow-batch5-v1
+```
+
+```text
+Batch mit bis zu 5 Bildern lesen (BATCH-Kopf in alle-bildprompts.txt)
+→ alle Bilder des Batches gleichzeitig starten, jedes als eigener Einzelbild-Job
+→ jedes Ergebnis sofort exakt umbenennen
+→ jedes Bild prüfen (Satz-Bezug, First-Glance, Bildwelt, 16:9, nur deutscher Text)
+→ fehlerhafte Bilder im selben Batch neu erzeugen
+→ erst wenn alle bestanden haben: nächster Batch
+```
+
+Verboten: mehrere Prompts in einem Request, Kontaktbogen/Collage als Ersatz, mehr als 5 Bilder gleichzeitig. Eine Fortsetzung mit Referenzbild liegt immer in einem späteren Batch als ihre Referenz. Alle sichtbaren Texte im Bild sind deutsch.
+
+### Reels (pausiert) — Strict Single Job V3
 
 ```text
 FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3

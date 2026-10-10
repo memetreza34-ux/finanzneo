@@ -25,6 +25,10 @@ import {
   YOUTUBE_VIDEO_HEIGHT,
   YOUTUBE_VIDEO_WIDTH,
   YOUTUBE_VISUAL_TYPES,
+  YOUTUBE_FLOW_BATCH_SIZE,
+  YOUTUBE_FLOW_PROTOCOL_ID,
+  YOUTUBE_FLOW_PROTOCOL_MARKER,
+  YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE,
 } from './lib/youtube-contract.mjs';
 import {
   requiresYouTubeImage,
@@ -102,9 +106,16 @@ if (index) {
   assert(index.motionStandard?.id === YOUTUBE_MOTION_STANDARD_ID, `motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
   assert(index.motionStandard?.contentFirstTechniqueSelection === true, 'Motion-Technik muss aus dem Inhalt gewählt werden.');
   assert(index.motionStandard?.existingComponentsOptional === true && index.motionStandard?.physicalPrimitivesOptional === true, 'Bestehende/Physical-Primitives müssen optional bleiben.');
-  assert(index.googleFlow?.protocolId === FLOW_AGENT_PROTOCOL_ID, 'Google-Flow-Agent-Protokoll fehlt.');
-  assert(index.googleFlow?.generationMode === 'one-image-at-a-time' && index.googleFlow?.strictSequential === true, 'Google Flow muss strikt Bild für Bild arbeiten.');
-  assert(index.googleFlow?.waitForCurrentImage === true && index.googleFlow?.renameBeforeNext === true && index.googleFlow?.qaBeforeNext === true, 'Google Flow muss warten, umbenennen und prüfen, bevor es fortfährt.');
+  if (index.googleFlow?.protocolId === YOUTUBE_FLOW_PROTOCOL_ID) {
+    assert(index.googleFlow?.generationMode === 'parallel-batches' && index.googleFlow?.batchSize === YOUTUBE_FLOW_BATCH_SIZE && index.googleFlow?.oneJobPerImage === true, `Google Flow muss in Batches von höchstens ${YOUTUBE_FLOW_BATCH_SIZE} Einzelbild-Jobs arbeiten.`);
+    assert(index.googleFlow?.waitForBatch === true && index.googleFlow?.renameImmediately === true && index.googleFlow?.qaBeforeNextBatch === true, 'Google Flow muss jeden Batch abwarten, sofort umbenennen und prüfen, bevor der nächste startet.');
+    assert(index.googleFlow?.germanTextOnly === true, 'Bildtexte müssen deutsch sein (googleFlow.germanTextOnly).');
+  } else {
+    // Bestehende Projekte mit dem früheren Einzelbild-Protokoll bleiben gültig.
+    assert(index.googleFlow?.protocolId === FLOW_AGENT_PROTOCOL_ID, 'Google-Flow-Agent-Protokoll fehlt.');
+    assert(index.googleFlow?.generationMode === 'one-image-at-a-time' && index.googleFlow?.strictSequential === true, 'Google Flow muss strikt Bild für Bild arbeiten.');
+    assert(index.googleFlow?.waitForCurrentImage === true && index.googleFlow?.renameBeforeNext === true && index.googleFlow?.qaBeforeNext === true, 'Google Flow muss warten, umbenennen und prüfen, bevor es fortfährt.');
+  }
   assert(index.googleFlow?.retrySameImageOnFailure === true, 'Fehlerhafte Bilder müssen unter derselben Nummer neu erzeugt werden.');
   assert(index.googleFlow?.referenceImagesAllowed === true, 'Bildreferenzen müssen erlaubt sein.');
   assert(index.googleFlow?.continuationReferenceRequiredWhenDeclared === true, 'Deklarierte Fortsetzungs-Visuals müssen eine Referenz verwenden.');
@@ -172,9 +183,18 @@ if (existsSync(resolve(root, ALL_PROMPTS))) {
   assert(prompts.includes(WORLD_ID_MARKER), `${ALL_PROMPTS} verwendet nicht die FinanzNeo World ID.`);
   assert(prompts.includes(SERIES_LOCK_MARKER), `${ALL_PROMPTS} enthält keinen Same-World-Lock.`);
   assert(prompts.includes(GENERATED_IMAGE_ASPECT_MARKER), `${ALL_PROMPTS} schreibt 16:9 nicht vor.`);
-  assert(prompts.includes(FLOW_AGENT_PROTOCOL_MARKER), `${ALL_PROMPTS} enthält kein Flow-Protokoll.`);
-  assert(prompts.includes('Generate exactly ONE image'), 'Google Flow muss exakt ein Bild pro Schritt erzeugen.');
-  assert(prompts.includes('Rename it immediately'), 'Sofortige Umbenennung vor dem nächsten Bild fehlt.');
+  if (prompts.includes(YOUTUBE_FLOW_PROTOCOL_MARKER)) {
+    assert(prompts.includes(`MAX. ${YOUTUBE_FLOW_BATCH_SIZE} IMAGES IN PARALLEL`) && /BATCH 1 — START ALL TOGETHER/.test(prompts), `${ALL_PROMPTS}: Batch-Workflow mit höchstens ${YOUTUBE_FLOW_BATCH_SIZE} Bildern fehlt.`);
+    for (const batch of prompts.matchAll(/BATCH \d+ — START ALL TOGETHER: ([^\n]+)/g)) {
+      assert(batch[1].split(',').length <= YOUTUBE_FLOW_BATCH_SIZE, `${ALL_PROMPTS}: ein Batch hat mehr als ${YOUTUBE_FLOW_BATCH_SIZE} Bilder.`);
+    }
+    assert(prompts.includes('each as its own single-image job'), 'Jedes Bild muss ein eigener Job bleiben (kein Sammel-Request).');
+    assert(prompts.includes(YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE), 'Regel „nur deutscher Text im Bild“ fehlt in der Flow-Übergabe.');
+  } else {
+    assert(prompts.includes(FLOW_AGENT_PROTOCOL_MARKER), `${ALL_PROMPTS} enthält kein Flow-Protokoll.`);
+    assert(prompts.includes('Generate exactly ONE image'), 'Google Flow muss exakt ein Bild pro Schritt erzeugen.');
+  }
+  assert(prompts.includes('Rename it immediately') || prompts.includes('rename it immediately'), 'Sofortige Umbenennung fehlt.');
   assert(prompts.includes('regenerate the same image number'), 'Wiederholungsregel für fehlerhafte Bilder fehlt.');
   assert(prompts.includes(IMAGE_INBOX), 'Gemeinsamer Bilderordner fehlt in der Flow-Übergabe.');
   assert(prompts.includes('horizontal 16:9'), 'Horizontales 16:9-Quellbild fehlt in der Flow-Übergabe.');
@@ -200,4 +220,4 @@ if (errors.length > 0) {
 }
 
 console.log('\n✓ YouTube-Longform-Vertrag erfüllt.');
-console.log('  16:9 · Beat-first · Editorial Finance V1 · progressive Referenzen erlaubt · sequenzieller Flow · keine Shorts');
+console.log('  16:9 · Beat-first · Editorial Finance V1 · progressive Referenzen erlaubt · Flow-Protokoll geprüft · keine Shorts');

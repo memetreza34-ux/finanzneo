@@ -42,9 +42,14 @@ test('YouTube-Scaffolder erzeugt Motion V3 mit offener Technik und Viewer Change
     assert.match(remotionPlan, /Composition Family: \[FREE DESCRIPTIVE FAMILY/);
 
     const prompt = readFileSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt'), 'utf8');
-    assert.match(prompt, /finanzneo-youtube-grounded-3d-black-v1/);
-    assert.match(prompt, /Literal first, creative second/);
-    assert.match(prompt, /TRANSFERABILITY_TEST:/);
+    assert.match(prompt, /FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1/);
+    assert.match(prompt, /FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1/);
+    assert.match(prompt, /One spoken thought becomes one simple visual idea/);
+    assert.match(prompt, /must be German/);
+    const alle = readFileSync(resolve(absolute, '04-visuals/alle-bildprompts.txt'), 'utf8');
+    assert.match(alle, /BATCH 1 — START ALL TOGETHER: Thumbnail, Bild 01/);
+    assert.equal(index.googleFlow.batchSize, 5);
+    assert.equal(index.motionStandard.contentFirstTechniqueSelection, true);
   } finally {
     rmSync(absolute, {recursive:true, force:true});
   }

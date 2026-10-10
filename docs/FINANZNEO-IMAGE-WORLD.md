@@ -94,6 +94,8 @@ Allowed when useful:
 
 Text must help explain the image. It is not decoration.
 
+All visible text must be German — labels, buttons, screens, documents. No English words such as "Monthly Sub" (Arman, 10.10.2026).
+
 ## Companies and brands
 
 Companies, stores and recognizable brands may be illustrated when relevant.

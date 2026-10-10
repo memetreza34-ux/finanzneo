@@ -114,6 +114,8 @@ Jedes Motion-Visual braucht:
 - mindestens **eine** sinnvolle erklärende Motion
 - mindestens zwei sichtbare Visual Beats: Start + Result
 
+**Komposition mittig:** Weil keine Untertitel eingebrannt werden, steht der Inhalt vertikal mittig im 1920 × 1080-Bild (`DATEN.mitteY`), Quelle oben links. Nicht mehr nach oben schieben.
+
 Eine klare Hauptbewegung darf vollständig reichen. Mehr Motion ist kein Qualitätsmerkmal. Neue YouTube-Visuals verwenden nach Möglichkeit die datengetriebenen Mechaniken unter `src/youtube-motion/light-v3/`; ein isolierter Demo-Effekt ist keine Freigabe.
 
 Kontaktbogen und kompletter Clip müssen nach dem Render visuell geprüft werden. Der dedizierte Test liefert 10/35/65/90-Prozent-Frames; automatischer Build-Erfolg allein ist keine ästhetische Freigabe.
@@ -168,7 +170,7 @@ Einzige Übergabe an Google Flow bleibt:
 04-visuals/alle-bildprompts.txt
 ```
 
-Jedes Bild wird einzeln erzeugt, vollständig abgewartet, exakt umbenannt und geprüft.
+Bilder werden in Batches von bis zu **5 gleichzeitig** erzeugt (`finanzneo-flow-batch5-v1`, Arman 10.10.2026): jedes Bild ein eigener Job, sofort exakt umbenannt und geprüft; Fehler werden im selben Batch neu erzeugt, erst dann startet der nächste Batch. Fortsetzungen mit Referenzbild liegen immer in einem späteren Batch. **Alle sichtbaren Texte im Bild sind deutsch.**
 
 
 ## Audio, Timing und Untertitel

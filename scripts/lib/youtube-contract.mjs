@@ -26,6 +26,13 @@ export {
   YOUTUBE_IMAGE_VISUAL_TYPES,
 };
 
+// YouTube: Google Flow arbeitet in Batches von bis zu 5 Bildern gleichzeitig (Arman, 10.10.2026).
+// Das alte Einzelbild-Protokoll (FLOW_AGENT_PROTOCOL_ID) bleibt für bestehende Projekte gültig.
+export const YOUTUBE_FLOW_PROTOCOL_ID = 'finanzneo-flow-batch5-v1';
+export const YOUTUBE_FLOW_PROTOCOL_MARKER = `FLOW_AGENT_PROTOCOL: ${YOUTUBE_FLOW_PROTOCOL_ID}`;
+export const YOUTUBE_FLOW_BATCH_SIZE = 5;
+export const YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE = 'All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.';
+
 export const GENERATED_IMAGE_ASPECT_RATIO = '16:9';
 export const GENERATED_IMAGE_ASPECT_MARKER = `GENERATED_IMAGE_ASPECT_RATIO: ${GENERATED_IMAGE_ASPECT_RATIO}`;
 export const YOUTUBE_VIDEO_ASPECT_RATIO = '16:9';

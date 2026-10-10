@@ -35,8 +35,10 @@ test('YouTube motion uses the light 2D direction', () => {
 test('Light motion authority allows design variety without dark or 3D scenes', () => {
   const doc=readFileSync('docs/FINANZNEO-YOUTUBE-MOTION-WORLD-V1.md','utf8');
   assert.match(doc,/light visual worlds/i);
-  assert.match(doc,/no full 3D/i);
-  assert.match(doc,/no dark/i);
+  const verboten = doc.slice(doc.indexOf('## Do not use'), doc.indexOf('## Text rule'));
+  assert.match(verboten,/^- full 3D$/m);
+  assert.match(verboten,/^- dark backgrounds$/m);
+  assert.match(verboten,/^- black motion worlds$/m);
+  assert.match(verboten,/^- large generic scene headlines$/m);
   assert.match(doc,/different scenes may still have completely different designs/i);
-  assert.match(doc,/no decorative headline/i);
 });
