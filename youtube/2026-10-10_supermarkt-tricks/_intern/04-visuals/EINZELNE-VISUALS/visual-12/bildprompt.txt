@@ -6,36 +6,36 @@ YouTube Bild 12 - Griff plus 25 Prozent.png
 
 Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
 
+STYLE_REFERENCE:
+YouTube Thumbnail - Supermarkt-Tricks.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
 REFERENCE_IMAGE:
 NONE
 
 IMAGE PROMPT:
-A close-up comparison of two shopping cart handles on a light background. Left: a normal horizontal bar handle labeled "normaler Griff". Right: a handle with two parallel vertical grips labeled "neuer Griff", with a hand holding it. Next to the right handle, a bold green label "+25 % ausgegeben". Clean, simple, product-diagram style.
+Flat 2D editorial illustration, not a photo. A close-up comparison of two shopping cart handles on a light background. Left: a normal horizontal bar handle labeled "normaler Griff". Right: a handle with two parallel vertical grips labeled "neuer Griff", with a hand holding it. Next to the right handle, a bold green label "+25 % ausgegeben". Clean, simple, product-diagram style.
 
 FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
 FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 
 IMAGE WORLD:
-FinanzNeo Editorial Finance V1.
+FinanzNeo Editorial Finance V1 — illustration only.
 
 CORE:
 One spoken thought becomes one simple visual idea that is understandable at first glance.
 
-STYLE:
-Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+STYLE (STRICT):
+Flat 2D editorial illustration in a clean vector look. Never photorealistic, never a photo, never a 3D render. No realistic materials, no photographic lighting, no depth of field, no film grain, no realistic paper or wood textures. People are simplified illustrated characters. Matte restrained colors, clear outlines and silhouettes, large readable elements, low detail, generous empty space. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
 
 BACKGROUND:
-Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
-
-VISUAL FREEDOM:
-Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+Light, calm illustration backgrounds: warm off-white, cream, light gray or a soft muted color.
 
 ANTI-AI-SLOP:
-Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
 
 TEXT:
-No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
 
 FORMAT:
 Horizontal 16:9 source image.
