@@ -20,7 +20,8 @@
 import {copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync} from 'node:fs';
 import {basename, relative, resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
-import {ACTIVE_WORD_COLOR, AUDIO_INBOX, IMAGE_INBOX, INTERN_DIR, SCRIPT_FILE, SUBTITLE_MODE, internWurzel} from './lib/youtube-contract.mjs';
+import {ACTIVE_WORD_COLOR, AUDIO_INBOX, IMAGE_INBOX, INTERN_DIR, SCRIPT_FILE, SUBTITLE_MODE, YOUTUBE_ENDCARD_SECONDS, YOUTUBE_IMAGE_WARN_HOLD_SECONDS, YOUTUBE_QUALITY_RULES_ID, internWurzel} from './lib/youtube-contract.mjs';
+import {verbindeAudioTeile} from './youtube-audio-teile.mjs';
 
 const args = process.argv.slice(2);
 const wert = (name) => {
@@ -50,6 +51,8 @@ export const norm = (wort) =>
 const tokens = (text) => text.split(/\s+/).map((t) => t.trim()).filter(Boolean);
 
 // ─── Audio ───────────────────────────────────────────────────────────────────
+// Aufnahme in mehreren Teilen? Erst zu einer voiceover.wav verbinden.
+try {verbindeAudioTeile(projektArg);} catch (error) {console.error(`✗ ${error.message}`); process.exit(1);}
 const AUDIO = ['.wav', '.mp3', '.m4a', '.aiff', '.aif'];
 const audioDatei = readdirSync(resolve(root, AUDIO_INBOX)).find((f) => AUDIO.some((e) => f.toLowerCase().endsWith(e)));
 if (!audioDatei) {
@@ -195,11 +198,19 @@ for (const v of index.visuals) {
   }).filter(Boolean);
   visuals.push({id: v.id, type: v.type, startFrame: start, beats, akzente, googleFlowFileName: v.googleFlowFileName});
 }
-const gesamt = Math.ceil((dauerSek + 0.8) * fps);
+const sprechEnde = Math.ceil((dauerSek + 0.8) * fps);
 visuals.forEach((v, k) => {
-  v.durationFrames = (k + 1 < visuals.length ? visuals[k + 1].startFrame : gesamt) - v.startFrame;
+  v.durationFrames = (k + 1 < visuals.length ? visuals[k + 1].startFrame : sprechEnde) - v.startFrame;
   if (v.durationFrames <= 0) fehler.push(`${v.id}: Dauer ${v.durationFrames} Frames — Reihenfolge der startCues prüfen.`);
 });
+// Qualitätsregeln: Endkarte für die YouTube-Endelemente + Warnung bei zu langen Standbildern.
+const qualitaet = index.qualityRules === YOUTUBE_QUALITY_RULES_ID;
+if (qualitaet) visuals.push({id: 'endkarte', type: 'endkarte', startFrame: sprechEnde, durationFrames: YOUTUBE_ENDCARD_SECONDS * fps, beats: [], akzente: []});
+const gesamt = qualitaet ? sprechEnde + YOUTUBE_ENDCARD_SECONDS * fps : sprechEnde;
+const langeBilder = visuals.filter((v) => v.type === 'image').map((v) => {
+  const marken = [0, ...v.akzente.map((a) => a.ab), v.durationFrames].sort((a, b) => a - b);
+  return {id: v.id, sek: Math.max(...marken.slice(1).map((m, k) => m - marken[k])) / fps};
+}).filter((x) => x.sek > YOUTUBE_IMAGE_WARN_HOLD_SECONDS);
 
 // ─── 3. Medien nach public/ ──────────────────────────────────────────────────
 const publicDir = resolve(repo, 'public/youtube', slug);
@@ -270,5 +281,6 @@ projekte.forEach((name, p) => {
 zeilen.push('', 'export const YOUTUBE_PROJEKTE: Array<{id: string; zeitplan: YouTubeZeitplan; animationen: Record<string, React.FC<{beats?: number[]}>>}> = [', ...eintraege, '];', '');
 writeFileSync(resolve(repo, 'src/youtube-projekt/projekte.generated.ts'), zeilen.join('\n'));
 
-console.log(`✓ Zeitplan: ${visuals.length} Visuals, ${(gesamt / fps).toFixed(1)} s${vorschau ? ' (Vorschau, fehlende Bilder markiert)' : ''}.`);
+console.log(`✓ Zeitplan: ${visuals.length} Visuals, ${(gesamt / fps).toFixed(1)} s${qualitaet ? ` inkl. ${YOUTUBE_ENDCARD_SECONDS} s Endkarte` : ''}${vorschau ? ' (Vorschau, fehlende Bilder markiert)' : ''}.`);
+if (langeBilder.length) console.log(`⚠ Standbilder über ${YOUTUBE_IMAGE_WARN_HOLD_SECONDS} s: ${langeBilder.map((x) => `${x.id} ${x.sek.toFixed(1)} s`).join(', ')} — beim nächsten Mal Bild teilen oder akzente[] setzen.`);
 console.log(`  Composition: YouTube-${slug.replace(/[^a-zA-Z0-9-]/g, "-")}`);

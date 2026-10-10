@@ -9,9 +9,10 @@
 // YouTube-Untertitel). Zwischenstände und Kontaktbogen liegen unter out/youtube/<Projekt>/.
 
 import {spawnSync} from 'node:child_process';
-import {copyFileSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
+import {copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {basename, resolve} from 'node:path';
-import {EXPORT_DIR, EXPORT_FILES, IMAGE_INBOX, VISUAL_INDEX, WORD_TIMINGS, YOUTUBE_PUBLISHING_FILES, internWurzel} from './lib/youtube-contract.mjs';
+import {EXPORT_DIR, EXPORT_FILES, IMAGE_INBOX, VISUAL_INDEX, WORD_TIMINGS, YOUTUBE_MUSIC_FILES, YOUTUBE_MUSIC_GAIN_DB, YOUTUBE_PUBLISHING_FILES, internWurzel} from './lib/youtube-contract.mjs';
+import {verbindeAudioTeile} from './youtube-audio-teile.mjs';
 
 const projekt = process.argv[2];
 if (!projekt) {
@@ -35,15 +36,28 @@ const lauf = (cmd, args, beschreibung) => {
 };
 const lies = (cmd, args) => spawnSync(cmd, args, {encoding: 'utf8'}).stderr;
 
+// Aufnahme in mehreren Teilen? Vor der Startfreigabe zu einer voiceover.wav verbinden.
+try {verbindeAudioTeile(projekt);} catch (error) {console.error(`✗ ${error.message}`); process.exit(1);}
 lauf('node', ['scripts/check-youtube-production-ready.mjs', projekt], 'Startfreigabe (youtube:ready)');
 lauf('node', ['scripts/youtube-zusammenbau.mjs', projekt], 'Zeitplan ohne Vorschau');
 lauf('npx', ['remotion', 'render', 'src/index.ts', id, roh, '--codec=h264', '--crf=18', '--log=error'], `Render ${id}`);
 
+// Optionale Hintergrundmusik aus _intern/03-audio/musik.*: leise unter der Stimme, Schleife, Ausblende.
+const musik = YOUTUBE_MUSIC_FILES.map((rel) => resolve(internWurzel(projekt), rel)).find((pfad) => existsSync(pfad));
+let quelle = roh;
+if (musik) {
+  const laenge = Number(spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', roh], {encoding: 'utf8'}).stdout);
+  const gemischt = resolve(out, 'mit-musik.mov');
+  const mix = `[1:a]volume=${YOUTUBE_MUSIC_GAIN_DB}dB,afade=t=in:d=2,afade=t=out:st=${Math.max(0, laenge - 4).toFixed(2)}:d=4[m];[0:a][m]amix=inputs=2:duration=first:normalize=0[a]`;
+  lauf('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', roh, '-stream_loop', '-1', '-i', musik, '-filter_complex', mix, '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'pcm_s16le', '-t', laenge.toFixed(3), gemischt], `Hintergrundmusik ${basename(musik)} (${YOUTUBE_MUSIC_GAIN_DB} dB)`);
+  quelle = gemischt;
+}
+
 // Zweistufiges loudnorm: erst messen, dann linear auf −16 LUFS / −1 dBTP.
-const messung = lies('ffmpeg', ['-hide_banner', '-i', roh, '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json', '-f', 'null', '-']);
+const messung = lies('ffmpeg', ['-hide_banner', '-i', quelle, '-af', 'loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json', '-f', 'null', '-']);
 const json = JSON.parse(messung.slice(messung.lastIndexOf('{'), messung.lastIndexOf('}') + 1));
 const filter = `loudnorm=I=-16:TP=-1.5:LRA=11:measured_I=${json.input_i}:measured_TP=${json.input_tp}:measured_LRA=${json.input_lra}:measured_thresh=${json.input_thresh}:offset=${json.target_offset}:linear=true`;
-lauf('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', roh, '-c:v', 'copy', '-af', filter, '-ar', '48000', '-c:a', 'aac', '-b:a', '192k', final], 'Ton-Mastering −16 LUFS / −1 dBTP');
+lauf('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', quelle, '-c:v', 'copy', '-af', filter, '-ar', '48000', '-c:a', 'aac', '-b:a', '192k', final], 'Ton-Mastering −16 LUFS / −1 dBTP');
 
 const kontrolle = lies('ffmpeg', ['-hide_banner', '-i', final, '-af', 'ebur128=peak=true', '-f', 'null', '-']);
 const lufs = Number(/I:\s+(-?[\d.]+) LUFS/.exec(kontrolle.slice(kontrolle.lastIndexOf('Summary')))?.[1]);

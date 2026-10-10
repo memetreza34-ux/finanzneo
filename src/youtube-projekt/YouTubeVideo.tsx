@@ -12,7 +12,8 @@ import {DATEN} from '../design-system/daten';
 
 export type ZeitVisual = {
   id: string;
-  type: 'image' | 'animation' | 'data' | 'hybrid';
+  /** endkarte: ruhiger Abschluss nach dem Voiceover, Platz für die YouTube-Endelemente. */
+  type: 'image' | 'animation' | 'data' | 'hybrid' | 'endkarte';
   startFrame: number;
   durationFrames: number;
   /** Pfad unter public/ (staticFile), nur bei Bildern. null = Bild fehlt (nur Vorschau). */
@@ -92,6 +93,23 @@ const Akzente: React.FC<{akzente: NonNullable<ZeitVisual['akzente']>}> = ({akzen
   );
 };
 
+/**
+ * Endkarte: Kanalname oben, darunter bewusst freie Fläche. Dort setzt man in YouTube Studio
+ * die Endelemente (nächstes Video, Abonnieren) — deshalb keine eigenen Rahmen oder Pfeile.
+ */
+const Endkarte: React.FC = () => {
+  const frame = useCurrentFrame();
+  const p = interpolate(frame, [0, 18], [0, 1], {...CLAMP, easing: (t) => 1 - (1 - t) ** 3});
+  return (
+    <AbsoluteFill style={{backgroundColor: DATEN.grund, alignItems: 'center', fontFamily: FONT.body}}>
+      <div style={{marginTop: 120, opacity: p, transform: `translateY(${((1 - p) * 16).toFixed(1)}px)`, textAlign: 'center'}}>
+        <div style={{fontSize: 96, fontWeight: 800, color: DATEN.text, letterSpacing: -1}}>FinanzNeo</div>
+        <div style={{marginTop: 8, fontSize: 40, fontWeight: 600, color: DATEN.leise}}>Geld einfach erklärt</div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 const Einblenden: React.FC<{children: React.ReactNode; aktiv: boolean}> = ({children, aktiv}) => {
   const frame = useCurrentFrame();
   const opacity = aktiv ? interpolate(frame, [0, UEBERBLENDEN], [0, 1], CLAMP) : 1;
@@ -138,7 +156,9 @@ export const YouTubeVideo: React.FC<{zeitplan: YouTubeZeitplan; animationen: Rec
       return (
         <Sequence key={visual.id} from={visual.startFrame} durationInFrames={visual.durationFrames + (letztes ? 0 : UEBERBLENDEN)} name={visual.id}>
           <Einblenden aktiv={index > 0}>
-            {visual.type === 'image' ? (
+            {visual.type === 'endkarte' ? (
+              <Endkarte />
+            ) : visual.type === 'image' ? (
               <>
                 <BildVisual bild={visual.bild} dauer={visual.durationFrames} id={visual.id} />
                 {visual.akzente?.length ? <Akzente akzente={visual.akzente} /> : null}

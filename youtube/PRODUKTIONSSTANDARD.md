@@ -176,6 +176,13 @@ Einzige Übergabe an Google Flow bleibt:
 
 Bilder werden in Batches von bis zu **5 gleichzeitig** erzeugt (`finanzneo-flow-batch5-v1`, Arman 10.10.2026): jedes Bild ein eigener Job, sofort exakt umbenannt und geprüft; Fehler werden im selben Batch neu erzeugt, erst dann startet der nächste Batch. Fortsetzungen mit Referenzbild liegen immer in einem späteren Batch. **Alle sichtbaren Texte im Bild sind deutsch.**
 
+### Nur Illustration, Thumbnail als Stilvorlage (Arman, 10.10.2026)
+
+- Alle YouTube-Bilder sind **weiche, handgezeichnete 2D-Editorial-Illustrationen** auf warmem Creme: zarte Bleistiftlinien, sanft gemalte Farbflächen, gedeckte Erdtöne (Sand, Terrakotta, Salbei, Staubblau, warmes Grau). **Nie fotorealistisch, nie Foto, nie glänzendes 3D.**
+- **Batch 1 enthält nur das Thumbnail.** Erst wenn es fertig und freigegeben ist, startet Batch 2.
+- Jedes weitere Bild hängt das freigegebene Thumbnail als `STYLE_REFERENCE:` an — übernommen werden nur Zeichenstil, Farben und Detailgrad, nie Komposition oder Headline.
+- `youtube:create` erzeugt das automatisch (`imageWorld.styleMaster: "thumbnail"`); `youtube:validate` prüft es.
+
 
 ## Audio, Timing und Untertitel
 
@@ -186,6 +193,21 @@ Bilder werden in Batches von bis zu **5 gleichzeitig** erzeugt (`finanzneo-flow-
 - **keine eingebrannten Untertitel** im YouTube-Video (Arman, 10.10.2026); Wort-Zeitstempel steuern nur Schnitte und Animationsstufen
 - `youtube:render` legt `5-export/untertitel-zeitstempel.txt` (Satz für Satz ab `00:00`) für die YouTube-Untertitel ab; `--untertitel` beim Zusammenbau brennt Untertitel nur auf ausdrücklichen Wunsch ein
 - Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP
+- Aufnahme in mehreren Teilen ist erlaubt: einfach alle Teile in `4-audio-hier-rein/` legen (Reihenfolge nach Dateiname). Zusammenbau bzw. Render verbinden sie zu `voiceover.wav`, legen die Originale unter `_intern/03-audio/teile/` ab und nennen die Nahtstellen zum Reinhören.
+- Optionale Hintergrundmusik: `_intern/03-audio/musik.mp3|wav|m4a` (lizenzfrei!). `youtube:render` mischt sie mit −24 dB unter die Stimme, in Schleife, mit Aus-/Einblende.
+
+## Qualitätsregeln V1 (`finanzneo-youtube-quality-v1`, Arman 10.10.2026)
+
+Aus dem Feedback zum ersten Video. Gelten für alle mit `youtube:create` neu angelegten Projekte (`qualityRules` im Visual-Index); ältere Projekte werden nicht rückwirkend migriert.
+
+| Regel | Grenze | Prüfung |
+|---|---|---|
+| Standbild ohne neue Information | max. **8 s** (geschätzt aus dem Skript, 154 Wörter/Min.) | `youtube:validate` Fehler; nach echtem Audio warnt der Zusammenbau ab 10 s |
+| Hook bis zum ersten inhaltlichen Kapitel | max. **20 s** | `youtube:validate` |
+| Kommentarfrage | muss im Skript stehen, im mittleren Teil (30–75 % der Wörter) | `youtube:validate` |
+| Endkarte | **15 s** nach dem Voiceover, Kanalname oben, Fläche frei für die YouTube-Endelemente | automatisch im Zusammenbau |
+
+Zu lange Standbilder löst man mit einem zusätzlichen Bild oder mit `akzente[]` am Visual (`{cue, text, ton}`): Ein Akzent erscheint beim gesprochenen Wort als kleine Karte auf dem Bild und zählt als neue sichtbare Information.
 
 ## Vollständiges Publishing-Paket
 

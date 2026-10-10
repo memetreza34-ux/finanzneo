@@ -113,6 +113,29 @@ export const PHASE_1_FILES = [
   ...Object.values(SOCIAL_PROMO_FILES),
 ];
 
+// Qualitätsregeln aus dem Feedback zum ersten Video (Arman, 10.10.2026). Gelten für Projekte mit
+// `qualityRules: YOUTUBE_QUALITY_RULES_ID`; ältere Projekte werden nicht rückwirkend migriert.
+export const YOUTUBE_QUALITY_RULES_ID = 'finanzneo-youtube-quality-v1';
+/** Sprechtempo des echten FinanzNeo-Voiceovers (Abo-Falle + Supermarkt-Tricks gemessen). */
+export const YOUTUBE_SPEECH_WPM = 154;
+/** Ein Standbild ohne neue sichtbare Information höchstens so lange (geschätzt aus dem Skript). */
+export const YOUTUBE_IMAGE_MAX_HOLD_SECONDS = 8;
+/** Nach echtem Audio: ab hier warnt der Zusammenbau. */
+export const YOUTUBE_IMAGE_WARN_HOLD_SECONDS = 10;
+/** Hook: bis zum ersten inhaltlichen Kapitel höchstens so lange. */
+export const YOUTUBE_HOOK_MAX_SECONDS = 20;
+/** Die Kommentarfrage steht im mittleren Teil des Skripts (Anteil der Wörter). */
+export const YOUTUBE_COMMENT_CTA_WINDOW = [0.3, 0.75];
+export const YOUTUBE_COMMENT_CTA_PATTERN = /kommentar/i;
+/** Endkarte nach dem Voiceover für die YouTube-Endelemente (Studio erlaubt 5–20 s). */
+export const YOUTUBE_ENDCARD_SECONDS = 15;
+/** Optionale Hintergrundmusik (nur _intern/, nie im Nutzer-Audio-Ordner) und ihr Pegel unter der Stimme. */
+export const YOUTUBE_MUSIC_FILES = ['03-audio/musik.mp3', '03-audio/musik.wav', '03-audio/musik.m4a'];
+export const YOUTUBE_MUSIC_GAIN_DB = -24;
+/** Bildwelt: Das Thumbnail wird zuerst erzeugt und hängt als Stilvorlage an jedem Bild. */
+export const YOUTUBE_STYLE_MASTER = 'thumbnail';
+export const YOUTUBE_STYLE_REFERENCE_MARKER = 'STYLE_REFERENCE:';
+
 export const FORBIDDEN_YOUTUBE_ARTIFACTS = [
   'youtube-shorts.txt',
   'shorts.txt',

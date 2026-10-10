@@ -31,8 +31,11 @@ import {
   YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE,
   AUDIO_INBOX,
   EXPORT_DIR,
+  SCRIPT_FILE,
+  YOUTUBE_QUALITY_RULES_ID,
   internWurzel,
 } from './lib/youtube-contract.mjs';
+import {pruefeYouTubeQualitaet} from './lib/youtube-quality.mjs';
 import {
   requiresYouTubeImage,
   requiresYouTubeMotion,
@@ -179,6 +182,24 @@ if (index) {
     }
   }
   errors.push(...validateYouTubeMotionVariety(index.visuals ?? []));
+
+  // Qualitätsregeln (finanzneo-youtube-quality-v1): Haltezeit, Hook, Kommentarfrage, Stilvorlage.
+  if (index.qualityRules === YOUTUBE_QUALITY_RULES_ID) {
+    const scriptPath = resolve(root, SCRIPT_FILE);
+    if (!existsSync(scriptPath)) errors.push(`${SCRIPT_FILE} fehlt.`);
+    else {
+      const {fehler} = pruefeYouTubeQualitaet({
+        index,
+        scriptText: read(SCRIPT_FILE),
+        prompts: existsSync(resolve(root, ALL_PROMPTS)) ? read(ALL_PROMPTS) : '',
+        bildprompt: (visual) => {
+          const plan = visual.type === 'hybrid' ? visual.imagePlanFile : visual.planFile;
+          return plan && existsSync(resolve(root, plan)) ? read(plan) : '';
+        },
+      });
+      errors.push(...fehler);
+    }
+  }
 }
 
 if (existsSync(resolve(root, ALL_PROMPTS))) {

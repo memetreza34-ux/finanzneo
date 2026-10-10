@@ -27,6 +27,12 @@ import {
   YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE,
   ALL_PROMPTS,
   AUDIO_INBOX,
+  YOUTUBE_QUALITY_RULES_ID,
+  YOUTUBE_STYLE_MASTER,
+  YOUTUBE_STYLE_REFERENCE_MARKER,
+  YOUTUBE_IMAGE_MAX_HOLD_SECONDS,
+  YOUTUBE_HOOK_MAX_SECONDS,
+  YOUTUBE_ENDCARD_SECONDS,
   EXPORT_DIR,
   SCRIPT_FILE,
   internWurzel,
@@ -81,25 +87,22 @@ ${SERIES_LOCK_MARKER}
 ${GENERATED_IMAGE_ASPECT_MARKER}
 
 IMAGE WORLD:
-FinanzNeo Editorial Finance V1.
+FinanzNeo Editorial Finance V1 — illustration only.
 
 CORE:
 One spoken thought becomes one simple visual idea that is understandable at first glance.
 
-STYLE:
-Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
 
 BACKGROUND:
-Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
-
-VISUAL FREEDOM:
-Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
 
 ANTI-AI-SLOP:
-Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
 
 TEXT:
-No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful. ${YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE}
+No automatic generic headline. Numbers, short labels and document text only when they explain. ${YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE}
 
 FORMAT:
 Horizontal 16:9 source image.
@@ -117,11 +120,14 @@ Generate this image together with the other images of its batch (at most ${YOUTU
 const promptFor = (index) => {
   const name = visualFileName(index);
   return `${flowStep(name)}
+${YOUTUBE_STYLE_REFERENCE_MARKER}
+${thumbnailFileName} — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
 REFERENCE_IMAGE:
 [NONE OR EXACT APPROVED FILE FROM visual-XX]
 
 IMAGE PROMPT:
-[WRITE THE COMPLETE ENGLISH PROMPT FOR THIS EXACT STATIC VISUAL. DESCRIBE THE VISUAL ITSELF FIRST. IF THIS IS A PROGRESSIVE CONTINUATION, REPEAT THE FULL COMPOSITION AND ADD ONLY THE ONE PLANNED CHANGE.]
+Soft hand-drawn 2D editorial illustration, not a photo. [WRITE THE COMPLETE ENGLISH PROMPT FOR THIS EXACT STATIC VISUAL. DESCRIBE THE VISUAL ITSELF FIRST. IF THIS IS A PROGRESSIVE CONTINUATION, REPEAT THE FULL COMPOSITION AND ADD ONLY THE ONE PLANNED CHANGE.]
 
 ${styleBlock}`;
 };
@@ -131,7 +137,9 @@ REFERENCE_IMAGE:
 NONE
 
 THUMBNAIL PROMPT:
-[WRITE A COMPLETE ENGLISH THUMBNAIL PROMPT WITH ONE CLEAR FOCAL IDEA. DO NOT FORCE THE NORMAL VIDEO-IMAGE COMPOSITION.]
+Soft hand-drawn 2D editorial illustration, not a photo. [WRITE A COMPLETE ENGLISH THUMBNAIL PROMPT WITH ONE CLEAR FOCAL IDEA. DO NOT FORCE THE NORMAL VIDEO-IMAGE COMPOSITION.]
+
+This thumbnail is the STYLE MASTER of the whole video: every later image attaches it as a style reference.
 
 ${styleBlock}`;
 
@@ -149,6 +157,7 @@ const visuals = types.map((type, index) => {
     type,
     chapter: '[CHAPTER]',
     scriptBeat: '[SCRIPT BEAT]',
+    startCue: '[ERSTE WÖRTER DES SPRECHPUNKTS, WÖRTLICH AUS DEM SKRIPT]',
   };
 
   if (requiresYouTubeImage({type})) {
@@ -210,11 +219,12 @@ const visuals = types.map((type, index) => {
 
 // Bild-Blöcke (Thumbnail zählt mit) werden in Batches zu je YOUTUBE_FLOW_BATCH_SIZE gruppiert.
 const bildNummern = ['Thumbnail', ...visuals.map((visual, index) => (requiresYouTubeImage(visual) ? numberOf(index) : null)).filter(Boolean)];
-const batchVon = (nummer) => Math.floor(bildNummern.indexOf(nummer) / YOUTUBE_FLOW_BATCH_SIZE);
+// Batch 1 enthält nur das Thumbnail (Stilvorlage), danach Gruppen zu je YOUTUBE_FLOW_BATCH_SIZE.
+const batchVon = (nummer) => (nummer === 'Thumbnail' ? 0 : 1 + Math.floor((bildNummern.indexOf(nummer) - 1) / YOUTUBE_FLOW_BATCH_SIZE));
 const batchKopf = (nummer) => {
   const pos = bildNummern.indexOf(nummer);
-  if (pos % YOUTUBE_FLOW_BATCH_SIZE !== 0) return '';
-  const mitglieder = bildNummern.slice(pos, pos + YOUTUBE_FLOW_BATCH_SIZE).map((n) => (n === 'Thumbnail' ? 'Thumbnail' : `Bild ${n}`));
+  if (pos !== 0 && (pos - 1) % YOUTUBE_FLOW_BATCH_SIZE !== 0) return '';
+  const mitglieder = (pos === 0 ? ['Thumbnail'] : bildNummern.slice(pos, pos + YOUTUBE_FLOW_BATCH_SIZE)).map((n) => (n === 'Thumbnail' ? 'Thumbnail' : `Bild ${n}`));
   return `████████████████████████████████████\nBATCH ${batchVon(nummer) + 1} — START ALL TOGETHER: ${mitglieder.join(', ')}\n████████████████████████████████████\n\n`;
 };
 const promptSections = visuals.map((visual, index) => {
@@ -227,7 +237,7 @@ const promptSections = visuals.map((visual, index) => {
 write('README.md', `# ${title} — interne Projektdateien\n\nEigenständiges YouTube-Longform-Projekt. Kein Reel und kein YouTube Short.\n\n## Drei Phasen\n\n1. ChatGPT vervollständigt Recherche, Skript, Visual Beats, Visualtypen, alle Bildprompts und jede Motion-Szene als produktionsreife animation.tsx. Motion V3 arbeitet Viewer-change-first und hat keine feste Animationsbibliothek oder erlaubte Familienliste.\n2. Der Nutzer erstellt Thumbnail und alle benötigten 16:9-Bilder mit Google Flow in Batches von bis zu 5 gleichzeitig, benennt sie sofort exakt um und legt sie gemeinsam in \`${IMAGE_INBOX}/\`. Danach genau ein finales Voiceover plus echte Wort-Timings.\n3. Nach Motion-Validation + Phase-1-Seal prüft \`npm run youtube:ready -- ${targetArg}\` alles. Phase 3 integriert die versiegelte Motion, retimed sie zum echten Voiceover und übernimmt QA/Render, ohne die Mechanik kreativ zu ersetzen.\n`);
 write('01-recherche/briefing.md', '# Briefing\n\n- Thema: [THEMA]\n- Zielgruppe: Finanzanfänger\n- Lernziel: [EINFÜGEN]\n- Kernversprechen: [EINFÜGEN]\n- Warum Longform nötig ist: [EINFÜGEN]\n- Datenstand: [EINFÜGEN]\n');
 write('01-recherche/recherche-quellen.md', '# Recherche und Quellen\n\n[GEPRÜFTE QUELLEN, DATENSTAND, ANNAHMEN UND RECHENWEGE EINFÜGEN]\n');
-write(SCRIPT_FILE, '[VOLLSTÄNDIGES LONGFORM-VOICEOVER-SKRIPT EINFÜGEN]\n');
+write(SCRIPT_FILE, `[VOLLSTÄNDIGES LONGFORM-VOICEOVER-SKRIPT EINFÜGEN — Hook höchstens ${YOUTUBE_HOOK_MAX_SECONDS} s, Kommentarfrage in der Mitte, Abo-Hinweis am Ende]\n`);
 write('02-script/kapitel-dramaturgie.md', '# Kapitel und Dramaturgie\n\n[HOOK, KAPITEL, BEISPIELE, PAYOFFS, ZUSAMMENFASSUNG UND CTA EINFÜGEN]\n');
 write('02-script/retention-plan.md', '# Retention-Plan\n\n[OFFENE FRAGEN, PAYOFFS, PATTERN-INTERRUPTS, VISUELLE RHYTHMUSWECHSEL UND ÜBERGÄNGE EINFÜGEN]\n');
 write(`${AUDIO_INBOX}/.gitkeep`, '');
@@ -236,8 +246,8 @@ write('03-audio/word-timings.json', `${JSON.stringify({version:'finanzneo-captio
 write(`${IMAGE_INBOX}/.gitkeep`, '');
 write('04-visuals/bildwelt.txt', `FINANZNEO YOUTUBE IMAGE WORLD\n\n${styleBlock}`);
 write('04-visuals/thumbnail-prompt.txt', thumbnailPrompt);
-write(ALL_PROMPTS, `FINANZNEO — SINGLE HANDOFF FILE FOR THE GOOGLE FLOW AI AGENT\n\n${YOUTUBE_FLOW_PROTOCOL_MARKER}\n\nBATCH WORKFLOW (MAX. ${YOUTUBE_FLOW_BATCH_SIZE} IMAGES IN PARALLEL):\n1. Read the full file once. Images are grouped into numbered BATCH blocks of up to ${YOUTUBE_FLOW_BATCH_SIZE}.\n2. Start every image of the current batch at the same time, each as its own single-image job. Never put several prompts into one request and never make a collage or contact sheet.\n3. As soon as an image returns, rename it immediately to the exact final file name stated in its block.\n4. Verify every image of the batch: script-beat fit, first-glance clarity, Editorial Finance style, 16:9 format, German-only text and file name. For a continuation visual, also verify that the approved reference composition is preserved and only the planned change was made.\n5. Regenerate every failed image (same image number, replace the failed file) before the next batch starts.\n6. Start the next batch only after all images of the current batch pass. A continuation image is never in the same batch as its reference.\n7. Skip non-image blocks without closing the numbering gap.\n8. At the end, place every generated and correctly named image together in ${IMAGE_INBOX.replace(/^\.\.\//, '')}/.\n\n${batchKopf('Thumbnail')}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nTHUMBNAIL\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${thumbnailPrompt}\n${promptSections}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nFINISH\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nFinish only after every expected image has been generated in its batch, renamed immediately and verified. All final files must be together in ${IMAGE_INBOX.replace(/^\.\.\//, '')}/.\n`);
-write('06-projektdateien/visual-plan.md', '# Visual-Plan — Viewer Change First\n\n1. Skript in gesprochene Gedanken zerlegen.\n2. Jedem Gedanken einen sichtbaren Visual Beat geben.\n3. Für jeden Motion-Beat zuerst in einem Satz festlegen: Was soll der Zuschauer tatsächlich sehen, das sich verändert, enthüllt, vergleicht oder räumlich erschließt?\n4. Erst danach den besten Typ und die beste konkrete Technik wählen.\n5. Technik darf frei erfunden oder kombiniert werden; Familien sind nur Beschreibungen, keine Whitelist.\n6. Vor Freigabe die letzten vier Motion-Visuals auf echte Wiederholung von Kamera, Layout und Transformation prüfen.\n\nKeine feste Visualzahl. Keine feste Bild-/Animationsquote. Keine Standardanimation. Keine bestehende Komponente auswählen, bevor klar ist, was der Zuschauer sehen soll. Variation dient der Erklärung, nicht der Effekthascherei.\n');
+write(ALL_PROMPTS, `FINANZNEO — SINGLE HANDOFF FILE FOR THE GOOGLE FLOW AI AGENT\n\n${YOUTUBE_FLOW_PROTOCOL_MARKER}\n\nSTYLE MASTER FIRST:\nBatch 1 contains ONLY the thumbnail. Generate it, wait until it is complete, rename it and verify it is a soft hand-drawn illustration (no photo look). Every later image attaches this approved thumbnail as ${YOUTUBE_STYLE_REFERENCE_MARKER.replace(':', '')}. Never start batch 2 before the thumbnail is approved.\n\nBATCH WORKFLOW (MAX. ${YOUTUBE_FLOW_BATCH_SIZE} IMAGES IN PARALLEL):\n1. Read the full file once. Images are grouped into numbered BATCH blocks of up to ${YOUTUBE_FLOW_BATCH_SIZE}.\n2. Start every image of the current batch at the same time, each as its own single-image job. Never put several prompts into one request and never make a collage or contact sheet.\n3. As soon as an image returns, rename it immediately to the exact final file name stated in its block.\n4. Verify every image of the batch: soft hand-drawn illustration in the thumbnail's style (reject anything photorealistic), script-beat fit, first-glance clarity, Editorial Finance style, 16:9 format, German-only text and file name. For a continuation visual, also verify that the approved reference composition is preserved and only the planned change was made.\n5. Regenerate every failed image (same image number, replace the failed file) before the next batch starts.\n6. Start the next batch only after all images of the current batch pass. A continuation image is never in the same batch as its reference.\n7. Skip non-image blocks without closing the numbering gap.\n8. At the end, place every generated and correctly named image together in ${IMAGE_INBOX.replace(/^\.\.\//, '')}/.\n\n${batchKopf('Thumbnail')}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nTHUMBNAIL\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${thumbnailPrompt}\n${promptSections}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nFINISH\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nFinish only after every expected image has been generated in its batch, renamed immediately and verified. All final files must be together in ${IMAGE_INBOX.replace(/^\.\.\//, '')}/.\n`);
+write('06-projektdateien/visual-plan.md', `# Visual-Plan — Viewer Change First\n\n1. Skript in gesprochene Gedanken zerlegen.\n2. Jedem Gedanken einen sichtbaren Visual Beat geben.\n3. Für jeden Motion-Beat zuerst in einem Satz festlegen: Was soll der Zuschauer tatsächlich sehen, das sich verändert, enthüllt, vergleicht oder räumlich erschließt?\n4. Erst danach den besten Typ und die beste konkrete Technik wählen.\n5. Technik darf frei erfunden oder kombiniert werden; Familien sind nur Beschreibungen, keine Whitelist.\n6. Vor Freigabe die letzten vier Motion-Visuals auf echte Wiederholung von Kamera, Layout und Transformation prüfen.\n7. Kein Standbild länger als ca. ${YOUTUBE_IMAGE_MAX_HOLD_SECONDS} s ohne neue Information: sonst zusätzliches Bild oder akzente[] ({cue, text, ton}) setzen. youtube:validate schätzt das aus dem Skript.\n8. Die Endkarte (${YOUTUBE_ENDCARD_SECONDS} s für YouTube-Endelemente) hängt der Zusammenbau automatisch an.\n\nKeine feste Visualzahl. Keine feste Bild-/Animationsquote. Keine Standardanimation. Keine bestehende Komponente auswählen, bevor klar ist, was der Zuschauer sehen soll. Variation dient der Erklärung, nicht der Effekthascherei.\n`);
 write('06-projektdateien/remotion-plan.md', `# Remotion-Plan — ${YOUTUBE_MOTION_STANDARD_ID}\n\n- Ausgabe: 1920 × 1080, 16:9, 30 fps\n- Viewer Change zuerst; Technik danach.\n- Motion World: finanzneo-youtube-light-motion-v2. Die Animation bleibt hell, sauber und 2D. Unterschiedliche Designs sind erlaubt, aber keine dunklen Welten, kein Full-3D und keine großen generischen Szenenüberschriften. Die aktuelle Mechanik/Visual-Bibliothek liegt unter src/youtube-motion/light-v3/.
 Wähle pro Szene frei zwischen Vergleich, Chart, Tabelle, Icons, Dokument, Timeline, Prozess, Flow-Diagramm, Route, abstrakter 2D-Geometrie oder einer anderen hellen Custom-Lösung.\n- Erlaubt: Custom React, SVG, Canvas, Masks, clip-path, Paths, Shapes, Motion Blur, Effects, Lottie als Support, Datenvisualisierung, Bild+Motion-Hybrid und neue sinnvolle Kombinationen.\n- Composition Families sind freie Beschreibungen, keine erlaubte Endmenge.\n- Neue kanonische Light-2D-Bibliothek: src/youtube-motion/light-v3/. Dort sind Mechanik/Core von Visual-Komponenten getrennt.\n- Bestehende FinanzNeo-Komponenten sind optionale Werkzeuge, keine Pflichtvorlagen.\n- Pro Motion-Visual: viewerChange + animationIntent + mechanicId + visualTechniqueId + techniqueDescription + toolStack + motionSignature + mindestens eine klare erklärende Bewegung + Start/Result-Beats.\n- Anti-Fake-Variation: neuer Name allein reicht nicht; Kamera + Layout + Transformation werden gegen die letzten vier Motion-Visuals geprüft.\n- Wiederholung bleibt erlaubt, wenn sie für den Inhalt wirklich die beste Lösung ist und mit repeatTechniqueReason begründet wird.\n- Schnitte und finale Dauern folgen dem finalen Voiceover.\n`);
 write('06-projektdateien/PHASENSTATUS.md', `# Phasenstatus\n\n- [ ] Phase 1 vollständig und ohne Platzhalter\n- [ ] \`npm run youtube:animation:validate -- ${targetArg}\` erfolgreich\n- [ ] \`npm run youtube:phase1:seal -- ${targetArg}\` erfolgreich\n- [ ] Phase 2: alle exakten 16:9-Bilder, ein finales Voiceover und echte Wort-Timings vorhanden\n- [ ] Phase 3: \`npm run youtube:ready -- ${targetArg}\` erfolgreich; Produktion und QA abgeschlossen\n`);
@@ -254,7 +264,8 @@ write('04-visuals/visual-index.json', `${JSON.stringify({
   userCreatesImages:true,
   antigravityGeneratesImages:false,
   googleFlow:{protocolId:YOUTUBE_FLOW_PROTOCOL_ID,generationMode:'parallel-batches',batchSize:YOUTUBE_FLOW_BATCH_SIZE,oneJobPerImage:true,strictSequential:false,waitForBatch:true,renameImmediately:true,qaBeforeNextBatch:true,germanTextOnly:true,retrySameImageOnFailure:true,referenceImagesAllowed:true,continuationReferenceRequiredWhenDeclared:true,referenceMustUseApprovedPriorImage:true,finalCollectionDirectory:`${IMAGE_INBOX}/`,distributeToVisualFolders:false},
-  imageWorld:{id:WORLD_ID,seriesLockId:SERIES_LOCK_ID,authority:'docs/FINANZNEO-IMAGE-WORLD.md',generatedImageAspectRatio:GENERATED_IMAGE_ASPECT_RATIO,horizontalGeneratedImagesRequired:true,referencePromptFile:'04-visuals/bildwelt.txt',promptLanguage:'en',primaryStyle:'clean-editorial-finance-illustration',flexibleBackgrounds:true,fixedBlackBackgroundForbidden:true,fixed3DRenderingForbidden:true,twoDAllowed:true,subtleTwoPointFiveDAllowed:true,selectiveSimple3DAllowed:true,firstGlanceUnderstandingRequired:true,oneCoreIdeaPerImageRequired:true,progressiveSequencesAllowed:true,approvedPriorImageReferenceAllowed:true,genericHeadlineByDefault:false,aiSlopAvoidanceRequired:true},
+  qualityRules:YOUTUBE_QUALITY_RULES_ID,
+  imageWorld:{styleMaster:YOUTUBE_STYLE_MASTER,illustrationOnly:true,id:WORLD_ID,seriesLockId:SERIES_LOCK_ID,authority:'docs/FINANZNEO-IMAGE-WORLD.md',generatedImageAspectRatio:GENERATED_IMAGE_ASPECT_RATIO,horizontalGeneratedImagesRequired:true,referencePromptFile:'04-visuals/bildwelt.txt',promptLanguage:'en',primaryStyle:'clean-editorial-finance-illustration',flexibleBackgrounds:true,fixedBlackBackgroundForbidden:true,fixed3DRenderingForbidden:true,twoDAllowed:true,subtleTwoPointFiveDAllowed:true,selectiveSimple3DAllowed:true,firstGlanceUnderstandingRequired:true,oneCoreIdeaPerImageRequired:true,progressiveSequencesAllowed:true,approvedPriorImageReferenceAllowed:true,genericHeadlineByDefault:false,aiSlopAvoidanceRequired:true},
   motionStandard:{id:YOUTUBE_MOTION_STANDARD_ID,visualMotionWorld:'finanzneo-youtube-light-motion-v2',visualTargetWorld:'finanzneo-youtube-light-motion-v2',minimumMotionPreferred:false,motionDensityStoryDriven:true,cameraStillDefault:true,cameraStoryDriven:false,staticImageStyleCopyRequired:false,youtubeNativeCompositionRequired:true,conceptCandidatesRequired:3,keyframeQaRequired:true,keyframeQaPercentages:[10,35,65,90],fixed3DStyleForbidden:true,fixedArtDirectionForbidden:false,flexibleBackgrounds:true,darkBackgroundAllowed:false,blackBackgroundAllowed:false,full3DAllowed:false,simpleComparisonAllowed:true,chartAllowed:true,sceneArtDirectionOpen:false,mixedStyleAcrossScenesAllowed:true,brandStyleMatchRequired:false,lightBackgroundRequired:true,flat2DPreferred:true,genericSceneHeadlinesForbidden:true,viewerChangeFirstRequired:true,contentFirstTechniqueSelection:true,openTechniqueSelection:true,compositionFamiliesAreExamplesOnly:true,motionSignatureRequired:true,recentMotionWindow:4,customReactAllowed:true,svgAllowed:true,css3dAllowed:false,canvasAllowed:true,threeAllowed:false,hybridAllowed:true,dataVisualizationAllowed:true,existingComponentsOptional:true,physicalPrimitivesOptional:true,semanticVariationRequired:false},
   timelineRules:{timingSource:'03-audio/word-timings.json',cutsFollowVoiceAndChapters:true,equalLengthVisualsForbiddenByDefault:true,beatFirst:true},
   audio:{targetIntegratedLufs:-16,targetTruePeakDbtp:-1},
