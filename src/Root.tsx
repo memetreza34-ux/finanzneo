@@ -2,6 +2,7 @@ import React from 'react';
 import {ProductionCompositions} from './root/ProductionCompositions';
 import {ExperimentCompositions} from './root/ExperimentCompositions';
 import {ShowcaseCompositions} from './root/ShowcaseCompositions';
+import {YouTubeCompositions} from './root/YouTubeCompositions';
 
 /**
  * Zentrale Remotion-Registry.
@@ -17,5 +18,6 @@ export const RemotionRoot: React.FC = () => (
     <ProductionCompositions />
     <ExperimentCompositions />
     <ShowcaseCompositions />
+    <YouTubeCompositions />
   </>
 );

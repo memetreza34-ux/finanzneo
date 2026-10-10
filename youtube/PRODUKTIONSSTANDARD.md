@@ -177,7 +177,8 @@ Jedes Bild wird einzeln erzeugt, vollständig abgewartet, exakt umbenannt und ge
 - echte Wort-Zeitstempel aus genau diesem Audio
 - Schnitte folgen Sprache, Visual Beats, Kapiteln und Payoffs
 - keine pauschal gleich langen Visuals
-- Untertitel satzweise; aktives Wort grün, Rest weiß
+- **keine eingebrannten Untertitel** im YouTube-Video (Arman, 10.10.2026); Wort-Zeitstempel steuern nur Schnitte und Animationsstufen
+- `youtube:zusammenbau` legt `05-publishing/untertitel.srt` als optionale, zuschaltbare YouTube-Untertitelspur ab; `--untertitel` brennt sie nur auf ausdrücklichen Wunsch ein
 - Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP
 
 ## Vollständiges Publishing-Paket

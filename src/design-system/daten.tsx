@@ -48,6 +48,8 @@ export const DATEN = {
   rand: 160,
   /** Mindestgröße für Text, der auf dem Handy noch lesbar sein muss. */
   minText: 28,
+  /** Unterhalb davon liegen im fertigen YouTube-Video die Untertitel — dort kein Inhalt. */
+  sicherUnten: 860,
 } as const;
 
 /** Textfarbe zu einer Flächenfarbe: helle Neutralflächen bekommen lesbares Grau. */
@@ -122,7 +124,8 @@ export const Text: React.FC<{
 export const Quelle: React.FC<{children: React.ReactNode; ab?: number}> = ({children, ab = 0}) => {
   const frame = useCurrentFrame();
   return (
-    <div style={{position: 'absolute', left: DATEN.rand, bottom: 52, fontSize: 24, fontWeight: 600, color: DATEN.leise, ...einblenden(frame, ab)}}>
+    // Oben links: unten liegen im fertigen Video die Untertitel.
+    <div style={{position: 'absolute', left: DATEN.rand, top: 40, fontSize: 24, fontWeight: 600, color: DATEN.leise, ...einblenden(frame, ab)}}>
       {children}
     </div>
   );

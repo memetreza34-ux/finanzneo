@@ -69,3 +69,10 @@ npm-debug.log*
 # Editor
 .vscode/
 .idea/
+
+# YouTube: lokale Medienkopien und Rohmaterial (groß, regenerierbar)
+public/youtube/
+youtube/**/03-audio/*.wav
+youtube/**/03-audio/quelle/
+youtube/**/04-visuals/_verworfen/
+youtube/**/04-visuals/_flow-download/

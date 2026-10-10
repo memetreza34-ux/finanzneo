@@ -1,0 +1,6384 @@
+{
+  "version": "finanzneo-caption-v1",
+  "language": "de",
+  "source": "03-audio/voiceover.wav",
+  "generatedAt": "2026-10-09T17:06:39.154Z",
+  "duration": 224.982,
+  "wordCount": 577,
+  "fps": 30,
+  "subtitleMode": "sentence-with-audio-synced-active-word",
+  "activeWordColor": "finance-green",
+  "alignment": {
+    "method": "script-text-with-whisper-anchors",
+    "anchoredShare": 0.889
+  },
+  "words": [
+    {
+      "word": "Neun",
+      "start": 0,
+      "end": 1.66
+    },
+    {
+      "word": "Euro",
+      "start": 1.66,
+      "end": 1.66
+    },
+    {
+      "word": "neunundneunzig",
+      "start": 1.66,
+      "end": 1.66
+    },
+    {
+      "word": "im",
+      "start": 1.66,
+      "end": 1.86
+    },
+    {
+      "word": "Monat.",
+      "start": 1.86,
+      "end": 2.76
+    },
+    {
+      "word": "Klingt",
+      "start": 2.9,
+      "end": 3.18
+    },
+    {
+      "word": "nach",
+      "start": 3.18,
+      "end": 3.38
+    },
+    {
+      "word": "nichts.",
+      "start": 3.38,
+      "end": 3.7
+    },
+    {
+      "word": "Aber",
+      "start": 4.4,
+      "end": 4.54
+    },
+    {
+      "word": "du",
+      "start": 4.54,
+      "end": 4.78
+    },
+    {
+      "word": "zahlst",
+      "start": 4.78,
+      "end": 5.04
+    },
+    {
+      "word": "es",
+      "start": 5.04,
+      "end": 5.12
+    },
+    {
+      "word": "nicht",
+      "start": 5.12,
+      "end": 5.36
+    },
+    {
+      "word": "einmal.",
+      "start": 5.36,
+      "end": 5.76
+    },
+    {
+      "word": "Du",
+      "start": 5.88,
+      "end": 6.08
+    },
+    {
+      "word": "zahlst",
+      "start": 6.08,
+      "end": 6.44
+    },
+    {
+      "word": "es",
+      "start": 6.44,
+      "end": 6.78
+    },
+    {
+      "word": "zwölfmal.",
+      "start": 6.78,
+      "end": 7.46
+    },
+    {
+      "word": "Das",
+      "start": 7.9,
+      "end": 8.04
+    },
+    {
+      "word": "sind",
+      "start": 8.04,
+      "end": 8.26
+    },
+    {
+      "word": "hundertneunzehn",
+      "start": 8.26,
+      "end": 10.26
+    },
+    {
+      "word": "Euro",
+      "start": 10.26,
+      "end": 10.28
+    },
+    {
+      "word": "und",
+      "start": 10.28,
+      "end": 10.28
+    },
+    {
+      "word": "achtundachtzig",
+      "start": 10.28,
+      "end": 10.28
+    },
+    {
+      "word": "Cent",
+      "start": 10.28,
+      "end": 10.28
+    },
+    {
+      "word": "im",
+      "start": 10.28,
+      "end": 10.64
+    },
+    {
+      "word": "Jahr.",
+      "start": 10.64,
+      "end": 11.74
+    },
+    {
+      "word": "Für",
+      "start": 11.74,
+      "end": 12.06
+    },
+    {
+      "word": "ein",
+      "start": 12.06,
+      "end": 12.3
+    },
+    {
+      "word": "einziges",
+      "start": 12.3,
+      "end": 12.68
+    },
+    {
+      "word": "Abo.",
+      "start": 12.68,
+      "end": 12.9
+    },
+    {
+      "word": "Und",
+      "start": 13.8,
+      "end": 13.98
+    },
+    {
+      "word": "kaum",
+      "start": 13.98,
+      "end": 14.12
+    },
+    {
+      "word": "jemand",
+      "start": 14.12,
+      "end": 14.34
+    },
+    {
+      "word": "hat",
+      "start": 14.34,
+      "end": 14.5
+    },
+    {
+      "word": "nur",
+      "start": 14.5,
+      "end": 14.68
+    },
+    {
+      "word": "eins.",
+      "start": 14.68,
+      "end": 15
+    },
+    {
+      "word": "Laut",
+      "start": 16.02,
+      "end": 16.3
+    },
+    {
+      "word": "der",
+      "start": 16.3,
+      "end": 16.54
+    },
+    {
+      "word": "aktuellen",
+      "start": 16.54,
+      "end": 17.04
+    },
+    {
+      "word": "Submix-Studie",
+      "start": 17.04,
+      "end": 17.52
+    },
+    {
+      "word": "von",
+      "start": 17.92,
+      "end": 18.08
+    },
+    {
+      "word": "BearingPoint",
+      "start": 18.08,
+      "end": 18.74
+    },
+    {
+      "word": "zahlt",
+      "start": 18.74,
+      "end": 19.06
+    },
+    {
+      "word": "ein",
+      "start": 19.06,
+      "end": 19.22
+    },
+    {
+      "word": "Haushalt",
+      "start": 19.22,
+      "end": 19.66
+    },
+    {
+      "word": "mit",
+      "start": 19.66,
+      "end": 19.78
+    },
+    {
+      "word": "Digital-Abos",
+      "start": 19.78,
+      "end": 20.28
+    },
+    {
+      "word": "im",
+      "start": 20.48,
+      "end": 20.68
+    },
+    {
+      "word": "Schnitt",
+      "start": 20.68,
+      "end": 21.04
+    },
+    {
+      "word": "zweiundsechzig",
+      "start": 21.04,
+      "end": 21.74
+    },
+    {
+      "word": "Euro",
+      "start": 21.74,
+      "end": 22.14
+    },
+    {
+      "word": "im",
+      "start": 22.14,
+      "end": 22.26
+    },
+    {
+      "word": "Monat.",
+      "start": 22.26,
+      "end": 22.76
+    },
+    {
+      "word": "Ein",
+      "start": 23.04,
+      "end": 23.1
+    },
+    {
+      "word": "Jahr",
+      "start": 23.1,
+      "end": 23.28
+    },
+    {
+      "word": "vorher",
+      "start": 23.28,
+      "end": 23.54
+    },
+    {
+      "word": "waren",
+      "start": 23.54,
+      "end": 23.74
+    },
+    {
+      "word": "es",
+      "start": 23.74,
+      "end": 23.86
+    },
+    {
+      "word": "noch",
+      "start": 23.86,
+      "end": 24.04
+    },
+    {
+      "word": "fünfundfünfzig.",
+      "start": 24.04,
+      "end": 25.128
+    },
+    {
+      "word": "Zweiundsechzig",
+      "start": 25.128,
+      "end": 26.08
+    },
+    {
+      "word": "Euro",
+      "start": 26.08,
+      "end": 26.42
+    },
+    {
+      "word": "im",
+      "start": 26.42,
+      "end": 26.56
+    },
+    {
+      "word": "Monat",
+      "start": 26.56,
+      "end": 26.92
+    },
+    {
+      "word": "sind",
+      "start": 26.92,
+      "end": 27.34
+    },
+    {
+      "word": "siebenhundertvierundvierzig",
+      "start": 27.34,
+      "end": 28.7
+    },
+    {
+      "word": "Euro",
+      "start": 28.7,
+      "end": 29.14
+    },
+    {
+      "word": "im",
+      "start": 29.14,
+      "end": 29.32
+    },
+    {
+      "word": "Jahr.",
+      "start": 29.32,
+      "end": 29.58
+    },
+    {
+      "word": "Und",
+      "start": 30.18,
+      "end": 30.3
+    },
+    {
+      "word": "fast",
+      "start": 30.3,
+      "end": 30.44
+    },
+    {
+      "word": "jeder",
+      "start": 30.44,
+      "end": 30.68
+    },
+    {
+      "word": "fünfte",
+      "start": 30.68,
+      "end": 31.08
+    },
+    {
+      "word": "Haushalt",
+      "start": 31.08,
+      "end": 31.86
+    },
+    {
+      "word": "zahlt",
+      "start": 31.86,
+      "end": 32.16
+    },
+    {
+      "word": "sogar",
+      "start": 32.16,
+      "end": 32.4
+    },
+    {
+      "word": "mehr",
+      "start": 32.4,
+      "end": 32.52
+    },
+    {
+      "word": "als",
+      "start": 32.52,
+      "end": 32.76
+    },
+    {
+      "word": "hundert",
+      "start": 32.76,
+      "end": 33.12
+    },
+    {
+      "word": "Euro",
+      "start": 33.12,
+      "end": 33.42
+    },
+    {
+      "word": "im",
+      "start": 33.42,
+      "end": 33.58
+    },
+    {
+      "word": "Monat.",
+      "start": 33.58,
+      "end": 34.72
+    },
+    {
+      "word": "Das",
+      "start": 35.34,
+      "end": 35.54
+    },
+    {
+      "word": "Problem",
+      "start": 35.54,
+      "end": 35.76
+    },
+    {
+      "word": "ist",
+      "start": 35.76,
+      "end": 35.92
+    },
+    {
+      "word": "nicht",
+      "start": 35.92,
+      "end": 36.1
+    },
+    {
+      "word": "ein",
+      "start": 36.1,
+      "end": 36.32
+    },
+    {
+      "word": "einzelnes",
+      "start": 36.32,
+      "end": 36.9
+    },
+    {
+      "word": "Abo.",
+      "start": 36.9,
+      "end": 37.16
+    },
+    {
+      "word": "Das",
+      "start": 38.06,
+      "end": 38.26
+    },
+    {
+      "word": "Problem",
+      "start": 38.26,
+      "end": 38.58
+    },
+    {
+      "word": "ist:",
+      "start": 38.58,
+      "end": 39
+    },
+    {
+      "word": "Du",
+      "start": 39.24,
+      "end": 39.46
+    },
+    {
+      "word": "siehst",
+      "start": 39.46,
+      "end": 39.86
+    },
+    {
+      "word": "die",
+      "start": 39.86,
+      "end": 40.08
+    },
+    {
+      "word": "Summe",
+      "start": 40.08,
+      "end": 40.28
+    },
+    {
+      "word": "nie.",
+      "start": 40.28,
+      "end": 40.68
+    },
+    {
+      "word": "Jede",
+      "start": 41.28,
+      "end": 41.44
+    },
+    {
+      "word": "Abbuchung",
+      "start": 41.44,
+      "end": 41.9
+    },
+    {
+      "word": "kommt",
+      "start": 41.9,
+      "end": 42.1
+    },
+    {
+      "word": "allein.",
+      "start": 42.1,
+      "end": 42.62
+    },
+    {
+      "word": "Klein.",
+      "start": 43.22,
+      "end": 43.58
+    },
+    {
+      "word": "Unauffällig.",
+      "start": 44.38,
+      "end": 45.02
+    },
+    {
+      "word": "Abo-Fallen",
+      "start": 45.02,
+      "end": 45.98
+    },
+    {
+      "word": "funktionieren",
+      "start": 45.98,
+      "end": 46.6
+    },
+    {
+      "word": "fast",
+      "start": 46.6,
+      "end": 46.94
+    },
+    {
+      "word": "immer",
+      "start": 46.94,
+      "end": 47.14
+    },
+    {
+      "word": "mit",
+      "start": 47.14,
+      "end": 47.4
+    },
+    {
+      "word": "denselben",
+      "start": 47.4,
+      "end": 47.72
+    },
+    {
+      "word": "drei",
+      "start": 47.72,
+      "end": 47.98
+    },
+    {
+      "word": "Tricks.",
+      "start": 47.98,
+      "end": 48.54
+    },
+    {
+      "word": "Trick",
+      "start": 48.88,
+      "end": 49.02
+    },
+    {
+      "word": "eins:",
+      "start": 49.02,
+      "end": 49.98
+    },
+    {
+      "word": "gratis",
+      "start": 49.98,
+      "end": 50.38
+    },
+    {
+      "word": "zum",
+      "start": 50.38,
+      "end": 50.58
+    },
+    {
+      "word": "Start.",
+      "start": 50.58,
+      "end": 50.9
+    },
+    {
+      "word": "Du",
+      "start": 50.9,
+      "end": 51.54
+    },
+    {
+      "word": "testest",
+      "start": 51.54,
+      "end": 52.04
+    },
+    {
+      "word": "dreißig",
+      "start": 52.04,
+      "end": 52.48
+    },
+    {
+      "word": "Tage",
+      "start": 52.48,
+      "end": 52.8
+    },
+    {
+      "word": "kostenlos",
+      "start": 52.8,
+      "end": 53.46
+    },
+    {
+      "word": "und",
+      "start": 53.46,
+      "end": 53.8
+    },
+    {
+      "word": "gibst",
+      "start": 53.8,
+      "end": 54.06
+    },
+    {
+      "word": "dafür",
+      "start": 54.06,
+      "end": 54.3
+    },
+    {
+      "word": "nur",
+      "start": 54.3,
+      "end": 54.6
+    },
+    {
+      "word": "kurz",
+      "start": 54.6,
+      "end": 54.86
+    },
+    {
+      "word": "deine",
+      "start": 54.86,
+      "end": 55.08
+    },
+    {
+      "word": "Zahlungsdaten",
+      "start": 55.08,
+      "end": 55.8
+    },
+    {
+      "word": "ein.",
+      "start": 55.8,
+      "end": 56.26
+    },
+    {
+      "word": "Am",
+      "start": 56.8,
+      "end": 56.96
+    },
+    {
+      "word": "Tag",
+      "start": 56.96,
+      "end": 57.3
+    },
+    {
+      "word": "einunddreißig",
+      "start": 57.3,
+      "end": 58.14
+    },
+    {
+      "word": "läuft",
+      "start": 58.14,
+      "end": 58.4
+    },
+    {
+      "word": "das",
+      "start": 58.4,
+      "end": 58.66
+    },
+    {
+      "word": "Abo",
+      "start": 58.66,
+      "end": 58.88
+    },
+    {
+      "word": "einfach",
+      "start": 58.88,
+      "end": 59.18
+    },
+    {
+      "word": "weiter.",
+      "start": 59.18,
+      "end": 59.58
+    },
+    {
+      "word": "Ab",
+      "start": 59.98,
+      "end": 60.16
+    },
+    {
+      "word": "jetzt",
+      "start": 60.16,
+      "end": 60.42
+    },
+    {
+      "word": "jeden",
+      "start": 60.42,
+      "end": 60.62
+    },
+    {
+      "word": "Monat",
+      "start": 60.62,
+      "end": 61.02
+    },
+    {
+      "word": "zwölf",
+      "start": 61.02,
+      "end": 61.98
+    },
+    {
+      "word": "Euro",
+      "start": 61.98,
+      "end": 62.4
+    },
+    {
+      "word": "neunundneunzig.",
+      "start": 62.4,
+      "end": 63.08
+    },
+    {
+      "word": "Trick",
+      "start": 63.08,
+      "end": 63.2
+    },
+    {
+      "word": "zwei:",
+      "start": 63.2,
+      "end": 64
+    },
+    {
+      "word": "der",
+      "start": 64,
+      "end": 64.24
+    },
+    {
+      "word": "kleine",
+      "start": 64.24,
+      "end": 64.68
+    },
+    {
+      "word": "Monatspreis.",
+      "start": 64.68,
+      "end": 65.76
+    },
+    {
+      "word": "Vier",
+      "start": 65.76,
+      "end": 66.94
+    },
+    {
+      "word": "Euro",
+      "start": 66.94,
+      "end": 67.12
+    },
+    {
+      "word": "neunundneunzig",
+      "start": 67.12,
+      "end": 67.12
+    },
+    {
+      "word": "fühlen",
+      "start": 67.12,
+      "end": 67.4
+    },
+    {
+      "word": "sich",
+      "start": 67.4,
+      "end": 67.58
+    },
+    {
+      "word": "harmlos",
+      "start": 67.58,
+      "end": 68.08
+    },
+    {
+      "word": "an.",
+      "start": 68.08,
+      "end": 68.36
+    },
+    {
+      "word": "Niemand",
+      "start": 68.74,
+      "end": 69.12
+    },
+    {
+      "word": "würde",
+      "start": 69.12,
+      "end": 69.34
+    },
+    {
+      "word": "für",
+      "start": 69.34,
+      "end": 69.56
+    },
+    {
+      "word": "eine",
+      "start": 69.56,
+      "end": 69.76
+    },
+    {
+      "word": "App",
+      "start": 69.76,
+      "end": 70.06
+    },
+    {
+      "word": "sechzig",
+      "start": 70.06,
+      "end": 70.68
+    },
+    {
+      "word": "Euro",
+      "start": 70.68,
+      "end": 71.02
+    },
+    {
+      "word": "auf",
+      "start": 71.02,
+      "end": 71.22
+    },
+    {
+      "word": "einmal",
+      "start": 71.22,
+      "end": 71.46
+    },
+    {
+      "word": "bezahlen.",
+      "start": 71.46,
+      "end": 71.96
+    },
+    {
+      "word": "Aber",
+      "start": 72.3,
+      "end": 72.62
+    },
+    {
+      "word": "genau",
+      "start": 72.62,
+      "end": 72.94
+    },
+    {
+      "word": "das",
+      "start": 72.94,
+      "end": 73.26
+    },
+    {
+      "word": "zahlst",
+      "start": 73.26,
+      "end": 73.66
+    },
+    {
+      "word": "du",
+      "start": 73.66,
+      "end": 73.76
+    },
+    {
+      "word": "in",
+      "start": 73.76,
+      "end": 74.02
+    },
+    {
+      "word": "einem",
+      "start": 74.02,
+      "end": 74.22
+    },
+    {
+      "word": "Jahr.",
+      "start": 74.22,
+      "end": 74.58
+    },
+    {
+      "word": "Trick",
+      "start": 75.42,
+      "end": 75.62
+    },
+    {
+      "word": "drei:",
+      "start": 75.62,
+      "end": 76.74
+    },
+    {
+      "word": "Abschließen",
+      "start": 76.74,
+      "end": 77.08
+    },
+    {
+      "word": "ist",
+      "start": 77.08,
+      "end": 77.36
+    },
+    {
+      "word": "leicht,",
+      "start": 77.36,
+      "end": 77.72
+    },
+    {
+      "word": "Kündigen",
+      "start": 78.18,
+      "end": 78.66
+    },
+    {
+      "word": "ist",
+      "start": 78.66,
+      "end": 79.14
+    },
+    {
+      "word": "schwer.",
+      "start": 79.14,
+      "end": 79.56
+    },
+    {
+      "word": "Abschließen",
+      "start": 80.5,
+      "end": 80.98
+    },
+    {
+      "word": "geht",
+      "start": 80.98,
+      "end": 81.12
+    },
+    {
+      "word": "mit",
+      "start": 81.12,
+      "end": 81.3
+    },
+    {
+      "word": "einem",
+      "start": 81.3,
+      "end": 81.58
+    },
+    {
+      "word": "Klick.",
+      "start": 81.58,
+      "end": 82.04
+    },
+    {
+      "word": "Zum",
+      "start": 82.18,
+      "end": 82.38
+    },
+    {
+      "word": "Kündigen",
+      "start": 82.38,
+      "end": 82.92
+    },
+    {
+      "word": "suchst",
+      "start": 82.92,
+      "end": 83.22
+    },
+    {
+      "word": "du",
+      "start": 83.22,
+      "end": 83.36
+    },
+    {
+      "word": "Menüs,",
+      "start": 83.36,
+      "end": 83.88
+    },
+    {
+      "word": "Formulare",
+      "start": 84.12,
+      "end": 84.56
+    },
+    {
+      "word": "und",
+      "start": 84.56,
+      "end": 84.78
+    },
+    {
+      "word": "Hotlines.",
+      "start": 84.78,
+      "end": 85.26
+    },
+    {
+      "word": "Und",
+      "start": 85.82,
+      "end": 85.98
+    },
+    {
+      "word": "ein",
+      "start": 85.98,
+      "end": 86.22
+    },
+    {
+      "word": "Klassiker",
+      "start": 86.22,
+      "end": 86.54
+    },
+    {
+      "word": "obendrauf:",
+      "start": 86.54,
+      "end": 87.3
+    },
+    {
+      "word": "Du",
+      "start": 87.44,
+      "end": 87.66
+    },
+    {
+      "word": "löschst",
+      "start": 87.66,
+      "end": 88
+    },
+    {
+      "word": "die",
+      "start": 88,
+      "end": 88.1
+    },
+    {
+      "word": "App",
+      "start": 88.1,
+      "end": 88.34
+    },
+    {
+      "word": "und",
+      "start": 88.34,
+      "end": 88.76
+    },
+    {
+      "word": "denkst,",
+      "start": 88.76,
+      "end": 89.08
+    },
+    {
+      "word": "das",
+      "start": 89.18,
+      "end": 89.26
+    },
+    {
+      "word": "Abo",
+      "start": 89.26,
+      "end": 89.4
+    },
+    {
+      "word": "ist",
+      "start": 89.4,
+      "end": 89.58
+    },
+    {
+      "word": "weg.",
+      "start": 89.58,
+      "end": 89.88
+    },
+    {
+      "word": "Ist",
+      "start": 90.28,
+      "end": 90.44
+    },
+    {
+      "word": "es",
+      "start": 90.44,
+      "end": 90.62
+    },
+    {
+      "word": "nicht.",
+      "start": 90.62,
+      "end": 90.86
+    },
+    {
+      "word": "Ein",
+      "start": 91.38,
+      "end": 91.66
+    },
+    {
+      "word": "Abo",
+      "start": 91.66,
+      "end": 91.88
+    },
+    {
+      "word": "über",
+      "start": 91.88,
+      "end": 92.08
+    },
+    {
+      "word": "den",
+      "start": 92.08,
+      "end": 92.22
+    },
+    {
+      "word": "App",
+      "start": 92.22,
+      "end": 92.44
+    },
+    {
+      "word": "Store",
+      "start": 92.44,
+      "end": 92.7
+    },
+    {
+      "word": "oder",
+      "start": 92.7,
+      "end": 92.92
+    },
+    {
+      "word": "Google",
+      "start": 92.92,
+      "end": 93.22
+    },
+    {
+      "word": "Play",
+      "start": 93.22,
+      "end": 93.44
+    },
+    {
+      "word": "läuft",
+      "start": 93.44,
+      "end": 93.68
+    },
+    {
+      "word": "weiter,",
+      "start": 93.68,
+      "end": 94.18
+    },
+    {
+      "word": "auch",
+      "start": 94.38,
+      "end": 94.62
+    },
+    {
+      "word": "wenn",
+      "start": 94.62,
+      "end": 94.74
+    },
+    {
+      "word": "die",
+      "start": 94.74,
+      "end": 94.88
+    },
+    {
+      "word": "App",
+      "start": 94.88,
+      "end": 95.12
+    },
+    {
+      "word": "längst",
+      "start": 95.12,
+      "end": 95.46
+    },
+    {
+      "word": "gelöscht",
+      "start": 95.46,
+      "end": 95.8
+    },
+    {
+      "word": "ist.",
+      "start": 95.8,
+      "end": 96
+    },
+    {
+      "word": "Die",
+      "start": 97.06,
+      "end": 97.16
+    },
+    {
+      "word": "gute",
+      "start": 97.16,
+      "end": 97.4
+    },
+    {
+      "word": "Nachricht:",
+      "start": 97.4,
+      "end": 97.88
+    },
+    {
+      "word": "Das",
+      "start": 98.24,
+      "end": 98.44
+    },
+    {
+      "word": "Gesetz",
+      "start": 98.44,
+      "end": 98.84
+    },
+    {
+      "word": "hat",
+      "start": 98.84,
+      "end": 99
+    },
+    {
+      "word": "in",
+      "start": 99,
+      "end": 99.16
+    },
+    {
+      "word": "den",
+      "start": 99.16,
+      "end": 99.28
+    },
+    {
+      "word": "letzten",
+      "start": 99.28,
+      "end": 99.54
+    },
+    {
+      "word": "Jahren",
+      "start": 99.54,
+      "end": 99.78
+    },
+    {
+      "word": "viel",
+      "start": 99.78,
+      "end": 100.06
+    },
+    {
+      "word": "für",
+      "start": 100.06,
+      "end": 100.22
+    },
+    {
+      "word": "dich",
+      "start": 100.22,
+      "end": 100.36
+    },
+    {
+      "word": "getan.",
+      "start": 100.36,
+      "end": 100.64
+    },
+    {
+      "word": "Früher",
+      "start": 101.28,
+      "end": 101.52
+    },
+    {
+      "word": "hat",
+      "start": 101.52,
+      "end": 101.68
+    },
+    {
+      "word": "sich",
+      "start": 101.68,
+      "end": 101.84
+    },
+    {
+      "word": "ein",
+      "start": 101.84,
+      "end": 102.02
+    },
+    {
+      "word": "Vertrag",
+      "start": 102.02,
+      "end": 102.4
+    },
+    {
+      "word": "nach",
+      "start": 102.4,
+      "end": 102.62
+    },
+    {
+      "word": "zwei",
+      "start": 102.62,
+      "end": 102.92
+    },
+    {
+      "word": "Jahren",
+      "start": 102.92,
+      "end": 103.22
+    },
+    {
+      "word": "oft",
+      "start": 103.22,
+      "end": 103.46
+    },
+    {
+      "word": "einfach",
+      "start": 103.46,
+      "end": 103.84
+    },
+    {
+      "word": "um",
+      "start": 103.84,
+      "end": 104.06
+    },
+    {
+      "word": "ein",
+      "start": 104.06,
+      "end": 104.28
+    },
+    {
+      "word": "ganzes",
+      "start": 104.28,
+      "end": 104.86
+    },
+    {
+      "word": "weiteres",
+      "start": 104.86,
+      "end": 105.2
+    },
+    {
+      "word": "Jahr",
+      "start": 105.2,
+      "end": 105.38
+    },
+    {
+      "word": "verlängert.",
+      "start": 105.38,
+      "end": 105.94
+    },
+    {
+      "word": "Für",
+      "start": 105.94,
+      "end": 106.58
+    },
+    {
+      "word": "Verträge",
+      "start": 106.58,
+      "end": 107.1
+    },
+    {
+      "word": "ab",
+      "start": 107.1,
+      "end": 107.42
+    },
+    {
+      "word": "dem",
+      "start": 107.42,
+      "end": 107.64
+    },
+    {
+      "word": "ersten",
+      "start": 107.64,
+      "end": 107.9
+    },
+    {
+      "word": "März",
+      "start": 107.9,
+      "end": 108.32
+    },
+    {
+      "word": "zweitausendzweiundzwanzig",
+      "start": 108.32,
+      "end": 109.32
+    },
+    {
+      "word": "geht",
+      "start": 109.32,
+      "end": 109.54
+    },
+    {
+      "word": "das",
+      "start": 109.54,
+      "end": 109.74
+    },
+    {
+      "word": "in",
+      "start": 109.74,
+      "end": 109.86
+    },
+    {
+      "word": "den",
+      "start": 109.86,
+      "end": 110.04
+    },
+    {
+      "word": "meisten",
+      "start": 110.04,
+      "end": 110.28
+    },
+    {
+      "word": "Fällen",
+      "start": 110.28,
+      "end": 110.54
+    },
+    {
+      "word": "nicht",
+      "start": 110.54,
+      "end": 110.84
+    },
+    {
+      "word": "mehr.",
+      "start": 110.84,
+      "end": 111.16
+    },
+    {
+      "word": "Nach",
+      "start": 111.62,
+      "end": 111.8
+    },
+    {
+      "word": "der",
+      "start": 111.8,
+      "end": 112.06
+    },
+    {
+      "word": "Mindestlaufzeit",
+      "start": 112.06,
+      "end": 113.08
+    },
+    {
+      "word": "läuft",
+      "start": 113.08,
+      "end": 113.3
+    },
+    {
+      "word": "der",
+      "start": 113.3,
+      "end": 113.52
+    },
+    {
+      "word": "Vertrag",
+      "start": 113.52,
+      "end": 113.86
+    },
+    {
+      "word": "nur",
+      "start": 113.86,
+      "end": 114.02
+    },
+    {
+      "word": "noch",
+      "start": 114.02,
+      "end": 114.3
+    },
+    {
+      "word": "unbefristet",
+      "start": 114.3,
+      "end": 114.86
+    },
+    {
+      "word": "weiter.",
+      "start": 114.86,
+      "end": 115.26
+    },
+    {
+      "word": "Und",
+      "start": 115.6,
+      "end": 115.64
+    },
+    {
+      "word": "du",
+      "start": 115.64,
+      "end": 115.78
+    },
+    {
+      "word": "kannst",
+      "start": 115.78,
+      "end": 116.06
+    },
+    {
+      "word": "jederzeit",
+      "start": 116.06,
+      "end": 116.66
+    },
+    {
+      "word": "mit",
+      "start": 116.66,
+      "end": 116.84
+    },
+    {
+      "word": "einem",
+      "start": 116.84,
+      "end": 117.14
+    },
+    {
+      "word": "Monat",
+      "start": 117.14,
+      "end": 117.7
+    },
+    {
+      "word": "Frist",
+      "start": 117.7,
+      "end": 117.7
+    },
+    {
+      "word": "kündigen.",
+      "start": 117.7,
+      "end": 118.66
+    },
+    {
+      "word": "Außerdem",
+      "start": 119.46,
+      "end": 119.82
+    },
+    {
+      "word": "muss",
+      "start": 119.82,
+      "end": 120.08
+    },
+    {
+      "word": "jeder,",
+      "start": 120.08,
+      "end": 120.4
+    },
+    {
+      "word": "der",
+      "start": 120.5,
+      "end": 120.6
+    },
+    {
+      "word": "Abos",
+      "start": 120.6,
+      "end": 120.8
+    },
+    {
+      "word": "online",
+      "start": 120.8,
+      "end": 121.16
+    },
+    {
+      "word": "verkauft,",
+      "start": 121.16,
+      "end": 121.64
+    },
+    {
+      "word": "einen",
+      "start": 121.82,
+      "end": 122
+    },
+    {
+      "word": "Kündigungsbutton",
+      "start": 122,
+      "end": 122.82
+    },
+    {
+      "word": "anbieten.",
+      "start": 122.82,
+      "end": 123.44
+    },
+    {
+      "word": "Gut",
+      "start": 123.64,
+      "end": 123.84
+    },
+    {
+      "word": "sichtbar,",
+      "start": 123.84,
+      "end": 124.48
+    },
+    {
+      "word": "mit",
+      "start": 124.48,
+      "end": 124.66
+    },
+    {
+      "word": "der",
+      "start": 124.66,
+      "end": 124.78
+    },
+    {
+      "word": "Aufschrift:",
+      "start": 124.78,
+      "end": 125.28
+    },
+    {
+      "word": "Verträge",
+      "start": 125.28,
+      "end": 126
+    },
+    {
+      "word": "hier",
+      "start": 126,
+      "end": 126.36
+    },
+    {
+      "word": "kündigen.",
+      "start": 126.36,
+      "end": 127
+    },
+    {
+      "word": "Fehlt",
+      "start": 127.6,
+      "end": 127.88
+    },
+    {
+      "word": "dieser",
+      "start": 127.88,
+      "end": 128.1
+    },
+    {
+      "word": "Button,",
+      "start": 128.1,
+      "end": 128.44
+    },
+    {
+      "word": "darfst",
+      "start": 128.74,
+      "end": 128.92
+    },
+    {
+      "word": "du",
+      "start": 128.92,
+      "end": 128.96
+    },
+    {
+      "word": "sogar",
+      "start": 128.96,
+      "end": 129.24
+    },
+    {
+      "word": "fristlos",
+      "start": 129.24,
+      "end": 129.62
+    },
+    {
+      "word": "kündigen.",
+      "start": 129.62,
+      "end": 130.36
+    },
+    {
+      "word": "Und",
+      "start": 131.16,
+      "end": 131.36
+    },
+    {
+      "word": "seit",
+      "start": 131.36,
+      "end": 131.56
+    },
+    {
+      "word": "Juni",
+      "start": 131.56,
+      "end": 131.94
+    },
+    {
+      "word": "zweitausendsechsundzwanzig",
+      "start": 131.94,
+      "end": 132.94
+    },
+    {
+      "word": "gibt",
+      "start": 132.94,
+      "end": 133.14
+    },
+    {
+      "word": "es",
+      "start": 133.14,
+      "end": 133.36
+    },
+    {
+      "word": "zusätzlich",
+      "start": 133.36,
+      "end": 133.88
+    },
+    {
+      "word": "den",
+      "start": 133.88,
+      "end": 134.12
+    },
+    {
+      "word": "Widerrufsbutton.",
+      "start": 134.12,
+      "end": 135.38
+    },
+    {
+      "word": "Viele",
+      "start": 135.38,
+      "end": 135.94
+    },
+    {
+      "word": "Online-Verträge",
+      "start": 135.94,
+      "end": 136.28
+    },
+    {
+      "word": "kannst",
+      "start": 136.72,
+      "end": 136.96
+    },
+    {
+      "word": "du",
+      "start": 136.96,
+      "end": 137.1
+    },
+    {
+      "word": "damit",
+      "start": 137.1,
+      "end": 137.38
+    },
+    {
+      "word": "in",
+      "start": 137.38,
+      "end": 137.56
+    },
+    {
+      "word": "den",
+      "start": 137.56,
+      "end": 137.68
+    },
+    {
+      "word": "ersten",
+      "start": 137.68,
+      "end": 138
+    },
+    {
+      "word": "vierzehn",
+      "start": 138,
+      "end": 138.42
+    },
+    {
+      "word": "Tagen",
+      "start": 138.42,
+      "end": 138.86
+    },
+    {
+      "word": "per",
+      "start": 138.86,
+      "end": 139.26
+    },
+    {
+      "word": "Klick",
+      "start": 139.26,
+      "end": 139.62
+    },
+    {
+      "word": "widerrufen.",
+      "start": 139.62,
+      "end": 141.06
+    },
+    {
+      "word": "Jetzt",
+      "start": 141.58,
+      "end": 141.82
+    },
+    {
+      "word": "der",
+      "start": 141.82,
+      "end": 142
+    },
+    {
+      "word": "wichtigste",
+      "start": 142,
+      "end": 142.38
+    },
+    {
+      "word": "Teil.",
+      "start": 142.38,
+      "end": 142.78
+    },
+    {
+      "word": "Nimm",
+      "start": 143.44,
+      "end": 143.6
+    },
+    {
+      "word": "dir",
+      "start": 143.6,
+      "end": 143.78
+    },
+    {
+      "word": "einmal",
+      "start": 143.78,
+      "end": 144.2
+    },
+    {
+      "word": "fünfzehn",
+      "start": 144.2,
+      "end": 144.62
+    },
+    {
+      "word": "Minuten",
+      "start": 144.62,
+      "end": 145.1
+    },
+    {
+      "word": "und",
+      "start": 145.1,
+      "end": 145.34
+    },
+    {
+      "word": "schau",
+      "start": 145.34,
+      "end": 145.54
+    },
+    {
+      "word": "an",
+      "start": 145.54,
+      "end": 145.76
+    },
+    {
+      "word": "drei",
+      "start": 145.76,
+      "end": 146.1
+    },
+    {
+      "word": "Stellen",
+      "start": 146.1,
+      "end": 146.38
+    },
+    {
+      "word": "nach.",
+      "start": 146.38,
+      "end": 147.14
+    },
+    {
+      "word": "Stelle",
+      "start": 147.42,
+      "end": 147.58
+    },
+    {
+      "word": "eins:",
+      "start": 147.58,
+      "end": 148.36
+    },
+    {
+      "word": "dein",
+      "start": 148.36,
+      "end": 148.52
+    },
+    {
+      "word": "Kontoauszug.",
+      "start": 148.52,
+      "end": 149.42
+    },
+    {
+      "word": "Geh",
+      "start": 149.98,
+      "end": 150.08
+    },
+    {
+      "word": "die",
+      "start": 150.08,
+      "end": 150.18
+    },
+    {
+      "word": "letzten",
+      "start": 150.18,
+      "end": 150.6
+    },
+    {
+      "word": "zwölf",
+      "start": 150.6,
+      "end": 150.9
+    },
+    {
+      "word": "Monate",
+      "start": 150.9,
+      "end": 151.24
+    },
+    {
+      "word": "durch",
+      "start": 151.24,
+      "end": 151.6
+    },
+    {
+      "word": "und",
+      "start": 151.6,
+      "end": 151.76
+    },
+    {
+      "word": "such",
+      "start": 151.76,
+      "end": 151.92
+    },
+    {
+      "word": "nach",
+      "start": 151.92,
+      "end": 152.14
+    },
+    {
+      "word": "Beträgen,",
+      "start": 152.14,
+      "end": 152.72
+    },
+    {
+      "word": "die",
+      "start": 152.8,
+      "end": 152.9
+    },
+    {
+      "word": "jeden",
+      "start": 152.9,
+      "end": 153.14
+    },
+    {
+      "word": "Monat",
+      "start": 153.14,
+      "end": 153.5
+    },
+    {
+      "word": "gleich",
+      "start": 153.5,
+      "end": 153.68
+    },
+    {
+      "word": "wiederkommen.",
+      "start": 153.68,
+      "end": 154.18
+    },
+    {
+      "word": "Stelle",
+      "start": 154.92,
+      "end": 155.06
+    },
+    {
+      "word": "zwei:",
+      "start": 155.06,
+      "end": 155.92
+    },
+    {
+      "word": "dein",
+      "start": 155.92,
+      "end": 156.02
+    },
+    {
+      "word": "Handy.",
+      "start": 156.02,
+      "end": 156.38
+    },
+    {
+      "word": "Auf",
+      "start": 157.16,
+      "end": 157.3
+    },
+    {
+      "word": "dem",
+      "start": 157.3,
+      "end": 157.38
+    },
+    {
+      "word": "iPhone",
+      "start": 157.38,
+      "end": 157.74
+    },
+    {
+      "word": "findest",
+      "start": 157.74,
+      "end": 158.06
+    },
+    {
+      "word": "du",
+      "start": 158.06,
+      "end": 158.2
+    },
+    {
+      "word": "alle",
+      "start": 158.2,
+      "end": 158.42
+    },
+    {
+      "word": "Abos",
+      "start": 158.42,
+      "end": 158.78
+    },
+    {
+      "word": "unter",
+      "start": 158.78,
+      "end": 159.12
+    },
+    {
+      "word": "Einstellungen,",
+      "start": 159.12,
+      "end": 159.92
+    },
+    {
+      "word": "dein",
+      "start": 160.12,
+      "end": 160.32
+    },
+    {
+      "word": "Name,",
+      "start": 160.32,
+      "end": 160.68
+    },
+    {
+      "word": "Abonnements.",
+      "start": 161.14,
+      "end": 161.7
+    },
+    {
+      "word": "Bei",
+      "start": 162.15,
+      "end": 162.46
+    },
+    {
+      "word": "Android",
+      "start": 162.46,
+      "end": 162.9
+    },
+    {
+      "word": "im",
+      "start": 162.9,
+      "end": 163.14
+    },
+    {
+      "word": "Play",
+      "start": 163.14,
+      "end": 163.34
+    },
+    {
+      "word": "Store",
+      "start": 163.34,
+      "end": 163.54
+    },
+    {
+      "word": "unter",
+      "start": 163.54,
+      "end": 163.9
+    },
+    {
+      "word": "Profil,",
+      "start": 163.9,
+      "end": 164.72
+    },
+    {
+      "word": "Zahlungen",
+      "start": 164.88,
+      "end": 165.26
+    },
+    {
+      "word": "und",
+      "start": 165.26,
+      "end": 165.46
+    },
+    {
+      "word": "Abos.",
+      "start": 165.46,
+      "end": 166.4
+    },
+    {
+      "word": "Stelle",
+      "start": 166.92,
+      "end": 166.98
+    },
+    {
+      "word": "drei:",
+      "start": 166.98,
+      "end": 167.8
+    },
+    {
+      "word": "PayPal.",
+      "start": 167.8,
+      "end": 168.42
+    },
+    {
+      "word": "Dort",
+      "start": 168.78,
+      "end": 168.94
+    },
+    {
+      "word": "heißen",
+      "start": 168.94,
+      "end": 169.18
+    },
+    {
+      "word": "sie",
+      "start": 169.18,
+      "end": 169.62
+    },
+    {
+      "word": "automatische",
+      "start": 169.62,
+      "end": 170.4
+    },
+    {
+      "word": "Zahlungen.",
+      "start": 170.4,
+      "end": 171.02
+    },
+    {
+      "word": "Viele",
+      "start": 171.54,
+      "end": 171.78
+    },
+    {
+      "word": "Abos",
+      "start": 171.78,
+      "end": 172.08
+    },
+    {
+      "word": "laufen",
+      "start": 172.08,
+      "end": 172.36
+    },
+    {
+      "word": "genau",
+      "start": 172.36,
+      "end": 172.74
+    },
+    {
+      "word": "darüber",
+      "start": 172.74,
+      "end": 173.2
+    },
+    {
+      "word": "und",
+      "start": 173.2,
+      "end": 173.44
+    },
+    {
+      "word": "tauchen",
+      "start": 173.44,
+      "end": 173.68
+    },
+    {
+      "word": "im",
+      "start": 173.68,
+      "end": 173.86
+    },
+    {
+      "word": "Kontoauszug",
+      "start": 173.86,
+      "end": 174.5
+    },
+    {
+      "word": "nur",
+      "start": 174.5,
+      "end": 174.7
+    },
+    {
+      "word": "als",
+      "start": 174.7,
+      "end": 174.94
+    },
+    {
+      "word": "PayPal",
+      "start": 174.94,
+      "end": 175.36
+    },
+    {
+      "word": "auf.",
+      "start": 175.36,
+      "end": 175.74
+    },
+    {
+      "word": "Schreib",
+      "start": 176.62,
+      "end": 176.96
+    },
+    {
+      "word": "jedes",
+      "start": 176.96,
+      "end": 177.38
+    },
+    {
+      "word": "Abo",
+      "start": 177.38,
+      "end": 177.74
+    },
+    {
+      "word": "auf",
+      "start": 177.74,
+      "end": 178.16
+    },
+    {
+      "word": "und",
+      "start": 178.16,
+      "end": 178.54
+    },
+    {
+      "word": "rechne",
+      "start": 178.54,
+      "end": 178.8
+    },
+    {
+      "word": "den",
+      "start": 178.8,
+      "end": 178.96
+    },
+    {
+      "word": "Preis",
+      "start": 178.96,
+      "end": 179.2
+    },
+    {
+      "word": "mal",
+      "start": 179.2,
+      "end": 179.4
+    },
+    {
+      "word": "zwölf.",
+      "start": 179.4,
+      "end": 180.16
+    },
+    {
+      "word": "Dann",
+      "start": 180.16,
+      "end": 180.52
+    },
+    {
+      "word": "frag",
+      "start": 180.52,
+      "end": 180.8
+    },
+    {
+      "word": "dich",
+      "start": 180.8,
+      "end": 180.92
+    },
+    {
+      "word": "bei",
+      "start": 180.92,
+      "end": 181.16
+    },
+    {
+      "word": "jedem",
+      "start": 181.16,
+      "end": 181.4
+    },
+    {
+      "word": "einzelnen:",
+      "start": 181.4,
+      "end": 182.2
+    },
+    {
+      "word": "Würde",
+      "start": 182.64,
+      "end": 182.78
+    },
+    {
+      "word": "ich",
+      "start": 182.78,
+      "end": 183.06
+    },
+    {
+      "word": "diesen",
+      "start": 183.06,
+      "end": 183.26
+    },
+    {
+      "word": "Jahresbetrag",
+      "start": 183.26,
+      "end": 184.06
+    },
+    {
+      "word": "heute",
+      "start": 184.06,
+      "end": 184.36
+    },
+    {
+      "word": "noch",
+      "start": 184.36,
+      "end": 184.54
+    },
+    {
+      "word": "einmal",
+      "start": 184.54,
+      "end": 184.74
+    },
+    {
+      "word": "bezahlen?",
+      "start": 184.74,
+      "end": 185.16
+    },
+    {
+      "word": "Alles,",
+      "start": 186.04,
+      "end": 186.2
+    },
+    {
+      "word": "wo",
+      "start": 186.2,
+      "end": 186.34
+    },
+    {
+      "word": "du",
+      "start": 186.34,
+      "end": 186.48
+    },
+    {
+      "word": "zögerst,",
+      "start": 186.48,
+      "end": 187.16
+    },
+    {
+      "word": "kündigst",
+      "start": 187.3,
+      "end": 187.62
+    },
+    {
+      "word": "du.",
+      "start": 187.62,
+      "end": 188.02
+    },
+    {
+      "word": "Direkt.",
+      "start": 188.56,
+      "end": 189.18
+    },
+    {
+      "word": "Und",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "wenn",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "schon",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "Geld",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "abgebucht",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "wurde,",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "das",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "du",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "nicht",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "wolltest?",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "Eine",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "Lastschrift",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "kannst",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "du",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "innerhalb",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "von",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "acht",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "Wochen",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "bei",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "deiner",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "Bank",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "zurückholen,",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "ohne",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "Begründung.",
+      "start": 189.18,
+      "end": 189.18
+    },
+    {
+      "word": "Aber",
+      "start": 189.18,
+      "end": 189.74
+    },
+    {
+      "word": "Achtung:",
+      "start": 189.74,
+      "end": 190.4
+    },
+    {
+      "word": "Damit",
+      "start": 190.54,
+      "end": 190.68
+    },
+    {
+      "word": "holst",
+      "start": 190.68,
+      "end": 190.96
+    },
+    {
+      "word": "du",
+      "start": 190.96,
+      "end": 191.04
+    },
+    {
+      "word": "nur",
+      "start": 191.04,
+      "end": 191.14
+    },
+    {
+      "word": "das",
+      "start": 191.14,
+      "end": 191.3
+    },
+    {
+      "word": "Geld",
+      "start": 191.3,
+      "end": 191.52
+    },
+    {
+      "word": "zurück.",
+      "start": 191.52,
+      "end": 191.96
+    },
+    {
+      "word": "Gekündigt",
+      "start": 192.22,
+      "end": 192.68
+    },
+    {
+      "word": "ist",
+      "start": 192.68,
+      "end": 192.82
+    },
+    {
+      "word": "das",
+      "start": 192.82,
+      "end": 193
+    },
+    {
+      "word": "Abo",
+      "start": 193,
+      "end": 193.16
+    },
+    {
+      "word": "damit",
+      "start": 193.16,
+      "end": 193.38
+    },
+    {
+      "word": "nicht.",
+      "start": 193.38,
+      "end": 193.86
+    },
+    {
+      "word": "Das",
+      "start": 194.04,
+      "end": 194.2
+    },
+    {
+      "word": "musst",
+      "start": 194.2,
+      "end": 194.34
+    },
+    {
+      "word": "du",
+      "start": 194.34,
+      "end": 194.4
+    },
+    {
+      "word": "trotzdem",
+      "start": 194.4,
+      "end": 194.76
+    },
+    {
+      "word": "tun.",
+      "start": 194.76,
+      "end": 194.98
+    },
+    {
+      "word": "Und",
+      "start": 196.14,
+      "end": 196.32
+    },
+    {
+      "word": "für",
+      "start": 196.32,
+      "end": 196.52
+    },
+    {
+      "word": "dein",
+      "start": 196.52,
+      "end": 196.62
+    },
+    {
+      "word": "Handy:",
+      "start": 196.62,
+      "end": 197.26
+    },
+    {
+      "word": "Richte",
+      "start": 197.84,
+      "end": 197.94
+    },
+    {
+      "word": "bei",
+      "start": 197.94,
+      "end": 198.16
+    },
+    {
+      "word": "deinem",
+      "start": 198.16,
+      "end": 198.44
+    },
+    {
+      "word": "Mobilfunkanbieter",
+      "start": 198.44,
+      "end": 199.48
+    },
+    {
+      "word": "eine",
+      "start": 199.48,
+      "end": 199.76
+    },
+    {
+      "word": "Drittanbietersperre",
+      "start": 199.76,
+      "end": 200.8
+    },
+    {
+      "word": "ein.",
+      "start": 200.8,
+      "end": 201.04
+    },
+    {
+      "word": "Die",
+      "start": 201.4,
+      "end": 201.54
+    },
+    {
+      "word": "ist",
+      "start": 201.54,
+      "end": 201.7
+    },
+    {
+      "word": "kostenlos.",
+      "start": 201.7,
+      "end": 202.22
+    },
+    {
+      "word": "Dann",
+      "start": 202.68,
+      "end": 202.8
+    },
+    {
+      "word": "kann",
+      "start": 202.8,
+      "end": 203
+    },
+    {
+      "word": "niemand",
+      "start": 203,
+      "end": 203.28
+    },
+    {
+      "word": "mehr",
+      "start": 203.28,
+      "end": 203.46
+    },
+    {
+      "word": "ein",
+      "start": 203.46,
+      "end": 203.58
+    },
+    {
+      "word": "Abo",
+      "start": 203.58,
+      "end": 203.86
+    },
+    {
+      "word": "einfach",
+      "start": 203.86,
+      "end": 204.14
+    },
+    {
+      "word": "über",
+      "start": 204.14,
+      "end": 204.32
+    },
+    {
+      "word": "deine",
+      "start": 204.32,
+      "end": 204.54
+    },
+    {
+      "word": "Handyrechnung",
+      "start": 204.54,
+      "end": 205.1
+    },
+    {
+      "word": "abrechnen.",
+      "start": 205.1,
+      "end": 205.82
+    },
+    {
+      "word": "Ein",
+      "start": 206.2,
+      "end": 206.32
+    },
+    {
+      "word": "Abo",
+      "start": 206.32,
+      "end": 206.66
+    },
+    {
+      "word": "kostet",
+      "start": 206.66,
+      "end": 207.14
+    },
+    {
+      "word": "nie",
+      "start": 207.14,
+      "end": 207.38
+    },
+    {
+      "word": "nur",
+      "start": 207.38,
+      "end": 207.6
+    },
+    {
+      "word": "den",
+      "start": 207.6,
+      "end": 207.8
+    },
+    {
+      "word": "Monatspreis.",
+      "start": 207.8,
+      "end": 208.62
+    },
+    {
+      "word": "Es",
+      "start": 208.78,
+      "end": 208.92
+    },
+    {
+      "word": "kostet",
+      "start": 208.92,
+      "end": 209.28
+    },
+    {
+      "word": "den",
+      "start": 209.28,
+      "end": 209.46
+    },
+    {
+      "word": "Monatspreis",
+      "start": 209.46,
+      "end": 210.14
+    },
+    {
+      "word": "mal",
+      "start": 210.14,
+      "end": 210.36
+    },
+    {
+      "word": "zwölf.",
+      "start": 210.36,
+      "end": 211.16
+    },
+    {
+      "word": "Jedes",
+      "start": 211.16,
+      "end": 211.5
+    },
+    {
+      "word": "Jahr,",
+      "start": 211.5,
+      "end": 211.74
+    },
+    {
+      "word": "bis",
+      "start": 211.9,
+      "end": 211.92
+    },
+    {
+      "word": "du",
+      "start": 211.92,
+      "end": 212.08
+    },
+    {
+      "word": "kündigst.",
+      "start": 212.08,
+      "end": 212.78
+    },
+    {
+      "word": "Wenn",
+      "start": 213.52,
+      "end": 213.64
+    },
+    {
+      "word": "du",
+      "start": 213.64,
+      "end": 213.78
+    },
+    {
+      "word": "nach",
+      "start": 213.78,
+      "end": 213.96
+    },
+    {
+      "word": "dem",
+      "start": 213.96,
+      "end": 214.16
+    },
+    {
+      "word": "Check",
+      "start": 214.16,
+      "end": 214.32
+    },
+    {
+      "word": "nur",
+      "start": 214.32,
+      "end": 214.68
+    },
+    {
+      "word": "zwei",
+      "start": 214.68,
+      "end": 214.94
+    },
+    {
+      "word": "Abos",
+      "start": 214.94,
+      "end": 215.72
+    },
+    {
+      "word": "zu",
+      "start": 215.72,
+      "end": 215.98
+    },
+    {
+      "word": "je",
+      "start": 215.98,
+      "end": 216.18
+    },
+    {
+      "word": "neun",
+      "start": 216.18,
+      "end": 217.12
+    },
+    {
+      "word": "Euro",
+      "start": 217.12,
+      "end": 217.16
+    },
+    {
+      "word": "neunundneunzig",
+      "start": 217.16,
+      "end": 217.16
+    },
+    {
+      "word": "kündigst,",
+      "start": 217.16,
+      "end": 217.88
+    },
+    {
+      "word": "bleiben",
+      "start": 217.88,
+      "end": 218.2
+    },
+    {
+      "word": "dir",
+      "start": 218.2,
+      "end": 218.32
+    },
+    {
+      "word": "rund",
+      "start": 218.32,
+      "end": 218.64
+    },
+    {
+      "word": "zweihundertvierzig",
+      "start": 218.64,
+      "end": 219.3
+    },
+    {
+      "word": "Euro",
+      "start": 219.3,
+      "end": 219.6
+    },
+    {
+      "word": "im",
+      "start": 219.6,
+      "end": 219.76
+    },
+    {
+      "word": "Jahr.",
+      "start": 219.76,
+      "end": 220.32
+    },
+    {
+      "word": "Schreib",
+      "start": 221.38,
+      "end": 221.5
+    },
+    {
+      "word": "mir",
+      "start": 221.5,
+      "end": 221.62
+    },
+    {
+      "word": "in",
+      "start": 221.62,
+      "end": 221.7
+    },
+    {
+      "word": "die",
+      "start": 221.7,
+      "end": 221.88
+    },
+    {
+      "word": "Kommentare,",
+      "start": 221.88,
+      "end": 222.22
+    },
+    {
+      "word": "wie",
+      "start": 222.36,
+      "end": 222.44
+    },
+    {
+      "word": "viele",
+      "start": 222.44,
+      "end": 222.6
+    },
+    {
+      "word": "Abos",
+      "start": 222.6,
+      "end": 222.82
+    },
+    {
+      "word": "du",
+      "start": 222.82,
+      "end": 222.96
+    },
+    {
+      "word": "gefunden",
+      "start": 222.96,
+      "end": 223.26
+    },
+    {
+      "word": "hast.",
+      "start": 223.26,
+      "end": 223.56
+    },
+    {
+      "word": "Ich",
+      "start": 224.06,
+      "end": 224.16
+    },
+    {
+      "word": "bin",
+      "start": 224.16,
+      "end": 224.32
+    },
+    {
+      "word": "gespannt.",
+      "start": 224.32,
+      "end": 224.6
+    }
+  ],
+  "sentences": [
+    {
+      "text": "Neun Euro neunundneunzig im Monat.",
+      "start": 0,
+      "end": 2.76,
+      "words": [
+        {
+          "word": "Neun",
+          "start": 0,
+          "end": 1.66
+        },
+        {
+          "word": "Euro",
+          "start": 1.66,
+          "end": 1.66
+        },
+        {
+          "word": "neunundneunzig",
+          "start": 1.66,
+          "end": 1.66
+        },
+        {
+          "word": "im",
+          "start": 1.66,
+          "end": 1.86
+        },
+        {
+          "word": "Monat.",
+          "start": 1.86,
+          "end": 2.76
+        }
+      ]
+    },
+    {
+      "text": "Klingt nach nichts.",
+      "start": 2.9,
+      "end": 3.7,
+      "words": [
+        {
+          "word": "Klingt",
+          "start": 2.9,
+          "end": 3.18
+        },
+        {
+          "word": "nach",
+          "start": 3.18,
+          "end": 3.38
+        },
+        {
+          "word": "nichts.",
+          "start": 3.38,
+          "end": 3.7
+        }
+      ]
+    },
+    {
+      "text": "Aber du zahlst es nicht einmal.",
+      "start": 4.4,
+      "end": 5.76,
+      "words": [
+        {
+          "word": "Aber",
+          "start": 4.4,
+          "end": 4.54
+        },
+        {
+          "word": "du",
+          "start": 4.54,
+          "end": 4.78
+        },
+        {
+          "word": "zahlst",
+          "start": 4.78,
+          "end": 5.04
+        },
+        {
+          "word": "es",
+          "start": 5.04,
+          "end": 5.12
+        },
+        {
+          "word": "nicht",
+          "start": 5.12,
+          "end": 5.36
+        },
+        {
+          "word": "einmal.",
+          "start": 5.36,
+          "end": 5.76
+        }
+      ]
+    },
+    {
+      "text": "Du zahlst es zwölfmal.",
+      "start": 5.88,
+      "end": 7.46,
+      "words": [
+        {
+          "word": "Du",
+          "start": 5.88,
+          "end": 6.08
+        },
+        {
+          "word": "zahlst",
+          "start": 6.08,
+          "end": 6.44
+        },
+        {
+          "word": "es",
+          "start": 6.44,
+          "end": 6.78
+        },
+        {
+          "word": "zwölfmal.",
+          "start": 6.78,
+          "end": 7.46
+        }
+      ]
+    },
+    {
+      "text": "Das sind hundertneunzehn Euro und achtundachtzig Cent im Jahr.",
+      "start": 7.9,
+      "end": 11.74,
+      "words": [
+        {
+          "word": "Das",
+          "start": 7.9,
+          "end": 8.04
+        },
+        {
+          "word": "sind",
+          "start": 8.04,
+          "end": 8.26
+        },
+        {
+          "word": "hundertneunzehn",
+          "start": 8.26,
+          "end": 10.26
+        },
+        {
+          "word": "Euro",
+          "start": 10.26,
+          "end": 10.28
+        },
+        {
+          "word": "und",
+          "start": 10.28,
+          "end": 10.28
+        },
+        {
+          "word": "achtundachtzig",
+          "start": 10.28,
+          "end": 10.28
+        },
+        {
+          "word": "Cent",
+          "start": 10.28,
+          "end": 10.28
+        },
+        {
+          "word": "im",
+          "start": 10.28,
+          "end": 10.64
+        },
+        {
+          "word": "Jahr.",
+          "start": 10.64,
+          "end": 11.74
+        }
+      ]
+    },
+    {
+      "text": "Für ein einziges Abo.",
+      "start": 11.74,
+      "end": 12.9,
+      "words": [
+        {
+          "word": "Für",
+          "start": 11.74,
+          "end": 12.06
+        },
+        {
+          "word": "ein",
+          "start": 12.06,
+          "end": 12.3
+        },
+        {
+          "word": "einziges",
+          "start": 12.3,
+          "end": 12.68
+        },
+        {
+          "word": "Abo.",
+          "start": 12.68,
+          "end": 12.9
+        }
+      ]
+    },
+    {
+      "text": "Und kaum jemand hat nur eins.",
+      "start": 13.8,
+      "end": 15,
+      "words": [
+        {
+          "word": "Und",
+          "start": 13.8,
+          "end": 13.98
+        },
+        {
+          "word": "kaum",
+          "start": 13.98,
+          "end": 14.12
+        },
+        {
+          "word": "jemand",
+          "start": 14.12,
+          "end": 14.34
+        },
+        {
+          "word": "hat",
+          "start": 14.34,
+          "end": 14.5
+        },
+        {
+          "word": "nur",
+          "start": 14.5,
+          "end": 14.68
+        },
+        {
+          "word": "eins.",
+          "start": 14.68,
+          "end": 15
+        }
+      ]
+    },
+    {
+      "text": "Laut der aktuellen Submix-Studie von BearingPoint zahlt ein Haushalt",
+      "start": 16.02,
+      "end": 19.66,
+      "words": [
+        {
+          "word": "Laut",
+          "start": 16.02,
+          "end": 16.3
+        },
+        {
+          "word": "der",
+          "start": 16.3,
+          "end": 16.54
+        },
+        {
+          "word": "aktuellen",
+          "start": 16.54,
+          "end": 17.04
+        },
+        {
+          "word": "Submix-Studie",
+          "start": 17.04,
+          "end": 17.52
+        },
+        {
+          "word": "von",
+          "start": 17.92,
+          "end": 18.08
+        },
+        {
+          "word": "BearingPoint",
+          "start": 18.08,
+          "end": 18.74
+        },
+        {
+          "word": "zahlt",
+          "start": 18.74,
+          "end": 19.06
+        },
+        {
+          "word": "ein",
+          "start": 19.06,
+          "end": 19.22
+        },
+        {
+          "word": "Haushalt",
+          "start": 19.22,
+          "end": 19.66
+        }
+      ]
+    },
+    {
+      "text": "mit Digital-Abos im Schnitt zweiundsechzig Euro im Monat.",
+      "start": 19.66,
+      "end": 22.76,
+      "words": [
+        {
+          "word": "mit",
+          "start": 19.66,
+          "end": 19.78
+        },
+        {
+          "word": "Digital-Abos",
+          "start": 19.78,
+          "end": 20.28
+        },
+        {
+          "word": "im",
+          "start": 20.48,
+          "end": 20.68
+        },
+        {
+          "word": "Schnitt",
+          "start": 20.68,
+          "end": 21.04
+        },
+        {
+          "word": "zweiundsechzig",
+          "start": 21.04,
+          "end": 21.74
+        },
+        {
+          "word": "Euro",
+          "start": 21.74,
+          "end": 22.14
+        },
+        {
+          "word": "im",
+          "start": 22.14,
+          "end": 22.26
+        },
+        {
+          "word": "Monat.",
+          "start": 22.26,
+          "end": 22.76
+        }
+      ]
+    },
+    {
+      "text": "Ein Jahr vorher waren es noch fünfundfünfzig.",
+      "start": 23.04,
+      "end": 25.128,
+      "words": [
+        {
+          "word": "Ein",
+          "start": 23.04,
+          "end": 23.1
+        },
+        {
+          "word": "Jahr",
+          "start": 23.1,
+          "end": 23.28
+        },
+        {
+          "word": "vorher",
+          "start": 23.28,
+          "end": 23.54
+        },
+        {
+          "word": "waren",
+          "start": 23.54,
+          "end": 23.74
+        },
+        {
+          "word": "es",
+          "start": 23.74,
+          "end": 23.86
+        },
+        {
+          "word": "noch",
+          "start": 23.86,
+          "end": 24.04
+        },
+        {
+          "word": "fünfundfünfzig.",
+          "start": 24.04,
+          "end": 25.128
+        }
+      ]
+    },
+    {
+      "text": "Zweiundsechzig Euro im Monat sind siebenhundertvierundvierzig Euro im Jahr.",
+      "start": 25.128,
+      "end": 29.58,
+      "words": [
+        {
+          "word": "Zweiundsechzig",
+          "start": 25.128,
+          "end": 26.08
+        },
+        {
+          "word": "Euro",
+          "start": 26.08,
+          "end": 26.42
+        },
+        {
+          "word": "im",
+          "start": 26.42,
+          "end": 26.56
+        },
+        {
+          "word": "Monat",
+          "start": 26.56,
+          "end": 26.92
+        },
+        {
+          "word": "sind",
+          "start": 26.92,
+          "end": 27.34
+        },
+        {
+          "word": "siebenhundertvierundvierzig",
+          "start": 27.34,
+          "end": 28.7
+        },
+        {
+          "word": "Euro",
+          "start": 28.7,
+          "end": 29.14
+        },
+        {
+          "word": "im",
+          "start": 29.14,
+          "end": 29.32
+        },
+        {
+          "word": "Jahr.",
+          "start": 29.32,
+          "end": 29.58
+        }
+      ]
+    },
+    {
+      "text": "Und fast jeder fünfte Haushalt zahlt sogar",
+      "start": 30.18,
+      "end": 32.4,
+      "words": [
+        {
+          "word": "Und",
+          "start": 30.18,
+          "end": 30.3
+        },
+        {
+          "word": "fast",
+          "start": 30.3,
+          "end": 30.44
+        },
+        {
+          "word": "jeder",
+          "start": 30.44,
+          "end": 30.68
+        },
+        {
+          "word": "fünfte",
+          "start": 30.68,
+          "end": 31.08
+        },
+        {
+          "word": "Haushalt",
+          "start": 31.08,
+          "end": 31.86
+        },
+        {
+          "word": "zahlt",
+          "start": 31.86,
+          "end": 32.16
+        },
+        {
+          "word": "sogar",
+          "start": 32.16,
+          "end": 32.4
+        }
+      ]
+    },
+    {
+      "text": "mehr als hundert Euro im Monat.",
+      "start": 32.4,
+      "end": 34.72,
+      "words": [
+        {
+          "word": "mehr",
+          "start": 32.4,
+          "end": 32.52
+        },
+        {
+          "word": "als",
+          "start": 32.52,
+          "end": 32.76
+        },
+        {
+          "word": "hundert",
+          "start": 32.76,
+          "end": 33.12
+        },
+        {
+          "word": "Euro",
+          "start": 33.12,
+          "end": 33.42
+        },
+        {
+          "word": "im",
+          "start": 33.42,
+          "end": 33.58
+        },
+        {
+          "word": "Monat.",
+          "start": 33.58,
+          "end": 34.72
+        }
+      ]
+    },
+    {
+      "text": "Das Problem ist nicht ein einzelnes Abo.",
+      "start": 35.34,
+      "end": 37.16,
+      "words": [
+        {
+          "word": "Das",
+          "start": 35.34,
+          "end": 35.54
+        },
+        {
+          "word": "Problem",
+          "start": 35.54,
+          "end": 35.76
+        },
+        {
+          "word": "ist",
+          "start": 35.76,
+          "end": 35.92
+        },
+        {
+          "word": "nicht",
+          "start": 35.92,
+          "end": 36.1
+        },
+        {
+          "word": "ein",
+          "start": 36.1,
+          "end": 36.32
+        },
+        {
+          "word": "einzelnes",
+          "start": 36.32,
+          "end": 36.9
+        },
+        {
+          "word": "Abo.",
+          "start": 36.9,
+          "end": 37.16
+        }
+      ]
+    },
+    {
+      "text": "Das Problem ist: Du siehst die Summe nie.",
+      "start": 38.06,
+      "end": 40.68,
+      "words": [
+        {
+          "word": "Das",
+          "start": 38.06,
+          "end": 38.26
+        },
+        {
+          "word": "Problem",
+          "start": 38.26,
+          "end": 38.58
+        },
+        {
+          "word": "ist:",
+          "start": 38.58,
+          "end": 39
+        },
+        {
+          "word": "Du",
+          "start": 39.24,
+          "end": 39.46
+        },
+        {
+          "word": "siehst",
+          "start": 39.46,
+          "end": 39.86
+        },
+        {
+          "word": "die",
+          "start": 39.86,
+          "end": 40.08
+        },
+        {
+          "word": "Summe",
+          "start": 40.08,
+          "end": 40.28
+        },
+        {
+          "word": "nie.",
+          "start": 40.28,
+          "end": 40.68
+        }
+      ]
+    },
+    {
+      "text": "Jede Abbuchung kommt allein.",
+      "start": 41.28,
+      "end": 42.62,
+      "words": [
+        {
+          "word": "Jede",
+          "start": 41.28,
+          "end": 41.44
+        },
+        {
+          "word": "Abbuchung",
+          "start": 41.44,
+          "end": 41.9
+        },
+        {
+          "word": "kommt",
+          "start": 41.9,
+          "end": 42.1
+        },
+        {
+          "word": "allein.",
+          "start": 42.1,
+          "end": 42.62
+        }
+      ]
+    },
+    {
+      "text": "Klein.",
+      "start": 43.22,
+      "end": 43.58,
+      "words": [
+        {
+          "word": "Klein.",
+          "start": 43.22,
+          "end": 43.58
+        }
+      ]
+    },
+    {
+      "text": "Unauffällig.",
+      "start": 44.38,
+      "end": 45.02,
+      "words": [
+        {
+          "word": "Unauffällig.",
+          "start": 44.38,
+          "end": 45.02
+        }
+      ]
+    },
+    {
+      "text": "Abo-Fallen funktionieren fast immer mit denselben drei Tricks.",
+      "start": 45.02,
+      "end": 48.54,
+      "words": [
+        {
+          "word": "Abo-Fallen",
+          "start": 45.02,
+          "end": 45.98
+        },
+        {
+          "word": "funktionieren",
+          "start": 45.98,
+          "end": 46.6
+        },
+        {
+          "word": "fast",
+          "start": 46.6,
+          "end": 46.94
+        },
+        {
+          "word": "immer",
+          "start": 46.94,
+          "end": 47.14
+        },
+        {
+          "word": "mit",
+          "start": 47.14,
+          "end": 47.4
+        },
+        {
+          "word": "denselben",
+          "start": 47.4,
+          "end": 47.72
+        },
+        {
+          "word": "drei",
+          "start": 47.72,
+          "end": 47.98
+        },
+        {
+          "word": "Tricks.",
+          "start": 47.98,
+          "end": 48.54
+        }
+      ]
+    },
+    {
+      "text": "Trick eins: gratis zum Start.",
+      "start": 48.88,
+      "end": 50.9,
+      "words": [
+        {
+          "word": "Trick",
+          "start": 48.88,
+          "end": 49.02
+        },
+        {
+          "word": "eins:",
+          "start": 49.02,
+          "end": 49.98
+        },
+        {
+          "word": "gratis",
+          "start": 49.98,
+          "end": 50.38
+        },
+        {
+          "word": "zum",
+          "start": 50.38,
+          "end": 50.58
+        },
+        {
+          "word": "Start.",
+          "start": 50.58,
+          "end": 50.9
+        }
+      ]
+    },
+    {
+      "text": "Du testest dreißig Tage kostenlos und gibst",
+      "start": 50.9,
+      "end": 54.06,
+      "words": [
+        {
+          "word": "Du",
+          "start": 50.9,
+          "end": 51.54
+        },
+        {
+          "word": "testest",
+          "start": 51.54,
+          "end": 52.04
+        },
+        {
+          "word": "dreißig",
+          "start": 52.04,
+          "end": 52.48
+        },
+        {
+          "word": "Tage",
+          "start": 52.48,
+          "end": 52.8
+        },
+        {
+          "word": "kostenlos",
+          "start": 52.8,
+          "end": 53.46
+        },
+        {
+          "word": "und",
+          "start": 53.46,
+          "end": 53.8
+        },
+        {
+          "word": "gibst",
+          "start": 53.8,
+          "end": 54.06
+        }
+      ]
+    },
+    {
+      "text": "dafür nur kurz deine Zahlungsdaten ein.",
+      "start": 54.06,
+      "end": 56.26,
+      "words": [
+        {
+          "word": "dafür",
+          "start": 54.06,
+          "end": 54.3
+        },
+        {
+          "word": "nur",
+          "start": 54.3,
+          "end": 54.6
+        },
+        {
+          "word": "kurz",
+          "start": 54.6,
+          "end": 54.86
+        },
+        {
+          "word": "deine",
+          "start": 54.86,
+          "end": 55.08
+        },
+        {
+          "word": "Zahlungsdaten",
+          "start": 55.08,
+          "end": 55.8
+        },
+        {
+          "word": "ein.",
+          "start": 55.8,
+          "end": 56.26
+        }
+      ]
+    },
+    {
+      "text": "Am Tag einunddreißig läuft das Abo einfach weiter.",
+      "start": 56.8,
+      "end": 59.58,
+      "words": [
+        {
+          "word": "Am",
+          "start": 56.8,
+          "end": 56.96
+        },
+        {
+          "word": "Tag",
+          "start": 56.96,
+          "end": 57.3
+        },
+        {
+          "word": "einunddreißig",
+          "start": 57.3,
+          "end": 58.14
+        },
+        {
+          "word": "läuft",
+          "start": 58.14,
+          "end": 58.4
+        },
+        {
+          "word": "das",
+          "start": 58.4,
+          "end": 58.66
+        },
+        {
+          "word": "Abo",
+          "start": 58.66,
+          "end": 58.88
+        },
+        {
+          "word": "einfach",
+          "start": 58.88,
+          "end": 59.18
+        },
+        {
+          "word": "weiter.",
+          "start": 59.18,
+          "end": 59.58
+        }
+      ]
+    },
+    {
+      "text": "Ab jetzt jeden Monat zwölf Euro neunundneunzig.",
+      "start": 59.98,
+      "end": 63.08,
+      "words": [
+        {
+          "word": "Ab",
+          "start": 59.98,
+          "end": 60.16
+        },
+        {
+          "word": "jetzt",
+          "start": 60.16,
+          "end": 60.42
+        },
+        {
+          "word": "jeden",
+          "start": 60.42,
+          "end": 60.62
+        },
+        {
+          "word": "Monat",
+          "start": 60.62,
+          "end": 61.02
+        },
+        {
+          "word": "zwölf",
+          "start": 61.02,
+          "end": 61.98
+        },
+        {
+          "word": "Euro",
+          "start": 61.98,
+          "end": 62.4
+        },
+        {
+          "word": "neunundneunzig.",
+          "start": 62.4,
+          "end": 63.08
+        }
+      ]
+    },
+    {
+      "text": "Trick zwei: der kleine Monatspreis.",
+      "start": 63.08,
+      "end": 65.76,
+      "words": [
+        {
+          "word": "Trick",
+          "start": 63.08,
+          "end": 63.2
+        },
+        {
+          "word": "zwei:",
+          "start": 63.2,
+          "end": 64
+        },
+        {
+          "word": "der",
+          "start": 64,
+          "end": 64.24
+        },
+        {
+          "word": "kleine",
+          "start": 64.24,
+          "end": 64.68
+        },
+        {
+          "word": "Monatspreis.",
+          "start": 64.68,
+          "end": 65.76
+        }
+      ]
+    },
+    {
+      "text": "Vier Euro neunundneunzig fühlen sich harmlos an.",
+      "start": 65.76,
+      "end": 68.36,
+      "words": [
+        {
+          "word": "Vier",
+          "start": 65.76,
+          "end": 66.94
+        },
+        {
+          "word": "Euro",
+          "start": 66.94,
+          "end": 67.12
+        },
+        {
+          "word": "neunundneunzig",
+          "start": 67.12,
+          "end": 67.12
+        },
+        {
+          "word": "fühlen",
+          "start": 67.12,
+          "end": 67.4
+        },
+        {
+          "word": "sich",
+          "start": 67.4,
+          "end": 67.58
+        },
+        {
+          "word": "harmlos",
+          "start": 67.58,
+          "end": 68.08
+        },
+        {
+          "word": "an.",
+          "start": 68.08,
+          "end": 68.36
+        }
+      ]
+    },
+    {
+      "text": "Niemand würde für eine App sechzig Euro auf einmal bezahlen.",
+      "start": 68.74,
+      "end": 71.96,
+      "words": [
+        {
+          "word": "Niemand",
+          "start": 68.74,
+          "end": 69.12
+        },
+        {
+          "word": "würde",
+          "start": 69.12,
+          "end": 69.34
+        },
+        {
+          "word": "für",
+          "start": 69.34,
+          "end": 69.56
+        },
+        {
+          "word": "eine",
+          "start": 69.56,
+          "end": 69.76
+        },
+        {
+          "word": "App",
+          "start": 69.76,
+          "end": 70.06
+        },
+        {
+          "word": "sechzig",
+          "start": 70.06,
+          "end": 70.68
+        },
+        {
+          "word": "Euro",
+          "start": 70.68,
+          "end": 71.02
+        },
+        {
+          "word": "auf",
+          "start": 71.02,
+          "end": 71.22
+        },
+        {
+          "word": "einmal",
+          "start": 71.22,
+          "end": 71.46
+        },
+        {
+          "word": "bezahlen.",
+          "start": 71.46,
+          "end": 71.96
+        }
+      ]
+    },
+    {
+      "text": "Aber genau das zahlst du in einem Jahr.",
+      "start": 72.3,
+      "end": 74.58,
+      "words": [
+        {
+          "word": "Aber",
+          "start": 72.3,
+          "end": 72.62
+        },
+        {
+          "word": "genau",
+          "start": 72.62,
+          "end": 72.94
+        },
+        {
+          "word": "das",
+          "start": 72.94,
+          "end": 73.26
+        },
+        {
+          "word": "zahlst",
+          "start": 73.26,
+          "end": 73.66
+        },
+        {
+          "word": "du",
+          "start": 73.66,
+          "end": 73.76
+        },
+        {
+          "word": "in",
+          "start": 73.76,
+          "end": 74.02
+        },
+        {
+          "word": "einem",
+          "start": 74.02,
+          "end": 74.22
+        },
+        {
+          "word": "Jahr.",
+          "start": 74.22,
+          "end": 74.58
+        }
+      ]
+    },
+    {
+      "text": "Trick drei: Abschließen ist leicht, Kündigen ist schwer.",
+      "start": 75.42,
+      "end": 79.56,
+      "words": [
+        {
+          "word": "Trick",
+          "start": 75.42,
+          "end": 75.62
+        },
+        {
+          "word": "drei:",
+          "start": 75.62,
+          "end": 76.74
+        },
+        {
+          "word": "Abschließen",
+          "start": 76.74,
+          "end": 77.08
+        },
+        {
+          "word": "ist",
+          "start": 77.08,
+          "end": 77.36
+        },
+        {
+          "word": "leicht,",
+          "start": 77.36,
+          "end": 77.72
+        },
+        {
+          "word": "Kündigen",
+          "start": 78.18,
+          "end": 78.66
+        },
+        {
+          "word": "ist",
+          "start": 78.66,
+          "end": 79.14
+        },
+        {
+          "word": "schwer.",
+          "start": 79.14,
+          "end": 79.56
+        }
+      ]
+    },
+    {
+      "text": "Abschließen geht mit einem Klick.",
+      "start": 80.5,
+      "end": 82.04,
+      "words": [
+        {
+          "word": "Abschließen",
+          "start": 80.5,
+          "end": 80.98
+        },
+        {
+          "word": "geht",
+          "start": 80.98,
+          "end": 81.12
+        },
+        {
+          "word": "mit",
+          "start": 81.12,
+          "end": 81.3
+        },
+        {
+          "word": "einem",
+          "start": 81.3,
+          "end": 81.58
+        },
+        {
+          "word": "Klick.",
+          "start": 81.58,
+          "end": 82.04
+        }
+      ]
+    },
+    {
+      "text": "Zum Kündigen suchst du Menüs, Formulare und Hotlines.",
+      "start": 82.18,
+      "end": 85.26,
+      "words": [
+        {
+          "word": "Zum",
+          "start": 82.18,
+          "end": 82.38
+        },
+        {
+          "word": "Kündigen",
+          "start": 82.38,
+          "end": 82.92
+        },
+        {
+          "word": "suchst",
+          "start": 82.92,
+          "end": 83.22
+        },
+        {
+          "word": "du",
+          "start": 83.22,
+          "end": 83.36
+        },
+        {
+          "word": "Menüs,",
+          "start": 83.36,
+          "end": 83.88
+        },
+        {
+          "word": "Formulare",
+          "start": 84.12,
+          "end": 84.56
+        },
+        {
+          "word": "und",
+          "start": 84.56,
+          "end": 84.78
+        },
+        {
+          "word": "Hotlines.",
+          "start": 84.78,
+          "end": 85.26
+        }
+      ]
+    },
+    {
+      "text": "Und ein Klassiker obendrauf: Du löschst die App und denkst,",
+      "start": 85.82,
+      "end": 89.08,
+      "words": [
+        {
+          "word": "Und",
+          "start": 85.82,
+          "end": 85.98
+        },
+        {
+          "word": "ein",
+          "start": 85.98,
+          "end": 86.22
+        },
+        {
+          "word": "Klassiker",
+          "start": 86.22,
+          "end": 86.54
+        },
+        {
+          "word": "obendrauf:",
+          "start": 86.54,
+          "end": 87.3
+        },
+        {
+          "word": "Du",
+          "start": 87.44,
+          "end": 87.66
+        },
+        {
+          "word": "löschst",
+          "start": 87.66,
+          "end": 88
+        },
+        {
+          "word": "die",
+          "start": 88,
+          "end": 88.1
+        },
+        {
+          "word": "App",
+          "start": 88.1,
+          "end": 88.34
+        },
+        {
+          "word": "und",
+          "start": 88.34,
+          "end": 88.76
+        },
+        {
+          "word": "denkst,",
+          "start": 88.76,
+          "end": 89.08
+        }
+      ]
+    },
+    {
+      "text": "das Abo ist weg.",
+      "start": 89.18,
+      "end": 89.88,
+      "words": [
+        {
+          "word": "das",
+          "start": 89.18,
+          "end": 89.26
+        },
+        {
+          "word": "Abo",
+          "start": 89.26,
+          "end": 89.4
+        },
+        {
+          "word": "ist",
+          "start": 89.4,
+          "end": 89.58
+        },
+        {
+          "word": "weg.",
+          "start": 89.58,
+          "end": 89.88
+        }
+      ]
+    },
+    {
+      "text": "Ist es nicht.",
+      "start": 90.28,
+      "end": 90.86,
+      "words": [
+        {
+          "word": "Ist",
+          "start": 90.28,
+          "end": 90.44
+        },
+        {
+          "word": "es",
+          "start": 90.44,
+          "end": 90.62
+        },
+        {
+          "word": "nicht.",
+          "start": 90.62,
+          "end": 90.86
+        }
+      ]
+    },
+    {
+      "text": "Ein Abo über den App Store oder Google Play läuft weiter,",
+      "start": 91.38,
+      "end": 94.18,
+      "words": [
+        {
+          "word": "Ein",
+          "start": 91.38,
+          "end": 91.66
+        },
+        {
+          "word": "Abo",
+          "start": 91.66,
+          "end": 91.88
+        },
+        {
+          "word": "über",
+          "start": 91.88,
+          "end": 92.08
+        },
+        {
+          "word": "den",
+          "start": 92.08,
+          "end": 92.22
+        },
+        {
+          "word": "App",
+          "start": 92.22,
+          "end": 92.44
+        },
+        {
+          "word": "Store",
+          "start": 92.44,
+          "end": 92.7
+        },
+        {
+          "word": "oder",
+          "start": 92.7,
+          "end": 92.92
+        },
+        {
+          "word": "Google",
+          "start": 92.92,
+          "end": 93.22
+        },
+        {
+          "word": "Play",
+          "start": 93.22,
+          "end": 93.44
+        },
+        {
+          "word": "läuft",
+          "start": 93.44,
+          "end": 93.68
+        },
+        {
+          "word": "weiter,",
+          "start": 93.68,
+          "end": 94.18
+        }
+      ]
+    },
+    {
+      "text": "auch wenn die App längst gelöscht ist.",
+      "start": 94.38,
+      "end": 96,
+      "words": [
+        {
+          "word": "auch",
+          "start": 94.38,
+          "end": 94.62
+        },
+        {
+          "word": "wenn",
+          "start": 94.62,
+          "end": 94.74
+        },
+        {
+          "word": "die",
+          "start": 94.74,
+          "end": 94.88
+        },
+        {
+          "word": "App",
+          "start": 94.88,
+          "end": 95.12
+        },
+        {
+          "word": "längst",
+          "start": 95.12,
+          "end": 95.46
+        },
+        {
+          "word": "gelöscht",
+          "start": 95.46,
+          "end": 95.8
+        },
+        {
+          "word": "ist.",
+          "start": 95.8,
+          "end": 96
+        }
+      ]
+    },
+    {
+      "text": "Die gute Nachricht: Das Gesetz hat in",
+      "start": 97.06,
+      "end": 99.16,
+      "words": [
+        {
+          "word": "Die",
+          "start": 97.06,
+          "end": 97.16
+        },
+        {
+          "word": "gute",
+          "start": 97.16,
+          "end": 97.4
+        },
+        {
+          "word": "Nachricht:",
+          "start": 97.4,
+          "end": 97.88
+        },
+        {
+          "word": "Das",
+          "start": 98.24,
+          "end": 98.44
+        },
+        {
+          "word": "Gesetz",
+          "start": 98.44,
+          "end": 98.84
+        },
+        {
+          "word": "hat",
+          "start": 98.84,
+          "end": 99
+        },
+        {
+          "word": "in",
+          "start": 99,
+          "end": 99.16
+        }
+      ]
+    },
+    {
+      "text": "den letzten Jahren viel für dich getan.",
+      "start": 99.16,
+      "end": 100.64,
+      "words": [
+        {
+          "word": "den",
+          "start": 99.16,
+          "end": 99.28
+        },
+        {
+          "word": "letzten",
+          "start": 99.28,
+          "end": 99.54
+        },
+        {
+          "word": "Jahren",
+          "start": 99.54,
+          "end": 99.78
+        },
+        {
+          "word": "viel",
+          "start": 99.78,
+          "end": 100.06
+        },
+        {
+          "word": "für",
+          "start": 100.06,
+          "end": 100.22
+        },
+        {
+          "word": "dich",
+          "start": 100.22,
+          "end": 100.36
+        },
+        {
+          "word": "getan.",
+          "start": 100.36,
+          "end": 100.64
+        }
+      ]
+    },
+    {
+      "text": "Früher hat sich ein Vertrag nach zwei Jahren",
+      "start": 101.28,
+      "end": 103.22,
+      "words": [
+        {
+          "word": "Früher",
+          "start": 101.28,
+          "end": 101.52
+        },
+        {
+          "word": "hat",
+          "start": 101.52,
+          "end": 101.68
+        },
+        {
+          "word": "sich",
+          "start": 101.68,
+          "end": 101.84
+        },
+        {
+          "word": "ein",
+          "start": 101.84,
+          "end": 102.02
+        },
+        {
+          "word": "Vertrag",
+          "start": 102.02,
+          "end": 102.4
+        },
+        {
+          "word": "nach",
+          "start": 102.4,
+          "end": 102.62
+        },
+        {
+          "word": "zwei",
+          "start": 102.62,
+          "end": 102.92
+        },
+        {
+          "word": "Jahren",
+          "start": 102.92,
+          "end": 103.22
+        }
+      ]
+    },
+    {
+      "text": "oft einfach um ein ganzes weiteres Jahr verlängert.",
+      "start": 103.22,
+      "end": 105.94,
+      "words": [
+        {
+          "word": "oft",
+          "start": 103.22,
+          "end": 103.46
+        },
+        {
+          "word": "einfach",
+          "start": 103.46,
+          "end": 103.84
+        },
+        {
+          "word": "um",
+          "start": 103.84,
+          "end": 104.06
+        },
+        {
+          "word": "ein",
+          "start": 104.06,
+          "end": 104.28
+        },
+        {
+          "word": "ganzes",
+          "start": 104.28,
+          "end": 104.86
+        },
+        {
+          "word": "weiteres",
+          "start": 104.86,
+          "end": 105.2
+        },
+        {
+          "word": "Jahr",
+          "start": 105.2,
+          "end": 105.38
+        },
+        {
+          "word": "verlängert.",
+          "start": 105.38,
+          "end": 105.94
+        }
+      ]
+    },
+    {
+      "text": "Für Verträge ab dem ersten März zweitausendzweiundzwanzig geht",
+      "start": 105.94,
+      "end": 109.54,
+      "words": [
+        {
+          "word": "Für",
+          "start": 105.94,
+          "end": 106.58
+        },
+        {
+          "word": "Verträge",
+          "start": 106.58,
+          "end": 107.1
+        },
+        {
+          "word": "ab",
+          "start": 107.1,
+          "end": 107.42
+        },
+        {
+          "word": "dem",
+          "start": 107.42,
+          "end": 107.64
+        },
+        {
+          "word": "ersten",
+          "start": 107.64,
+          "end": 107.9
+        },
+        {
+          "word": "März",
+          "start": 107.9,
+          "end": 108.32
+        },
+        {
+          "word": "zweitausendzweiundzwanzig",
+          "start": 108.32,
+          "end": 109.32
+        },
+        {
+          "word": "geht",
+          "start": 109.32,
+          "end": 109.54
+        }
+      ]
+    },
+    {
+      "text": "das in den meisten Fällen nicht mehr.",
+      "start": 109.54,
+      "end": 111.16,
+      "words": [
+        {
+          "word": "das",
+          "start": 109.54,
+          "end": 109.74
+        },
+        {
+          "word": "in",
+          "start": 109.74,
+          "end": 109.86
+        },
+        {
+          "word": "den",
+          "start": 109.86,
+          "end": 110.04
+        },
+        {
+          "word": "meisten",
+          "start": 110.04,
+          "end": 110.28
+        },
+        {
+          "word": "Fällen",
+          "start": 110.28,
+          "end": 110.54
+        },
+        {
+          "word": "nicht",
+          "start": 110.54,
+          "end": 110.84
+        },
+        {
+          "word": "mehr.",
+          "start": 110.84,
+          "end": 111.16
+        }
+      ]
+    },
+    {
+      "text": "Nach der Mindestlaufzeit läuft der Vertrag nur noch unbefristet weiter.",
+      "start": 111.62,
+      "end": 115.26,
+      "words": [
+        {
+          "word": "Nach",
+          "start": 111.62,
+          "end": 111.8
+        },
+        {
+          "word": "der",
+          "start": 111.8,
+          "end": 112.06
+        },
+        {
+          "word": "Mindestlaufzeit",
+          "start": 112.06,
+          "end": 113.08
+        },
+        {
+          "word": "läuft",
+          "start": 113.08,
+          "end": 113.3
+        },
+        {
+          "word": "der",
+          "start": 113.3,
+          "end": 113.52
+        },
+        {
+          "word": "Vertrag",
+          "start": 113.52,
+          "end": 113.86
+        },
+        {
+          "word": "nur",
+          "start": 113.86,
+          "end": 114.02
+        },
+        {
+          "word": "noch",
+          "start": 114.02,
+          "end": 114.3
+        },
+        {
+          "word": "unbefristet",
+          "start": 114.3,
+          "end": 114.86
+        },
+        {
+          "word": "weiter.",
+          "start": 114.86,
+          "end": 115.26
+        }
+      ]
+    },
+    {
+      "text": "Und du kannst jederzeit mit einem Monat Frist kündigen.",
+      "start": 115.6,
+      "end": 118.66,
+      "words": [
+        {
+          "word": "Und",
+          "start": 115.6,
+          "end": 115.64
+        },
+        {
+          "word": "du",
+          "start": 115.64,
+          "end": 115.78
+        },
+        {
+          "word": "kannst",
+          "start": 115.78,
+          "end": 116.06
+        },
+        {
+          "word": "jederzeit",
+          "start": 116.06,
+          "end": 116.66
+        },
+        {
+          "word": "mit",
+          "start": 116.66,
+          "end": 116.84
+        },
+        {
+          "word": "einem",
+          "start": 116.84,
+          "end": 117.14
+        },
+        {
+          "word": "Monat",
+          "start": 117.14,
+          "end": 117.7
+        },
+        {
+          "word": "Frist",
+          "start": 117.7,
+          "end": 117.7
+        },
+        {
+          "word": "kündigen.",
+          "start": 117.7,
+          "end": 118.66
+        }
+      ]
+    },
+    {
+      "text": "Außerdem muss jeder, der Abos online verkauft, einen Kündigungsbutton anbieten.",
+      "start": 119.46,
+      "end": 123.44,
+      "words": [
+        {
+          "word": "Außerdem",
+          "start": 119.46,
+          "end": 119.82
+        },
+        {
+          "word": "muss",
+          "start": 119.82,
+          "end": 120.08
+        },
+        {
+          "word": "jeder,",
+          "start": 120.08,
+          "end": 120.4
+        },
+        {
+          "word": "der",
+          "start": 120.5,
+          "end": 120.6
+        },
+        {
+          "word": "Abos",
+          "start": 120.6,
+          "end": 120.8
+        },
+        {
+          "word": "online",
+          "start": 120.8,
+          "end": 121.16
+        },
+        {
+          "word": "verkauft,",
+          "start": 121.16,
+          "end": 121.64
+        },
+        {
+          "word": "einen",
+          "start": 121.82,
+          "end": 122
+        },
+        {
+          "word": "Kündigungsbutton",
+          "start": 122,
+          "end": 122.82
+        },
+        {
+          "word": "anbieten.",
+          "start": 122.82,
+          "end": 123.44
+        }
+      ]
+    },
+    {
+      "text": "Gut sichtbar, mit der Aufschrift: Verträge hier kündigen.",
+      "start": 123.64,
+      "end": 127,
+      "words": [
+        {
+          "word": "Gut",
+          "start": 123.64,
+          "end": 123.84
+        },
+        {
+          "word": "sichtbar,",
+          "start": 123.84,
+          "end": 124.48
+        },
+        {
+          "word": "mit",
+          "start": 124.48,
+          "end": 124.66
+        },
+        {
+          "word": "der",
+          "start": 124.66,
+          "end": 124.78
+        },
+        {
+          "word": "Aufschrift:",
+          "start": 124.78,
+          "end": 125.28
+        },
+        {
+          "word": "Verträge",
+          "start": 125.28,
+          "end": 126
+        },
+        {
+          "word": "hier",
+          "start": 126,
+          "end": 126.36
+        },
+        {
+          "word": "kündigen.",
+          "start": 126.36,
+          "end": 127
+        }
+      ]
+    },
+    {
+      "text": "Fehlt dieser Button, darfst du sogar fristlos kündigen.",
+      "start": 127.6,
+      "end": 130.36,
+      "words": [
+        {
+          "word": "Fehlt",
+          "start": 127.6,
+          "end": 127.88
+        },
+        {
+          "word": "dieser",
+          "start": 127.88,
+          "end": 128.1
+        },
+        {
+          "word": "Button,",
+          "start": 128.1,
+          "end": 128.44
+        },
+        {
+          "word": "darfst",
+          "start": 128.74,
+          "end": 128.92
+        },
+        {
+          "word": "du",
+          "start": 128.92,
+          "end": 128.96
+        },
+        {
+          "word": "sogar",
+          "start": 128.96,
+          "end": 129.24
+        },
+        {
+          "word": "fristlos",
+          "start": 129.24,
+          "end": 129.62
+        },
+        {
+          "word": "kündigen.",
+          "start": 129.62,
+          "end": 130.36
+        }
+      ]
+    },
+    {
+      "text": "Und seit Juni zweitausendsechsundzwanzig gibt es zusätzlich den Widerrufsbutton.",
+      "start": 131.16,
+      "end": 135.38,
+      "words": [
+        {
+          "word": "Und",
+          "start": 131.16,
+          "end": 131.36
+        },
+        {
+          "word": "seit",
+          "start": 131.36,
+          "end": 131.56
+        },
+        {
+          "word": "Juni",
+          "start": 131.56,
+          "end": 131.94
+        },
+        {
+          "word": "zweitausendsechsundzwanzig",
+          "start": 131.94,
+          "end": 132.94
+        },
+        {
+          "word": "gibt",
+          "start": 132.94,
+          "end": 133.14
+        },
+        {
+          "word": "es",
+          "start": 133.14,
+          "end": 133.36
+        },
+        {
+          "word": "zusätzlich",
+          "start": 133.36,
+          "end": 133.88
+        },
+        {
+          "word": "den",
+          "start": 133.88,
+          "end": 134.12
+        },
+        {
+          "word": "Widerrufsbutton.",
+          "start": 134.12,
+          "end": 135.38
+        }
+      ]
+    },
+    {
+      "text": "Viele Online-Verträge kannst du damit in den",
+      "start": 135.38,
+      "end": 137.68,
+      "words": [
+        {
+          "word": "Viele",
+          "start": 135.38,
+          "end": 135.94
+        },
+        {
+          "word": "Online-Verträge",
+          "start": 135.94,
+          "end": 136.28
+        },
+        {
+          "word": "kannst",
+          "start": 136.72,
+          "end": 136.96
+        },
+        {
+          "word": "du",
+          "start": 136.96,
+          "end": 137.1
+        },
+        {
+          "word": "damit",
+          "start": 137.1,
+          "end": 137.38
+        },
+        {
+          "word": "in",
+          "start": 137.38,
+          "end": 137.56
+        },
+        {
+          "word": "den",
+          "start": 137.56,
+          "end": 137.68
+        }
+      ]
+    },
+    {
+      "text": "ersten vierzehn Tagen per Klick widerrufen.",
+      "start": 137.68,
+      "end": 141.06,
+      "words": [
+        {
+          "word": "ersten",
+          "start": 137.68,
+          "end": 138
+        },
+        {
+          "word": "vierzehn",
+          "start": 138,
+          "end": 138.42
+        },
+        {
+          "word": "Tagen",
+          "start": 138.42,
+          "end": 138.86
+        },
+        {
+          "word": "per",
+          "start": 138.86,
+          "end": 139.26
+        },
+        {
+          "word": "Klick",
+          "start": 139.26,
+          "end": 139.62
+        },
+        {
+          "word": "widerrufen.",
+          "start": 139.62,
+          "end": 141.06
+        }
+      ]
+    },
+    {
+      "text": "Jetzt der wichtigste Teil.",
+      "start": 141.58,
+      "end": 142.78,
+      "words": [
+        {
+          "word": "Jetzt",
+          "start": 141.58,
+          "end": 141.82
+        },
+        {
+          "word": "der",
+          "start": 141.82,
+          "end": 142
+        },
+        {
+          "word": "wichtigste",
+          "start": 142,
+          "end": 142.38
+        },
+        {
+          "word": "Teil.",
+          "start": 142.38,
+          "end": 142.78
+        }
+      ]
+    },
+    {
+      "text": "Nimm dir einmal fünfzehn Minuten und schau an drei Stellen nach.",
+      "start": 143.44,
+      "end": 147.14,
+      "words": [
+        {
+          "word": "Nimm",
+          "start": 143.44,
+          "end": 143.6
+        },
+        {
+          "word": "dir",
+          "start": 143.6,
+          "end": 143.78
+        },
+        {
+          "word": "einmal",
+          "start": 143.78,
+          "end": 144.2
+        },
+        {
+          "word": "fünfzehn",
+          "start": 144.2,
+          "end": 144.62
+        },
+        {
+          "word": "Minuten",
+          "start": 144.62,
+          "end": 145.1
+        },
+        {
+          "word": "und",
+          "start": 145.1,
+          "end": 145.34
+        },
+        {
+          "word": "schau",
+          "start": 145.34,
+          "end": 145.54
+        },
+        {
+          "word": "an",
+          "start": 145.54,
+          "end": 145.76
+        },
+        {
+          "word": "drei",
+          "start": 145.76,
+          "end": 146.1
+        },
+        {
+          "word": "Stellen",
+          "start": 146.1,
+          "end": 146.38
+        },
+        {
+          "word": "nach.",
+          "start": 146.38,
+          "end": 147.14
+        }
+      ]
+    },
+    {
+      "text": "Stelle eins: dein Kontoauszug.",
+      "start": 147.42,
+      "end": 149.42,
+      "words": [
+        {
+          "word": "Stelle",
+          "start": 147.42,
+          "end": 147.58
+        },
+        {
+          "word": "eins:",
+          "start": 147.58,
+          "end": 148.36
+        },
+        {
+          "word": "dein",
+          "start": 148.36,
+          "end": 148.52
+        },
+        {
+          "word": "Kontoauszug.",
+          "start": 148.52,
+          "end": 149.42
+        }
+      ]
+    },
+    {
+      "text": "Geh die letzten zwölf Monate durch und such nach Beträgen,",
+      "start": 149.98,
+      "end": 152.72,
+      "words": [
+        {
+          "word": "Geh",
+          "start": 149.98,
+          "end": 150.08
+        },
+        {
+          "word": "die",
+          "start": 150.08,
+          "end": 150.18
+        },
+        {
+          "word": "letzten",
+          "start": 150.18,
+          "end": 150.6
+        },
+        {
+          "word": "zwölf",
+          "start": 150.6,
+          "end": 150.9
+        },
+        {
+          "word": "Monate",
+          "start": 150.9,
+          "end": 151.24
+        },
+        {
+          "word": "durch",
+          "start": 151.24,
+          "end": 151.6
+        },
+        {
+          "word": "und",
+          "start": 151.6,
+          "end": 151.76
+        },
+        {
+          "word": "such",
+          "start": 151.76,
+          "end": 151.92
+        },
+        {
+          "word": "nach",
+          "start": 151.92,
+          "end": 152.14
+        },
+        {
+          "word": "Beträgen,",
+          "start": 152.14,
+          "end": 152.72
+        }
+      ]
+    },
+    {
+      "text": "die jeden Monat gleich wiederkommen.",
+      "start": 152.8,
+      "end": 154.18,
+      "words": [
+        {
+          "word": "die",
+          "start": 152.8,
+          "end": 152.9
+        },
+        {
+          "word": "jeden",
+          "start": 152.9,
+          "end": 153.14
+        },
+        {
+          "word": "Monat",
+          "start": 153.14,
+          "end": 153.5
+        },
+        {
+          "word": "gleich",
+          "start": 153.5,
+          "end": 153.68
+        },
+        {
+          "word": "wiederkommen.",
+          "start": 153.68,
+          "end": 154.18
+        }
+      ]
+    },
+    {
+      "text": "Stelle zwei: dein Handy.",
+      "start": 154.92,
+      "end": 156.38,
+      "words": [
+        {
+          "word": "Stelle",
+          "start": 154.92,
+          "end": 155.06
+        },
+        {
+          "word": "zwei:",
+          "start": 155.06,
+          "end": 155.92
+        },
+        {
+          "word": "dein",
+          "start": 155.92,
+          "end": 156.02
+        },
+        {
+          "word": "Handy.",
+          "start": 156.02,
+          "end": 156.38
+        }
+      ]
+    },
+    {
+      "text": "Auf dem iPhone findest du alle Abos unter Einstellungen,",
+      "start": 157.16,
+      "end": 159.92,
+      "words": [
+        {
+          "word": "Auf",
+          "start": 157.16,
+          "end": 157.3
+        },
+        {
+          "word": "dem",
+          "start": 157.3,
+          "end": 157.38
+        },
+        {
+          "word": "iPhone",
+          "start": 157.38,
+          "end": 157.74
+        },
+        {
+          "word": "findest",
+          "start": 157.74,
+          "end": 158.06
+        },
+        {
+          "word": "du",
+          "start": 158.06,
+          "end": 158.2
+        },
+        {
+          "word": "alle",
+          "start": 158.2,
+          "end": 158.42
+        },
+        {
+          "word": "Abos",
+          "start": 158.42,
+          "end": 158.78
+        },
+        {
+          "word": "unter",
+          "start": 158.78,
+          "end": 159.12
+        },
+        {
+          "word": "Einstellungen,",
+          "start": 159.12,
+          "end": 159.92
+        }
+      ]
+    },
+    {
+      "text": "dein Name, Abonnements.",
+      "start": 160.12,
+      "end": 161.7,
+      "words": [
+        {
+          "word": "dein",
+          "start": 160.12,
+          "end": 160.32
+        },
+        {
+          "word": "Name,",
+          "start": 160.32,
+          "end": 160.68
+        },
+        {
+          "word": "Abonnements.",
+          "start": 161.14,
+          "end": 161.7
+        }
+      ]
+    },
+    {
+      "text": "Bei Android im Play Store unter Profil, Zahlungen und Abos.",
+      "start": 162.15,
+      "end": 166.4,
+      "words": [
+        {
+          "word": "Bei",
+          "start": 162.15,
+          "end": 162.46
+        },
+        {
+          "word": "Android",
+          "start": 162.46,
+          "end": 162.9
+        },
+        {
+          "word": "im",
+          "start": 162.9,
+          "end": 163.14
+        },
+        {
+          "word": "Play",
+          "start": 163.14,
+          "end": 163.34
+        },
+        {
+          "word": "Store",
+          "start": 163.34,
+          "end": 163.54
+        },
+        {
+          "word": "unter",
+          "start": 163.54,
+          "end": 163.9
+        },
+        {
+          "word": "Profil,",
+          "start": 163.9,
+          "end": 164.72
+        },
+        {
+          "word": "Zahlungen",
+          "start": 164.88,
+          "end": 165.26
+        },
+        {
+          "word": "und",
+          "start": 165.26,
+          "end": 165.46
+        },
+        {
+          "word": "Abos.",
+          "start": 165.46,
+          "end": 166.4
+        }
+      ]
+    },
+    {
+      "text": "Stelle drei: PayPal.",
+      "start": 166.92,
+      "end": 168.42,
+      "words": [
+        {
+          "word": "Stelle",
+          "start": 166.92,
+          "end": 166.98
+        },
+        {
+          "word": "drei:",
+          "start": 166.98,
+          "end": 167.8
+        },
+        {
+          "word": "PayPal.",
+          "start": 167.8,
+          "end": 168.42
+        }
+      ]
+    },
+    {
+      "text": "Dort heißen sie automatische Zahlungen.",
+      "start": 168.78,
+      "end": 171.02,
+      "words": [
+        {
+          "word": "Dort",
+          "start": 168.78,
+          "end": 168.94
+        },
+        {
+          "word": "heißen",
+          "start": 168.94,
+          "end": 169.18
+        },
+        {
+          "word": "sie",
+          "start": 169.18,
+          "end": 169.62
+        },
+        {
+          "word": "automatische",
+          "start": 169.62,
+          "end": 170.4
+        },
+        {
+          "word": "Zahlungen.",
+          "start": 170.4,
+          "end": 171.02
+        }
+      ]
+    },
+    {
+      "text": "Viele Abos laufen genau darüber und tauchen",
+      "start": 171.54,
+      "end": 173.68,
+      "words": [
+        {
+          "word": "Viele",
+          "start": 171.54,
+          "end": 171.78
+        },
+        {
+          "word": "Abos",
+          "start": 171.78,
+          "end": 172.08
+        },
+        {
+          "word": "laufen",
+          "start": 172.08,
+          "end": 172.36
+        },
+        {
+          "word": "genau",
+          "start": 172.36,
+          "end": 172.74
+        },
+        {
+          "word": "darüber",
+          "start": 172.74,
+          "end": 173.2
+        },
+        {
+          "word": "und",
+          "start": 173.2,
+          "end": 173.44
+        },
+        {
+          "word": "tauchen",
+          "start": 173.44,
+          "end": 173.68
+        }
+      ]
+    },
+    {
+      "text": "im Kontoauszug nur als PayPal auf.",
+      "start": 173.68,
+      "end": 175.74,
+      "words": [
+        {
+          "word": "im",
+          "start": 173.68,
+          "end": 173.86
+        },
+        {
+          "word": "Kontoauszug",
+          "start": 173.86,
+          "end": 174.5
+        },
+        {
+          "word": "nur",
+          "start": 174.5,
+          "end": 174.7
+        },
+        {
+          "word": "als",
+          "start": 174.7,
+          "end": 174.94
+        },
+        {
+          "word": "PayPal",
+          "start": 174.94,
+          "end": 175.36
+        },
+        {
+          "word": "auf.",
+          "start": 175.36,
+          "end": 175.74
+        }
+      ]
+    },
+    {
+      "text": "Schreib jedes Abo auf und rechne den Preis mal zwölf.",
+      "start": 176.62,
+      "end": 180.16,
+      "words": [
+        {
+          "word": "Schreib",
+          "start": 176.62,
+          "end": 176.96
+        },
+        {
+          "word": "jedes",
+          "start": 176.96,
+          "end": 177.38
+        },
+        {
+          "word": "Abo",
+          "start": 177.38,
+          "end": 177.74
+        },
+        {
+          "word": "auf",
+          "start": 177.74,
+          "end": 178.16
+        },
+        {
+          "word": "und",
+          "start": 178.16,
+          "end": 178.54
+        },
+        {
+          "word": "rechne",
+          "start": 178.54,
+          "end": 178.8
+        },
+        {
+          "word": "den",
+          "start": 178.8,
+          "end": 178.96
+        },
+        {
+          "word": "Preis",
+          "start": 178.96,
+          "end": 179.2
+        },
+        {
+          "word": "mal",
+          "start": 179.2,
+          "end": 179.4
+        },
+        {
+          "word": "zwölf.",
+          "start": 179.4,
+          "end": 180.16
+        }
+      ]
+    },
+    {
+      "text": "Dann frag dich bei jedem einzelnen:",
+      "start": 180.16,
+      "end": 182.2,
+      "words": [
+        {
+          "word": "Dann",
+          "start": 180.16,
+          "end": 180.52
+        },
+        {
+          "word": "frag",
+          "start": 180.52,
+          "end": 180.8
+        },
+        {
+          "word": "dich",
+          "start": 180.8,
+          "end": 180.92
+        },
+        {
+          "word": "bei",
+          "start": 180.92,
+          "end": 181.16
+        },
+        {
+          "word": "jedem",
+          "start": 181.16,
+          "end": 181.4
+        },
+        {
+          "word": "einzelnen:",
+          "start": 181.4,
+          "end": 182.2
+        }
+      ]
+    },
+    {
+      "text": "Würde ich diesen Jahresbetrag heute noch einmal bezahlen?",
+      "start": 182.64,
+      "end": 185.16,
+      "words": [
+        {
+          "word": "Würde",
+          "start": 182.64,
+          "end": 182.78
+        },
+        {
+          "word": "ich",
+          "start": 182.78,
+          "end": 183.06
+        },
+        {
+          "word": "diesen",
+          "start": 183.06,
+          "end": 183.26
+        },
+        {
+          "word": "Jahresbetrag",
+          "start": 183.26,
+          "end": 184.06
+        },
+        {
+          "word": "heute",
+          "start": 184.06,
+          "end": 184.36
+        },
+        {
+          "word": "noch",
+          "start": 184.36,
+          "end": 184.54
+        },
+        {
+          "word": "einmal",
+          "start": 184.54,
+          "end": 184.74
+        },
+        {
+          "word": "bezahlen?",
+          "start": 184.74,
+          "end": 185.16
+        }
+      ]
+    },
+    {
+      "text": "Alles, wo du zögerst, kündigst du.",
+      "start": 186.04,
+      "end": 188.02,
+      "words": [
+        {
+          "word": "Alles,",
+          "start": 186.04,
+          "end": 186.2
+        },
+        {
+          "word": "wo",
+          "start": 186.2,
+          "end": 186.34
+        },
+        {
+          "word": "du",
+          "start": 186.34,
+          "end": 186.48
+        },
+        {
+          "word": "zögerst,",
+          "start": 186.48,
+          "end": 187.16
+        },
+        {
+          "word": "kündigst",
+          "start": 187.3,
+          "end": 187.62
+        },
+        {
+          "word": "du.",
+          "start": 187.62,
+          "end": 188.02
+        }
+      ]
+    },
+    {
+      "text": "Direkt.",
+      "start": 188.56,
+      "end": 189.18,
+      "words": [
+        {
+          "word": "Direkt.",
+          "start": 188.56,
+          "end": 189.18
+        }
+      ]
+    },
+    {
+      "text": "Und wenn schon Geld abgebucht wurde, das du nicht wolltest?",
+      "start": 189.18,
+      "end": 189.18,
+      "words": [
+        {
+          "word": "Und",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "wenn",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "schon",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "Geld",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "abgebucht",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "wurde,",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "das",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "du",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "nicht",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "wolltest?",
+          "start": 189.18,
+          "end": 189.18
+        }
+      ]
+    },
+    {
+      "text": "Eine Lastschrift kannst du innerhalb von acht",
+      "start": 189.18,
+      "end": 189.18,
+      "words": [
+        {
+          "word": "Eine",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "Lastschrift",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "kannst",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "du",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "innerhalb",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "von",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "acht",
+          "start": 189.18,
+          "end": 189.18
+        }
+      ]
+    },
+    {
+      "text": "Wochen bei deiner Bank zurückholen, ohne Begründung.",
+      "start": 189.18,
+      "end": 189.18,
+      "words": [
+        {
+          "word": "Wochen",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "bei",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "deiner",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "Bank",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "zurückholen,",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "ohne",
+          "start": 189.18,
+          "end": 189.18
+        },
+        {
+          "word": "Begründung.",
+          "start": 189.18,
+          "end": 189.18
+        }
+      ]
+    },
+    {
+      "text": "Aber Achtung: Damit holst du nur das Geld zurück.",
+      "start": 189.18,
+      "end": 191.96,
+      "words": [
+        {
+          "word": "Aber",
+          "start": 189.18,
+          "end": 189.74
+        },
+        {
+          "word": "Achtung:",
+          "start": 189.74,
+          "end": 190.4
+        },
+        {
+          "word": "Damit",
+          "start": 190.54,
+          "end": 190.68
+        },
+        {
+          "word": "holst",
+          "start": 190.68,
+          "end": 190.96
+        },
+        {
+          "word": "du",
+          "start": 190.96,
+          "end": 191.04
+        },
+        {
+          "word": "nur",
+          "start": 191.04,
+          "end": 191.14
+        },
+        {
+          "word": "das",
+          "start": 191.14,
+          "end": 191.3
+        },
+        {
+          "word": "Geld",
+          "start": 191.3,
+          "end": 191.52
+        },
+        {
+          "word": "zurück.",
+          "start": 191.52,
+          "end": 191.96
+        }
+      ]
+    },
+    {
+      "text": "Gekündigt ist das Abo damit nicht.",
+      "start": 192.22,
+      "end": 193.86,
+      "words": [
+        {
+          "word": "Gekündigt",
+          "start": 192.22,
+          "end": 192.68
+        },
+        {
+          "word": "ist",
+          "start": 192.68,
+          "end": 192.82
+        },
+        {
+          "word": "das",
+          "start": 192.82,
+          "end": 193
+        },
+        {
+          "word": "Abo",
+          "start": 193,
+          "end": 193.16
+        },
+        {
+          "word": "damit",
+          "start": 193.16,
+          "end": 193.38
+        },
+        {
+          "word": "nicht.",
+          "start": 193.38,
+          "end": 193.86
+        }
+      ]
+    },
+    {
+      "text": "Das musst du trotzdem tun.",
+      "start": 194.04,
+      "end": 194.98,
+      "words": [
+        {
+          "word": "Das",
+          "start": 194.04,
+          "end": 194.2
+        },
+        {
+          "word": "musst",
+          "start": 194.2,
+          "end": 194.34
+        },
+        {
+          "word": "du",
+          "start": 194.34,
+          "end": 194.4
+        },
+        {
+          "word": "trotzdem",
+          "start": 194.4,
+          "end": 194.76
+        },
+        {
+          "word": "tun.",
+          "start": 194.76,
+          "end": 194.98
+        }
+      ]
+    },
+    {
+      "text": "Und für dein Handy: Richte bei deinem Mobilfunkanbieter eine Drittanbietersperre ein.",
+      "start": 196.14,
+      "end": 201.04,
+      "words": [
+        {
+          "word": "Und",
+          "start": 196.14,
+          "end": 196.32
+        },
+        {
+          "word": "für",
+          "start": 196.32,
+          "end": 196.52
+        },
+        {
+          "word": "dein",
+          "start": 196.52,
+          "end": 196.62
+        },
+        {
+          "word": "Handy:",
+          "start": 196.62,
+          "end": 197.26
+        },
+        {
+          "word": "Richte",
+          "start": 197.84,
+          "end": 197.94
+        },
+        {
+          "word": "bei",
+          "start": 197.94,
+          "end": 198.16
+        },
+        {
+          "word": "deinem",
+          "start": 198.16,
+          "end": 198.44
+        },
+        {
+          "word": "Mobilfunkanbieter",
+          "start": 198.44,
+          "end": 199.48
+        },
+        {
+          "word": "eine",
+          "start": 199.48,
+          "end": 199.76
+        },
+        {
+          "word": "Drittanbietersperre",
+          "start": 199.76,
+          "end": 200.8
+        },
+        {
+          "word": "ein.",
+          "start": 200.8,
+          "end": 201.04
+        }
+      ]
+    },
+    {
+      "text": "Die ist kostenlos.",
+      "start": 201.4,
+      "end": 202.22,
+      "words": [
+        {
+          "word": "Die",
+          "start": 201.4,
+          "end": 201.54
+        },
+        {
+          "word": "ist",
+          "start": 201.54,
+          "end": 201.7
+        },
+        {
+          "word": "kostenlos.",
+          "start": 201.7,
+          "end": 202.22
+        }
+      ]
+    },
+    {
+      "text": "Dann kann niemand mehr ein Abo einfach über deine Handyrechnung abrechnen.",
+      "start": 202.68,
+      "end": 205.82,
+      "words": [
+        {
+          "word": "Dann",
+          "start": 202.68,
+          "end": 202.8
+        },
+        {
+          "word": "kann",
+          "start": 202.8,
+          "end": 203
+        },
+        {
+          "word": "niemand",
+          "start": 203,
+          "end": 203.28
+        },
+        {
+          "word": "mehr",
+          "start": 203.28,
+          "end": 203.46
+        },
+        {
+          "word": "ein",
+          "start": 203.46,
+          "end": 203.58
+        },
+        {
+          "word": "Abo",
+          "start": 203.58,
+          "end": 203.86
+        },
+        {
+          "word": "einfach",
+          "start": 203.86,
+          "end": 204.14
+        },
+        {
+          "word": "über",
+          "start": 204.14,
+          "end": 204.32
+        },
+        {
+          "word": "deine",
+          "start": 204.32,
+          "end": 204.54
+        },
+        {
+          "word": "Handyrechnung",
+          "start": 204.54,
+          "end": 205.1
+        },
+        {
+          "word": "abrechnen.",
+          "start": 205.1,
+          "end": 205.82
+        }
+      ]
+    },
+    {
+      "text": "Ein Abo kostet nie nur den Monatspreis.",
+      "start": 206.2,
+      "end": 208.62,
+      "words": [
+        {
+          "word": "Ein",
+          "start": 206.2,
+          "end": 206.32
+        },
+        {
+          "word": "Abo",
+          "start": 206.32,
+          "end": 206.66
+        },
+        {
+          "word": "kostet",
+          "start": 206.66,
+          "end": 207.14
+        },
+        {
+          "word": "nie",
+          "start": 207.14,
+          "end": 207.38
+        },
+        {
+          "word": "nur",
+          "start": 207.38,
+          "end": 207.6
+        },
+        {
+          "word": "den",
+          "start": 207.6,
+          "end": 207.8
+        },
+        {
+          "word": "Monatspreis.",
+          "start": 207.8,
+          "end": 208.62
+        }
+      ]
+    },
+    {
+      "text": "Es kostet den Monatspreis mal zwölf.",
+      "start": 208.78,
+      "end": 211.16,
+      "words": [
+        {
+          "word": "Es",
+          "start": 208.78,
+          "end": 208.92
+        },
+        {
+          "word": "kostet",
+          "start": 208.92,
+          "end": 209.28
+        },
+        {
+          "word": "den",
+          "start": 209.28,
+          "end": 209.46
+        },
+        {
+          "word": "Monatspreis",
+          "start": 209.46,
+          "end": 210.14
+        },
+        {
+          "word": "mal",
+          "start": 210.14,
+          "end": 210.36
+        },
+        {
+          "word": "zwölf.",
+          "start": 210.36,
+          "end": 211.16
+        }
+      ]
+    },
+    {
+      "text": "Jedes Jahr, bis du kündigst.",
+      "start": 211.16,
+      "end": 212.78,
+      "words": [
+        {
+          "word": "Jedes",
+          "start": 211.16,
+          "end": 211.5
+        },
+        {
+          "word": "Jahr,",
+          "start": 211.5,
+          "end": 211.74
+        },
+        {
+          "word": "bis",
+          "start": 211.9,
+          "end": 211.92
+        },
+        {
+          "word": "du",
+          "start": 211.92,
+          "end": 212.08
+        },
+        {
+          "word": "kündigst.",
+          "start": 212.08,
+          "end": 212.78
+        }
+      ]
+    },
+    {
+      "text": "Wenn du nach dem Check nur zwei",
+      "start": 213.52,
+      "end": 214.94,
+      "words": [
+        {
+          "word": "Wenn",
+          "start": 213.52,
+          "end": 213.64
+        },
+        {
+          "word": "du",
+          "start": 213.64,
+          "end": 213.78
+        },
+        {
+          "word": "nach",
+          "start": 213.78,
+          "end": 213.96
+        },
+        {
+          "word": "dem",
+          "start": 213.96,
+          "end": 214.16
+        },
+        {
+          "word": "Check",
+          "start": 214.16,
+          "end": 214.32
+        },
+        {
+          "word": "nur",
+          "start": 214.32,
+          "end": 214.68
+        },
+        {
+          "word": "zwei",
+          "start": 214.68,
+          "end": 214.94
+        }
+      ]
+    },
+    {
+      "text": "Abos zu je neun Euro neunundneunzig kündigst,",
+      "start": 214.94,
+      "end": 217.88,
+      "words": [
+        {
+          "word": "Abos",
+          "start": 214.94,
+          "end": 215.72
+        },
+        {
+          "word": "zu",
+          "start": 215.72,
+          "end": 215.98
+        },
+        {
+          "word": "je",
+          "start": 215.98,
+          "end": 216.18
+        },
+        {
+          "word": "neun",
+          "start": 216.18,
+          "end": 217.12
+        },
+        {
+          "word": "Euro",
+          "start": 217.12,
+          "end": 217.16
+        },
+        {
+          "word": "neunundneunzig",
+          "start": 217.16,
+          "end": 217.16
+        },
+        {
+          "word": "kündigst,",
+          "start": 217.16,
+          "end": 217.88
+        }
+      ]
+    },
+    {
+      "text": "bleiben dir rund zweihundertvierzig Euro im Jahr.",
+      "start": 217.88,
+      "end": 220.32,
+      "words": [
+        {
+          "word": "bleiben",
+          "start": 217.88,
+          "end": 218.2
+        },
+        {
+          "word": "dir",
+          "start": 218.2,
+          "end": 218.32
+        },
+        {
+          "word": "rund",
+          "start": 218.32,
+          "end": 218.64
+        },
+        {
+          "word": "zweihundertvierzig",
+          "start": 218.64,
+          "end": 219.3
+        },
+        {
+          "word": "Euro",
+          "start": 219.3,
+          "end": 219.6
+        },
+        {
+          "word": "im",
+          "start": 219.6,
+          "end": 219.76
+        },
+        {
+          "word": "Jahr.",
+          "start": 219.76,
+          "end": 220.32
+        }
+      ]
+    },
+    {
+      "text": "Schreib mir in die Kommentare, wie viele Abos du gefunden hast.",
+      "start": 221.38,
+      "end": 223.56,
+      "words": [
+        {
+          "word": "Schreib",
+          "start": 221.38,
+          "end": 221.5
+        },
+        {
+          "word": "mir",
+          "start": 221.5,
+          "end": 221.62
+        },
+        {
+          "word": "in",
+          "start": 221.62,
+          "end": 221.7
+        },
+        {
+          "word": "die",
+          "start": 221.7,
+          "end": 221.88
+        },
+        {
+          "word": "Kommentare,",
+          "start": 221.88,
+          "end": 222.22
+        },
+        {
+          "word": "wie",
+          "start": 222.36,
+          "end": 222.44
+        },
+        {
+          "word": "viele",
+          "start": 222.44,
+          "end": 222.6
+        },
+        {
+          "word": "Abos",
+          "start": 222.6,
+          "end": 222.82
+        },
+        {
+          "word": "du",
+          "start": 222.82,
+          "end": 222.96
+        },
+        {
+          "word": "gefunden",
+          "start": 222.96,
+          "end": 223.26
+        },
+        {
+          "word": "hast.",
+          "start": 223.26,
+          "end": 223.56
+        }
+      ]
+    },
+    {
+      "text": "Ich bin gespannt.",
+      "start": 224.06,
+      "end": 224.6,
+      "words": [
+        {
+          "word": "Ich",
+          "start": 224.06,
+          "end": 224.16
+        },
+        {
+          "word": "bin",
+          "start": 224.16,
+          "end": 224.32
+        },
+        {
+          "word": "gespannt.",
+          "start": 224.32,
+          "end": 224.6
+        }
+      ]
+    }
+  ]
+}

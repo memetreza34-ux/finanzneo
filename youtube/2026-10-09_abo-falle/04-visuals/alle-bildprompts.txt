@@ -1,0 +1,752 @@
+FINANZNEO — SINGLE HANDOFF FILE FOR THE GOOGLE FLOW AI AGENT
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+
+STRICT SEQUENTIAL WORKFLOW:
+1. Read the full file once, then work from top to bottom on only the current image block.
+2. Generate exactly ONE image. Never generate a batch and never prepare the next image in parallel.
+3. Wait until the current image is fully complete.
+4. Rename it immediately to the exact final file name stated in its block.
+5. Verify script-beat fit, first-glance clarity, Editorial Finance style, 16:9 format and file name. For a continuation visual, also verify that the approved reference composition is preserved and only the planned change was made.
+6. If anything fails, regenerate the same image number and replace the failed file. Do not move on.
+7. Continue only after the current image passes.
+8. Skip non-image blocks without closing the numbering gap.
+9. At the end, place every generated and correctly named image together in 04-visuals/00-ALLE-BILDER-HIER-REIN/.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+THUMBNAIL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+
+FINAL FILE NAME:
+YouTube Thumbnail - Abo-Falle 119,88.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world and uses horizontal 16:9. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+REFERENCE_IMAGE:
+NONE
+
+THUMBNAIL PROMPT:
+A bold, simple thumbnail on a warm cream background. In the center hangs a big red paper price tag that reads "9,99 €". From the tag, a long receipt unrolls downward and ends in a large dark red number "119,88 €". On the left, a short bold dark headline in German: "Die Abo-Falle". Very few elements, high contrast, readable at small size. Clean editorial finance illustration, mostly flat 2D with soft matte colors, clear silhouettes, very little detail and generous empty space.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE:
+Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+
+BACKGROUND:
+Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
+
+VISUAL FREEDOM:
+Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+
+TEXT:
+No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 01 — ANIMATION / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 01. Keep this number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 02 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+
+FINAL FILE NAME:
+YouTube Bild 02 - Mehrere Abos.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world and uses horizontal 16:9. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+A large smartphone stands upright in the center of a warm cream background. Its screen shows five simple app icons in a loose grid: a music note, a play button, a cloud, a newspaper and a dumbbell. From each icon hangs a small paper price tag on a thin string with a monthly price: "9,99 €", "12,99 €", "2,99 €", "6,99 €" and "29,90 €". No brand logos. Clean editorial finance illustration, mostly flat 2D with soft matte colors, clear silhouettes, very little detail and generous empty space.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE:
+Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+
+BACKGROUND:
+Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
+
+VISUAL FREEDOM:
+Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+
+TEXT:
+No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 03 — DATA / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 03. Keep this number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 04 — DATA / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 04. Keep this number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 05 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+
+FINAL FILE NAME:
+YouTube Bild 05 - Kontoauszug unauffaellig.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world and uses horizontal 16:9. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+A long paper bank statement curls gently across a light gray background. It shows many short rows that all look alike, each with a small amount in muted red such as "−9,99 €", "−4,99 €", "−12,99 €", "−2,99 €" and "−6,99 €". No row stands out; every amount is small and quiet. Simple typography, no bank logo. Clean editorial finance illustration, mostly flat 2D with soft matte colors, clear silhouettes, very little detail and generous empty space.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE:
+Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+
+BACKGROUND:
+Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
+
+VISUAL FREEDOM:
+Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+
+TEXT:
+No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 06 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+
+FINAL FILE NAME:
+YouTube Bild 06 - Mausefalle Gratis.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world and uses horizontal 16:9. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+A simple wooden mousetrap seen from a slight angle on a warm off-white background. Instead of cheese, the bait is a small wrapped gift box with a ribbon and a paper tag that reads "Gratis". No mouse. The trap is large in the frame with a soft contact shadow. Clean editorial finance illustration, mostly flat 2D with soft matte colors, clear silhouettes, very little detail and generous empty space.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE:
+Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+
+BACKGROUND:
+Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
+
+VISUAL FREEDOM:
+Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+
+TEXT:
+No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 07 — ANIMATION / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 07. Keep this number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 08 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+
+FINAL FILE NAME:
+YouTube Bild 08 - Preisschild Schatten.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world and uses horizontal 16:9. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+A small paper price tag stands upright on a light surface on the left and reads "4,99 € / Monat". Low warm light casts a very long, very large shadow of the tag across the cream background to the right. Inside the dark shadow, large muted red text reads "59,88 € / Jahr". The contrast between the tiny tag and the huge shadow is the whole idea. Clean editorial finance illustration, mostly flat 2D with soft matte colors, clear silhouettes, very little detail and generous empty space.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE:
+Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+
+BACKGROUND:
+Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
+
+VISUAL FREEDOM:
+Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+
+TEXT:
+No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 09 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+
+FINAL FILE NAME:
+YouTube Bild 09 - Leicht rein schwer raus.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world and uses horizontal 16:9. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+A split composition on a light background. On the left, a wide open, bright doorway with a large friendly green button labeled "Jetzt starten". On the right, a complicated maze of gray walls seen from above, with a tiny door at its far end labeled "Kündigen". Easy entry versus hard exit is obvious at first glance. Clean editorial finance illustration, mostly flat 2D with soft matte colors, clear silhouettes, very little detail and generous empty space.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE:
+Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+
+BACKGROUND:
+Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
+
+VISUAL FREEDOM:
+Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+
+TEXT:
+No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 10 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+
+FINAL FILE NAME:
+YouTube Bild 10 - App geloescht Abo laeuft.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world and uses horizontal 16:9. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+A hand drags a generic app icon with a simple play symbol into a small trash can on a smartphone home screen. Next to the phone, a small receipt printer keeps printing a long paper receipt on which the line "−7,99 €" repeats several times. Warm cream background, no brand logos. Clean editorial finance illustration, mostly flat 2D with soft matte colors, clear silhouettes, very little detail and generous empty space.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE:
+Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+
+BACKGROUND:
+Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
+
+VISUAL FREEDOM:
+Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+
+TEXT:
+No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 11 — ANIMATION / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 11. Keep this number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 12 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+
+FINAL FILE NAME:
+YouTube Bild 12 - Kuendigungsbutton.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world and uses horizontal 16:9. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+A laptop on a light gray background shows a simple, unbranded website page with lots of white space and a few gray text lines. In the center of the page sits one large, clearly visible button with the text "Verträge hier kündigen". A mouse cursor hovers over the button. Clean editorial finance illustration, mostly flat 2D with soft matte colors, clear silhouettes, very little detail and generous empty space.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE:
+Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+
+BACKGROUND:
+Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
+
+VISUAL FREEDOM:
+Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+
+TEXT:
+No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 13 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+
+FINAL FILE NAME:
+YouTube Bild 13 - Widerrufsbutton 14 Tage.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world and uses horizontal 16:9. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+On the left, a smartphone shows a simple order confirmation screen with one prominent button "Vertrag widerrufen". On the right, a large paper calendar sheet with the first 14 days circled in soft green and the label "14 Tage". Warm off-white background, no brand logos. Clean editorial finance illustration, mostly flat 2D with soft matte colors, clear silhouettes, very little detail and generous empty space.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE:
+Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+
+BACKGROUND:
+Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
+
+VISUAL FREEDOM:
+Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+
+TEXT:
+No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 14 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+
+FINAL FILE NAME:
+YouTube Bild 14 - Kontoauszug markiert.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world and uses horizontal 16:9. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+A printed bank statement lies flat on a light desk, seen from directly above. Several rows with the same monthly amounts are marked with a yellow highlighter: "−9,99 €", "−9,99 €", "−12,99 €", "−12,99 €". The highlighter pen lies next to the paper. Readable numbers, no bank logo. Clean editorial finance illustration, mostly flat 2D with soft matte colors, clear silhouettes, very little detail and generous empty space.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE:
+Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+
+BACKGROUND:
+Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
+
+VISUAL FREEDOM:
+Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+
+TEXT:
+No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 15 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+
+FINAL FILE NAME:
+YouTube Bild 15 - Handy Abonnements.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world and uses horizontal 16:9. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+A hand holds a smartphone in front of a light gray background. The screen shows a simple, unbranded settings page titled "Abonnements" with a short list of four rows, each with a name and a monthly price: "Musik 10,99 €", "Video 13,99 €", "Cloud 2,99 €", "Fitness 9,99 €". Large readable text. Clean editorial finance illustration, mostly flat 2D with soft matte colors, clear silhouettes, very little detail and generous empty space.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE:
+Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+
+BACKGROUND:
+Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
+
+VISUAL FREEDOM:
+Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+
+TEXT:
+No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 16 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+
+FINAL FILE NAME:
+YouTube Bild 16 - PayPal automatische Zahlungen.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world and uses horizontal 16:9. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+A laptop on a light cream desk shows the PayPal website in its typical blue and white design, opened on a page titled "Automatische Zahlungen". The page lists three generic merchants with monthly amounts. The interface is slightly simplified and easy to read. Clean editorial finance illustration, mostly flat 2D with soft matte colors, clear silhouettes, very little detail and generous empty space.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE:
+Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+
+BACKGROUND:
+Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
+
+VISUAL FREEDOM:
+Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+
+TEXT:
+No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 17 — DATA / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 17. Keep this number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 18 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+
+FINAL FILE NAME:
+YouTube Bild 18 - Lastschrift zurueckgeben.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world and uses horizontal 16:9. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+A smartphone with a simple, unbranded banking app shows one direct debit entry "Lastschrift −12,99 €" with a clear button "Zurückgeben". Next to the phone stands a small calendar card that reads "8 Wochen". Warm off-white background. Clean editorial finance illustration, mostly flat 2D with soft matte colors, clear silhouettes, very little detail and generous empty space.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE:
+Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+
+BACKGROUND:
+Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
+
+VISUAL FREEDOM:
+Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+
+TEXT:
+No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 19 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+
+FINAL FILE NAME:
+YouTube Bild 19 - Drittanbietersperre.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world and uses horizontal 16:9. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+A printed mobile phone bill lies on a light background with a smartphone beside it. One line on the bill is highlighted in soft green and reads "Drittanbieter: gesperrt", with a simple closed padlock symbol next to it. No provider logo. Clean editorial finance illustration, mostly flat 2D with soft matte colors, clear silhouettes, very little detail and generous empty space.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE:
+Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+
+BACKGROUND:
+Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
+
+VISUAL FREEDOM:
+Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+
+TEXT:
+No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 20 — ANIMATION / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 20. Keep this number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 21 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+
+FINAL FILE NAME:
+YouTube Bild 21 - Abo-Check erledigt.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world and uses horizontal 16:9. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+A relaxed young adult sits on a sofa and smiles while looking at a smartphone. On the cushion next to them lies a yellow sticky note that reads "Abo-Check ✓". Warm soft cream background, calm mood, natural colors, simple shapes. Clean editorial finance illustration, mostly flat 2D with soft matte colors, clear silhouettes, very little detail and generous empty space.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE:
+Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+
+BACKGROUND:
+Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
+
+VISUAL FREEDOM:
+Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+
+TEXT:
+No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FINISH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Finish only after every expected image has been generated one at a time, renamed immediately and verified. All final files must be together in 04-visuals/00-ALLE-BILDER-HIER-REIN/.

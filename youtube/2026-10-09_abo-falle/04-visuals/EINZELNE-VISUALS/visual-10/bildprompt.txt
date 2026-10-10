@@ -1,0 +1,41 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+
+FINAL FILE NAME:
+YouTube Bild 10 - App geloescht Abo laeuft.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world and uses horizontal 16:9. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+A hand drags a generic app icon with a simple play symbol into a small trash can on a smartphone home screen. Next to the phone, a small receipt printer keeps printing a long paper receipt on which the line "−7,99 €" repeats several times. Warm cream background, no brand logos. Clean editorial finance illustration, mostly flat 2D with soft matte colors, clear silhouettes, very little detail and generous empty space.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE:
+Use a clean editorial finance illustration. Prefer 2D or subtle 2.5D. Simple 3D is allowed only when it genuinely helps the subject. Use matte restrained colors, clear silhouettes, large readable elements and low-to-moderate detail.
+
+BACKGROUND:
+Choose the background that makes the image clearest. Warm off-white, cream, light gray, muted color, dark charcoal or black are all allowed. Never force a black background.
+
+VISUAL FREEDOM:
+Metaphors, charts, timelines, comparisons, documents, quote visuals, people, companies/brands and simple everyday scenes are all allowed when they are the clearest choice.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic finance spectacle and glossy toy-like 3D blocks unless the actual subject requires them.
+
+TEXT:
+No automatic generic headline. Numbers, short labels, dates, quotes and document text are allowed when useful.
+
+FORMAT:
+Horizontal 16:9 source image.

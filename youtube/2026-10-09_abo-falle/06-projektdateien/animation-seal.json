@@ -1,0 +1,255 @@
+{
+  "version": 2,
+  "motionStandardId": "finanzneo-youtube-motion-v3",
+  "sourceIndex": "04-visuals/visual-index.json",
+  "entries": [
+    {
+      "id": "visual-01",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-01/animation.tsx",
+      "exportName": "YouTubeVisual01Animation",
+      "viewerChange": "Eine einzelne Abbuchung von 9,99 € wird sichtbar zu zwölf Abbuchungen und verschmilzt zu 119,88 € im Jahr.",
+      "animationIntent": "Der Zuschauer soll den Jahresbetrag nicht ausrechnen müssen, sondern sehen, wie er Monat für Monat entsteht.",
+      "mechanicId": "card-to-chip-monthly-stack-merge",
+      "visualTechniqueId": "magic-move-calendar-year-bar",
+      "techniqueDescription": "Abbuchungskarte schrumpft samt Inhalt zum Januar-Chip; jeder Monat wirft einen Chip unter seinem Monat in einen wertgenauen Jahresbalken; Zähler springt beim Landen; Chips verschmelzen, Klammer zeichnet sich.",
+      "compositionFamilyId": "single-object-transformation",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "@remotion/paths",
+        "src/youtube-motion/szenen/AboJahr.tsx",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still, leichter Push beim Ergebnis",
+        "layout": "Monatsleiste oben, Jahresbalken darunter, Summe mittig",
+        "transformation": "Karte → Chip → Balken → Summe (Magic Move)"
+      },
+      "motionChannels": [
+        "Karte schrumpft zum Chip",
+        "Chips fallen in den Balken",
+        "Zähler springt",
+        "Verschmelzen und Klammer"
+      ],
+      "visualBeats": [
+        "Abbuchungskarte −9,99 €",
+        "Karte wird Januar-Chip",
+        "Zwölf Chips im Jahresbalken",
+        "119,88 € im Jahr"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "b89e67b34f39433d15f77b2282de7a17967136b11d04e117584712a0ef5a057b"
+    },
+    {
+      "id": "visual-03",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-03/animation.tsx",
+      "exportName": "YouTubeVisual03Animation",
+      "viewerChange": "Die Monatsausgabe 62 € (Vorjahr 55 €) wird zwölfmal aneinandergereiht und ergibt 744 € im Jahr.",
+      "animationIntent": "Steigerung und Jahresbetrag direkt aus derselben Säule zeigen.",
+      "mechanicId": "monthly-column-replicates-into-year",
+      "visualTechniqueId": "column-compare-then-twelvefold-row",
+      "techniqueDescription": "Zwei wertgenaue Säulen 55 €/62 € mit +7-€-Marke; die 62-€-Säule schrumpft in eine Reihe und verzwölffacht sich, Zähler zählt in 62-€-Schritten.",
+      "compositionFamilyId": "value-comparison-to-repetition",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "spring",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "zwei Säulen mittig → Zwölferreihe unten, Zähler oben",
+        "transformation": "Säule wächst, Vergleich, dann Replikation zur Reihe"
+      },
+      "motionChannels": [
+        "Säulen wachsen",
+        "Säule wird Reihe",
+        "Zähler zählt"
+      ],
+      "visualBeats": [
+        "62 € pro Monat",
+        "55 € im Vorjahr",
+        "744 € im Jahr"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "70f265d09cf0fef81564f36fd84f958b2d3807f8da5a798f7d237c1439bea7e4"
+    },
+    {
+      "id": "visual-04",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-04/animation.tsx",
+      "exportName": "YouTubeVisual04Animation",
+      "viewerChange": "Von 100 Haushalten färben sich 19 rot — fast jeder fünfte zahlt über 100 € im Monat.",
+      "animationIntent": "Einen Prozentwert als zählbare Menge greifbar machen.",
+      "mechanicId": "hundred-households-recolor-share",
+      "visualTechniqueId": "unit-grid-recolor",
+      "techniqueDescription": "10×10-Punkteraster, 19 Punkte wechseln gestaffelt auf Rot, Zähler 0 → 19.",
+      "compositionFamilyId": "proportion-grid",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx (Punkteraster, Zaehlwerk)"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Raster links, Zahl rechts",
+        "transformation": "Umfärben eines Anteils"
+      },
+      "motionChannels": [
+        "Punkte erscheinen",
+        "19 Punkte färben sich",
+        "Zähler zählt"
+      ],
+      "visualBeats": [
+        "100 Haushalte",
+        "19 von 100 über 100 € im Monat"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "0e221b3809ad8f498e4bd90be3226262046457a4c1344ca93725069017f12fef"
+    },
+    {
+      "id": "visual-07",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-07/animation.tsx",
+      "exportName": "YouTubeVisual07Animation",
+      "viewerChange": "30 grüne Gratis-Tage, dann kippt Tag 31 rot und ab jetzt kommt jeden Monat eine Abbuchung.",
+      "animationIntent": "Den Moment zeigen, in dem aus „gratis“ unbemerkt ein bezahltes Abo wird.",
+      "mechanicId": "free-trial-days-flip-to-monthly-debits",
+      "visualTechniqueId": "day-strip-scrub-then-month-row",
+      "techniqueDescription": "Tagesstreifen wird von einer Marke grün gefüllt; Tag 31 springt rot herein; die 30 Tage schrumpfen zum ersten Monatsfeld, Monate 2–12 fallen als rote Abbuchungen nach, Zähler bis 142,89 €.",
+      "compositionFamilyId": "timeline-state-flip",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "spring",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Tagesstreifen oben → Monatsreihe darunter, Zähler unten",
+        "transformation": "Scrub über Tage, Zustandswechsel, Zusammenfalten zu Monat 1"
+      },
+      "motionChannels": [
+        "Tage füllen sich",
+        "Tag 31 kippt",
+        "Monatsabbuchungen fallen",
+        "Zähler"
+      ],
+      "visualBeats": [
+        "30 Tage gratis",
+        "Tag 31: −12,99 €",
+        "jeden Monat −12,99 €"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "f15c954793bbbd32f69c9e030eb48efd579ac41046a3234dfb84d6a61ace1a44"
+    },
+    {
+      "id": "visual-11",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-11/animation.tsx",
+      "exportName": "YouTubeVisual11Animation",
+      "viewerChange": "Alter Vertrag: nach 24 Monaten rastet ein ganzes Jahr mit Schloss ein. Neuer Vertrag: danach einzelne Monate, jeder kündbar.",
+      "animationIntent": "Die Gesetzesänderung als Unterschied zweier Zeitleisten sofort sichtbar machen.",
+      "mechanicId": "auto-renewal-lock-versus-monthly-exits",
+      "visualTechniqueId": "two-contract-timelines-split",
+      "techniqueDescription": "Zwei Zeitleisten zeichnen sich; oben rastet ein roter +12-Monate-Block mit Schloss ein; unten folgen grüne Einzelmonate mit Ausgangsmarken, das Schloss öffnet sich.",
+      "compositionFamilyId": "before-after-timelines",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "SVG",
+        "spring",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "zwei Zeitleisten übereinander",
+        "transformation": "Einrasten eines Blocks vs. Aufreihen einzelner Monate"
+      },
+      "motionChannels": [
+        "Leisten zeichnen sich",
+        "Block rastet ein",
+        "Monate reihen sich",
+        "Schloss öffnet"
+      ],
+      "visualBeats": [
+        "alter Vertrag",
+        "+12 Monate gesperrt",
+        "neuer Vertrag",
+        "Einzelmonate",
+        "monatlich kündbar"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "e4d3ff848c45cd60f815f131401d081bfddeb181bd2f75965248683558820c4b"
+    },
+    {
+      "id": "visual-17",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-17/animation.tsx",
+      "exportName": "YouTubeVisual17Animation",
+      "viewerChange": "Fünf Abos werden aufgeschrieben, jede Zeile wird zum Jahresbetrag, zwei werden gestrichen und die Summe fällt.",
+      "animationIntent": "Den Abo-Check als einfache Rechnung vormachen, die man selbst nachmachen kann.",
+      "mechanicId": "subscription-list-times-twelve-strike",
+      "visualTechniqueId": "notepad-rows-yearly-recount",
+      "techniqueDescription": "Notizzettel: Zeilen erscheinen, Spalte ×12 rechnet hoch, Summe zählt, Prüfmarkierung wandert, zwei Zeilen werden gezeichnet durchgestrichen.",
+      "compositionFamilyId": "checklist-calculation",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "@remotion/paths",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "zentraler Notizzettel mit drei Spalten",
+        "transformation": "Hochrechnen, Prüfen, Durchstreichen"
+      },
+      "motionChannels": [
+        "Zeilen schreiben",
+        "Jahresbeträge rechnen",
+        "Markierung prüft",
+        "Durchstreichen, Summe sinkt"
+      ],
+      "visualBeats": [
+        "fünf Abos",
+        "jede Zeile × 12, Summe 575,40 €",
+        "jede Zeile prüfen",
+        "zwei gestrichen, 335,64 €"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "70cb36e37375d751f1add9547d4c80afd6087ad5d6cb1bbc7bd8aece113c1b70"
+    },
+    {
+      "id": "visual-20",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-20/animation.tsx",
+      "exportName": "YouTubeVisual20Animation",
+      "viewerChange": "9,99 € werden zur Jahressäule, Jahr für Jahr wächst der Stapel — dann werden zwei gekündigte Abos zu 240 €, die bleiben.",
+      "animationIntent": "Den Merksatz „Monatspreis × 12, jedes Jahr“ und die Belohnung des Kündigens zeigen.",
+      "mechanicId": "yearly-cost-stacks-turn-into-savings",
+      "visualTechniqueId": "cumulative-years-then-swap-to-savings",
+      "techniqueDescription": "Chip wird Jahressäule, weitere Jahre stapeln sich mit Zähler; Umkehr: zwei grüne Jahresblöcke wachsen, Ergebnis ≈ 240 €.",
+      "compositionFamilyId": "cumulative-columns-reversal",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "spring",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Säule links, Zahl rechts",
+        "transformation": "Stapeln über Jahre, dann Farbumkehr zu Ersparnis"
+      },
+      "motionChannels": [
+        "Chip wird Säule",
+        "Jahre stapeln sich",
+        "Zähler",
+        "grüne Ersparnis wächst"
+      ],
+      "visualBeats": [
+        "9,99 € pro Monat",
+        "119,88 € pro Jahr",
+        "Jahr für Jahr",
+        "≈ 240 € bleiben"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "2115c8254488993cfc3736a51f9e57e30be559c2a52a7c83e8e9cd91e4b0cc1e"
+    }
+  ]
+}
