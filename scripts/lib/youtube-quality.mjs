@@ -12,6 +12,7 @@ import {
   YOUTUBE_STYLE_REFERENCE_MARKER,
   YOUTUBE_QUALITY_RULES_V2_ID,
   YOUTUBE_HOOK_ANNOUNCEMENT_PATTERN,
+  YOUTUBE_CHARACTER_REFERENCE_MARKER,
 } from './youtube-contract.mjs';
 
 export const normWort = (wort) =>
@@ -121,7 +122,7 @@ export const pruefeYouTubeQualitaet = ({index, scriptText, prompts, bildprompt, 
     }
   }
 
-  if (index.qualityRules === YOUTUBE_QUALITY_RULES_V2_ID) fehler.push(...pruefeBindungV2({index, scriptText, ergebnis, woerter, ersterInhalt}));
+  if (index.qualityRules === YOUTUBE_QUALITY_RULES_V2_ID) fehler.push(...pruefeBindungV2({index, scriptText, ergebnis, woerter, ersterInhalt, bildprompt}));
 
   return {fehler, haltezeiten: ergebnis, wortzahl: woerter.length};
 };
@@ -141,7 +142,7 @@ const kommtVor = (begriff, woerter) => {
  * 3. Jedes Bild hat ein `keyword`, das in genau seinem Sprechabschnitt fällt → Bild zeigt, was gesagt wird.
  * 4. Jede Animation hat ein `bridgeObject`, das im Bild davor oder danach vorkommt → kein Weltwechsel.
  */
-export const pruefeBindungV2 = ({index, scriptText, ergebnis, woerter, ersterInhalt}) => {
+export const pruefeBindungV2 = ({index, scriptText, ergebnis, woerter, ersterInhalt, bildprompt = () => ''}) => {
   const fehler = [];
   const visuals = index.visuals ?? [];
   const hookEnde = ersterInhalt > 0 && ergebnis[ersterInhalt]?.startWort != null ? ergebnis[ersterInhalt].startWort : Math.min(60, woerter.length);
@@ -156,6 +157,12 @@ export const pruefeBindungV2 = ({index, scriptText, ergebnis, woerter, ersterInh
     if (!kommtVor(story.protagonist, woerter.slice(0, hookEnde))) fehler.push(`Hauptfigur „${story.protagonist}“ wird im Hook nicht genannt.`);
   } else if (story.protagonist !== null || typeof story.reason !== 'string' || !story.reason.trim() || story.reason.startsWith('[')) {
     fehler.push('story.protagonist fehlt: Hauptfigur benennen oder bewusst null mit story.reason begründen.');
+  }
+
+  const figurBild = story.protagonist ? story.figurBild : null;
+  for (const [k, v] of visuals.entries()) {
+    if (!v.figur || figurBild == null || figurBild === k + 1) continue;
+    if (!(bildprompt(v) ?? '').includes(YOUTUBE_CHARACTER_REFERENCE_MARKER)) fehler.push(`${v.id}: zeigt ${story.protagonist}, hängt aber das Figur-Bild nicht als ${YOUTUBE_CHARACTER_REFERENCE_MARKER} an.`);
   }
 
   ergebnis.forEach((e, k) => {

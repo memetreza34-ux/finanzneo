@@ -215,6 +215,7 @@ Aus der Wettbewerbsanalyse (simplicissimus, Kurzgesagt, Finanzfluss) und der Rü
 |---|---|---|
 | **Hook ohne Ankündigung** — kein „In diesem Video …“, „heute erkläre ich …“, „ich zeige dir …“; Start mit Szene, Person oder Konflikt | Die stärksten Erklärvideos starten mit einer Geschichte, nicht mit einem Inhaltsverzeichnis | `youtube:validate` |
 | **Hauptfigur** (`story.protagonist`, z. B. „Lena“) wird im Hook genannt und trägt das Video; bewusst `null` nur mit Begründung (z. B. reine News) | Eine Figur verbindet Skript („Lena zahlt …“), Bilder (dieselbe Figur) und Animationen („Lenas Raten“) zu einer Geschichte | `youtube:validate` |
+| **Figur ohne Flow-„Charakter“** — `story.figurBild` (`'Thumbnail'` oder Bildnummer) legt die Figur einmal fest; jedes Bild mit `figur: true` hängt dieses Bild als `CHARACTER_REFERENCE:` an („dieselbe Person wie in …“) und liegt in einem späteren Batch | Gleiche Figur in jedem Bild ohne Extra-Schritt in Flow (Arman, 17.10.2026) | Plan-Generator + `youtube:validate` |
 | **`keyword` pro Bild** — ein Wort, das genau in seinem Sprechabschnitt fällt und das Bild zeigt | Bild zeigt, was in dem Moment gesagt wird, nicht nur ungefähr das Thema | `youtube:validate` |
 | **`bridgeObject` pro Animation** — ein Objekt aus dem Bild davor oder danach, das die Animation sichtbar weiterträgt (gleiche Form, Farbe, Name) | Kein Weltwechsel zwischen Illustration und Grafik; die Animation ist die bewegte Fortsetzung des Bildes | `youtube:validate` + Motion-Director |
 

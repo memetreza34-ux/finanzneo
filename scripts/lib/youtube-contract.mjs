@@ -141,6 +141,8 @@ export const YOUTUBE_MUSIC_GAIN_DB = -24;
 /** Bildwelt: Das Thumbnail wird zuerst erzeugt und hängt als Stilvorlage an jedem Bild. */
 export const YOUTUBE_STYLE_MASTER = 'thumbnail';
 export const YOUTUBE_STYLE_REFERENCE_MARKER = 'STYLE_REFERENCE:';
+/** Hauptfigur: dieselbe Person in jedem Bild über ein angehängtes Referenzbild (kein Flow-„Charakter“ nötig). */
+export const YOUTUBE_CHARACTER_REFERENCE_MARKER = 'CHARACTER_REFERENCE:';
 
 export const FORBIDDEN_YOUTUBE_ARTIFACTS = [
   'youtube-shorts.txt',

@@ -24,6 +24,7 @@ import {
   YOUTUBE_FLOW_PROTOCOL_MARKER,
   YOUTUBE_MOTION_STANDARD_ID,
   YOUTUBE_STYLE_REFERENCE_MARKER,
+  YOUTUBE_CHARACTER_REFERENCE_MARKER,
   internWurzel,
 } from './lib/youtube-contract.mjs';
 
@@ -60,6 +61,14 @@ const styleReference = `${YOUTUBE_STYLE_REFERENCE_MARKER}
 ${thumbnail.file} — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
 `;
 
+// Hauptfigur ohne Flow-„Charakter“: Die Figur wird einmal festgelegt (story.figurBild = 'Thumbnail' oder eine
+// Bildnummer). Jedes Bild mit `figur: true` hängt genau dieses freigegebene Bild als Figur-Referenz an.
+const figurBild = story?.protagonist ? story.figurBild ?? null : null;
+const figurDatei = figurBild === 'Thumbnail' ? thumbnail.file : (typeof figurBild === 'number' ? fileOf(figurBild) : null);
+const characterReference = (n) => (figurDatei && visuals[n - 1].figur && figurBild !== n ? `${YOUTUBE_CHARACTER_REFERENCE_MARKER}
+${figurDatei} — attach this approved image as character reference. The person called ${story.protagonist} is exactly the same character as in that image: same face, hair, clothes, colors and proportions. Never invent a new person for ${story.protagonist}.
+` : '');
+
 const index = JSON.parse(readFileSync(resolve(root, VISUAL_INDEX), 'utf8'));
 const alt = new Map((index.visuals ?? []).map((v) => [v.id, v]));
 const blocks = new Map();
@@ -93,7 +102,7 @@ index.visuals = visuals.map((v, i) => {
   const base = {id, type: v.type, chapter: v.chapter, scriptBeat: v.beat};
   if (v.type === 'image') {
     const block = `${flowStep(fileOf(n))}
-${styleReference}
+${styleReference}${characterReference(n)}
 REFERENCE_IMAGE:
 ${v.ref ? fileOf(v.ref) : 'NONE'}
 
@@ -113,6 +122,7 @@ ${styleBlock}`;
       planFile: `${dir}/bildprompt.txt`,
       startCue: v.cue,
       ...(v.keyword ? {keyword: v.keyword} : {}),
+      ...(v.figur ? {figur: true} : {}),
       objectLabels: v.labels,
       ...(v.akzente ? {akzente: v.akzente} : {}),
     };
@@ -144,7 +154,9 @@ let cur = 1;
 for (const [i, v] of visuals.entries()) {
   if (v.type !== 'image') continue;
   const n = i + 1;
-  let b = Math.max(cur, v.ref ? batchOf.get(v.ref) + 1 : 1);
+  // Figur-Bild (falls Bildnummer) liegt wie eine normale Referenz immer in einem früheren Batch.
+  const figurMin = v.figur && typeof figurBild === 'number' && figurBild !== n ? batchOf.get(figurBild) + 1 : 1;
+  let b = Math.max(cur, v.ref ? batchOf.get(v.ref) + 1 : 1, figurMin);
   while (batches[b] && batches[b].length >= YOUTUBE_FLOW_BATCH_SIZE) b++;
   batches[b] ??= [];
   batches[b].push(n);

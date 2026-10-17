@@ -124,3 +124,25 @@ test('V2: Hook ohne Ankündigung, Hauptfigur im Hook, keyword im Abschnitt, brid
   assert.ok(f.some((x) => x.startsWith('visual-02: keyword „Kreditkarte“ fällt nicht')));
   assert.ok(f.some((x) => x.startsWith('visual-03: bridgeObject „Waschmaschine“')));
 });
+
+test('V2: Bilder mit Hauptfigur hängen das Figur-Bild als CHARACTER_REFERENCE an', () => {
+  const index = {
+    qualityRules: 'finanzneo-youtube-quality-v2',
+    story: {protagonist: 'Lena', reason: 'x', figurBild: 'Thumbnail'},
+    thumbnail: {googleFlowFileName: 'T.png'},
+    imageWorld: {},
+    visuals: [
+      {id: 'visual-01', type: 'image', chapter: 'Hook', startCue: 'Lena steht', keyword: 'Lena', figur: true},
+      {id: 'visual-02', type: 'image', chapter: 'K1', startCue: 'Dann zahlt', keyword: 'zahlt', figur: true},
+    ],
+  };
+  const text = `Lena steht im Laden ${woerter(5)} Dann zahlt sie ${woerter(4)} Kommentare ${woerter(3)}`;
+  const fehler = pruefeYouTubeQualitaet({
+    index,
+    scriptText: text,
+    prompts: '',
+    bildprompt: (v: {id: string}) => (v.id === 'visual-01' ? 'CHARACTER_REFERENCE:\nT.png' : 'REFERENCE_IMAGE:\nNONE'),
+  }).fehler as string[];
+  assert.ok(fehler.some((f) => f.startsWith('visual-02: zeigt Lena, hängt aber das Figur-Bild nicht')));
+  assert.ok(!fehler.some((f) => f.startsWith('visual-01: zeigt Lena')));
+});
