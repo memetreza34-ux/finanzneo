@@ -1,0 +1,236 @@
+{
+  "version": 2,
+  "motionStandardId": "finanzneo-youtube-motion-v3",
+  "sourceIndex": "04-visuals/visual-index.json",
+  "entries": [
+    {
+      "id": "visual-11",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-11/animation.tsx",
+      "exportName": "YouTubeVisual11Animation",
+      "viewerChange": "Unter dem Preisbalken „Kaufpreis 600 €“ setzen sich zwölf 50-€-Blöcke (Monat 1–12) nacheinander in eine leere Ratenspur gleicher Skala; die Summe zählt bis 600 €, die Kette endet exakt am Ende des Preisbalkens, beide werden grün und hinter dem Ende steht „0 € extra“.",
+      "animationIntent": "„Zwölf mal fünfzig sind sechshundert“ soll als Längengleichheit sichtbar werden: Raten und Preis teilen eine Skala, also beweist das bündige Ende ohne Rechnen, dass keine Zinsen dazukommen.",
+      "mechanicId": "installment-blocks-fill-price-tag-length",
+      "visualTechniqueId": "twelve-rate-blocks-chain-under-price-bar-with-end-match",
+      "techniqueDescription": "Preisbalken 600 € und gestrichelte Ratenspur auf gemeinsamer Skala (600 € = 1.200 px, 50 € = 100 px); zwölf Blöcke fallen nacheinander in die Spur, Zählwerk +50 € je Block; End-Hilfslinien an beiden Enden, Farbwechsel auf Grün, „= Kaufpreis“ und „0 € extra“ hinter dem Kettenende.",
+      "compositionFamilyId": "comparison",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "Zaehlwerk (daten.tsx)"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Preisbalken oben, Ratenspur mit Monatsnummern darunter, Summenzeile unten",
+        "transformation": "Blöcke füllen die Spur bis zur Preislänge, Enden werden verglichen"
+      },
+      "motionChannels": [
+        "12 Ratenblöcke setzen sich nacheinander in die Spur",
+        "Summe zählt 50 € je Block bis 600 €",
+        "End-Hilfslinien und Farbwechsel auf Grün",
+        "„0 € extra“ erscheint hinter dem Kettenende"
+      ],
+      "visualBeats": [
+        "Preisbalken 600 €, leere Ratenspur",
+        "Raten füllen die Spur, Summe läuft",
+        "12 × 50 € = 600 €",
+        "Kette endet bündig: = Kaufpreis",
+        "0 € extra"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "8b8d848c4030b63e90983de7e8c7c00602b782ca39842a8554eb6a54416c97ba"
+    },
+    {
+      "id": "visual-15",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-15/animation.tsx",
+      "exportName": "YouTubeVisual15Animation",
+      "viewerChange": "Neben der 600-€-Säule von Shop A („0 % Finanzierung“) wächst Shop B auf 550 €; eine Schnittlinie bei 550 € läuft über beide Säulen, das obere 50-€-Stück von Shop A löst sich orange heraus, gleitet zur Seite und wird zu „+50 € · Zinsen im Preis“.",
+      "animationIntent": "Die Zinsen sind hier nicht sichtbar ausgewiesen; erst der Vergleich mit dem günstigeren Shop schneidet sie aus dem Preis heraus. Das herausgelöste Stück macht genau diese versteckte Differenz greifbar.",
+      "mechanicId": "price-columns-cut-difference-slice-out",
+      "visualTechniqueId": "two-shop-columns-level-line-lifts-top-slice",
+      "techniqueDescription": "Zwei Preissäulen ab 0 € (600 € = 540 px, 50 € = 45 px), gemeinsame Preiszeile darüber; gestrichelte 550-€-Linie zeichnet sich über beide Säulen, das 50-€-Kopfstück von Shop A färbt sich orange und gleitet seitlich neben die Säulen; an seiner Stelle bleibt eine gestrichelte Kontur.",
+      "compositionFamilyId": "comparison",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "zwei Preissäulen nebeneinander, herausgelöstes Stück rechts daneben",
+        "transformation": "Schnittlinie trennt die Differenz ab, Stück gleitet heraus"
+      },
+      "motionChannels": [
+        "Säule Shop A wächst auf 600 €",
+        "Säule Shop B wächst auf 550 €",
+        "550-€-Schnittlinie zeichnet sich",
+        "50-€-Stück löst sich und gleitet heraus",
+        "„Zinsen im Preis“ erscheint"
+      ],
+      "visualBeats": [
+        "Shop A mit 0 % Finanzierung: 600 €",
+        "Shop B: 550 €",
+        "Schnitt bei 550 €: 50 € Differenz löst sich",
+        "+50 € = Zinsen im Preis"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "eed772cfa2d09c2bfcce1ebe1d8444e160dc548b205a4143b295f8d0b6142baa"
+    },
+    {
+      "id": "visual-18",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-18/animation.tsx",
+      "exportName": "YouTubeVisual18Animation",
+      "viewerChange": "Der fertige Kaufpreis steht bereits als Säule 600 €; rechts erscheint ein Versicherungszettel „8 € pro Monat“ mit 12 Monatsfeldern, jedes abgehakte Feld legt eine orange 8-€-Scheibe oben auf die Säule, bis der Aufschlag 96 € beträgt und die Gesamtzahl von 600 € auf 696 € rollt.",
+      "animationIntent": "Anders als beim Ratenaufbau wird hier nichts abbezahlt, sondern etwas auf einen fertigen Preis draufgelegt: Die Monate des Zusatzvertrags schichten einen sichtbaren Aufschlag auf, der den Preis dauerhaft erhöht.",
+      "mechanicId": "monthly-addon-slices-stack-onto-finished-price",
+      "visualTechniqueId": "insurance-ticket-month-ticks-drop-slices-on-price-column",
+      "techniqueDescription": "Senkrechte Preissäule ab 0 € (696 € = 620 px, 8 € = 7,1 px); Versicherungszettel mit 6 × 2 Monatsfeldern; jedes Feld färbt sich orange und schiebt eine 8-€-Scheibe schräg von rechts oben auf die Säule; Zählwerk am Zettel 8 € → 96 €, Klammer „+96 €“ am Aufschlag, Gesamt-Zählwerk 600 € → 696 €.",
+      "compositionFamilyId": "stacked-surcharge",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "Zaehlwerk (daten.tsx)"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Preissäule links, Versicherungszettel mit Monatsfeldern rechts",
+        "transformation": "Monatsfelder haken ab, Scheiben stapeln sich als Aufschlag oben auf die Säule"
+      },
+      "motionChannels": [
+        "Preissäule 600 € steht",
+        "Versicherungszettel erscheint",
+        "Monatsfelder färben sich orange",
+        "8-€-Scheiben stapeln sich auf der Säule",
+        "Zählwerk 96 €, Gesamt 600 € → 696 €"
+      ],
+      "visualBeats": [
+        "Kaufpreis 600 €",
+        "Annahme: Versicherung",
+        "8 € pro Monat: erste Scheibe",
+        "12 Monate: 96 € Aufschlag",
+        "600 € + 96 € = 696 €"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "8e6152cf4592ab125961c40e9c984d2a84b7f6312bdec9b079419a911999ab15"
+    },
+    {
+      "id": "visual-24",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-24/animation.tsx",
+      "exportName": "YouTubeVisual24Animation",
+      "viewerChange": "Ein einzelner Kaufblock „Fernseher“ steht in der Mitte; um ihn legt sich ein Rahmen, der sich zu einem großen leeren „Kreditrahmen“ aufzieht; der Fernseher wird grün mit „0 %“ und „nur dieser Kauf“, danach füllen „Handy“ und „Konsole“ den Rahmen, färben sich rot mit „Zinsen“, der Rest zeigt „jeder weitere Kauf: Zinsen“ und darunter erscheint „Zinsen oft höher als beim Dispo“.",
+      "animationIntent": "Der Zuschauer soll erleben, dass der Null-Prozent-Kauf nur ein kleiner Teil eines viel größeren Kredits ist: Die Aufzieh-Bewegung zeigt den versteckten Rahmen, die Farbumkehr zeigt, dass alles danach kostet — ohne erfundene Beträge.",
+      "mechanicId": "purchase-reveals-credit-line-later-purchases-turn-costly",
+      "visualTechniqueId": "single-purchase-block-unfolds-into-credit-frame-segments-recolor",
+      "techniqueDescription": "Kaufblock in der Bildmitte; ein Rahmen umschließt ihn und zieht sich nach links und rechts auf volle Breite auf, der Block wandert an den linken Rand; spätere Käufe wachsen als graue Segmente in den Rahmen und färben sich gemeinsam rot; Etiketten 0 % / Zinsen über den Segmenten, gestrichelter roter Rest, Dispo-Hinweis als Karte. Segmentbreiten schematisch, ohne Euro-Skala.",
+      "compositionFamilyId": "credit-line-frame",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "SVG-Icons"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "ein breiter Rahmen in Bildmitte, Etiketten darüber, Hinweis darunter",
+        "transformation": "Einzelkauf entpuppt sich als Teil eines Rahmens, spätere Segmente füllen und färben sich rot"
+      },
+      "motionChannels": [
+        "Kaufblock Fernseher erscheint und füllt sich",
+        "Rahmen zieht sich um den Kauf auf",
+        "0 % und „nur dieser Kauf“ am Fernseher",
+        "Handy und Konsole füllen den Rahmen",
+        "Spätere Käufe färben sich rot mit „Zinsen“",
+        "Dispo-Hinweis erscheint"
+      ],
+      "visualBeats": [
+        "Ein Kauf: Fernseher",
+        "Geld für den Fernseher",
+        "Ganzer Kreditrahmen",
+        "0 % nur für diesen Kauf",
+        "Weitere Käufe im Rahmen",
+        "Alles danach: Zinsen",
+        "Zinsen oft höher als beim Dispo"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "7d8019dcf9392ccfd514c1d66ed2b82117e83902e90d8774b0dd786d83c8deb0"
+    },
+    {
+      "id": "visual-30",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-30/animation.tsx",
+      "exportName": "YouTubeVisual30Animation",
+      "viewerChange": "Ein Zahlungsplan mit 12 Monatsplätzen füllt sich mit elf flachen 30-€-Säulen, die Summe zählt bis 330 €; dann schießt Säule 12 auf derselben Skala auf 270 € hoch, die Summe rollt auf 600 € und ein Callout „Schlussrate = 9 Monatsraten auf einmal“ hängt an der letzten Säule.",
+      "animationIntent": "Die gleiche Gesamtsumme wie beim fairen Beispiel versteckt hier ein Risiko im Zeitverlauf; erst die wertgenaue letzte Säule zeigt, wie unverhältnismäßig die Schlusszahlung gegenüber den kleinen Raten ist.",
+      "mechanicId": "flat-payment-plan-then-balloon-column-jump",
+      "visualTechniqueId": "twelve-month-columns-same-scale-final-balloon-with-running-total",
+      "techniqueDescription": "Säulendiagramm ab 0 € (270 € = 540 px, 30 € = 60 px) mit Monat 1–12; Säulen 1–11 wachsen gestaffelt, Klammer „11 × 30 € = 330 €“; Säule 12 wächst ohne Überschwingen auf 270 € in Orange; Summen-Zählwerk läuft 30 € pro Säule, dann 330 € → 600 €; Callout links an Säule 12.",
+      "compositionFamilyId": "data-viz",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "Zaehlwerk (daten.tsx)"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Monatssäulen über die ganze Breite, Summe oben links, Callout an der letzten Säule",
+        "transformation": "flache Säulen wachsen nacheinander, letzte Säule springt hoch"
+      },
+      "motionChannels": [
+        "Säulen 1–11 wachsen auf 30 €",
+        "Summe zählt bis 330 €",
+        "Säule 12 schießt auf 270 €",
+        "Summe rollt auf 600 €",
+        "Schlussraten-Callout erscheint"
+      ],
+      "visualBeats": [
+        "11 Raten à 30 €, Summe 330 €",
+        "Schlussrate 270 €",
+        "Zusammen 600 €",
+        "Schlussrate = 9 Monatsraten auf einmal"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "ff7ffc7eae0ef8b8c65deb0295a613e851596d225dfb32ed2d604f1a43c57ad3"
+    },
+    {
+      "id": "visual-33",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-33/animation.tsx",
+      "exportName": "YouTubeVisual33Animation",
+      "viewerChange": "Drei getrennte Ratenkarten erscheinen nacheinander (Fernseher 50 €, Handy 35 €, Kopfhörer 25 €), jede mit kurzem Balken und „wirkt harmlos“; dann rutschen die drei Balken aus den Karten Ende an Ende zu einem Monatsbalken zusammen, das Zählwerk zählt 50 → 85 → 110 € und zwölf Monatsfelder leuchten rot auf: „110 € jeden Monat“.",
+      "animationIntent": "Einzeln wirkt jede Rate klein; erst das Zusammenschieben auf derselben Skala zeigt die echte Monatslast, und die Monatsreihe macht klar, dass sie jeden Monat wiederkommt.",
+      "mechanicId": "separate-installment-cards-merge-into-monthly-load",
+      "visualTechniqueId": "three-rate-cards-bars-slide-into-one-stacked-month-bar-with-month-repeat",
+      "techniqueDescription": "Drei weiße Karten mit Icon, Betrag und Balken (1 € = 8 px); bei „Zusammen“ verlassen die Balken gestaffelt ihre Karten und fügen sich zu einem 880-px-Monatsbalken (110 €) zusammen, leere gestrichelte Spuren bleiben in den Karten; Zählwerk rechts addiert beim Andocken; Reihe Jan–Dez leuchtet rot durch.",
+      "compositionFamilyId": "merge-stack",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "Zaehlwerk (daten.tsx)",
+        "SVG-Icons"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "drei Karten oben nebeneinander, Monatsbalken mit Zählwerk und Monatsreihe darunter",
+        "transformation": "Einzelbalken wandern aus den Karten und verschmelzen zu einem Monatsbalken"
+      },
+      "motionChannels": [
+        "Ratenkarten erscheinen einzeln",
+        "„wirkt harmlos“ unter jeder Karte",
+        "Balken rutschen zum Monatsbalken zusammen",
+        "Zählwerk 50 → 85 → 110 €",
+        "Monatsreihe leuchtet rot"
+      ],
+      "visualBeats": [
+        "Fernseher 50 €",
+        "Handy 35 €",
+        "Kopfhörer 25 €",
+        "Jede Rate wirkt harmlos",
+        "Zusammen 110 €",
+        "110 € jeden Monat"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "25c29cd6dbf2d70d004071e6eb90aafba9bd65eaf6499d1fd40a072fdf902ea6"
+    }
+  ]
+}

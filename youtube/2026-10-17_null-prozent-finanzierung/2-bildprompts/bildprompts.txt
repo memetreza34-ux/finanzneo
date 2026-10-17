@@ -1,0 +1,2183 @@
+FINANZNEO — SINGLE HANDOFF FILE FOR THE GOOGLE FLOW AI AGENT
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+
+STYLE MASTER FIRST:
+Batch 1 contains ONLY the thumbnail. Generate it, wait until it is complete, rename it and verify it is a soft hand-drawn illustration (no photo look). Every later image attaches this approved thumbnail as STYLE_REFERENCE. Never start batch 2 before the thumbnail is approved.
+
+BATCH WORKFLOW (MAX. 5 IMAGES IN PARALLEL):
+1. Read the full file once. Images are grouped into numbered BATCH blocks of up to 5.
+2. Start every image of the current batch at the same time, each as its own single-image job. Never put several prompts into one request and never make a collage or contact sheet.
+3. As soon as an image returns, rename it immediately to the exact final file name stated in its block.
+4. Verify every image of the batch: soft hand-drawn illustration in the thumbnail's style (reject anything photorealistic), script-beat fit, first-glance clarity, Editorial Finance style, 16:9 format, German-only text and file name. For a continuation visual, also verify that the approved reference composition is preserved and only the planned change was made.
+5. Regenerate every failed image (same image number, replace the failed file) before the next batch starts.
+6. Start the next batch only after all images of the current batch pass. A continuation image is never in the same batch as its reference.
+7. Skip non-image blocks without closing the numbering gap.
+8. At the end, place every generated and correctly named image together in 3-bilder-hier-rein/.
+
+████████████████████████████████████
+BATCH 1 — START ALL TOGETHER: Thumbnail
+████████████████████████████████████
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+THUMBNAIL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Thumbnail - Null Prozent Falle.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+REFERENCE_IMAGE:
+NONE
+
+THUMBNAIL PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A bold, simple YouTube thumbnail on a warm cream background. On the right, a big friendly green price tag reads "0 %". A thin chain hangs from the tag and leads down to a dark red credit card at the bottom right, half hidden. On the left, a short bold dark hand-lettered headline in German: "0 % Finanzierung" and below it, smaller in red: "Die Falle". Very few elements, strong contrast, readable at small size, generous empty space.
+
+This thumbnail is the STYLE MASTER of the whole video: every later image attaches it as a style reference.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+████████████████████████████████████
+BATCH 2 — START ALL TOGETHER: Bild 01, Bild 02, Bild 03, Bild 04, Bild 05
+████████████████████████████████████
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 01 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 01 - Null Prozent Schild.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. Inside a bright electronics store, a big hanging sign reads "0 % Finanzierung". Below it stands a flat-screen TV with a price card "nur 50 € im Monat". A customer looks at it with interest. Calm, friendly, few elements.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 02 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 02 - Zweiter Vertrag.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A hand signs a contract on a desk. Underneath the top sheet, a second document peeks out and is slightly highlighted, labeled "Kreditrahmen". The person does not notice it. Simple desk scene, warm light colors.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 03 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 03 - Zwei Angebote Lupe.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. Two almost identical sale cards side by side, both reading "0 %". A large magnifying glass hovers over the right card and reveals a line of tiny fine print at its bottom. The left card has no fine print. Clean comparison layout.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 04 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 04 - Wer zahlt die Zinsen.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A customer stands in front of a sign "0 % Zinsen" and has a large thought bubble with the German question "Wer zahlt die Zinsen?". Simple, slightly humorous, warm colors.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 05 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 05 - Dreieck Kunde Haendler Bank.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A simple triangle diagram with three illustrated icons: a customer labeled "Kunde", a store labeled "Händler" and a bank building labeled "Partnerbank". A thick green arrow with a banknote goes from the bank to the customer. Thin gray lines connect all three. Clean infographic style.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+████████████████████████████████████
+BATCH 3 — START ALL TOGETHER: Bild 06, Bild 07, Bild 08, Bild 09, Bild 10
+████████████████████████████████████
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 06 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 06 - Haendler zahlt Zinsen.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+YouTube Bild 05 - Dreieck Kunde Haendler Bank.png
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. The exact same triangle diagram as the reference with "Kunde", "Händler" and "Partnerbank". Add only one change: a terracotta arrow labeled "Zinsen" goes from the store to the bank, and next to the store stand several full shopping bags to show more sales. Keep everything else unchanged.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 07 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 07 - Bank verdient spaeter.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A bank building on the right. On the left a small customer figure. Between them a calendar page labeled "später" and a small dotted arrow with a coin going from the customer to the bank. Calm, simple composition.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 08 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 08 - Kreditvertrag.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A single clean document lying flat on a cream surface. The heading reads "Kreditvertrag". A round stamp on it reads "0 % Sollzins". A pen lies beside it. Simple editorial still life, illustrated.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 09 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 09 - Vertrag Bonitaet Schufa.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. Three simple illustrated icons in a row with short German labels: a contract sheet labeled "Vertrag", a magnifying glass over a person silhouette labeled "Bonität", and a file folder labeled "Schufa-Eintrag". Thin connecting line between them. Clean, readable.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 10 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 10 - Fernseher 600 Euro.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A flat-screen TV standing on a low sideboard with a price tag "600 €". Next to it a small green badge with a check mark reads "echte 0 %". Calm living-room hint, cream background.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+████████████████████████████████████
+BATCH 4 — START ALL TOGETHER: Bild 12, Bild 13, Bild 14, Bild 16, Bild 17
+████████████████████████████████████
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 12 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 12 - Guter Deal.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A relaxed person sits on a sofa watching the new TV. On the side table a full piggy bank with a small label "bleibt länger bei dir". Warm, positive, simple.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 13 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 13 - Vier Fallen.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A simple path leads into the distance. Along it stand four small triangular warning signs numbered "1", "2", "3" and "4". Calm, clear, slightly playful, lots of empty space.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 14 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 14 - Zins ist nicht Preis.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. Two large paper labels side by side. The left label in green reads "Zins: 0 %". The right label reads "Preis: ?" with a big question mark. A small number "1" in a warning triangle in the corner. Clean and clear.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 16 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 16 - Preise vergleichen.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A customer in an electronics store holds a smartphone showing a simple price comparison list for the same TV with three prices. The TV with its price tag stands in front of them. Friendly, simple.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 17 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 17 - Extras an der Kasse.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. At a store counter, a friendly salesperson slides three cards toward a customer. The cards read "Ratenschutzversicherung", "Garantie +2 Jahre" and "Zubehörpaket". A small "2" in a warning triangle in the corner. Simple, readable.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+████████████████████████████████████
+BATCH 5 — START ALL TOGETHER: Bild 19, Bild 20, Bild 21, Bild 22, Bild 23
+████████████████████████████████████
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 19 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 19 - Nein danke.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A customer's hand gently pushes three offer cards back across a counter. A speech bubble reads "Nein, danke". Confident, friendly, minimal.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 20 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 20 - Frage an dich.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A large friendly speech bubble on a cream background with the German question "Schon mal mit 0 % finanziert?". Below it two small answer bubbles "Ja, gelohnt" and "Ja, bereut". Minimal, warm colors.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 21 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 21 - Kommentare.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A hand holds a smartphone. On the screen a simple comment field with a few short lines of handwriting-like text and a small pencil icon. A thumb is typing. Very simple, illustrated, not a real app interface.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 22 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 22 - Kleingedrucktes Lupe.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A contract page with tiny fine print at the bottom. A large magnifying glass enlarges one line of the fine print so it becomes readable: "inklusive Kreditrahmen". A small "3" in a warning triangle in the corner. Clean, focused.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 23 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 23 - Preisschild an Kreditkarte.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A green price tag reading "0 %" is connected by a short metal chain to a dark red credit card. Both lie on a cream surface. Simple, symbolic, very clear.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+████████████████████████████████████
+BATCH 6 — START ALL TOGETHER: Bild 25, Bild 26, Bild 27, Bild 28, Bild 29
+████████████████████████████████████
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 25 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 25 - Verbraucherschutz Klage.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A consumer advocate holds a folder labeled "Klage" in front of a simple courthouse building with columns. Calm, serious but friendly illustration.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 26 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 26 - Online-Shop 0 Prozent.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A laptop shows a simple electronics online shop page with a banner "0 % Finanzierung". Next to the laptop lies a letter with the heading "Klage". No real logos, simple illustrated interface.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 27 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 27 - Jahreszins 15,9 Prozent.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A dark red credit card with a large attached tag showing "15,9 %" and above it the small label "effektiver Jahreszins". Cream background, strong contrast, very readable.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 28 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 28 - Urteil OLG Muenchen.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A judge's gavel lies next to a court document titled "Urteil OLG München 2023". One line on the document is highlighted: "klar und unmissverständlich hinweisen". Calm editorial illustration.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 29 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 29 - Grosse Schlussrate.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A row of eleven small equal coin stacks on a cream surface, and at the very end one huge coin stack towering over them. A small "4" in a warning triangle in the corner. Simple and clear.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+████████████████████████████████████
+BATCH 7 — START ALL TOGETHER: Bild 31, Bild 32, Bild 34, Bild 35, Bild 36
+████████████████████████████████████
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 31 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 31 - Zahlungsplan bis zum Ende.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A paper payment schedule table with twelve rows "Monat 1" to "Monat 12". A finger follows the table down to the last row, which is highlighted in yellow. Simple, readable.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 32 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 32 - Viele kleine Vertraege.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A small stack of several thin installment contracts on a kitchen table, slightly fanned out so you can see there are many. Calm, simple.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 34 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 34 - BaFin Umfrage.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A clipboard with a simple survey sheet titled "Umfrage" and a few checkboxes. Next to it two shopping bags. Small label "BaFin" on the clipboard. Clean, simple.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 35 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 35 - Jeder Siebte.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. Seven simple person figures in a row. Six stand calmly; the seventh is half buried under a pile of open bills and envelopes. A label above reads "1 von 7". Slightly humorous, very clear.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 36 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 36 - Bonitaet sinkt.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A simple semicircle gauge labeled "Bonität" with a needle sliding from green toward orange. Several small contract cards hang from the gauge like weights. Clean infographic style.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+████████████████████████████████████
+BATCH 8 — START ALL TOGETHER: Bild 37, Bild 38, Bild 39, Bild 40, Bild 41
+████████████████████████████████████
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 37 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 37 - Kredit fuer Auto.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A person sits at a bank desk holding a car brochure. The bank advisor looks skeptically at a sheet with a downward arrow. Calm, simple, slightly concerned mood.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 38 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 38 - Neue Regeln 20 November.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A large tear-off calendar page showing "20. November 2026". In the corner a small circle of yellow stars on blue. A note pinned to it reads "Neue Regeln für Kredite". Clean, simple.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 39 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 39 - Spaeter zahlen Kreditrecht.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A big friendly button labeled "Später zahlen", like on a shop checkout, drawn by hand. Next to it a round stamp with a "§" sign and the word "Kreditrecht". Minimal, clear.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 40 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 40 - Genauer pruefen.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A bank employee examines a simple household budget sheet with two columns "Einnahmen" and "Ausgaben" through a magnifying glass. Calm, simple.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 41 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 41 - Schutz und selbst lesen.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A person stands under a large soft shield shape and still reads a contract closely in their hands. Calm, reassuring, simple.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+████████████████████████████████████
+BATCH 9 — START ALL TOGETHER: Bild 42, Bild 43, Bild 44, Bild 45, Bild 46
+████████████████████████████████████
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 42 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 42 - Vier Punkte Check.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A clipboard with the heading "4-Punkte-Check" and four empty checkboxes numbered 1 to 4, a pen beside it. Minimal, calm.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 43 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 43 - Check Preis.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. Two price tags for the same TV side by side: "600 €" and "550 €". The cheaper one has a green check mark. A big number "1" in a circle in the corner. Clean.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 44 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 44 - Check Gesamtkosten.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A simple calculator next to a short list "Raten", "Extras" and a bold line "Gesamt". A big number "2" in a circle in the corner. Clean, readable.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 45 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 45 - Check Kreditrahmen.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A dark red credit card lies in an open drawer that has a small padlock. A big number "3" in a circle in the corner. Simple, symbolic.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 46 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 46 - Check Budget.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. An open wallet with a few small installment slips tucked in, still fitting comfortably. A small label "Budget". A big number "4" in a circle in the corner. Simple, clear.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+████████████████████████████████████
+BATCH 10 — START ALL TOGETHER: Bild 47, Bild 48, Bild 49, Bild 50, Bild 51
+████████████████████████████████████
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 47 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 47 - Widerruf 14 Tage.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A small calendar with fourteen days circled in green and next to it a short document titled "Widerruf". A pen lies on top. Calm, reassuring.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 48 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 48 - Guter Deal Checkliste.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A TV on a sideboard. Next to it a short checklist with three green check marks: "Preis verglichen", "keine Extras", "kein Kreditrahmen". Warm, positive, simple.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 49 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 49 - Geld der Bank gratis.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A simple bank building on the left, a happy person on the right. A gentle stream of coins flows from the bank to the person. A small tag on the stream reads "0 € Zinsen". Friendly, minimal.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 50 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 50 - Nur Monatsrate im Blick.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A person looks through binoculars at a small tag "50 € im Monat" in front of them, while behind their back a very long receipt with the bold word "Gesamt" curls on the floor. Slightly humorous, clear.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 51 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 51 - Abonnieren.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Null Prozent Falle.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. An open notebook on a cream desk with the hand-lettered word "FinanzNeo" and a small bell doodle next to it. A pen and a cup of tea beside it. Calm, warm, minimal.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RESERVED NUMBERS — REMOTION, NOT FLOW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGES 11, 15, 18, 24, 30, 33. These numbers are animations built in Remotion. Keep the numbers reserved; never close the numbering gap.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FINISH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Finish only after every expected image has been generated in its batch, renamed immediately and verified. All final files must be together in 3-bilder-hier-rein/.

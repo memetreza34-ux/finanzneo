@@ -1,0 +1,316 @@
+{
+  "version": 2,
+  "title": "0 % Finanzierung: Wann sie wirklich gratis ist – und wann sie teuer wird",
+  "fps": 30,
+  "timingSource": "03-audio/word-timings.json",
+  "cutRule": "voice-beat-and-chapter-driven",
+  "fixedVisualCount": false,
+  "visuals": [
+    {
+      "id": "visual-01",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-02",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-03",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-04",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-05",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-06",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-07",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-08",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-09",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-10",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-11",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-12",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-13",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-14",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-15",
+      "type": "data",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-16",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-17",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-18",
+      "type": "data",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-19",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-20",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-21",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-22",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-23",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-24",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-25",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-26",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-27",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-28",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-29",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-30",
+      "type": "data",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-31",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-32",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-33",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-34",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-35",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-36",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-37",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-38",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-39",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-40",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-41",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-42",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-43",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-44",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-45",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-46",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-47",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-48",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-49",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-50",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-51",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    }
+  ]
+}

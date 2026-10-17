@@ -15,6 +15,8 @@
 
 Kanonischer Themen-Scope: `docs/CONTENT-SCOPE.md`.
 
+**Oberste Priorität: Verbesserung nach jedem Video.** Nach jedem fertigen Video Rückschau halten und jede Erkenntnis als Regel/Vorlage/Prüfung ins System übernehmen; Log in `VERBESSERUNGEN.md`. Themen vor jedem neuen Video in `THEMEN-REGISTER.md` prüfen und eintragen; keine Wiederholung außer als echtes Update.
+
 ## 2. Repository-Sicherheit
 
 - nie direkt auf `main` arbeiten
