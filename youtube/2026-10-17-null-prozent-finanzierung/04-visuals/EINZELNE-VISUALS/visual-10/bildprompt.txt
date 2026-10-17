@@ -1,0 +1,23 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME:
+YouTube Bild 10 - Weitere Kartenkaeufe.png
+
+Generate exactly ONE image. Wait for the current generation to finish completely. Rename it immediately to the exact file name above, then verify clarity, actual item and cause-effect, composition, labels, background, and horizontal 16:9. On failure regenerate the same image number instead of going onward. Do not copy a previous image composition. The file name must never be rendered in the image.
+
+LITERAL_REAL_WORLD_SITUATION: Separate statement for purchases by bank card next to original financed phone paperwork.
+REAL_WORLD_CONTEXT_ANCHOR: household credit-card statement review
+VOICEOVER_VISUAL_MATCH: Weitere Kartenverfügungen können andere Vertragsbedingungen haben. — the image must make the situation recognizable without narration.
+TRANSFERABILITY_TEST: PASS — this image is specific because The second card purchase compared with original device installment shows a genuinely new borrowing event.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE — a literal situation directly explains this sentence.
+ALLOWED_SHORT_GERMAN_OBJECT_LABELS: none; keep all text absent
+IMAGE PROMPT:
+Wide overhead home table: one hand places an additional plain unbranded card purchase receipt beside the original smartphone finance repayment schedule, two distinct paper stacks indicating separate usage. Visual contrast: original phone purchase on left, new separate retail receipt next to payment card on right. No fictional transaction text or precise account figures; reserve space for clean Remotion annotation. A realistic table lamp pools neutral light into deep black, emphasizing examination.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Literal first, creative second. A premium clearly stylized 3D animated finance documentary image, not photorealistic, showing believable everyday objects with controlled semi-realistic materials and proportions. Large readable hero action, realistic cause-and-effect in one frame. Seamless deep-black background across the entire horizontal 16:9 composition; minimal realistic local room/shop context fades softly into black. Strong clean studio lighting, matte soft gray and ivory neutrals, finance-emerald green for good/neutral clarity, red-orange ONLY for genuine cost/risk, restrained gold when needed for value. Same continuous world and lighting discipline across the full film, but every shot has its own camera and subject. Only explicitly requested very short German object labels near objects; NO AI-generated headings, subtitle paragraphs, prices, charts, forms with invented text, visible false logos, UI screenshot, generic coin/piggy-bank/arrows, floating info cards, toy-looking props, redundant green folders, crowded tiny details or stock photo look. Remotion will add all exact numbers, headlines, product prices and captions later. Wide YouTube horizontal 16:9 image, width approx. 1.7778 × height.

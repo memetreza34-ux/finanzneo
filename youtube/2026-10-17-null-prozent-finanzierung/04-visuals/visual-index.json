@@ -1,0 +1,408 @@
+{
+  "version": 3,
+  "title": "0 % Finanzierung: Kostenlos oder Kostenfalle?",
+  "format": "youtube-longform",
+  "shortsForbidden": true,
+  "fixedVisualCount": false,
+  "fixedImageAnimationRatio": false,
+  "video": {
+    "aspectRatio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "thumbnail": {
+    "type": "image",
+    "googleFlowFileName": "YouTube Thumbnail - Null Prozent Wirklich.png",
+    "planFile": "04-visuals/thumbnail-prompt.txt"
+  },
+  "userCreatesImages": true,
+  "antigravityGeneratesImages": false,
+  "googleFlow": {
+    "protocolId": "finanzneo-flow-sequential-v1",
+    "generationMode": "one-image-at-a-time",
+    "strictSequential": true,
+    "waitForCurrentImage": true,
+    "renameBeforeNext": true,
+    "qaBeforeNext": true,
+    "retrySameImageOnFailure": true,
+    "finalCollectionDirectory": "04-visuals/00-ALLE-BILDER-HIER-REIN/",
+    "distributeToVisualFolders": false
+  },
+  "imageWorld": {
+    "id": "finanzneo-connected-studio-v3",
+    "seriesLockId": "finanzneo-same-world-v1",
+    "generatedImageAspectRatio": "16:9",
+    "horizontalGeneratedImagesRequired": true,
+    "referencePromptFile": "04-visuals/bildwelt.txt",
+    "styleReferenceStrategy": "approved-thumbnail-style-only",
+    "sameWorldAcrossSeriesRequired": true,
+    "literalFirst": true,
+    "metaphorOptional": true,
+    "seamlessSingleBackgroundRequired": true,
+    "objectLabelsOnly": true
+  },
+  "motionStandard": {
+    "id": "finanzneo-youtube-motion-v3",
+    "viewerChangeFirstRequired": true,
+    "contentFirstTechniqueSelection": true,
+    "compositionFamiliesAreExamplesOnly": true,
+    "motionSignatureRequired": true,
+    "recentMotionWindow": 4,
+    "existingComponentsOptional": true,
+    "physicalPrimitivesOptional": true
+  },
+  "timelineRules": {
+    "timingSource": "03-audio/word-timings.json",
+    "cutsFollowVoiceAndChapters": true,
+    "equalLengthVisualsForbiddenByDefault": true,
+    "beatFirst": true
+  },
+  "audio": {
+    "targetIntegratedLufs": -16,
+    "targetTruePeakDbtp": -1
+  },
+  "publishing": {
+    "youtube": {
+      "titleOptions": "05-publishing/title-options.txt",
+      "finalTitle": "05-publishing/final-title.txt",
+      "description": "05-publishing/description.txt",
+      "chapters": "05-publishing/chapters.txt",
+      "tagsKeywords": "05-publishing/tags-keywords.txt",
+      "hashtags": "05-publishing/hashtags.txt",
+      "thumbnailBrief": "05-publishing/thumbnail-brief.txt",
+      "pinnedComment": "05-publishing/pinned-comment.txt",
+      "communityPost": "05-publishing/community-post.txt",
+      "sourcesDisclaimer": "05-publishing/sources-disclaimer.txt",
+      "uploadChecklist": "05-publishing/upload-checklist.md"
+    },
+    "socialPromo": {
+      "instagram": "05-publishing/social-promo/instagram.txt",
+      "tiktok": "05-publishing/social-promo/tiktok.txt",
+      "facebook": "05-publishing/social-promo/facebook.txt",
+      "snapchat": "05-publishing/social-promo/snapchat.txt"
+    }
+  },
+  "visuals": [
+    {
+      "id": "visual-01",
+      "type": "image",
+      "chapter": "Hook",
+      "scriptBeat": "Ein Smartphone für 600 Euro wird mit 0 % Finanzierung beworben.",
+      "googleFlowFileName": "YouTube Bild 01 - Smartphone Angebot.png",
+      "expectedVisual": "Customer considers a phone next to an interest-free purchase display in a real electronics store.",
+      "objectLabels": [],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt"
+    },
+    {
+      "id": "visual-02",
+      "type": "animation",
+      "chapter": "Hook",
+      "scriptBeat": "12 mal 50 Euro sind 600 Euro; ein echter 0%-Kredit kann so kostenfrei sein.",
+      "mechanicId": "twelve-fixed-installments",
+      "visualTechniqueId": "installment-tile-reveal",
+      "techniqueDescription": "Twelve numbered monthly amount tiles progressively fill while a precise total counter resolves to the unchanged price.",
+      "compositionFamilyId": "arithmetic-grid",
+      "toolStack": [
+        "React DOM",
+        "Remotion interpolate"
+      ],
+      "viewerChange": "Twelve separate equal monthly installments accumulate to exactly the retail price with nothing added.",
+      "animationIntent": "A concrete transparent payoff makes it explicit that a genuinely fee-free credit can cost exactly 600 euros.",
+      "motionSignature": {
+        "camera": "stationary overhead",
+        "layout": "twelve-cell grid and bottom total",
+        "transformation": "sequential monthly-cell reveal into total"
+      },
+      "motionChannels": [
+        "each monthly payment is sequentially filled",
+        "aggregate amount increases to final price"
+      ],
+      "visualBeats": [
+        "One monthly payment is visible",
+        "All twelve 50-euro payments total 600 euros"
+      ],
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx",
+      "animationExport": "YouTubeVisual02Animation",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-02/remotion.md",
+      "repeatTechniqueReason": ""
+    },
+    {
+      "id": "visual-03",
+      "type": "image",
+      "chapter": "Kreditvertrag",
+      "scriptBeat": "Der Smartphone-Kauf wird am Ladentresen unterschrieben.",
+      "googleFlowFileName": "YouTube Bild 03 - Kauf am Tresen.png",
+      "expectedVisual": "Buyer and salesperson sign purchase paperwork at the shop counter.",
+      "objectLabels": [],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-03/bildprompt.txt"
+    },
+    {
+      "id": "visual-04",
+      "type": "image",
+      "chapter": "Kreditvertrag",
+      "scriptBeat": "Hinter dem Angebot kann ein Kredit einer Partnerbank stehen.",
+      "googleFlowFileName": "YouTube Bild 04 - Bank und Kaufvertrag.png",
+      "expectedVisual": "Two distinct agreements from checkout and a partner-bank loan are shown side by side.",
+      "objectLabels": [],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-04/bildprompt.txt"
+    },
+    {
+      "id": "visual-05",
+      "type": "image",
+      "chapter": "Extras",
+      "scriptBeat": "Zusätzlicher Ratenschutz oder Garantie kann freiwillig angeboten werden.",
+      "googleFlowFileName": "YouTube Bild 05 - Zusatzschutz.png",
+      "expectedVisual": "Retail clerk offers a separate optional insurance sheet next to a phone purchase contract.",
+      "objectLabels": [
+        "Zusatzschutz"
+      ],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-05/bildprompt.txt"
+    },
+    {
+      "id": "visual-06",
+      "type": "animation",
+      "chapter": "Extras",
+      "scriptBeat": "600 Euro plus 12 mal 8 Euro Versicherungsbeitrag sind 696 Euro insgesamt.",
+      "mechanicId": "optional-premium-total-increase",
+      "visualTechniqueId": "receipt-line-extra-cost-reveal",
+      "techniqueDescription": "A realistic receipt adds an optional 12-by-8 euro insurance line and updates the final amount from 600 to 696.",
+      "compositionFamilyId": "receipt-document-annotation",
+      "toolStack": [
+        "React DOM",
+        "Remotion interpolate"
+      ],
+      "viewerChange": "The 600-euro purchase price remains fixed while a separate optional insurance row is revealed and the total becomes 696 euros.",
+      "animationIntent": "A separate line item shows that the extra 96 euros belongs to optional protection, not fictitious mandatory interest.",
+      "motionSignature": {
+        "camera": "gentle document pullback",
+        "layout": "vertical receipt itemization",
+        "transformation": "insurance row insertion and total correction"
+      },
+      "motionChannels": [
+        "optional-premium detail slides into receipt",
+        "total value counts up to 696"
+      ],
+      "visualBeats": [
+        "Receipt total initially 600 euros",
+        "Additional 96 euros are itemized and total becomes 696 euros"
+      ],
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-06/animation.tsx",
+      "animationExport": "YouTubeVisual06Animation",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-06/remotion.md",
+      "repeatTechniqueReason": ""
+    },
+    {
+      "id": "visual-07",
+      "type": "image",
+      "chapter": "Preisvergleich",
+      "scriptBeat": "Ein anderes Geschäft kann das gleiche Smartphone günstiger verkaufen.",
+      "googleFlowFileName": "YouTube Bild 07 - Zwei Haendler.png",
+      "expectedVisual": "Customer compares same exact-looking unbranded smartphone boxes between two distinct retailers.",
+      "objectLabels": [],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-07/bildprompt.txt"
+    },
+    {
+      "id": "visual-08",
+      "type": "animation",
+      "chapter": "Preisvergleich",
+      "scriptBeat": "Zwei fiktive Händlerpreise von 600 und 550 Euro haben 50 Euro Abstand.",
+      "mechanicId": "cross-store-equal-product-comparison",
+      "visualTechniqueId": "two-offer-horizontal-bar-difference",
+      "techniqueDescription": "Two independently extending horizontal price bars compare identical goods at 600 vs 550 and reveal the 50-euro difference.",
+      "compositionFamilyId": "comparative-price-analysis",
+      "toolStack": [
+        "React DOM",
+        "Remotion interpolate"
+      ],
+      "viewerChange": "Two aligned prices for the same item reveal a 50-euro gap independent of the financing percentage.",
+      "animationIntent": "Side-by-side equal item comparison counters the assumption that a 0%-offer has the lowest purchase price.",
+      "motionSignature": {
+        "camera": "fixed wide front",
+        "layout": "stacked twin comparison rails",
+        "transformation": "parallel width measurement and gap highlighting"
+      },
+      "motionChannels": [
+        "two price rulers extend to different lengths",
+        "difference number emerges between their endpoints"
+      ],
+      "visualBeats": [
+        "Both offers enter the comparison",
+        "50-euro difference is clearly isolated"
+      ],
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-08/animation.tsx",
+      "animationExport": "YouTubeVisual08Animation",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-08/remotion.md",
+      "repeatTechniqueReason": ""
+    },
+    {
+      "id": "visual-09",
+      "type": "image",
+      "chapter": "Kreditart",
+      "scriptBeat": "Zum Finanzierungskauf kann eine weitere Kreditkarte gehören.",
+      "googleFlowFileName": "YouTube Bild 09 - Bankkarte.png",
+      "expectedVisual": "Financing paperwork comes with a newly received separate unbranded bank card.",
+      "objectLabels": [],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-09/bildprompt.txt"
+    },
+    {
+      "id": "visual-10",
+      "type": "image",
+      "chapter": "Kreditart",
+      "scriptBeat": "Weitere Kartenverfügungen können andere Vertragsbedingungen haben.",
+      "googleFlowFileName": "YouTube Bild 10 - Weitere Kartenkaeufe.png",
+      "expectedVisual": "Separate statement for purchases by bank card next to original financed phone paperwork.",
+      "objectLabels": [],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-10/bildprompt.txt"
+    },
+    {
+      "id": "visual-11",
+      "type": "animation",
+      "chapter": "Ratenplan",
+      "scriptBeat": "11 niedrige Raten zu 30 Euro und eine große Schlussrate von 270 Euro ergeben 600 Euro.",
+      "mechanicId": "balloon-payment-shift",
+      "visualTechniqueId": "eleven-small-ones-large-timeline",
+      "techniqueDescription": "Eleven tiny 30-euro payment markers advance across a timeline until the last 270-euro balloon payment expands above them.",
+      "compositionFamilyId": "payment-schedule-timeline",
+      "toolStack": [
+        "React DOM",
+        "Remotion interpolate"
+      ],
+      "viewerChange": "An apparently uniform low monthly rate ends in a far larger final installment.",
+      "animationIntent": "A calendar-like payment timeline makes last-payment risk visible without implying higher sum or required balloon terms.",
+      "motionSignature": {
+        "camera": "lateral timeline pan simulated by marker lighting",
+        "layout": "twelve-timepoint horizontal strip",
+        "transformation": "last payment bar grows much taller than prior payments"
+      },
+      "motionChannels": [
+        "payment positions illuminate one after another",
+        "final payment bar rises to ninefold comparison height"
+      ],
+      "visualBeats": [
+        "Eleven regular 30-euro installments are visible",
+        "A 270-euro final installment appears; total remains 600 euros"
+      ],
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-11/animation.tsx",
+      "animationExport": "YouTubeVisual11Animation",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-11/remotion.md",
+      "repeatTechniqueReason": ""
+    },
+    {
+      "id": "visual-12",
+      "type": "image",
+      "chapter": "Monatsbudget",
+      "scriptBeat": "Kleine Raten aus mehreren Anschaffungen sammeln sich im selben Monat.",
+      "googleFlowFileName": "YouTube Bild 12 - Drei Monatsraten.png",
+      "expectedVisual": "Three concrete different financed purchases with separate due-date notices share a kitchen table.",
+      "objectLabels": [],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-12/bildprompt.txt"
+    },
+    {
+      "id": "visual-13",
+      "type": "animation",
+      "chapter": "Monatsbudget",
+      "scriptBeat": "50 Euro plus 35 Euro plus 25 Euro sind 110 Euro monatlich.",
+      "mechanicId": "overlapping-obligations-sum",
+      "visualTechniqueId": "three-payments-converge-into-monthly-total",
+      "techniqueDescription": "Three spatially distinct monthly obligations converge in a single month-budget slot and update the sum to 110.",
+      "compositionFamilyId": "converging-expense-streams",
+      "toolStack": [
+        "React DOM",
+        "Remotion interpolate"
+      ],
+      "viewerChange": "Separate small payments of 50, 35 and 25 euros become one 110-euro monthly deduction.",
+      "animationIntent": "Convergence exposes the combined monthly cash outflow instead of isolating each advertised rate.",
+      "motionSignature": {
+        "camera": "fixed isometric-free orthographic",
+        "layout": "three radial obligation sources to centered monthly budget",
+        "transformation": "three cost streams converge and sum displays"
+      },
+      "motionChannels": [
+        "three objects move toward common month slot",
+        "total counts up as each payment arrives"
+      ],
+      "visualBeats": [
+        "Three separate seemingly small rates",
+        "One monthly total of 110 euros is visible"
+      ],
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-13/animation.tsx",
+      "animationExport": "YouTubeVisual13Animation",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-13/remotion.md",
+      "repeatTechniqueReason": ""
+    },
+    {
+      "id": "visual-14",
+      "type": "image",
+      "chapter": "Entscheidung",
+      "scriptBeat": "Eine kaputte Waschmaschine ersetzen kann dringend notwendig sein.",
+      "googleFlowFileName": "YouTube Bild 14 - Kaputte Waschmaschine.png",
+      "expectedVisual": "Broken washing machine at home, repair appointment and finances considered before replacing.",
+      "objectLabels": [],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-14/bildprompt.txt"
+    },
+    {
+      "id": "visual-15",
+      "type": "image",
+      "chapter": "Entscheidung",
+      "scriptBeat": "Ein spontan gewünschtes neues Gerät ist anders als eine notwendige Reparatur.",
+      "googleFlowFileName": "YouTube Bild 15 - Neuer Fernseher.png",
+      "expectedVisual": "Customer considers a nonessential new television at home with old TV functioning.",
+      "objectLabels": [],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-15/bildprompt.txt"
+    },
+    {
+      "id": "visual-16",
+      "type": "image",
+      "chapter": "Vertragscheck",
+      "scriptBeat": "Vor der Unterschrift werden Kreditkosten und echte Monatsreserve geprüft.",
+      "googleFlowFileName": "YouTube Bild 16 - Vertrag Pruefen.png",
+      "expectedVisual": "Person reads a credit contract with a household notebook and a working calculator.",
+      "objectLabels": [],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-16/bildprompt.txt"
+    },
+    {
+      "id": "visual-17",
+      "type": "image",
+      "chapter": "Vertragscheck",
+      "scriptBeat": "Die vier wichtigsten Fragen beziehen sich auf Gesamtbetrag, Kosten, Kreditart und eigenes Budget.",
+      "googleFlowFileName": "YouTube Bild 17 - Vertragsmarkierungen.png",
+      "expectedVisual": "Four actual paper markers on a real purchase finance contract without readable invented text.",
+      "objectLabels": [],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-17/bildprompt.txt"
+    },
+    {
+      "id": "visual-18",
+      "type": "animation",
+      "chapter": "Vertragscheck",
+      "scriptBeat": "Vier konkrete Fragen vor Unterschrift: Gesamtpreis, effektiver Jahreszins und Extras, Kreditart, Budgetreserve.",
+      "mechanicId": "four-point-credit-preflight",
+      "visualTechniqueId": "contract-checklist-progressive-reveal",
+      "techniqueDescription": "A large contract decision checklist is progressively marked through four distinct user questions before a final total-price statement.",
+      "compositionFamilyId": "document-decision-walkthrough",
+      "toolStack": [
+        "React DOM",
+        "Remotion interpolate"
+      ],
+      "viewerChange": "Four concrete contract checks change from unexamined to confirmed, making a repeatable decision method.",
+      "animationIntent": "The payoff gives viewers a usable final evaluation method rather than abstract warnings.",
+      "motionSignature": {
+        "camera": "fixed frontal document",
+        "layout": "four stacked large checklist lines",
+        "transformation": "sequential criterion highlighting and final takeaway reveal"
+      },
+      "motionChannels": [
+        "each question becomes visually active and checked",
+        "final line of conclusion fades in beneath the completed list"
+      ],
+      "visualBeats": [
+        "First question asks for total cost",
+        "All four checks are visible and the main takeaway appears"
+      ],
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-18/animation.tsx",
+      "animationExport": "YouTubeVisual18Animation",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-18/remotion.md",
+      "repeatTechniqueReason": ""
+    }
+  ]
+}

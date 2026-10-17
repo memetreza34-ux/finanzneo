@@ -1,0 +1,23 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME:
+YouTube Bild 17 - Vertragsmarkierungen.png
+
+Generate exactly ONE image. Wait for the current generation to finish completely. Rename it immediately to the exact file name above, then verify clarity, actual item and cause-effect, composition, labels, background, and horizontal 16:9. On failure regenerate the same image number instead of going onward. Do not copy a previous image composition. The file name must never be rendered in the image.
+
+LITERAL_REAL_WORLD_SITUATION: Four actual paper markers on a real purchase finance contract without readable invented text.
+REAL_WORLD_CONTEXT_ANCHOR: contract checklist preparation
+VOICEOVER_VISUAL_MATCH: Die vier wichtigsten Fragen beziehen sich auf Gesamtbetrag, Kosten, Kreditart und eigenes Budget. — the image must make the situation recognizable without narration.
+TRANSFERABILITY_TEST: PASS — this image is specific because Four flagged spots in an actual financing contract set up the precise next-screen checklist.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE — a literal situation directly explains this sentence.
+ALLOWED_SHORT_GERMAN_OBJECT_LABELS: none; keep all text absent
+IMAGE PROMPT:
+Horizontal close-up of one realistic finance contract anchored to a dark desk, a pen and four colored non-textual small paper tabs at distinct sections of the contract; a real calculator shows no numbers to avoid wrong data. One hand prepares to check each contract criterion. Four tabs arranged vertically along the right edge, one warm warning and three neutral/emerald tabs; Remotion adds exact four German questions as motion in the next visual. No text-heavy poster, no icon pack.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Literal first, creative second. A premium clearly stylized 3D animated finance documentary image, not photorealistic, showing believable everyday objects with controlled semi-realistic materials and proportions. Large readable hero action, realistic cause-and-effect in one frame. Seamless deep-black background across the entire horizontal 16:9 composition; minimal realistic local room/shop context fades softly into black. Strong clean studio lighting, matte soft gray and ivory neutrals, finance-emerald green for good/neutral clarity, red-orange ONLY for genuine cost/risk, restrained gold when needed for value. Same continuous world and lighting discipline across the full film, but every shot has its own camera and subject. Only explicitly requested very short German object labels near objects; NO AI-generated headings, subtitle paragraphs, prices, charts, forms with invented text, visible false logos, UI screenshot, generic coin/piggy-bank/arrows, floating info cards, toy-looking props, redundant green folders, crowded tiny details or stock photo look. Remotion will add all exact numbers, headlines, product prices and captions later. Wide YouTube horizontal 16:9 image, width approx. 1.7778 × height.
