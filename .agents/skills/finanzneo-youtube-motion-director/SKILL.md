@@ -5,6 +5,16 @@ description: Directs FinanzNeo YouTube Longform motion with viewer-change-first 
 
 # FinanzNeo YouTube Motion Director V3
 
+## Permanent quality improvement — highest production priority
+
+Before authoring each new longform video, review the relevant past findings in `docs/VERBESSERUNGSLOG.md` and target 1–3 specific weaknesses. After a real video render, evaluate the **actual video with sound** for clarity, visual storytelling, varied but justified techniques, content correctness, pacing, audio and overall viewer experience. Record timecoded concrete observations in the project's `06-projektdateien/VIDEO-REVIEW.md`, transfer long-term improvements to the central log, and verify fixes in later videos. Do not confuse animation test success with actual viewer clarity or fabricate review evidence. See `docs/QUALITAETS-VERBESSERUNGSPROZESS.md`.
+
+For the **overall YouTube Phase-1 owner** (not just isolated motion design), Phase 1 is incomplete until two **clickable and verified links** have been posted **directly in the user's current chat**:
+- `youtube/<project>/04-visuals/alle-bildprompts.txt` — **Bildprompts öffnen**
+- `youtube/<project>/02-script/script-fliess-text.txt` — **Skript öffnen**
+
+Resolve the exact GitHub `blob/<pushed-ref>/<path>` URLs for the current project, verify both real completed files exist on GitHub, and provide both without waiting for a user reminder. If missing, report the blocker instead of fake links or a false Phase-1-complete claim. Full authority: `CLAUDE.md`.
+
 ## Goal
 
 Create longform motion that explains each spoken idea with the best visible mechanism for that exact idea. Do not begin by choosing an existing component, family or animation pattern. Begin by deciding what the viewer should literally see happen.
