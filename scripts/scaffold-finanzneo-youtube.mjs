@@ -95,8 +95,11 @@ FinanzNeo Editorial Finance V1 — calm & minimal (Arman, 17.10.2026).
 CORE:
 One spoken thought becomes one simple visual idea that is understandable at first glance.
 
-STYLE (STRICT):
-Calm, minimal editorial illustration, like a quiet finance magazine: soft light washes of color with thin clean outlines on warm off-white paper. Generous empty space — at least half of the image stays calm and empty. Few elements, one clear focal idea, simple shapes, low detail. Muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) with at most one stronger accent color for the key information. Prefer simple visual metaphors (paths, stairs, mountains, bridges, scales, containers, trees, weather) and clean simplified objects or buildings. People are small and simple with minimal facial detail; emotion comes from posture, not from detailed faces. Never busy or crowded scenes, no dense hatching, no heavy shading, no dramatic lighting, no dark or saturated backgrounds, never photorealistic, never a photo, no glossy 3D.
+STYLE (STRICT — the drawing style never changes):
+Calm editorial illustration, like a quiet finance magazine: soft light washes of color with thin clean outlines on warm off-white paper, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) with at most one stronger accent color for the key information. Clean simplified shapes, gentle and friendly. People with simple features. No dense hatching, no heavy shading, no dramatic lighting, no dark or saturated backgrounds, never photorealistic, never a photo, no glossy 3D.
+
+COMPOSITION (FREE — follows the scene):
+Choose whatever explains this exact sentence best: a full everyday scene with several people and objects, a single object in close-up, a wide landscape metaphor (path, stairs, mountain, bridge, scale), a top-down plan or a side-by-side comparison. A full, detailed scene is just as welcome as a sparse one. It must stay readable at first glance with one clear focal point.
 
 BACKGROUND:
 Light warm off-white or cream paper, always light. Water, sky or ground are drawn as calm flat color bands, never as a dark full-frame background.

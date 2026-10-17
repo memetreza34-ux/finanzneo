@@ -145,7 +145,7 @@ export const YOUTUBE_STYLE_MASTER = 'thumbnail';
 export const YOUTUBE_STYLE_MASTER_KANAL = 'kanal';
 export const YOUTUBE_CHANNEL_STYLE_FILE = 'FinanzNeo Stilvorlage.png';
 export const YOUTUBE_CHANNEL_STYLE_PATH = `youtube/_kanal/${YOUTUBE_CHANNEL_STYLE_FILE}`;
-export const youtubeStyleReferenceText = (datei) => `${datei} — attach this approved FinanzNeo style master to EVERY image as a style reference (from ${YOUTUBE_CHANNEL_STYLE_PATH} in the repository). Copy only its illustration style: calm minimal look, light warm paper background, thin outlines, soft light color washes, muted palette, amount of empty space and level of detail. Never copy its composition, people, objects or text.`;
+export const youtubeStyleReferenceText = (datei) => `${datei} — attach this approved FinanzNeo style master to EVERY image as a style reference (from ${YOUTUBE_CHANNEL_STYLE_PATH} in the repository). Copy only its drawing style: light warm paper background, thin clean outlines, soft light color washes and muted palette. Never copy its composition, amount of detail, people, objects or text — the composition always follows the current scene.`;
 export const YOUTUBE_STYLE_REFERENCE_MARKER = 'STYLE_REFERENCE:';
 /** Hauptfigur: dieselbe Person in jedem Bild über ein angehängtes Referenzbild (kein Flow-„Charakter“ nötig). */
 export const YOUTUBE_CHARACTER_REFERENCE_MARKER = 'CHARACTER_REFERENCE:';

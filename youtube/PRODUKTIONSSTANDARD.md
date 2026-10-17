@@ -178,7 +178,7 @@ Bilder werden in Batches von bis zu **5 gleichzeitig** erzeugt (`finanzneo-flow-
 
 ### Eine Stilvorlage für den ganzen Kanal (Arman, 17.10.2026)
 
-- **Bildwelt = ruhig & minimal** (Arman, 17.10.2026): wie die Bilder vom 7. Oktober (Berg mit Zielflagge, Treppe, Weg zur Flagge, Steuerstufen, Kaufkraft, saubere Gebäude) — viel leerer Raum, wenige Elemente, Bild-Metaphern, kleine Figuren ohne detaillierte Gesichter, wenig Text. Volle Alltagsszenen mit vielen Details (wie Teile von Video 1 und 2) sind **nicht** das Ziel.
+- **Zeichenstil fest, Bildinhalt frei** (Arman, 17.10.2026): Der Zeichenstil ist der der Bilder vom 7. Oktober — weiche helle Farbflächen, dünne saubere Linien, warmes Off-White, gedeckte Palette, kein Foto, kein dunkler Hintergrund. Der **Bildaufbau folgt immer der Szene**: volle Alltagsszene, einzelnes Objekt, Landschafts-Metapher, Draufsicht oder Vergleich — was den Satz am besten zeigt. Voll ist genauso erlaubt wie reduziert.
 - `youtube/_kanal/FinanzNeo Stilvorlage.png` ist die **kanalweite Stilvorlage** und muss ein Bild aus dieser ruhigen Welt sein (aus dem Flow-Projekt vom 7. Oktober). Fehlt sie, bricht `youtube-plan-anwenden` bewusst ab. Jedes Bild jedes neuen Videos — auch das Thumbnail — hängt sie als `STYLE_REFERENCE:` an.
 - Grund: Mit dem Thumbnail als Vorlage blieb jedes Video in sich einheitlich, aber die Videos drifteten untereinander (Supermarkt: Hintergrund schwankte zwischen #F7ECCF und #F7F0D8, Strich und Palette uneinheitlich; 0 %: fast überall exakt #F9E9CB).
 - Die Vorlage wird nur bewusst ausgetauscht (neue Datei, Eintrag in `VERBESSERUNGEN.md`).
