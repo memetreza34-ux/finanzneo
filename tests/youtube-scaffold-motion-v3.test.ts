@@ -56,7 +56,8 @@ test('YouTube-Scaffolder erzeugt Motion V3 mit offener Technik und Viewer Change
     assert.match(alle, /BATCH 2 — START ALL TOGETHER: Bild 01/);
     assert.match(alle, /STYLE_REFERENCE:\nFinanzNeo Stilvorlage\.png — attach/);
     assert.match(alle, /STYLE MASTER \(WHOLE CHANNEL\)/);
-    assert.match(alle, /Never photorealistic, never a photo/);
+    assert.match(alle, /never photorealistic, never a photo/);
+    assert.match(alle, /at least half of the image stays calm and empty/);
     assert.equal(index.googleFlow.batchSize, 5);
     assert.equal(index.motionStandard.contentFirstTechniqueSelection, true);
   } finally {

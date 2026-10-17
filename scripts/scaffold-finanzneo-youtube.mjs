@@ -90,22 +90,22 @@ ${SERIES_LOCK_MARKER}
 ${GENERATED_IMAGE_ASPECT_MARKER}
 
 IMAGE WORLD:
-FinanzNeo Editorial Finance V1 — illustration only.
+FinanzNeo Editorial Finance V1 — calm & minimal (Arman, 17.10.2026).
 
 CORE:
 One spoken thought becomes one simple visual idea that is understandable at first glance.
 
 STYLE (STRICT):
-Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+Calm, minimal editorial illustration, like a quiet finance magazine: soft light washes of color with thin clean outlines on warm off-white paper. Generous empty space — at least half of the image stays calm and empty. Few elements, one clear focal idea, simple shapes, low detail. Muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) with at most one stronger accent color for the key information. Prefer simple visual metaphors (paths, stairs, mountains, bridges, scales, containers, trees, weather) and clean simplified objects or buildings. People are small and simple with minimal facial detail; emotion comes from posture, not from detailed faces. Never busy or crowded scenes, no dense hatching, no heavy shading, no dramatic lighting, no dark or saturated backgrounds, never photorealistic, never a photo, no glossy 3D.
 
 BACKGROUND:
-Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+Light warm off-white or cream paper, always light. Water, sky or ground are drawn as calm flat color bands, never as a dark full-frame background.
 
 ANTI-AI-SLOP:
 Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
 
 TEXT:
-No automatic generic headline. Numbers, short labels and document text only when they explain. ${YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE} Only the exact words and numbers written in quotes in the prompt may appear in the image. Never invent extra prices, numbers, brand names, headlines or captions.
+No automatic generic headline. Very little text: only short labels or numbers that explain. ${YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE} Only the exact words and numbers written in quotes in the prompt may appear in the image. Never invent extra prices, numbers, brand names, headlines or captions.
 
 FORMAT:
 Horizontal 16:9 source image.
