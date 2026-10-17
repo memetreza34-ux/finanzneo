@@ -90,19 +90,19 @@ ${SERIES_LOCK_MARKER}
 ${GENERATED_IMAGE_ASPECT_MARKER}
 
 IMAGE WORLD:
-FinanzNeo Editorial Finance V1 — calm & minimal (Arman, 17.10.2026).
+FinanzNeo Editorial Finance V1 — the hand-drawn look of video 1 and 2 (Arman, 17.10.2026).
 
 CORE:
 One spoken thought becomes one simple visual idea that is understandable at first glance.
 
 STYLE (STRICT — the drawing style never changes):
-Calm editorial illustration, like a quiet finance magazine: soft light washes of color with thin clean outlines on warm off-white paper, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) with at most one stronger accent color for the key information. Clean simplified shapes, gentle and friendly. People with simple features. No dense hatching, no heavy shading, no dramatic lighting, no dark or saturated backgrounds, never photorealistic, never a photo, no glossy 3D.
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, warm cream background, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) with at most one stronger accent color for the key information. Simple, friendly, slightly rounded shapes; people are simplified illustrated characters; labels look neatly hand-lettered. No heavy shading, no dramatic lighting, no dark or saturated backgrounds; never photorealistic, never a photo, never a glossy 3D render.
 
 COMPOSITION (FREE — follows the scene):
 Choose whatever explains this exact sentence best: a full everyday scene with several people and objects, a single object in close-up, a wide landscape metaphor (path, stairs, mountain, bridge, scale), a top-down plan or a side-by-side comparison. A full, detailed scene is just as welcome as a sparse one. It must stay readable at first glance with one clear focal point.
 
 BACKGROUND:
-Light warm off-white or cream paper, always light. Water, sky or ground are drawn as calm flat color bands, never as a dark full-frame background.
+Warm cream, always light. Water, sky or ground are drawn as calm flat color areas, never as a dark full-frame background.
 
 ANTI-AI-SLOP:
 Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
