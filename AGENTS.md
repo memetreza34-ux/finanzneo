@@ -2,6 +2,12 @@
 
 Diese Regeln gelten für jeden KI-Agenten und jede automatisierte Änderung in diesem Repository.
 
+## Übergeordnete Arbeitsziele (P0)
+
+**Kontinuierlich besser werden ist die höchste Qualitätspriorität:** Vor neuer Content-Arbeit die offenen Erkenntnisse aus `docs/VERBESSERUNGSLOG.md` beachten. Nach jeder tatsächlichen Videoproduktion eine konkrete, nachprüfbare Review- und Verbesserungsrunde gemäß `docs/QUALITAETS-VERBESSERUNGSPROZESS.md` dokumentieren; bekannte Fehler dauerhaft an der Systemursache beheben, ohne Schutzregeln aufzuweichen.
+
+**Phase-1-Chat-Handoff ist Pflicht:** Nach jeder wirklich vollständigen Reel- oder YouTube-Phase 1 genau die zwei anklickbaren, auf GitHub geprüften Projekt-Links **hier im Chat** ausgeben: `alle-bildprompts.txt` (Google Flow) und `script-fliess-text.txt` (Voiceover). Die genauen Pfade und Bedingungen stehen in `CLAUDE.md`. Keine generische Repo-URL, keine Platzhalter-Links und keine Behauptung „fertig“, solange die Dateien nicht abrufbar sind.
+
 ## Geschützte Bereiche
 
 Ohne ausdrücklichen Auftrag des Nutzers dürfen folgende Bereiche nicht geändert, umbenannt oder gelöscht werden:
