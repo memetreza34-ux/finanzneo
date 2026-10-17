@@ -1,0 +1,1341 @@
+{
+  "version": 3,
+  "title": "0 % Finanzierung: Wann sie wirklich gratis ist – und wann sie teuer wird",
+  "format": "youtube-longform",
+  "shortsForbidden": true,
+  "fixedVisualCount": false,
+  "fixedImageAnimationRatio": false,
+  "video": {
+    "aspectRatio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "thumbnail": {
+    "type": "image",
+    "googleFlowFileName": "YouTube Thumbnail - Null Prozent Falle.png",
+    "planFile": "04-visuals/thumbnail-prompt.txt"
+  },
+  "userCreatesImages": true,
+  "antigravityGeneratesImages": false,
+  "googleFlow": {
+    "protocolId": "finanzneo-flow-batch5-v1",
+    "generationMode": "parallel-batches",
+    "batchSize": 5,
+    "oneJobPerImage": true,
+    "strictSequential": false,
+    "waitForBatch": true,
+    "renameImmediately": true,
+    "qaBeforeNextBatch": true,
+    "germanTextOnly": true,
+    "retrySameImageOnFailure": true,
+    "referenceImagesAllowed": true,
+    "continuationReferenceRequiredWhenDeclared": true,
+    "referenceMustUseApprovedPriorImage": true,
+    "finalCollectionDirectory": "../3-bilder-hier-rein/",
+    "distributeToVisualFolders": false
+  },
+  "qualityRules": "finanzneo-youtube-quality-v1",
+  "imageWorld": {
+    "styleMaster": "thumbnail",
+    "illustrationOnly": true,
+    "id": "finanzneo-editorial-finance-v1",
+    "seriesLockId": "finanzneo-editorial-consistency-v1",
+    "authority": "docs/FINANZNEO-IMAGE-WORLD.md",
+    "generatedImageAspectRatio": "16:9",
+    "horizontalGeneratedImagesRequired": true,
+    "referencePromptFile": "04-visuals/bildwelt.txt",
+    "promptLanguage": "en",
+    "primaryStyle": "clean-editorial-finance-illustration",
+    "flexibleBackgrounds": true,
+    "fixedBlackBackgroundForbidden": true,
+    "fixed3DRenderingForbidden": true,
+    "twoDAllowed": true,
+    "subtleTwoPointFiveDAllowed": true,
+    "selectiveSimple3DAllowed": true,
+    "firstGlanceUnderstandingRequired": true,
+    "oneCoreIdeaPerImageRequired": true,
+    "progressiveSequencesAllowed": true,
+    "approvedPriorImageReferenceAllowed": true,
+    "genericHeadlineByDefault": false,
+    "aiSlopAvoidanceRequired": true
+  },
+  "motionStandard": {
+    "id": "finanzneo-youtube-motion-v3",
+    "visualMotionWorld": "finanzneo-youtube-light-motion-v2",
+    "visualTargetWorld": "finanzneo-youtube-light-motion-v2",
+    "minimumMotionPreferred": false,
+    "motionDensityStoryDriven": true,
+    "cameraStillDefault": true,
+    "cameraStoryDriven": false,
+    "staticImageStyleCopyRequired": false,
+    "youtubeNativeCompositionRequired": true,
+    "conceptCandidatesRequired": 3,
+    "keyframeQaRequired": true,
+    "keyframeQaPercentages": [
+      10,
+      35,
+      65,
+      90
+    ],
+    "fixed3DStyleForbidden": true,
+    "fixedArtDirectionForbidden": false,
+    "flexibleBackgrounds": true,
+    "darkBackgroundAllowed": false,
+    "blackBackgroundAllowed": false,
+    "full3DAllowed": false,
+    "simpleComparisonAllowed": true,
+    "chartAllowed": true,
+    "sceneArtDirectionOpen": false,
+    "mixedStyleAcrossScenesAllowed": true,
+    "brandStyleMatchRequired": false,
+    "lightBackgroundRequired": true,
+    "flat2DPreferred": true,
+    "genericSceneHeadlinesForbidden": true,
+    "viewerChangeFirstRequired": true,
+    "contentFirstTechniqueSelection": true,
+    "openTechniqueSelection": true,
+    "compositionFamiliesAreExamplesOnly": true,
+    "motionSignatureRequired": true,
+    "recentMotionWindow": 4,
+    "customReactAllowed": true,
+    "svgAllowed": true,
+    "css3dAllowed": false,
+    "canvasAllowed": true,
+    "threeAllowed": false,
+    "hybridAllowed": true,
+    "dataVisualizationAllowed": true,
+    "existingComponentsOptional": true,
+    "physicalPrimitivesOptional": true,
+    "semanticVariationRequired": false
+  },
+  "timelineRules": {
+    "timingSource": "03-audio/word-timings.json",
+    "cutsFollowVoiceAndChapters": true,
+    "equalLengthVisualsForbiddenByDefault": true,
+    "beatFirst": true
+  },
+  "audio": {
+    "targetIntegratedLufs": -16,
+    "targetTruePeakDbtp": -1
+  },
+  "publishing": {
+    "youtube": {
+      "titleOptions": "05-publishing/title-options.txt",
+      "finalTitle": "05-publishing/final-title.txt",
+      "description": "05-publishing/description.txt",
+      "chapters": "05-publishing/chapters.txt",
+      "tagsKeywords": "05-publishing/tags-keywords.txt",
+      "hashtags": "05-publishing/hashtags.txt",
+      "thumbnailBrief": "05-publishing/thumbnail-brief.txt",
+      "pinnedComment": "05-publishing/pinned-comment.txt",
+      "communityPost": "05-publishing/community-post.txt",
+      "sourcesDisclaimer": "05-publishing/sources-disclaimer.txt",
+      "uploadChecklist": "05-publishing/upload-checklist.md"
+    },
+    "socialPromo": {
+      "instagram": "05-publishing/social-promo/instagram.txt",
+      "tiktok": "05-publishing/social-promo/tiktok.txt",
+      "facebook": "05-publishing/social-promo/facebook.txt",
+      "snapchat": "05-publishing/social-promo/snapchat.txt"
+    }
+  },
+  "visuals": [
+    {
+      "id": "visual-01",
+      "type": "image",
+      "chapter": "Hook — Null Prozent, geschenktes Geld?",
+      "scriptBeat": "Null Prozent Finanzierung: kein Zins, kleine Monatsrate — klingt wie geschenktes Geld.",
+      "googleFlowFileName": "YouTube Bild 01 - Null Prozent Schild.png",
+      "expectedVisual": "Großes Ladenschild „0 % Finanzierung“ neben einem Fernseher mit „nur 50 € im Monat“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt",
+      "startCue": "Null Prozent Finanzierung",
+      "objectLabels": [
+        "Ladenschild",
+        "Fernseher",
+        "Ratenkarte"
+      ]
+    },
+    {
+      "id": "visual-02",
+      "type": "image",
+      "chapter": "Hook — Null Prozent, geschenktes Geld?",
+      "scriptBeat": "Manchmal unterschreibst du einen zweiten Vertrag, den du gar nicht wolltest.",
+      "googleFlowFileName": "YouTube Bild 02 - Zweiter Vertrag.png",
+      "expectedVisual": "Hand unterschreibt einen Vertrag, darunter lugt ein zweites Blatt hervor",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-02/bildprompt.txt",
+      "startCue": "Aber manchmal unterschreibst du",
+      "objectLabels": [
+        "Vertrag",
+        "zweites Blatt",
+        "Hand"
+      ]
+    },
+    {
+      "id": "visual-03",
+      "type": "image",
+      "chapter": "Hook — Null Prozent, geschenktes Geld?",
+      "scriptBeat": "Woran du den Unterschied erkennst.",
+      "googleFlowFileName": "YouTube Bild 03 - Zwei Angebote Lupe.png",
+      "expectedVisual": "Zwei gleich aussehende 0-%-Angebote, eine Lupe zeigt beim rechten winziges Kleingedrucktes",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-03/bildprompt.txt",
+      "startCue": "In diesem Video zeige ich dir",
+      "objectLabels": [
+        "Angebotskarten",
+        "Lupe",
+        "Kleingedrucktes"
+      ]
+    },
+    {
+      "id": "visual-04",
+      "type": "image",
+      "chapter": "Kapitel 1 — Wer bezahlt die Zinsen?",
+      "scriptBeat": "Wer bezahlt eigentlich die Zinsen? Verschenken will niemand etwas.",
+      "googleFlowFileName": "YouTube Bild 04 - Wer zahlt die Zinsen.png",
+      "expectedVisual": "Kunde vor „0 % Zinsen“-Schild mit großer Denkblase „Wer zahlt?“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-04/bildprompt.txt",
+      "startCue": "Fangen wir mit einer Frage an",
+      "objectLabels": [
+        "Kunde",
+        "Schild",
+        "Denkblase"
+      ],
+      "akzente": [
+        {
+          "cue": "Denn verschenken will niemand etwas",
+          "text": "Niemand verschenkt Geld",
+          "ton": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "visual-05",
+      "type": "image",
+      "chapter": "Kapitel 1 — Wer bezahlt die Zinsen?",
+      "scriptBeat": "Meistens leiht nicht der Händler das Geld, sondern eine Partnerbank.",
+      "googleFlowFileName": "YouTube Bild 05 - Dreieck Kunde Haendler Bank.png",
+      "expectedVisual": "Dreieck aus Kunde, Händler und Partnerbank; Geldpfeil von der Bank zum Kunden",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-05/bildprompt.txt",
+      "startCue": "Im Elektronikmarkt leiht dir",
+      "objectLabels": [
+        "Kunde",
+        "Händler",
+        "Partnerbank",
+        "Geldpfeil"
+      ]
+    },
+    {
+      "id": "visual-06",
+      "type": "image",
+      "chapter": "Kapitel 1 — Wer bezahlt die Zinsen?",
+      "scriptBeat": "Oft zahlt der Händler der Bank einen Teil der Zinsen, weil er dadurch mehr verkauft.",
+      "googleFlowFileName": "YouTube Bild 06 - Haendler zahlt Zinsen.png",
+      "expectedVisual": "Gleiches Dreieck, jetzt zusätzlich Pfeil „Zinsen“ vom Händler zur Bank und volle Einkaufstüten beim Händler",
+      "imageSequence": {
+        "mode": "continuation",
+        "referenceVisualId": "visual-05",
+        "plannedChange": "Pfeil „Zinsen“ vom Händler zur Bank und Einkaufstüten beim Händler ergänzt"
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-06/bildprompt.txt",
+      "startCue": "Und die Bank will verdienen",
+      "objectLabels": [
+        "Pfeil Zinsen",
+        "Einkaufstüten"
+      ]
+    },
+    {
+      "id": "visual-07",
+      "type": "image",
+      "chapter": "Kapitel 1 — Wer bezahlt die Zinsen?",
+      "scriptBeat": "Manchmal verdient die Bank später an dir.",
+      "googleFlowFileName": "YouTube Bild 07 - Bank verdient spaeter.png",
+      "expectedVisual": "Bankgebäude, daneben Kalenderblatt „später“ und ein kleiner Münzpfeil vom Kunden zur Bank",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-07/bildprompt.txt",
+      "startCue": "Manchmal verdient die Bank aber auch",
+      "objectLabels": [
+        "Bank",
+        "Kalender später",
+        "Münze"
+      ]
+    },
+    {
+      "id": "visual-08",
+      "type": "image",
+      "chapter": "Kapitel 1 — Wer bezahlt die Zinsen?",
+      "scriptBeat": "Eine Null-Prozent-Finanzierung ist ein ganz normaler Kredit.",
+      "googleFlowFileName": "YouTube Bild 08 - Kreditvertrag.png",
+      "expectedVisual": "Dokument mit Überschrift „Kreditvertrag“ und Stempel „0 % Sollzins“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-08/bildprompt.txt",
+      "startCue": "Wichtig ist",
+      "objectLabels": [
+        "Kreditvertrag",
+        "Stempel"
+      ]
+    },
+    {
+      "id": "visual-09",
+      "type": "image",
+      "chapter": "Kapitel 1 — Wer bezahlt die Zinsen?",
+      "scriptBeat": "Mit Vertrag, Bonitätsprüfung und Schufa-Eintrag.",
+      "googleFlowFileName": "YouTube Bild 09 - Vertrag Bonitaet Schufa.png",
+      "expectedVisual": "Drei Symbole nebeneinander: Vertrag, Lupe über Person „Bonität“, Akte „Schufa-Eintrag“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-09/bildprompt.txt",
+      "startCue": "Mit Vertrag, mit Prüfung deiner Bonität",
+      "objectLabels": [
+        "Vertrag",
+        "Bonität",
+        "Schufa-Eintrag"
+      ]
+    },
+    {
+      "id": "visual-10",
+      "type": "image",
+      "chapter": "Kapitel 2 — Wann null Prozent wirklich gratis ist",
+      "scriptBeat": "Es gibt echte Null-Prozent-Finanzierungen. Beispiel: Fernseher für 600 €.",
+      "googleFlowFileName": "YouTube Bild 10 - Fernseher 600 Euro.png",
+      "expectedVisual": "Fernseher mit Preisschild „600 €“ und grünem Haken „echte 0 %“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-10/bildprompt.txt",
+      "startCue": "Damit es fair bleibt",
+      "objectLabels": [
+        "Fernseher",
+        "Preisschild 600 €",
+        "Haken"
+      ]
+    },
+    {
+      "id": "visual-11",
+      "type": "animation",
+      "chapter": "Kapitel 2 — Wann null Prozent wirklich gratis ist",
+      "scriptBeat": "12 Raten à 50 € = 600 € — genau der Kaufpreis, keinen Cent mehr.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-11/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-11/animation.tsx",
+      "animationExport": "YouTubeVisual11Animation",
+      "contentBrief": "Zwölf Ratenblöcke à 50 € (Monat 1–12) bauen sich nacheinander zu einem Balken auf, der exakt so lang ist wie das Preisschild „600 €“. Ergebnis: „600 € = Kaufpreis“, darunter „0 € extra“. Beispiel kennzeichnen. Andere Mechanik als ein Wochenraster (das gab es im letzten Video).",
+      "startCue": "Du zahlst zwölf Raten",
+      "viewerChange": "Unter dem Preisbalken „Kaufpreis 600 €“ setzen sich zwölf 50-€-Blöcke (Monat 1–12) nacheinander in eine leere Ratenspur gleicher Skala; die Summe zählt bis 600 €, die Kette endet exakt am Ende des Preisbalkens, beide werden grün und hinter dem Ende steht „0 € extra“.",
+      "animationIntent": "„Zwölf mal fünfzig sind sechshundert“ soll als Längengleichheit sichtbar werden: Raten und Preis teilen eine Skala, also beweist das bündige Ende ohne Rechnen, dass keine Zinsen dazukommen.",
+      "mechanicId": "installment-blocks-fill-price-tag-length",
+      "visualTechniqueId": "twelve-rate-blocks-chain-under-price-bar-with-end-match",
+      "techniqueDescription": "Preisbalken 600 € und gestrichelte Ratenspur auf gemeinsamer Skala (600 € = 1.200 px, 50 € = 100 px); zwölf Blöcke fallen nacheinander in die Spur, Zählwerk +50 € je Block; End-Hilfslinien an beiden Enden, Farbwechsel auf Grün, „= Kaufpreis“ und „0 € extra“ hinter dem Kettenende.",
+      "compositionFamilyId": "comparison",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "Zaehlwerk (daten.tsx)"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Preisbalken oben, Ratenspur mit Monatsnummern darunter, Summenzeile unten",
+        "transformation": "Blöcke füllen die Spur bis zur Preislänge, Enden werden verglichen"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "12 Ratenblöcke setzen sich nacheinander in die Spur",
+        "Summe zählt 50 € je Block bis 600 €",
+        "End-Hilfslinien und Farbwechsel auf Grün",
+        "„0 € extra“ erscheint hinter dem Kettenende"
+      ],
+      "visualBeats": [
+        "Preisbalken 600 €, leere Ratenspur",
+        "Raten füllen die Spur, Summe läuft",
+        "12 × 50 € = 600 €",
+        "Kette endet bündig: = Kaufpreis",
+        "0 € extra"
+      ],
+      "beatCues": [
+        "Du zahlst zwölf Raten",
+        "Zwölf mal fünfzig",
+        "Wenn sonst nichts dazukommt",
+        "Keinen Cent mehr"
+      ]
+    },
+    {
+      "id": "visual-12",
+      "type": "image",
+      "chapter": "Kapitel 2 — Wann null Prozent wirklich gratis ist",
+      "scriptBeat": "Guter Deal: Du behältst dein Geld länger und zahlst nichts drauf.",
+      "googleFlowFileName": "YouTube Bild 12 - Guter Deal.png",
+      "expectedVisual": "Person entspannt auf dem Sofa vor dem neuen Fernseher, daneben volles Sparschwein",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-12/bildprompt.txt",
+      "startCue": "Dann ist das wirklich ein guter Deal",
+      "objectLabels": [
+        "Person",
+        "Fernseher",
+        "Sparschwein"
+      ]
+    },
+    {
+      "id": "visual-13",
+      "type": "image",
+      "chapter": "Kapitel 2 — Wann null Prozent wirklich gratis ist",
+      "scriptBeat": "Alles drumherum muss stimmen — und da liegen vier Fallen.",
+      "googleFlowFileName": "YouTube Bild 13 - Vier Fallen.png",
+      "expectedVisual": "Vier nummerierte Warnschilder 1–4 nebeneinander auf einem Weg",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-13/bildprompt.txt",
+      "startCue": "Aber dafür muss alles drumherum stimmen",
+      "objectLabels": [
+        "Weg",
+        "Warnschilder 1–4"
+      ]
+    },
+    {
+      "id": "visual-14",
+      "type": "image",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "Null Prozent sagt nur etwas über den Zins, nicht über den Preis.",
+      "googleFlowFileName": "YouTube Bild 14 - Zins ist nicht Preis.png",
+      "expectedVisual": "Zwei Etiketten: „Zins: 0 %“ grün, „Preis: ?“ mit großem Fragezeichen",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-14/bildprompt.txt",
+      "startCue": "Falle eins: der Preis",
+      "objectLabels": [
+        "Etikett Zins",
+        "Etikett Preis",
+        "Warnschild 1"
+      ]
+    },
+    {
+      "id": "visual-15",
+      "type": "data",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "Gleicher Fernseher: 600 € mit 0 % vs. 550 € woanders → 50 € mehr, die Zinsen stecken im Preis.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-15/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-15/animation.tsx",
+      "animationExport": "YouTubeVisual15Animation",
+      "contentBrief": "Beispielrechnung (als „Beispiel“ gekennzeichnet): zwei Shops, gleicher Fernseher. Shop A „0 % Finanzierung“ 600 €, Shop B ohne Finanzierung 550 €. Die Differenz von 50 € wird sichtbar herausgelöst und als „Zinsen im Preis“ beschriftet.",
+      "startCue": "Kostet derselbe Fernseher in einem anderen Shop",
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-15/data-notes.md",
+      "viewerChange": "Neben der 600-€-Säule von Shop A („0 % Finanzierung“) wächst Shop B auf 550 €; eine Schnittlinie bei 550 € läuft über beide Säulen, das obere 50-€-Stück von Shop A löst sich orange heraus, gleitet zur Seite und wird zu „+50 € · Zinsen im Preis“.",
+      "animationIntent": "Die Zinsen sind hier nicht sichtbar ausgewiesen; erst der Vergleich mit dem günstigeren Shop schneidet sie aus dem Preis heraus. Das herausgelöste Stück macht genau diese versteckte Differenz greifbar.",
+      "mechanicId": "price-columns-cut-difference-slice-out",
+      "visualTechniqueId": "two-shop-columns-level-line-lifts-top-slice",
+      "techniqueDescription": "Zwei Preissäulen ab 0 € (600 € = 540 px, 50 € = 45 px), gemeinsame Preiszeile darüber; gestrichelte 550-€-Linie zeichnet sich über beide Säulen, das 50-€-Kopfstück von Shop A färbt sich orange und gleitet seitlich neben die Säulen; an seiner Stelle bleibt eine gestrichelte Kontur.",
+      "compositionFamilyId": "comparison",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "zwei Preissäulen nebeneinander, herausgelöstes Stück rechts daneben",
+        "transformation": "Schnittlinie trennt die Differenz ab, Stück gleitet heraus"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Säule Shop A wächst auf 600 €",
+        "Säule Shop B wächst auf 550 €",
+        "550-€-Schnittlinie zeichnet sich",
+        "50-€-Stück löst sich und gleitet heraus",
+        "„Zinsen im Preis“ erscheint"
+      ],
+      "visualBeats": [
+        "Shop A mit 0 % Finanzierung: 600 €",
+        "Shop B: 550 €",
+        "Schnitt bei 550 €: 50 € Differenz löst sich",
+        "+50 € = Zinsen im Preis"
+      ],
+      "beatCues": [
+        "Kostet derselbe Fernseher",
+        "fünfhundertfünfzig Euro",
+        "fünfzig Euro mehr",
+        "Die Zinsen stecken"
+      ]
+    },
+    {
+      "id": "visual-16",
+      "type": "image",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "Erst den Preis vergleichen, dann die Finanzierung.",
+      "googleFlowFileName": "YouTube Bild 16 - Preise vergleichen.png",
+      "expectedVisual": "Person im Laden vergleicht auf dem Handy den Preis desselben Fernsehers",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-16/bildprompt.txt",
+      "startCue": "Vergleich also immer zuerst den Preis",
+      "objectLabels": [
+        "Kunde",
+        "Handy Preisvergleich",
+        "Fernseher"
+      ]
+    },
+    {
+      "id": "visual-17",
+      "type": "image",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "Beim Abschluss werden Extras angeboten: Ratenschutz, Garantie, Zubehör.",
+      "googleFlowFileName": "YouTube Bild 17 - Extras an der Kasse.png",
+      "expectedVisual": "Verkäufer schiebt drei Angebotskarten über den Tresen: Ratenschutz, Garantie, Zubehör",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-17/bildprompt.txt",
+      "startCue": "Falle zwei: die Extras",
+      "objectLabels": [
+        "Verkäufer",
+        "Angebotskarten",
+        "Warnschild 2"
+      ]
+    },
+    {
+      "id": "visual-18",
+      "type": "data",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "Versicherung 8 € pro Monat × 12 = 96 € → aus 600 € werden 696 €.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-18/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-18/animation.tsx",
+      "animationExport": "YouTubeVisual18Animation",
+      "contentBrief": "Beispielrechnung (als „Annahme“ gekennzeichnet): Kaufpreis-Balken 600 €. Zwölf kleine Zusatzstücke à 8 € hängen sich Monat für Monat an → 96 €. Gesamt 696 €. Die Zusatzstücke in anderer Farbe, Label „Versicherung“.",
+      "startCue": "Das klingt vernünftig, kostet aber extra",
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-18/data-notes.md",
+      "viewerChange": "Der fertige Kaufpreis steht bereits als Säule 600 €; rechts erscheint ein Versicherungszettel „8 € pro Monat“ mit 12 Monatsfeldern, jedes abgehakte Feld legt eine orange 8-€-Scheibe oben auf die Säule, bis der Aufschlag 96 € beträgt und die Gesamtzahl von 600 € auf 696 € rollt.",
+      "animationIntent": "Anders als beim Ratenaufbau wird hier nichts abbezahlt, sondern etwas auf einen fertigen Preis draufgelegt: Die Monate des Zusatzvertrags schichten einen sichtbaren Aufschlag auf, der den Preis dauerhaft erhöht.",
+      "mechanicId": "monthly-addon-slices-stack-onto-finished-price",
+      "visualTechniqueId": "insurance-ticket-month-ticks-drop-slices-on-price-column",
+      "techniqueDescription": "Senkrechte Preissäule ab 0 € (696 € = 620 px, 8 € = 7,1 px); Versicherungszettel mit 6 × 2 Monatsfeldern; jedes Feld färbt sich orange und schiebt eine 8-€-Scheibe schräg von rechts oben auf die Säule; Zählwerk am Zettel 8 € → 96 €, Klammer „+96 €“ am Aufschlag, Gesamt-Zählwerk 600 € → 696 €.",
+      "compositionFamilyId": "stacked-surcharge",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "Zaehlwerk (daten.tsx)"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Preissäule links, Versicherungszettel mit Monatsfeldern rechts",
+        "transformation": "Monatsfelder haken ab, Scheiben stapeln sich als Aufschlag oben auf die Säule"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Preissäule 600 € steht",
+        "Versicherungszettel erscheint",
+        "Monatsfelder färben sich orange",
+        "8-€-Scheiben stapeln sich auf der Säule",
+        "Zählwerk 96 €, Gesamt 600 € → 696 €"
+      ],
+      "visualBeats": [
+        "Kaufpreis 600 €",
+        "Annahme: Versicherung",
+        "8 € pro Monat: erste Scheibe",
+        "12 Monate: 96 € Aufschlag",
+        "600 € + 96 € = 696 €"
+      ],
+      "beatCues": [
+        "Das klingt vernünftig",
+        "Nehmen wir an",
+        "acht Euro im Monat",
+        "Nach zwölf Monaten",
+        "Aus sechshundert werden"
+      ]
+    },
+    {
+      "id": "visual-19",
+      "type": "image",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "Extras sind in der Regel freiwillig — frag nach und sag im Zweifel Nein.",
+      "googleFlowFileName": "YouTube Bild 19 - Nein danke.png",
+      "expectedVisual": "Hand schiebt die Angebotskarten zurück, Sprechblase „Nein, danke“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-19/bildprompt.txt",
+      "startCue": "Solche Extras sind in der Regel freiwillig",
+      "objectLabels": [
+        "Hand",
+        "Angebotskarten",
+        "Sprechblase"
+      ]
+    },
+    {
+      "id": "visual-20",
+      "type": "image",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "Kommentarfrage: Schon mal mit null Prozent finanziert? Hat es sich gelohnt?",
+      "googleFlowFileName": "YouTube Bild 20 - Frage an dich.png",
+      "expectedVisual": "Große Sprechblase „Schon mal mit 0 % finanziert?“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-20/bildprompt.txt",
+      "startCue": "Kurze Frage an dich",
+      "objectLabels": [
+        "Sprechblase",
+        "Antwortblasen"
+      ]
+    },
+    {
+      "id": "visual-21",
+      "type": "image",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "Schreib es in die Kommentare.",
+      "googleFlowFileName": "YouTube Bild 21 - Kommentare.png",
+      "expectedVisual": "Handy mit Kommentarfeld und Stift-Symbol, ein Daumen tippt",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-21/bildprompt.txt",
+      "startCue": "Schreib es mir in die Kommentare",
+      "objectLabels": [
+        "Handy",
+        "Kommentarfeld"
+      ]
+    },
+    {
+      "id": "visual-22",
+      "type": "image",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "Falle drei ist die teuerste — und steht im Kleingedruckten.",
+      "googleFlowFileName": "YouTube Bild 22 - Kleingedrucktes Lupe.png",
+      "expectedVisual": "Lupe über dem Kleingedruckten eines Vertrags, vergrößert lesbar: „Kreditrahmen“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-22/bildprompt.txt",
+      "startCue": "Falle drei ist die teuerste",
+      "objectLabels": [
+        "Vertrag",
+        "Lupe",
+        "Warnschild 3"
+      ]
+    },
+    {
+      "id": "visual-23",
+      "type": "image",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "Manche 0-%-Angebote sind an eine Kreditkarte oder einen Rahmenkredit gekoppelt.",
+      "googleFlowFileName": "YouTube Bild 23 - Preisschild an Kreditkarte.png",
+      "expectedVisual": "Preisschild „0 %“ mit einer Kette an eine Kreditkarte gekoppelt",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-23/bildprompt.txt",
+      "startCue": "Manche Null-Prozent-Angebote sind an eine Kreditkarte",
+      "objectLabels": [
+        "Preisschild",
+        "Kette",
+        "Kreditkarte"
+      ]
+    },
+    {
+      "id": "visual-24",
+      "type": "animation",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "Kreditrahmen: 0 % nur für den ersten Kauf, alles danach kostet Zinsen — oft mehr als beim Dispo.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-24/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-24/animation.tsx",
+      "animationExport": "YouTubeVisual24Animation",
+      "contentBrief": "Ein Kreditrahmen als langer leerer Balken (z. B. „Kreditrahmen“). Der erste Kauf „Fernseher“ füllt ein Stück, Label „0 %“. Danach kommen weitere Käufe dazu (z. B. „Handy“, „Konsole“) — diese Stücke färben sich rot und tragen „Zinsen“. Ergebnis-Callout: „oft teurer als der Dispo“. Keine erfundenen Zinsbeträge.",
+      "startCue": "Das heißt: Du bekommst nicht nur Geld",
+      "viewerChange": "Ein einzelner Kaufblock „Fernseher“ steht in der Mitte; um ihn legt sich ein Rahmen, der sich zu einem großen leeren „Kreditrahmen“ aufzieht; der Fernseher wird grün mit „0 %“ und „nur dieser Kauf“, danach füllen „Handy“ und „Konsole“ den Rahmen, färben sich rot mit „Zinsen“, der Rest zeigt „jeder weitere Kauf: Zinsen“ und darunter erscheint „Zinsen oft höher als beim Dispo“.",
+      "animationIntent": "Der Zuschauer soll erleben, dass der Null-Prozent-Kauf nur ein kleiner Teil eines viel größeren Kredits ist: Die Aufzieh-Bewegung zeigt den versteckten Rahmen, die Farbumkehr zeigt, dass alles danach kostet — ohne erfundene Beträge.",
+      "mechanicId": "purchase-reveals-credit-line-later-purchases-turn-costly",
+      "visualTechniqueId": "single-purchase-block-unfolds-into-credit-frame-segments-recolor",
+      "techniqueDescription": "Kaufblock in der Bildmitte; ein Rahmen umschließt ihn und zieht sich nach links und rechts auf volle Breite auf, der Block wandert an den linken Rand; spätere Käufe wachsen als graue Segmente in den Rahmen und färben sich gemeinsam rot; Etiketten 0 % / Zinsen über den Segmenten, gestrichelter roter Rest, Dispo-Hinweis als Karte. Segmentbreiten schematisch, ohne Euro-Skala.",
+      "compositionFamilyId": "credit-line-frame",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "SVG-Icons"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "ein breiter Rahmen in Bildmitte, Etiketten darüber, Hinweis darunter",
+        "transformation": "Einzelkauf entpuppt sich als Teil eines Rahmens, spätere Segmente füllen und färben sich rot"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Kaufblock Fernseher erscheint und füllt sich",
+        "Rahmen zieht sich um den Kauf auf",
+        "0 % und „nur dieser Kauf“ am Fernseher",
+        "Handy und Konsole füllen den Rahmen",
+        "Spätere Käufe färben sich rot mit „Zinsen“",
+        "Dispo-Hinweis erscheint"
+      ],
+      "visualBeats": [
+        "Ein Kauf: Fernseher",
+        "Geld für den Fernseher",
+        "Ganzer Kreditrahmen",
+        "0 % nur für diesen Kauf",
+        "Weitere Käufe im Rahmen",
+        "Alles danach: Zinsen",
+        "Zinsen oft höher als beim Dispo"
+      ],
+      "beatCues": [
+        "Das heißt",
+        "Geld für den Fernseher",
+        "ganzen Kreditrahmen",
+        "Die null Prozent gelten",
+        "Alles, was du danach",
+        "kostet Zinsen",
+        "Oft sogar mehr"
+      ]
+    },
+    {
+      "id": "visual-25",
+      "type": "image",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "Ein Fall der Verbraucherzentrale Nordrhein-Westfalen.",
+      "googleFlowFileName": "YouTube Bild 25 - Verbraucherschutz Klage.png",
+      "expectedVisual": "Verbraucherschützerin mit Akte „Klage“ vor einem Gerichtsgebäude",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-25/bildprompt.txt",
+      "startCue": "Wie ernst das ist",
+      "objectLabels": [
+        "Verbraucherschützerin",
+        "Akte Klage",
+        "Gericht"
+      ]
+    },
+    {
+      "id": "visual-26",
+      "type": "image",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "Klage gegen die Online-Shops von Media Markt und Saturn.",
+      "googleFlowFileName": "YouTube Bild 26 - Online-Shop 0 Prozent.png",
+      "expectedVisual": "Laptop mit einem Elektronik-Online-Shop und Banner „0 % Finanzierung“, daneben ein Brief „Klage“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-26/bildprompt.txt",
+      "startCue": "Sie hat gegen die Online-Shops",
+      "objectLabels": [
+        "Laptop",
+        "Banner 0 %",
+        "Brief Klage"
+      ]
+    },
+    {
+      "id": "visual-27",
+      "type": "image",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "Effektiver Jahreszins des gekoppelten Kreditrahmens: 15,9 %.",
+      "googleFlowFileName": "YouTube Bild 27 - Jahreszins 15,9 Prozent.png",
+      "expectedVisual": "Großes Preisschild „15,9 %“ an einer Kreditkarte, darüber „eff. Jahreszins“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-27/bildprompt.txt",
+      "startCue": "Dort lag der effektive Jahreszins",
+      "objectLabels": [
+        "Kreditkarte",
+        "15,9 %"
+      ]
+    },
+    {
+      "id": "visual-28",
+      "type": "image",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "OLG München 2023: Auf den Kreditrahmen muss klar und unmissverständlich hingewiesen werden.",
+      "googleFlowFileName": "YouTube Bild 28 - Urteil OLG Muenchen.png",
+      "expectedVisual": "Richterhammer neben einem Urteil mit Zeile „klar und unmissverständlich hinweisen“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-28/bildprompt.txt",
+      "startCue": "Das Oberlandesgericht München",
+      "objectLabels": [
+        "Richterhammer",
+        "Urteil"
+      ]
+    },
+    {
+      "id": "visual-29",
+      "type": "image",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "Kleine Monatsraten und am Ende eine große Schlussrate.",
+      "googleFlowFileName": "YouTube Bild 29 - Grosse Schlussrate.png",
+      "expectedVisual": "Reihe kleiner Münzstapel, am Ende ein riesiger Stapel",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-29/bildprompt.txt",
+      "startCue": "Falle vier: die letzte Rate",
+      "objectLabels": [
+        "kleine Stapel",
+        "großer Stapel",
+        "Warnschild 4"
+      ]
+    },
+    {
+      "id": "visual-30",
+      "type": "data",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "11 × 30 € + 270 € Schlussrate = 600 € — die letzte Zahlung trifft viele unvorbereitet.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-30/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-30/animation.tsx",
+      "animationExport": "YouTubeVisual30Animation",
+      "contentBrief": "Beispiel: Monatsbalken-Diagramm mit 12 Säulen. Säulen 1–11 je 30 € erscheinen ruhig nacheinander; Säule 12 schießt auf 270 € hoch (wertgenau, gleiche Skala). Summe „600 €“. Callout an Säule 12: „Schlussrate“.",
+      "startCue": "Zum Beispiel elf Raten zu dreißig Euro",
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-30/data-notes.md",
+      "viewerChange": "Ein Zahlungsplan mit 12 Monatsplätzen füllt sich mit elf flachen 30-€-Säulen, die Summe zählt bis 330 €; dann schießt Säule 12 auf derselben Skala auf 270 € hoch, die Summe rollt auf 600 € und ein Callout „Schlussrate = 9 Monatsraten auf einmal“ hängt an der letzten Säule.",
+      "animationIntent": "Die gleiche Gesamtsumme wie beim fairen Beispiel versteckt hier ein Risiko im Zeitverlauf; erst die wertgenaue letzte Säule zeigt, wie unverhältnismäßig die Schlusszahlung gegenüber den kleinen Raten ist.",
+      "mechanicId": "flat-payment-plan-then-balloon-column-jump",
+      "visualTechniqueId": "twelve-month-columns-same-scale-final-balloon-with-running-total",
+      "techniqueDescription": "Säulendiagramm ab 0 € (270 € = 540 px, 30 € = 60 px) mit Monat 1–12; Säulen 1–11 wachsen gestaffelt, Klammer „11 × 30 € = 330 €“; Säule 12 wächst ohne Überschwingen auf 270 € in Orange; Summen-Zählwerk läuft 30 € pro Säule, dann 330 € → 600 €; Callout links an Säule 12.",
+      "compositionFamilyId": "data-viz",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "Zaehlwerk (daten.tsx)"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Monatssäulen über die ganze Breite, Summe oben links, Callout an der letzten Säule",
+        "transformation": "flache Säulen wachsen nacheinander, letzte Säule springt hoch"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Säulen 1–11 wachsen auf 30 €",
+        "Summe zählt bis 330 €",
+        "Säule 12 schießt auf 270 €",
+        "Summe rollt auf 600 €",
+        "Schlussraten-Callout erscheint"
+      ],
+      "visualBeats": [
+        "11 Raten à 30 €, Summe 330 €",
+        "Schlussrate 270 €",
+        "Zusammen 600 €",
+        "Schlussrate = 9 Monatsraten auf einmal"
+      ],
+      "beatCues": [
+        "Zum Beispiel elf Raten",
+        "Und dann zweihundertsiebzig",
+        "Zusammen sind das",
+        "Aber die letzte Zahlung"
+      ]
+    },
+    {
+      "id": "visual-31",
+      "type": "image",
+      "chapter": "Kapitel 3 — Vier Fallen",
+      "scriptBeat": "Den ganzen Zahlungsplan lesen, nicht nur die erste Rate.",
+      "googleFlowFileName": "YouTube Bild 31 - Zahlungsplan bis zum Ende.png",
+      "expectedVisual": "Finger fährt eine Ratentabelle bis zur letzten, markierten Zeile entlang",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-31/bildprompt.txt",
+      "startCue": "Schau dir deshalb den ganzen Zahlungsplan an",
+      "objectLabels": [
+        "Ratentabelle",
+        "Finger",
+        "letzte Zeile"
+      ]
+    },
+    {
+      "id": "visual-32",
+      "type": "image",
+      "chapter": "Kapitel 4 — Viele kleine Raten",
+      "scriptBeat": "Das größte Risiko ist nicht ein einzelner Vertrag.",
+      "googleFlowFileName": "YouTube Bild 32 - Viele kleine Vertraege.png",
+      "expectedVisual": "Stapel aus mehreren kleinen Ratenverträgen auf einem Tisch",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-32/bildprompt.txt",
+      "startCue": "Das größte Risiko ist aber oft",
+      "objectLabels": [
+        "Vertragsstapel"
+      ]
+    },
+    {
+      "id": "visual-33",
+      "type": "animation",
+      "chapter": "Kapitel 4 — Viele kleine Raten",
+      "scriptBeat": "50 € + 35 € + 25 € = 110 € — jeden Monat.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-33/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-33/animation.tsx",
+      "animationExport": "YouTubeVisual33Animation",
+      "contentBrief": "Drei Ratenkarten erscheinen nacheinander: „Fernseher 50 €“, „Handy 35 €“, „Kopfhörer 25 €“ — jede einzeln klein und harmlos. Dann rutschen sie zusammen zu einer Monatslast „110 € jeden Monat“, die sichtbar schwerer wirkt (z. B. Balken im Monatsbudget).",
+      "startCue": "Fünfzig Euro für den Fernseher",
+      "viewerChange": "Drei getrennte Ratenkarten erscheinen nacheinander (Fernseher 50 €, Handy 35 €, Kopfhörer 25 €), jede mit kurzem Balken und „wirkt harmlos“; dann rutschen die drei Balken aus den Karten Ende an Ende zu einem Monatsbalken zusammen, das Zählwerk zählt 50 → 85 → 110 € und zwölf Monatsfelder leuchten rot auf: „110 € jeden Monat“.",
+      "animationIntent": "Einzeln wirkt jede Rate klein; erst das Zusammenschieben auf derselben Skala zeigt die echte Monatslast, und die Monatsreihe macht klar, dass sie jeden Monat wiederkommt.",
+      "mechanicId": "separate-installment-cards-merge-into-monthly-load",
+      "visualTechniqueId": "three-rate-cards-bars-slide-into-one-stacked-month-bar-with-month-repeat",
+      "techniqueDescription": "Drei weiße Karten mit Icon, Betrag und Balken (1 € = 8 px); bei „Zusammen“ verlassen die Balken gestaffelt ihre Karten und fügen sich zu einem 880-px-Monatsbalken (110 €) zusammen, leere gestrichelte Spuren bleiben in den Karten; Zählwerk rechts addiert beim Andocken; Reihe Jan–Dez leuchtet rot durch.",
+      "compositionFamilyId": "merge-stack",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "Zaehlwerk (daten.tsx)",
+        "SVG-Icons"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "drei Karten oben nebeneinander, Monatsbalken mit Zählwerk und Monatsreihe darunter",
+        "transformation": "Einzelbalken wandern aus den Karten und verschmelzen zu einem Monatsbalken"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Ratenkarten erscheinen einzeln",
+        "„wirkt harmlos“ unter jeder Karte",
+        "Balken rutschen zum Monatsbalken zusammen",
+        "Zählwerk 50 → 85 → 110 €",
+        "Monatsreihe leuchtet rot"
+      ],
+      "visualBeats": [
+        "Fernseher 50 €",
+        "Handy 35 €",
+        "Kopfhörer 25 €",
+        "Jede Rate wirkt harmlos",
+        "Zusammen 110 €",
+        "110 € jeden Monat"
+      ],
+      "beatCues": [
+        "Fünfzig Euro für den Fernseher",
+        "Fünfunddreißig für das Handy",
+        "Fünfundzwanzig für die Kopfhörer",
+        "Jede Rate allein",
+        "Zusammen sind es",
+        "Jeden Monat"
+      ]
+    },
+    {
+      "id": "visual-34",
+      "type": "image",
+      "chapter": "Kapitel 4 — Viele kleine Raten",
+      "scriptBeat": "BaFin-Umfrage unter Menschen, die mit Buy now, pay later einkaufen.",
+      "googleFlowFileName": "YouTube Bild 34 - BaFin Umfrage.png",
+      "expectedVisual": "Klemmbrett „Umfrage“ mit Fragebogen, daneben Einkaufstüten",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-34/bildprompt.txt",
+      "startCue": "Die Finanzaufsicht BaFin hat Menschen befragt",
+      "objectLabels": [
+        "Klemmbrett",
+        "Einkaufstüten"
+      ]
+    },
+    {
+      "id": "visual-35",
+      "type": "image",
+      "chapter": "Kapitel 4 — Viele kleine Raten",
+      "scriptBeat": "Jeder Siebte hat schon den Überblick über offene Rechnungen verloren.",
+      "googleFlowFileName": "YouTube Bild 35 - Jeder Siebte.png",
+      "expectedVisual": "Sieben Figuren, eine davon unter einem Berg offener Rechnungen, Label „1 von 7“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-35/bildprompt.txt",
+      "startCue": "Jeder Siebte von ihnen",
+      "objectLabels": [
+        "sieben Figuren",
+        "Rechnungsberg",
+        "1 von 7"
+      ]
+    },
+    {
+      "id": "visual-36",
+      "type": "image",
+      "chapter": "Kapitel 4 — Viele kleine Raten",
+      "scriptBeat": "Für die Schufa ist jede Finanzierung ein eigener Kredit; mehrere können die Bonität verschlechtern.",
+      "googleFlowFileName": "YouTube Bild 36 - Bonitaet sinkt.png",
+      "expectedVisual": "Halbkreis-Tacho „Bonität“, dessen Zeiger nach unten rutscht, daran hängen mehrere kleine Kreditkarten",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-36/bildprompt.txt",
+      "startCue": "Und für die Schufa ist jede Finanzierung",
+      "objectLabels": [
+        "Tacho Bonität",
+        "Kreditkarten"
+      ]
+    },
+    {
+      "id": "visual-37",
+      "type": "image",
+      "chapter": "Kapitel 4 — Viele kleine Raten",
+      "scriptBeat": "Du merkst es, wenn du wirklich einen Kredit brauchst, zum Beispiel für ein Auto.",
+      "googleFlowFileName": "YouTube Bild 37 - Kredit fuer Auto.png",
+      "expectedVisual": "Person am Bankschalter mit Auto-Prospekt, Bankberater schaut skeptisch auf ein Blatt",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-37/bildprompt.txt",
+      "startCue": "Das merkst du dann",
+      "objectLabels": [
+        "Person",
+        "Bankberater",
+        "Auto-Prospekt"
+      ]
+    },
+    {
+      "id": "visual-38",
+      "type": "image",
+      "chapter": "Kapitel 5 — Neue Regeln ab 20. November",
+      "scriptBeat": "Ab 20. November 2026 gelten neue EU-Regeln für Verbraucherkredite.",
+      "googleFlowFileName": "YouTube Bild 38 - Neue Regeln 20 November.png",
+      "expectedVisual": "Kalenderblatt „20. November 2026“ mit EU-Sternenkreis und „Neue Regeln“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-38/bildprompt.txt",
+      "startCue": "Übrigens: Ab dem zwanzigsten November",
+      "objectLabels": [
+        "Kalender",
+        "EU-Sterne"
+      ]
+    },
+    {
+      "id": "visual-39",
+      "type": "image",
+      "chapter": "Kapitel 5 — Neue Regeln ab 20. November",
+      "scriptBeat": "Auch zinsfreie Kredite und „jetzt kaufen, später zahlen“ fallen unter das Kreditrecht.",
+      "googleFlowFileName": "YouTube Bild 39 - Spaeter zahlen Kreditrecht.png",
+      "expectedVisual": "Knopf „Später zahlen“ mit Paragrafen-Stempel „Kreditrecht“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-39/bildprompt.txt",
+      "startCue": "Dann fallen auch zinsfreie Kredite",
+      "objectLabels": [
+        "Knopf",
+        "Stempel §"
+      ]
+    },
+    {
+      "id": "visual-40",
+      "type": "image",
+      "chapter": "Kapitel 5 — Neue Regeln ab 20. November",
+      "scriptBeat": "Anbieter müssen genauer prüfen, ob du die Raten bezahlen kannst.",
+      "googleFlowFileName": "YouTube Bild 40 - Genauer pruefen.png",
+      "expectedVisual": "Bankmitarbeiterin prüft mit Lupe einen Haushaltsplan „Einnahmen / Ausgaben“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-40/bildprompt.txt",
+      "startCue": "Anbieter müssen dann genauer prüfen",
+      "objectLabels": [
+        "Bankmitarbeiterin",
+        "Haushaltsplan",
+        "Lupe"
+      ]
+    },
+    {
+      "id": "visual-41",
+      "type": "image",
+      "chapter": "Kapitel 5 — Neue Regeln ab 20. November",
+      "scriptBeat": "Das schützt dich, ersetzt aber nicht deinen eigenen Blick in den Vertrag.",
+      "googleFlowFileName": "YouTube Bild 41 - Schutz und selbst lesen.png",
+      "expectedVisual": "Person unter einem Schutzschild liest trotzdem selbst den Vertrag",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-41/bildprompt.txt",
+      "startCue": "Das schützt dich",
+      "objectLabels": [
+        "Schutzschild",
+        "Person",
+        "Vertrag"
+      ]
+    },
+    {
+      "id": "visual-42",
+      "type": "image",
+      "chapter": "Kapitel 6 — Der Vier-Punkte-Check",
+      "scriptBeat": "Der Vier-Punkte-Check vor jeder Null-Prozent-Finanzierung.",
+      "googleFlowFileName": "YouTube Bild 42 - Vier Punkte Check.png",
+      "expectedVisual": "Klemmbrett „4-Punkte-Check“ mit vier leeren Kästchen",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-42/bildprompt.txt",
+      "startCue": "Darum mein Vier-Punkte-Check",
+      "objectLabels": [
+        "Klemmbrett",
+        "vier Kästchen"
+      ]
+    },
+    {
+      "id": "visual-43",
+      "type": "image",
+      "chapter": "Kapitel 6 — Der Vier-Punkte-Check",
+      "scriptBeat": "Erstens: Was kostet das Produkt woanders?",
+      "googleFlowFileName": "YouTube Bild 43 - Check Preis.png",
+      "expectedVisual": "Zwei Preisschilder desselben Fernsehers, eins günstiger, grüner Haken",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-43/bildprompt.txt",
+      "startCue": "Erstens",
+      "objectLabels": [
+        "Preisschilder",
+        "Haken",
+        "1"
+      ]
+    },
+    {
+      "id": "visual-44",
+      "type": "image",
+      "chapter": "Kapitel 6 — Der Vier-Punkte-Check",
+      "scriptBeat": "Zweitens: Was zahle ich insgesamt?",
+      "googleFlowFileName": "YouTube Bild 44 - Check Gesamtkosten.png",
+      "expectedVisual": "Taschenrechner, der Raten und Extras zu „Gesamt“ addiert",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-44/bildprompt.txt",
+      "startCue": "Zweitens",
+      "objectLabels": [
+        "Taschenrechner",
+        "Liste",
+        "2"
+      ]
+    },
+    {
+      "id": "visual-45",
+      "type": "image",
+      "chapter": "Kapitel 6 — Der Vier-Punkte-Check",
+      "scriptBeat": "Drittens: Hängt ein Kreditrahmen dran? Genau lesen und danach nicht nutzen.",
+      "googleFlowFileName": "YouTube Bild 45 - Check Kreditrahmen.png",
+      "expectedVisual": "Kreditkarte in einer Schublade mit kleinem Vorhängeschloss",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-45/bildprompt.txt",
+      "startCue": "Drittens",
+      "objectLabels": [
+        "Kreditkarte",
+        "Schublade",
+        "Schloss",
+        "3"
+      ]
+    },
+    {
+      "id": "visual-46",
+      "type": "image",
+      "chapter": "Kapitel 6 — Der Vier-Punkte-Check",
+      "scriptBeat": "Viertens: Passt die Rate ins Budget — zusammen mit allen anderen Raten?",
+      "googleFlowFileName": "YouTube Bild 46 - Check Budget.png",
+      "expectedVisual": "Geldbörse, in die mehrere Ratenzettel gerade noch hineinpassen",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-46/bildprompt.txt",
+      "startCue": "Viertens",
+      "objectLabels": [
+        "Geldbörse",
+        "Ratenzettel",
+        "4"
+      ]
+    },
+    {
+      "id": "visual-47",
+      "type": "image",
+      "chapter": "Kapitel 6 — Der Vier-Punkte-Check",
+      "scriptBeat": "Bei Verbraucherkrediten in der Regel 14 Tage Widerrufsrecht.",
+      "googleFlowFileName": "YouTube Bild 47 - Widerruf 14 Tage.png",
+      "expectedVisual": "Kalender mit markierten 14 Tagen und Dokument „Widerruf“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-47/bildprompt.txt",
+      "startCue": "Und falls du schon unterschrieben hast",
+      "objectLabels": [
+        "Kalender 14 Tage",
+        "Widerruf"
+      ]
+    },
+    {
+      "id": "visual-48",
+      "type": "image",
+      "chapter": "Fazit",
+      "scriptBeat": "Guter Deal, wenn Preis stimmt, nichts dazukommt und kein Kreditrahmen dranhängt.",
+      "googleFlowFileName": "YouTube Bild 48 - Guter Deal Checkliste.png",
+      "expectedVisual": "Fernseher, daneben drei abgehakte Punkte: Preis, keine Extras, kein Kreditrahmen",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-48/bildprompt.txt",
+      "startCue": "Null Prozent kann ein richtig guter Deal sein",
+      "objectLabels": [
+        "Fernseher",
+        "Checkliste"
+      ]
+    },
+    {
+      "id": "visual-49",
+      "type": "image",
+      "chapter": "Fazit",
+      "scriptBeat": "Dann nutzt du das Geld der Bank, ohne dafür zu bezahlen.",
+      "googleFlowFileName": "YouTube Bild 49 - Geld der Bank gratis.png",
+      "expectedVisual": "Münzen fließen von der Bank zur Person, Etikett „0 € Zinsen“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-49/bildprompt.txt",
+      "startCue": "Dann nutzt du das Geld der Bank",
+      "objectLabels": [
+        "Bank",
+        "Münzen",
+        "Person"
+      ]
+    },
+    {
+      "id": "visual-50",
+      "type": "image",
+      "chapter": "Fazit",
+      "scriptBeat": "Wer nur auf die Monatsrate schaut, zahlt am Ende oft mehr.",
+      "googleFlowFileName": "YouTube Bild 50 - Nur Monatsrate im Blick.png",
+      "expectedVisual": "Person schaut durchs Fernglas nur auf „50 €/Monat“, hinter ihr ein langer Kassenbon „Gesamt“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-50/bildprompt.txt",
+      "startCue": "Aber wer nur auf die kleine Monatsrate schaut",
+      "objectLabels": [
+        "Fernglas",
+        "Monatsrate",
+        "langer Bon"
+      ]
+    },
+    {
+      "id": "visual-51",
+      "type": "image",
+      "chapter": "Fazit",
+      "scriptBeat": "Abonnier FinanzNeo.",
+      "googleFlowFileName": "YouTube Bild 51 - Abonnieren.png",
+      "expectedVisual": "Notizbuch mit handgeschriebenem „FinanzNeo“ und kleiner Glocke",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-51/bildprompt.txt",
+      "startCue": "Wenn dir das Video geholfen hat",
+      "objectLabels": [
+        "Notizbuch",
+        "Glocke"
+      ]
+    }
+  ]
+}

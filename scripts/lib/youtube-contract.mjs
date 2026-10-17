@@ -116,8 +116,14 @@ export const PHASE_1_FILES = [
 // Qualitätsregeln aus dem Feedback zum ersten Video (Arman, 10.10.2026). Gelten für Projekte mit
 // `qualityRules: YOUTUBE_QUALITY_RULES_ID`; ältere Projekte werden nicht rückwirkend migriert.
 export const YOUTUBE_QUALITY_RULES_ID = 'finanzneo-youtube-quality-v1';
-/** Sprechtempo des echten FinanzNeo-Voiceovers (Abo-Falle + Supermarkt-Tricks gemessen). */
-export const YOUTUBE_SPEECH_WPM = 154;
+// V2 (17.10.2026, Wettbewerbsanalyse): Skript, Bild und Animation werden fest aneinander gebunden.
+export const YOUTUBE_QUALITY_RULES_V2_ID = 'finanzneo-youtube-quality-v2';
+export const YOUTUBE_QUALITY_RULES_IDS = [YOUTUBE_QUALITY_RULES_ID, YOUTUBE_QUALITY_RULES_V2_ID];
+/** Hook beginnt mit Szene/Person/Konflikt, nicht mit einer Ankündigung (simplicissimus-Prinzip). */
+export const YOUTUBE_HOOK_ANNOUNCEMENT_PATTERN = /\b(?:in diesem video|heute (?:zeige|erkläre|erklaere|schauen|sprechen)|ich zeige dir|ich erkläre dir|ich erklaere dir|lass uns (?:heute|mal))\b/i;
+/** Sprechtempo des echten FinanzNeo-Voiceovers inkl. Pausen (gemessen: Supermarkt-Tricks 141,6 und
+ *  0-%-Finanzierung 142,1 Wörter/Min.; vorher 154 ohne Pausen → Haltezeiten wurden ~10 % unterschätzt). */
+export const YOUTUBE_SPEECH_WPM = 142;
 /** Ein Standbild ohne neue sichtbare Information höchstens so lange (geschätzt aus dem Skript). */
 export const YOUTUBE_IMAGE_MAX_HOLD_SECONDS = 8;
 /** Nach echtem Audio: ab hier warnt der Zusammenbau. */
@@ -134,7 +140,15 @@ export const YOUTUBE_MUSIC_FILES = ['03-audio/musik.mp3', '03-audio/musik.wav', 
 export const YOUTUBE_MUSIC_GAIN_DB = -24;
 /** Bildwelt: Das Thumbnail wird zuerst erzeugt und hängt als Stilvorlage an jedem Bild. */
 export const YOUTUBE_STYLE_MASTER = 'thumbnail';
+/** Seit 17.10.2026: EINE kanalweite Stilvorlage für alle Bilder aller Videos (inkl. Thumbnail), damit die
+ *  Videos untereinander nicht driften (Supermarkt vs. 0 % streuten in Hintergrund und Strich). */
+export const YOUTUBE_STYLE_MASTER_KANAL = 'kanal';
+export const YOUTUBE_CHANNEL_STYLE_FILE = 'FinanzNeo Stilvorlage.png';
+export const YOUTUBE_CHANNEL_STYLE_PATH = `youtube/_kanal/${YOUTUBE_CHANNEL_STYLE_FILE}`;
+export const youtubeStyleReferenceText = (datei) => `${datei} — attach this approved FinanzNeo style master to EVERY image as a style reference (from ${YOUTUBE_CHANNEL_STYLE_PATH} in the repository). Copy only its drawing style: warm cream background, gentle pencil-like outlines, softly painted flat fills, muted palette and hand-lettered labels. Never copy its composition, amount of detail, people, objects or text — the composition always follows the current scene.`;
 export const YOUTUBE_STYLE_REFERENCE_MARKER = 'STYLE_REFERENCE:';
+/** Hauptfigur: dieselbe Person in jedem Bild über ein angehängtes Referenzbild (kein Flow-„Charakter“ nötig). */
+export const YOUTUBE_CHARACTER_REFERENCE_MARKER = 'CHARACTER_REFERENCE:';
 
 export const FORBIDDEN_YOUTUBE_ARTIFACTS = [
   'youtube-shorts.txt',

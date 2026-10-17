@@ -176,6 +176,14 @@ Einzige Übergabe an Google Flow bleibt:
 
 Bilder werden in Batches von bis zu **5 gleichzeitig** erzeugt (`finanzneo-flow-batch5-v1`, Arman 10.10.2026): jedes Bild ein eigener Job, sofort exakt umbenannt und geprüft; Fehler werden im selben Batch neu erzeugt, erst dann startet der nächste Batch. Fortsetzungen mit Referenzbild liegen immer in einem späteren Batch. **Alle sichtbaren Texte im Bild sind deutsch.**
 
+### Eine Stilvorlage für den ganzen Kanal (Arman, 17.10.2026)
+
+- **Zeichenstil fest, Bildinhalt frei** (Arman, 17.10.2026): Der Zeichenstil ist der von Video 1 (Supermarkt-Tricks) und Video 2 (0 % Finanzierung) — weich handgezeichnet, Bleistift-Linien, sanft gemalte Farbflächen, warmes Creme, gedeckte Erdtöne, handgeschriebene Beschriftung, kein Foto, kein dunkler Hintergrund. Der **Bildaufbau folgt immer der Szene**: volle Alltagsszene, einzelnes Objekt, Landschafts-Metapher, Draufsicht oder Vergleich — was den Satz am besten zeigt. Voll ist genauso erlaubt wie reduziert.
+- `youtube/_kanal/FinanzNeo Stilvorlage.png` ist die **kanalweite Stilvorlage** (Bild 01 aus Video 2). Fehlt sie, bricht `youtube-plan-anwenden` bewusst ab. Jedes Bild jedes neuen Videos — auch das Thumbnail — hängt sie als `STYLE_REFERENCE:` an.
+- Grund: Mit dem Thumbnail als Vorlage blieb jedes Video in sich einheitlich, aber die Videos drifteten untereinander (Supermarkt: Hintergrund schwankte zwischen #F7ECCF und #F7F0D8, Strich und Palette uneinheitlich; 0 %: fast überall exakt #F9E9CB).
+- Die Vorlage wird nur bewusst ausgetauscht (neue Datei, Eintrag in `VERBESSERUNGEN.md`).
+- Projekte vor dem 17.10.2026 behalten das Thumbnail als Stilvorlage (`imageWorld.styleMaster: "thumbnail"`).
+
 ### Nur Illustration, Thumbnail als Stilvorlage (Arman, 10.10.2026)
 
 - Alle YouTube-Bilder sind **weiche, handgezeichnete 2D-Editorial-Illustrationen** auf warmem Creme: zarte Bleistiftlinien, sanft gemalte Farbflächen, gedeckte Erdtöne (Sand, Terrakotta, Salbei, Staubblau, warmes Grau). **Nie fotorealistisch, nie Foto, nie glänzendes 3D.**
@@ -202,10 +210,22 @@ Aus dem Feedback zum ersten Video. Gelten für alle mit `youtube:create` neu ang
 
 | Regel | Grenze | Prüfung |
 |---|---|---|
-| Standbild ohne neue Information | max. **8 s** (geschätzt aus dem Skript, 154 Wörter/Min.) | `youtube:validate` Fehler; nach echtem Audio warnt der Zusammenbau ab 10 s |
+| Standbild ohne neue Information | max. **8 s** (geschätzt aus dem Skript, 142 Wörter/Min. inkl. Pausen — an Video 1 und 2 gemessen) | `youtube:validate` Fehler; nach echtem Audio warnt der Zusammenbau ab 10 s |
 | Hook bis zum ersten inhaltlichen Kapitel | max. **20 s** | `youtube:validate` |
 | Kommentarfrage | muss im Skript stehen, im mittleren Teil (30–75 % der Wörter) | `youtube:validate` |
 | Endkarte | **15 s** nach dem Voiceover, Kanalname oben, Fläche frei für die YouTube-Endelemente | automatisch im Zusammenbau |
+
+## Qualitätsregeln V2 — Skript, Bild und Animation fest gebunden (`finanzneo-youtube-quality-v2`, 17.10.2026)
+
+Aus der Wettbewerbsanalyse (simplicissimus, Kurzgesagt, Finanzfluss) und der Rückschau zu Video 1 und 2. Gilt für alle neu angelegten Projekte zusätzlich zu V1:
+
+| Regel | Warum | Prüfung |
+|---|---|---|
+| **Hook ohne Ankündigung** — kein „In diesem Video …“, „heute erkläre ich …“, „ich zeige dir …“; Start mit Szene, Person oder Konflikt | Die stärksten Erklärvideos starten mit einer Geschichte, nicht mit einem Inhaltsverzeichnis | `youtube:validate` |
+| **Hauptfigur** (`story.protagonist`, z. B. „Lena“) wird im Hook genannt und trägt das Video; bewusst `null` nur mit Begründung (z. B. reine News) | Eine Figur verbindet Skript („Lena zahlt …“), Bilder (dieselbe Figur) und Animationen („Lenas Raten“) zu einer Geschichte | `youtube:validate` |
+| **Figur ohne Flow-„Charakter“** — `story.figurBild` (`'Thumbnail'` oder Bildnummer) legt die Figur einmal fest; jedes Bild mit `figur: true` hängt dieses Bild als `CHARACTER_REFERENCE:` an („dieselbe Person wie in …“) und liegt in einem späteren Batch | Gleiche Figur in jedem Bild ohne Extra-Schritt in Flow (Arman, 17.10.2026) | Plan-Generator + `youtube:validate` |
+| **`keyword` pro Bild** — ein Wort, das genau in seinem Sprechabschnitt fällt und das Bild zeigt | Bild zeigt, was in dem Moment gesagt wird, nicht nur ungefähr das Thema | `youtube:validate` |
+| **`bridgeObject` pro Animation** — ein Objekt aus dem Bild davor oder danach, das die Animation sichtbar weiterträgt (gleiche Form, Farbe, Name) | Kein Weltwechsel zwischen Illustration und Grafik; die Animation ist die bewegte Fortsetzung des Bildes | `youtube:validate` + Motion-Director |
 
 Zu lange Standbilder löst man mit einem zusätzlichen Bild oder mit `akzente[]` am Visual (`{cue, text, ton}`): Ein Akzent erscheint beim gesprochenen Wort als kleine Karte auf dem Bild und zählt als neue sichtbare Information.
 

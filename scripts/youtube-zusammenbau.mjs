@@ -20,7 +20,7 @@
 import {copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync} from 'node:fs';
 import {basename, relative, resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
-import {ACTIVE_WORD_COLOR, AUDIO_INBOX, IMAGE_INBOX, INTERN_DIR, SCRIPT_FILE, SUBTITLE_MODE, YOUTUBE_ENDCARD_SECONDS, YOUTUBE_IMAGE_WARN_HOLD_SECONDS, YOUTUBE_QUALITY_RULES_ID, internWurzel} from './lib/youtube-contract.mjs';
+import {ACTIVE_WORD_COLOR, AUDIO_INBOX, IMAGE_INBOX, INTERN_DIR, SCRIPT_FILE, SUBTITLE_MODE, YOUTUBE_ENDCARD_SECONDS, YOUTUBE_IMAGE_WARN_HOLD_SECONDS, YOUTUBE_QUALITY_RULES_IDS, internWurzel} from './lib/youtube-contract.mjs';
 import {verbindeAudioTeile} from './youtube-audio-teile.mjs';
 
 const args = process.argv.slice(2);
@@ -204,7 +204,7 @@ visuals.forEach((v, k) => {
   if (v.durationFrames <= 0) fehler.push(`${v.id}: Dauer ${v.durationFrames} Frames — Reihenfolge der startCues prüfen.`);
 });
 // Qualitätsregeln: Endkarte für die YouTube-Endelemente + Warnung bei zu langen Standbildern.
-const qualitaet = index.qualityRules === YOUTUBE_QUALITY_RULES_ID;
+const qualitaet = YOUTUBE_QUALITY_RULES_IDS.includes(index.qualityRules);
 if (qualitaet) visuals.push({id: 'endkarte', type: 'endkarte', startFrame: sprechEnde, durationFrames: YOUTUBE_ENDCARD_SECONDS * fps, beats: [], akzente: []});
 const gesamt = qualitaet ? sprechEnde + YOUTUBE_ENDCARD_SECONDS * fps : sprechEnde;
 const langeBilder = visuals.filter((v) => v.type === 'image').map((v) => {

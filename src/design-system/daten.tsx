@@ -33,8 +33,9 @@ import type {Station} from './daten-rechnung';
 export * from './daten-rechnung';
 
 export const DATEN = {
-  // Werte aus LIGHT (src/youtube-motion/light-v3/charts.tsx).
-  grund: '#FAF8F2',
+  // Werte aus LIGHT (src/youtube-motion/light-v3/charts.tsx). Grund = warmes Creme der Flow-Bilder
+  // (gemessen #F9E9CB, Video 2, 17.10.2026), damit Bilder und Animationen eine Welt bilden.
+  grund: '#F9E9CB',
   papier: '#FFFFFF',
   text: '#202A25',
   leise: '#68746D',
@@ -47,7 +48,7 @@ export const DATEN = {
   linie: '#DDE4DE',
   rand: 160,
   /** Mindestgröße für Text, der auf dem Handy noch lesbar sein muss. */
-  minText: 28,
+  minText: 32,
   /** YouTube-Videos haben keine eingebrannten Untertitel (seit 10.10.2026): Inhalt vertikal
    *  mittig um y = 540 komponieren; unten nur 80 px Rand. */
   mitteY: 540,

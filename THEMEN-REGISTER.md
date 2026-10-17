@@ -15,3 +15,4 @@
 | Nr. | Datum | Format | Titel | Kategorie | Typ | Status | Ordner |
 |---|---|---|---|---|---|---|---|
 | 1 | 2026-10-10 | YouTube | 9 Supermarkt-Tricks, die dich jeden Monat Geld kosten | Konsum / Verbraucher | Neu | in Arbeit | youtube/2026-10-10_supermarkt-tricks |
+| 2 | 2026-10-17 | YouTube | 0-%-Finanzierung: Wann sie wirklich gratis ist – und wann sie teuer wird | Kredit / Verbraucher | Neu | in Arbeit | youtube/2026-10-17_null-prozent-finanzierung |

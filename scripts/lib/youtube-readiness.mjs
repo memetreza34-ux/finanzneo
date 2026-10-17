@@ -22,6 +22,11 @@ const PLACEHOLDER_PATTERN = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONA
 const readText = (path) => readFileSync(path, 'utf8');
 const isFile = (path) => existsSync(path) && statSync(path).isFile();
 const hasPlaceholder = (content) => PLACEHOLDER_PATTERN.test(content) || /\b(?:TODO|PLACEHOLDER)\b/i.test(content);
+// Code: Datenfelder wie `label:`, `name:` oder `start` in Array-Literalen sind kein Platzhalter.
+// Die Scaffold-Platzhalter im Code sind immer GROSS geschrieben ('[MECHANIC_ID]', '[START STATE]', TODO).
+// Nur in Anführungszeichen und ohne Komma — Konstantenlisten wie [NORMAL, HOCH] sind Code.
+const CODE_PLACEHOLDER_PATTERN = /['"`]\[[A-ZÄÖÜ][A-ZÄÖÜ0-9 _/+.-]{2,}\]['"`]/;
+const hasCodePlaceholder = (content) => CODE_PLACEHOLDER_PATTERN.test(content) || /\b(?:TODO|PLACEHOLDER)\b/.test(content);
 
 const listFiles = (directory, extensions) => {
   if (!existsSync(directory)) return [];
@@ -43,7 +48,7 @@ const readJson = (path, blockers, label) => {
   }
 };
 
-const checkCompletedText = (root, relativePath, blockers) => {
+const checkCompletedText = (root, relativePath, blockers, {code = false} = {}) => {
   const path = resolve(root, relativePath);
   if (!isFile(path)) {
     blockers.push(`${relativePath} fehlt.`);
@@ -51,7 +56,7 @@ const checkCompletedText = (root, relativePath, blockers) => {
   }
   const content = readText(path).trim();
   if (!content) blockers.push(`${relativePath} ist leer.`);
-  else if (hasPlaceholder(content)) blockers.push(`${relativePath} enthält noch Platzhalter.`);
+  else if (code ? hasCodePlaceholder(content) : hasPlaceholder(content)) blockers.push(`${relativePath} enthält noch Platzhalter.`);
 };
 
 const flattenTimingWords = (timing) => {
@@ -151,7 +156,7 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
       for (const error of validateYouTubeMotionMetadata(visual)) phase1Blockers.push(`${VISUAL_INDEX}: ${error}`);
       const sourceFile = visual.animationSourceFile;
       if (typeof sourceFile !== 'string' || !sourceFile.trim()) phase1Blockers.push(`${VISUAL_INDEX}: ${id}.animationSourceFile fehlt.`);
-      else checkCompletedText(root, sourceFile, phase1Blockers);
+      else checkCompletedText(root, sourceFile, phase1Blockers, {code: true});
       if (typeof visual.planFile !== 'string' || !visual.planFile.trim()) phase1Blockers.push(`${VISUAL_INDEX}: ${id}.planFile fehlt.`);
       else checkCompletedText(root, visual.planFile, phase1Blockers);
 
@@ -264,3 +269,5 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
     audioFiles,
   };
 };
+
+export const __test = {hasPlaceholder, hasCodePlaceholder};

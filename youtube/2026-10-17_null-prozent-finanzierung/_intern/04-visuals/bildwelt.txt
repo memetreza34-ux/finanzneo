@@ -1,0 +1,26 @@
+FINANZNEO YOUTUBE IMAGE WORLD
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.

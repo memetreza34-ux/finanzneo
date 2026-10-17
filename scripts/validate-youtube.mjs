@@ -32,7 +32,7 @@ import {
   AUDIO_INBOX,
   EXPORT_DIR,
   SCRIPT_FILE,
-  YOUTUBE_QUALITY_RULES_ID,
+  YOUTUBE_QUALITY_RULES_IDS,
   internWurzel,
 } from './lib/youtube-contract.mjs';
 import {pruefeYouTubeQualitaet} from './lib/youtube-quality.mjs';
@@ -184,11 +184,25 @@ if (index) {
   errors.push(...validateYouTubeMotionVariety(index.visuals ?? []));
 
   // Qualitätsregeln (finanzneo-youtube-quality-v1): Haltezeit, Hook, Kommentarfrage, Stilvorlage.
-  if (index.qualityRules === YOUTUBE_QUALITY_RULES_ID) {
+  if (YOUTUBE_QUALITY_RULES_IDS.includes(index.qualityRules)) {
     const scriptPath = resolve(root, SCRIPT_FILE);
     if (!existsSync(scriptPath)) errors.push(`${SCRIPT_FILE} fehlt.`);
     else {
+      // Nach Phase 3 sind die echten Haltezeiten die Wahrheit (inkl. Akzente), nicht die Skript-Schätzung.
+      let echteHaltezeiten = null;
+      try {
+        const zeitplan = JSON.parse(read('06-projektdateien/timeline.json'));
+        const bilder = (zeitplan.visuals ?? []).filter((v) => v.type === 'image');
+        if (bilder.length && bilder.every((v) => Number(v.durationFrames) > 0)) {
+          const fps = Number(zeitplan.fps) || 30;
+          echteHaltezeiten = new Map(bilder.map((v) => {
+            const marken = [0, ...(v.akzente ?? []).map((a) => a.ab), v.durationFrames].sort((x, y) => x - y);
+            return [v.id, Math.max(...marken.slice(1).map((m, k) => m - marken[k])) / fps];
+          }));
+        }
+      } catch {}
       const {fehler} = pruefeYouTubeQualitaet({
+        echteHaltezeiten,
         index,
         scriptText: read(SCRIPT_FILE),
         prompts: existsSync(resolve(root, ALL_PROMPTS)) ? read(ALL_PROMPTS) : '',
