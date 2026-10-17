@@ -28,9 +28,9 @@ export const ANIMATION_NARRATIVE = {
 };
 
 const RATEN = [
-  {id: 'fernseher', label: 'Fernseher', wert: 50, farbe: DATEN.blau},
-  {id: 'handy', label: 'Handy', wert: 35, farbe: DATEN.gruen},
-  {id: 'kopfhoerer', label: 'Kopfhörer', wert: 25, farbe: DATEN.gold},
+  {id: 'fernseher', titel: 'Fernseher', wert: 50, farbe: DATEN.blau},
+  {id: 'handy', titel: 'Handy', wert: 35, farbe: DATEN.gruen},
+  {id: 'kopfhoerer', titel: 'Kopfhörer', wert: 25, farbe: DATEN.gold},
 ];
 const SUMME = RATEN.reduce((acc, r) => acc + r.wert, 0); // 110 €
 if (SUMME !== 110) throw new Error('50 € + 35 € + 25 € muss 110 € ergeben.');
@@ -131,7 +131,7 @@ export const YouTubeVisual33Animation: React.FC<{beats?: number[]}> = ({beats}) 
             >
               <div style={{position: 'absolute', left: 40, top: 32, display: 'flex', alignItems: 'center', gap: 16, fontSize: 38, fontWeight: 800, color: DATEN.text, whiteSpace: 'nowrap'}}>
                 <Icon id={rate.id} farbe={DATEN.text} />
-                {rate.label}
+                {rate.titel}
               </div>
               <div style={{position: 'absolute', right: 40, top: 30, fontSize: 44, fontWeight: 900, color: rate.farbe, whiteSpace: 'nowrap'}}>{euroText(rate.wert)}</div>
               {/* leere Spur, wo der Balken lag */}

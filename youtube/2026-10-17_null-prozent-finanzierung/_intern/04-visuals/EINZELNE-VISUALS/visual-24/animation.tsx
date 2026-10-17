@@ -47,9 +47,9 @@ const PREVIEW_BEATS = [0, 70, 152, 175, 292, 386, 409];
 const RAHMEN = {links: 240, breite: 1440, hoehe: 170, y: DATEN.mitteY - 40};
 // Segmentbreiten: rein schematisch (keine Euro-Werte), Fernseher größter Einzelkauf.
 const SEGMENTE = [
-  {id: 'fernseher', label: 'Fernseher', breite: 400},
-  {id: 'handy', label: 'Handy', breite: 240},
-  {id: 'konsole', label: 'Konsole', breite: 270},
+  {id: 'fernseher', titel: 'Fernseher', breite: 400},
+  {id: 'handy', titel: 'Handy', breite: 240},
+  {id: 'konsole', titel: 'Konsole', breite: 270},
 ];
 const FUGE = 8;
 
@@ -118,9 +118,9 @@ export const YouTubeVisual24Animation: React.FC<{beats?: number[]}> = ({beats}) 
 
   // Fernseher-Block: beginnt mittig, rutscht beim Aufziehen des Rahmens an den linken Rand.
   const fernseher = SEGMENTE[0];
-  const startX = 960 - fernseher.breite / 2;
+  const mitteX = 960 - fernseher.breite / 2;
   const zielX = RAHMEN.links + FUGE;
-  const fernseherX = interpolate(rahmen, [0, 1], [startX, zielX]);
+  const fernseherX = interpolate(rahmen, [0, 1], [mitteX, zielX]);
   const fernseherFarbe = mischen(mischen(DATEN.leise, DATEN.blau, kaufFuellen), DATEN.gruen, nullProzent);
 
   const oben = RAHMEN.y - RAHMEN.hoehe / 2;
@@ -130,8 +130,8 @@ export const YouTubeVisual24Animation: React.FC<{beats?: number[]}> = ({beats}) 
   const xRest = xKonsole + SEGMENTE[2].breite + FUGE;
   const rechts = RAHMEN.links + RAHMEN.breite;
   // Der Rahmen umschließt zuerst nur den Fernseher und zieht sich dann nach links und rechts auf.
-  const rahmenLinks = interpolate(rahmen, [0, 1], [startX - FUGE, RAHMEN.links]);
-  const rahmenRechts = interpolate(rahmen, [0, 1], [startX + fernseher.breite + FUGE, rechts]);
+  const rahmenLinks = interpolate(rahmen, [0, 1], [mitteX - FUGE, RAHMEN.links]);
+  const rahmenRechts = interpolate(rahmen, [0, 1], [mitteX + fernseher.breite + FUGE, rechts]);
 
   const spaeterFarbe = mischen(DATEN.leise, DATEN.rot, zinsen);
 
@@ -147,10 +147,10 @@ export const YouTubeVisual24Animation: React.FC<{beats?: number[]}> = ({beats}) 
     overflow: 'hidden',
   });
 
-  const inhalt = (id: string, label: string, sichtbar: number) => (
+  const inhalt = (id: string, titel: string, sichtbar: number) => (
     <div style={{position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, color: DATEN.papier, fontSize: 38, fontWeight: 800, whiteSpace: 'nowrap', opacity: sichtbar}}>
       <Icon id={id} farbe={DATEN.papier} />
-      {label}
+      {titel}
     </div>
   );
 
@@ -179,15 +179,15 @@ export const YouTubeVisual24Animation: React.FC<{beats?: number[]}> = ({beats}) 
       </div>
 
       {/* Fernseher */}
-      <div style={{...segmentStil(fernseherX, fernseher.breite, fernseherFarbe, kaufAuf)}}>{inhalt(fernseher.id, fernseher.label, kaufAuf)}</div>
+      <div style={{...segmentStil(fernseherX, fernseher.breite, fernseherFarbe, kaufAuf)}}>{inhalt(fernseher.id, fernseher.titel, kaufAuf)}</div>
       <Marke x={zielX + fernseher.breite / 2} y={oben - 54} text="0 %" farbe={DATEN.gruen} sichtbar={nullProzent} />
       <div style={{position: 'absolute', left: zielX + fernseher.breite / 2, top: oben + RAHMEN.hoehe + 44, transform: 'translate(-50%, -50%)', fontSize: 30, fontWeight: 700, color: DATEN.gruen, opacity: nullProzent, whiteSpace: 'nowrap'}}>
         nur dieser Kauf
       </div>
 
       {/* spätere Käufe */}
-      <div style={segmentStil(xHandy, SEGMENTE[1].breite, spaeterFarbe, handy)}>{inhalt(SEGMENTE[1].id, SEGMENTE[1].label, p(frame, at(4) + 8, at(4) + 18))}</div>
-      <div style={segmentStil(xKonsole, SEGMENTE[2].breite, spaeterFarbe, konsole)}>{inhalt(SEGMENTE[2].id, SEGMENTE[2].label, p(frame, at(4) + 34, at(4) + 44))}</div>
+      <div style={segmentStil(xHandy, SEGMENTE[1].breite, spaeterFarbe, handy)}>{inhalt(SEGMENTE[1].id, SEGMENTE[1].titel, p(frame, at(4) + 8, at(4) + 18))}</div>
+      <div style={segmentStil(xKonsole, SEGMENTE[2].breite, spaeterFarbe, konsole)}>{inhalt(SEGMENTE[2].id, SEGMENTE[2].titel, p(frame, at(4) + 34, at(4) + 44))}</div>
       <Marke x={xHandy + SEGMENTE[1].breite / 2} y={oben - 54} text="Zinsen" farbe={DATEN.rot} sichtbar={zinsen} />
       <Marke x={xKonsole + SEGMENTE[2].breite / 2} y={oben - 54} text="Zinsen" farbe={DATEN.rot} sichtbar={p(frame, at(5) + 6, at(5) + 22)} />
 
