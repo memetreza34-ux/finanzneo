@@ -4,6 +4,10 @@
 
 YouTube-Longform ist ein eigenständiges Format. Ein Reel wird weder gestreckt noch als YouTube Short gespiegelt. Ein Thema gehört in Longform, wenn es für Verständnis echte Tiefe braucht: mehrere Schritte, Beispiele, Vergleiche, Rechnungen, Einordnung oder häufige Fehler.
 
+## Priorität 0 — stetige Verbesserung jeder YouTube-Produktion
+
+Jedes neue YouTube-Video nutzt zuerst die relevanten Erkenntnisse in `docs/VERBESSERUNGSLOG.md` (1–3 konkrete Lernziele). Nach jedem fertigen Video wird die tatsächliche MP4 **vollständig mit Ton** und relevanten Zwischenframes geprüft: Hook, Erzählung, Fakten, Bildpassung/Variation, Motion-Klarheit, Tempo, Audio, Thumbnail und Export. Ergebnis und Fehlerursachen in `06-projektdateien/VIDEO-REVIEW.md`, wichtigste Verbesserungen im zentralen Log dokumentieren, systemische Fixes/Testfälle in die Pipeline übernehmen und im nächsten Video prüfen. Keine Aussage „visuell bestanden“ ohne Sichtung. Details: `docs/QUALITAETS-VERBESSERUNGSPROZESS.md`.
+
 ## Phase 1 — ChatGPT bereitet vollständig vor
 
 ChatGPT erstellt im YouTube-Projektordner ohne offene Platzhalter:
@@ -46,6 +50,15 @@ npm run youtube:phase1:seal -- youtube/<Projekt>
 ```
 
 Der Motion-V3-Seal bindet sowohl die kanonischen Motion-Quellen per SHA-256 als auch den kreativen Vertrag aus Viewer Change, Intent, Mechanik, Technikbeschreibung, Tool-Stack, Motion-Signatur, Channels und Beats.
+
+### Pflicht: Sofortige Phase-1-Links im Chat
+
+Wenn Phase 1 abgeschlossen ist, **ohne dass der Nutzer darum bitten muss**, in derselben Chat-Antwort genau diese beiden konkreten Dateien als **anklickbare GitHub-Links** liefern:
+
+- **Bildprompts (Google Flow):** `youtube/<Projekt>/04-visuals/alle-bildprompts.txt`
+- **Skript (Voiceover):** `youtube/<Projekt>/02-script/script-fliess-text.txt`
+
+Link-Ziel ist jeweils `https://github.com/memetreza34-ux/finanzneo/blob/<echter-Branch-oder-Commit>/<genauer-Pfad>`. Vor Ausgabe vollständige Dateien speichern, committen, pushen und GitHub-Erreichbarkeit prüfen. Danach im Chat **„Bildprompts öffnen“** und **„Skript öffnen“** mit den tatsächlichen URLs verlinken; nicht nur Repo-Startseite, Dateinamen oder Pfade nennen. Fehlt etwas, Phase 1 nicht als abgeschlossen bezeichnen und keine ungültigen Links erfinden. Erst nach dieser Übergabe Phase 2 beginnen.
 
 ## Phase 2 — Nutzer erstellt Bilder und Audio
 
