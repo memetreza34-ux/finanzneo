@@ -3,9 +3,10 @@
 //
 //   node scripts/youtube-plan-anwenden.mjs youtube/<Projekt>
 //
-// Quelle: _intern/06-projektdateien/visual-plan.mjs mit `title`, `thumbnail {file, prompt}` und
-// `visuals[]`. Bild-Visuals: {type:'image', chapter, cue, beat, name, expected, prompt, labels,
-// ref?, change?, akzente?}. Motion-Visuals: {type:'animation'|'data', chapter, cue, beat, brief}.
+// Quelle: _intern/06-projektdateien/visual-plan.mjs mit `title`, `thumbnail {file, prompt}`, optional
+// `story {protagonist, reason}` und `visuals[]`. Bild-Visuals: {type:'image', chapter, cue, beat, keyword,
+// name, expected, prompt, labels, ref?, change?, akzente?}. Motion-Visuals: {type:'animation'|'data',
+// chapter, cue, beat, bridgeObject, brief}. keyword/bridgeObject prüft youtube:validate (Qualitätsregeln V2).
 //
 // Schreibt Visual-Index, alle Einzel-Bildprompts, die Flow-Übergabe (Batch 1 = nur Thumbnail
 // als Stilvorlage, Fortsetzungen immer in einem späteren Batch als ihre Referenz), die Motion-
@@ -37,7 +38,7 @@ if (!existsSync(planPfad)) {
   console.error(`Visual-Plan fehlt: ${planPfad}`);
   process.exit(1);
 }
-const {title, thumbnail, visuals} = await import(`${pathToFileURL(planPfad).href}?t=${Date.now()}`);
+const {title, thumbnail, visuals, story} = await import(`${pathToFileURL(planPfad).href}?t=${Date.now()}`);
 
 const write = (rel, content) => {
   const p = resolve(root, rel);
@@ -64,6 +65,7 @@ const alt = new Map((index.visuals ?? []).map((v) => [v.id, v]));
 const blocks = new Map();
 
 index.title = title;
+if (story) index.story = story;
 index.thumbnail.googleFlowFileName = thumbnail.file;
 const thumbBlock = `${flowStep(thumbnail.file)}
 REFERENCE_IMAGE:
@@ -110,13 +112,14 @@ ${styleBlock}`;
       imageSequence: v.ref ? {mode: 'continuation', referenceVisualId: `visual-${nr(v.ref)}`, plannedChange: v.change} : {mode: 'independent', referenceVisualId: null, plannedChange: null},
       planFile: `${dir}/bildprompt.txt`,
       startCue: v.cue,
+      ...(v.keyword ? {keyword: v.keyword} : {}),
       objectLabels: v.labels,
       ...(v.akzente ? {akzente: v.akzente} : {}),
     };
   }
   const vorher = alt.get(id);
   if (vorher && vorher.type === v.type && vorher.viewerChange && !String(vorher.viewerChange).startsWith('[')) {
-    return {...vorher, ...base, startCue: v.cue, contentBrief: v.brief};
+    return {...vorher, ...base, startCue: v.cue, contentBrief: v.brief, ...(v.bridgeObject ? {bridgeObject: v.bridgeObject} : {})};
   }
   if (!existsSync(resolve(root, `${dir}/remotion.md`))) {
     write(`${dir}/remotion.md`, `# Remotion-Spezifikation ${id}\n\nMOTION_STANDARD: ${YOUTUBE_MOTION_STANDARD_ID}\n\n- Kapitel: ${v.chapter}\n- Sprechtext-Bezug: ${v.beat}\n- Inhaltlicher Brief (Phase 1 Content): ${v.brief}\n\n[MOTION DIRECTOR: VIEWER CHANGE, KONZEPTE A/B/C, KEYFRAMES UND MECHANIK EINTRAGEN]\n`);
@@ -129,6 +132,7 @@ ${styleBlock}`;
     animationExport: `YouTubeVisual${nr(n)}Animation`,
     contentBrief: v.brief,
     startCue: v.cue,
+    ...(v.bridgeObject ? {bridgeObject: v.bridgeObject} : {}),
     ...(v.type === 'data' ? {dataNotesFile: `${dir}/data-notes.md`} : {}),
   };
 });

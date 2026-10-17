@@ -86,3 +86,41 @@ test('Platzhalterprüfung im Code: Datenfelder und Konstantenlisten sind kein Pl
   assert.equal(__test.hasCodePlaceholder("START: '[START STATE]',"), true);
   assert.equal(__test.hasCodePlaceholder('{/* TODO: Phase 1 requires a real visual mechanism */}'), true);
 });
+
+test('V2: Hook ohne Ankündigung, Hauptfigur im Hook, keyword im Abschnitt, bridgeObject im Nachbarbild', () => {
+  const skriptV2 = [
+    'Lena steht im Laden vor einem Fernseher', woerter(6),
+    'Kapitel eins startet mit dem Preisschild', woerter(5),
+    'Jetzt rechnen wir die Raten zusammen', woerter(8),
+    'Schreib mir in die Kommentare welcher Trick', woerter(6),
+    'Am Ende zählt der Gesamtpreis', woerter(4),
+  ].join(' ');
+  const v2 = (patch: Record<string, unknown> = {}) => ({
+    qualityRules: 'finanzneo-youtube-quality-v2',
+    story: {protagonist: 'Lena', reason: 'Alltagsfigur'},
+    thumbnail: {googleFlowFileName: 'T.png'},
+    imageWorld: {},
+    visuals: [
+      {id: 'visual-01', type: 'image', chapter: 'Hook', startCue: 'Lena steht im Laden', keyword: 'Fernseher', expectedVisual: 'Lena vor Fernseher', objectLabels: ['Fernseher']},
+      {id: 'visual-02', type: 'image', chapter: 'Kapitel 1', startCue: 'Kapitel eins startet', keyword: 'Preisschild', expectedVisual: 'Preisschild am Fernseher', objectLabels: ['Preisschild']},
+      {id: 'visual-03', type: 'animation', chapter: 'Kapitel 1', startCue: 'Jetzt rechnen wir', bridgeObject: 'Preisschild'},
+      {id: 'visual-04', type: 'image', chapter: 'Kapitel 1', startCue: 'Schreib mir in die Kommentare', keyword: 'Kommentare', expectedVisual: 'Sprechblase', objectLabels: ['Sprechblase']},
+      {id: 'visual-05', type: 'image', chapter: 'Fazit', startCue: 'Am Ende zählt', keyword: 'Gesamtpreis', expectedVisual: 'Kassenbon Gesamt', objectLabels: ['Kassenbon']},
+    ],
+    ...patch,
+  });
+  const pruefe = (index: unknown, text = skriptV2) => pruefeYouTubeQualitaet({index, scriptText: text, prompts: '', bildprompt: () => ''}).fehler as string[];
+
+  assert.deepEqual(pruefe(v2()).filter((f) => !f.includes('Kommentarfrage')), []);
+  assert.ok(pruefe(v2(), skriptV2.replace('Lena steht im Laden vor einem Fernseher', 'In diesem Video zeige ich dir Lena Fernseher')).some((f) => f.startsWith('Hook kündigt an')));
+  assert.ok(pruefe(v2({story: {protagonist: 'Max', reason: 'x'}})).some((f) => f.includes('„Max“ wird im Hook nicht genannt')));
+  assert.ok(pruefe(v2({story: {}})).some((f) => f.startsWith('story.protagonist fehlt')));
+  assert.equal(pruefe(v2({story: {protagonist: null, reason: 'Nachrichtenthema ohne Figur'}})).some((f) => f.startsWith('story')), false);
+
+  const falsch = v2();
+  (falsch.visuals[1] as Record<string, unknown>).keyword = 'Kreditkarte';
+  (falsch.visuals[2] as Record<string, unknown>).bridgeObject = 'Waschmaschine';
+  const f = pruefe(falsch);
+  assert.ok(f.some((x) => x.startsWith('visual-02: keyword „Kreditkarte“ fällt nicht')));
+  assert.ok(f.some((x) => x.startsWith('visual-03: bridgeObject „Waschmaschine“')));
+});

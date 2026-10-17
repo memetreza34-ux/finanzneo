@@ -35,6 +35,7 @@ You exclusively own creative authoring of NEW production Remotion animations for
   - Fill the frame: the main content uses roughly 70–85 % of the width and is vertically centred; no small diagram floating in empty space.
   - Text sizes: hero number ≥ 96 px, labels and callouts ≥ 40 px, axis/meta text ≥ 32 px (`DATEN.minText`).
   - Prefer few large, heavy shapes over thin bars and outlines; the result state must read at phone size.
+  - Every YouTube motion visual has a `bridgeObject` (quality rules v2): draw that exact object from the neighbouring Flow image (same shape idea, colour and German name) as the visual anchor of the animation, so the cut from illustration to animation feels like the same scene continuing. If the plan names a protagonist (`story.protagonist`), use the name in labels where natural (e.g. „Lenas Raten“).
   - Do not rename or touch working sealed code just to silence a check; report false positives instead (`youtube:ready` is code-aware since 17.10.2026).
 - Correct defects in canonical source, rerender and review. Only then hand off and allow Phase-1 sealing.
 

@@ -207,6 +207,17 @@ Aus dem Feedback zum ersten Video. Gelten für alle mit `youtube:create` neu ang
 | Kommentarfrage | muss im Skript stehen, im mittleren Teil (30–75 % der Wörter) | `youtube:validate` |
 | Endkarte | **15 s** nach dem Voiceover, Kanalname oben, Fläche frei für die YouTube-Endelemente | automatisch im Zusammenbau |
 
+## Qualitätsregeln V2 — Skript, Bild und Animation fest gebunden (`finanzneo-youtube-quality-v2`, 17.10.2026)
+
+Aus der Wettbewerbsanalyse (simplicissimus, Kurzgesagt, Finanzfluss) und der Rückschau zu Video 1 und 2. Gilt für alle neu angelegten Projekte zusätzlich zu V1:
+
+| Regel | Warum | Prüfung |
+|---|---|---|
+| **Hook ohne Ankündigung** — kein „In diesem Video …“, „heute erkläre ich …“, „ich zeige dir …“; Start mit Szene, Person oder Konflikt | Die stärksten Erklärvideos starten mit einer Geschichte, nicht mit einem Inhaltsverzeichnis | `youtube:validate` |
+| **Hauptfigur** (`story.protagonist`, z. B. „Lena“) wird im Hook genannt und trägt das Video; bewusst `null` nur mit Begründung (z. B. reine News) | Eine Figur verbindet Skript („Lena zahlt …“), Bilder (dieselbe Figur) und Animationen („Lenas Raten“) zu einer Geschichte | `youtube:validate` |
+| **`keyword` pro Bild** — ein Wort, das genau in seinem Sprechabschnitt fällt und das Bild zeigt | Bild zeigt, was in dem Moment gesagt wird, nicht nur ungefähr das Thema | `youtube:validate` |
+| **`bridgeObject` pro Animation** — ein Objekt aus dem Bild davor oder danach, das die Animation sichtbar weiterträgt (gleiche Form, Farbe, Name) | Kein Weltwechsel zwischen Illustration und Grafik; die Animation ist die bewegte Fortsetzung des Bildes | `youtube:validate` + Motion-Director |
+
 Zu lange Standbilder löst man mit einem zusätzlichen Bild oder mit `akzente[]` am Visual (`{cue, text, ton}`): Ein Akzent erscheint beim gesprochenen Wort als kleine Karte auf dem Bild und zählt als neue sichtbare Information.
 
 ## Vollständiges Publishing-Paket

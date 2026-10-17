@@ -32,7 +32,7 @@ import {
   AUDIO_INBOX,
   EXPORT_DIR,
   SCRIPT_FILE,
-  YOUTUBE_QUALITY_RULES_ID,
+  YOUTUBE_QUALITY_RULES_IDS,
   internWurzel,
 } from './lib/youtube-contract.mjs';
 import {pruefeYouTubeQualitaet} from './lib/youtube-quality.mjs';
@@ -184,7 +184,7 @@ if (index) {
   errors.push(...validateYouTubeMotionVariety(index.visuals ?? []));
 
   // Qualitätsregeln (finanzneo-youtube-quality-v1): Haltezeit, Hook, Kommentarfrage, Stilvorlage.
-  if (index.qualityRules === YOUTUBE_QUALITY_RULES_ID) {
+  if (YOUTUBE_QUALITY_RULES_IDS.includes(index.qualityRules)) {
     const scriptPath = resolve(root, SCRIPT_FILE);
     if (!existsSync(scriptPath)) errors.push(`${SCRIPT_FILE} fehlt.`);
     else {

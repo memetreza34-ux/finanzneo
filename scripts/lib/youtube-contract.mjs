@@ -116,6 +116,11 @@ export const PHASE_1_FILES = [
 // Qualitätsregeln aus dem Feedback zum ersten Video (Arman, 10.10.2026). Gelten für Projekte mit
 // `qualityRules: YOUTUBE_QUALITY_RULES_ID`; ältere Projekte werden nicht rückwirkend migriert.
 export const YOUTUBE_QUALITY_RULES_ID = 'finanzneo-youtube-quality-v1';
+// V2 (17.10.2026, Wettbewerbsanalyse): Skript, Bild und Animation werden fest aneinander gebunden.
+export const YOUTUBE_QUALITY_RULES_V2_ID = 'finanzneo-youtube-quality-v2';
+export const YOUTUBE_QUALITY_RULES_IDS = [YOUTUBE_QUALITY_RULES_ID, YOUTUBE_QUALITY_RULES_V2_ID];
+/** Hook beginnt mit Szene/Person/Konflikt, nicht mit einer Ankündigung (simplicissimus-Prinzip). */
+export const YOUTUBE_HOOK_ANNOUNCEMENT_PATTERN = /\b(?:in diesem video|heute (?:zeige|erkläre|erklaere|schauen|sprechen)|ich zeige dir|ich erkläre dir|ich erklaere dir|lass uns (?:heute|mal))\b/i;
 /** Sprechtempo des echten FinanzNeo-Voiceovers inkl. Pausen (gemessen: Supermarkt-Tricks 141,6 und
  *  0-%-Finanzierung 142,1 Wörter/Min.; vorher 154 ohne Pausen → Haltezeiten wurden ~10 % unterschätzt). */
 export const YOUTUBE_SPEECH_WPM = 142;
