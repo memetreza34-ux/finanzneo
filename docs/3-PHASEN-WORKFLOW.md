@@ -2,6 +2,10 @@
 
 > Bei Widersprüchen gilt `CLAUDE.md`. Layout/Captions/Transition kommen technisch aus `REEL_STYLE`.
 
+## Priorität 0 — aus jedem Video lernen
+
+Verbindlich vor jedem neuen Reel: offenes Feedback aus `docs/VERBESSERUNGSLOG.md` übernehmen. Nach jedem fertigen Reel: ganze MP4 mit Ton prüfen, konkrete Szenen- und Zeitfehler mit Ursache im `05-projektdateien/VIDEO-REVIEW.md` dokumentieren, wichtigste Erkenntnisse zentral loggen und systematische Fehler vor dem nächsten Reel beheben und erneut prüfen. Maßgeblich: `docs/QUALITAETS-VERBESSERUNGSPROZESS.md`. Keine erfundenen Qualitätsnachweise.
+
 ## Phase 1 — ChatGPT
 
 Phase 1 liefert vollständig:
@@ -16,6 +20,15 @@ Phase 1 liefert vollständig:
 - Master- und Plattform-Captions
 
 Phase 1 besitzt die kreative Animation. Phase 3 darf nichts Fehlendes erfinden oder durch einen technisch leichteren Hack ersetzen.
+
+### Verbindliche Chat-Übergabe nach Phase 1
+
+**Ohne erneute Nachfrage** beide echten GitHub-Dateilinks direkt im aktuellen Chat bereitstellen, **erst nachdem die Dateien vollständig, committed, gepusht und auf GitHub überprüft sind**:
+
+- **Bildprompts (Google Flow):** `reels/<Woche>/<Tag>/<Reel>/03-szenen/alle-bildprompts.txt`
+- **Skript (Voiceover):** `reels/<Woche>/<Tag>/<Reel>/01-script/script-fliess-text.txt`
+
+Ausgabe als **zwei anklickbare GitHub-`blob/<Branch-oder-Commit>/...`-Links** mit den Bezeichnungen „Bildprompts öffnen“ und „Skript öffnen“. Eine Repo-Startseite oder bloße Ordnerpfade reichen nicht. Fehlen die echten Dateien/Links, Phase 1 noch nicht als fertig melden und Phase 2 nicht starten. Quelle der übergeordneten Regel: `CLAUDE.md`.
 
 Bildwelt V9:
 
