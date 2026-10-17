@@ -116,8 +116,9 @@ export const PHASE_1_FILES = [
 // Qualitätsregeln aus dem Feedback zum ersten Video (Arman, 10.10.2026). Gelten für Projekte mit
 // `qualityRules: YOUTUBE_QUALITY_RULES_ID`; ältere Projekte werden nicht rückwirkend migriert.
 export const YOUTUBE_QUALITY_RULES_ID = 'finanzneo-youtube-quality-v1';
-/** Sprechtempo des echten FinanzNeo-Voiceovers (Abo-Falle + Supermarkt-Tricks gemessen). */
-export const YOUTUBE_SPEECH_WPM = 154;
+/** Sprechtempo des echten FinanzNeo-Voiceovers inkl. Pausen (gemessen: Supermarkt-Tricks 141,6 und
+ *  0-%-Finanzierung 142,1 Wörter/Min.; vorher 154 ohne Pausen → Haltezeiten wurden ~10 % unterschätzt). */
+export const YOUTUBE_SPEECH_WPM = 142;
 /** Ein Standbild ohne neue sichtbare Information höchstens so lange (geschätzt aus dem Skript). */
 export const YOUTUBE_IMAGE_MAX_HOLD_SECONDS = 8;
 /** Nach echtem Audio: ab hier warnt der Zusammenbau. */

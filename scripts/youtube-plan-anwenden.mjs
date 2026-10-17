@@ -72,6 +72,8 @@ NONE
 THUMBNAIL PROMPT:
 Soft hand-drawn 2D editorial illustration, not a photo. ${thumbnail.prompt}
 
+TEXT IN THIS IMAGE: Only the exact words and numbers written in quotes in the prompt may appear in the image. Never invent extra prices, numbers, brand names, headlines or captions.
+
 This thumbnail is the STYLE MASTER of the whole video: every later image attaches it as a style reference.
 
 ${styleBlock}`;
@@ -95,6 +97,8 @@ ${v.ref ? fileOf(v.ref) : 'NONE'}
 
 IMAGE PROMPT:
 Soft hand-drawn 2D editorial illustration, not a photo. ${v.prompt}
+
+TEXT IN THIS IMAGE: Only the exact words and numbers written in quotes in the prompt may appear in the image. Never invent extra prices, numbers, brand names, headlines or captions.
 
 ${styleBlock}`;
     write(`${dir}/bildprompt.txt`, block);

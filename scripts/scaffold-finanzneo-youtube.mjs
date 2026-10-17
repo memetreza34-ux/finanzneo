@@ -102,7 +102,7 @@ ANTI-AI-SLOP:
 Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
 
 TEXT:
-No automatic generic headline. Numbers, short labels and document text only when they explain. ${YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE}
+No automatic generic headline. Numbers, short labels and document text only when they explain. ${YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE} Only the exact words and numbers written in quotes in the prompt may appear in the image. Never invent extra prices, numbers, brand names, headlines or captions.
 
 FORMAT:
 Horizontal 16:9 source image.

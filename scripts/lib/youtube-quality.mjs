@@ -7,6 +7,7 @@ import {
   YOUTUBE_COMMENT_CTA_WINDOW,
   YOUTUBE_HOOK_MAX_SECONDS,
   YOUTUBE_IMAGE_MAX_HOLD_SECONDS,
+  YOUTUBE_IMAGE_WARN_HOLD_SECONDS,
   YOUTUBE_SPEECH_WPM,
   YOUTUBE_STYLE_REFERENCE_MARKER,
 } from './youtube-contract.mjs';
@@ -67,8 +68,12 @@ export const schaetzeHaltezeiten = (scriptText, visuals) => {
   return {woerter, ergebnis, fehler};
 };
 
-/** Alle Phase-1-Qualitätsregeln. `prompts` = Inhalt von 2-bildprompts/bildprompts.txt, `bildprompt(id)` liefert den Einzelprompt. */
-export const pruefeYouTubeQualitaet = ({index, scriptText, prompts, bildprompt}) => {
+/**
+ * Alle Qualitätsregeln. `prompts` = Inhalt von 2-bildprompts/bildprompts.txt, `bildprompt(id)` liefert den
+ * Einzelprompt. `echteHaltezeiten` (Map id → Sekunden aus dem echten Zeitplan) ersetzt nach Phase 3 die
+ * Skript-Schätzung; dann gilt die Grenze YOUTUBE_IMAGE_WARN_HOLD_SECONDS.
+ */
+export const pruefeYouTubeQualitaet = ({index, scriptText, prompts, bildprompt, echteHaltezeiten = null}) => {
   const fehler = [];
   const visuals = index.visuals ?? [];
   const {woerter, ergebnis, fehler: cueFehler} = schaetzeHaltezeiten(scriptText, visuals);
@@ -76,6 +81,11 @@ export const pruefeYouTubeQualitaet = ({index, scriptText, prompts, bildprompt})
 
   for (const e of ergebnis) {
     if (e.type !== 'image' || e.startWort === null) continue;
+    const echt = echteHaltezeiten?.get(e.id);
+    if (echt != null) {
+      if (echt > YOUTUBE_IMAGE_WARN_HOLD_SECONDS) fehler.push(`${e.id}: Standbild steht im fertigen Zeitplan ${echt.toFixed(1)} s ohne neue Information (max. ${YOUTUBE_IMAGE_WARN_HOLD_SECONDS} s nach echtem Audio).`);
+      continue;
+    }
     if (e.laengsteHaltung > YOUTUBE_IMAGE_MAX_HOLD_SECONDS) {
       fehler.push(`${e.id}: Standbild steht geschätzt ${e.laengsteHaltung.toFixed(1)} s ohne neue Information (max. ${YOUTUBE_IMAGE_MAX_HOLD_SECONDS} s). Zusätzliches Bild einplanen oder akzente[] mit cue setzen.`);
     }

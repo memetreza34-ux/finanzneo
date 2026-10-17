@@ -5,9 +5,9 @@ import {pruefeYouTubeQualitaet, schaetzeHaltezeiten} from '../scripts/lib/youtub
 
 const woerter = (n: number, wort = 'wort') => Array.from({length: n}, () => wort).join(' ');
 
-// 154 Wörter/Minute → 20 Wörter ≈ 7,8 s, 30 Wörter ≈ 11,7 s.
+// 142 Wörter/Minute (inkl. Pausen) → 18 Wörter ≈ 7,6 s, 30 Wörter ≈ 12,7 s.
 const skript = [
-  'Hook beginnt hier', woerter(17),
+  'Hook beginnt hier', woerter(15),
   'Kapitel eins startet', woerter(27),
   'Bild drei', woerter(17), 'Schreib mir in die Kommentare welcher Trick', woerter(17),
   'Schluss kommt', woerter(20),
@@ -38,7 +38,7 @@ test('Zu lange Standbilder, langer Hook und fehlende Kommentarfrage werden gemel
   assert.ok(fehler.some((f: string) => f.startsWith('visual-02: Standbild steht')));
   assert.ok(!fehler.some((f: string) => f.startsWith('visual-01: Standbild')));
   assert.ok(!fehler.some((f: string) => f.startsWith('visual-04')), 'Animationen haben kein Standbild-Limit');
-  assert.ok(!fehler.some((f: string) => f.startsWith('Hook')), '20 Wörter Hook ≈ 8 s ist erlaubt');
+  assert.ok(!fehler.some((f: string) => f.startsWith('Hook')), '18 Wörter Hook ≈ 7,6 s ist erlaubt');
   assert.ok(!fehler.some((f: string) => f.includes('Kommentarfrage')), 'Kommentarfrage steht in der Mitte');
 
   const ohneCta = skript.replace('Schreib mir in die Kommentare welcher Trick', 'Und weiter geht es jetzt');
@@ -67,4 +67,22 @@ test('Stilvorlage: Batch 1 nur Thumbnail und Thumbnail an jedem Bild', () => {
   });
   assert.ok(schlecht.fehler.some((f: string) => f.startsWith('Batch 1 muss allein')));
   assert.ok(schlecht.fehler.some((f: string) => f.startsWith('visual-01: Bildprompt hängt')));
+});
+
+test('Nach Phase 3 zählen die echten Haltezeiten mit der 10-s-Grenze', () => {
+  const echte = new Map([['visual-01', 6], ['visual-02', 9.5], ['visual-03', 10.4]]);
+  const {fehler} = pruefeYouTubeQualitaet({index: index(), scriptText: skript, prompts: '', bildprompt: () => '', echteHaltezeiten: echte});
+  assert.ok(!fehler.some((f: string) => f.startsWith('visual-02')), 'geschätzt zu lang, real 9,5 s → ok');
+  assert.ok(fehler.some((f: string) => f.startsWith('visual-03: Standbild steht im fertigen Zeitplan')));
+});
+
+test('Platzhalterprüfung im Code: Datenfelder und Konstantenlisten sind kein Platzhalter', async () => {
+  // @ts-expect-error -- plain ESM module without types
+  const {__test} = await import('../scripts/lib/youtube-readiness.mjs');
+  const code = "const R = [\n  {id: 'a', label: 'Fernseher', start: 0},\n];\nconst w = interpolate(f, [HOCH_AB, AKTION_AB], [NORMAL, HOCH]);";
+  assert.equal(__test.hasCodePlaceholder(code), false);
+  assert.equal(__test.hasPlaceholder(code), true, 'die Text-Prüfung würde fälschlich anschlagen');
+  assert.equal(__test.hasCodePlaceholder("export const MECHANIC_ID = '[MECHANIC_ID]';"), true);
+  assert.equal(__test.hasCodePlaceholder("START: '[START STATE]',"), true);
+  assert.equal(__test.hasCodePlaceholder('{/* TODO: Phase 1 requires a real visual mechanism */}'), true);
 });

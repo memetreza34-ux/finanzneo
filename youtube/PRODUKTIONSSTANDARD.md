@@ -202,7 +202,7 @@ Aus dem Feedback zum ersten Video. Gelten für alle mit `youtube:create` neu ang
 
 | Regel | Grenze | Prüfung |
 |---|---|---|
-| Standbild ohne neue Information | max. **8 s** (geschätzt aus dem Skript, 154 Wörter/Min.) | `youtube:validate` Fehler; nach echtem Audio warnt der Zusammenbau ab 10 s |
+| Standbild ohne neue Information | max. **8 s** (geschätzt aus dem Skript, 142 Wörter/Min. inkl. Pausen — an Video 1 und 2 gemessen) | `youtube:validate` Fehler; nach echtem Audio warnt der Zusammenbau ab 10 s |
 | Hook bis zum ersten inhaltlichen Kapitel | max. **20 s** | `youtube:validate` |
 | Kommentarfrage | muss im Skript stehen, im mittleren Teil (30–75 % der Wörter) | `youtube:validate` |
 | Endkarte | **15 s** nach dem Voiceover, Kanalname oben, Fläche frei für die YouTube-Endelemente | automatisch im Zusammenbau |
