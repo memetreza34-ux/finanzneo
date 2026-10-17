@@ -1,0 +1,82 @@
+{
+  "version": 2,
+  "title": "0 % Finanzierung: Kostenlos oder Kostenfalle?",
+  "fps": 30,
+  "timingSource": "03-audio/word-timings.json",
+  "cutRule": "voice-beat-and-chapter-driven",
+  "fixedVisualCount": false,
+  "visuals": [
+    {
+      "id": "visual-01",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-02",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-03",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-04",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-05",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-06",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-07",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-08",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-09",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-10",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-11",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-12",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    }
+  ]
+}
