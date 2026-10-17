@@ -22,6 +22,16 @@ Read in this order:
 
 `CLAUDE.md` wins on conflicts.
 
+## Quality-first learning loop and chat handoff (mandatory)
+
+For every new reel, review open learnings in `docs/VERBESSERUNGSLOG.md` before Phase 1. After each actual final video, inspect the real MP4 with audio, record scene-specific findings under `05-projektdateien/VIDEO-REVIEW.md`, append recurring lessons to the central log, fix root causes in the shared pipeline when appropriate, and verify effectiveness in the next video. Follow `docs/QUALITAETS-VERBESSERUNGSPROZESS.md`; do not invent test passes, feedback or quality measurements.
+
+At the **end of every successfully completed Phase 1**, ChatGPT MUST provide **two clickable, verified GitHub file links in the same conversation** without being asked:
+- `reels/<week>/<day>/<reel>/03-szenen/alle-bildprompts.txt` — label **Bildprompts öffnen**
+- `reels/<week>/<day>/<reel>/01-script/script-fliess-text.txt` — label **Skript öffnen**
+
+Use the real exact repo paths and pushed branch/commit in `https://github.com/memetreza34-ux/finanzneo/blob/<ref>/<path>`. Check that the completed files exist and the links resolve. Never hand off only paths, an entire repository URL, invented URLs or uncommitted placeholders. If either link cannot be verified, report the blocker; Phase 1 is not complete.
+
 ## Three phases
 
 ### Phase 1 — ChatGPT / motion authoring
