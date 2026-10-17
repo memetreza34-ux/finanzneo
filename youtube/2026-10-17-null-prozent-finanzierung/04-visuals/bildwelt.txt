@@ -1,0 +1,7 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Literal first, creative second. A premium clearly stylized 3D animated finance documentary image, not photorealistic, showing believable everyday objects with controlled semi-realistic materials and proportions. Large readable hero action, realistic cause-and-effect in one frame. Seamless deep-black background across the entire horizontal 16:9 composition; minimal realistic local room/shop context fades softly into black. Strong clean studio lighting, matte soft gray and ivory neutrals, finance-emerald green for good/neutral clarity, red-orange ONLY for genuine cost/risk, restrained gold when needed for value. Same continuous world and lighting discipline across the full film, but every shot has its own camera and subject. Only explicitly requested very short German object labels near objects; NO AI-generated headings, subtitle paragraphs, prices, charts, forms with invented text, visible false logos, UI screenshot, generic coin/piggy-bank/arrows, floating info cards, toy-looking props, redundant green folders, crowded tiny details or stock photo look. Remotion will add all exact numbers, headlines, product prices and captions later. Wide YouTube horizontal 16:9 image, width approx. 1.7778 × height.
+Approved thumbnail is only a global style reference; do not copy motifs/composition/objects across individual visuals.

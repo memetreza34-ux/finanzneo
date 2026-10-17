@@ -1,0 +1,187 @@
+{
+  "version": 2,
+  "motionStandardId": "finanzneo-youtube-motion-v3",
+  "sourceIndex": "04-visuals/visual-index.json",
+  "entries": [
+    {
+      "id": "visual-02",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx",
+      "exportName": "YouTubeVisual02Animation",
+      "viewerChange": "Twelve separate equal monthly installments accumulate to exactly the retail price with nothing added.",
+      "animationIntent": "A concrete transparent payoff makes it explicit that a genuinely fee-free credit can cost exactly 600 euros.",
+      "mechanicId": "twelve-fixed-installments",
+      "visualTechniqueId": "installment-tile-reveal",
+      "techniqueDescription": "Twelve numbered monthly amount tiles progressively fill while a precise total counter resolves to the unchanged price.",
+      "compositionFamilyId": "arithmetic-grid",
+      "toolStack": [
+        "React DOM",
+        "Remotion interpolate"
+      ],
+      "motionSignature": {
+        "camera": "stationary overhead",
+        "layout": "twelve-cell grid and bottom total",
+        "transformation": "sequential monthly-cell reveal into total"
+      },
+      "motionChannels": [
+        "each monthly payment is sequentially filled",
+        "aggregate amount increases to final price"
+      ],
+      "visualBeats": [
+        "One monthly payment is visible",
+        "All twelve 50-euro payments total 600 euros"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "fa195495e5021a4c128473179b076bc4ba9cc66e5414c04333c1c49b13e4fcfa"
+    },
+    {
+      "id": "visual-06",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-06/animation.tsx",
+      "exportName": "YouTubeVisual06Animation",
+      "viewerChange": "The 600-euro purchase price remains fixed while a separate optional insurance row is revealed and the total becomes 696 euros.",
+      "animationIntent": "A separate line item shows that the extra 96 euros belongs to optional protection, not fictitious mandatory interest.",
+      "mechanicId": "optional-premium-total-increase",
+      "visualTechniqueId": "receipt-line-extra-cost-reveal",
+      "techniqueDescription": "A realistic receipt adds an optional 12-by-8 euro insurance line and updates the final amount from 600 to 696.",
+      "compositionFamilyId": "receipt-document-annotation",
+      "toolStack": [
+        "React DOM",
+        "Remotion interpolate"
+      ],
+      "motionSignature": {
+        "camera": "gentle document pullback",
+        "layout": "vertical receipt itemization",
+        "transformation": "insurance row insertion and total correction"
+      },
+      "motionChannels": [
+        "optional-premium detail slides into receipt",
+        "total value counts up to 696"
+      ],
+      "visualBeats": [
+        "Receipt total initially 600 euros",
+        "Additional 96 euros are itemized and total becomes 696 euros"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "603191a748d2327b88952512c8e662d53507132dabd73322f7b08d84e9f66784"
+    },
+    {
+      "id": "visual-08",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-08/animation.tsx",
+      "exportName": "YouTubeVisual08Animation",
+      "viewerChange": "Two aligned prices for the same item reveal a 50-euro gap independent of the financing percentage.",
+      "animationIntent": "Side-by-side equal item comparison counters the assumption that a 0%-offer has the lowest purchase price.",
+      "mechanicId": "cross-store-equal-product-comparison",
+      "visualTechniqueId": "two-offer-horizontal-bar-difference",
+      "techniqueDescription": "Two independently extending horizontal price bars compare identical goods at 600 vs 550 and reveal the 50-euro difference.",
+      "compositionFamilyId": "comparative-price-analysis",
+      "toolStack": [
+        "React DOM",
+        "Remotion interpolate"
+      ],
+      "motionSignature": {
+        "camera": "fixed wide front",
+        "layout": "stacked twin comparison rails",
+        "transformation": "parallel width measurement and gap highlighting"
+      },
+      "motionChannels": [
+        "two price rulers extend to different lengths",
+        "difference number emerges between their endpoints"
+      ],
+      "visualBeats": [
+        "Both offers enter the comparison",
+        "50-euro difference is clearly isolated"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "1e031b8d209c6ac83e13896efac99037d7131952c6fa46547c89bb13d4f87f22"
+    },
+    {
+      "id": "visual-11",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-11/animation.tsx",
+      "exportName": "YouTubeVisual11Animation",
+      "viewerChange": "An apparently uniform low monthly rate ends in a far larger final installment.",
+      "animationIntent": "A calendar-like payment timeline makes last-payment risk visible without implying higher sum or required balloon terms.",
+      "mechanicId": "balloon-payment-shift",
+      "visualTechniqueId": "eleven-small-ones-large-timeline",
+      "techniqueDescription": "Eleven tiny 30-euro payment markers advance across a timeline until the last 270-euro balloon payment expands above them.",
+      "compositionFamilyId": "payment-schedule-timeline",
+      "toolStack": [
+        "React DOM",
+        "Remotion interpolate"
+      ],
+      "motionSignature": {
+        "camera": "lateral timeline pan simulated by marker lighting",
+        "layout": "twelve-timepoint horizontal strip",
+        "transformation": "last payment bar grows much taller than prior payments"
+      },
+      "motionChannels": [
+        "payment positions illuminate one after another",
+        "final payment bar rises to ninefold comparison height"
+      ],
+      "visualBeats": [
+        "Eleven regular 30-euro installments are visible",
+        "A 270-euro final installment appears; total remains 600 euros"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "d664740ee9e116ee8091de0c11e1de0ce3f52ae3b1f043be522c3cd134677891"
+    },
+    {
+      "id": "visual-13",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-13/animation.tsx",
+      "exportName": "YouTubeVisual13Animation",
+      "viewerChange": "Separate small payments of 50, 35 and 25 euros become one 110-euro monthly deduction.",
+      "animationIntent": "Convergence exposes the combined monthly cash outflow instead of isolating each advertised rate.",
+      "mechanicId": "overlapping-obligations-sum",
+      "visualTechniqueId": "three-payments-converge-into-monthly-total",
+      "techniqueDescription": "Three spatially distinct monthly obligations converge in a single month-budget slot and update the sum to 110.",
+      "compositionFamilyId": "converging-expense-streams",
+      "toolStack": [
+        "React DOM",
+        "Remotion interpolate"
+      ],
+      "motionSignature": {
+        "camera": "fixed isometric-free orthographic",
+        "layout": "three radial obligation sources to centered monthly budget",
+        "transformation": "three cost streams converge and sum displays"
+      },
+      "motionChannels": [
+        "three objects move toward common month slot",
+        "total counts up as each payment arrives"
+      ],
+      "visualBeats": [
+        "Three separate seemingly small rates",
+        "One monthly total of 110 euros is visible"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "fdc1c331d96148d69a72f3ed3545799550bab4b4fa3b611b758e5eddc5841ce7"
+    },
+    {
+      "id": "visual-18",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-18/animation.tsx",
+      "exportName": "YouTubeVisual18Animation",
+      "viewerChange": "Four concrete contract checks change from unexamined to confirmed, making a repeatable decision method.",
+      "animationIntent": "The payoff gives viewers a usable final evaluation method rather than abstract warnings.",
+      "mechanicId": "four-point-credit-preflight",
+      "visualTechniqueId": "contract-checklist-progressive-reveal",
+      "techniqueDescription": "A large contract decision checklist is progressively marked through four distinct user questions before a final total-price statement.",
+      "compositionFamilyId": "document-decision-walkthrough",
+      "toolStack": [
+        "React DOM",
+        "Remotion interpolate"
+      ],
+      "motionSignature": {
+        "camera": "fixed frontal document",
+        "layout": "four stacked large checklist lines",
+        "transformation": "sequential criterion highlighting and final takeaway reveal"
+      },
+      "motionChannels": [
+        "each question becomes visually active and checked",
+        "final line of conclusion fades in beneath the completed list"
+      ],
+      "visualBeats": [
+        "First question asks for total cost",
+        "All four checks are visible and the main takeaway appears"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "1cdaff9227ebc9ec0e9c91ff4b6c4008f75f4e2641dbdb272d76b158e46f93c8"
+    }
+  ]
+}

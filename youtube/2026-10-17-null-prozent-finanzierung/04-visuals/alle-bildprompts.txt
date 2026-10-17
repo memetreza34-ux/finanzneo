@@ -1,0 +1,369 @@
+FINANZNEO — SINGLE HANDOFF FILE FOR GOOGLE FLOW
+
+Strict Single Job; complete sequentially, no parallel or batch images.
+
+Read the whole file once. Generate the thumbnail first, then each IMAGE visual in numeric order. Motion-only visuals need NO image.
+
+Each block must be generated, fully awaited, renamed immediately, checked for literal statement, short labels, 16:9 and black world. On failure regenerate the same image number. Never alter the filenames.
+
+All completed outputs belong in 04-visuals/00-ALLE-BILDER-HIER-REIN/.
+
+━━━━━━━━━━━━━━ THUMBNAIL ━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME:
+YouTube Thumbnail - Null Prozent Wirklich.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact file name above and verify the horizontal 16:9 composition and deep-black same-world look. If it fails, regenerate the same image number before proceeding.
+
+THUMBNAIL PROMPT:
+Create a high-impact premium stylized-3D documentary thumbnail: an extremely clear realistic unbranded smartphone in foreground at a dark electronics store checkout, a customer’s hand about to sign a credit contract while a second thinner optional insurance sheet sits slightly behind the receipt. Make the smartphone large and inviting on the left, the potential paperwork complexity on the right, and a sharp contrast in focal priority. Cinematic but sober, one main action. Leave generous clean black negative space top-right for separately added editorial text "0 % ... WIRKLICH?" in Remotion/thumbnail design. Do NOT create any letters, symbols, fake bank logos, random numbers or headlines in the generated image. This thumbnail is a separate asset and NOT timeline visual 01.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Literal first, creative second. A premium clearly stylized 3D animated finance documentary image, not photorealistic, showing believable everyday objects with controlled semi-realistic materials and proportions. Large readable hero action, realistic cause-and-effect in one frame. Seamless deep-black background across the entire horizontal 16:9 composition; minimal realistic local room/shop context fades softly into black. Strong clean studio lighting, matte soft gray and ivory neutrals, finance-emerald green for good/neutral clarity, red-orange ONLY for genuine cost/risk, restrained gold when needed for value. Same continuous world and lighting discipline across the full film, but every shot has its own camera and subject. Only explicitly requested very short German object labels near objects; NO AI-generated headings, subtitle paragraphs, prices, charts, forms with invented text, visible false logos, UI screenshot, generic coin/piggy-bank/arrows, floating info cards, toy-looking props, redundant green folders, crowded tiny details or stock photo look. Remotion will add all exact numbers, headlines, product prices and captions later. Wide YouTube horizontal 16:9 image, width approx. 1.7778 × height.
+
+
+━━━━━━━━━━━━━━ VISUAL 01 – IMAGE ━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME:
+YouTube Bild 01 - Smartphone Angebot.png
+
+Generate exactly ONE image. Wait for the current generation to finish completely. Rename it immediately to the exact file name above, then verify clarity, actual item and cause-effect, composition, labels, background, and horizontal 16:9. On failure regenerate the same image number instead of going onward. Do not copy a previous image composition. The file name must never be rendered in the image.
+
+LITERAL_REAL_WORLD_SITUATION: Customer considers a phone next to an interest-free purchase display in a real electronics store.
+REAL_WORLD_CONTEXT_ANCHOR: electronics retailer sales desk
+VOICEOVER_VISUAL_MATCH: Ein Smartphone für 600 Euro wird mit 0 % Finanzierung beworben. — the image must make the situation recognizable without narration.
+TRANSFERABILITY_TEST: PASS — this image is specific because Electronics shelf, new smartphone and paused finance purchase are specific to a financed device offer.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE — a literal situation directly explains this sentence.
+ALLOWED_SHORT_GERMAN_OBJECT_LABELS: none; keep all text absent
+IMAGE PROMPT:
+A 3/4 medium close-up: a believable new unbranded smartphone on a simple dark store display, a customer hand in the foreground pausing before a finance brochure and a neutral price tag holder deliberately left blank for accurate Remotion overlays. Show uncertainty through gesture and spatial relationship, not through acting faces. A small portion of electronics shelving dissolves into black. Clear phone foreground left, negative space on upper right for immediate Remotion '0 %?' typography. No visible numbers or text are generated by AI.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Literal first, creative second. A premium clearly stylized 3D animated finance documentary image, not photorealistic, showing believable everyday objects with controlled semi-realistic materials and proportions. Large readable hero action, realistic cause-and-effect in one frame. Seamless deep-black background across the entire horizontal 16:9 composition; minimal realistic local room/shop context fades softly into black. Strong clean studio lighting, matte soft gray and ivory neutrals, finance-emerald green for good/neutral clarity, red-orange ONLY for genuine cost/risk, restrained gold when needed for value. Same continuous world and lighting discipline across the full film, but every shot has its own camera and subject. Only explicitly requested very short German object labels near objects; NO AI-generated headings, subtitle paragraphs, prices, charts, forms with invented text, visible false logos, UI screenshot, generic coin/piggy-bank/arrows, floating info cards, toy-looking props, redundant green folders, crowded tiny details or stock photo look. Remotion will add all exact numbers, headlines, product prices and captions later. Wide YouTube horizontal 16:9 image, width approx. 1.7778 × height.
+
+
+━━━━━━━━━━━━━━ VISUAL 02 – ANIMATION ONLY ━━━━━━━━━━━━━━
+DO NOT GENERATE IMAGE 02. This number is reserved for Remotion; continue to the next image number.
+
+
+━━━━━━━━━━━━━━ VISUAL 03 – IMAGE ━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME:
+YouTube Bild 03 - Kauf am Tresen.png
+
+Generate exactly ONE image. Wait for the current generation to finish completely. Rename it immediately to the exact file name above, then verify clarity, actual item and cause-effect, composition, labels, background, and horizontal 16:9. On failure regenerate the same image number instead of going onward. Do not copy a previous image composition. The file name must never be rendered in the image.
+
+LITERAL_REAL_WORLD_SITUATION: Buyer and salesperson sign purchase paperwork at the shop counter.
+REAL_WORLD_CONTEXT_ANCHOR: electronics store purchase counter
+VOICEOVER_VISUAL_MATCH: Der Smartphone-Kauf wird am Ladentresen unterschrieben. — the image must make the situation recognizable without narration.
+TRANSFERABILITY_TEST: PASS — this image is specific because It captures the exact point when an electronics buyer signs paperwork, not generic wealth imagery.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE — a literal situation directly explains this sentence.
+ALLOWED_SHORT_GERMAN_OBJECT_LABELS: none; keep all text absent
+IMAGE PROMPT:
+A close horizontal view of a real retail checkout desk: the unbranded smartphone box physically separate from an unsigned purchase document, a generic pen and the buyer's hand reaching in. Salesperson on the opposite side with only hands/torso visible; no faces emphasized, no fake legal paragraph. Clearly communicates that buying an object involves a separate paper step. Distinct camera: top-down three-quarter close-up.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Literal first, creative second. A premium clearly stylized 3D animated finance documentary image, not photorealistic, showing believable everyday objects with controlled semi-realistic materials and proportions. Large readable hero action, realistic cause-and-effect in one frame. Seamless deep-black background across the entire horizontal 16:9 composition; minimal realistic local room/shop context fades softly into black. Strong clean studio lighting, matte soft gray and ivory neutrals, finance-emerald green for good/neutral clarity, red-orange ONLY for genuine cost/risk, restrained gold when needed for value. Same continuous world and lighting discipline across the full film, but every shot has its own camera and subject. Only explicitly requested very short German object labels near objects; NO AI-generated headings, subtitle paragraphs, prices, charts, forms with invented text, visible false logos, UI screenshot, generic coin/piggy-bank/arrows, floating info cards, toy-looking props, redundant green folders, crowded tiny details or stock photo look. Remotion will add all exact numbers, headlines, product prices and captions later. Wide YouTube horizontal 16:9 image, width approx. 1.7778 × height.
+
+
+━━━━━━━━━━━━━━ VISUAL 04 – IMAGE ━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME:
+YouTube Bild 04 - Bank und Kaufvertrag.png
+
+Generate exactly ONE image. Wait for the current generation to finish completely. Rename it immediately to the exact file name above, then verify clarity, actual item and cause-effect, composition, labels, background, and horizontal 16:9. On failure regenerate the same image number instead of going onward. Do not copy a previous image composition. The file name must never be rendered in the image.
+
+LITERAL_REAL_WORLD_SITUATION: Two distinct agreements from checkout and a partner-bank loan are shown side by side.
+REAL_WORLD_CONTEXT_ANCHOR: bank-loan documentation at electronics shop
+VOICEOVER_VISUAL_MATCH: Hinter dem Angebot kann ein Kredit einer Partnerbank stehen. — the image must make the situation recognizable without narration.
+TRANSFERABILITY_TEST: PASS — this image is specific because The separation of retail receipt and partner-bank credit agreement directly explains the spoken legal relationship.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE — a literal situation directly explains this sentence.
+ALLOWED_SHORT_GERMAN_OBJECT_LABELS: none; keep all text absent
+IMAGE PROMPT:
+Cinematic overhead of two physically different documents on a dark checkout mat: the retailer's product purchase receipt next to a distinct thicker generic bank finance contract with a stamped blank seal and bank-styled header area; a smartphone box sits behind them as causal context. Do not include invented bank brands, numbers or long legal words. A clean emerald separating gap between the papers emphasizes two contracts. Remotion will insert accurate labels afterward.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Literal first, creative second. A premium clearly stylized 3D animated finance documentary image, not photorealistic, showing believable everyday objects with controlled semi-realistic materials and proportions. Large readable hero action, realistic cause-and-effect in one frame. Seamless deep-black background across the entire horizontal 16:9 composition; minimal realistic local room/shop context fades softly into black. Strong clean studio lighting, matte soft gray and ivory neutrals, finance-emerald green for good/neutral clarity, red-orange ONLY for genuine cost/risk, restrained gold when needed for value. Same continuous world and lighting discipline across the full film, but every shot has its own camera and subject. Only explicitly requested very short German object labels near objects; NO AI-generated headings, subtitle paragraphs, prices, charts, forms with invented text, visible false logos, UI screenshot, generic coin/piggy-bank/arrows, floating info cards, toy-looking props, redundant green folders, crowded tiny details or stock photo look. Remotion will add all exact numbers, headlines, product prices and captions later. Wide YouTube horizontal 16:9 image, width approx. 1.7778 × height.
+
+
+━━━━━━━━━━━━━━ VISUAL 05 – IMAGE ━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME:
+YouTube Bild 05 - Zusatzschutz.png
+
+Generate exactly ONE image. Wait for the current generation to finish completely. Rename it immediately to the exact file name above, then verify clarity, actual item and cause-effect, composition, labels, background, and horizontal 16:9. On failure regenerate the same image number instead of going onward. Do not copy a previous image composition. The file name must never be rendered in the image.
+
+LITERAL_REAL_WORLD_SITUATION: Retail clerk offers a separate optional insurance sheet next to a phone purchase contract.
+REAL_WORLD_CONTEXT_ANCHOR: point-of-sale optional warranty/credit insurance offer
+VOICEOVER_VISUAL_MATCH: Zusätzlicher Ratenschutz oder Garantie kann freiwillig angeboten werden. — the image must make the situation recognizable without narration.
+TRANSFERABILITY_TEST: PASS — this image is specific because The secondary document offered during a specific smartphone checkout depicts the optional upsell.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE — a literal situation directly explains this sentence.
+ALLOWED_SHORT_GERMAN_OBJECT_LABELS: "Zusatzschutz"
+IMAGE PROMPT:
+Waist-level wide horizontal shot inside stylized electronics shop: one employee hand offers a separate slim insurance sheet beside a normal checkout receipt; customer hand clearly holds the normal purchase agreement apart, so optional extra visually feels separate. A realistic phone box visible behind for context. Only one small printed German object label 'Zusatzschutz' on the separate insurance sheet if text renders cleanly; no checkbox preselection, no legal terms invented. Avoid generic warning triangles.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Literal first, creative second. A premium clearly stylized 3D animated finance documentary image, not photorealistic, showing believable everyday objects with controlled semi-realistic materials and proportions. Large readable hero action, realistic cause-and-effect in one frame. Seamless deep-black background across the entire horizontal 16:9 composition; minimal realistic local room/shop context fades softly into black. Strong clean studio lighting, matte soft gray and ivory neutrals, finance-emerald green for good/neutral clarity, red-orange ONLY for genuine cost/risk, restrained gold when needed for value. Same continuous world and lighting discipline across the full film, but every shot has its own camera and subject. Only explicitly requested very short German object labels near objects; NO AI-generated headings, subtitle paragraphs, prices, charts, forms with invented text, visible false logos, UI screenshot, generic coin/piggy-bank/arrows, floating info cards, toy-looking props, redundant green folders, crowded tiny details or stock photo look. Remotion will add all exact numbers, headlines, product prices and captions later. Wide YouTube horizontal 16:9 image, width approx. 1.7778 × height.
+
+
+━━━━━━━━━━━━━━ VISUAL 06 – ANIMATION ONLY ━━━━━━━━━━━━━━
+DO NOT GENERATE IMAGE 06. This number is reserved for Remotion; continue to the next image number.
+
+
+━━━━━━━━━━━━━━ VISUAL 07 – IMAGE ━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME:
+YouTube Bild 07 - Zwei Haendler.png
+
+Generate exactly ONE image. Wait for the current generation to finish completely. Rename it immediately to the exact file name above, then verify clarity, actual item and cause-effect, composition, labels, background, and horizontal 16:9. On failure regenerate the same image number instead of going onward. Do not copy a previous image composition. The file name must never be rendered in the image.
+
+LITERAL_REAL_WORLD_SITUATION: Customer compares same exact-looking unbranded smartphone boxes between two distinct retailers.
+REAL_WORLD_CONTEXT_ANCHOR: two-store shopping comparison
+VOICEOVER_VISUAL_MATCH: Ein anderes Geschäft kann das gleiche Smartphone günstiger verkaufen. — the image must make the situation recognizable without narration.
+TRANSFERABILITY_TEST: PASS — this image is specific because Exactly matching product boxes in two different shops make the same-item price comparison obvious.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE — a literal situation directly explains this sentence.
+ALLOWED_SHORT_GERMAN_OBJECT_LABELS: none; keep all text absent
+IMAGE PROMPT:
+Side-on widescreen composition of a single shopper standing between two distinct real electronics counters. On each counter is the same unbranded smartphone model box with identical recognizable diagonal silver stripe and exact same size; the product identity matches perfectly. Store environments look different through shelving geometry, not logos. Keep price labels blank because Remotion inserts the real fictional 600 and 550 values. Compare identical products, no floating compare cards. Deep-black world unifies both halves.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Literal first, creative second. A premium clearly stylized 3D animated finance documentary image, not photorealistic, showing believable everyday objects with controlled semi-realistic materials and proportions. Large readable hero action, realistic cause-and-effect in one frame. Seamless deep-black background across the entire horizontal 16:9 composition; minimal realistic local room/shop context fades softly into black. Strong clean studio lighting, matte soft gray and ivory neutrals, finance-emerald green for good/neutral clarity, red-orange ONLY for genuine cost/risk, restrained gold when needed for value. Same continuous world and lighting discipline across the full film, but every shot has its own camera and subject. Only explicitly requested very short German object labels near objects; NO AI-generated headings, subtitle paragraphs, prices, charts, forms with invented text, visible false logos, UI screenshot, generic coin/piggy-bank/arrows, floating info cards, toy-looking props, redundant green folders, crowded tiny details or stock photo look. Remotion will add all exact numbers, headlines, product prices and captions later. Wide YouTube horizontal 16:9 image, width approx. 1.7778 × height.
+
+
+━━━━━━━━━━━━━━ VISUAL 08 – ANIMATION ONLY ━━━━━━━━━━━━━━
+DO NOT GENERATE IMAGE 08. This number is reserved for Remotion; continue to the next image number.
+
+
+━━━━━━━━━━━━━━ VISUAL 09 – IMAGE ━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME:
+YouTube Bild 09 - Bankkarte.png
+
+Generate exactly ONE image. Wait for the current generation to finish completely. Rename it immediately to the exact file name above, then verify clarity, actual item and cause-effect, composition, labels, background, and horizontal 16:9. On failure regenerate the same image number instead of going onward. Do not copy a previous image composition. The file name must never be rendered in the image.
+
+LITERAL_REAL_WORLD_SITUATION: Financing paperwork comes with a newly received separate unbranded bank card.
+REAL_WORLD_CONTEXT_ANCHOR: kitchen desk after financed electronics purchase
+VOICEOVER_VISUAL_MATCH: Zum Finanzierungskauf kann eine weitere Kreditkarte gehören. — the image must make the situation recognizable without narration.
+TRANSFERABILITY_TEST: PASS — this image is specific because A finance-related card arriving after an actual purchase depicts potential extra credit arrangements.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE — a literal situation directly explains this sentence.
+ALLOWED_SHORT_GERMAN_OBJECT_LABELS: none; keep all text absent
+IMAGE PROMPT:
+Close real-world domestic evening: a sealed bank-styled envelope, a newly arrived plain generic payment card half-visible, a smartphone purchase receipt and a box on the edge of the wooden home desk. The customer's hand hesitates before touching the unexpected card. No bank brand, no card number, no actual account details. Red-orange highlight on the card's exposure edge only to signal possible risk, not a false assertion that every card charges fees.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Literal first, creative second. A premium clearly stylized 3D animated finance documentary image, not photorealistic, showing believable everyday objects with controlled semi-realistic materials and proportions. Large readable hero action, realistic cause-and-effect in one frame. Seamless deep-black background across the entire horizontal 16:9 composition; minimal realistic local room/shop context fades softly into black. Strong clean studio lighting, matte soft gray and ivory neutrals, finance-emerald green for good/neutral clarity, red-orange ONLY for genuine cost/risk, restrained gold when needed for value. Same continuous world and lighting discipline across the full film, but every shot has its own camera and subject. Only explicitly requested very short German object labels near objects; NO AI-generated headings, subtitle paragraphs, prices, charts, forms with invented text, visible false logos, UI screenshot, generic coin/piggy-bank/arrows, floating info cards, toy-looking props, redundant green folders, crowded tiny details or stock photo look. Remotion will add all exact numbers, headlines, product prices and captions later. Wide YouTube horizontal 16:9 image, width approx. 1.7778 × height.
+
+
+━━━━━━━━━━━━━━ VISUAL 10 – IMAGE ━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME:
+YouTube Bild 10 - Weitere Kartenkaeufe.png
+
+Generate exactly ONE image. Wait for the current generation to finish completely. Rename it immediately to the exact file name above, then verify clarity, actual item and cause-effect, composition, labels, background, and horizontal 16:9. On failure regenerate the same image number instead of going onward. Do not copy a previous image composition. The file name must never be rendered in the image.
+
+LITERAL_REAL_WORLD_SITUATION: Separate statement for purchases by bank card next to original financed phone paperwork.
+REAL_WORLD_CONTEXT_ANCHOR: household credit-card statement review
+VOICEOVER_VISUAL_MATCH: Weitere Kartenverfügungen können andere Vertragsbedingungen haben. — the image must make the situation recognizable without narration.
+TRANSFERABILITY_TEST: PASS — this image is specific because The second card purchase compared with original device installment shows a genuinely new borrowing event.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE — a literal situation directly explains this sentence.
+ALLOWED_SHORT_GERMAN_OBJECT_LABELS: none; keep all text absent
+IMAGE PROMPT:
+Wide overhead home table: one hand places an additional plain unbranded card purchase receipt beside the original smartphone finance repayment schedule, two distinct paper stacks indicating separate usage. Visual contrast: original phone purchase on left, new separate retail receipt next to payment card on right. No fictional transaction text or precise account figures; reserve space for clean Remotion annotation. A realistic table lamp pools neutral light into deep black, emphasizing examination.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Literal first, creative second. A premium clearly stylized 3D animated finance documentary image, not photorealistic, showing believable everyday objects with controlled semi-realistic materials and proportions. Large readable hero action, realistic cause-and-effect in one frame. Seamless deep-black background across the entire horizontal 16:9 composition; minimal realistic local room/shop context fades softly into black. Strong clean studio lighting, matte soft gray and ivory neutrals, finance-emerald green for good/neutral clarity, red-orange ONLY for genuine cost/risk, restrained gold when needed for value. Same continuous world and lighting discipline across the full film, but every shot has its own camera and subject. Only explicitly requested very short German object labels near objects; NO AI-generated headings, subtitle paragraphs, prices, charts, forms with invented text, visible false logos, UI screenshot, generic coin/piggy-bank/arrows, floating info cards, toy-looking props, redundant green folders, crowded tiny details or stock photo look. Remotion will add all exact numbers, headlines, product prices and captions later. Wide YouTube horizontal 16:9 image, width approx. 1.7778 × height.
+
+
+━━━━━━━━━━━━━━ VISUAL 11 – ANIMATION ONLY ━━━━━━━━━━━━━━
+DO NOT GENERATE IMAGE 11. This number is reserved for Remotion; continue to the next image number.
+
+
+━━━━━━━━━━━━━━ VISUAL 12 – IMAGE ━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME:
+YouTube Bild 12 - Drei Monatsraten.png
+
+Generate exactly ONE image. Wait for the current generation to finish completely. Rename it immediately to the exact file name above, then verify clarity, actual item and cause-effect, composition, labels, background, and horizontal 16:9. On failure regenerate the same image number instead of going onward. Do not copy a previous image composition. The file name must never be rendered in the image.
+
+LITERAL_REAL_WORLD_SITUATION: Three concrete different financed purchases with separate due-date notices share a kitchen table.
+REAL_WORLD_CONTEXT_ANCHOR: household bills, everyday purchases
+VOICEOVER_VISUAL_MATCH: Kleine Raten aus mehreren Anschaffungen sammeln sich im selben Monat. — the image must make the situation recognizable without narration.
+TRANSFERABILITY_TEST: PASS — this image is specific because Three financed everyday items and physical repayment letters explain how multiple small obligations coincide.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE — a literal situation directly explains this sentence.
+ALLOWED_SHORT_GERMAN_OBJECT_LABELS: none; keep all text absent
+IMAGE PROMPT:
+Widescreen stylized home desk with three distinct physical objects: smartphone box, compact vacuum cleaner box and everyday chair delivery slip; each is matched to its own slim payment notice and small calendar slip, all converging at one household planning sheet. One hand is counting the notices. Do not create made-up monetary text: precise 50/35/25 values will be overlaid in Remotion. Visible real objects connect debt to actual consumer purchases, never isolated coin icons.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Literal first, creative second. A premium clearly stylized 3D animated finance documentary image, not photorealistic, showing believable everyday objects with controlled semi-realistic materials and proportions. Large readable hero action, realistic cause-and-effect in one frame. Seamless deep-black background across the entire horizontal 16:9 composition; minimal realistic local room/shop context fades softly into black. Strong clean studio lighting, matte soft gray and ivory neutrals, finance-emerald green for good/neutral clarity, red-orange ONLY for genuine cost/risk, restrained gold when needed for value. Same continuous world and lighting discipline across the full film, but every shot has its own camera and subject. Only explicitly requested very short German object labels near objects; NO AI-generated headings, subtitle paragraphs, prices, charts, forms with invented text, visible false logos, UI screenshot, generic coin/piggy-bank/arrows, floating info cards, toy-looking props, redundant green folders, crowded tiny details or stock photo look. Remotion will add all exact numbers, headlines, product prices and captions later. Wide YouTube horizontal 16:9 image, width approx. 1.7778 × height.
+
+
+━━━━━━━━━━━━━━ VISUAL 13 – ANIMATION ONLY ━━━━━━━━━━━━━━
+DO NOT GENERATE IMAGE 13. This number is reserved for Remotion; continue to the next image number.
+
+
+━━━━━━━━━━━━━━ VISUAL 14 – IMAGE ━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME:
+YouTube Bild 14 - Kaputte Waschmaschine.png
+
+Generate exactly ONE image. Wait for the current generation to finish completely. Rename it immediately to the exact file name above, then verify clarity, actual item and cause-effect, composition, labels, background, and horizontal 16:9. On failure regenerate the same image number instead of going onward. Do not copy a previous image composition. The file name must never be rendered in the image.
+
+LITERAL_REAL_WORLD_SITUATION: Broken washing machine at home, repair appointment and finances considered before replacing.
+REAL_WORLD_CONTEXT_ANCHOR: utility room in private household
+VOICEOVER_VISUAL_MATCH: Eine kaputte Waschmaschine ersetzen kann dringend notwendig sein. — the image must make the situation recognizable without narration.
+TRANSFERABILITY_TEST: PASS — this image is specific because The malfunctioning washing machine makes a necessary purchase distinct from an impulse upgrade.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE — a literal situation directly explains this sentence.
+ALLOWED_SHORT_GERMAN_OBJECT_LABELS: none; keep all text absent
+IMAGE PROMPT:
+Horizontal 3/4 scene of a credible slightly damaged white washing machine with a little puddle and a folded maintenance note beside it, a resident standing near the machine considering repair versus replacement. Make the problem concrete but not catastrophic. Neutral warm ivory for home objects, focused studio illumination, no green money symbols. A slice of familiar laundry room fades to deep black. Avoid illegible manufactured labels.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Literal first, creative second. A premium clearly stylized 3D animated finance documentary image, not photorealistic, showing believable everyday objects with controlled semi-realistic materials and proportions. Large readable hero action, realistic cause-and-effect in one frame. Seamless deep-black background across the entire horizontal 16:9 composition; minimal realistic local room/shop context fades softly into black. Strong clean studio lighting, matte soft gray and ivory neutrals, finance-emerald green for good/neutral clarity, red-orange ONLY for genuine cost/risk, restrained gold when needed for value. Same continuous world and lighting discipline across the full film, but every shot has its own camera and subject. Only explicitly requested very short German object labels near objects; NO AI-generated headings, subtitle paragraphs, prices, charts, forms with invented text, visible false logos, UI screenshot, generic coin/piggy-bank/arrows, floating info cards, toy-looking props, redundant green folders, crowded tiny details or stock photo look. Remotion will add all exact numbers, headlines, product prices and captions later. Wide YouTube horizontal 16:9 image, width approx. 1.7778 × height.
+
+
+━━━━━━━━━━━━━━ VISUAL 15 – IMAGE ━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME:
+YouTube Bild 15 - Neuer Fernseher.png
+
+Generate exactly ONE image. Wait for the current generation to finish completely. Rename it immediately to the exact file name above, then verify clarity, actual item and cause-effect, composition, labels, background, and horizontal 16:9. On failure regenerate the same image number instead of going onward. Do not copy a previous image composition. The file name must never be rendered in the image.
+
+LITERAL_REAL_WORLD_SITUATION: Customer considers a nonessential new television at home with old TV functioning.
+REAL_WORLD_CONTEXT_ANCHOR: living room optional electronics upgrade
+VOICEOVER_VISUAL_MATCH: Ein spontan gewünschtes neues Gerät ist anders als eine notwendige Reparatur. — the image must make the situation recognizable without narration.
+TRANSFERABILITY_TEST: PASS — this image is specific because A functioning old TV beside unopened upgrade box is exactly a want-vs-need scenario.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE — a literal situation directly explains this sentence.
+ALLOWED_SHORT_GERMAN_OBJECT_LABELS: none; keep all text absent
+IMAGE PROMPT:
+Coherent cinematic horizontal living room: an existing television is still switched on and functional while the buyer examines a newly delivered larger TV box left unopened next to it. The unopened box is larger but not idealized; buyer's paused hand demonstrates a reconsidered impulse decision. Keep context sparse, free black negative space, no store price labels or invented branding. Visually contrast functioning item with optional new purchase.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Literal first, creative second. A premium clearly stylized 3D animated finance documentary image, not photorealistic, showing believable everyday objects with controlled semi-realistic materials and proportions. Large readable hero action, realistic cause-and-effect in one frame. Seamless deep-black background across the entire horizontal 16:9 composition; minimal realistic local room/shop context fades softly into black. Strong clean studio lighting, matte soft gray and ivory neutrals, finance-emerald green for good/neutral clarity, red-orange ONLY for genuine cost/risk, restrained gold when needed for value. Same continuous world and lighting discipline across the full film, but every shot has its own camera and subject. Only explicitly requested very short German object labels near objects; NO AI-generated headings, subtitle paragraphs, prices, charts, forms with invented text, visible false logos, UI screenshot, generic coin/piggy-bank/arrows, floating info cards, toy-looking props, redundant green folders, crowded tiny details or stock photo look. Remotion will add all exact numbers, headlines, product prices and captions later. Wide YouTube horizontal 16:9 image, width approx. 1.7778 × height.
+
+
+━━━━━━━━━━━━━━ VISUAL 16 – IMAGE ━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME:
+YouTube Bild 16 - Vertrag Pruefen.png
+
+Generate exactly ONE image. Wait for the current generation to finish completely. Rename it immediately to the exact file name above, then verify clarity, actual item and cause-effect, composition, labels, background, and horizontal 16:9. On failure regenerate the same image number instead of going onward. Do not copy a previous image composition. The file name must never be rendered in the image.
+
+LITERAL_REAL_WORLD_SITUATION: Person reads a credit contract with a household notebook and a working calculator.
+REAL_WORLD_CONTEXT_ANCHOR: home desk consumer review
+VOICEOVER_VISUAL_MATCH: Vor der Unterschrift werden Kreditkosten und echte Monatsreserve geprüft. — the image must make the situation recognizable without narration.
+TRANSFERABILITY_TEST: PASS — this image is specific because It depicts the deliberate credit-document check and household reserve calculation before signing.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE — a literal situation directly explains this sentence.
+ALLOWED_SHORT_GERMAN_OBJECT_LABELS: none; keep all text absent
+IMAGE PROMPT:
+Macro-leaning cinematic desk shot: person's hands review an unbranded finance contract laid out beside their handwritten household notebook and a small physical calculator. Place fingertips on two distinct parts of the paper, not a fake headline; show careful review before signing. Keep all tiny contract copy visually blank/abstract without false German legal text. Room depth fades into deep black. Lower-right clear for Remotion exact criterion labels.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Literal first, creative second. A premium clearly stylized 3D animated finance documentary image, not photorealistic, showing believable everyday objects with controlled semi-realistic materials and proportions. Large readable hero action, realistic cause-and-effect in one frame. Seamless deep-black background across the entire horizontal 16:9 composition; minimal realistic local room/shop context fades softly into black. Strong clean studio lighting, matte soft gray and ivory neutrals, finance-emerald green for good/neutral clarity, red-orange ONLY for genuine cost/risk, restrained gold when needed for value. Same continuous world and lighting discipline across the full film, but every shot has its own camera and subject. Only explicitly requested very short German object labels near objects; NO AI-generated headings, subtitle paragraphs, prices, charts, forms with invented text, visible false logos, UI screenshot, generic coin/piggy-bank/arrows, floating info cards, toy-looking props, redundant green folders, crowded tiny details or stock photo look. Remotion will add all exact numbers, headlines, product prices and captions later. Wide YouTube horizontal 16:9 image, width approx. 1.7778 × height.
+
+
+━━━━━━━━━━━━━━ VISUAL 17 – IMAGE ━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME:
+YouTube Bild 17 - Vertragsmarkierungen.png
+
+Generate exactly ONE image. Wait for the current generation to finish completely. Rename it immediately to the exact file name above, then verify clarity, actual item and cause-effect, composition, labels, background, and horizontal 16:9. On failure regenerate the same image number instead of going onward. Do not copy a previous image composition. The file name must never be rendered in the image.
+
+LITERAL_REAL_WORLD_SITUATION: Four actual paper markers on a real purchase finance contract without readable invented text.
+REAL_WORLD_CONTEXT_ANCHOR: contract checklist preparation
+VOICEOVER_VISUAL_MATCH: Die vier wichtigsten Fragen beziehen sich auf Gesamtbetrag, Kosten, Kreditart und eigenes Budget. — the image must make the situation recognizable without narration.
+TRANSFERABILITY_TEST: PASS — this image is specific because Four flagged spots in an actual financing contract set up the precise next-screen checklist.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE — a literal situation directly explains this sentence.
+ALLOWED_SHORT_GERMAN_OBJECT_LABELS: none; keep all text absent
+IMAGE PROMPT:
+Horizontal close-up of one realistic finance contract anchored to a dark desk, a pen and four colored non-textual small paper tabs at distinct sections of the contract; a real calculator shows no numbers to avoid wrong data. One hand prepares to check each contract criterion. Four tabs arranged vertically along the right edge, one warm warning and three neutral/emerald tabs; Remotion adds exact four German questions as motion in the next visual. No text-heavy poster, no icon pack.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Literal first, creative second. A premium clearly stylized 3D animated finance documentary image, not photorealistic, showing believable everyday objects with controlled semi-realistic materials and proportions. Large readable hero action, realistic cause-and-effect in one frame. Seamless deep-black background across the entire horizontal 16:9 composition; minimal realistic local room/shop context fades softly into black. Strong clean studio lighting, matte soft gray and ivory neutrals, finance-emerald green for good/neutral clarity, red-orange ONLY for genuine cost/risk, restrained gold when needed for value. Same continuous world and lighting discipline across the full film, but every shot has its own camera and subject. Only explicitly requested very short German object labels near objects; NO AI-generated headings, subtitle paragraphs, prices, charts, forms with invented text, visible false logos, UI screenshot, generic coin/piggy-bank/arrows, floating info cards, toy-looking props, redundant green folders, crowded tiny details or stock photo look. Remotion will add all exact numbers, headlines, product prices and captions later. Wide YouTube horizontal 16:9 image, width approx. 1.7778 × height.
+
+
+━━━━━━━━━━━━━━ VISUAL 18 – ANIMATION ONLY ━━━━━━━━━━━━━━
+DO NOT GENERATE IMAGE 18. This number is reserved for Remotion; continue to the next image number.
+
+
+━━━━━━━━━━━━━━ FINISH ━━━━━━━━━━━━━━
+
+Finish only after every required image has been generated one by one, renamed immediately and checked. Place all image assets and the distinct thumbnail together under 04-visuals/00-ALLE-BILDER-HIER-REIN/.
