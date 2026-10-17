@@ -4,7 +4,7 @@ YouTube-Longform · 1920 × 1080 · 30 fps · deutsch · eigenständig (kein Ree
 ## Produktionsziel
 Finanzanfänger verstehen anhand eines klar als fiktiv gekennzeichneten 600-€-Kaufs den Unterschied zwischen Monatsrate, Gesamtpreis, optionalen Zusatzkosten, Kreditart und Budgetbelastung. Keine Angstmache: Eine echte zins- und gebührenfreie Finanzierung kann tatsächlich kostenfrei sein.
 
-## Dramaturgie
+## Dramaturgie — 12 Sprecherabschnitte auf 18 Visuals verteilt
 - Visual 01 – Hook: Ein Smartphone für sechshundert Euro. Im Laden steht daneben: null Prozent Finanzierung, nur fünfzig Euro im Monat.…
 - Visual 02 – Die Grundrechnung: Zuerst die faire Seite: Zwölf Raten zu je fünfzig Euro sind zusammen sechshundert Euro. Ohne weitere Kosten zahlst …
 - Visual 03 – Der zweite Vertrag: Beim Kauf unterschreibst du häufig nicht nur für das Produkt. Die Finanzierung läuft oft über eine Partnerbank. Dam…
@@ -22,7 +22,7 @@ Finanzanfänger verstehen anhand eines klar als fiktiv gekennzeichneten 600-€-
 - Vollständiges Skript: `02-script/script-fliess-text.txt`
 - Google-Flow-Agentenübergabe: `04-visuals/alle-bildprompts.txt` – strikt **ein Bild nach dem anderen**
 - Phasen-1-Motion: `04-visuals/EINZELNE-VISUALS/visual-XX/animation.tsx` für Motion-Beats
-- Exakte Reihenfolge und Metadaten: `04-visuals/visual-index.json`
+- Exakte Reihenfolge und Metadaten: `04-visuals/visual-index.json` (18 Visuals: 12 Google-Flow-Bilder + 6 Remotion-Animationen, separates Thumbnail)
 - Quellen + fiktive Rechnungen: `01-recherche/recherche-quellen.md`
 
 ## Phase 2 (Nutzer)
