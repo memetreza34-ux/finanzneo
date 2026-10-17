@@ -140,6 +140,12 @@ export const YOUTUBE_MUSIC_FILES = ['03-audio/musik.mp3', '03-audio/musik.wav', 
 export const YOUTUBE_MUSIC_GAIN_DB = -24;
 /** Bildwelt: Das Thumbnail wird zuerst erzeugt und hängt als Stilvorlage an jedem Bild. */
 export const YOUTUBE_STYLE_MASTER = 'thumbnail';
+/** Seit 17.10.2026: EINE kanalweite Stilvorlage für alle Bilder aller Videos (inkl. Thumbnail), damit die
+ *  Videos untereinander nicht driften (Supermarkt vs. 0 % streuten in Hintergrund und Strich). */
+export const YOUTUBE_STYLE_MASTER_KANAL = 'kanal';
+export const YOUTUBE_CHANNEL_STYLE_FILE = 'FinanzNeo Stilvorlage.png';
+export const YOUTUBE_CHANNEL_STYLE_PATH = `youtube/_kanal/${YOUTUBE_CHANNEL_STYLE_FILE}`;
+export const youtubeStyleReferenceText = (datei) => `${datei} — attach this approved FinanzNeo style master to EVERY image as a style reference (from ${YOUTUBE_CHANNEL_STYLE_PATH} in the repository). Copy only its illustration style: cream background, line weight, soft painted fills, color palette, lettering style and level of detail. Never copy its composition, people, objects or text.`;
 export const YOUTUBE_STYLE_REFERENCE_MARKER = 'STYLE_REFERENCE:';
 /** Hauptfigur: dieselbe Person in jedem Bild über ein angehängtes Referenzbild (kein Flow-„Charakter“ nötig). */
 export const YOUTUBE_CHARACTER_REFERENCE_MARKER = 'CHARACTER_REFERENCE:';

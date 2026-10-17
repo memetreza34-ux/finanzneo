@@ -54,7 +54,8 @@ test('YouTube-Scaffolder erzeugt Motion V3 mit offener Technik und Viewer Change
     // Stilvorlage zuerst: Batch 1 nur das Thumbnail, danach hängt es an jedem Bild.
     assert.match(alle, /BATCH 1 — START ALL TOGETHER: Thumbnail\n/);
     assert.match(alle, /BATCH 2 — START ALL TOGETHER: Bild 01/);
-    assert.match(alle, /STYLE_REFERENCE:\nYouTube Thumbnail - /);
+    assert.match(alle, /STYLE_REFERENCE:\nFinanzNeo Stilvorlage\.png — attach/);
+    assert.match(alle, /STYLE MASTER \(WHOLE CHANNEL\)/);
     assert.match(alle, /Never photorealistic, never a photo/);
     assert.equal(index.googleFlow.batchSize, 5);
     assert.equal(index.motionStandard.contentFirstTechniqueSelection, true);

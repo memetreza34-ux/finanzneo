@@ -146,3 +146,13 @@ test('V2: Bilder mit Hauptfigur hängen das Figur-Bild als CHARACTER_REFERENCE a
   assert.ok(fehler.some((f) => f.startsWith('visual-02: zeigt Lena, hängt aber das Figur-Bild nicht')));
   assert.ok(!fehler.some((f) => f.startsWith('visual-01: zeigt Lena')));
 });
+
+test('Kanal-Stilvorlage: Thumbnail und jedes Bild hängen „FinanzNeo Stilvorlage.png“ an', () => {
+  const idx = index({imageWorld: {styleMaster: 'kanal'}});
+  const mitVorlage = 'STYLE_REFERENCE:\nFinanzNeo Stilvorlage.png — attach';
+  const gut = pruefeYouTubeQualitaet({index: idx, scriptText: skript, prompts: `THUMBNAIL\n━━━━\n\n${mitVorlage}\n━━━━`, bildprompt: () => mitVorlage});
+  assert.ok(!gut.fehler.some((f: string) => f.includes('Kanal-Stilvorlage')));
+  const schlecht = pruefeYouTubeQualitaet({index: idx, scriptText: skript, prompts: 'THUMBNAIL\n━━━━\n\nREFERENCE_IMAGE:\nNONE\n━━━━', bildprompt: () => 'STYLE_REFERENCE:\nYouTube Thumbnail - Test.png'});
+  assert.ok(schlecht.fehler.some((f: string) => f.startsWith('Thumbnail hängt die Kanal-Stilvorlage')));
+  assert.ok(schlecht.fehler.some((f: string) => f.startsWith('visual-01: Bildprompt hängt die Kanal-Stilvorlage nicht')));
+});

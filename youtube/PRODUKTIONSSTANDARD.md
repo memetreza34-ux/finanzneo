@@ -176,6 +176,13 @@ Einzige Übergabe an Google Flow bleibt:
 
 Bilder werden in Batches von bis zu **5 gleichzeitig** erzeugt (`finanzneo-flow-batch5-v1`, Arman 10.10.2026): jedes Bild ein eigener Job, sofort exakt umbenannt und geprüft; Fehler werden im selben Batch neu erzeugt, erst dann startet der nächste Batch. Fortsetzungen mit Referenzbild liegen immer in einem späteren Batch. **Alle sichtbaren Texte im Bild sind deutsch.**
 
+### Eine Stilvorlage für den ganzen Kanal (Arman, 17.10.2026)
+
+- `youtube/_kanal/FinanzNeo Stilvorlage.png` (Bild 01 aus Video 2, „0 % Finanzierung“) ist die **kanalweite Stilvorlage**. Jedes Bild jedes neuen Videos — auch das Thumbnail — hängt sie als `STYLE_REFERENCE:` an.
+- Grund: Mit dem Thumbnail als Vorlage blieb jedes Video in sich einheitlich, aber die Videos drifteten untereinander (Supermarkt: Hintergrund schwankte zwischen #F7ECCF und #F7F0D8, Strich und Palette uneinheitlich; 0 %: fast überall exakt #F9E9CB).
+- Die Vorlage wird nur bewusst ausgetauscht (neue Datei, Eintrag in `VERBESSERUNGEN.md`).
+- Projekte vor dem 17.10.2026 behalten das Thumbnail als Stilvorlage (`imageWorld.styleMaster: "thumbnail"`).
+
 ### Nur Illustration, Thumbnail als Stilvorlage (Arman, 10.10.2026)
 
 - Alle YouTube-Bilder sind **weiche, handgezeichnete 2D-Editorial-Illustrationen** auf warmem Creme: zarte Bleistiftlinien, sanft gemalte Farbflächen, gedeckte Erdtöne (Sand, Terrakotta, Salbei, Staubblau, warmes Grau). **Nie fotorealistisch, nie Foto, nie glänzendes 3D.**

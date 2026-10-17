@@ -25,6 +25,9 @@ import {
   YOUTUBE_MOTION_STANDARD_ID,
   YOUTUBE_STYLE_REFERENCE_MARKER,
   YOUTUBE_CHARACTER_REFERENCE_MARKER,
+  YOUTUBE_CHANNEL_STYLE_FILE,
+  YOUTUBE_CHANNEL_STYLE_PATH,
+  youtubeStyleReferenceText,
   internWurzel,
 } from './lib/youtube-contract.mjs';
 
@@ -57,7 +60,15 @@ ${fileName}
 Generate this image together with the other images of its batch (at most ${YOUTUBE_FLOW_BATCH_SIZE} in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
 `;
 const fileOf = (n) => `YouTube Bild ${nr(n)} - ${visuals[n - 1].name}.png`;
-const styleReference = `${YOUTUBE_STYLE_REFERENCE_MARKER}
+const indexVorab = JSON.parse(readFileSync(resolve(root, VISUAL_INDEX), 'utf8'));
+const kanalStil = indexVorab.imageWorld?.styleMaster === 'kanal';
+if (kanalStil && !existsSync(resolve(YOUTUBE_CHANNEL_STYLE_PATH))) {
+  console.error(`Kanal-Stilvorlage fehlt: ${YOUTUBE_CHANNEL_STYLE_PATH}`);
+  process.exit(1);
+}
+const styleReference = kanalStil
+  ? `${YOUTUBE_STYLE_REFERENCE_MARKER}\n${youtubeStyleReferenceText(YOUTUBE_CHANNEL_STYLE_FILE)}\n`
+  : `${YOUTUBE_STYLE_REFERENCE_MARKER}
 ${thumbnail.file} — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
 `;
 
@@ -69,7 +80,7 @@ const characterReference = (n) => (figurDatei && visuals[n - 1].figur && figurBi
 ${figurDatei} — attach this approved image as character reference. The person called ${story.protagonist} is exactly the same character as in that image: same face, hair, clothes, colors and proportions. Never invent a new person for ${story.protagonist}.
 ` : '');
 
-const index = JSON.parse(readFileSync(resolve(root, VISUAL_INDEX), 'utf8'));
+const index = indexVorab;
 const alt = new Map((index.visuals ?? []).map((v) => [v.id, v]));
 const blocks = new Map();
 
@@ -77,6 +88,7 @@ index.title = title;
 if (story) index.story = story;
 index.thumbnail.googleFlowFileName = thumbnail.file;
 const thumbBlock = `${flowStep(thumbnail.file)}
+${kanalStil ? styleReference : ''}${story?.protagonist && story.figurBild === 'Thumbnail' ? `The person in this thumbnail is ${story.protagonist}, the protagonist of the video. This thumbnail becomes the character reference for every image that shows ${story.protagonist}.\n` : ''}
 REFERENCE_IMAGE:
 NONE
 
@@ -85,7 +97,7 @@ Soft hand-drawn 2D editorial illustration, not a photo. ${thumbnail.prompt}
 
 TEXT IN THIS IMAGE: Only the exact words and numbers written in quotes in the prompt may appear in the image. Never invent extra prices, numbers, brand names, headlines or captions.
 
-This thumbnail is the STYLE MASTER of the whole video: every later image attaches it as a style reference.
+${kanalStil ? '' : 'This thumbnail is the STYLE MASTER of the whole video: every later image attaches it as a style reference.'}
 
 ${styleBlock}`;
 write('04-visuals/thumbnail-prompt.txt', thumbBlock);
@@ -186,14 +198,16 @@ write(ALL_PROMPTS, `FINANZNEO — SINGLE HANDOFF FILE FOR THE GOOGLE FLOW AI AGE
 
 ${YOUTUBE_FLOW_PROTOCOL_MARKER}
 
-STYLE MASTER FIRST:
-Batch 1 contains ONLY the thumbnail. Generate it, wait until it is complete, rename it and verify it is a soft hand-drawn illustration (no photo look). Every later image attaches this approved thumbnail as STYLE_REFERENCE. Never start batch 2 before the thumbnail is approved.
+${kanalStil ? `STYLE MASTER (WHOLE CHANNEL):
+Before you start, open ${YOUTUBE_CHANNEL_STYLE_PATH} (file name: "${YOUTUBE_CHANNEL_STYLE_FILE}"). Attach it to EVERY image of this file, including the thumbnail, as STYLE_REFERENCE. Every image of every FinanzNeo video must look like it was drawn by the same illustrator as this file.
+Batch 1 contains ONLY the thumbnail. Generate it, wait until it is complete, rename it and verify it. Never start batch 2 before the thumbnail is approved.` : `STYLE MASTER FIRST:
+Batch 1 contains ONLY the thumbnail. Generate it, wait until it is complete, rename it and verify it is a soft hand-drawn illustration (no photo look). Every later image attaches this approved thumbnail as STYLE_REFERENCE. Never start batch 2 before the thumbnail is approved.`}
 
 BATCH WORKFLOW (MAX. ${YOUTUBE_FLOW_BATCH_SIZE} IMAGES IN PARALLEL):
 1. Read the full file once. Images are grouped into numbered BATCH blocks of up to ${YOUTUBE_FLOW_BATCH_SIZE}.
 2. Start every image of the current batch at the same time, each as its own single-image job. Never put several prompts into one request and never make a collage or contact sheet.
 3. As soon as an image returns, rename it immediately to the exact final file name stated in its block.
-4. Verify every image of the batch: soft hand-drawn illustration in the thumbnail's style (reject anything photorealistic), script-beat fit, first-glance clarity, Editorial Finance style, 16:9 format, German-only text and file name. For a continuation visual, also verify that the approved reference composition is preserved and only the planned change was made.
+4. Verify every image of the batch: soft hand-drawn illustration in the style master's style (reject anything photorealistic), script-beat fit, first-glance clarity, Editorial Finance style, 16:9 format, German-only text and file name. For a continuation visual, also verify that the approved reference composition is preserved and only the planned change was made.
 5. Regenerate every failed image (same image number, replace the failed file) before the next batch starts.
 6. Start the next batch only after all images of the current batch pass. A continuation image is never in the same batch as its reference.
 7. Skip non-image blocks without closing the numbering gap.

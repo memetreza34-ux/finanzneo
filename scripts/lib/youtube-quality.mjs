@@ -13,6 +13,7 @@ import {
   YOUTUBE_QUALITY_RULES_V2_ID,
   YOUTUBE_HOOK_ANNOUNCEMENT_PATTERN,
   YOUTUBE_CHARACTER_REFERENCE_MARKER,
+  YOUTUBE_CHANNEL_STYLE_FILE,
 } from './youtube-contract.mjs';
 
 export const normWort = (wort) =>
@@ -109,6 +110,14 @@ export const pruefeYouTubeQualitaet = ({index, scriptText, prompts, bildprompt, 
     fehler.push(`Kommentarfrage steht bei ${Math.round((cta / roh.length) * 100)} % des Skripts; sie gehört in den mittleren Teil (${von * 100}–${bis * 100} %), damit sie nicht übersprungen wird.`);
   }
 
+  if (index.imageWorld?.styleMaster === 'kanal') {
+    const ohne = (text) => !text.includes(YOUTUBE_STYLE_REFERENCE_MARKER) || !text.includes(YOUTUBE_CHANNEL_STYLE_FILE);
+    const thumbBlock = /THUMBNAIL\n━+\n\n([\s\S]*?)(?:\n━|████)/.exec(prompts ?? '')?.[1] ?? '';
+    if (ohne(thumbBlock)) fehler.push(`Thumbnail hängt die Kanal-Stilvorlage „${YOUTUBE_CHANNEL_STYLE_FILE}“ nicht als ${YOUTUBE_STYLE_REFERENCE_MARKER} an.`);
+    for (const v of visuals) {
+      if ((v.type === 'image' || v.type === 'hybrid') && ohne(bildprompt(v) ?? '')) fehler.push(`${v.id}: Bildprompt hängt die Kanal-Stilvorlage nicht als ${YOUTUBE_STYLE_REFERENCE_MARKER} an.`);
+    }
+  }
   if (index.imageWorld?.styleMaster === 'thumbnail') {
     const datei = index.thumbnail?.googleFlowFileName ?? '';
     const ersterBatch = /BATCH 1 — START ALL TOGETHER: ([^\n]+)/.exec(prompts ?? '')?.[1]?.trim();
