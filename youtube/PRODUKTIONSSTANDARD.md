@@ -2,6 +2,12 @@
 
 > Bei Widersprüchen gilt `CLAUDE.md`. Für YouTube-Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V3.md`. Für die Wahl zwischen Remotion, Bild+Remotion, SVG, Icons und Lottie gilt `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`.
 
+## Oberste Priorität und Chat-Handoff
+
+**Kontinuierliche Qualitätssteigerung vor reiner Produktionsmenge:** Erkenntnisse aus früheren Videos vor Phase 1 übernehmen; das komplette neue YouTube-Video danach visuell und akustisch prüfen, Fehlerursachen nachvollziehbar beheben und Verbesserungen im nächsten Video kontrollieren. Review im Projekt unter `06-projektdateien/VIDEO-REVIEW.md`, fortlaufende Erkenntnisse in `docs/VERBESSERUNGSLOG.md`; Prozess: `docs/QUALITAETS-VERBESSERUNGSPROZESS.md`.
+
+**Nach vollständig abgeschlossener Phase 1 muss ChatGPT dem Nutzer direkt im Chat zwei echte GitHub-Dateilinks geben:** `04-visuals/alle-bildprompts.txt` (Google Flow) und `02-script/script-fliess-text.txt` (Voiceover-Skript) aus demselben YouTube-Projektordner, keine bloßen Pfade, keine generische Repo-URL. Dateien müssen committed, gepusht und vor dem Verlinken verifiziert sein. Ohne diese Übergabe ist Phase 1 nicht abgeschlossen. Siehe `CLAUDE.md`.
+
 ## Projektstruktur
 
 ```text

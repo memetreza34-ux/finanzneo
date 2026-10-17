@@ -2,6 +2,31 @@
 
 > Höchste interne Quelle für Reel-Produktion. Bei Widersprüchen mit älteren Dateien gilt immer diese Datei. Für **neu erzeugte Reels mit `futureProductionStandard.id = finanzneo-future-production-v3`** gelten zusätzlich die strengeren Future-V3-Regeln aus `docs/FUTURE-REEL-PRODUCTION-V3.md`; ältere Reels werden nicht rückwirkend migriert.
 
+## P0. Dauerhafte Qualitätssteigerung — oberste Priorität
+
+**Oberste Produktionspriorität für FinanzNeo (Reels und YouTube-Longform): Aus JEDEM Video systematisch lernen, bis dauerhaft exzellente, eigenständige, korrekte und professionell gestaltete YouTube-Erklärvideos entstehen.** Kein Video nur „abarbeiten“ und dieselben Fehler im nächsten wiederholen. „Perfekt“ ist das Ziel, nicht ohne Sichtprüfung behauptete Realität.
+
+- **Vor jeder Phase 1** die offenen Erkenntnisse in `docs/VERBESSERUNGSLOG.md` prüfen und 1–3 konkret mess-/sichtbar überprüfbare Verbesserungen in die Planung übernehmen.
+- **Nach jedem echten Video** vollständiges Bild-/Ton-Review (Hooks, Skript, Fakten, Bildfit, Motion, Lesbarkeit, Schnitt, Timing, Ton, Cover/Thumbnail, Export) und konkretes Nutzerfeedback auswerten.
+- Erkenntnisse im projektbezogenen `VIDEO-REVIEW.md` und im zentralen `docs/VERBESSERUNGSLOG.md` dauerhaft festhalten. Wiederkehrende Fehler **an der Ursache im System** beheben, Regressionstests/Sichtprüfungen ergänzen und im nächsten Video nachweisen.
+- **Qualität und Zuschauerverständnis vor Geschwindigkeit, starren Quoten, Effektmenge oder formalen grünen Checks.** Echte Videos prüfen; keine erfundenen Sichtprüfungen, Kennzahlen oder Testergebnisse.
+- Verbindlicher Ablauf: `docs/QUALITAETS-VERBESSERUNGSPROZESS.md`. Bestehende Videos, Schutzregeln und geschützte Assets bleiben ohne ausdrücklichen Auftrag unverändert.
+
+## P0. Phase-1-Abschluss — zwei direkte GitHub-Links IM CHAT
+
+**Bei jeder vollständig fertiggestellten Phase 1**, egal ob Reel oder YouTube-Longform, **muss ChatGPT dem Nutzer in derselben Chat-Antwort unmittelbar die folgenden zwei anklickbaren Links geben** (nicht nur Dateinamen oder eine GitHub-Repository-Startseite):
+
+| Format | Bildprompts für Google Flow | fertiges Voiceover-Skript |
+|---|---|---|
+| **YouTube** | `youtube/<Projekt>/04-visuals/alle-bildprompts.txt` | `youtube/<Projekt>/02-script/script-fliess-text.txt` |
+| **Reel** | `reels/<Woche>/<Tag>/<Reel>/03-szenen/alle-bildprompts.txt` | `reels/<Woche>/<Tag>/<Reel>/01-script/script-fliess-text.txt` |
+
+Die Chat-Ausgabe hat exakt verständliche Beschriftungen:
+- **Bildprompts (Google Flow):** `[Bildprompts öffnen](https://github.com/memetreza34-ux/finanzneo/blob/<tatsaechlicher-Branch-oder-Commit>/<tatsaechlicher-Pfad>)`
+- **Skript (Voiceover):** `[Skript öffnen](https://github.com/memetreza34-ux/finanzneo/blob/<tatsaechlicher-Branch-oder-Commit>/<tatsaechlicher-Pfad>)`
+
+Hier genannte Platzhalter sind **nur ein Schema** und dürfen **nie** wörtlich in der Chat-Antwort erscheinen. Verwende exakt das aktuelle Projekt und den realen Branch/Commit; Links erst nach Speichern/Commit/Push und Verifikation auf GitHub ausgeben. Prüfe, dass beide Dateien existieren, vollständig und erreichbar sind. Ist eine Datei noch nicht abrufbar, **Phase 1 nicht als abgeschlossen melden**, sondern den konkreten Blocker benennen. Keine erfundenen oder unvollständigen Links. Die Links müssen **ohne Nachfrage** im Chat stehen, bevor Phase 2 beginnt. Dieselbe Regel steht in den formatbezogenen Workflows.
+
 ## 1. Kanal und Format
 
 - Kanal: **FinanzNeo**
@@ -36,7 +61,7 @@ Phase 1 liefert vollständig:
 - **produktionsreife `animation.tsx` für jede Animationsszene**
 - genau eine universelle Social-Caption: `04-caption/caption.txt`
 
-Phase 1 ist erst fertig, wenn keine Platzhalter mehr vorkommen und Phase 3 keine kreative Animation mehr erfinden muss.
+Phase 1 ist erst fertig, wenn keine Platzhalter mehr vorkommen, Phase 3 keine kreative Animation mehr erfinden muss **und beide fertigen Projektdateien als anklickbare GitHub-Links im Chat übergeben wurden**.
 
 ### Phase 2 — Nutzer
 

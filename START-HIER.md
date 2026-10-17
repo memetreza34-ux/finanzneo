@@ -2,6 +2,11 @@
 
 > `CLAUDE.md` ist die höchste Regelquelle für Produktionsverantwortung und Agent-Verhalten.
 
+## Höchste Prioritäten — für beide Videoformate
+
+1. **Nach jedem Video besser werden.** Vor neuer Phase 1 die Erkenntnisse aus `docs/VERBESSERUNGSLOG.md` übernehmen; nach jedem fertigen Video ein tatsächliches Bild-/Ton-Review erstellen, Fehlerursachen beheben und die Wirkung im nächsten Video prüfen. Verbindlich: `docs/QUALITAETS-VERBESSERUNGSPROZESS.md`.
+2. **Phase-1-Ergebnis direkt im Chat liefern.** ChatGPT gibt nach jeder erfolgreich abgeschlossenen Phase 1 **zwei anklickbare GitHub-Links zum konkreten Projekt** aus: `alle-bildprompts.txt` (für Google Flow) und `script-fliess-text.txt` (fertiges Voiceover-Skript). Bei Reels liegen sie unter `03-szenen/` und `01-script/`; bei YouTube unter `04-visuals/` und `02-script/`. Erst reale, hochgeladene GitHub-Dateien prüfen, dann verlinken; fehlende Dateien bedeuten Phase 1 ist noch nicht abgeschlossen.
+
 ## Aktiver Produktionsstandard
 
 Welche Versionen aktuell zusammengehören, steht nur noch in:
