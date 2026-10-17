@@ -1,0 +1,46 @@
+name: Editorial Motion V3 Preview
+
+on:
+  push:
+    branches:
+      - reset-image-prompt-rules
+    paths:
+      - 'src/finance-motion/v3/**'
+      - 'src/root/ExperimentCompositions.tsx'
+      - 'scripts/render-editorial-motion-v3.mjs'
+      - 'package.json'
+      - '.github/workflows/editorial-motion-v3-preview.yml'
+  workflow_dispatch:
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: V3 regression tests
+        run: node --import tsx --test tests/editorial-motion-v1.test.ts tests/editorial-motion-v3.test.ts
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Render V3 MP4s and keyframes
+        run: npm run render:editorial-motion-v3
+
+      - name: Upload V3 review pack
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-motion-v3-review-pack
+          path: out/editorial-motion-v3/
+          if-no-files-found: error
+          retention-days: 7

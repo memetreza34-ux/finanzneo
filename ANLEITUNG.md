@@ -37,26 +37,25 @@ Assets integrieren + versiegelte Phase-1-Animationen binden
 - kurze deutsche Sätze
 - Zahlen und Fakten prüfen
 
-### V9-Bildwelt
+### Editorial-Finance-Bildwelt
 
 ```text
-finanzneo-stylized-3d-animated-black-v9
+finanzneo-editorial-finance-v1
 ```
 
-- Quellbilder inklusive Cover: 1:1
-- klar stylized 3D animated, nicht photorealistisch
-- soft rounded, vereinfachte erkennbare Formen
-- nahtloser tiefschwarzer Hintergrund Pflicht
-- Inhalt und Klarheit vor Deko
-- keine feste Objektanzahl
-- Support-Objekte nur, wenn sie helfen
-- Emerald positiv/Fokus
-- Ivory/Soft Gray neutral
-- Gold Geld/Wert
-- Red-Orange Warnung/Kosten
-- keine UI-/Dashboard-/Flowchart-/Microchip-/Diorama-Sprache
-- kein Clutter
-- Marken/Logos erkennbar, aber stilisiert; keine Screenshots/Flat-Paste-Logos
+- Reel-Quellbilder inklusive Cover: 1:1
+- YouTube-Quellbilder: 16:9
+- saubere Editorial-Finanzillustration
+- überwiegend 2D / leichtes 2.5D
+- einfaches 3D nur wenn sinnvoll
+- flexible Hintergründe
+- ein Sprechgedanke = eine klare Bildidee
+- progressive Bildfolgen dürfen das freigegebene vorherige Bild als echte Referenz verwenden
+- kein automatischer Headline-Zwang
+- kein unnötiger AI-Slop
+
+Kanonische Quelle: `docs/FINANZNEO-IMAGE-WORLD.md`.
+
 
 ### Phase-1-Animationen
 
@@ -76,9 +75,12 @@ START → SICHTBARER MECHANISMUS → ERGEBNIS
 ```
 
 - Ergebnis mindestens 15 Frames stabil
-- `PremiumPhysicalStage` transparent
-- mindestens ein echtes sichtbares Hauptobjekt
-- keine feste Support-Objekt-Anzahl
+- Motion-Welt: `finanzneo-editorial-motion-v3`
+- 2D / leichtes 2.5D bevorzugt
+- `EditorialMotionStage` für passende helle oder gedämpfte Editorial-Flächen
+- eine klare Hauptbewegung kann vollständig reichen
+- Kamera standardmäßig still
+- kein `PremiumPhysicalStage`-/Physical-Default bei neuen Animationen
 - keine Dummy-/Debug-/Wackelanimation
 - kein `Math.sin/Math.cos` als QA-Hack
 - keine Partikel/Aurora/Grid/Glow-Flächen als Hintergrund
@@ -92,7 +94,7 @@ START → SICHTBARER MECHANISMUS → ERGEBNIS
 GENAU EIN Bild erzeugen
 → vollständig warten
 → sofort exakt umbenennen
-→ V9-QA
+→ Bildwelt + Dateiname prüfen
 → bei Fehler dieselbe Bildnummer neu
 → erst dann nächstes Bild
 ```

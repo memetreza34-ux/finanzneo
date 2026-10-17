@@ -4,7 +4,7 @@ import {mkdirSync, mkdtempSync, readFileSync, rmSync, unlinkSync, writeFileSync}
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import test from 'node:test';
-import {PHASE_1_FILES} from '../scripts/lib/youtube-contract.mjs';
+import {AUDIO_INBOX, IMAGE_INBOX, PHASE_1_FILES} from '../scripts/lib/youtube-contract.mjs';
 import {analyzeYouTubeReadiness, isSixteenNineDimensions} from '../scripts/lib/youtube-readiness.mjs';
 
 const write = (root: string, relativePath: string, content: string | Buffer) => {
@@ -13,8 +13,9 @@ const write = (root: string, relativePath: string, content: string | Buffer) => 
   writeFileSync(path, content);
 };
 
+// Projektordner mit _intern/ (einfache Struktur seit 10.10.2026); root = _intern.
 const createReadyFixture = () => {
-  const root = mkdtempSync(join(tmpdir(), 'finanzneo-youtube-ready-'));
+  const root = join(mkdtempSync(join(tmpdir(), 'finanzneo-youtube-ready-')), '_intern');
   for (const path of PHASE_1_FILES) write(root, path, `Finaler Inhalt für ${path}.`);
 
   const animationSource = `import React from 'react';\nimport {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';\nexport const MECHANIC_ID = 'monthly-buffer-build';\nexport const VISUAL_TECHNIQUE_ID = 'stacked-monthly-depth';\nexport const COMPOSITION_FAMILY_ID = 'reserve-depth-build';\nexport const ANIMATION_NARRATIVE = {START:'leer', MECHANISM:'wächst', RESULT:'drei Monate'};\nexport const YouTubeVisual02Animation: React.FC = () => { const frame=useCurrentFrame(); const p=interpolate(frame,[0,30],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'}); return <AbsoluteFill><div style={{transform:\`translateY(\${(1-p)*20}px)\`}}>Reserve</div></AbsoluteFill>; };\n`;
@@ -80,11 +81,11 @@ const createReadyFixture = () => {
       sha256: createHash('sha256').update(Buffer.from(animationSource)).digest('hex'),
     }],
   })}\n`);
-  write(root, '04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Thumbnail - Notgroschen.png', Buffer.from('thumbnail'));
-  write(root, '04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Sicherheitspuffer.png', Buffer.from('visual'));
-  write(root, '03-audio/voice.mp3', Buffer.from('audio'));
+  write(root, `${IMAGE_INBOX}/YouTube Thumbnail - Notgroschen.png`, Buffer.from('thumbnail'));
+  write(root, `${IMAGE_INBOX}/YouTube Bild 01 - Sicherheitspuffer.png`, Buffer.from('visual'));
+  write(root, `${AUDIO_INBOX}/voice.mp3`, Buffer.from('audio'));
   write(root, '03-audio/word-timings.json', `${JSON.stringify({
-    source: '03-audio/voice.mp3',
+    source: '4-audio-hier-rein/voice.mp3',
     subtitleMode: 'sentence-with-audio-synced-active-word',
     activeWordColor: 'finance-green',
     words: [{word:'Ein',start:0,end:0.2}],
@@ -101,7 +102,7 @@ test('Einsatzprüfung gibt ein vollständiges Motion-V3-versiegeltes YouTube-Pro
     assert.deepEqual(result.phase1Blockers, []);
     assert.deepEqual(result.phase2Blockers, []);
   } finally {
-    rmSync(root, {recursive:true, force:true});
+    rmSync(join(root, '..'), {recursive:true, force:true});
   }
 });
 
@@ -115,12 +116,12 @@ test('16:9-Prüfung akzeptiert horizontale Quellbilder und blockiert Reel-Format
 test('Einsatzprüfung meldet ein fehlendes Nutzerbild exakt', () => {
   const root = createReadyFixture();
   try {
-    unlinkSync(join(root, '04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Sicherheitspuffer.png'));
+    unlinkSync(join(root, IMAGE_INBOX, 'YouTube Bild 01 - Sicherheitspuffer.png'));
     const result = analyzeYouTubeReadiness(root);
     assert.equal(result.ready, false);
-    assert.ok(result.phase2Blockers.includes('Nutzerbild fehlt: 04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Sicherheitspuffer.png'));
+    assert.ok(result.phase2Blockers.includes('Nutzerbild fehlt: 3-bilder-hier-rein/YouTube Bild 01 - Sicherheitspuffer.png'));
   } finally {
-    rmSync(root, {recursive:true, force:true});
+    rmSync(join(root, '..'), {recursive:true, force:true});
   }
 });
 
@@ -132,7 +133,7 @@ test('Einsatzprüfung blockiert veränderten Motion-Code nach Seal', () => {
     assert.equal(result.ready, false);
     assert.ok(result.phase1Blockers.some((blocker) => blocker.includes('Hash für visual-02 stimmt nicht mehr')));
   } finally {
-    rmSync(root, {recursive:true, force:true});
+    rmSync(join(root, '..'), {recursive:true, force:true});
   }
 });
 
@@ -147,7 +148,7 @@ test('Einsatzprüfung blockiert veränderten kreativen Motion-V3-Vertrag nach Se
     assert.equal(result.ready, false);
     assert.ok(result.phase1Blockers.some((blocker) => blocker.includes('kreativer Motion-V3-Vertrag für visual-02 stimmt nicht mehr')));
   } finally {
-    rmSync(root, {recursive:true, force:true});
+    rmSync(join(root, '..'), {recursive:true, force:true});
   }
 });
 
@@ -161,18 +162,18 @@ test('Einsatzprüfung blockiert offene Metadaten und Social-Promo-Platzhalter', 
     assert.ok(result.phase1Blockers.includes('05-publishing/final-title.txt enthält noch Platzhalter.'));
     assert.ok(result.phase1Blockers.includes('05-publishing/social-promo/instagram.txt enthält noch Platzhalter.'));
   } finally {
-    rmSync(root, {recursive:true, force:true});
+    rmSync(join(root, '..'), {recursive:true, force:true});
   }
 });
 
 test('Einsatzprüfung blockiert mehrere Voiceover-Dateien', () => {
   const root = createReadyFixture();
   try {
-    write(root, '03-audio/zweite-stimme.wav', Buffer.from('audio'));
+    write(root, `${AUDIO_INBOX}/zweite-stimme.wav`, Buffer.from('audio'));
     const result = analyzeYouTubeReadiness(root);
     assert.equal(result.ready, false);
-    assert.ok(result.phase2Blockers.some((blocker) => blocker.startsWith('03-audio/ enthält mehrere Audiodateien:')));
+    assert.ok(result.phase2Blockers.some((blocker) => blocker.startsWith('4-audio-hier-rein/ enthält mehrere Audiodateien:')));
   } finally {
-    rmSync(root, {recursive:true, force:true});
+    rmSync(join(root, '..'), {recursive:true, force:true});
   }
 });

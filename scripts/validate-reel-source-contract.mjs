@@ -29,8 +29,8 @@ import {
   validatePhase3Executor,
   validateSceneShape,
 } from './lib/reel-scene-schema.mjs';
+import {EDITORIAL_MOTION_LOCK} from './lib/editorial-motion-contract.mjs';
 
-const V9_WORLD_LOCK = 'finanzneo-stylized-3d-animated-black-v9';
 const PURE_BLACK_CONTRACT = 'finanzneo-pure-black-background-v1';
 
 const target = process.argv[2];
@@ -108,30 +108,24 @@ if (!legacyImageWorld) {
   const world = index.imageWorld ?? {};
   assert(world.id === WORLD_ID, `imageWorld.id muss ${WORLD_ID} sein.`);
   assert(world.seriesLockId === SERIES_LOCK_ID, `imageWorld.seriesLockId muss ${SERIES_LOCK_ID} sein.`);
-  assert(world.premiumVisualWorldLockId === V9_WORLD_LOCK, `imageWorld.premiumVisualWorldLockId muss ${V9_WORLD_LOCK} sein.`);
-  assert(world.animatedWorldLockId === V9_WORLD_LOCK, `imageWorld.animatedWorldLockId muss ${V9_WORLD_LOCK} sein.`);
-  assert(world.physicalExplainerLockId === V9_WORLD_LOCK, `imageWorld.physicalExplainerLockId muss ${V9_WORLD_LOCK} sein.`);
+  assert(world.authority === 'docs/FINANZNEO-IMAGE-WORLD.md', 'imageWorld.authority ist falsch.');
   assert(world.generatedImageAspectRatio === GENERATED_IMAGE_ASPECT_RATIO, 'Google-Flow-Quellbilder müssen 1:1 sein.');
   assert(world.squareGeneratedImagesRequired === true, 'Quadratische Google-Flow-Quellbilder müssen verpflichtend sein.');
   assert(world.referencePromptFile === '03-szenen/bildwelt.txt', 'imageWorld.referencePromptFile ist falsch.');
-  assert(world.styleReferenceStrategy === 'written-style-lock-only', 'Bildkonsistenz muss ausschließlich über den geschriebenen Style-Lock entstehen.');
-  assert(world.referenceImageUse === 'forbidden', 'Bild-zu-Bild-/Cover-Referenzen müssen verboten sein.');
-  assert(world.sameWorldAcrossSeriesRequired === true, 'Same-World-Lock muss über die Serie gelten.');
-  assert(world.deepBlackBackgroundRequired === true, 'V9 verlangt deepBlackBackgroundRequired=true.');
-  assert(world.cleanMinimalBackgroundRequired === true, 'V9 verlangt cleanMinimalBackgroundRequired=true.');
-  assert(world.supportingObjectCountFlexible === true, 'V9 verlangt flexible Objektanzahl.');
-  assert(world.supportingObjectsOnlyWhenHelpful === true, 'Support-Objekte dürfen nur bei echtem Erklärnutzen verwendet werden.');
-  assert(world.clarityBeforeObjectCount === true, 'Klarheit muss vor Objektanzahl stehen.');
-  assert(!('supportingObjectsMin' in world) && !('supportingObjectsMax' in world), 'Feste Supporting-Object-Min/Max-Werte sind in V9 verboten.');
-  assert(world.dashboardCompositionForbidden === true, 'Dashboard-Komposition muss verboten sein.');
-  assert(world.appUiCompositionForbidden === true, 'App-UI-Komposition muss verboten sein.');
-  assert(world.flowchartMainCompositionForbidden === true, 'Flowchart-Hauptkomposition muss verboten sein.');
-  assert(world.photorealismForbidden === true, 'Photorealismus muss verboten sein.');
-  assert(world.productPhotoLookForbidden === true, 'Produktfoto-Look muss verboten sein.');
-  assert(world.clutterForbidden === true, 'Clutter muss verboten sein.');
-  assert(world.brandMarksRecognizableButStylizedRequired === true, 'Marken/Logos müssen erkennbar aber stilisiert sein.');
-  assert(world.flatPastedRealLogoForbidden === true, 'Flach aufgeklebte Real-Logos müssen verboten sein.');
-  assert(world.screenshotLikeBrandUiForbidden === true, 'Screenshot-artige Marken-UI muss verboten sein.');
+  assert(world.promptLanguage === 'en', 'Bildprompts müssen Englisch sein.');
+  assert(world.flexibleBackgrounds === true, 'Flexible Bildhintergründe müssen erlaubt sein.');
+  assert(world.fixedBlackBackgroundForbidden === true, 'Ein schwarzer Pflicht-Hintergrund darf nicht aktiv sein.');
+  assert(world.fixed3DRenderingForbidden === true, 'Ein fester 3D-Renderstil darf nicht aktiv sein.');
+  assert(world.twoDAllowed === true, '2D-Bilder müssen erlaubt sein.');
+  assert(world.subtleTwoPointFiveDAllowed === true, '2.5D-Bilder müssen erlaubt sein.');
+  assert(world.selectiveSimple3DAllowed === true, 'Selektives einfaches 3D muss erlaubt sein.');
+  assert(world.firstGlanceUnderstandingRequired === true, 'First-glance clarity muss Pflicht sein.');
+  assert(world.oneCoreIdeaPerImageRequired === true, 'Ein Kernidee-pro-Bild muss Pflicht sein.');
+  assert(world.progressiveSequencesAllowed === true, 'Progressive Bildfolgen müssen erlaubt sein.');
+  assert(world.approvedPriorImageReferenceAllowed === true, 'Freigegebene vorherige Bilder müssen als Referenz erlaubt sein.');
+  assert(world.continuationReferenceRequiredWhenDeclared === true, 'Deklarierte Fortsetzungen müssen das vorherige Bild referenzieren.');
+  assert(world.genericHeadlineByDefault === false, 'Generische Headlines dürfen nicht automatisch erzeugt werden.');
+  assert(world.aiSlopAvoidanceRequired === true, 'AI-Slop-Vermeidung muss aktiv sein.');
 }
 
 const googleFlow = index.googleFlow ?? {};
@@ -143,6 +137,9 @@ assert(googleFlow.strictSequential === true, 'Google Flow muss strikt sequenziel
 assert(Number(googleFlow.maxConcurrentGenerations) === 1, 'Google Flow darf maximal einen laufenden Bildjob haben.');
 assert(googleFlow.batchGenerationForbidden === true, 'Batch-Generierung muss verboten sein.');
 assert(googleFlow.queueLaterImagesForbidden === true, 'Queueing späterer Bilder muss verboten sein.');
+assert(googleFlow.referenceImagesAllowed === true, 'Bildreferenzen müssen erlaubt sein.');
+assert(googleFlow.continuationReferenceRequiredWhenDeclared === true, 'Deklarierte Fortsetzungs-Szenen müssen eine Referenz verwenden.');
+assert(googleFlow.referenceMustUseApprovedPriorImage === true, 'Referenz muss aus einem bereits freigegebenen vorherigen Bild stammen.');
 assert(googleFlow.waitForCurrentImage === true, 'Auf den aktuellen einzelnen Bildjob muss intern gewartet werden.');
 assert(googleFlow.renameBeforeNext === true, 'Aktuelles Bild muss vor dem nächsten Bild umbenannt werden.');
 assert(googleFlow.qaBeforeNext === true, 'Aktuelles Bild muss vor dem nächsten Bild QA bestehen.');
@@ -154,9 +151,27 @@ const phase1Animation = index.phase1AnimationCode ?? {};
 assert(phase1Animation.required === true, 'phase1AnimationCode.required muss true sein.');
 assert(phase1Animation.qualityLock === ANIMATION_QUALITY_LOCK, `phase1AnimationCode.qualityLock muss ${ANIMATION_QUALITY_LOCK} sein.`);
 assert(phase1Animation.phase3MayNotReplaceCanonicalAnimation === true, 'Phase 3 darf kanonischen Phase-1-Animationscode nicht ersetzen.');
-assert(phase1Animation.pureBlackCanvasRequired === true, 'Animationen müssen den Pure-Black-Canvas-Vertrag erben.');
-assert(phase1Animation.transparentAnimationStageRequired === true, 'PremiumPhysicalStage muss transparent bleiben.');
-assert(phase1Animation.decorativeBackgroundEffectsForbidden === true, 'Dekorative Animations-Hintergründe müssen verboten sein.');
+if (phase1Animation.visualMotionLock === EDITORIAL_MOTION_LOCK) {
+  assert(phase1Animation.visualTargetWorld === 'finanzneo-editorial-finance-v1', 'Editorial Motion muss auf die neue Editorial-Finance-Bildwelt zielen.');
+  assert(phase1Animation.editorialTwoDPreferred === true, 'Editorial Motion muss 2D/2.5D bevorzugen.');
+  assert(phase1Animation.fixed3DStyleForbidden === true, 'Fester 3D-Animationsstil muss deaktiviert sein.');
+  assert(phase1Animation.flexibleAnimationSurface === true, 'Editorial Motion braucht flexible Animationsflächen.');
+  assert(phase1Animation.pureBlackAnimationSurfaceRequired === false, 'Editorial Motion darf keinen schwarzen Animationsflächen-Zwang haben.');
+  assert(phase1Animation.minimumMotionNeededPreferred === true, 'Editorial Motion muss minimale verständliche Bewegung bevorzugen.');
+  assert(phase1Animation.cameraMovementRequired === false, 'Kamerabewegung darf nicht Pflicht sein.');
+  assert(phase1Animation.decorativeBackgroundEffectsForbidden === true, 'Dekorative Animations-Hintergrundeffekte müssen verboten sein.');
+  assert(phase1Animation.conceptCandidatesRequired === 3, 'Editorial Motion V3 braucht drei visuelle Konzeptkandidaten.');
+  assert(phase1Animation.keyframeQaRequired === true, 'Editorial Motion V3 braucht Keyframe-QA.');
+  assert(JSON.stringify(phase1Animation.keyframeQaPercentages) === JSON.stringify([10,35,65,90]), 'Editorial Motion V3 Keyframes müssen 10/35/65/90 sein.');
+  assert(phase1Animation.motionGrammarRequired === true, 'Editorial Motion V3 braucht Motion-Grammatik.');
+  assert(phase1Animation.animatedEditorialIllustrationPreferred === true, 'Editorial Motion V3 muss bewegte Editorial-Illustrationen bevorzugen.');
+  assert(phase1Animation.uiFirstCompositionForbidden === true, 'UI-first-Kompositionen müssen in Editorial Motion V3 verboten sein.');
+  assert(phase1Animation.nativeRemotionGeometryPreferred === true, 'Editorial Motion V3 muss native Remotion-Geometrie bevorzugen.');
+} else {
+  assert(phase1Animation.pureBlackCanvasRequired === true, 'Legacy-Animationen müssen den Pure-Black-Canvas-Vertrag erben.');
+  assert(phase1Animation.transparentAnimationStageRequired === true, 'Legacy PremiumPhysicalStage muss transparent bleiben.');
+  assert(phase1Animation.decorativeBackgroundEffectsForbidden === true, 'Dekorative Animations-Hintergründe müssen verboten sein.');
+}
 
 const phase3 = index.phase3CompletionContract ?? {};
 assert(phase3.reelBackgroundContractId === PURE_BLACK_CONTRACT, `Phase 3 braucht ${PURE_BLACK_CONTRACT}.`);
@@ -223,10 +238,9 @@ for (const [label, path] of promptFiles) {
   assert(source.includes(WORLD_ID_MARKER), `${label}: ${WORLD_ID_MARKER} fehlt.`);
   assert(source.includes(SERIES_LOCK_MARKER), `${label}: ${SERIES_LOCK_MARKER} fehlt.`);
   assert(source.includes(GENERATED_IMAGE_ASPECT_MARKER), `${label}: ${GENERATED_IMAGE_ASPECT_MARKER} fehlt.`);
-  assert(source.includes(`PREMIUM_VISUAL_WORLD_LOCK: ${V9_WORLD_LOCK}`), `${label}: V9-Visual-Lock fehlt.`);
-  assert(lower.includes('deep black background'), `${label}: deep-black Background-Pflicht fehlt.`);
-  assert(!lower.includes('deep charcoal green-black background'), `${label}: alter green-black Background ist noch aktiv.`);
-  assert(!/\b(?:2|3)[–-](?:4|5|6)\s+(?:supporting|unterstützende)/i.test(source), `${label}: feste Supporting-Object-Anzahl ist verboten.`);
+  assert(source.includes('finanzneo-editorial-finance-v1'), `${label}: Editorial-Finance-Bildwelt fehlt.`);
+  assert(!lower.includes('finanzneo-stylized-3d-animated-black-v9'), `${label}: alter V9-Bildwelt-Lock ist noch aktiv.`);
+  assert(!lower.includes('deep black background required'), `${label}: alter Deep-Black-Zwang ist noch aktiv.`);
 }
 
 if (existsSync(allPromptsPath)) {
@@ -255,6 +269,12 @@ for (const scene of scenes) {
     if (existsSync(promptPath)) {
       const prompt = read(promptPath);
       assert(prompt.includes(scene.googleFlowFileName), `${id}: Bildprompt enthält nicht den exakten googleFlowFileName.`);
+      assert(prompt.includes('REFERENCE_IMAGE:'), `${id}: REFERENCE_IMAGE-Block fehlt.`);
+      assert(prompt.includes('IMAGE PROMPT:'), `${id}: IMAGE PROMPT-Block fehlt.`);
+      if (scene.imageSequence?.mode === 'continuation') {
+        assert(typeof scene.imageSequence.referenceSceneId === 'string' && scene.imageSequence.referenceSceneId.trim(), `${id}: continuation benötigt referenceSceneId.`);
+        assert(typeof scene.imageSequence.plannedChange === 'string' && scene.imageSequence.plannedChange.trim(), `${id}: continuation benötigt plannedChange.`);
+      }
     }
   }
 
@@ -273,8 +293,8 @@ for (const relativePath of [
   '05-projektdateien/animationen.md',
 ]) assert(existsSync(resolve(root, relativePath)), `Pflichtdatei fehlt: ${relativePath}`);
 
-if (legacyImageWorld) notes.push('Legacy-Bildwelt erkannt: nur Strukturvertrag geprüft; V9-Migration wird nicht rückwirkend erzwungen.');
-else notes.push(`V9-Bildwelt geprüft: ${V9_WORLD_LOCK} · deep black · flexible Objektanzahl.`);
+if (legacyImageWorld) notes.push('Legacy-Bildwelt erkannt: historische Assets werden nicht rückwirkend migriert.');
+else notes.push(`Bildwelt geprüft: ${WORLD_ID} · flexible Hintergründe · Editorial 2D/2.5D · progressive Referenzfolgen.`);
 notes.push(`Google Flow geprüft: ${FLOW_EXECUTION_MODE_ID} · concurrency=1.`);
 notes.push(`Phase 3 geprüft: ${PURE_BLACK_CONTRACT} · leere/schwarze Visuals müssen scheitern.`);
 

@@ -12,18 +12,28 @@ import {
   YOUTUBE_VIDEO_HEIGHT,
   YOUTUBE_VIDEO_WIDTH,
   YOUTUBE_VISUAL_TYPES,
+  YOUTUBE_FLOW_BATCH_SIZE,
+  YOUTUBE_FLOW_PROTOCOL_ID,
+  YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE,
 } from '../scripts/lib/youtube-contract.mjs';
 import {WORLD_ID as REEL_WORLD_ID} from '../scripts/lib/reel-contract.mjs';
 
 test('YouTube verwendet dieselbe FinanzNeo-Welt, aber ein eigenes 16:9-Format', () => {
-  assert.equal(WORLD_ID, 'finanzneo-connected-studio-v3');
+  assert.equal(WORLD_ID, 'finanzneo-editorial-finance-v1');
   assert.equal(WORLD_ID, REEL_WORLD_ID);
-  assert.equal(SERIES_LOCK_ID, 'finanzneo-same-world-v1');
+  assert.equal(SERIES_LOCK_ID, 'finanzneo-editorial-consistency-v1');
   assert.equal(FLOW_AGENT_PROTOCOL_ID, 'finanzneo-flow-sequential-v1');
   assert.equal(GENERATED_IMAGE_ASPECT_RATIO, '16:9');
   assert.equal(YOUTUBE_VIDEO_ASPECT_RATIO, '16:9');
   assert.equal(YOUTUBE_VIDEO_WIDTH, 1920);
   assert.equal(YOUTUBE_VIDEO_HEIGHT, 1080);
+});
+
+test('YouTube-Flow arbeitet in Batches von höchstens 5 Einzelbild-Jobs, nur deutscher Bildtext', () => {
+  assert.equal(YOUTUBE_FLOW_PROTOCOL_ID, 'finanzneo-flow-batch5-v1');
+  assert.equal(YOUTUBE_FLOW_BATCH_SIZE, 5);
+  assert.match(YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE, /German/);
+  assert.match(YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE, /Never use English words/);
 });
 
 test('YouTube Motion V3 trennt Longform-Motion von Reel-Pflichten und bleibt technikoffen', () => {

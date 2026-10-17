@@ -4,7 +4,7 @@
 // Neue Reels erhalten Cover Hook V3: Titel ab Frame 0, Captions ab erstem gesprochenen Wort.
 // Zusätzlich gelten Quality Guards V1: IMAGE xor ANIMATION, tatsächliche Source-Diversität
 // und horizontale Animation-Safe-Zone mit Post-Render-Rand-QA.
-// Bildplanung bleibt: Literal first, creative second. Reel-Visual bleibt: Visual Y320–1400.
+// Neue Reels verwenden die kanonische FinanzNeo Editorial Finance Image World V1.
 
 import {spawnSync} from 'node:child_process';
 import {existsSync, readdirSync, rmSync, rmdirSync} from 'node:fs';
@@ -41,15 +41,14 @@ const run = (script, scriptArgs = []) => spawnSync(process.execPath, [resolve(sc
 const steps = [
   ['scripts/scaffold-finanzneo-reel.mjs', args],
   ['scripts/apply-flow-autonomous-contract.mjs', [target]],
-  ['scripts/apply-stylized-animated-black-world-v9.mjs', [target]],
+  ['scripts/apply-finanzneo-image-world-v1.mjs', [target]],
   ['scripts/apply-phase3-completion-contract.mjs', [target]],
   ['scripts/apply-reel-layout-v5.mjs', [target]],
   ['scripts/apply-phase1-animation-code-contract.mjs', [target]],
-  ['scripts/apply-premium-animation-v2.mjs', [target]],
+  ['scripts/apply-editorial-motion-v3.mjs', [target]],
   ['scripts/apply-scene01-cover-export-contract.mjs', [target]],
   ['scripts/apply-visual-beat-contract.mjs', [target]],
   ['scripts/apply-future-cover-hook-v3.mjs', [target]],
-  ['scripts/apply-future-image-storytelling-v3.mjs', [target]],
   ['scripts/apply-future-production-standard-v3.mjs', [target]],
   ['scripts/apply-future-reel-presentation-v1.mjs', [target]],
   ['scripts/apply-future-reel-phase1-motion-direction-v1.mjs', [target]],
@@ -66,13 +65,14 @@ for (const [script, scriptArgs] of steps) {
 
 console.log('\n✓ Neues Reel vollständig angelegt.');
 console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob.');
-console.log('  Bildwelt V9 + Storytelling V3: Literal first, creative second · reale Situation + Kontextanker + Voiceover-Match.');
+console.log('  Bildwelt: FinanzNeo Editorial Finance V1 · einfache first-glance Visuals · flexible Hintergründe · progressive Referenzfolgen erlaubt.');
 console.log('  Cover Hook V3: Hero-Bild + exakter Titel ab Frame 0; Captions ab erstem gesprochenen Wort.');
 console.log('  Szene-Typen: exakt IMAGE oder ANIMATION — kein Bild+Animations-Hybrid als Hauptvisual.');
 console.log('  IMAGE: Bild + Titel/Header/Icon + Caption; keine erklärende Remotion-Hauptanimation über dem Bild.');
 console.log('  ANIMATION: Remotion-Hauptanimation + Header/Icon + Caption; kein Flow-Bild als Hauptvisual.');
-console.log('  Motion Direction: Inhalt -> Verständnisziel -> beste Mechanik -> Finance Motion Library Best-Fit oder Custom-Build.');
-console.log('  Finance Motion Library: passende Mechaniken parametrisieren und wiederverwenden; keine passende Mechanik = individuell bauen.');
+console.log('  Motion: FinanzNeo Editorial Motion V3 · bewegte Version der neuen Bildwelt · 2D/2.5D bevorzugt · minimale klare Bewegung.');
+console.log('  Motion Direction: Inhalt -> Verständnisziel -> beste Mechanik -> V3 Motion Grammar + Best-Fit oder Custom-Build.');
+console.log('  Editorial Motion V3: erst 3 visuelle Konzepte, dann 4 Keyframes, Motion-Grammatik und erst danach Remotion-Code.');
 console.log('  Source Diversity Guard: tatsächliche animation.tsx-Primitives werden verglichen; Metadaten allein reichen nicht.');
 console.log('  Animation Safe Zone: X72–1008 · Visual Y320–1400 · perspektivischer Innenabstand + Post-Render-Rand-QA.');
 console.log('  Lottie/Icons/SVG sind Support, nicht automatisch eine neue Hauptanimation.');

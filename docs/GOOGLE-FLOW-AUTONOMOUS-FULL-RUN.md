@@ -20,7 +20,7 @@ ACTIVE_STEP = erstes benötigtes Bild
 → GENAU EIN Bildjob
 → vollständig auf Ergebnis warten
 → sofort exakt umbenennen
-→ nur dieses Bild per V9-QA prüfen
+→ nur dieses Bild per Editorial-Finance-QA prüfen
 → FAIL: dieselbe Bildnummer neu
 → PASS: genau nächsten Bildblock freischalten
 → bis zum letzten Bild wiederholen
@@ -42,43 +42,57 @@ MAX_CONCURRENT_GENERATIONS = 1
 - erst alle Bilder generieren und später gesammelt umbenennen
 - Nutzer nach jedem Bild um `weiter`, `okay` oder Freigabe bitten
 
+## Bildreferenzen
+
+Bildreferenzen sind **erlaubt und erwünscht**, wenn eine Szene als stufenweise Fortsetzung einer vorherigen Bildszene geplant ist.
+
+Dann gilt:
+
+1. Das vorherige Bild muss bereits fertig, umbenannt und freigegeben sein.
+2. Genau dieses freigegebene Bild wird als visuelle Referenz an Flow angehängt.
+3. Der neue Prompt bleibt vollständig und selbstständig formuliert.
+4. Der Prompt wiederholt die gesamte Grundkomposition.
+5. Nur die geplante neue Information oder kleine Änderung wird ergänzt.
+6. Bei einer weiteren Fortsetzung wird wieder das zuletzt freigegebene Bild als Referenz verwendet.
+
+Nur „gleiches Bild wie vorher“ oder „wie Szene 04“ im Text reicht **nicht**, wenn keine echte Referenzdatei angehängt ist.
+
+Unabhängige Szenen benötigen keine Bildreferenz.
+
 ## Warten
 
 `warten` bedeutet ausschließlich: intern auf die technische Rückgabe des **aktuell einzigen Bildjobs** warten.
 
 Es bedeutet niemals auf eine Nutzernachricht warten.
 
-## V9-QA nach jedem Einzelbild
+## QA nach jedem Einzelbild
 
 Prüfen:
 
-- korrekte Beat-Zuordnung
-- exakter finaler Dateiname
-- `1:1`
-- stylized 3D animated V9
-- tiefschwarzer cleaner Hintergrund
-- keine feste Objektquote; nur sinnvolle Objekte
-- erlaubte Labels korrekt
-- Person mit erkennbarem Gesicht, falls Person nötig
-- Marken erkennbar aber stilisiert; kein Screenshot/Flat-Paste
-- keine UI/Dashboard/Flowchart/Diorama/Clutter
+- passt exakt zum Sprechgedanken
+- Hauptidee auf den ersten Blick verständlich
+- saubere, bewusst gestaltete Editorial-Komposition
+- wenige sinnvolle große Elemente statt unnötiger visueller Dichte
+- Text/Labels nur wenn hilfreich und lesbar
+- keine unnötige AI-Slop-/Neon-/Dashboard-/Miniaturwelt-Optik
+- bei Fortsetzungs-Szenen: Referenzkomposition bleibt stabil und nur die geplante Änderung wurde vorgenommen
+- korrekter finaler Dateiname
+- korrektes Quellformat
 
 Bei Fehler bleibt der nächste Bildblock gesperrt.
 
-## Nummerierung
+## Bildwelt
 
-- Cover = `Bild 00`
-- Bildnummer = echte Szenennummer
-- Animationsnummern bleiben reserviert und erzeugen kein Bild
+Kanonische Bildwelt:
 
-## Keine Bildreferenz
+```text
+finanzneo-editorial-finance-v1
+```
 
-Kein Cover und kein vorheriges Szenenbild als Image-to-Image-/Referenzbild verwenden. Die Same-World-Konsistenz entsteht über den geschriebenen V9-Lock.
+Regeln: `docs/FINANZNEO-IMAGE-WORLD.md`.
 
 ## Technische Absicherung
 
 - `npm run reel:create` setzt den Vertrag über den zentralen Flow-Contract.
 - `npm run reel:validate -- <Reel-Pfad>` prüft ihn.
 - `npm run reel:ready -- <Reel-Pfad>` blockiert Phase 3, wenn der Vertrag verletzt ist.
-
-Der alte Modus `finanzneo-flow-autonomous-full-run-v2` ist nicht mehr aktiv, weil er von Agenten als Batch-Auftrag missverstanden werden konnte.

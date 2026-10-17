@@ -1,0 +1,5 @@
+Kernversprechen: 9,99 € im Monat sind 119,88 € im Jahr.
+Fokuspunkt: großes rotes Preisschild „9,99 €“, daran ein langer Kassenzettel, der unten in „119,88 €“ endet.
+Kontrast: warmes Creme gegen kräftiges Rot und dunkle Schrift; wenige große Elemente.
+Textoption: „Die Abo-Falle“ (links, groß, dunkel). Alternative: „9,99 € = 119,88 €“.
+Datei: YouTube Thumbnail - Abo-Falle 119,88.png (Prompt in 04-visuals/thumbnail-prompt.txt).

@@ -1,3 +1,4 @@
+import {basename, resolve} from 'node:path';
 import {
   FLOW_AGENT_PROTOCOL_ID,
   FLOW_AGENT_PROTOCOL_MARKER,
@@ -26,6 +27,13 @@ export {
   YOUTUBE_IMAGE_VISUAL_TYPES,
 };
 
+// YouTube: Google Flow arbeitet in Batches von bis zu 5 Bildern gleichzeitig (Arman, 10.10.2026).
+// Das alte Einzelbild-Protokoll (FLOW_AGENT_PROTOCOL_ID) bleibt für bestehende Projekte gültig.
+export const YOUTUBE_FLOW_PROTOCOL_ID = 'finanzneo-flow-batch5-v1';
+export const YOUTUBE_FLOW_PROTOCOL_MARKER = `FLOW_AGENT_PROTOCOL: ${YOUTUBE_FLOW_PROTOCOL_ID}`;
+export const YOUTUBE_FLOW_BATCH_SIZE = 5;
+export const YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE = 'All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.';
+
 export const GENERATED_IMAGE_ASPECT_RATIO = '16:9';
 export const GENERATED_IMAGE_ASPECT_MARKER = `GENERATED_IMAGE_ASPECT_RATIO: ${GENERATED_IMAGE_ASPECT_RATIO}`;
 export const YOUTUBE_VIDEO_ASPECT_RATIO = '16:9';
@@ -33,10 +41,37 @@ export const YOUTUBE_VIDEO_WIDTH = 1920;
 export const YOUTUBE_VIDEO_HEIGHT = 1080;
 export const YOUTUBE_VIDEO_FPS = 30;
 
+// Projektordner (Arman, 10.10.2026): nur das Nötige sichtbar, alles andere unter _intern/.
+//
+//   youtube/<Projekt>/
+//   ├── 1-script/script.txt              Sprechtext
+//   ├── 2-bildprompts/bildprompts.txt    alle Flow-Prompts inkl. Thumbnail (5er-Batches)
+//   ├── 3-bilder-hier-rein/              Flow-Bilder
+//   ├── 4-audio-hier-rein/               genau eine Sprachaufnahme
+//   ├── 5-export/                        cover.png · video.mp4 · caption.txt · untertitel-zeitstempel.txt
+//   └── _intern/                         Recherche, Visual-Index, Animationen, Zeitplan, Publishing …
+//
+// Alle Pfade unten sind relativ zu _intern/ (der „root“ aller YouTube-Skripte).
+export const INTERN_DIR = '_intern';
+export const SCRIPT_FILE = '../1-script/script.txt';
+export const ALL_PROMPTS = '../2-bildprompts/bildprompts.txt';
+export const IMAGE_INBOX = '../3-bilder-hier-rein';
+export const AUDIO_INBOX = '../4-audio-hier-rein';
+export const EXPORT_DIR = '../5-export';
+export const EXPORT_FILES = {
+  cover: `${EXPORT_DIR}/cover.png`,
+  video: `${EXPORT_DIR}/video.mp4`,
+  caption: `${EXPORT_DIR}/caption.txt`,
+  untertitel: `${EXPORT_DIR}/untertitel-zeitstempel.txt`,
+};
 export const VISUAL_INDEX = '04-visuals/visual-index.json';
-export const ALL_PROMPTS = '04-visuals/alle-bildprompts.txt';
-export const IMAGE_INBOX = '04-visuals/00-ALLE-BILDER-HIER-REIN';
 export const WORD_TIMINGS = '03-audio/word-timings.json';
+
+/** Projektpfad (youtube/<Projekt>) → interner root. Akzeptiert auch direkt den _intern-Pfad. */
+export const internWurzel = (projekt) => {
+  const pfad = resolve(projekt);
+  return basename(pfad) === INTERN_DIR ? pfad : resolve(pfad, INTERN_DIR);
+};
 export const ANIMATION_SEAL = '06-projektdateien/animation-seal.json';
 
 export const SUBTITLE_MODE = 'sentence-with-audio-synced-active-word';
@@ -66,7 +101,7 @@ export const SOCIAL_PROMO_FILES = {
 export const PHASE_1_FILES = [
   '01-recherche/briefing.md',
   '01-recherche/recherche-quellen.md',
-  '02-script/script-fliess-text.txt',
+  SCRIPT_FILE,
   '02-script/kapitel-dramaturgie.md',
   '02-script/retention-plan.md',
   ALL_PROMPTS,
@@ -77,6 +112,29 @@ export const PHASE_1_FILES = [
   ...Object.values(YOUTUBE_PUBLISHING_FILES),
   ...Object.values(SOCIAL_PROMO_FILES),
 ];
+
+// Qualitätsregeln aus dem Feedback zum ersten Video (Arman, 10.10.2026). Gelten für Projekte mit
+// `qualityRules: YOUTUBE_QUALITY_RULES_ID`; ältere Projekte werden nicht rückwirkend migriert.
+export const YOUTUBE_QUALITY_RULES_ID = 'finanzneo-youtube-quality-v1';
+/** Sprechtempo des echten FinanzNeo-Voiceovers (Abo-Falle + Supermarkt-Tricks gemessen). */
+export const YOUTUBE_SPEECH_WPM = 154;
+/** Ein Standbild ohne neue sichtbare Information höchstens so lange (geschätzt aus dem Skript). */
+export const YOUTUBE_IMAGE_MAX_HOLD_SECONDS = 8;
+/** Nach echtem Audio: ab hier warnt der Zusammenbau. */
+export const YOUTUBE_IMAGE_WARN_HOLD_SECONDS = 10;
+/** Hook: bis zum ersten inhaltlichen Kapitel höchstens so lange. */
+export const YOUTUBE_HOOK_MAX_SECONDS = 20;
+/** Die Kommentarfrage steht im mittleren Teil des Skripts (Anteil der Wörter). */
+export const YOUTUBE_COMMENT_CTA_WINDOW = [0.3, 0.75];
+export const YOUTUBE_COMMENT_CTA_PATTERN = /kommentar/i;
+/** Endkarte nach dem Voiceover für die YouTube-Endelemente (Studio erlaubt 5–20 s). */
+export const YOUTUBE_ENDCARD_SECONDS = 15;
+/** Optionale Hintergrundmusik (nur _intern/, nie im Nutzer-Audio-Ordner) und ihr Pegel unter der Stimme. */
+export const YOUTUBE_MUSIC_FILES = ['03-audio/musik.mp3', '03-audio/musik.wav', '03-audio/musik.m4a'];
+export const YOUTUBE_MUSIC_GAIN_DB = -24;
+/** Bildwelt: Das Thumbnail wird zuerst erzeugt und hängt als Stilvorlage an jedem Bild. */
+export const YOUTUBE_STYLE_MASTER = 'thumbnail';
+export const YOUTUBE_STYLE_REFERENCE_MARKER = 'STYLE_REFERENCE:';
 
 export const FORBIDDEN_YOUTUBE_ARTIFACTS = [
   'youtube-shorts.txt',

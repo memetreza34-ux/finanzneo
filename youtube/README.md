@@ -2,6 +2,29 @@
 
 Dieser Bereich ist ausschließlich für eigenständige längere FinanzNeo-Videos. Keine YouTube Shorts und keine gestreckten Reel-Kopien.
 
+## Ordner eines Projekts
+
+```text
+1-script/            Sprechtext
+2-bildprompts/       alle Flow-Prompts (5er-Batches)
+3-bilder-hier-rein/  Flow-Bilder rein
+4-audio-hier-rein/   Sprachaufnahme rein
+5-export/            Cover, Video, Caption, Untertitel mit Zeitstempeln
+_intern/             alles andere
+```
+
+## Ablauf
+
+```bash
+npm run youtube:create -- --target youtube/<Projekt> --title "Titel"
+npm run youtube:zusammenbau -- youtube/<Projekt> --whisper <whisper.json>
+npm run youtube:render -- youtube/<Projekt>
+```
+
+- Sprachaufnahme in mehreren Teilen? Alle Teile in `4-audio-hier-rein/` legen — sie werden automatisch zu einer `voiceover.wav` verbunden.
+- Optionale Hintergrundmusik: `_intern/03-audio/musik.mp3` (lizenzfrei), wird leise untergemischt.
+- Neue Projekte prüfen automatisch: Standbilder max. 8 s, Hook max. 20 s, Kommentarfrage in der Mitte, Endkarte 15 s, Bilder nur Illustration mit Thumbnail als Stilvorlage. Details: [Produktionsstandard](PRODUKTIONSSTANDARD.md#qualitätsregeln-v1-finanzneo-youtube-quality-v1-arman-10102026).
+
 ## Neues Projekt
 
 ```bash
@@ -40,3 +63,9 @@ Verbindlich:
 - `CLAUDE.md`
 
 `youtube:ready` gibt Phase 3 nur frei, wenn Recherche, Skript, Visuals, produktionsreife und Motion-V3-versiegelte Quellen, Publishing-Paket, alle exakten 16:9-Nutzerbilder, genau ein finales Voiceover und echte Wort-Timings vollständig sind.
+
+## Claude Code Motion Test (isoliertes Experiment)
+
+Zum Test des mit `claude-opus-5-5` konfigurierten Motion-Directors ohne Produktionsvideo:
+`tests/claude-motion/README.md`. Der Test startet mit `claude --agent finanzneo-motion-director`
+und dem Slash-Befehl `/finanzneo-motion-test` im zugehörigen Feature-Branch.

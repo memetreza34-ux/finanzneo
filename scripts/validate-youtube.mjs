@@ -25,7 +25,17 @@ import {
   YOUTUBE_VIDEO_HEIGHT,
   YOUTUBE_VIDEO_WIDTH,
   YOUTUBE_VISUAL_TYPES,
+  YOUTUBE_FLOW_BATCH_SIZE,
+  YOUTUBE_FLOW_PROTOCOL_ID,
+  YOUTUBE_FLOW_PROTOCOL_MARKER,
+  YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE,
+  AUDIO_INBOX,
+  EXPORT_DIR,
+  SCRIPT_FILE,
+  YOUTUBE_QUALITY_RULES_ID,
+  internWurzel,
 } from './lib/youtube-contract.mjs';
+import {pruefeYouTubeQualitaet} from './lib/youtube-quality.mjs';
 import {
   requiresYouTubeImage,
   requiresYouTubeMotion,
@@ -39,7 +49,7 @@ if (!target) {
   process.exit(1);
 }
 
-const root = resolve(target);
+const root = internWurzel(target);
 const relativeTarget = relative(resolve('youtube'), root);
 if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(sep).includes('..')) {
   console.error('Ziel muss ein YouTube-Projekt unter youtube/ sein.');
@@ -49,7 +59,7 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
 const errors = [];
 const assert = (condition, message) => { if (!condition) errors.push(message); };
 const read = (relativePath) => readFileSync(resolve(root, relativePath), 'utf8');
-const requiredDirectories = ['01-recherche', '02-script', '03-audio', '04-visuals', '05-publishing', '06-projektdateien', IMAGE_INBOX];
+const requiredDirectories = ['01-recherche', '02-script', '03-audio', '04-visuals', '05-publishing', '06-projektdateien', '../1-script', '../2-bildprompts', IMAGE_INBOX, AUDIO_INBOX, EXPORT_DIR];
 for (const directory of requiredDirectories) {
   assert(existsSync(resolve(root, directory)) && statSync(resolve(root, directory)).isDirectory(), `${directory}/ fehlt.`);
 }
@@ -62,7 +72,7 @@ const findForbidden = (directory) => {
     else if (FORBIDDEN_YOUTUBE_ARTIFACTS.includes(entry.toLowerCase())) errors.push(`YouTube-Shorts-Artefakt verboten: ${path}`);
   }
 };
-findForbidden(root);
+findForbidden(resolve(root, '..'));
 
 let index = null;
 if (!existsSync(resolve(root, VISUAL_INDEX))) {
@@ -90,17 +100,32 @@ if (index) {
   assert(index.imageWorld?.seriesLockId === SERIES_LOCK_ID, 'FinanzNeo Same-World-Lock fehlt.');
   assert(index.imageWorld?.generatedImageAspectRatio === GENERATED_IMAGE_ASPECT_RATIO, 'YouTube-Quellbilder müssen 16:9 sein.');
   assert(index.imageWorld?.horizontalGeneratedImagesRequired === true, 'Horizontale 16:9-Quellbilder müssen verpflichtend sein.');
-  assert(index.imageWorld?.sameWorldAcrossSeriesRequired === true, 'Dieselbe Bildwelt muss für die ganze Serie vorgeschrieben sein.');
-  assert(index.imageWorld?.literalFirst === true && index.imageWorld?.metaphorOptional === true, 'YouTube-Bilder müssen Literal-first V3 verwenden.');
-  assert(index.imageWorld?.styleReferenceStrategy === 'approved-thumbnail-style-only', 'Das freigegebene Thumbnail muss reine Stilreferenz sein.');
+  assert(index.imageWorld?.authority === 'docs/FINANZNEO-IMAGE-WORLD.md', 'Kanonische Bildwelt-Quelle fehlt.');
+  assert(index.imageWorld?.promptLanguage === 'en', 'YouTube-Bildprompts müssen Englisch sein.');
+  assert(index.imageWorld?.flexibleBackgrounds === true, 'YouTube-Bilder müssen flexible Hintergründe erlauben.');
+  assert(index.imageWorld?.fixedBlackBackgroundForbidden === true, 'Schwarzer Pflicht-Hintergrund darf nicht aktiv sein.');
+  assert(index.imageWorld?.fixed3DRenderingForbidden === true, 'Fester 3D-Renderstil darf nicht aktiv sein.');
+  assert(index.imageWorld?.firstGlanceUnderstandingRequired === true, 'First-glance clarity muss aktiv sein.');
+  assert(index.imageWorld?.progressiveSequencesAllowed === true, 'Progressive Bildfolgen müssen erlaubt sein.');
+  assert(index.imageWorld?.approvedPriorImageReferenceAllowed === true, 'Freigegebene Vorbild-Referenzen müssen erlaubt sein.');
   assert(index.imageWorld?.referencePromptFile === '04-visuals/bildwelt.txt', 'referencePromptFile ist falsch.');
   assert(index.motionStandard?.id === YOUTUBE_MOTION_STANDARD_ID, `motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
   assert(index.motionStandard?.contentFirstTechniqueSelection === true, 'Motion-Technik muss aus dem Inhalt gewählt werden.');
   assert(index.motionStandard?.existingComponentsOptional === true && index.motionStandard?.physicalPrimitivesOptional === true, 'Bestehende/Physical-Primitives müssen optional bleiben.');
-  assert(index.googleFlow?.protocolId === FLOW_AGENT_PROTOCOL_ID, 'Google-Flow-Agent-Protokoll fehlt.');
-  assert(index.googleFlow?.generationMode === 'one-image-at-a-time' && index.googleFlow?.strictSequential === true, 'Google Flow muss strikt Bild für Bild arbeiten.');
-  assert(index.googleFlow?.waitForCurrentImage === true && index.googleFlow?.renameBeforeNext === true && index.googleFlow?.qaBeforeNext === true, 'Google Flow muss warten, umbenennen und prüfen, bevor es fortfährt.');
+  if (index.googleFlow?.protocolId === YOUTUBE_FLOW_PROTOCOL_ID) {
+    assert(index.googleFlow?.generationMode === 'parallel-batches' && index.googleFlow?.batchSize === YOUTUBE_FLOW_BATCH_SIZE && index.googleFlow?.oneJobPerImage === true, `Google Flow muss in Batches von höchstens ${YOUTUBE_FLOW_BATCH_SIZE} Einzelbild-Jobs arbeiten.`);
+    assert(index.googleFlow?.waitForBatch === true && index.googleFlow?.renameImmediately === true && index.googleFlow?.qaBeforeNextBatch === true, 'Google Flow muss jeden Batch abwarten, sofort umbenennen und prüfen, bevor der nächste startet.');
+    assert(index.googleFlow?.germanTextOnly === true, 'Bildtexte müssen deutsch sein (googleFlow.germanTextOnly).');
+  } else {
+    // Bestehende Projekte mit dem früheren Einzelbild-Protokoll bleiben gültig.
+    assert(index.googleFlow?.protocolId === FLOW_AGENT_PROTOCOL_ID, 'Google-Flow-Agent-Protokoll fehlt.');
+    assert(index.googleFlow?.generationMode === 'one-image-at-a-time' && index.googleFlow?.strictSequential === true, 'Google Flow muss strikt Bild für Bild arbeiten.');
+    assert(index.googleFlow?.waitForCurrentImage === true && index.googleFlow?.renameBeforeNext === true && index.googleFlow?.qaBeforeNext === true, 'Google Flow muss warten, umbenennen und prüfen, bevor es fortfährt.');
+  }
   assert(index.googleFlow?.retrySameImageOnFailure === true, 'Fehlerhafte Bilder müssen unter derselben Nummer neu erzeugt werden.');
+  assert(index.googleFlow?.referenceImagesAllowed === true, 'Bildreferenzen müssen erlaubt sein.');
+  assert(index.googleFlow?.continuationReferenceRequiredWhenDeclared === true, 'Deklarierte Fortsetzungs-Visuals müssen eine Referenz verwenden.');
+  assert(index.googleFlow?.referenceMustUseApprovedPriorImage === true, 'Referenz muss aus einem freigegebenen vorherigen Bild stammen.');
   assert(index.googleFlow?.finalCollectionDirectory === `${IMAGE_INBOX}/`, 'Finaler gemeinsamer Bilderordner ist falsch.');
   assert(index.googleFlow?.distributeToVisualFolders === false, 'Google Flow darf Bilder nicht auf Visual-Ordner verteilen.');
   assert(index.timelineRules?.cutsFollowVoiceAndChapters === true && index.timelineRules?.beatFirst === true, 'Schnitte müssen Voiceover/Beats/Kapiteln folgen.');
@@ -134,10 +159,14 @@ if (index) {
       imageFileNames.add(visual.googleFlowFileName);
       const imagePlan = visual.type === 'hybrid' ? visual.imagePlanFile : visual.planFile;
       assert(typeof imagePlan === 'string' && imagePlan.endsWith('/bildprompt.txt') && existsSync(resolve(root, imagePlan)), `${id}: bildprompt.txt fehlt.`);
+      if (visual.imageSequence?.mode === 'continuation') {
+        assert(typeof visual.imageSequence.referenceVisualId === 'string' && visual.imageSequence.referenceVisualId.trim(), `${id}: continuation benötigt referenceVisualId.`);
+        assert(typeof visual.imageSequence.plannedChange === 'string' && visual.imageSequence.plannedChange.trim(), `${id}: continuation benötigt plannedChange.`);
+      }
       if (typeof imagePlan === 'string' && existsSync(resolve(root, imagePlan))) {
         const prompt = readFileSync(resolve(root, imagePlan), 'utf8');
-        for (const marker of ['LITERAL_REAL_WORLD_SITUATION:', 'REAL_WORLD_CONTEXT_ANCHOR:', 'VOICEOVER_VISUAL_MATCH:', 'TRANSFERABILITY_TEST:', 'VISUAL_STRATEGY:', 'METAPHOR_JUSTIFICATION:']) {
-          assert(prompt.includes(marker), `${id}: Literal-first Marker fehlt: ${marker}`);
+        for (const marker of ['REFERENCE_IMAGE:', 'IMAGE PROMPT:', 'FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1']) {
+          assert(prompt.includes(marker), `${id}: Bildprompt-Marker fehlt: ${marker}`);
         }
       }
     }
@@ -153,6 +182,24 @@ if (index) {
     }
   }
   errors.push(...validateYouTubeMotionVariety(index.visuals ?? []));
+
+  // Qualitätsregeln (finanzneo-youtube-quality-v1): Haltezeit, Hook, Kommentarfrage, Stilvorlage.
+  if (index.qualityRules === YOUTUBE_QUALITY_RULES_ID) {
+    const scriptPath = resolve(root, SCRIPT_FILE);
+    if (!existsSync(scriptPath)) errors.push(`${SCRIPT_FILE} fehlt.`);
+    else {
+      const {fehler} = pruefeYouTubeQualitaet({
+        index,
+        scriptText: read(SCRIPT_FILE),
+        prompts: existsSync(resolve(root, ALL_PROMPTS)) ? read(ALL_PROMPTS) : '',
+        bildprompt: (visual) => {
+          const plan = visual.type === 'hybrid' ? visual.imagePlanFile : visual.planFile;
+          return plan && existsSync(resolve(root, plan)) ? read(plan) : '';
+        },
+      });
+      errors.push(...fehler);
+    }
+  }
 }
 
 if (existsSync(resolve(root, ALL_PROMPTS))) {
@@ -160,13 +207,22 @@ if (existsSync(resolve(root, ALL_PROMPTS))) {
   assert(prompts.includes(WORLD_ID_MARKER), `${ALL_PROMPTS} verwendet nicht die FinanzNeo World ID.`);
   assert(prompts.includes(SERIES_LOCK_MARKER), `${ALL_PROMPTS} enthält keinen Same-World-Lock.`);
   assert(prompts.includes(GENERATED_IMAGE_ASPECT_MARKER), `${ALL_PROMPTS} schreibt 16:9 nicht vor.`);
-  assert(prompts.includes(FLOW_AGENT_PROTOCOL_MARKER), `${ALL_PROMPTS} enthält kein Flow-Protokoll.`);
-  assert(prompts.includes('Generate exactly ONE image'), 'Google Flow muss exakt ein Bild pro Schritt erzeugen.');
-  assert(prompts.includes('Rename it immediately'), 'Sofortige Umbenennung vor dem nächsten Bild fehlt.');
+  if (prompts.includes(YOUTUBE_FLOW_PROTOCOL_MARKER)) {
+    assert(prompts.includes(`MAX. ${YOUTUBE_FLOW_BATCH_SIZE} IMAGES IN PARALLEL`) && /BATCH 1 — START ALL TOGETHER/.test(prompts), `${ALL_PROMPTS}: Batch-Workflow mit höchstens ${YOUTUBE_FLOW_BATCH_SIZE} Bildern fehlt.`);
+    for (const batch of prompts.matchAll(/BATCH \d+ — START ALL TOGETHER: ([^\n]+)/g)) {
+      assert(batch[1].split(',').length <= YOUTUBE_FLOW_BATCH_SIZE, `${ALL_PROMPTS}: ein Batch hat mehr als ${YOUTUBE_FLOW_BATCH_SIZE} Bilder.`);
+    }
+    assert(prompts.includes('each as its own single-image job'), 'Jedes Bild muss ein eigener Job bleiben (kein Sammel-Request).');
+    assert(prompts.includes(YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE), 'Regel „nur deutscher Text im Bild“ fehlt in der Flow-Übergabe.');
+  } else {
+    assert(prompts.includes(FLOW_AGENT_PROTOCOL_MARKER), `${ALL_PROMPTS} enthält kein Flow-Protokoll.`);
+    assert(prompts.includes('Generate exactly ONE image'), 'Google Flow muss exakt ein Bild pro Schritt erzeugen.');
+  }
+  assert(prompts.includes('Rename it immediately') || prompts.includes('rename it immediately'), 'Sofortige Umbenennung fehlt.');
   assert(prompts.includes('regenerate the same image number'), 'Wiederholungsregel für fehlerhafte Bilder fehlt.');
-  assert(prompts.includes(IMAGE_INBOX), 'Gemeinsamer Bilderordner fehlt in der Flow-Übergabe.');
+  assert(prompts.includes(IMAGE_INBOX.replace(/^\.\.\//, '')), 'Gemeinsamer Bilderordner fehlt in der Flow-Übergabe.');
   assert(prompts.includes('horizontal 16:9'), 'Horizontales 16:9-Quellbild fehlt in der Flow-Übergabe.');
-  assert(prompts.includes('Literal first, creative second'), 'Literal-first Bildlogik fehlt in der Flow-Übergabe.');
+  assert(prompts.includes('FinanzNeo Editorial Finance V1'), 'Editorial-Finance-Bildlogik fehlt in der Flow-Übergabe.');
   assert(!/square 1:1 source image|portrait 9:16|vertical 9:16 image/i.test(prompts), 'YouTube-Prompts enthalten ein falsches Quellbildformat.');
 }
 
@@ -188,4 +244,4 @@ if (errors.length > 0) {
 }
 
 console.log('\n✓ YouTube-Longform-Vertrag erfüllt.');
-console.log('  16:9 · Beat-first · Literal-first V3 · Motion V2 · sequenzieller Flow · keine Shorts');
+console.log('  16:9 · Beat-first · Editorial Finance V1 · progressive Referenzen erlaubt · Flow-Protokoll geprüft · keine Shorts');

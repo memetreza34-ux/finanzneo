@@ -1,0 +1,837 @@
+{
+  "version": 3,
+  "title": "Die Abo-Falle",
+  "format": "youtube-longform",
+  "shortsForbidden": true,
+  "fixedVisualCount": false,
+  "fixedImageAnimationRatio": false,
+  "video": {
+    "aspectRatio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "thumbnail": {
+    "type": "image",
+    "googleFlowFileName": "YouTube Thumbnail - Abo-Falle 119,88.png",
+    "planFile": "04-visuals/thumbnail-prompt.txt"
+  },
+  "userCreatesImages": true,
+  "antigravityGeneratesImages": false,
+  "googleFlow": {
+    "protocolId": "finanzneo-flow-sequential-v1",
+    "generationMode": "one-image-at-a-time",
+    "strictSequential": true,
+    "waitForCurrentImage": true,
+    "renameBeforeNext": true,
+    "qaBeforeNext": true,
+    "retrySameImageOnFailure": true,
+    "referenceImagesAllowed": true,
+    "continuationReferenceRequiredWhenDeclared": true,
+    "referenceMustUseApprovedPriorImage": true,
+    "finalCollectionDirectory": "../3-bilder-hier-rein/",
+    "distributeToVisualFolders": false
+  },
+  "imageWorld": {
+    "id": "finanzneo-editorial-finance-v1",
+    "seriesLockId": "finanzneo-editorial-consistency-v1",
+    "authority": "docs/FINANZNEO-IMAGE-WORLD.md",
+    "generatedImageAspectRatio": "16:9",
+    "horizontalGeneratedImagesRequired": true,
+    "referencePromptFile": "04-visuals/bildwelt.txt",
+    "promptLanguage": "en",
+    "primaryStyle": "clean-editorial-finance-illustration",
+    "flexibleBackgrounds": true,
+    "fixedBlackBackgroundForbidden": true,
+    "fixed3DRenderingForbidden": true,
+    "twoDAllowed": true,
+    "subtleTwoPointFiveDAllowed": true,
+    "selectiveSimple3DAllowed": true,
+    "firstGlanceUnderstandingRequired": true,
+    "oneCoreIdeaPerImageRequired": true,
+    "progressiveSequencesAllowed": true,
+    "approvedPriorImageReferenceAllowed": true,
+    "genericHeadlineByDefault": false,
+    "aiSlopAvoidanceRequired": true
+  },
+  "motionStandard": {
+    "id": "finanzneo-youtube-motion-v3",
+    "visualMotionWorld": "finanzneo-youtube-light-motion-v2",
+    "visualTargetWorld": "finanzneo-youtube-light-motion-v2",
+    "minimumMotionPreferred": false,
+    "motionDensityStoryDriven": true,
+    "cameraStillDefault": true,
+    "cameraStoryDriven": false,
+    "staticImageStyleCopyRequired": false,
+    "youtubeNativeCompositionRequired": true,
+    "conceptCandidatesRequired": 3,
+    "keyframeQaRequired": true,
+    "keyframeQaPercentages": [
+      10,
+      35,
+      65,
+      90
+    ],
+    "fixed3DStyleForbidden": true,
+    "fixedArtDirectionForbidden": false,
+    "flexibleBackgrounds": true,
+    "darkBackgroundAllowed": false,
+    "blackBackgroundAllowed": false,
+    "full3DAllowed": false,
+    "simpleComparisonAllowed": true,
+    "chartAllowed": true,
+    "sceneArtDirectionOpen": false,
+    "mixedStyleAcrossScenesAllowed": true,
+    "brandStyleMatchRequired": false,
+    "lightBackgroundRequired": true,
+    "flat2DPreferred": true,
+    "genericSceneHeadlinesForbidden": true,
+    "viewerChangeFirstRequired": true,
+    "contentFirstTechniqueSelection": true,
+    "openTechniqueSelection": true,
+    "compositionFamiliesAreExamplesOnly": true,
+    "motionSignatureRequired": true,
+    "recentMotionWindow": 4,
+    "customReactAllowed": true,
+    "svgAllowed": true,
+    "css3dAllowed": false,
+    "canvasAllowed": true,
+    "threeAllowed": false,
+    "hybridAllowed": true,
+    "dataVisualizationAllowed": true,
+    "existingComponentsOptional": true,
+    "physicalPrimitivesOptional": true,
+    "semanticVariationRequired": false
+  },
+  "timelineRules": {
+    "timingSource": "03-audio/word-timings.json",
+    "cutsFollowVoiceAndChapters": true,
+    "equalLengthVisualsForbiddenByDefault": true,
+    "beatFirst": true
+  },
+  "audio": {
+    "targetIntegratedLufs": -16,
+    "targetTruePeakDbtp": -1
+  },
+  "publishing": {
+    "youtube": {
+      "titleOptions": "05-publishing/title-options.txt",
+      "finalTitle": "05-publishing/final-title.txt",
+      "description": "05-publishing/description.txt",
+      "chapters": "05-publishing/chapters.txt",
+      "tagsKeywords": "05-publishing/tags-keywords.txt",
+      "hashtags": "05-publishing/hashtags.txt",
+      "thumbnailBrief": "05-publishing/thumbnail-brief.txt",
+      "pinnedComment": "05-publishing/pinned-comment.txt",
+      "communityPost": "05-publishing/community-post.txt",
+      "sourcesDisclaimer": "05-publishing/sources-disclaimer.txt",
+      "uploadChecklist": "05-publishing/upload-checklist.md"
+    },
+    "socialPromo": {
+      "instagram": "05-publishing/social-promo/instagram.txt",
+      "tiktok": "05-publishing/social-promo/tiktok.txt",
+      "facebook": "05-publishing/social-promo/facebook.txt",
+      "snapchat": "05-publishing/social-promo/snapchat.txt"
+    }
+  },
+  "visuals": [
+    {
+      "id": "visual-01",
+      "type": "animation",
+      "chapter": "Kapitel 1 — 9,99 € sind nicht 9,99 €",
+      "scriptBeat": "9,99 € × 12 = 119,88 € für ein einziges Abo",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-01/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-01/animation.tsx",
+      "animationExport": "YouTubeVisual01Animation",
+      "viewerChange": "Eine einzelne Abbuchung von 9,99 € wird sichtbar zu zwölf Abbuchungen und verschmilzt zu 119,88 € im Jahr.",
+      "animationIntent": "Der Zuschauer soll den Jahresbetrag nicht ausrechnen müssen, sondern sehen, wie er Monat für Monat entsteht.",
+      "mechanicId": "card-to-chip-monthly-stack-merge",
+      "visualTechniqueId": "magic-move-calendar-year-bar",
+      "techniqueDescription": "Abbuchungskarte schrumpft samt Inhalt zum Januar-Chip; jeder Monat wirft einen Chip unter seinem Monat in einen wertgenauen Jahresbalken; Zähler springt beim Landen; Chips verschmelzen, Klammer zeichnet sich.",
+      "compositionFamilyId": "single-object-transformation",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "@remotion/paths",
+        "src/youtube-motion/szenen/AboJahr.tsx",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still, leichter Push beim Ergebnis",
+        "layout": "Monatsleiste oben, Jahresbalken darunter, Summe mittig",
+        "transformation": "Karte → Chip → Balken → Summe (Magic Move)"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Karte schrumpft zum Chip",
+        "Chips fallen in den Balken",
+        "Zähler springt",
+        "Verschmelzen und Klammer"
+      ],
+      "visualBeats": [
+        "Abbuchungskarte −9,99 €",
+        "Karte wird Januar-Chip",
+        "Zwölf Chips im Jahresbalken",
+        "119,88 € im Jahr"
+      ],
+      "startCue": "Neun Euro neunundneunzig im Monat",
+      "beatCues": [
+        "Neun Euro neunundneunzig",
+        "nicht einmal",
+        "zwölfmal",
+        "hundertneunzehn"
+      ]
+    },
+    {
+      "id": "visual-02",
+      "type": "image",
+      "chapter": "Kapitel 1 — 9,99 € sind nicht 9,99 €",
+      "scriptBeat": "Und kaum jemand hat nur eins.",
+      "googleFlowFileName": "YouTube Bild 02 - Mehrere Abos.png",
+      "expectedVisual": "Handy mit fünf Abo-Apps, an jeder hängt ein Preisschild",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-02/bildprompt.txt",
+      "startCue": "Und kaum jemand hat nur eins",
+      "objectLabels": [
+        "Smartphone",
+        "Abo-Apps",
+        "Preisschilder"
+      ]
+    },
+    {
+      "id": "visual-03",
+      "type": "data",
+      "chapter": "Kapitel 2 — Was Abos wirklich kosten",
+      "scriptBeat": "Haushalt mit Digital-Abos: 55 € → 62 € im Monat = 744 € im Jahr",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-03/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-03/animation.tsx",
+      "animationExport": "YouTubeVisual03Animation",
+      "viewerChange": "Die Monatsausgabe 62 € (Vorjahr 55 €) wird zwölfmal aneinandergereiht und ergibt 744 € im Jahr.",
+      "animationIntent": "Steigerung und Jahresbetrag direkt aus derselben Säule zeigen.",
+      "mechanicId": "monthly-column-replicates-into-year",
+      "visualTechniqueId": "column-compare-then-twelvefold-row",
+      "techniqueDescription": "Zwei wertgenaue Säulen 55 €/62 € mit +7-€-Marke; die 62-€-Säule schrumpft in eine Reihe und verzwölffacht sich, Zähler zählt in 62-€-Schritten.",
+      "compositionFamilyId": "value-comparison-to-repetition",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "spring",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "zwei Säulen mittig → Zwölferreihe unten, Zähler oben",
+        "transformation": "Säule wächst, Vergleich, dann Replikation zur Reihe"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Säulen wachsen",
+        "Säule wird Reihe",
+        "Zähler zählt"
+      ],
+      "visualBeats": [
+        "62 € pro Monat",
+        "55 € im Vorjahr",
+        "744 € im Jahr"
+      ],
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-03/data-notes.md",
+      "startCue": "Laut der aktuellen Submix-Studie",
+      "beatCues": [
+        "zweiundsechzig Euro",
+        "fünfundfünfzig",
+        "siebenhundertvierundvierzig"
+      ]
+    },
+    {
+      "id": "visual-04",
+      "type": "data",
+      "chapter": "Kapitel 2 — Was Abos wirklich kosten",
+      "scriptBeat": "Fast jeder fünfte Haushalt zahlt mehr als 100 € im Monat",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-04/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-04/animation.tsx",
+      "animationExport": "YouTubeVisual04Animation",
+      "viewerChange": "Von 100 Haushalten färben sich 19 rot — fast jeder fünfte zahlt über 100 € im Monat.",
+      "animationIntent": "Einen Prozentwert als zählbare Menge greifbar machen.",
+      "mechanicId": "hundred-households-recolor-share",
+      "visualTechniqueId": "unit-grid-recolor",
+      "techniqueDescription": "10×10-Punkteraster, 19 Punkte wechseln gestaffelt auf Rot, Zähler 0 → 19.",
+      "compositionFamilyId": "proportion-grid",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx (Punkteraster, Zaehlwerk)"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Raster links, Zahl rechts",
+        "transformation": "Umfärben eines Anteils"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Punkte erscheinen",
+        "19 Punkte färben sich",
+        "Zähler zählt"
+      ],
+      "visualBeats": [
+        "100 Haushalte",
+        "19 von 100 über 100 € im Monat"
+      ],
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-04/data-notes.md",
+      "startCue": "Und fast jeder fünfte Haushalt",
+      "beatCues": [
+        "fast jeder fünfte",
+        "mehr als hundert"
+      ]
+    },
+    {
+      "id": "visual-05",
+      "type": "image",
+      "chapter": "Kapitel 2 — Was Abos wirklich kosten",
+      "scriptBeat": "Jede Abbuchung kommt allein. Klein. Unauffällig.",
+      "googleFlowFileName": "YouTube Bild 05 - Kontoauszug unauffaellig.png",
+      "expectedVisual": "Langer Kontoauszug mit vielen kleinen, gleich unauffälligen Abbuchungen",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-05/bildprompt.txt",
+      "startCue": "Das Problem ist nicht ein einzelnes Abo",
+      "akzente": [
+        {
+          "cue": "Jede Abbuchung kommt allein",
+          "text": "einzeln klein · zusammen 744 € im Jahr",
+          "ton": "rot"
+        }
+      ],
+      "objectLabels": [
+        "Kontoauszug",
+        "kleine Abbuchungen"
+      ]
+    },
+    {
+      "id": "visual-06",
+      "type": "image",
+      "chapter": "Kapitel 3 — Die drei Tricks der Abo-Falle",
+      "scriptBeat": "Abo-Fallen funktionieren fast immer mit denselben drei Tricks.",
+      "googleFlowFileName": "YouTube Bild 06 - Mausefalle Gratis.png",
+      "expectedVisual": "Mausefalle, als Köder ein Geschenk mit Etikett „Gratis“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-06/bildprompt.txt",
+      "startCue": "Abo-Fallen funktionieren fast immer",
+      "objectLabels": [
+        "Mausefalle",
+        "Geschenk „Gratis“"
+      ]
+    },
+    {
+      "id": "visual-07",
+      "type": "animation",
+      "chapter": "Kapitel 3 — Die drei Tricks der Abo-Falle",
+      "scriptBeat": "Trick eins: 30 Tage gratis, ab Tag 31 jeden Monat 12,99 €",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-07/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-07/animation.tsx",
+      "animationExport": "YouTubeVisual07Animation",
+      "viewerChange": "30 grüne Gratis-Tage, dann kippt Tag 31 rot und ab jetzt kommt jeden Monat eine Abbuchung.",
+      "animationIntent": "Den Moment zeigen, in dem aus „gratis“ unbemerkt ein bezahltes Abo wird.",
+      "mechanicId": "free-trial-days-flip-to-monthly-debits",
+      "visualTechniqueId": "day-strip-scrub-then-month-row",
+      "techniqueDescription": "Tagesstreifen wird von einer Marke grün gefüllt; Tag 31 springt rot herein; die 30 Tage schrumpfen zum ersten Monatsfeld, Monate 2–12 fallen als rote Abbuchungen nach, Zähler bis 142,89 €.",
+      "compositionFamilyId": "timeline-state-flip",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "spring",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Tagesstreifen oben → Monatsreihe darunter, Zähler unten",
+        "transformation": "Scrub über Tage, Zustandswechsel, Zusammenfalten zu Monat 1"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Tage füllen sich",
+        "Tag 31 kippt",
+        "Monatsabbuchungen fallen",
+        "Zähler"
+      ],
+      "visualBeats": [
+        "30 Tage gratis",
+        "Tag 31: −12,99 €",
+        "jeden Monat −12,99 €"
+      ],
+      "startCue": "Trick eins: gratis zum Start",
+      "beatCues": [
+        "Trick eins",
+        "Tag einunddreißig",
+        "Ab jetzt jeden Monat"
+      ]
+    },
+    {
+      "id": "visual-08",
+      "type": "image",
+      "chapter": "Kapitel 3 — Die drei Tricks der Abo-Falle",
+      "scriptBeat": "Trick zwei: der kleine Monatspreis.",
+      "googleFlowFileName": "YouTube Bild 08 - Preisschild Schatten.png",
+      "expectedVisual": "Kleines Preisschild „4,99 € / Monat“ wirft einen riesigen Schatten „59,88 € / Jahr“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-08/bildprompt.txt",
+      "startCue": "Trick zwei: der kleine Monatspreis",
+      "akzente": [
+        {
+          "cue": "Niemand würde",
+          "text": "60 € auf einmal für eine App? Niemand.",
+          "ton": "neutral"
+        },
+        {
+          "cue": "Aber genau das zahlst",
+          "text": "12 × 4,99 € = 59,88 €",
+          "ton": "rot"
+        }
+      ],
+      "objectLabels": [
+        "Preisschild 4,99 € / Monat",
+        "Schatten 59,88 € / Jahr"
+      ]
+    },
+    {
+      "id": "visual-09",
+      "type": "image",
+      "chapter": "Kapitel 3 — Die drei Tricks der Abo-Falle",
+      "scriptBeat": "Trick drei: Abschließen ist leicht, Kündigen ist schwer.",
+      "googleFlowFileName": "YouTube Bild 09 - Leicht rein schwer raus.png",
+      "expectedVisual": "Links großer offener Eingang „Jetzt starten“, rechts Labyrinth mit winziger Tür „Kündigen“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-09/bildprompt.txt",
+      "startCue": "Trick drei: Abschließen ist leicht",
+      "akzente": [
+        {
+          "cue": "Menüs",
+          "text": "Menüs",
+          "ton": "neutral"
+        },
+        {
+          "cue": "Formulare",
+          "text": "Formulare",
+          "ton": "neutral"
+        },
+        {
+          "cue": "Hotlines",
+          "text": "Hotlines",
+          "ton": "neutral"
+        }
+      ],
+      "objectLabels": [
+        "Eingang „Jetzt starten“",
+        "Labyrinth",
+        "Tür „Kündigen“"
+      ]
+    },
+    {
+      "id": "visual-10",
+      "type": "image",
+      "chapter": "Kapitel 3 — Die drei Tricks der Abo-Falle",
+      "scriptBeat": "Du löschst die App und denkst, das Abo ist weg. Ist es nicht.",
+      "googleFlowFileName": "YouTube Bild 10 - App geloescht Abo laeuft.png",
+      "expectedVisual": "Hand zieht eine App in den Papierkorb, daneben druckt eine Quittung weiter „−7,99 €“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-10/bildprompt.txt",
+      "startCue": "Du löschst die App",
+      "akzente": [
+        {
+          "cue": "Ist es nicht",
+          "text": "App gelöscht ≠ Abo gekündigt",
+          "ton": "rot"
+        }
+      ],
+      "objectLabels": [
+        "Hand",
+        "App-Icon",
+        "Papierkorb",
+        "Quittung −7,99 €"
+      ]
+    },
+    {
+      "id": "visual-11",
+      "type": "animation",
+      "chapter": "Kapitel 4 — Das Gesetz ist auf deiner Seite",
+      "scriptBeat": "Früher +12 Monate automatische Verlängerung, heute monatlich kündbar",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-11/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-11/animation.tsx",
+      "animationExport": "YouTubeVisual11Animation",
+      "viewerChange": "Alter Vertrag: nach 24 Monaten rastet ein ganzes Jahr mit Schloss ein. Neuer Vertrag: danach einzelne Monate, jeder kündbar.",
+      "animationIntent": "Die Gesetzesänderung als Unterschied zweier Zeitleisten sofort sichtbar machen.",
+      "mechanicId": "auto-renewal-lock-versus-monthly-exits",
+      "visualTechniqueId": "two-contract-timelines-split",
+      "techniqueDescription": "Zwei Zeitleisten zeichnen sich; oben rastet ein roter +12-Monate-Block mit Schloss ein; unten folgen grüne Einzelmonate mit Ausgangsmarken, das Schloss öffnet sich.",
+      "compositionFamilyId": "before-after-timelines",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "SVG",
+        "spring",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "zwei Zeitleisten übereinander",
+        "transformation": "Einrasten eines Blocks vs. Aufreihen einzelner Monate"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Leisten zeichnen sich",
+        "Block rastet ein",
+        "Monate reihen sich",
+        "Schloss öffnet"
+      ],
+      "visualBeats": [
+        "alter Vertrag",
+        "+12 Monate gesperrt",
+        "neuer Vertrag",
+        "Einzelmonate",
+        "monatlich kündbar"
+      ],
+      "startCue": "Die gute Nachricht",
+      "beatCues": [
+        "Früher hat sich",
+        "weiteres Jahr",
+        "ersten März",
+        "Mindestlaufzeit läuft",
+        "einem Monat Frist"
+      ]
+    },
+    {
+      "id": "visual-12",
+      "type": "image",
+      "chapter": "Kapitel 4 — Das Gesetz ist auf deiner Seite",
+      "scriptBeat": "Kündigungsbutton: gut sichtbar, „Verträge hier kündigen“.",
+      "googleFlowFileName": "YouTube Bild 12 - Kuendigungsbutton.png",
+      "expectedVisual": "Webseite auf einem Laptop mit großem Button „Verträge hier kündigen“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-12/bildprompt.txt",
+      "startCue": "einen Kündigungsbutton anbieten",
+      "akzente": [
+        {
+          "cue": "fristlos kündigen",
+          "text": "Button fehlt → fristlos kündigen",
+          "ton": "gruen"
+        }
+      ],
+      "objectLabels": [
+        "Laptop",
+        "Button „Verträge hier kündigen“"
+      ]
+    },
+    {
+      "id": "visual-13",
+      "type": "image",
+      "chapter": "Kapitel 4 — Das Gesetz ist auf deiner Seite",
+      "scriptBeat": "Widerrufsbutton: in den ersten 14 Tagen per Klick widerrufen.",
+      "googleFlowFileName": "YouTube Bild 13 - Widerrufsbutton 14 Tage.png",
+      "expectedVisual": "Handy mit Button „Vertrag widerrufen“, daneben Kalender mit 14 markierten Tagen",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-13/bildprompt.txt",
+      "startCue": "seit Juni zweitausendsechsundzwanzig",
+      "akzente": [
+        {
+          "cue": "vierzehn Tagen",
+          "text": "Widerrufsbutton seit 19.06.2026",
+          "ton": "gruen"
+        }
+      ],
+      "objectLabels": [
+        "Smartphone",
+        "Button „Vertrag widerrufen“",
+        "Kalender 14 Tage"
+      ]
+    },
+    {
+      "id": "visual-14",
+      "type": "image",
+      "chapter": "Kapitel 5 — Der 15-Minuten-Abo-Check",
+      "scriptBeat": "Stelle eins: dein Kontoauszug — Beträge, die jeden Monat gleich wiederkommen.",
+      "googleFlowFileName": "YouTube Bild 14 - Kontoauszug markiert.png",
+      "expectedVisual": "Kontoauszug von oben, gleichbleibende Monatsbeträge mit Textmarker markiert",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-14/bildprompt.txt",
+      "startCue": "Jetzt der wichtigste Teil",
+      "akzente": [
+        {
+          "cue": "Jetzt der wichtigste Teil",
+          "text": "15-Minuten-Abo-Check",
+          "ton": "gruen"
+        },
+        {
+          "cue": "Stelle eins",
+          "text": "1 · Kontoauszug, letzte 12 Monate",
+          "ton": "neutral"
+        }
+      ],
+      "objectLabels": [
+        "Kontoauszug",
+        "Textmarker",
+        "wiederkehrende Beträge"
+      ]
+    },
+    {
+      "id": "visual-15",
+      "type": "image",
+      "chapter": "Kapitel 5 — Der 15-Minuten-Abo-Check",
+      "scriptBeat": "Stelle zwei: dein Handy — Einstellungen, dein Name, Abonnements.",
+      "googleFlowFileName": "YouTube Bild 15 - Handy Abonnements.png",
+      "expectedVisual": "Hand hält Handy mit Einstellungsliste „Abonnements“ und vier Abos mit Preisen",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-15/bildprompt.txt",
+      "startCue": "Stelle zwei: dein Handy",
+      "akzente": [
+        {
+          "cue": "Auf dem iPhone",
+          "text": "iPhone: Einstellungen → dein Name → Abonnements",
+          "ton": "neutral"
+        },
+        {
+          "cue": "Bei Android",
+          "text": "Android: Play Store → Profil → Zahlungen & Abos",
+          "ton": "neutral"
+        }
+      ],
+      "objectLabels": [
+        "Smartphone",
+        "Einstellungen „Abonnements“"
+      ]
+    },
+    {
+      "id": "visual-16",
+      "type": "image",
+      "chapter": "Kapitel 5 — Der 15-Minuten-Abo-Check",
+      "scriptBeat": "Stelle drei: PayPal — automatische Zahlungen.",
+      "googleFlowFileName": "YouTube Bild 16 - PayPal automatische Zahlungen.png",
+      "expectedVisual": "Laptop mit PayPal-Seite „Automatische Zahlungen“ und drei Händlern",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-16/bildprompt.txt",
+      "startCue": "Stelle drei: PayPal",
+      "akzente": [
+        {
+          "cue": "automatische Zahlungen",
+          "text": "PayPal: Automatische Zahlungen",
+          "ton": "neutral"
+        }
+      ],
+      "objectLabels": [
+        "Laptop",
+        "PayPal „Automatische Zahlungen“"
+      ]
+    },
+    {
+      "id": "visual-17",
+      "type": "data",
+      "chapter": "Kapitel 5 — Der 15-Minuten-Abo-Check",
+      "scriptBeat": "Jedes Abo ×12, Jahresbetrag prüfen, zögern = kündigen",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-17/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-17/animation.tsx",
+      "animationExport": "YouTubeVisual17Animation",
+      "viewerChange": "Fünf Abos werden aufgeschrieben, jede Zeile wird zum Jahresbetrag, zwei werden gestrichen und die Summe fällt.",
+      "animationIntent": "Den Abo-Check als einfache Rechnung vormachen, die man selbst nachmachen kann.",
+      "mechanicId": "subscription-list-times-twelve-strike",
+      "visualTechniqueId": "notepad-rows-yearly-recount",
+      "techniqueDescription": "Notizzettel: Zeilen erscheinen, Spalte ×12 rechnet hoch, Summe zählt, Prüfmarkierung wandert, zwei Zeilen werden gezeichnet durchgestrichen.",
+      "compositionFamilyId": "checklist-calculation",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "@remotion/paths",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "zentraler Notizzettel mit drei Spalten",
+        "transformation": "Hochrechnen, Prüfen, Durchstreichen"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Zeilen schreiben",
+        "Jahresbeträge rechnen",
+        "Markierung prüft",
+        "Durchstreichen, Summe sinkt"
+      ],
+      "visualBeats": [
+        "fünf Abos",
+        "jede Zeile × 12, Summe 575,40 €",
+        "jede Zeile prüfen",
+        "zwei gestrichen, 335,64 €"
+      ],
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-17/data-notes.md",
+      "startCue": "Schreib jedes Abo auf",
+      "beatCues": [
+        "Schreib jedes Abo auf",
+        "mal zwölf",
+        "Würde ich diesen",
+        "Alles, wo du zögerst"
+      ]
+    },
+    {
+      "id": "visual-18",
+      "type": "image",
+      "chapter": "Kapitel 6 — Wenn schon Geld weg ist",
+      "scriptBeat": "Lastschrift innerhalb von acht Wochen zurückholen.",
+      "googleFlowFileName": "YouTube Bild 18 - Lastschrift zurueckgeben.png",
+      "expectedVisual": "Banking-App mit Lastschrift und Button „Zurückgeben“, daneben Karte „8 Wochen“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-18/bildprompt.txt",
+      "startCue": "Und wenn schon Geld abgebucht",
+      "akzente": [
+        {
+          "cue": "acht Wochen",
+          "text": "Lastschrift: 8 Wochen zurückholen",
+          "ton": "gruen"
+        },
+        {
+          "cue": "Gekündigt ist das Abo",
+          "text": "Abo läuft weiter → trotzdem kündigen",
+          "ton": "rot"
+        }
+      ],
+      "objectLabels": [
+        "Banking-App",
+        "Button „Zurückgeben“",
+        "Karte „8 Wochen“"
+      ]
+    },
+    {
+      "id": "visual-19",
+      "type": "image",
+      "chapter": "Kapitel 6 — Wenn schon Geld weg ist",
+      "scriptBeat": "Drittanbietersperre beim Mobilfunkanbieter einrichten.",
+      "googleFlowFileName": "YouTube Bild 19 - Drittanbietersperre.png",
+      "expectedVisual": "Handyrechnung mit grün markierter Zeile „Drittanbieter: gesperrt“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-19/bildprompt.txt",
+      "startCue": "eine Drittanbietersperre ein",
+      "akzente": [
+        {
+          "cue": "Die ist kostenlos",
+          "text": "Drittanbietersperre: kostenlos",
+          "ton": "gruen"
+        }
+      ],
+      "objectLabels": [
+        "Handyrechnung",
+        "„Drittanbieter: gesperrt“"
+      ]
+    },
+    {
+      "id": "visual-20",
+      "type": "animation",
+      "chapter": "Kapitel 7 — Merksatz",
+      "scriptBeat": "Zwei gekündigte Abos = rund 240 € im Jahr",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-20/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-20/animation.tsx",
+      "animationExport": "YouTubeVisual20Animation",
+      "viewerChange": "9,99 € werden zur Jahressäule, Jahr für Jahr wächst der Stapel — dann werden zwei gekündigte Abos zu 240 €, die bleiben.",
+      "animationIntent": "Den Merksatz „Monatspreis × 12, jedes Jahr“ und die Belohnung des Kündigens zeigen.",
+      "mechanicId": "yearly-cost-stacks-turn-into-savings",
+      "visualTechniqueId": "cumulative-years-then-swap-to-savings",
+      "techniqueDescription": "Chip wird Jahressäule, weitere Jahre stapeln sich mit Zähler; Umkehr: zwei grüne Jahresblöcke wachsen, Ergebnis ≈ 240 €.",
+      "compositionFamilyId": "cumulative-columns-reversal",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "spring",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Säule links, Zahl rechts",
+        "transformation": "Stapeln über Jahre, dann Farbumkehr zu Ersparnis"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Chip wird Säule",
+        "Jahre stapeln sich",
+        "Zähler",
+        "grüne Ersparnis wächst"
+      ],
+      "visualBeats": [
+        "9,99 € pro Monat",
+        "119,88 € pro Jahr",
+        "Jahr für Jahr",
+        "≈ 240 € bleiben"
+      ],
+      "startCue": "Ein Abo kostet nie nur",
+      "beatCues": [
+        "nie nur den Monatspreis",
+        "mal zwölf",
+        "Jedes Jahr",
+        "zwei Abos"
+      ]
+    },
+    {
+      "id": "visual-21",
+      "type": "image",
+      "chapter": "Kapitel 7 — Merksatz",
+      "scriptBeat": "Schreib mir in die Kommentare, wie viele Abos du gefunden hast.",
+      "googleFlowFileName": "YouTube Bild 21 - Abo-Check erledigt.png",
+      "expectedVisual": "Entspannte Person auf dem Sofa mit Handy, daneben Notizzettel „Abo-Check ✓“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-21/bildprompt.txt",
+      "startCue": "Schreib mir in die Kommentare",
+      "objectLabels": [
+        "Person auf Sofa",
+        "Notizzettel „Abo-Check ✓“"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+Kernversprechen: Du willst nur Milch und Brot – und zahlst 40 €.
+Fokuspunkt: winziger Zettel „Milch, Brot“ in der Hand, daneben ein extrem langer Kassenbon, der in „40,00 €“ endet.
+Kontrast: warmes Creme gegen kräftiges Rot und dunkle Schrift; wenige große Elemente.
+Textoption: „9 Supermarkt-Tricks“ (links, groß, dunkel). Alternative: „Nur Milch & Brot?“
+Datei: YouTube Thumbnail - Supermarkt-Tricks.png (Prompt in 04-visuals/thumbnail-prompt.txt).

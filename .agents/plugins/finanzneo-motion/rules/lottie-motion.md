@@ -1,80 +1,47 @@
 # FinanzNeo — Lottie Motion Rules
 
-These rules apply whenever Antigravity can access the `lottiefiles-creator` MCP inside this workspace.
+Lottie is a support layer inside FinanzNeo Editorial Motion.
 
 ## Core rule
 
-Lottie is an **enhancement layer**, not the default animation engine.
+Use Lottie only when it makes the spoken idea clearer or gives a small useful motion accent.
 
-The main explanatory mechanism of a FinanzNeo animation must remain the clearest medium for the beat. Real-world object interaction stays in Remotion/Three/HTML when that is more understandable.
+It is not the default animation engine.
 
 ## Hard boundaries
 
-- Never replace a sealed `animation.tsx` with a new Lottie concept during Phase 3.
-- Never create a second reel to test a Lottie variation when the task targets an existing reel.
-- Never use a generic downloaded Lottie template as the main scene.
-- Never introduce a white, colored or baked Lottie background; production background remains transparent over `#000000`.
-- Never use Lottie to bypass animation validators or movement-quality gates.
-- Never rely on remote Lottie URLs in the final render.
-- Never let Lottie text replace the Reel header or captions.
-- Never cover the header/caption safe zones.
+- never replace a sealed `animation.tsx` in Phase 3
+- never use a generic downloaded Lottie as the main scene
+- never bake an unrelated background into the Lottie
+- never use Lottie to bypass animation validators
+- never rely on remote Lottie URLs in the final render
+- no endless decorative looping
+- no generic finance-icon rain
 
-## Preferred hybrid use
+Lottie should visually sit inside the active Editorial Motion surface.
 
-Good:
+## Good uses
 
-```text
-real-world Remotion scene
-+ one focused Lottie accent
-+ synchronized SFX cue
-+ result hold
-```
+- calendar page flip
+- small checkmark
+- restrained warning accent
+- simple chart stroke
+- small object state change
 
-Bad:
+## Bad uses
 
-```text
-three generic Lottie cards
-+ arrow
-+ progress bar
-+ decorative loop
-```
-
-## Complexity limit
-
-Use the minimum Lottie complexity needed to improve clarity.
-
-As a default, prefer no more than two simultaneous Lottie support layers in one scene. Exceed this only when the scene remains visually simple and the extra layers clearly explain separate actions.
+- full generic finance illustration
+- looping coin animation
+- neon dashboard motion
+- decorative particles
+- visual filler
 
 ## Timing
 
-- all Lottie timing must be deterministic from the Remotion frame timeline;
-- no endless decorative looping;
-- loop only when the loop itself communicates state;
-- important actions get a visible start, action and result;
-- final explanatory result must hold long enough to read.
+All Lottie timing must be deterministic from the Remotion frame timeline.
 
-## Sound cues
-
-Lottie animation events should expose clear Remotion SFX moments rather than containing their own audio.
-
-Recommended sound families:
-
-- `paper`
-- `money`
-- `ui-soft`
-- `movement`
-- `mechanical`
-
-Voiceover remains dominant. SFX must be subtle and purposeful.
+The final explanatory result must hold long enough to read.
 
 ## Acceptance test
 
-Before keeping a Lottie asset, compare the scene with and without it.
-
-Keep it only if at least one is true:
-
-1. the financial mechanism becomes easier to understand;
-2. the motion feels materially more polished;
-3. the scene gains useful motion variety without losing the FinanzNeo visual language.
-
-Otherwise remove the Lottie layer.
+Keep a Lottie layer only if removing it would make the scene less clear or materially less polished.

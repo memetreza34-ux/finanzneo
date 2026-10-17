@@ -12,7 +12,7 @@ Vor Reels lesen:
 
 ## 1. Phase 1 — ChatGPT bereitet komplett vor
 
-Phase 1 liefert Recherche, szenenweises Skript, V9-Bildprompts, natürliche Header,
+Phase 1 liefert Recherche, szenenweises Skript, Editorial-Finance-Bildprompts, natürliche Header,
 Remotion-Spezifikationen und für jede Animationsszene bereits die finale
 `animation.tsx`. Phase 3 darf keine fehlende Animation erfinden.
 
@@ -101,33 +101,32 @@ STRIKT VERBOTEN:
 - versiegelten Phase-1-Animationscode verändern
 ```
 
-## 3. Bildprompt erstellen — V9
+## 3. Bildprompt
 
 ```text
-Erstelle einen FinanzNeo-Bildprompt für diesen gesprochenen Satz:
-[SATZ]
+Erstelle den konkreten Bildprompt auf Englisch.
 
-Verbindlich:
-- Quellbild 1:1
-- WORLD LOCK: finanzneo-stylized-3d-animated-black-v9
-- klar nicht-realistische stylized 3D animated Bildwelt
-- soft rounded shapes, vereinfachte erkennbare Details
-- premium, leicht verspielt, nicht technisch
-- tiefschwarzer sauberer Hintergrund Pflicht
-- Inhalt/Klarheit vor Objektzahl; keine feste Anzahl
-- Emerald positiv, Ivory/Soft Gray neutral, Gold Geld/Wert, Rot-Orange Warnung/Kosten
-- keine Headline, kein Untertitel, kein erklärender Satz
-- nur kurze deutsche Objektlabels
-- kein Realismus, Produktfoto, Dashboard, App-UI, Flowchart, Mini-Boxen, Microchip, Diorama, Clutter
-- Prompt mittellang
-- finalen Dateinamen direkt angeben
-- Bildnummer = echte Szenennummer
+Bildwelt:
+finanzneo-editorial-finance-v1
 
-Falls Marke/Logo/App vorkommt:
-- erkennbar ähnlich, aber stilisiert in derselben 3D-Animationswelt
-- kein flach aufgeklebtes echtes Logo
-- kein Screenshot-/photorealistischer Marken-UI-Look
+Regel:
+1 gesprochener Gedanke → 1 einfache visuelle Idee → sofort verständlich.
+
+Wähle frei die passendste statische Form: Metapher, Illustration, Zahl+Objekt, Diagramm, Timeline, Vergleich, Dokument, Zitat+Illustration, Unternehmen/Marke oder eine andere simple Lösung.
+
+Hintergrund frei nach Motiv; kein Schwarz-Zwang.
+2D/2.5D bevorzugt; einfaches 3D nur wenn sinnvoll.
+Keine generische Headline automatisch.
+Kein AI-Slop oder dekoratives Finanz-Spektakel ohne Erklärwert.
+
+Wenn eine Szene auf dem vorherigen Bild stufenweise aufbaut:
+- das exakte freigegebene vorherige Bild als echte Referenz anhängen
+- den vollständigen Prompt erneut schreiben
+- nur die geplante Ergänzung/Änderung hinzufügen
 ```
+
+Kanonische Quelle: `docs/FINANZNEO-IMAGE-WORLD.md`.
+
 
 ## 4. Google Flow
 
@@ -137,7 +136,7 @@ Strict Single Job V3:
 2. GENAU EIN Bild starten
 3. intern auf Ergebnis warten
 4. sofort exakt umbenennen
-5. V9-QA
+5. Editorial-Finance-QA
 6. bei Fehler dieselbe Bildnummer wiederholen
 7. erst nach PASS nächsten Bildblock freischalten
 

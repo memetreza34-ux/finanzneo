@@ -89,6 +89,9 @@ if (existsSync(masterPath) && existsSync(indexPath)) {
   assert(flow.structureLockId === FLOW_STRUCTURE_LOCK_ID, `structureLockId muss ${FLOW_STRUCTURE_LOCK_ID} sein.`);
   assert(flow.preserveStructureThroughLastImage === true, 'Struktur muss bis zum letzten Bild erhalten bleiben.');
   assert(flow.preserveStyleThroughLastImage === true, 'Bildwelt/Stil muss bis zum letzten Bild erhalten bleiben.');
+  assert(flow.referenceImagesAllowed === true, 'Flow-Referenzbilder müssen erlaubt sein.');
+  assert(flow.continuationReferenceRequiredWhenDeclared === true, 'Deklarierte Fortsetzungs-Szenen müssen ein echtes Referenzbild verwenden.');
+  assert(flow.referenceMustUseApprovedPriorImage === true, 'Referenzen müssen aus bereits freigegebenen vorherigen Bildern stammen.');
 
   // Kein positiver Befehl zum Warten auf Nutzer. Negativformulierungen sind erlaubt.
   const lines = master.split(/\r?\n/);
@@ -109,4 +112,4 @@ if (errors.length) {
 }
 
 console.log('\n✓ Google-Flow-Single-Job-State-Machine erfüllt.');
-console.log('  Concurrency=1 · kein Batch/Queueing · aktuelles Bild → Rückgabe → Rename → QA → erst dann nächstes Bild · kein Nutzer-„weiter“ nötig.');
+console.log('  Concurrency=1 · kein Batch/Queueing · progressive Referenzbilder erlaubt · aktuelles Bild → Rückgabe → Rename → QA → erst dann nächstes Bild.');

@@ -1,0 +1,1215 @@
+{
+  "version": 3,
+  "title": "9 Supermarkt-Tricks, die dich jeden Monat Geld kosten",
+  "format": "youtube-longform",
+  "shortsForbidden": true,
+  "fixedVisualCount": false,
+  "fixedImageAnimationRatio": false,
+  "video": {
+    "aspectRatio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "thumbnail": {
+    "type": "image",
+    "googleFlowFileName": "YouTube Thumbnail - Supermarkt-Tricks.png",
+    "planFile": "04-visuals/thumbnail-prompt.txt"
+  },
+  "userCreatesImages": true,
+  "antigravityGeneratesImages": false,
+  "googleFlow": {
+    "protocolId": "finanzneo-flow-batch5-v1",
+    "generationMode": "parallel-batches",
+    "batchSize": 5,
+    "oneJobPerImage": true,
+    "strictSequential": false,
+    "waitForBatch": true,
+    "renameImmediately": true,
+    "qaBeforeNextBatch": true,
+    "germanTextOnly": true,
+    "retrySameImageOnFailure": true,
+    "referenceImagesAllowed": true,
+    "continuationReferenceRequiredWhenDeclared": true,
+    "referenceMustUseApprovedPriorImage": true,
+    "finalCollectionDirectory": "../3-bilder-hier-rein/",
+    "distributeToVisualFolders": false
+  },
+  "imageWorld": {
+    "id": "finanzneo-editorial-finance-v1",
+    "seriesLockId": "finanzneo-editorial-consistency-v1",
+    "authority": "docs/FINANZNEO-IMAGE-WORLD.md",
+    "generatedImageAspectRatio": "16:9",
+    "horizontalGeneratedImagesRequired": true,
+    "referencePromptFile": "04-visuals/bildwelt.txt",
+    "promptLanguage": "en",
+    "primaryStyle": "clean-editorial-finance-illustration",
+    "flexibleBackgrounds": true,
+    "fixedBlackBackgroundForbidden": true,
+    "fixed3DRenderingForbidden": true,
+    "twoDAllowed": true,
+    "subtleTwoPointFiveDAllowed": true,
+    "selectiveSimple3DAllowed": true,
+    "firstGlanceUnderstandingRequired": true,
+    "oneCoreIdeaPerImageRequired": true,
+    "progressiveSequencesAllowed": true,
+    "approvedPriorImageReferenceAllowed": true,
+    "genericHeadlineByDefault": false,
+    "aiSlopAvoidanceRequired": true
+  },
+  "motionStandard": {
+    "id": "finanzneo-youtube-motion-v3",
+    "visualMotionWorld": "finanzneo-youtube-light-motion-v2",
+    "visualTargetWorld": "finanzneo-youtube-light-motion-v2",
+    "minimumMotionPreferred": false,
+    "motionDensityStoryDriven": true,
+    "cameraStillDefault": true,
+    "cameraStoryDriven": false,
+    "staticImageStyleCopyRequired": false,
+    "youtubeNativeCompositionRequired": true,
+    "conceptCandidatesRequired": 3,
+    "keyframeQaRequired": true,
+    "keyframeQaPercentages": [
+      10,
+      35,
+      65,
+      90
+    ],
+    "fixed3DStyleForbidden": true,
+    "fixedArtDirectionForbidden": false,
+    "flexibleBackgrounds": true,
+    "darkBackgroundAllowed": false,
+    "blackBackgroundAllowed": false,
+    "full3DAllowed": false,
+    "simpleComparisonAllowed": true,
+    "chartAllowed": true,
+    "sceneArtDirectionOpen": false,
+    "mixedStyleAcrossScenesAllowed": true,
+    "brandStyleMatchRequired": false,
+    "lightBackgroundRequired": true,
+    "flat2DPreferred": true,
+    "genericSceneHeadlinesForbidden": true,
+    "viewerChangeFirstRequired": true,
+    "contentFirstTechniqueSelection": true,
+    "openTechniqueSelection": true,
+    "compositionFamiliesAreExamplesOnly": true,
+    "motionSignatureRequired": true,
+    "recentMotionWindow": 4,
+    "customReactAllowed": true,
+    "svgAllowed": true,
+    "css3dAllowed": false,
+    "canvasAllowed": true,
+    "threeAllowed": false,
+    "hybridAllowed": true,
+    "dataVisualizationAllowed": true,
+    "existingComponentsOptional": true,
+    "physicalPrimitivesOptional": true,
+    "semanticVariationRequired": false
+  },
+  "timelineRules": {
+    "timingSource": "03-audio/word-timings.json",
+    "cutsFollowVoiceAndChapters": true,
+    "equalLengthVisualsForbiddenByDefault": true,
+    "beatFirst": true
+  },
+  "audio": {
+    "targetIntegratedLufs": -16,
+    "targetTruePeakDbtp": -1
+  },
+  "publishing": {
+    "youtube": {
+      "titleOptions": "05-publishing/title-options.txt",
+      "finalTitle": "05-publishing/final-title.txt",
+      "description": "05-publishing/description.txt",
+      "chapters": "05-publishing/chapters.txt",
+      "tagsKeywords": "05-publishing/tags-keywords.txt",
+      "hashtags": "05-publishing/hashtags.txt",
+      "thumbnailBrief": "05-publishing/thumbnail-brief.txt",
+      "pinnedComment": "05-publishing/pinned-comment.txt",
+      "communityPost": "05-publishing/community-post.txt",
+      "sourcesDisclaimer": "05-publishing/sources-disclaimer.txt",
+      "uploadChecklist": "05-publishing/upload-checklist.md"
+    },
+    "socialPromo": {
+      "instagram": "05-publishing/social-promo/instagram.txt",
+      "tiktok": "05-publishing/social-promo/tiktok.txt",
+      "facebook": "05-publishing/social-promo/facebook.txt",
+      "snapchat": "05-publishing/social-promo/snapchat.txt"
+    }
+  },
+  "visuals": [
+    {
+      "id": "visual-01",
+      "type": "image",
+      "chapter": "Hook — Milch und Brot, vierzig Euro",
+      "scriptBeat": "Du gehst in den Supermarkt. Du brauchst nur Milch und Brot.",
+      "googleFlowFileName": "YouTube Bild 01 - Nur Milch und Brot.png",
+      "expectedVisual": "Person vor dem Supermarkteingang mit einem winzigen Zettel „Milch, Brot“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt",
+      "startCue": "Du gehst in den Supermarkt",
+      "objectLabels": [
+        "Supermarkteingang",
+        "Einkaufszettel"
+      ]
+    },
+    {
+      "id": "visual-02",
+      "type": "animation",
+      "chapter": "Hook — Milch und Brot, vierzig Euro",
+      "scriptBeat": "Und an der Kasse stehen plötzlich vierzig Euro auf dem Display. Das ist kein Zufall. Das ist geplant.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-02/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx",
+      "animationExport": "YouTubeVisual02Animation",
+      "contentBrief": "Ein Kassenbon mit zwei Zeilen (Milch, Brot) wächst Zeile für Zeile zu einem langen Bon; die Summe zählt mit bis 40,00 €. Ergebnis: Kontrast zwischen Plan (2 Artikel) und Realität (40 €).",
+      "startCue": "Und an der Kasse stehen plötzlich",
+      "viewerChange": "Ein Kassenbon mit nur Milch und Brot druckt Zeile für Zeile weiter, bis Bon-Summe und Kassendisplay 40,00 € zeigen; danach stehen 3,68 € Plan gegen 40,00 € Kasse.",
+      "animationIntent": "Der Hook soll den Sprung von „nur Milch und Brot“ zu „vierzig Euro“ sichtbar machen: jede Zeile ist ein ungeplanter Kauf, die Summe wächst mit, der Abstand Plan gegen Kasse bleibt als Ergebnis stehen.",
+      "mechanicId": "receipt-print-growth-plan-vs-till",
+      "visualTechniqueId": "growing-receipt-with-till-display-count",
+      "techniqueDescription": "Kassenbon wächst symmetrisch um die Bildmitte, jede neue Zeile erhöht Bon-Summe und Zählwerk-Display um exakt ihren Preis; Klammern markieren 2 geplante und 11 ungeplante Zeilen; zwei wertgenaue Balken vergleichen 3,68 € mit 40,00 €.",
+      "compositionFamilyId": "document-motion",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "Zaehlwerk (daten.tsx)"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Kassenbon mittig links, Kassendisplay und Vergleichsbalken rechts",
+        "transformation": "Bon druckt und wird länger, Summe zählt mit, Zeilen werden markiert"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Bon druckt Zeile für Zeile",
+        "Display zählt bis 40,00 €",
+        "Markierung geplant / ungeplant",
+        "Plan- und Kassenbalken wachsen"
+      ],
+      "visualBeats": [
+        "Bon mit Milch und Brot, 3,68 €",
+        "13 Zeilen, Display 40,00 €",
+        "2 geplant, 11 ungeplant",
+        "Plan 3,68 € gegen Kasse 40,00 €"
+      ],
+      "beatCues": [
+        "Und an der Kasse",
+        "vierzig Euro",
+        "Das ist kein Zufall",
+        "Das ist geplant"
+      ]
+    },
+    {
+      "id": "visual-03",
+      "type": "image",
+      "chapter": "Hook — Milch und Brot, vierzig Euro",
+      "scriptBeat": "Ein Supermarkt ist bis ins Detail darauf ausgelegt, dass du mehr kaufst, als du wolltest.",
+      "googleFlowFileName": "YouTube Bild 03 - Supermarkt als Bauplan.png",
+      "expectedVisual": "Grundriss eines Supermarkts als Bauplan mit eingezeichnetem Laufweg",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-03/bildprompt.txt",
+      "startCue": "Ein Supermarkt ist bis ins Detail",
+      "objectLabels": [
+        "Grundriss",
+        "Laufweg"
+      ]
+    },
+    {
+      "id": "visual-04",
+      "type": "image",
+      "chapter": "Hook — Milch und Brot, vierzig Euro",
+      "scriptBeat": "Neun Tricks — und der teuerste ist völlig legal.",
+      "googleFlowFileName": "YouTube Bild 04 - Neun Tricks.png",
+      "expectedVisual": "Neun Karten mit Nummern 1–9, die neunte größer und verdeckt",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-04/bildprompt.txt",
+      "startCue": "In diesem Video zeige ich dir neun Tricks",
+      "objectLabels": [
+        "Neun Karten",
+        "Verdeckte Karte"
+      ]
+    },
+    {
+      "id": "visual-05",
+      "type": "image",
+      "chapter": "Kapitel 1 — Der Weg durch den Markt",
+      "scriptBeat": "Gleich am Eingang: Obst, Gemüse, Blumen. Oft riecht es nach frischem Brot.",
+      "googleFlowFileName": "YouTube Bild 05 - Eingang Obst und Blumen.png",
+      "expectedVisual": "Eingangsbereich mit Obst, Gemüse, Blumen und duftendem Brot",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-05/bildprompt.txt",
+      "startCue": "Trick eins beginnt schon an der Tür",
+      "objectLabels": [
+        "Obst",
+        "Gemüse",
+        "Blumen",
+        "Brot"
+      ]
+    },
+    {
+      "id": "visual-06",
+      "type": "image",
+      "chapter": "Kapitel 1 — Der Weg durch den Markt",
+      "scriptBeat": "Du fühlst dich wohl. Und du wirst langsamer. Wer langsam geht, sieht mehr.",
+      "googleFlowFileName": "YouTube Bild 06 - Fussspuren werden langsamer.png",
+      "expectedVisual": "Fußspuren am Boden, die immer enger werden — der Kunde wird langsamer",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-06/bildprompt.txt",
+      "startCue": "Und du wirst langsamer",
+      "objectLabels": [
+        "Fußspuren",
+        "Regale"
+      ]
+    },
+    {
+      "id": "visual-07",
+      "type": "image",
+      "chapter": "Kapitel 1 — Der Weg durch den Markt",
+      "scriptBeat": "Milch, Butter und Eier liegen in vielen Märkten ganz hinten.",
+      "googleFlowFileName": "YouTube Bild 07 - Milch ganz hinten.png",
+      "expectedVisual": "Grundriss von oben: Eingang vorne, Kühlregal mit Milch ganz hinten hervorgehoben",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-07/bildprompt.txt",
+      "startCue": "Trick zwei",
+      "objectLabels": [
+        "Grundriss",
+        "Kühlregal",
+        "Eingang"
+      ]
+    },
+    {
+      "id": "visual-08",
+      "type": "image",
+      "chapter": "Kapitel 1 — Der Weg durch den Markt",
+      "scriptBeat": "Dein Weg führt an hunderten anderen Produkten vorbei.",
+      "googleFlowFileName": "YouTube Bild 08 - Langer Weg zur Milch.png",
+      "expectedVisual": "Gleicher Grundriss, jetzt mit langem Schlangenweg vorbei an vielen Produkten",
+      "imageSequence": {
+        "mode": "continuation",
+        "referenceVisualId": "visual-07",
+        "plannedChange": "Ein gestrichelter Laufweg vom Eingang zum Kühlregal schlängelt sich durch die Gänge; entlang des Weges kleine Produkt-Icons."
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-08/bildprompt.txt",
+      "startCue": "Aber dein Weg führt an hunderten",
+      "objectLabels": [
+        "Laufweg",
+        "Produkte"
+      ]
+    },
+    {
+      "id": "visual-09",
+      "type": "image",
+      "chapter": "Kapitel 1 — Der Weg durch den Markt",
+      "scriptBeat": "Und irgendwas davon landet dann doch im Wagen.",
+      "googleFlowFileName": "YouTube Bild 09 - Wagen mit Extras.png",
+      "expectedVisual": "Einkaufswagen: eine Milchpackung und daneben viele ungeplante Extras",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-09/bildprompt.txt",
+      "startCue": "Und irgendwas davon landet",
+      "objectLabels": [
+        "Einkaufswagen",
+        "Milch",
+        "Extras"
+      ]
+    },
+    {
+      "id": "visual-10",
+      "type": "image",
+      "chapter": "Kapitel 1 — Der Weg durch den Markt",
+      "scriptBeat": "Laut EHI sind Einkaufswagen in den letzten Jahren deutlich größer geworden.",
+      "googleFlowFileName": "YouTube Bild 10 - Wagen frueher und heute.png",
+      "expectedVisual": "Vergleich: kleiner Einkaufswagen „früher“ neben großem Wagen „heute“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-10/bildprompt.txt",
+      "startCue": "Trick drei",
+      "objectLabels": [
+        "Kleiner Wagen",
+        "Großer Wagen"
+      ]
+    },
+    {
+      "id": "visual-11",
+      "type": "image",
+      "chapter": "Kapitel 1 — Der Weg durch den Markt",
+      "scriptBeat": "Ein halb leerer Wagen fühlt sich an wie ein halber Einkauf.",
+      "googleFlowFileName": "YouTube Bild 11 - Halb leerer Wagen.png",
+      "expectedVisual": "Großer Wagen mit nur drei Artikeln ganz unten — viel leerer Raum",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-11/bildprompt.txt",
+      "startCue": "Ein halb leerer Wagen",
+      "objectLabels": [
+        "Großer Wagen",
+        "Wenige Artikel"
+      ]
+    },
+    {
+      "id": "visual-12",
+      "type": "image",
+      "chapter": "Kapitel 1 — Der Weg durch den Markt",
+      "scriptBeat": "Uni Innsbruck: nur der Griff verändert — rund 25 % mehr ausgegeben.",
+      "googleFlowFileName": "YouTube Bild 12 - Griff plus 25 Prozent.png",
+      "expectedVisual": "Zwei Wagengriffe im Vergleich, beim neuen Griff „+25 %“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-12/bildprompt.txt",
+      "startCue": "Forscher der Universität Innsbruck",
+      "objectLabels": [
+        "Normaler Griff",
+        "Neuer Griff",
+        "+25 %"
+      ]
+    },
+    {
+      "id": "visual-13",
+      "type": "image",
+      "chapter": "Kapitel 1 — Der Weg durch den Markt",
+      "scriptBeat": "Trick vier hörst du, aber du achtest nicht darauf: die Musik.",
+      "googleFlowFileName": "YouTube Bild 13 - Musik im Supermarkt.png",
+      "expectedVisual": "Deckenlautsprecher im Supermarkt mit ruhigen Musiknoten über den Kunden",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-13/bildprompt.txt",
+      "startCue": "Trick vier hörst du",
+      "objectLabels": [
+        "Lautsprecher",
+        "Noten",
+        "Kunden"
+      ]
+    },
+    {
+      "id": "visual-14",
+      "type": "data",
+      "chapter": "Kapitel 1 — Der Weg durch den Markt",
+      "scriptBeat": "Schnelle vs. langsame Musik: bei langsamer Musik rund 38 % mehr Umsatz (Milliman 1982).",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-14/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-14/animation.tsx",
+      "animationExport": "YouTubeVisual14Animation",
+      "contentBrief": "Zwei Zustände nacheinander: Takt/Tempo schnell → Umsatzbalken Basis; Tempo langsam → Balken wächst sichtbar um rund 38 %. Quelle klein: „Milliman, Journal of Marketing, 1982“.",
+      "startCue": "In einer bekannten Studie aus den USA",
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-14/data-notes.md",
+      "viewerChange": "Zwei Zeilen der Studie — schnelle und langsame Musik — zeigen ihr Tempo als laufende Takt-Striche; dann wachsen beide Umsatzbalken bis 100 %, der Balken der langsamen Musik wächst weiter auf 138 % und das Plus von 38 % ist farbig abgesetzt.",
+      "animationIntent": "Das Ergebnis der Studie ist ein relativer Vergleich; die gemeinsame 100-%-Linie und das Überwachsen machen „rund 38 % mehr“ ohne erfundene Euro-Werte sofort sichtbar, das Tempo der Musik wird als echte Bewegung gezeigt.",
+      "mechanicId": "tempo-track-to-revenue-overshoot",
+      "visualTechniqueId": "scrolling-beat-ticks-with-baseline-overshoot-bar",
+      "techniqueDescription": "Zwei Studienzeilen: Takt-Striche laufen in einem maskierten Fenster mit schnellem bzw. langsamem Tempo; zwei Umsatzbalken wachsen synchron bis zur gestrichelten 100-%-Linie, der untere wächst weiter auf 138 %, Mehrumsatz orange mit Label +38 %.",
+      "compositionFamilyId": "comparison",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "SVG-Maske"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "zwei gestapelte Studienzeilen: Musiktempo links, Umsatzbalken rechts",
+        "transformation": "Takt läuft, Balken wachsen gemeinsam, einer überholt die 100-%-Linie"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Takt-Striche laufen schnell / langsam",
+        "Umsatzbalken wachsen bis 100 %",
+        "Balken der langsamen Musik überholt die Linie",
+        "+38 % erscheint"
+      ],
+      "visualBeats": [
+        "schnelle und langsame Musik, Umsatz leer",
+        "schnelles Tempo läuft",
+        "langsames Tempo läuft, Kunden gehen langsamer",
+        "Umsatz 100 % gegen 138 %, +38 %"
+      ],
+      "beatCues": [
+        "In einer bekannten Studie",
+        "mal schnelle",
+        "mal langsame Musik",
+        "Bei langsamer Musik",
+        "Und der Umsatz"
+      ]
+    },
+    {
+      "id": "visual-15",
+      "type": "image",
+      "chapter": "Kapitel 2 — Das Regal",
+      "scriptBeat": "Ein Regal hat Zonen: Reckzone, Sichtzone, Bückzone.",
+      "googleFlowFileName": "YouTube Bild 15 - Regalzonen.png",
+      "expectedVisual": "Frontansicht eines Regals mit drei beschrifteten Zonen",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-15/bildprompt.txt",
+      "startCue": "Trick fünf: das Regal",
+      "objectLabels": [
+        "Reckzone",
+        "Sichtzone",
+        "Bückzone"
+      ]
+    },
+    {
+      "id": "visual-16",
+      "type": "image",
+      "chapter": "Kapitel 2 — Das Regal",
+      "scriptBeat": "Auf Augenhöhe stehen oft die Produkte, an denen der Markt besonders gut verdient.",
+      "googleFlowFileName": "YouTube Bild 16 - Augenhoehe teuer.png",
+      "expectedVisual": "Gleiches Regal, Sichtzone hervorgehoben mit teuren Produkten „3,49 €“",
+      "imageSequence": {
+        "mode": "continuation",
+        "referenceVisualId": "visual-15",
+        "plannedChange": "Die Sichtzone wird hervorgehoben, dort teure Markenprodukte mit Preisschild „3,49 €“; die anderen Zonen werden blasser."
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-16/bildprompt.txt",
+      "startCue": "Auf Augenhöhe greifen wir",
+      "objectLabels": [
+        "Sichtzone",
+        "Preisschild 3,49 €"
+      ]
+    },
+    {
+      "id": "visual-17",
+      "type": "image",
+      "chapter": "Kapitel 2 — Das Regal",
+      "scriptBeat": "Günstige Alternativen stehen oft weiter unten. Du musst dich bücken, um zu sparen.",
+      "googleFlowFileName": "YouTube Bild 17 - Bueckzone guenstig.png",
+      "expectedVisual": "Gleiches Regal, Bückzone hervorgehoben mit günstigen Produkten „1,29 €“, Person bückt sich",
+      "imageSequence": {
+        "mode": "continuation",
+        "referenceVisualId": "visual-16",
+        "plannedChange": "Die Bückzone wird hervorgehoben, dort schlichte günstige Produkte mit „1,29 €“; die Silhouette bückt sich."
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-17/bildprompt.txt",
+      "startCue": "Günstige Alternativen stehen",
+      "objectLabels": [
+        "Bückzone",
+        "Preisschild 1,29 €"
+      ]
+    },
+    {
+      "id": "visual-18",
+      "type": "image",
+      "chapter": "Kapitel 2 — Das Regal",
+      "scriptBeat": "Schau einmal nach oben und einmal nach unten, bevor du zugreifst.",
+      "googleFlowFileName": "YouTube Bild 18 - Blick nach oben und unten.png",
+      "expectedVisual": "Großes stilisiertes Auge mit Pfeilen nach oben und unten vor einem Regal",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-18/bildprompt.txt",
+      "startCue": "Die Gegenwehr ist einfach",
+      "objectLabels": [
+        "Auge",
+        "Pfeil nach oben",
+        "Pfeil nach unten"
+      ]
+    },
+    {
+      "id": "visual-19",
+      "type": "image",
+      "chapter": "Kapitel 3 — Preise und Angebote",
+      "scriptBeat": "Rot, groß, mit Prozentzeichen. Dein Gehirn sagt sofort: Angebot!",
+      "googleFlowFileName": "YouTube Bild 19 - Rotes Rabattschild.png",
+      "expectedVisual": "Großes rotes Rabattschild „−30 %“ am Regal",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-19/bildprompt.txt",
+      "startCue": "Trick sechs: das rote Schild",
+      "objectLabels": [
+        "Rotes Schild",
+        "−30 %"
+      ]
+    },
+    {
+      "id": "visual-20",
+      "type": "image",
+      "chapter": "Kapitel 3 — Preise und Angebote",
+      "scriptBeat": "„Tiefpreis“ oder „Knaller“ klingen nach Ersparnis — oft ist es der normale Preis.",
+      "googleFlowFileName": "YouTube Bild 20 - Tiefpreis Knaller.png",
+      "expectedVisual": "Zwei laute Schilder „Tiefpreis!“ und „Knaller!“ — beide mit demselben Preis wie das normale Schild",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-20/bildprompt.txt",
+      "startCue": "Wörter wie Tiefpreis oder Knaller",
+      "objectLabels": [
+        "Tiefpreis",
+        "Knaller",
+        "2,49 €"
+      ]
+    },
+    {
+      "id": "visual-21",
+      "type": "image",
+      "chapter": "Kapitel 3 — Preise und Angebote",
+      "scriptBeat": "Seit Mai 2022 gilt in der Preisangabenverordnung eine wichtige Regel.",
+      "googleFlowFileName": "YouTube Bild 21 - Preisangabenverordnung.png",
+      "expectedVisual": "Dokument „Preisangabenverordnung“ mit Paragrafenzeichen und Stempel „seit 28.05.2022“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-21/bildprompt.txt",
+      "startCue": "Bei echten Rabatten hilft dir das Gesetz",
+      "objectLabels": [
+        "Gesetzesdokument",
+        "Paragraf",
+        "Datum"
+      ]
+    },
+    {
+      "id": "visual-22",
+      "type": "animation",
+      "chapter": "Kapitel 3 — Preise und Angebote",
+      "scriptBeat": "30-Tage-Regel: Rabatt muss sich auf den niedrigsten Preis der letzten 30 Tage beziehen; der alte „Hochsetz-Trick“ ist verboten.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-22/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-22/animation.tsx",
+      "animationExport": "YouTubeVisual22Animation",
+      "contentBrief": "Preisverlauf über 30 Tage als Linie: 2,99 € flach, kurzer Sprung auf 3,99 €, dann Schild „−25 %“ → 2,99 €. Dann Referenzlinie „niedrigster Preis der letzten 30 Tage = 2,99 €“ → echter Rabatt 0 %, Schild wird als unzulässig markiert („verboten“).",
+      "startCue": "Wer mit einer Preissenkung wirbt",
+      "viewerChange": "Ein Preisverlauf läuft 30 Tage flach bei 2,99 €, springt kurz auf 3,99 €, fällt mit einem „−25 %“-Schild zurück auf 2,99 €; dann legt sich die Referenzlinie des niedrigsten 30-Tage-Preises genau auf den Aktionspreis — echter Rabatt 0 %, das Schild ist verboten.",
+      "animationIntent": "Die 30-Tage-Regel ist eine Zeitregel; erst wenn man den Verlauf und die Referenzlinie sieht, versteht man, warum das Hochsetzen vor der Aktion den Rabatt wertlos macht.",
+      "mechanicId": "price-history-trace-reference-check",
+      "visualTechniqueId": "step-line-30-day-window-with-lowest-price-reference",
+      "techniqueDescription": "Treppenlinie zeichnet sich Tag für Tag durch ein 30-Tage-Fenster (0-€-Basis), springt auf 3,99 € und zurück; rotes Rabattschild fährt ein; grüne gestrichelte Referenzlinie zieht sich über das Fenster, „−25 %“ wird durchgestrichen, Stempel „verboten“, „echter Rabatt: 0 %“.",
+      "compositionFamilyId": "trend-trace",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "SVG-Pfad (Treppenlinie)"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Preisdiagramm links, Rabattschild mit Stempel rechts",
+        "transformation": "Linie zeichnet Zeit, Referenzlinie entlarvt das Schild"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Preislinie läuft durch 30 Tage",
+        "Sprung auf 3,99 € und zurück",
+        "Rabattschild fährt ein",
+        "Referenzlinie zieht sich, Schild wird gestrichen und gestempelt"
+      ],
+      "visualBeats": [
+        "30-Tage-Fenster, Preis flach 2,99 €",
+        "kurz hochgesetzt auf 3,99 €",
+        "Schild −25 % statt 3,99 €",
+        "niedrigster Preis 2,99 €: echter Rabatt 0 %, verboten"
+      ],
+      "beatCues": [
+        "Wer mit einer Preissenkung",
+        "niedrigsten Preis",
+        "kurz hochsetzen",
+        "minus fünfundzwanzig Prozent",
+        "Das ist heute verboten"
+      ]
+    },
+    {
+      "id": "visual-23",
+      "type": "image",
+      "chapter": "Kapitel 3 — Preise und Angebote",
+      "scriptBeat": "Ausnahmen für schnell verderbliche Ware — und ein Schild nur mit „Aktion“ fällt nicht unter die Regel.",
+      "googleFlowFileName": "YouTube Bild 23 - Ausnahmen Aktion.png",
+      "expectedVisual": "Links frisches Brot/Obst mit Etikett „Ausnahme“, rechts Schild „Aktion“ ohne Prozentangabe",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-23/bildprompt.txt",
+      "startCue": "Aber Achtung",
+      "objectLabels": [
+        "Frische Ware",
+        "Ausnahme",
+        "Aktion"
+      ]
+    },
+    {
+      "id": "visual-24",
+      "type": "image",
+      "chapter": "Kapitel 3 — Preise und Angebote",
+      "scriptBeat": "Groß heißt billig. Das denken die meisten.",
+      "googleFlowFileName": "YouTube Bild 24 - Grosspackung XXL.png",
+      "expectedVisual": "Kleine Packung neben riesiger „XXL“-Familienpackung",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-24/bildprompt.txt",
+      "startCue": "Trick sieben: die Großpackung",
+      "objectLabels": [
+        "Kleine Packung",
+        "XXL-Packung"
+      ]
+    },
+    {
+      "id": "visual-25",
+      "type": "data",
+      "chapter": "Kapitel 3 — Preise und Angebote",
+      "scriptBeat": "Verbrauchertests finden immer wieder Großpackungen, die pro Kilo teurer sind. Darum gibt es den Grundpreis.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-25/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-25/animation.tsx",
+      "animationExport": "YouTubeVisual25Animation",
+      "contentBrief": "Rechenbeispiel (als „Beispiel“ gekennzeichnet): kleine Packung 200 g für 1,49 € und große Packung 500 g für 4,29 €. Zuerst sieht man nur die Endpreise; dann wird der Grundpreis pro Kilo ausgerechnet und eingeblendet: 7,45 €/kg vs. 8,58 €/kg → die große Packung ist pro Kilo teurer.",
+      "startCue": "Das stimmt aber nicht immer",
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-25/data-notes.md",
+      "viewerChange": "Kleine Packung 200 g für 1,49 € und große Packung 500 g für 4,29 € — nach der Rechnung Preis : kg steht 7,45 € gegen 8,58 € pro kg, und diese Grundpreise wandern auf die Preisschilder; die große Packung ist pro Kilo 1,13 € teurer.",
+      "animationIntent": "„Groß heißt billig“ wird widerlegt, indem die Rechnung vor den Augen passiert und ihr Ergebnis genau dort landet, wo es im Laden steht: als kleine Zahl unter dem großen Preis.",
+      "mechanicId": "pack-price-to-unit-price-reveal",
+      "visualTechniqueId": "shelf-labels-with-calculated-unit-price-move-in",
+      "techniqueDescription": "Regal mit zwei flachen Packungen (Fläche exakt 200 : 500) und Preisschildern; Rechnung Preis : kg blendet ein, Ergebnis zählt hoch, wandert als Grundpreis auf das Schild (Magic Move) mit Markierung; Endpreise treten zurück, Badge +1,13 € pro kg.",
+      "compositionFamilyId": "shelf-label-calculation",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "zwei Packungen auf Regalboden, Preisschilder darunter, Rechnung unter den Schildern",
+        "transformation": "Rechenergebnis wandert als Grundpreis aufs Schild"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Rechnung Preis : kg erscheint",
+        "Grundpreis zählt hoch",
+        "Ergebnis wandert aufs Schild",
+        "Endpreis tritt zurück, Grundpreis markiert"
+      ],
+      "visualBeats": [
+        "nur Endpreise 1,49 € und 4,29 €",
+        "Rechnung 1,49 € : 0,2 kg und 4,29 € : 0,5 kg",
+        "7,45 € gegen 8,58 € pro kg, +1,13 €",
+        "Grundpreis steht auf dem Schild"
+      ],
+      "beatCues": [
+        "Das stimmt aber nicht immer",
+        "Verbrauchertests finden",
+        "pro Kilo teurer",
+        "Darum gibt es den Grundpreis",
+        "Also der Preis pro Kilo"
+      ]
+    },
+    {
+      "id": "visual-26",
+      "type": "image",
+      "chapter": "Kapitel 3 — Preise und Angebote",
+      "scriptBeat": "Der Grundpreis: die kleine Zahl unter dem großen Preis — die wichtigste Zahl am Regal.",
+      "googleFlowFileName": "YouTube Bild 26 - Grundpreis Lupe.png",
+      "expectedVisual": "Preisschild, Lupe vergrößert die kleine Zeile „Grundpreis“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-26/bildprompt.txt",
+      "startCue": "Das ist die kleine Zahl",
+      "objectLabels": [
+        "Preisschild",
+        "Grundpreis",
+        "Lupe"
+      ]
+    },
+    {
+      "id": "visual-27",
+      "type": "image",
+      "chapter": "Kapitel 3 — Preise und Angebote",
+      "scriptBeat": "Selbst eine günstige Großpackung wird teuer, wenn die Hälfte im Müll landet.",
+      "googleFlowFileName": "YouTube Bild 27 - Halbe Packung im Muell.png",
+      "expectedVisual": "Halb volle Großpackung, deren Rest in einen Mülleimer kippt",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-27/bildprompt.txt",
+      "startCue": "Und selbst eine wirklich günstige",
+      "objectLabels": [
+        "Großpackung",
+        "Mülleimer"
+      ]
+    },
+    {
+      "id": "visual-28",
+      "type": "image",
+      "chapter": "Kapitel 3 — Preise und Angebote",
+      "scriptBeat": "In der Schlange liegen Süßigkeiten, Kaugummis, Batterien und kleine Getränke.",
+      "googleFlowFileName": "YouTube Bild 28 - Kasse Quengelware.png",
+      "expectedVisual": "Kassenbereich mit Warteschlange und Regalen voller Süßigkeiten, Kaugummi, Batterien",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-28/bildprompt.txt",
+      "startCue": "Trick acht: die Kasse",
+      "objectLabels": [
+        "Kasse",
+        "Süßigkeiten",
+        "Warteschlange"
+      ]
+    },
+    {
+      "id": "visual-29",
+      "type": "image",
+      "chapter": "Kapitel 3 — Preise und Angebote",
+      "scriptBeat": "Quengelware — weil Kinder genau dort anfangen zu quengeln.",
+      "googleFlowFileName": "YouTube Bild 29 - Kind greift nach Suessem.png",
+      "expectedVisual": "Kind im Einkaufswagen greift nach Süßigkeiten auf Kinderaugenhöhe an der Kasse",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-29/bildprompt.txt",
+      "startCue": "Die Verbraucherzentrale nennt das Quengelware",
+      "objectLabels": [
+        "Kind",
+        "Süßigkeitenregal"
+      ]
+    },
+    {
+      "id": "visual-30",
+      "type": "image",
+      "chapter": "Kapitel 4 — Der teuerste Trick",
+      "scriptBeat": "Die Packung sieht gleich aus, aber es ist weniger drin.",
+      "googleFlowFileName": "YouTube Bild 30 - Gleiche Packung weniger Inhalt.png",
+      "expectedVisual": "Zwei identisch aussehende Schokoladentafeln, eine „100 g“, eine „90 g“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-30/bildprompt.txt",
+      "startCue": "Und jetzt Trick neun",
+      "objectLabels": [
+        "Schokolade 100 g",
+        "Schokolade 90 g"
+      ]
+    },
+    {
+      "id": "visual-31",
+      "type": "image",
+      "chapter": "Kapitel 4 — Der teuerste Trick",
+      "scriptBeat": "Shrinkflation — oder einfach: Mogelpackung.",
+      "googleFlowFileName": "YouTube Bild 31 - Mogelpackung Luft.png",
+      "expectedVisual": "Aufgeschnittene Chipstüte/Packung: viel Luft, wenig Inhalt — Label „Mogelpackung“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-31/bildprompt.txt",
+      "startCue": "Das nennt man Shrinkflation",
+      "objectLabels": [
+        "Verpackung",
+        "Inhalt",
+        "Luft"
+      ]
+    },
+    {
+      "id": "visual-32",
+      "type": "data",
+      "chapter": "Kapitel 4 — Der teuerste Trick",
+      "scriptBeat": "Milka Alpenmilch: 100 g → 90 g, 1,49 € → 1,99 € = über 48 % teurer pro Gramm.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-32/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-32/animation.tsx",
+      "animationExport": "YouTubeVisual32Animation",
+      "contentBrief": "Tafel schrumpft von 100 g auf 90 g, Preis steigt von 1,49 € auf 1,99 €. Dann Umrechnung auf 100 g: 1,49 € → 2,21 € → Ergebnis „+48 %“ versteckte Preiserhöhung. Quelle: Verbraucherzentrale Hamburg. Markenname als reiner Text, kein Logo.",
+      "startCue": "Das bekannteste Beispiel ist Milka",
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-32/data-notes.md",
+      "viewerChange": "Die Tafel Milka Alpenmilch verliert sichtbar eine von zehn Spalten (100 g → 90 g), der Preis zählt von 1,49 € auf 1,99 €; umgerechnet auf 100 g zeigen zwei wertgenaue Balken 1,49 € gegen 2,21 € — das rote Mehrsegment ist die versteckte Preiserhöhung von +48 %.",
+      "animationIntent": "Shrinkflation versteckt sich in zwei gleichzeitigen Änderungen; erst die Umrechnung auf dieselbe Menge macht das Ausmaß sichtbar.",
+      "mechanicId": "shrinking-bar-price-rise-normalize-100g",
+      "visualTechniqueId": "chocolate-grid-column-removal-with-per-100g-bars",
+      "techniqueDescription": "Flache Schokoladentafel aus 10 gleichen Spalten (je 10 g), letzte Spalte schrumpft weg, Lücke bleibt gestrichelt; Zählwerk-Preisschild 1,49 € → 1,99 €; obere Gruppe rückt nach oben, Rechnung auf 100 g, zwei Balken pro 100 g wachsen, Mehrsegment rot, +48 %.",
+      "compositionFamilyId": "shrinkflation-normalization",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "Zaehlwerk (daten.tsx)"
+      ],
+      "motionSignature": {
+        "camera": "still, Layout rückt einmal nach oben",
+        "layout": "Tafel links, Preisschild rechts, darunter Balken pro 100 g",
+        "transformation": "Tafel schrumpft, Preis zählt hoch, Umrechnung auf 100 g"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Tafel verliert eine Spalte",
+        "Gramm-Zahl 100 → 90",
+        "Preis zählt 1,49 € → 1,99 €",
+        "Balken pro 100 g wachsen, Mehrpreis rot"
+      ],
+      "visualBeats": [
+        "Tafel 100 g, 1,49 €",
+        "90 g statt 100 g",
+        "1,99 € (+0,50 €)",
+        "pro 100 g: 1,49 € gegen 2,21 €",
+        "+48 % versteckte Preiserhöhung"
+      ],
+      "beatCues": [
+        "Das bekannteste Beispiel",
+        "Die Tafel ist",
+        "Und der Preis ist",
+        "Rechnet man das",
+        "versteckte Preiserhöhung"
+      ]
+    },
+    {
+      "id": "visual-33",
+      "type": "image",
+      "chapter": "Kapitel 4 — Der teuerste Trick",
+      "scriptBeat": "Mogelpackung des Jahres 2025: fast 35.000 Stimmen, zwei Drittel für Milka.",
+      "googleFlowFileName": "YouTube Bild 33 - Mogelpackung des Jahres.png",
+      "expectedVisual": "Wahlurne mit Stimmzetteln und Kreisdiagramm „2/3“, Text „Mogelpackung des Jahres 2025“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-33/bildprompt.txt",
+      "startCue": "Die Verbraucherzentrale Hamburg hat Milka",
+      "objectLabels": [
+        "Wahlurne",
+        "Kreisdiagramm",
+        "Stimmen"
+      ]
+    },
+    {
+      "id": "visual-34",
+      "type": "image",
+      "chapter": "Kapitel 4 — Der teuerste Trick",
+      "scriptBeat": "2025: 77 neue Mogelpackungen — ein Rekord; im Schnitt 28 % versteckt teurer.",
+      "googleFlowFileName": "YouTube Bild 34 - Rekord Mogelpackungen.png",
+      "expectedVisual": "Viele kleine geschrumpfte Packungen im Raster, große Zahl „77“ und „Ø +28 %“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-34/bildprompt.txt",
+      "startCue": "Und Milka ist kein Einzelfall",
+      "objectLabels": [
+        "Viele Packungen",
+        "77",
+        "+28 %"
+      ]
+    },
+    {
+      "id": "visual-35",
+      "type": "image",
+      "chapter": "Kapitel 4 — Der teuerste Trick",
+      "scriptBeat": "Erlaubt, solange die richtige Füllmenge auf der Packung steht — nur schaut kaum jemand hin.",
+      "googleFlowFileName": "YouTube Bild 35 - Fuellmenge winzig.png",
+      "expectedVisual": "Packungsecke mit winziger Angabe „90 g“, die kaum jemand bemerkt",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-35/bildprompt.txt",
+      "startCue": "Grundsätzlich ist das erlaubt",
+      "objectLabels": [
+        "Packungsrückseite",
+        "90 g",
+        "Lupe"
+      ]
+    },
+    {
+      "id": "visual-36",
+      "type": "image",
+      "chapter": "Kapitel 4 — Der teuerste Trick",
+      "scriptBeat": "Steigt der Grundpreis, obwohl der Preis gleich bleibt, ist weniger drin.",
+      "googleFlowFileName": "YouTube Bild 36 - Grundpreis steigt.png",
+      "expectedVisual": "Zwei Preisschilder vorher/nachher: Preis gleich 1,99 €, Grundpreis steigt — roter Pfeil",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-36/bildprompt.txt",
+      "startCue": "Dein Schutz ist wieder der Grundpreis",
+      "objectLabels": [
+        "Preisschild",
+        "Grundpreis",
+        "Pfeil nach oben"
+      ]
+    },
+    {
+      "id": "visual-37",
+      "type": "image",
+      "chapter": "Kapitel 5 — Was dich das kostet",
+      "scriptBeat": "Ungefähr die Hälfte aller Einkäufe im Supermarkt ist nicht geplant.",
+      "googleFlowFileName": "YouTube Bild 37 - Haelfte ungeplant.png",
+      "expectedVisual": "Kassenbon, auf dem etwa die Hälfte der Zeilen farbig als ungeplant markiert ist",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-37/bildprompt.txt",
+      "startCue": "Wie viel kosten dich diese Tricks",
+      "objectLabels": [
+        "Kassenbon",
+        "markierte Zeilen"
+      ]
+    },
+    {
+      "id": "visual-38",
+      "type": "animation",
+      "chapter": "Kapitel 5 — Was dich das kostet",
+      "scriptBeat": "Annahme: 10 € pro Woche ungeplant = über 40 € im Monat = 520 € im Jahr.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-38/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-38/animation.tsx",
+      "animationExport": "YouTubeVisual38Animation",
+      "contentBrief": "Rechenbeispiel (als „Annahme“ gekennzeichnet): 52 Wochenfelder füllen sich nacheinander mit je 10 €; Zwischenstand nach 4 Wochen „über 40 € im Monat“; Endstand 520 € im Jahr.",
+      "startCue": "Machen wir ein einfaches Rechenbeispiel",
+      "viewerChange": "Ein leeres Jahr aus 52 Wochenfeldern füllt sich Woche für Woche mit 10 €; nach 4 Wochen steht der Zähler auf 40 € („über 40 € im Monat“), am Ende sind alle 52 Felder rot und der Zähler zeigt 520 € im Jahr.",
+      "animationIntent": "Kleine wöchentliche Beträge wirken harmlos; das sich füllende Jahr macht sichtbar, wie aus jeweils 10 € in Summe 520 € werden, und jedes Feld ist genau 10 € wert.",
+      "mechanicId": "week-calendar-fill-count-up",
+      "visualTechniqueId": "fifty-two-week-grid-column-fill-with-month-bracket",
+      "techniqueDescription": "Raster aus 52 Wochenfeldern (13 Spalten à 4 Wochen) füllt sich spaltenweise mit roten 10-€-Feldern; der Zähler ist immer exakt 10 € × gefüllte Wochen; Klammer unter den ersten 4 Wochen mit „über 40 € im Monat“; Unterzeile wechselt zu „im Jahr“.",
+      "compositionFamilyId": "calendar-grid-fill",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Zähler oben mittig, 52-Wochen-Raster darunter, Monatsklammer unten links",
+        "transformation": "Wochenfelder füllen sich, Zähler läuft mit"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Woche 1 füllt sich",
+        "Wochen 2–4 füllen sich, Zähler 40 €",
+        "Monatsklammer erscheint",
+        "48 Wochen füllen sich, Zähler 520 €"
+      ],
+      "visualBeats": [
+        "52 leere Wochen, 0 €",
+        "Woche 1: 10 €",
+        "4 Wochen: 40 €, über 40 € im Monat",
+        "52 Wochen: 520 € im Jahr"
+      ],
+      "beatCues": [
+        "Machen wir ein einfaches",
+        "Du kaufst jede Woche",
+        "Zehn Euro pro Woche",
+        "über vierzig Euro",
+        "Und fünfhundertzwanzig Euro"
+      ]
+    },
+    {
+      "id": "visual-39",
+      "type": "image",
+      "chapter": "Kapitel 5 — Was dich das kostet",
+      "scriptBeat": "520 Euro für Dinge, die nie auf deinem Zettel standen.",
+      "googleFlowFileName": "YouTube Bild 39 - 520 Euro ungeplant.png",
+      "expectedVisual": "Kurzer Einkaufszettel neben einem großen Berg ungeplanter Produkte mit Schild „520 €“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-39/bildprompt.txt",
+      "startCue": "Fünfhundertzwanzig Euro für Dinge",
+      "objectLabels": [
+        "Einkaufszettel",
+        "Stapel Extras",
+        "520 €"
+      ]
+    },
+    {
+      "id": "visual-40",
+      "type": "image",
+      "chapter": "Kapitel 6 — Fünf Regeln dagegen",
+      "scriptBeat": "Gegen jeden dieser Tricks kannst du dich wehren — mit fünf einfachen Regeln.",
+      "googleFlowFileName": "YouTube Bild 40 - Fuenf Regeln Checkliste.png",
+      "expectedVisual": "Klemmbrett mit Checkliste aus fünf leeren Kästchen",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-40/bildprompt.txt",
+      "startCue": "Die gute Nachricht",
+      "objectLabels": [
+        "Checkliste",
+        "Fünf Kästchen"
+      ]
+    },
+    {
+      "id": "visual-41",
+      "type": "image",
+      "chapter": "Kapitel 6 — Fünf Regeln dagegen",
+      "scriptBeat": "Geh mit Einkaufszettel. Und kauf, was draufsteht.",
+      "googleFlowFileName": "YouTube Bild 41 - Regel Einkaufszettel.png",
+      "expectedVisual": "Hand hält Einkaufszettel, Punkte werden abgehakt",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-41/bildprompt.txt",
+      "startCue": "Erstens",
+      "objectLabels": [
+        "Einkaufszettel",
+        "Hand"
+      ]
+    },
+    {
+      "id": "visual-42",
+      "type": "image",
+      "chapter": "Kapitel 6 — Fünf Regeln dagegen",
+      "scriptBeat": "Geh nicht hungrig einkaufen.",
+      "googleFlowFileName": "YouTube Bild 42 - Regel nicht hungrig.png",
+      "expectedVisual": "Person isst vor dem Supermarkt entspannt einen Apfel",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-42/bildprompt.txt",
+      "startCue": "Zweitens",
+      "objectLabels": [
+        "Person",
+        "Apfel",
+        "Supermarkt"
+      ]
+    },
+    {
+      "id": "visual-43",
+      "type": "image",
+      "chapter": "Kapitel 6 — Fünf Regeln dagegen",
+      "scriptBeat": "Wenn du nur wenig brauchst: Korb statt Wagen.",
+      "googleFlowFileName": "YouTube Bild 43 - Regel Korb statt Wagen.png",
+      "expectedVisual": "Einkaufskorb mit grünem Haken neben großem Wagen mit grauem Kreuz",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-43/bildprompt.txt",
+      "startCue": "Drittens",
+      "objectLabels": [
+        "Korb",
+        "Einkaufswagen",
+        "Haken"
+      ]
+    },
+    {
+      "id": "visual-44",
+      "type": "image",
+      "chapter": "Kapitel 6 — Fünf Regeln dagegen",
+      "scriptBeat": "Schau auf den Grundpreis. Nicht auf das rote Schild.",
+      "googleFlowFileName": "YouTube Bild 44 - Regel Grundpreis.png",
+      "expectedVisual": "Rotes Rabattschild blass im Hintergrund, Lupe vorne auf der Grundpreis-Zeile",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-44/bildprompt.txt",
+      "startCue": "Viertens",
+      "objectLabels": [
+        "Rotes Schild",
+        "Grundpreis",
+        "Lupe"
+      ]
+    },
+    {
+      "id": "visual-45",
+      "type": "image",
+      "chapter": "Kapitel 6 — Fünf Regeln dagegen",
+      "scriptBeat": "Schau nach oben und nach unten — das günstigste Produkt steht selten auf Augenhöhe.",
+      "googleFlowFileName": "YouTube Bild 45 - Regel oben und unten.png",
+      "expectedVisual": "Das bekannte Regal mit Pfeilen nach oben/unten, günstiges Produkt unten abgehakt",
+      "imageSequence": {
+        "mode": "continuation",
+        "referenceVisualId": "visual-15",
+        "plannedChange": "Zwei kräftige Pfeile führen von der Sichtzone nach oben und nach unten; das günstige Produkt unten bekommt einen grünen Haken."
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-45/bildprompt.txt",
+      "startCue": "Fünftens",
+      "objectLabels": [
+        "Regal",
+        "Pfeile",
+        "Haken"
+      ]
+    },
+    {
+      "id": "visual-46",
+      "type": "image",
+      "chapter": "Fazit",
+      "scriptBeat": "Wenn du die Tricks kennst, verlieren sie ihre Macht.",
+      "googleFlowFileName": "YouTube Bild 46 - Entspannt rausgehen.png",
+      "expectedVisual": "Person verlässt zufrieden den Supermarkt mit kleiner Tüte und kurzem Bon",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-46/bildprompt.txt",
+      "startCue": "Supermärkte sind nicht böse",
+      "objectLabels": [
+        "Person",
+        "kleine Tüte",
+        "kurzer Kassenbon"
+      ]
+    }
+  ]
+}

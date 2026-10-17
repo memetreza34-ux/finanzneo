@@ -62,25 +62,34 @@ Standard:
 - kein Stroke, Jump oder Scale-Pop
 - pro Szene clippen
 
-## 4. V9-Animationsbühne
+## 4. Editorial Motion Bühne
 
-Standard für kanonische Phase-1-Erkläranimationen:
+Standard für neue Phase-1-Erkläranimationen:
 
 ```tsx
-<PremiumPhysicalStage>
-  <PhysicalObject ... />
-</PremiumPhysicalStage>
+<EditorialMotionStage surface="cream">
+  {/* wenige einfache Editorial-Elemente */}
+</EditorialMotionStage>
 ```
 
-`PremiumPhysicalStage` bleibt transparent. Der Hintergrund kommt ausschließlich vom zentralen `FinanceBackground`.
+Verfügbare Grundflächen: `cream`, `off-white`, `light-gray`, `muted-green` und begründet `dark`.
+
+Passende neue Primitives:
+
+- `EditorialLabel`
+- `EditorialDocument`
+- `EditorialPerson`
+- `EditorialBuilding`
+- `EditorialMountain`
+- `EDITORIAL_MOTION_COLORS`
 
 Pflichtlogik:
 
 ```text
-START → SICHTBARER MECHANISMUS → ERGEBNIS
+START → SICHTBARE VERÄNDERUNG → ERGEBNIS
 ```
 
-Es gibt keine feste Support-Objekt-Anzahl. Mindestens ein echtes sichtbares Hauptmotiv ist nötig; zusätzliche Objekte nur, wenn sie die Erklärung verbessern.
+Eine einzige klare Hauptbewegung darf reichen. 2D / leichtes 2.5D ist Standard. Alte `PremiumPhysicalStage`- und `Physical*`-Bausteine bleiben nur für historische Produktionen und sind keine neue Default-Sprache.
 
 ## 5. Geldbeträge und Zahlen
 

@@ -1,232 +1,254 @@
 ---
 name: remotion-director
-description: Directs FinanzNeo animation scenes as cinematic, deterministic Remotion stories using real-world objects, multiple motion channels, 3D depth, paths/shapes, controlled motion blur, Lottie only as support, and synchronized sound cues.
+description: Directs FinanzNeo animation scenes as simple editorial motion that matches the FinanzNeo Editorial Finance image world.
 ---
 
 # FinanzNeo Remotion Director
 
 ## Goal
 
-Build animation scenes that feel like short visual stories, not animated infographics.
+Build animation scenes that feel like the **moving version of the FinanzNeo Editorial Finance image world**.
 
-Every animation must help a beginner understand the spoken sentence faster and more clearly.
+The animation must help a beginner understand the spoken sentence faster and more clearly.
 
 ## Authority
 
 Read in this order:
 
 1. `CLAUDE.md`
-2. target reel `03-szenen/scene-index.json`
-3. target scene `szene.md`
-4. target scene `remotion.md`
-5. existing `animation.tsx`
-6. `.agents/plugins/finanzneo-motion/rules/remotion-production.md`
-7. this skill
+2. `docs/FINANZNEO-EDITORIAL-MOTION-V3.md`
+3. target reel `03-szenen/scene-index.json`
+4. target scene `szene.md`
+5. target scene `remotion.md`
+6. existing `animation.tsx`
+7. `.agents/plugins/finanzneo-motion/rules/remotion-production.md`
+8. this skill
 
-Do not create a second reel when an existing reel is the target.
+## EDITORIAL MOTION
 
-## Engine routing
+Default visual language:
 
-Use the clearest medium for each part of a scene:
+- 2D or subtle 2.5D
+- matte colors
+- simple large shapes
+- low-to-moderate detail
+- warm cream / off-white / light gray / muted color surfaces
+- dark only when it clearly fits the subject
+- no forced physical-object scene
+- no forced 3D
+- no forced camera movement
+- no decorative finance spectacle
 
-- **Remotion HTML/CSS primitives**: paper, accounts, labels, simple physical objects and layout.
-- **React Three Fiber / Three.js + `@remotion/three`**: perspective, depth, camera moves or genuinely spatial interactions.
-- **`@remotion/paths`**: animated paths only when a visible route/connection itself explains the mechanism.
-- **`@remotion/shapes`**: clean deterministic vector primitives where custom DOM/SVG would be noisier.
-- **`@remotion/motion-blur`**: selective blur for genuinely fast hero/support movement; never blur captions/header or use it to hide weak motion.
-- **`@remotion/transitions`**: respect the central Reel transition contract; do not invent scene-local transition styles that break consistency.
-- **Lottie**: small vector motion, icon acting, calendar flip, check/warning accents, chart strokes and micro-motion.
-- **Flow image**: detailed static explanatory scene when animation adds little value.
+Preferred high-quality library:
 
-Lottie, Three, paths, shapes and motion blur are tools inside the Remotion composition. Remotion remains the timeline and rendering authority.
+```text
+src/finance-motion/v3
+```
 
-## Required narrative
+Legacy fallback only:
+
+```text
+src/finance-motion/editorial-v1.tsx
+```
+
+## Core narrative
 
 Every animation must have:
 
 ```text
 START
-→ TRIGGER
-→ PHYSICAL ACTION
-→ REACTION
+→ MEANINGFUL CHANGE
 → RESULT
 → RESULT HOLD
 ```
 
-Example:
+A trigger/reaction chain may be added when the content needs it, but it is not mandatory.
+
+## Minimum motion rule
+
+Use the **minimum motion** required to explain the beat.
+
+One motion channel may be enough.
+
+Examples:
+
+- one bar grows
+- one amount changes
+- one timeline extends
+- one document gets an extra fee
+- one path toward a goal reveals
+- one allocation changes its proportions
+
+Do not add extra movement just to make the scene feel active.
+
+## Camera
+
+Default:
 
 ```text
-open repair bill appears
-→ bill approaches account
-→ reserve releases money
-→ bill changes to paid
-→ overdraft retreats and account stabilizes
-→ result remains readable
+CAMERA_ROLE: still
 ```
 
-A progress bar, three cards or text labels are never a substitute for this mechanism.
+Use follow, push or reframe only when the camera itself improves understanding.
 
-## Visual-beat synchronization
+No constant zooming or parallax by default.
 
-VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v1
+## Engine routing
 
-Treat an animation scene as several visible sub-beats, not one long motion. Every time the spoken thought advances, the visual should reveal a new object, state, action, consequence or result. Camera movement alone is not a new beat.
+Use the simplest implementation that explains the scene:
 
-Do not let a fully understood still state sit under new narration. Hold is reserved for a short readable result, not for filling time. Plan approximate beat windows first; Phase 3 retimes scene boundaries from the real voiceover without changing the sealed mechanism.
+- **Remotion HTML/CSS**: flat editorial shapes, documents, labels, bars, simple people/objects.
+- **SVG / @remotion/paths / shapes**: timelines, charts, routes, mountain paths, clean vector mechanisms.
+- **2.5D / Three.js**: only when real spatial depth matters to the explanation.
+- **Lottie**: small support motion only.
+- **Flow image**: not part of an ANIMATION scene's main visual.
 
-## Motion channels
+## Editorial surfaces
 
-Use several coordinated motion channels with different jobs. Aim for 4–8 meaningful channels where the scene supports it.
+Prefer `EditorialMotionStage` for new Reel animations.
 
-Possible channels:
+Available surfaces:
 
-- hero object translation
-- secondary object reaction
-- scale/weight reaction
-- rotation or page flip
-- reserve/fill-state change
-- money path
-- camera push / parallax
-- Lottie accent
-- result confirmation
+- cream
+- off-white
+- light-gray
+- muted-green
+- dark when justified
 
-Do not drive all objects with one identical progress value.
+Do not fall back to `PremiumPhysicalStage` or old Physical primitives for new Editorial Motion scenes.
 
-## Motion character
+## Visual beats
 
-Objects must feel different:
+The visual should advance only when the spoken idea advances.
 
-- heavy appliance / large container: slower and weighted
-- invoice/paper: light slide/fall with a small settle
-- money: quick controlled spring
-- account: restrained recoil/stabilization
-- warning: short sharp emphasis, never flashing constantly
-- calendar: crisp page turn
-- confirmation: fast clean pop then hold
+A new visible beat can be:
 
-Use `useCurrentFrame()` with `interpolate()`, `spring()` and intentional easing. Do not use CSS keyframe animation or CSS transitions for rendered motion.
+- a new value
+- a changed size
+- a revealed milestone
+- a changed comparison
+- a new cost line
+- a moved object
+- a completed path
+- a final result
 
-## Motion blur
+Camera drift alone is not a new beat.
 
-Use motion blur sparingly and semantically:
+## Lottie
+
+Use Lottie only when a small vector motion materially improves the scene.
 
 Good:
 
-- fast money transfer
-- short paper whip/slide
-- quick foreground object movement
+- restrained check
+- calendar page flip
+- simple warning accent
+- short chart stroke
 
 Bad:
 
-- permanent blur
-- blurred text/labels
-- blur on slow objects
-- blur used to make a weak animation look more active
-
-The unblurred result state must always hold clearly.
-
-## Paths and shapes
-
-Animated lines/paths are allowed only when they communicate a real path, e.g. money moving from Girokonto to Tagesgeld.
-
-Do not regress into abstract flowcharts. A path supports concrete objects; it does not replace them.
-
-## Camera and depth
-
-Use subtle camera motion only when it improves focus:
-
-- small push-in toward the mechanism
-- slight parallax between foreground and background
-- tiny result settle
-
-Do not use constant zooming. Camera motion never counts as the scene's main animation.
-
-Organize depth deliberately:
-
-```text
-foreground = active item / payment / bill
-midground = account / reserve / main mechanism
-background = contextual appliance or environment
-```
-
-## Composition
-
-- important action stays inside the visual safe zone;
-- use large readable objects;
-- no tiny diorama;
-- labels are secondary and short;
-- keep enough empty black space for clarity, but do not leave the main action visually weak or undersized;
-- final result must be recognizable without reading a paragraph.
-
-## Lottie hybrid rule
-
-Use `lottie-motion` only when a vector layer materially improves the scene.
-
-Good examples:
-
-- calendar page flips
-- checkmark after payment
-- restrained warning pulse
-- money-transfer accent
-- chart stroke or target reveal
-
-Never replace a strong real-world mechanism with a generic Lottie illustration.
-
-## Sound relationship
-
-Before finalizing an animation, identify the important audible events and write them to the reel sound plan.
-
-Typical event mapping:
-
-- paper appears / slides → paper-whoosh
-- object lands → soft impact
-- money releases / travels → subtle cash movement
-- mechanical reserve opens → soft mechanism click
-- warning begins → restrained warning tick
-- payment succeeds → confirmation click/chime
-- calendar changes → page flip
-
-SFX timing follows visible motion frames. Voiceover remains dominant.
+- full generic Lottie scene
+- decorative looping
+- unrelated animated finance icons
 
 ## Representative-frame review
 
-Inspect at least:
+Inspect:
 
-- start
-- trigger
-- mid-mechanism
-- near-result
-- final result hold
+- START
+- MID-CHANGE
+- RESULT
+- FINAL RESULT HOLD
 
-For spatial scenes, also verify that no hero/support object crosses header/caption safe zones during its path.
+The meaning should be clear at each stage.
 
 ## Quality checklist
 
-Reject and redesign the animation if any is true:
+Reject and redesign if:
 
-- it looks like PowerPoint, a dashboard or an app UI;
-- the meaning depends mainly on labels;
-- the action is too small to notice;
-- only one object meaningfully moves when the idea naturally supports richer cause/effect;
-- all objects move with the same timing;
-- a progress bar carries the explanation;
-- the viewer must interpret abstract finance symbols;
-- Lottie becomes the entire scene without a concrete reason;
-- path/shape graphics turn the scene into a flowchart;
-- motion blur hides readability;
-- sound cues cannot be attached to clear visible events;
-- result state is not held long enough to understand.
+- it looks like the retired glossy black 3D world
+- it uses old `PremiumPhysicalStage` / `Physical*` primitives
+- it looks like a dashboard or app UI
+- the meaning depends mainly on labels
+- too many elements move at once
+- motion exists only for spectacle
+- glow, holograms, coins or podiums dominate
+- the camera moves without explanatory reason
+- a simpler animation would explain the same sentence better
+- the final result is not held long enough
 
 ## Final workflow
 
-1. read voiceover beat;
-2. write one-sentence physical mechanism;
-3. choose hero/support objects;
-4. define motion channels and approximate frame windows;
-5. choose Remotion / Three / Paths / Shapes / Lottie layers;
-6. decide whether selective motion blur adds real value;
-7. define sound cues;
-8. implement deterministic code;
-9. preview representative frames in Remotion Studio;
-10. run animation validator;
-11. only then seal Phase 1 animation code.
+1. read the spoken beat;
+2. write one sentence describing what must visibly change;
+3. choose the simplest editorial mechanism;
+4. develop three distinct visual concepts before coding;
+5. choose the strongest concept and plan 10% / 35% / 65% / 90% keyframes;
+6. choose motion grammar verbs (DRAW, FOLLOW, REVEAL, SPLIT, MERGE, STACK, SHIFT, SWAP, EMPHASIZE, COUNT);
+7. check `src/finance-motion/v3` first for a genuine best fit;
+8. otherwise build a custom V3 scene using native Remotion geometry;
+9. implement deterministic Remotion motion;
+10. render MP4 plus 10/35/65/90 keyframes;
+11. inspect the four keyframes as a visual story;
+9. run the animation validator;
+10. only then seal Phase 1 animation code.
+
+
+## Editorial Motion example lab
+
+For the prepared multi-example test, use:
+
+```bash
+npm run render:editorial-motion-v3
+```
+
+Do not redesign the prepared examples during render QA. Antigravity should render and inspect them exactly as authored.
+
+
+## Official Remotion skills — required for advanced motion work
+
+The workspace bootstrap already installs the official `remotion-dev/skills` pack for Antigravity.
+
+For non-trivial animation work, consult these installed skills instead of guessing APIs:
+
+- `/remotion-best-practices`
+- `/remotion-markup`
+- `/remotion-docs`
+- `/remotion-studio`
+- `/remotion-render`
+
+Use `/remotion-docs` before introducing a Remotion package/API that is not already familiar.
+
+## Preferred native Remotion toolkit
+
+Before adding another animation library, prefer the packages already present in this repo:
+
+- `@remotion/paths` for drawn paths, path-following and SVG geometry
+- `@remotion/shapes` for editable vector primitives and pie/arrow/callout geometry
+- `@remotion/transitions` for scene-to-scene showcase transitions
+- `@remotion/layout-utils` for text/layout fitting
+- `@remotion/effects` for restrained canvas effects only when they improve the editorial look
+- `@remotion/motion-blur` only for fast movement where blur materially improves readability
+- `@remotion/lottie` for small support motions
+- `@remotion/three` only when spatial depth is necessary
+- `recharts` for data-heavy charts when native SVG would be unnecessarily complex
+
+Do not install another runtime animation framework merely to make a scene feel more sophisticated. First use Remotion's native timing, paths, shapes, sequences and spring/interpolation system properly.
+
+
+## V3 hard quality gate
+
+Before coding, write **three different visual concepts**. Do not produce three cosmetic variations of one chart.
+
+Before acceptance, render and inspect four stills:
+
+```text
+10% START
+35% CHANGE
+65% PAYOFF BUILD
+90% RESULT HOLD
+```
+
+If those stills resemble four dashboard states instead of one coherent editorial visual story, redesign the scene.
+
+Prefer animated editorial objects, paths, masks, geometric transformation and real visual metaphors over generic cards.

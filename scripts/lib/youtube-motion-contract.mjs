@@ -1,4 +1,6 @@
 export const YOUTUBE_MOTION_STANDARD_ID = 'finanzneo-youtube-motion-v3';
+export const YOUTUBE_EDITORIAL_MOTION_WORLD_ID = 'finanzneo-youtube-light-motion-v2';
+export const YOUTUBE_EDITORIAL_VISUAL_TARGET_ID = 'finanzneo-youtube-light-motion-v2';
 
 export const YOUTUBE_VISUAL_TYPES = ['image', 'animation', 'hybrid', 'data'];
 export const YOUTUBE_MOTION_VISUAL_TYPES = new Set(['animation', 'hybrid', 'data']);
@@ -7,9 +9,7 @@ export const YOUTUBE_IMAGE_VISUAL_TYPES = new Set(['image', 'hybrid']);
 // Beispiele zur Inspiration, ausdrücklich KEINE Whitelist.
 // Neue compositionFamilyId-Werte sind erlaubt, wenn sie die konkrete Szene besser beschreiben.
 export const YOUTUBE_MOTION_FAMILY_EXAMPLES = [
-  'spatial-3d',
   'vector-motion',
-  'css-3d',
   'kinetic-type',
   'data-viz',
   'timeline',
@@ -17,12 +17,16 @@ export const YOUTUBE_MOTION_FAMILY_EXAMPLES = [
   'image-composite',
   'simulation',
   'comparison',
-  'camera-journey',
   'physical-process',
   'material-transformation',
   'map-journey',
-  'macro-to-micro',
   'network-simulation',
+  'rank-reflow',
+  'segmented-donut',
+  'data-heatmap',
+  'flow-token',
+  'waffle-grid',
+  'trend-trace',
   'custom',
 ];
 
@@ -51,8 +55,8 @@ export const validateYouTubeMotionMetadata = (visual) => {
     }
   };
 
-  // Content-first: Erst beschreiben, was der Zuschauer tatsächlich sehen soll,
-  // danach Mechanik und Technik festlegen.
+  // Light Motion: Zuerst sichtbare Veränderung, drei unterschiedliche 2D-Konzepte
+  // und geeignete Mechaniken planen; Technik ist kein Selbstzweck.
   requiredString('viewerChange');
   requiredString('animationIntent');
   requiredString('mechanicId');
@@ -65,8 +69,8 @@ export const validateYouTubeMotionMetadata = (visual) => {
   if (!validStringArray(visual?.toolStack, 1)) {
     errors.push(`${id}: toolStack benötigt mindestens 1 konkretes Werkzeug / Verfahren.`);
   }
-  if (!validStringArray(visual?.motionChannels, 2)) {
-    errors.push(`${id}: motionChannels benötigt mindestens 2 sinnvolle Kanäle.`);
+  if (!validStringArray(visual?.motionChannels, 1)) {
+    errors.push(`${id}: motionChannels benötigt mindestens 1 sinnvolle erklärende Bewegung.`);
   }
   if (!validStringArray(visual?.visualBeats, 2)) {
     errors.push(`${id}: visualBeats benötigt mindestens 2 sichtbare Zustände.`);

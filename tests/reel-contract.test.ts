@@ -14,8 +14,8 @@ import {
 } from '../scripts/lib/reel-contract.mjs';
 
 test('Reel-Vertrag verwendet die verbindliche Bildwelt', () => {
-  assert.equal(WORLD_ID, 'finanzneo-connected-studio-v3');
-  assert.equal(SERIES_LOCK_ID, 'finanzneo-same-world-v1');
+  assert.equal(WORLD_ID, 'finanzneo-editorial-finance-v1');
+  assert.equal(SERIES_LOCK_ID, 'finanzneo-editorial-consistency-v1');
   assert.equal(FLOW_AGENT_PROTOCOL_ID, 'finanzneo-flow-sequential-v1');
   assert.equal(GENERATED_IMAGE_ASPECT_RATIO, '1:1');
   assert.equal(REEL_VIDEO_ASPECT_RATIO, '9:16');

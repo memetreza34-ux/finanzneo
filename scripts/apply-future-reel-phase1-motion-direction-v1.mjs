@@ -10,7 +10,7 @@ if (!target) {
 }
 
 const CONTRACT_ID = 'finanzneo-phase1-hybrid-motion-v2';
-const LIBRARY_ID = 'finanzneo-finance-motion-library-v1';
+const LIBRARY_ID = 'finanzneo-editorial-motion-v3-library';
 const root = resolve(target);
 const indexPath = resolve(root, '03-szenen/scene-index.json');
 if (!existsSync(indexPath)) {
@@ -67,7 +67,7 @@ write(indexPath, JSON.stringify(index, null, 2));
 
 const projectDir = resolve(root, '05-projektdateien');
 mkdirSync(projectDir, {recursive: true});
-write(resolve(projectDir, 'phase1-motion-direction-v1.md'), `# Phase 1 Hybrid Motion Direction V2\n\nPHASE1_MOTION_DIRECTION: ${CONTRACT_ID}\nFINANCE_MOTION_LIBRARY: ${LIBRARY_ID}\n\n## Verbindliche Reihenfolge\n\nSprechpunkt analysieren -> sichtbares Verständnisziel -> visuelle Frage -> beste Hauptmechanik definieren -> Finance Motion Library auf echten Best-Fit prüfen -> Library parametrisieren ODER individuell bauen -> motionDesign -> animation.tsx.\n\n## Library ist Werkzeug, kein Käfig\n\nDie Library wird erst geprüft, nachdem die inhaltlich richtige Mechanik feststeht. Passt eine vorhandene Finance-Motion-Mechanik semantisch wirklich, wird sie bevorzugt und mit szenenspezifischen Parametern verwendet. Passt keine ausreichend gut, wird ohne Umweg eine individuelle Animation gebaut.\n\n## Wiederverwendung\n\nEine gute Mechanik darf innerhalb eines Reels und über viele Reels hinweg wiederverwendet werden. Wiederholung ist erlaubt, wenn die Finanzlogik dieselbe ist; nur Werte, Labels, Gewichtungen, Richtung, Timing oder andere echte Inhaltsparameter ändern sich. Künstliche Einmaligkeit ist kein Qualitätsmerkmal.\n\n## Wachstum der Library\n\nEine individuell gebaute Animation kann als libraryPromotionCandidate markiert werden, wenn ihre Mechanik verallgemeinerbar und parametrisiert wiederverwendbar ist. Nicht jede Custom-Animation muss in die Library.\n\n## Pflichtfelder\n\nJede Animationsszene dokumentiert spokenPoint, viewerMustUnderstand, visualQuestion, chosenMechanism, mechanismRationale, implementationDecision, financeMotionId, libraryFitReason, parameterPlan, customReason und libraryPromotionCandidate.\n`);
+write(resolve(projectDir, 'phase1-motion-direction-v1.md'), `# Phase 1 Hybrid Motion Direction V2\n\nPHASE1_MOTION_DIRECTION: ${CONTRACT_ID}\nFINANCE_MOTION_LIBRARY: ${LIBRARY_ID}\n\n## Verbindliche Reihenfolge\n\nSprechpunkt analysieren -> sichtbares Verständnisziel -> visuelle Frage -> drei visuelle Konzepte entwickeln -> stärkstes Konzept wählen -> 10/35/65/90-Keyframes planen -> Motion-Grammatik wählen -> Editorial Motion V3 auf Best-Fit prüfen -> individuell oder per V3-Baustein bauen -> motionDesign -> animation.tsx.\n\n## Library ist Werkzeug, kein Käfig\n\nDie Library wird erst geprüft, nachdem die inhaltlich richtige Mechanik feststeht. Passt eine vorhandene Editorial-Motion-Mechanik semantisch wirklich, wird sie bevorzugt und mit szenenspezifischen Parametern verwendet. Passt keine ausreichend gut, wird ohne Umweg eine individuelle Animation gebaut.\n\n## Wiederverwendung\n\nEine gute Mechanik darf innerhalb eines Reels und über viele Reels hinweg wiederverwendet werden. Wiederholung ist erlaubt, wenn die Finanzlogik dieselbe ist; nur Werte, Labels, Gewichtungen, Richtung, Timing oder andere echte Inhaltsparameter ändern sich. Künstliche Einmaligkeit ist kein Qualitätsmerkmal.\n\n## Wachstum der Library\n\nEine individuell gebaute Animation kann als libraryPromotionCandidate markiert werden, wenn ihre Mechanik verallgemeinerbar und parametrisiert wiederverwendbar ist. Nicht jede Custom-Animation muss in die Library.\n\n## Pflichtfelder\n\nJede Animationsszene dokumentiert spokenPoint, viewerMustUnderstand, visualQuestion, chosenMechanism, mechanismRationale, implementationDecision, financeMotionId, libraryFitReason, parameterPlan, customReason und libraryPromotionCandidate.\n`);
 
 const append = (relativePath, heading, body) => {
   const path = resolve(root, relativePath);
@@ -80,7 +80,7 @@ const append = (relativePath, heading, body) => {
 append(
   '05-projektdateien/animationen.md',
   'Phase 1 Hybrid Motion Direction V2',
-  'Erst Sprechpunkt -> Verständnisziel -> visuelle Frage -> beste Mechanik. Danach Finance Motion Library prüfen. Bei echtem Best-Fit library-best-fit + financeMotionId + konkrete parameterPlan verwenden; sonst custom-build. Gute Custom-Mechaniken dürfen später Library-Kandidaten werden.',
+  'Erst Sprechpunkt -> Verständnisziel -> visuelle Frage -> beste Mechanik. Danach Editorial Motion V3 prüfen. Bei echtem Best-Fit library-best-fit + financeMotionId + konkrete parameterPlan verwenden; sonst custom-build. Gute Custom-Mechaniken dürfen später Library-Kandidaten werden.',
 );
 append(
   '05-projektdateien/szenenplan.md',

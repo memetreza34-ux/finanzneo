@@ -36,9 +36,19 @@ Antigravity MUST NOT generate or replace final Reel images. The user places all 
 
 Missing image = report exact filename and wait.
 
-V9 prompt direction for future image planning is `finanzneo-stylized-3d-animated-black-v9`: non-realistic stylized 3D animated, soft rounded forms, simplified details, premium/slightly playful, deep-black background, clarity first, no fixed object quota.
+The canonical still-image world is `finanzneo-editorial-finance-v1`, defined only in `docs/FINANZNEO-IMAGE-WORLD.md`.
 
-If a brand or logo appears: recognizable but stylized in the same world; never a pasted flat real-world logo, screenshot or photorealistic branded UI.
+Still images:
+- prioritize one simple visual idea per spoken thought
+- may use 2D, subtle 2.5D or selective simple 3D
+- may use light, muted or dark backgrounds depending on the scene
+- may use metaphors, charts, timelines, documents, companies/brands and simple scenes
+- must avoid unnecessary AI-spectacle and clutter
+
+For progressive image sequences, an approved previous scene image may be used as a real Flow reference. The next prompt must remain complete and should add/change only the planned element.
+
+Do not reintroduce the retired black-3D image world or legacy image-world rules.
+
 
 ## Sealed animation boundary
 

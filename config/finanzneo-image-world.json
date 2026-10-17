@@ -1,0 +1,123 @@
+{
+  "id": "finanzneo-editorial-finance-v1",
+  "version": 1,
+  "status": "active",
+  "authority": "docs/FINANZNEO-IMAGE-WORLD.md",
+  "promptLanguage": "en",
+  "sourceFormats": {
+    "reel": {
+      "aspectRatio": "1:1",
+      "preferredSize": "1080x1080"
+    },
+    "youtube": {
+      "aspectRatio": "16:9",
+      "preferredSize": "1920x1080"
+    }
+  },
+  "corePrinciple": "One spoken thought becomes one simple, immediately understandable visual idea.",
+  "style": {
+    "primary": "clean editorial finance illustration",
+    "dimensionality": [
+      "2D",
+      "subtle 2.5D",
+      "selective simple 3D when it genuinely helps"
+    ],
+    "detailLevel": "low to moderate",
+    "materials": "mostly matte and restrained",
+    "humanDesignedFeelRequired": true,
+    "photorealismRequired": false,
+    "fixedBackgroundForbidden": true,
+    "fixed3DStyleForbidden": true
+  },
+  "backgrounds": {
+    "flexible": true,
+    "preferred": [
+      "warm off-white",
+      "cream",
+      "light neutral gray",
+      "muted color field"
+    ],
+    "optional": [
+      "dark charcoal",
+      "black when the specific image benefits from it"
+    ],
+    "rule": "Choose the background that makes the visual easiest to understand; do not force a dark background."
+  },
+  "brandLanguage": {
+    "accents": [
+      "FinanzNeo green",
+      "warm orange-red",
+      "blue/gray neutrals",
+      "gold only when useful"
+    ],
+    "colorsAreGuidanceNotQuota": true,
+    "brandAndCompanyColorsMayBePreserved": true,
+    "consistentTypographyAndCleanShapes": true
+  },
+  "visualFamilies": [
+    "simple metaphor",
+    "number plus object",
+    "editorial illustration",
+    "chart or diagram",
+    "simple process",
+    "timeline",
+    "comparison",
+    "document or form",
+    "quote or text plus illustration",
+    "company or brand illustration",
+    "everyday scene when it is the clearest choice"
+  ],
+  "text": {
+    "genericHeadlineByDefault": false,
+    "allowedWhenUseful": [
+      "numbers",
+      "short labels",
+      "dates",
+      "axis labels",
+      "quotes",
+      "document text"
+    ],
+    "rule": "Text must explain the visual, not decorate it."
+  },
+  "simplicity": {
+    "firstGlanceUnderstanding": true,
+    "oneCoreIdeaPerImage": true,
+    "fewLargeElementsPreferred": true,
+    "unnecessaryContextForbidden": true,
+    "spectacleForSpectacleForbidden": true
+  },
+  "antiAiSlop": {
+    "avoidByDefault": [
+      "neon finance glow",
+      "holograms",
+      "floating coin showers",
+      "futuristic dashboards",
+      "generic UI cards",
+      "miniature cities",
+      "energy networks",
+      "decorative podiums",
+      "cinematic finance spectacle",
+      "dense collections of small symbols",
+      "toy-like glossy 3D blocks"
+    ]
+  },
+  "progressiveSequences": {
+    "enabled": true,
+    "referenceImagePreferred": true,
+    "referenceRule": "When a later image should be the same composition with one addition or small change, attach the exact approved previous scene image as the visual reference.",
+    "promptRule": "The later prompt must still be complete and self-contained. Repeat the full visual description and change only the intended element. Never rely on phrases like 'same as before' without attaching the reference image.",
+    "oneChangePerStepPreferred": true
+  },
+  "brands": {
+    "recognizableCompaniesAllowed": true,
+    "recognizableLogosAllowed": true,
+    "preserveBrandIdentityWhenRelevant": true,
+    "avoidFakeUiUnlessUiIsTheActualSubject": true
+  },
+  "flow": {
+    "executionMode": "strict-single-job",
+    "maxConcurrentGenerations": 1,
+    "referencesAllowed": true,
+    "continuationReferenceMustUseApprovedPriorImage": true
+  }
+}

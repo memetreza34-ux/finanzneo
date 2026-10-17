@@ -14,6 +14,14 @@ Ohne ausdrücklichen Auftrag des Nutzers dürfen folgende Bereiche nicht geände
 - Lockfiles und `package.json`
 - bestehende Reel-/YouTube-Projekte und Nutzerassets
 
+## Motion-Graphics-Zuständigkeit für neue Projekte
+
+- **Claude Code Opus 5.5** ist der einzige kreative Implementierer produktiver Remotion-`animation.tsx` (YouTube + Reels); Agent-Konfiguration: `.claude/agents/finanzneo-motion-director.md`.
+- ChatGPT liefert Skript, geprüfte Zahlen, Visual Beats und präzise Motion-Briefs; Antigravity übernimmt nach Fertigstellung Integration, Rendering und technisches QA, ohne die Motion-Quelle zu ersetzen.
+- Ein Phase-1-Seal erfolgt erst **nach** Opus-Implementierung und sichtbarer Review des echten Motion-Renders. Bei Problemen geht das betroffene Visual zurück zu Opus und wird erneut validiert und versiegelt.
+- Diese Regel ist eine Arbeitsvereinbarung zwischen Agenten, keine automatisch gestartete oder technisch erzwungene Remote-Delegation. Sie ändert keine bestehenden Projektassets oder bereits versiegelten Animationen.
+- Detailvertrag: `docs/MOTION-AUTHORSHIP-CLAUDE-OPUS.md`.
+
 ## Pflichtablauf
 
 1. Vor Änderungen Branch, Status und Start-HEAD prüfen.

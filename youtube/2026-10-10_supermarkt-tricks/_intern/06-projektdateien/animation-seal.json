@@ -1,0 +1,222 @@
+{
+  "version": 2,
+  "motionStandardId": "finanzneo-youtube-motion-v3",
+  "sourceIndex": "04-visuals/visual-index.json",
+  "entries": [
+    {
+      "id": "visual-02",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx",
+      "exportName": "YouTubeVisual02Animation",
+      "viewerChange": "Ein Kassenbon mit nur Milch und Brot druckt Zeile für Zeile weiter, bis Bon-Summe und Kassendisplay 40,00 € zeigen; danach stehen 3,68 € Plan gegen 40,00 € Kasse.",
+      "animationIntent": "Der Hook soll den Sprung von „nur Milch und Brot“ zu „vierzig Euro“ sichtbar machen: jede Zeile ist ein ungeplanter Kauf, die Summe wächst mit, der Abstand Plan gegen Kasse bleibt als Ergebnis stehen.",
+      "mechanicId": "receipt-print-growth-plan-vs-till",
+      "visualTechniqueId": "growing-receipt-with-till-display-count",
+      "techniqueDescription": "Kassenbon wächst symmetrisch um die Bildmitte, jede neue Zeile erhöht Bon-Summe und Zählwerk-Display um exakt ihren Preis; Klammern markieren 2 geplante und 11 ungeplante Zeilen; zwei wertgenaue Balken vergleichen 3,68 € mit 40,00 €.",
+      "compositionFamilyId": "document-motion",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "Zaehlwerk (daten.tsx)"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Kassenbon mittig links, Kassendisplay und Vergleichsbalken rechts",
+        "transformation": "Bon druckt und wird länger, Summe zählt mit, Zeilen werden markiert"
+      },
+      "motionChannels": [
+        "Bon druckt Zeile für Zeile",
+        "Display zählt bis 40,00 €",
+        "Markierung geplant / ungeplant",
+        "Plan- und Kassenbalken wachsen"
+      ],
+      "visualBeats": [
+        "Bon mit Milch und Brot, 3,68 €",
+        "13 Zeilen, Display 40,00 €",
+        "2 geplant, 11 ungeplant",
+        "Plan 3,68 € gegen Kasse 40,00 €"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "c19f9df1e07ba84f91af271b3561b6f49803b98078fe671b2ed429b72398cb70"
+    },
+    {
+      "id": "visual-14",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-14/animation.tsx",
+      "exportName": "YouTubeVisual14Animation",
+      "viewerChange": "Zwei Zeilen der Studie — schnelle und langsame Musik — zeigen ihr Tempo als laufende Takt-Striche; dann wachsen beide Umsatzbalken bis 100 %, der Balken der langsamen Musik wächst weiter auf 138 % und das Plus von 38 % ist farbig abgesetzt.",
+      "animationIntent": "Das Ergebnis der Studie ist ein relativer Vergleich; die gemeinsame 100-%-Linie und das Überwachsen machen „rund 38 % mehr“ ohne erfundene Euro-Werte sofort sichtbar, das Tempo der Musik wird als echte Bewegung gezeigt.",
+      "mechanicId": "tempo-track-to-revenue-overshoot",
+      "visualTechniqueId": "scrolling-beat-ticks-with-baseline-overshoot-bar",
+      "techniqueDescription": "Zwei Studienzeilen: Takt-Striche laufen in einem maskierten Fenster mit schnellem bzw. langsamem Tempo; zwei Umsatzbalken wachsen synchron bis zur gestrichelten 100-%-Linie, der untere wächst weiter auf 138 %, Mehrumsatz orange mit Label +38 %.",
+      "compositionFamilyId": "comparison",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "SVG-Maske"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "zwei gestapelte Studienzeilen: Musiktempo links, Umsatzbalken rechts",
+        "transformation": "Takt läuft, Balken wachsen gemeinsam, einer überholt die 100-%-Linie"
+      },
+      "motionChannels": [
+        "Takt-Striche laufen schnell / langsam",
+        "Umsatzbalken wachsen bis 100 %",
+        "Balken der langsamen Musik überholt die Linie",
+        "+38 % erscheint"
+      ],
+      "visualBeats": [
+        "schnelle und langsame Musik, Umsatz leer",
+        "schnelles Tempo läuft",
+        "langsames Tempo läuft, Kunden gehen langsamer",
+        "Umsatz 100 % gegen 138 %, +38 %"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "25a4c5602e725ad6ad24faaf219e439aae21c9f7da4a400d2844e9a53794275f"
+    },
+    {
+      "id": "visual-22",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-22/animation.tsx",
+      "exportName": "YouTubeVisual22Animation",
+      "viewerChange": "Ein Preisverlauf läuft 30 Tage flach bei 2,99 €, springt kurz auf 3,99 €, fällt mit einem „−25 %“-Schild zurück auf 2,99 €; dann legt sich die Referenzlinie des niedrigsten 30-Tage-Preises genau auf den Aktionspreis — echter Rabatt 0 %, das Schild ist verboten.",
+      "animationIntent": "Die 30-Tage-Regel ist eine Zeitregel; erst wenn man den Verlauf und die Referenzlinie sieht, versteht man, warum das Hochsetzen vor der Aktion den Rabatt wertlos macht.",
+      "mechanicId": "price-history-trace-reference-check",
+      "visualTechniqueId": "step-line-30-day-window-with-lowest-price-reference",
+      "techniqueDescription": "Treppenlinie zeichnet sich Tag für Tag durch ein 30-Tage-Fenster (0-€-Basis), springt auf 3,99 € und zurück; rotes Rabattschild fährt ein; grüne gestrichelte Referenzlinie zieht sich über das Fenster, „−25 %“ wird durchgestrichen, Stempel „verboten“, „echter Rabatt: 0 %“.",
+      "compositionFamilyId": "trend-trace",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "SVG-Pfad (Treppenlinie)"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Preisdiagramm links, Rabattschild mit Stempel rechts",
+        "transformation": "Linie zeichnet Zeit, Referenzlinie entlarvt das Schild"
+      },
+      "motionChannels": [
+        "Preislinie läuft durch 30 Tage",
+        "Sprung auf 3,99 € und zurück",
+        "Rabattschild fährt ein",
+        "Referenzlinie zieht sich, Schild wird gestrichen und gestempelt"
+      ],
+      "visualBeats": [
+        "30-Tage-Fenster, Preis flach 2,99 €",
+        "kurz hochgesetzt auf 3,99 €",
+        "Schild −25 % statt 3,99 €",
+        "niedrigster Preis 2,99 €: echter Rabatt 0 %, verboten"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "acc9ba7e8401f23fd1f9e3512a0ce3bd414e66342024f60158bfe397d7961368"
+    },
+    {
+      "id": "visual-25",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-25/animation.tsx",
+      "exportName": "YouTubeVisual25Animation",
+      "viewerChange": "Kleine Packung 200 g für 1,49 € und große Packung 500 g für 4,29 € — nach der Rechnung Preis : kg steht 7,45 € gegen 8,58 € pro kg, und diese Grundpreise wandern auf die Preisschilder; die große Packung ist pro Kilo 1,13 € teurer.",
+      "animationIntent": "„Groß heißt billig“ wird widerlegt, indem die Rechnung vor den Augen passiert und ihr Ergebnis genau dort landet, wo es im Laden steht: als kleine Zahl unter dem großen Preis.",
+      "mechanicId": "pack-price-to-unit-price-reveal",
+      "visualTechniqueId": "shelf-labels-with-calculated-unit-price-move-in",
+      "techniqueDescription": "Regal mit zwei flachen Packungen (Fläche exakt 200 : 500) und Preisschildern; Rechnung Preis : kg blendet ein, Ergebnis zählt hoch, wandert als Grundpreis auf das Schild (Magic Move) mit Markierung; Endpreise treten zurück, Badge +1,13 € pro kg.",
+      "compositionFamilyId": "shelf-label-calculation",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "zwei Packungen auf Regalboden, Preisschilder darunter, Rechnung unter den Schildern",
+        "transformation": "Rechenergebnis wandert als Grundpreis aufs Schild"
+      },
+      "motionChannels": [
+        "Rechnung Preis : kg erscheint",
+        "Grundpreis zählt hoch",
+        "Ergebnis wandert aufs Schild",
+        "Endpreis tritt zurück, Grundpreis markiert"
+      ],
+      "visualBeats": [
+        "nur Endpreise 1,49 € und 4,29 €",
+        "Rechnung 1,49 € : 0,2 kg und 4,29 € : 0,5 kg",
+        "7,45 € gegen 8,58 € pro kg, +1,13 €",
+        "Grundpreis steht auf dem Schild"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "84971bc64414b3edee89e7e9edc36a3b3a2f6520e45adc2026e08063774767d9"
+    },
+    {
+      "id": "visual-32",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-32/animation.tsx",
+      "exportName": "YouTubeVisual32Animation",
+      "viewerChange": "Die Tafel Milka Alpenmilch verliert sichtbar eine von zehn Spalten (100 g → 90 g), der Preis zählt von 1,49 € auf 1,99 €; umgerechnet auf 100 g zeigen zwei wertgenaue Balken 1,49 € gegen 2,21 € — das rote Mehrsegment ist die versteckte Preiserhöhung von +48 %.",
+      "animationIntent": "Shrinkflation versteckt sich in zwei gleichzeitigen Änderungen; erst die Umrechnung auf dieselbe Menge macht das Ausmaß sichtbar.",
+      "mechanicId": "shrinking-bar-price-rise-normalize-100g",
+      "visualTechniqueId": "chocolate-grid-column-removal-with-per-100g-bars",
+      "techniqueDescription": "Flache Schokoladentafel aus 10 gleichen Spalten (je 10 g), letzte Spalte schrumpft weg, Lücke bleibt gestrichelt; Zählwerk-Preisschild 1,49 € → 1,99 €; obere Gruppe rückt nach oben, Rechnung auf 100 g, zwei Balken pro 100 g wachsen, Mehrsegment rot, +48 %.",
+      "compositionFamilyId": "shrinkflation-normalization",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx",
+        "Zaehlwerk (daten.tsx)"
+      ],
+      "motionSignature": {
+        "camera": "still, Layout rückt einmal nach oben",
+        "layout": "Tafel links, Preisschild rechts, darunter Balken pro 100 g",
+        "transformation": "Tafel schrumpft, Preis zählt hoch, Umrechnung auf 100 g"
+      },
+      "motionChannels": [
+        "Tafel verliert eine Spalte",
+        "Gramm-Zahl 100 → 90",
+        "Preis zählt 1,49 € → 1,99 €",
+        "Balken pro 100 g wachsen, Mehrpreis rot"
+      ],
+      "visualBeats": [
+        "Tafel 100 g, 1,49 €",
+        "90 g statt 100 g",
+        "1,99 € (+0,50 €)",
+        "pro 100 g: 1,49 € gegen 2,21 €",
+        "+48 % versteckte Preiserhöhung"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "f1de8e69c16678214d3606baeb43b903d7f266388126fd3cbb614ebdc7aa82f9"
+    },
+    {
+      "id": "visual-38",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-38/animation.tsx",
+      "exportName": "YouTubeVisual38Animation",
+      "viewerChange": "Ein leeres Jahr aus 52 Wochenfeldern füllt sich Woche für Woche mit 10 €; nach 4 Wochen steht der Zähler auf 40 € („über 40 € im Monat“), am Ende sind alle 52 Felder rot und der Zähler zeigt 520 € im Jahr.",
+      "animationIntent": "Kleine wöchentliche Beträge wirken harmlos; das sich füllende Jahr macht sichtbar, wie aus jeweils 10 € in Summe 520 € werden, und jedes Feld ist genau 10 € wert.",
+      "mechanicId": "week-calendar-fill-count-up",
+      "visualTechniqueId": "fifty-two-week-grid-column-fill-with-month-bracket",
+      "techniqueDescription": "Raster aus 52 Wochenfeldern (13 Spalten à 4 Wochen) füllt sich spaltenweise mit roten 10-€-Feldern; der Zähler ist immer exakt 10 € × gefüllte Wochen; Klammer unter den ersten 4 Wochen mit „über 40 € im Monat“; Unterzeile wechselt zu „im Jahr“.",
+      "compositionFamilyId": "calendar-grid-fill",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "src/design-system/daten.tsx"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Zähler oben mittig, 52-Wochen-Raster darunter, Monatsklammer unten links",
+        "transformation": "Wochenfelder füllen sich, Zähler läuft mit"
+      },
+      "motionChannels": [
+        "Woche 1 füllt sich",
+        "Wochen 2–4 füllen sich, Zähler 40 €",
+        "Monatsklammer erscheint",
+        "48 Wochen füllen sich, Zähler 520 €"
+      ],
+      "visualBeats": [
+        "52 leere Wochen, 0 €",
+        "Woche 1: 10 €",
+        "4 Wochen: 40 €, über 40 € im Monat",
+        "52 Wochen: 520 € im Jahr"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "f8edca31ae48249fd0fb801d03818c149a0bf9135b5436f24a946b27a67b7130"
+    }
+  ]
+}

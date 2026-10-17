@@ -10,6 +10,8 @@ import {
   VISUAL_INDEX,
   WORD_TIMINGS,
   YOUTUBE_MOTION_STANDARD_ID,
+  AUDIO_INBOX,
+  internWurzel,
 } from './youtube-contract.mjs';
 import {requiresYouTubeImage, requiresYouTubeMotion, validateYouTubeMotionMetadata, validateYouTubeMotionVariety} from './youtube-motion-contract.mjs';
 
@@ -89,7 +91,7 @@ export const isSixteenNineDimensions = (widthValue, heightValue) => {
 };
 
 export const analyzeYouTubeReadiness = (rootDirectory) => {
-  const root = resolve(rootDirectory);
+  const root = internWurzel(rootDirectory);
   const phase1Blockers = [];
   const phase2Blockers = [];
   const warnings = [];
@@ -220,20 +222,22 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
   }
 
   const inbox = resolve(root, IMAGE_INBOX);
+  const bilderOrdner = IMAGE_INBOX.replace(/^\.\.\//, '');
   const actualImages = listFiles(inbox, IMAGE_EXTENSIONS);
   const expectedSet = new Set(expectedImages);
   for (const fileName of expectedImages) {
-    if (!actualImages.includes(fileName)) phase2Blockers.push(`Nutzerbild fehlt: ${IMAGE_INBOX}/${fileName}`);
-    else if (statSync(resolve(inbox, fileName)).size === 0) phase2Blockers.push(`Nutzerbild ist leer: ${IMAGE_INBOX}/${fileName}`);
+    if (!actualImages.includes(fileName)) phase2Blockers.push(`Nutzerbild fehlt: ${bilderOrdner}/${fileName}`);
+    else if (statSync(resolve(inbox, fileName)).size === 0) phase2Blockers.push(`Nutzerbild ist leer: ${bilderOrdner}/${fileName}`);
   }
   for (const fileName of actualImages) {
-    if (!expectedSet.has(fileName)) phase2Blockers.push(`Unerwartetes Nutzerbild: ${IMAGE_INBOX}/${fileName}`);
+    if (!expectedSet.has(fileName)) phase2Blockers.push(`Unerwartetes Nutzerbild: ${bilderOrdner}/${fileName}`);
   }
 
-  const audioFiles = listFiles(resolve(root, '03-audio'), AUDIO_EXTENSIONS);
-  if (audioFiles.length === 0) phase2Blockers.push('Finales Voiceover fehlt in 03-audio/.');
-  if (audioFiles.length > 1) phase2Blockers.push(`03-audio/ enthält mehrere Audiodateien: ${audioFiles.join(', ')}`);
-  if (audioFiles.length === 1 && statSync(resolve(root, '03-audio', audioFiles[0])).size === 0) phase2Blockers.push(`Finales Voiceover ist leer: 03-audio/${audioFiles[0]}`);
+  const audioFiles = listFiles(resolve(root, AUDIO_INBOX), AUDIO_EXTENSIONS);
+  const audioOrdner = AUDIO_INBOX.replace(/^\.\.\//, '');
+  if (audioFiles.length === 0) phase2Blockers.push(`Finales Voiceover fehlt in ${audioOrdner}/.`);
+  if (audioFiles.length > 1) phase2Blockers.push(`${audioOrdner}/ enthält mehrere Audiodateien: ${audioFiles.join(', ')}`);
+  if (audioFiles.length === 1 && statSync(resolve(root, AUDIO_INBOX, audioFiles[0])).size === 0) phase2Blockers.push(`Finales Voiceover ist leer: ${audioOrdner}/${audioFiles[0]}`);
 
   const timing = readJson(resolve(root, WORD_TIMINGS), phase2Blockers, WORD_TIMINGS);
   if (timing) {
@@ -245,7 +249,7 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
     if (!Array.isArray(timing.sentences) || timing.sentences.length === 0) phase2Blockers.push(`${WORD_TIMINGS} enthält keine satzbasierten Caption-Gruppen.`);
     if (audioFiles.length === 1) {
       const sourceName = typeof timing.source === 'string' ? basename(timing.source) : '';
-      if (!sourceName || sourceName !== audioFiles[0]) phase2Blockers.push(`${WORD_TIMINGS} muss nachweislich aus 03-audio/${audioFiles[0]} erzeugt sein.`);
+      if (!sourceName || sourceName !== audioFiles[0]) phase2Blockers.push(`${WORD_TIMINGS} muss nachweislich aus ${audioOrdner}/${audioFiles[0]} erzeugt sein.`);
     }
   }
 

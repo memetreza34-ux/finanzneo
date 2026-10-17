@@ -1,140 +1,76 @@
-# FinanzNeo — Visual Timing & Clarity Standard V9
+# FinanzNeo — Visual Timing & Style Standard V9
 
-## Ziel
+## Zweck
 
-FinanzNeo-Reels sollen schnell verständlich, hochwertig und dynamisch sein. Zuschauer dürfen nicht erst interpretieren müssen, was ein Visual bedeutet.
+Dieses Dokument regelt nur Timing und die visuelle V9-Identität. Es schreibt **keine globale Bildidee, Motivlogik oder Promptstruktur** mehr vor.
 
 ## Verhältnis Bild / Animation
 
 - Ziel ungefähr **60 % Google-Flow-Bildbeats / 40 % native Remotion-Animationsbeats**.
-- Qualität und Verständlichkeit stehen über der Quote.
+- Qualität steht über der Quote.
 - Szenenanzahl wird aus Voiceover-Länge und Aussage abgeleitet.
 - Ein Visual wird nie künstlich verlängert, nur um eine Quote oder feste Szenenzahl zu erfüllen.
 
-## Harte Timing-Regeln
+## Timing
 
 ### Bildbeats
 
 - ideal: **3,5–5,5 Sekunden**
 - absolutes Maximum: **6,0 Sekunden**
-- braucht dieselbe Aussage länger: splitten oder animieren
+- längere unveränderte Holds vermeiden
 
 ### Animationsbeats
 
 - ideal: **4,5–7,0 Sekunden**
-- Animation braucht einen echten Mechanismus:
-
-```text
-START → SICHTBARE VERÄNDERUNG → ERGEBNIS
-```
-
-## 2-Sekunden-Klarheitsregel
-
-Jeder Bildbeat muss innerhalb ungefähr 1–2 Sekunden verständlich sein.
-
-Pflicht:
-
-- genau eine Hauptaussage oder Hauptaktion
-- klar lesbares Hauptmotiv
-- Support-Objekte nur, wenn sie die Aussage verbessern
-- kurze Labels/Zahlen nur, wenn sie wirklich helfen
-
-Es gibt **keine feste Objektanzahl**. Ein einzelnes starkes Objekt kann besser sein als fünf erklärende Props.
-
-Nicht zulässig:
-
-- Interpretationsbilder ohne klare Aussage
-- tote Produktstillleben
-- unnötiger Clutter
-- Motive, die erst durch lange Voiceover-Erklärung verständlich werden
+- Animation braucht sichtbare Entwicklung über die Zeit
 
 ## Verbindliche Bildwelt
 
 ```text
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
 ```
 
-Jedes Flow-Bild:
+Für statische Bilder gelten:
+- einfache Editorial-Finanzillustration
+- 2D / leichtes 2.5D bevorzugt
+- einfaches 3D optional
+- flexible Hintergründe
+- ein Gedanke = eine klare Bildidee
+- progressive Referenzfolgen erlaubt
 
-- klar nicht realistisch / nicht photorealistisch
-- stylized 3D animated
-- soft rounded geometry
-- vereinfachte erkennbare Details
-- clean materials
-- premium und leicht verspielt, nicht kindlich
-- Inhalt und Klarheit vor Dekoration
 
-## Deep Black — Pflicht
+## Kreative Bildprompt-Regeln
 
-Der Hintergrund jedes Flow-Bildes ist ein nahtloser, sauberer, tiefschwarzer Hintergrund.
+Maßgeblich ist `docs/FINANZNEO-IMAGE-WORLD.md`.
 
-Verboten:
+Die Bildidee soll auf den ersten Blick verständlich sein. Flow darf Metaphern, Diagramme, Timelines, Dokumente, Unternehmen/Marken, Vergleiche, Zahlenvisuals und einfache Szenen erzeugen. Es gibt keinen Schwarz-, 3D-, Alltags- oder Finanzobjekt-Zwang.
 
-- heller Studiohintergrund
-- Boden-Wand-Grenze
-- Horizont
-- farbige Background-Zonen
-- Aurora-/Glow-Feld als Background
-- Grid-/Partikel-Hintergrund
+Bei progressiven Bildfolgen wird das freigegebene vorherige Bild als echte Referenz angehängt und nur eine kleine geplante Änderung vorgenommen.
 
-Das Motiv trennt sich durch sauberes Studio-Licht, Highlights, Schatten und Material vom Schwarz.
-
-## Farbrollen
-
-- Emerald Green = Fokus / positiv / bevorzugt
-- Warm Ivory + Soft Gray = neutral
-- Gold = Geld / Wert
-- Warm Red-Orange = Warnung / Kosten / Verlust
-- Deep Black = Hintergrund
-
-## Alltagsobjekte
-
-Alltagsgegenstände sind sinnvoll, wenn sie die Aussage direkt verständlich machen, z. B. Karte, Terminal, Quittung, Geldbörse, Lupe, Münzen, Smartphone oder Bank-Symbol.
-
-Sie sind **Optionen, keine Pflichtliste**. Keine Props nur zum Auffüllen.
-
-## Marken / Logos
-
-Wenn inhaltlich relevant: erkennbar, aber stilisiert in derselben 3D-Welt. Kein Real-Logo als flacher Sticker, kein Website-/App-Screenshot und keine photorealistische Marken-UI.
-
-## Text im Bild
-
-Erlaubt:
-
-- wenige kurze deutsche Labels
-- notwendige Zahlen/Preise
-
-Verboten:
-
-- ganze Sätze
-- Untertitel
-- CTA
-- große Headline
-- zufällige Zusatztexte
 
 ## Animationen
 
-Native Remotion-Animationen folgen derselben V9-Sprache:
+Native Remotion-Animationen folgen `finanzneo-editorial-motion-v3`:
 
-- zentraler Reel-Canvas statisch `#000000`
-- `PremiumPhysicalStage` transparent
-- keine Partikel, Aurora, Grid, Vignette oder dekorative Background-Bewegung
-- mindestens ein echtes sichtbares Hauptobjekt
-- keine feste Support-Objekt-Anzahl
-- Bewegung erklärt die Aussage
-- Background-Motion zählt niemals als Erkläranimation
+Vor dem Coding: drei visuelle Konzepte → stärkstes Konzept → 10 % / 35 % / 65 % / 90 %-Keyframes → Motion-Grammatik.
+
+- Animation ist die bewegte Version der Editorial-Finance-Bildwelt
+- 2D / leichtes 2.5D bevorzugt
+- matte, einfache Formen und wenige große Elemente
+- `EditorialMotionStage` darf innerhalb der Visualzone eine helle oder gedämpfte Fläche erzeugen
+- der äußere Reel-Canvas bleibt technisch unverändert
+- eine klare Hauptbewegung kann vollständig reichen
+- Kamera standardmäßig still
+- keine Partikel, Aurora, Grid, Hologramme oder dekorative Background-Bewegung
+- keine alten Physical-Primitives als neue Default-Sprache
+- Bewegung erklärt die Aussage; Background-Motion zählt niemals als Erkläranimation
 
 ## QA vor Freigabe
 
-1. Ist die Aussage in 1–2 Sekunden verständlich?
-2. Ist das Visual klar stylized 3D statt realistisch?
-3. Ist der Hintergrund tiefschwarz und clean?
-4. Sind nur notwendige Objekte vorhanden?
-5. Sind Labels kurz und korrekt?
-6. Ist kein Dashboard/UI/Flowchart/Diorama/Clutter entstanden?
-7. Bleibt ein Bildbeat unter 6 Sekunden?
-8. Zeigt jede Animation Start → Mechanismus → Ergebnis?
-9. Bleibt der Remotion-Hintergrund statisch schwarz?
-10. Ist die Animation ohne Ton grundsätzlich verständlich?
+1. Ist die Editorial-Finance-Bildidee sofort verständlich?
+2. Ist der gewählte Hintergrund für das konkrete Motiv sinnvoll?
+3. Bleibt der Bildbeat innerhalb der Timing-Grenzen?
+4. Zeigt jede Animation echte sichtbare Entwicklung?
+5. Bleibt der Remotion-Hintergrund statisch schwarz?
 
-Wenn eine Antwort `nein` ist: Visual neu planen oder korrigieren.
+Die inhaltliche Bildidee wird nicht mehr durch eine globale Promptformel validiert.

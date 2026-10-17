@@ -1,0 +1,339 @@
+1
+00:00:00,000 --> 00:00:02,760
+Neun Euro neunundneunzig im Monat.
+
+2
+00:00:02,900 --> 00:00:03,700
+Klingt nach nichts.
+
+3
+00:00:04,400 --> 00:00:05,760
+Aber du zahlst es nicht einmal.
+
+4
+00:00:05,880 --> 00:00:07,460
+Du zahlst es zwölfmal.
+
+5
+00:00:07,900 --> 00:00:11,740
+Das sind hundertneunzehn Euro und achtundachtzig Cent im Jahr.
+
+6
+00:00:11,740 --> 00:00:12,900
+Für ein einziges Abo.
+
+7
+00:00:13,800 --> 00:00:15,000
+Und kaum jemand hat nur eins.
+
+8
+00:00:16,020 --> 00:00:19,660
+Laut der aktuellen Submix-Studie von BearingPoint zahlt ein Haushalt
+
+9
+00:00:19,660 --> 00:00:22,760
+mit Digital-Abos im Schnitt zweiundsechzig Euro im Monat.
+
+10
+00:00:23,040 --> 00:00:25,128
+Ein Jahr vorher waren es noch fünfundfünfzig.
+
+11
+00:00:25,128 --> 00:00:29,580
+Zweiundsechzig Euro im Monat sind siebenhundertvierundvierzig Euro im Jahr.
+
+12
+00:00:30,180 --> 00:00:32,400
+Und fast jeder fünfte Haushalt zahlt sogar
+
+13
+00:00:32,400 --> 00:00:34,720
+mehr als hundert Euro im Monat.
+
+14
+00:00:35,340 --> 00:00:37,160
+Das Problem ist nicht ein einzelnes Abo.
+
+15
+00:00:38,060 --> 00:00:40,680
+Das Problem ist: Du siehst die Summe nie.
+
+16
+00:00:41,280 --> 00:00:42,620
+Jede Abbuchung kommt allein.
+
+17
+00:00:43,220 --> 00:00:43,580
+Klein.
+
+18
+00:00:44,380 --> 00:00:45,020
+Unauffällig.
+
+19
+00:00:45,020 --> 00:00:48,540
+Abo-Fallen funktionieren fast immer mit denselben drei Tricks.
+
+20
+00:00:48,880 --> 00:00:50,900
+Trick eins: gratis zum Start.
+
+21
+00:00:50,900 --> 00:00:54,060
+Du testest dreißig Tage kostenlos und gibst
+
+22
+00:00:54,060 --> 00:00:56,260
+dafür nur kurz deine Zahlungsdaten ein.
+
+23
+00:00:56,800 --> 00:00:59,580
+Am Tag einunddreißig läuft das Abo einfach weiter.
+
+24
+00:00:59,980 --> 00:01:03,080
+Ab jetzt jeden Monat zwölf Euro neunundneunzig.
+
+25
+00:01:03,080 --> 00:01:05,760
+Trick zwei: der kleine Monatspreis.
+
+26
+00:01:05,760 --> 00:01:08,360
+Vier Euro neunundneunzig fühlen sich harmlos an.
+
+27
+00:01:08,740 --> 00:01:11,960
+Niemand würde für eine App sechzig Euro auf einmal bezahlen.
+
+28
+00:01:12,300 --> 00:01:14,580
+Aber genau das zahlst du in einem Jahr.
+
+29
+00:01:15,420 --> 00:01:19,560
+Trick drei: Abschließen ist leicht, Kündigen ist schwer.
+
+30
+00:01:20,500 --> 00:01:22,040
+Abschließen geht mit einem Klick.
+
+31
+00:01:22,180 --> 00:01:25,260
+Zum Kündigen suchst du Menüs, Formulare und Hotlines.
+
+32
+00:01:25,820 --> 00:01:29,080
+Und ein Klassiker obendrauf: Du löschst die App und denkst,
+
+33
+00:01:29,180 --> 00:01:29,880
+das Abo ist weg.
+
+34
+00:01:30,280 --> 00:01:30,860
+Ist es nicht.
+
+35
+00:01:31,380 --> 00:01:34,180
+Ein Abo über den App Store oder Google Play läuft weiter,
+
+36
+00:01:34,380 --> 00:01:36,000
+auch wenn die App längst gelöscht ist.
+
+37
+00:01:37,060 --> 00:01:39,160
+Die gute Nachricht: Das Gesetz hat in
+
+38
+00:01:39,160 --> 00:01:40,640
+den letzten Jahren viel für dich getan.
+
+39
+00:01:41,280 --> 00:01:43,220
+Früher hat sich ein Vertrag nach zwei Jahren
+
+40
+00:01:43,220 --> 00:01:45,940
+oft einfach um ein ganzes weiteres Jahr verlängert.
+
+41
+00:01:45,940 --> 00:01:49,540
+Für Verträge ab dem ersten März zweitausendzweiundzwanzig geht
+
+42
+00:01:49,540 --> 00:01:51,160
+das in den meisten Fällen nicht mehr.
+
+43
+00:01:51,620 --> 00:01:55,260
+Nach der Mindestlaufzeit läuft der Vertrag nur noch unbefristet weiter.
+
+44
+00:01:55,600 --> 00:01:58,660
+Und du kannst jederzeit mit einem Monat Frist kündigen.
+
+45
+00:01:59,460 --> 00:02:03,440
+Außerdem muss jeder, der Abos online verkauft, einen Kündigungsbutton anbieten.
+
+46
+00:02:03,640 --> 00:02:07,000
+Gut sichtbar, mit der Aufschrift: Verträge hier kündigen.
+
+47
+00:02:07,600 --> 00:02:10,360
+Fehlt dieser Button, darfst du sogar fristlos kündigen.
+
+48
+00:02:11,160 --> 00:02:15,380
+Und seit Juni zweitausendsechsundzwanzig gibt es zusätzlich den Widerrufsbutton.
+
+49
+00:02:15,380 --> 00:02:17,680
+Viele Online-Verträge kannst du damit in den
+
+50
+00:02:17,680 --> 00:02:21,060
+ersten vierzehn Tagen per Klick widerrufen.
+
+51
+00:02:21,580 --> 00:02:22,780
+Jetzt der wichtigste Teil.
+
+52
+00:02:23,440 --> 00:02:27,140
+Nimm dir einmal fünfzehn Minuten und schau an drei Stellen nach.
+
+53
+00:02:27,420 --> 00:02:29,420
+Stelle eins: dein Kontoauszug.
+
+54
+00:02:29,980 --> 00:02:32,720
+Geh die letzten zwölf Monate durch und such nach Beträgen,
+
+55
+00:02:32,800 --> 00:02:34,180
+die jeden Monat gleich wiederkommen.
+
+56
+00:02:34,920 --> 00:02:36,380
+Stelle zwei: dein Handy.
+
+57
+00:02:37,160 --> 00:02:39,920
+Auf dem iPhone findest du alle Abos unter Einstellungen,
+
+58
+00:02:40,120 --> 00:02:41,700
+dein Name, Abonnements.
+
+59
+00:02:42,150 --> 00:02:46,400
+Bei Android im Play Store unter Profil, Zahlungen und Abos.
+
+60
+00:02:46,920 --> 00:02:48,420
+Stelle drei: PayPal.
+
+61
+00:02:48,780 --> 00:02:51,020
+Dort heißen sie automatische Zahlungen.
+
+62
+00:02:51,540 --> 00:02:53,680
+Viele Abos laufen genau darüber und tauchen
+
+63
+00:02:53,680 --> 00:02:55,740
+im Kontoauszug nur als PayPal auf.
+
+64
+00:02:56,620 --> 00:03:00,160
+Schreib jedes Abo auf und rechne den Preis mal zwölf.
+
+65
+00:03:00,160 --> 00:03:02,200
+Dann frag dich bei jedem einzelnen:
+
+66
+00:03:02,640 --> 00:03:05,160
+Würde ich diesen Jahresbetrag heute noch einmal bezahlen?
+
+67
+00:03:06,040 --> 00:03:08,020
+Alles, wo du zögerst, kündigst du.
+
+68
+00:03:08,560 --> 00:03:09,180
+Direkt.
+
+69
+00:03:09,180 --> 00:03:09,180
+Und wenn schon Geld abgebucht wurde, das du nicht wolltest?
+
+70
+00:03:09,180 --> 00:03:09,180
+Eine Lastschrift kannst du innerhalb von acht
+
+71
+00:03:09,180 --> 00:03:09,180
+Wochen bei deiner Bank zurückholen, ohne Begründung.
+
+72
+00:03:09,180 --> 00:03:11,960
+Aber Achtung: Damit holst du nur das Geld zurück.
+
+73
+00:03:12,220 --> 00:03:13,860
+Gekündigt ist das Abo damit nicht.
+
+74
+00:03:14,040 --> 00:03:14,980
+Das musst du trotzdem tun.
+
+75
+00:03:16,140 --> 00:03:21,040
+Und für dein Handy: Richte bei deinem Mobilfunkanbieter eine Drittanbietersperre ein.
+
+76
+00:03:21,400 --> 00:03:22,220
+Die ist kostenlos.
+
+77
+00:03:22,680 --> 00:03:25,820
+Dann kann niemand mehr ein Abo einfach über deine Handyrechnung abrechnen.
+
+78
+00:03:26,200 --> 00:03:28,620
+Ein Abo kostet nie nur den Monatspreis.
+
+79
+00:03:28,780 --> 00:03:31,160
+Es kostet den Monatspreis mal zwölf.
+
+80
+00:03:31,160 --> 00:03:32,780
+Jedes Jahr, bis du kündigst.
+
+81
+00:03:33,520 --> 00:03:34,940
+Wenn du nach dem Check nur zwei
+
+82
+00:03:34,940 --> 00:03:37,880
+Abos zu je neun Euro neunundneunzig kündigst,
+
+83
+00:03:37,880 --> 00:03:40,320
+bleiben dir rund zweihundertvierzig Euro im Jahr.
+
+84
+00:03:41,380 --> 00:03:43,560
+Schreib mir in die Kommentare, wie viele Abos du gefunden hast.
+
+85
+00:03:44,060 --> 00:03:44,600
+Ich bin gespannt.

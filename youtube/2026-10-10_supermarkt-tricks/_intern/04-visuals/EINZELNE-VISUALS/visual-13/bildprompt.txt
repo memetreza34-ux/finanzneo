@@ -1,0 +1,41 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Bild 13 - Musik im Supermarkt.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+YouTube Thumbnail - Supermarkt-Tricks.png — attach the approved thumbnail to EVERY image as a style reference. Copy only its illustration style: line weight, flat shapes, color palette and level of detail. Never copy its composition, objects or headline text.
+
+REFERENCE_IMAGE:
+NONE
+
+IMAGE PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. Inside a calm supermarket aisle, a round ceiling speaker emits a few soft, slow-floating music notes that drift down over two relaxed shoppers pushing carts. Muted warm colors, simple shapes, peaceful atmosphere, flat editorial illustration.
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — illustration only.
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) on warm cream. Simple, friendly, slightly rounded shapes, few elements, low detail and generous empty space. Labels look neatly hand-lettered or in a simple clean font. Never photorealistic, never a photo, never a glossy 3D render: no realistic materials, no photographic lighting, no depth of field, no lens effects. People are small simplified illustrated characters. Every image of this video must look like it comes from the same illustrator as the approved thumbnail.
+
+BACKGROUND:
+Warm cream or warm off-white by default; a soft muted tone only when it clearly helps.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Numbers, short labels and document text only when they explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words.
+
+FORMAT:
+Horizontal 16:9 source image.

@@ -34,7 +34,7 @@ export const AUTONOMY_BLOCK = [
   '- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY", BESTÄTIGUNG ODER FREIGABE DES NUTZERS.',
   '- "WARTEN" BEDEUTET NUR: INTERN AUF DIE RÜCKGABE DES AKTUELLEN EINZELNEN BILDJOBS WARTEN.',
   '- KEINE SPÄTEREN BILDER VORPLANEN, QUEUEN, PARALLEL STARTEN ODER VORAB GENERIEREN.',
-  '- STRUKTUR, DATEINAMENLOGIK, V9-BILDWELT, FARBROLLEN, LICHT UND QA BIS ZUM LETZTEN BILD UNVERÄNDERT BEIBEHALTEN.',
+  '- STRUKTUR, DATEINAMENLOGIK UND DIE AKTIVE FINANZNEO-EDITORIAL-BILDLOGIK BIS ZUM LETZTEN BILD BEIBEHALTEN.',
   '- STOPP NUR BEI EINEM ECHTEN TECHNISCHEN HARD-BLOCKER. KEIN NUTZER-ZWISCHENSTOPP.',
   '',
 ].join('\n');
@@ -50,13 +50,13 @@ export const FLOW_AGENT_BLOCK = [
   '3. Starte GENAU EINEN Bildgenerierungsjob für ACTIVE_STEP. MAX_CONCURRENT_GENERATIONS = 1.',
   '4. Starte KEINEN weiteren Job, solange dieser Job läuft oder noch kein Ergebnis zurückgegeben wurde.',
   '5. Sobald das einzelne Bild zurückgegeben wurde: benenne DIESE Datei SOFORT exakt auf den vorgegebenen finalen Dateinamen um.',
-  '6. Prüfe danach ausschließlich dieses eine Bild: Aussage/Beat-Zuordnung, erlaubte Labels, klarer stylized-3D-animated V9-Look, tiefschwarzer sauberer Hintergrund, sinnvolle statt quotierte Objektanzahl, sichtbares Gesicht falls Person, Marken nur erkennbar-stilisiert und exakter Dateiname.',
+  '6. Prüfe danach ausschließlich dieses eine Bild: exakter Sprechbeat, sofort verständliche Bildidee, saubere Editorial-Komposition, lesbare sinnvolle Labels, kein unnötiger AI-Slop und exakter Dateiname. Bei einer Fortsetzungs-Szene prüfe zusätzlich, dass nur die geplante Änderung gegenüber dem angehängten Referenzbild erfolgt ist.',
   '7. QA FEHLER: ACTIVE_STEP bleibt unverändert. Erzeuge ausschließlich dieselbe Bildnummer neu. Alle späteren Schritte bleiben gesperrt.',
   '8. QA BESTANDEN: markiere ACTIVE_STEP als DONE. Erst JETZT darfst du den nächsten benötigten Bildblock in Dokumentreihenfolge freischalten.',
   '9. Bei "KEIN BILD XX ERZEUGEN" die Nummer ohne Bildjob überspringen und zum nächsten benötigten Bildblock gehen.',
   '10. Wiederhole 2–9, bis jedes erwartete Bild einzeln DONE ist. Keine Nutzerfreigabe dazwischen.',
   '11. Erst NACH Abschluss aller Einzeljobs darfst du eine Abschlusszusammenfassung über alle finalen Dateien geben.',
-  '12. Keine Bildreferenz verwenden. Kein vorheriges Bild hochladen oder anhängen.',
+  '12. Bildreferenzen sind erlaubt und bei geplanten Fortsetzungs-Szenen ausdrücklich zu verwenden: hänge das exakte bereits freigegebene vorherige Szenenbild an und ändere nur das geplante Element. Unabhängige Szenen benötigen keine Referenz.',
   '',
   'HART VERBOTEN:',
   '- mehrere Bilder in einem Generierungsaufruf',
@@ -89,6 +89,9 @@ export const flowAutonomyFields = () => ({
   structureLockId: FLOW_STRUCTURE_LOCK_ID,
   preserveStructureThroughLastImage: true,
   preserveStyleThroughLastImage: true,
+  referenceImagesAllowed: true,
+  continuationReferenceRequiredWhenDeclared: true,
+  referenceMustUseApprovedPriorImage: true,
 });
 
 /** Bestandsreels sprachlich auf V3 heben. */

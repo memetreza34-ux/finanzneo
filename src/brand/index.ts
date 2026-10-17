@@ -29,6 +29,16 @@ export {
   PREMIUM_VISUAL_LOCK,
 } from './components/PremiumPhysical';
 export type { PremiumMaterial } from './components/PremiumPhysical';
+export {
+  EditorialMotionStage,
+  EditorialLabel,
+  EditorialDocument,
+  EditorialPerson,
+  EditorialBuilding,
+  EditorialMountain,
+  EDITORIAL_MOTION_COLORS,
+} from './components/EditorialMotion';
+export type { EditorialSurface } from './components/EditorialMotion';
 export { Title, Body, Kicker, WordReveal } from './components/Text';
 export { Card } from './components/Card';
 export { Counter } from './components/Counter';
