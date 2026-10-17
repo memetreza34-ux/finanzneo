@@ -2,6 +2,12 @@
 
 > Bei Widersprüchen gilt immer `CLAUDE.md`.
 
+## Oberste Priorität und Chat-Handoff
+
+Für jedes Reel gilt die kontinuierliche Lernschleife aus `docs/QUALITAETS-VERBESSERUNGSPROZESS.md`: Erkenntnisse **vor** neuer Phase 1 einplanen; fertiges Reel tatsächlich mit Ton auswerten, Review in `05-projektdateien/VIDEO-REVIEW.md` dokumentieren und Lerneffekte im nächsten Reel nachprüfen.
+
+**Bei Abschluss der Phase 1 gibt ChatGPT immer im selben Chat zwei direkt anklickbare, auf GitHub verifizierte Links aus:** `03-szenen/alle-bildprompts.txt` (Bildprompts für Google Flow) und `01-script/script-fliess-text.txt` (Voiceover-Skript), jeweils innerhalb des **konkreten** Reel-Projektordners. Ohne beide Links keine abgeschlossene Phase 1. Siehe `CLAUDE.md`.
+
 ## 1. Struktur
 
 ```text
