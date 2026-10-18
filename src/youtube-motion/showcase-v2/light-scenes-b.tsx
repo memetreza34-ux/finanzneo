@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Easing, interpolate} from 'remotion';
+import { Easing, interpolate} from 'remotion';
 import {FONT} from '../../brand';
 import {CircleIcon, L, SceneFade, SoftPanel, Txt, CLAMP, pr, sp, useLightScene} from './light-primitives';
 
@@ -112,7 +112,7 @@ export const LightInvoice:React.FC=()=>{
         ['Grundbetrag','100 €',L.ink,paper],
         ['Mahngebühr','5 €',L.orange,fee],
         ['Bearbeitung','13 €',L.orange,fee],
-      ].map((r,i)=><div key={r[0] as string} style={{display:'flex',justifyContent:'space-between',marginTop:48,fontSize:28,fontWeight:800,color:r[2] as string,opacity:r[3] as number}}><span>{r[0]}</span><span>{r[1]}</span></div>)}
+      ].map((r,_i)=><div key={r[0] as string} style={{display:'flex',justifyContent:'space-between',marginTop:48,fontSize:28,fontWeight:800,color:r[2] as string,opacity:r[3] as number}}><span>{r[0]}</span><span>{r[1]}</span></div>)}
       <div style={{position:'absolute',left:55,right:55,bottom:150,height:2,background:L.line}}/>
       <Txt x={55} y={690} size={28}>Gesamt</Txt>
       <Txt x={510} y={670} size={58} title color={L.orange} width={150} align="right">{amount} €</Txt>

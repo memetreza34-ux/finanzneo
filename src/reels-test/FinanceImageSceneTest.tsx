@@ -57,24 +57,26 @@ const PureImageScene: React.FC<PureImageSceneProps> = ({title, icon, image, capt
   </AbsoluteFill>
 );
 
+// Layout-Test für reine Bildszenen. Nutzt eingecheckte Bilder des Einlagensicherungs-Reels; die
+// früheren Testbilder unter public/experiments/ wurden am 07.10.2026 als ausgemusterte Bildwelt gelöscht.
 const scenes: PureImageSceneProps[] = [
   {
-    title: 'Notgroschen fängt Überraschungen ab',
-    icon: 'wallet',
-    image: 'experiments/image-world-consistency-v1/hybrid-test-v1/notgroschen-waschmaschine.webp',
-    caption: 'Der Notgroschen bezahlt die unerwartete Reparatur, ohne dass dein Alltag sofort ins Minus rutscht.',
+    title: 'Das zählt als Einlage',
+    icon: 'list',
+    image: 'reels/einlagensicherung-100000/images/scene-03.png',
+    caption: 'Girokonto, Tagesgeld und Festgeld zählen als Einlage und sind bis 100.000 Euro pro Bank geschützt.',
   },
   {
-    title: 'Versicherung begrenzt große Schäden',
-    icon: 'shield',
-    image: 'experiments/image-world-consistency-v1/hybrid-test-v1/wasserschaden.webp',
-    caption: 'Beim Wasserschaden zeigt das Bild direkt das Problem und die finanzielle Absicherung daneben.',
+    title: 'Jede Bank schützt separat',
+    icon: 'lock',
+    image: 'reels/einlagensicherung-100000/images/scene-07.png',
+    caption: 'Hast du Geld bei zwei verschiedenen Banken, gilt der Schutz für jede Bank einzeln.',
   },
   {
-    title: 'Ein ETF verteilt dein Risiko',
-    icon: 'chart-up',
-    image: 'experiments/image-world-consistency-v1/hybrid-test-v1/etf-diversifikation.webp',
-    caption: 'Statt nur auf ein Unternehmen zu setzen, verteilt ein ETF dein Geld auf viele Bereiche.',
+    title: 'Sonderfall: bis 500.000 € möglich',
+    icon: 'euro',
+    image: 'reels/einlagensicherung-100000/images/scene-11.png',
+    caption: 'Nach einem Hausverkauf kann ein hoher Betrag kurzzeitig zusätzlich geschützt sein.',
   },
 ];
 

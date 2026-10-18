@@ -46,8 +46,8 @@ if (existsSync(DOC)) {
 
 const deprecatedFiles = [
   'config/finanzneo-image-world-lock.json',
-  'config/finanzneo-image-worlds/finanzneo-physical-explainer-editorial-v7.txt',
-  'config/finanzneo-image-worlds/finanzneo-premium-physical-editorial-v8.txt',
+  'config/finanzneo-image-worlds/finanzneo-physical-explainer-editorial-v7.txt', // alt, entfernt — darf nicht mehr existieren
+  'config/finanzneo-image-worlds/finanzneo-premium-physical-editorial-v8.txt', // alt, entfernt — darf nicht mehr existieren
   'config/finanzneo-image-worlds/finanzneo-stylized-3d-animated-black-v9.txt',
   'config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt',
   'docs/GLOBAL-IMAGE-WORLD-LOCK.md',
