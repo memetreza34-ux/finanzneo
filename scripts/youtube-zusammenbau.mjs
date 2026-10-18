@@ -251,7 +251,11 @@ const zeitplan = {
   durationFrames: gesamt,
   audio: `youtube/${slug}/${audioDatei}`,
   untertitel: args.includes('--untertitel'),
-  visuals: visuals.map(({googleFlowFileName, ...rest}) => rest),
+  visuals: visuals.map((v) => {
+    const ohneDatei = {...v};
+    delete ohneDatei.googleFlowFileName;
+    return ohneDatei;
+  }),
   captions,
 };
 schreibJson(resolve(root, '06-projektdateien/timeline.json'), zeitplan);

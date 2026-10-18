@@ -200,7 +200,9 @@ if (index) {
             return [v.id, Math.max(...marken.slice(1).map((m, k) => m - marken[k])) / fps];
           }));
         }
-      } catch {}
+      } catch {
+        // Kein gültiger Zeitplan: dann bleibt die Skript-Schätzung maßgeblich.
+      }
       const {fehler} = pruefeYouTubeQualitaet({
         echteHaltezeiten,
         index,

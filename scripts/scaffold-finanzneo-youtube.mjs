@@ -3,8 +3,6 @@ import {existsSync, mkdirSync, writeFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 import {
   ACTIVE_WORD_COLOR,
-  FLOW_AGENT_PROTOCOL_ID,
-  FLOW_AGENT_PROTOCOL_MARKER,
   GENERATED_IMAGE_ASPECT_MARKER,
   GENERATED_IMAGE_ASPECT_RATIO,
   IMAGE_INBOX,
@@ -151,7 +149,7 @@ Soft hand-drawn 2D editorial illustration, not a photo. [WRITE A COMPLETE ENGLIS
 
 ${styleBlock}`;
 
-const motionTemplate = (index, type) => {
+const motionTemplate = (index) => {
   const exportName = exportNameFor(index);
   return `import React from 'react';\nimport {AbsoluteFill, useCurrentFrame} from 'remotion';\n\nexport const MECHANIC_ID = '[MECHANIC_ID]';\nexport const VISUAL_TECHNIQUE_ID = '[VISUAL_TECHNIQUE_ID]';\nexport const COMPOSITION_FAMILY_ID = '[COMPOSITION_FAMILY_ID]';\nexport const ANIMATION_NARRATIVE = {\n  START: '[START STATE]',\n  MECHANISM: '[VISIBLE CHANGE]',\n  RESULT: '[CLEAR RESULT]',\n};\n\nexport const ${exportName}: React.FC = () => {\n  const frame = useCurrentFrame();\n  // No example fade: select an actual motion mechanism from the plan.\n  void frame;\n  return <AbsoluteFill style={{background:'#FAF8F2'}}>{/* TODO: Phase 1 requires a real visual mechanism and final rendering. */}</AbsoluteFill>;\n};\n`;
 };
@@ -189,7 +187,7 @@ const visuals = types.map((type, index) => {
 - Keyframe 65%: [CONSEQUENCE]
 - Keyframe 90%: [PAYOFF]
 - Motion Channels: [AT LEAST ONE MEANINGFUL EXPLANATORY CHANGE]\n- SFX-Cues: [OPTIONAL FRAME-BOUND EVENTS]\n\nWähle die Technik erst NACH dem Viewer Change. Eine neue Technik darf frei erfunden/kombiniert werden, wenn sie den Inhalt besser erklärt. Nicht künstlich variieren; Wiederholung ist erlaubt, wenn sie wirklich die beste Erklärung ist und begründet wird.\n`);
-    write(animationSourceFile, motionTemplate(index, type));
+    write(animationSourceFile, motionTemplate(index));
     Object.assign(base, {
       planFile: `${directory}/remotion.md`,
       animationSourceFile,

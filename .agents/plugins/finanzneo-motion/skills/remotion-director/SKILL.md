@@ -233,7 +233,7 @@ Before adding another animation library, prefer the packages already present in 
 - `@remotion/three` only when spatial depth is necessary
 - `recharts` for data-heavy charts when native SVG would be unnecessarily complex
 
-Do not install another runtime animation framework merely to make a scene feel more sophisticated. First use Remotion's native timing, paths, shapes, sequences and spring/interpolation system properly.
+Do not install another runtime animation framework merely to make a scene feel more sophisticated. First use Remotion's native timing — `useCurrentFrame()` with `interpolate`/`spring` —, paths, shapes, sequences and spring/interpolation system properly. Every visible change must be driven by `useCurrentFrame()`, never by CSS transitions or real time.
 
 
 ## V3 hard quality gate

@@ -1,10 +1,9 @@
 import React from 'react';
-import {Pie, Circle, Rect} from '@remotion/shapes';
+import {Pie, Circle} from '@remotion/shapes';
 import {evolvePath, getLength, getPointAtLength} from '@remotion/paths';
 import {
   AbsoluteFill,
   Easing,
-  Sequence,
   interpolate,
   spring,
   useCurrentFrame,
@@ -60,7 +59,7 @@ const ValuePill:React.FC<{
   }}>{text}</div>;
 };
 
-export const SalaryCurveV2:React.FC<{durationFrames?:number}> = ({durationFrames=180}) => {
+export const SalaryCurveV2:React.FC<{durationFrames?:number}> = ({durationFrames: _durationFrames = 180}) => {
   const frame=useCurrentFrame();
   const {fps}=useVideoConfig();
   const path='M 150 1160 C 260 1115 330 1090 410 1070 C 520 1040 590 1018 660 995 C 760 960 815 820 900 650';
@@ -122,7 +121,7 @@ export const SalaryCurveV2:React.FC<{durationFrames?:number}> = ({durationFrames
   </Surface>;
 };
 
-export const BudgetDonutV2:React.FC<{durationFrames?:number}> = ({durationFrames=180}) => {
+export const BudgetDonutV2:React.FC<{durationFrames?:number}> = ({durationFrames: _durationFrames = 180}) => {
   const frame=useCurrentFrame();
   const {fps}=useVideoConfig();
   const enter=pop(frame,10,fps);
@@ -132,7 +131,7 @@ export const BudgetDonutV2:React.FC<{durationFrames?:number}> = ({durationFrames
     {label:'Leben',share:0.25,color:E.blue,value:'650 €'},
     {label:'Investieren',share:0.20,color:E.green,value:'520 €'},
   ];
-  let rotation=-Math.PI/2;
+  const rotation=-Math.PI/2;
 
   return <Surface tone="off-white">
     <Kicker>Budget</Kicker>
@@ -180,7 +179,7 @@ export const BudgetDonutV2:React.FC<{durationFrames?:number}> = ({durationFrames
   </Surface>;
 };
 
-export const CompoundCurveV2:React.FC<{durationFrames?:number}> = ({durationFrames=180}) => {
+export const CompoundCurveV2:React.FC<{durationFrames?:number}> = ({durationFrames: _durationFrames = 180}) => {
   const frame=useCurrentFrame();
   const {fps}=useVideoConfig();
   const path='M 145 1180 C 270 1168 360 1140 450 1098 C 565 1045 675 935 770 790 C 835 690 875 585 915 470';
@@ -211,7 +210,7 @@ export const CompoundCurveV2:React.FC<{durationFrames?:number}> = ({durationFram
       {x:450,y:1098,label:'10 J.',value:'18k',at:58},
       {x:770,y:790,label:'20 J.',value:'34k',at:96},
       {x:915,y:470,label:'30 J.',value:'64k',at:126},
-    ].map((m,i)=>{
+    ].map((m,_i)=>{
       const show=p(frame,m.at,m.at+12);
       return <React.Fragment key={m.label}>
         <div style={{position:'absolute',left:m.x-75,top:m.y+34,width:150,textAlign:'center',fontSize:21,fontWeight:800,color:E.inkSoft,opacity:show}}>{m.label}</div>
@@ -223,7 +222,7 @@ export const CompoundCurveV2:React.FC<{durationFrames?:number}> = ({durationFram
   </Surface>;
 };
 
-export const DiversificationNetworkV2:React.FC<{durationFrames?:number}> = ({durationFrames=180}) => {
+export const DiversificationNetworkV2:React.FC<{durationFrames?:number}> = ({durationFrames: _durationFrames = 180}) => {
   const frame=useCurrentFrame();
   const {fps}=useVideoConfig();
   const nodes=[
@@ -274,7 +273,7 @@ export const DiversificationNetworkV2:React.FC<{durationFrames?:number}> = ({dur
   </Surface>;
 };
 
-export const LoanPaydownV2:React.FC<{durationFrames?:number}> = ({durationFrames=180}) => {
+export const LoanPaydownV2:React.FC<{durationFrames?:number}> = ({durationFrames: _durationFrames = 180}) => {
   const frame=useCurrentFrame();
   const {fps}=useVideoConfig();
   const stages=[
@@ -327,7 +326,7 @@ export const LoanPaydownV2:React.FC<{durationFrames?:number}> = ({durationFrames
   </Surface>;
 };
 
-export const TaxBracketsV2:React.FC<{durationFrames?:number}> = ({durationFrames=180}) => {
+export const TaxBracketsV2:React.FC<{durationFrames?:number}> = ({durationFrames: _durationFrames = 180}) => {
   const frame=useCurrentFrame();
   const {fps}=useVideoConfig();
   const brackets=[
