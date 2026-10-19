@@ -42,7 +42,7 @@ jobs:
       - name: Render QA contact sheets for all eight scenes
         run: npm run qa:youtube-light-motion-v3
       - name: Upload showcase and QA previews
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: youtube-light-motion-v3-preview
           path: out/youtube-light-motion-v3/
