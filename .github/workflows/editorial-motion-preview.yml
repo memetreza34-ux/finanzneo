@@ -35,7 +35,7 @@ jobs:
         run: npm run render:editorial-motion-example
 
       - name: MP4 als Artefakt hochladen
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: editorial-motion-salary-jump
           path: out/editorial-motion-salary-jump.mp4
