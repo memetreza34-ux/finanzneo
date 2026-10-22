@@ -89,17 +89,72 @@ test('statisch zu weit rechts platzierte Animation wird blockiert', () => {
   } finally { rmSync(root,{recursive:true,force:true}); }
 });
 
-test('Cover Hook V3 verlangt Captions bereits in scene-01', () => {
+test('Cover Hook V3 verlangt Captions und vollständiges Hero-Bild bereits in scene-01 Frame 0', () => {
   const root = mkdtempSync(join(tmpdir(), 'finanzneo-cover-v3-'));
   const marker = 'finanzneo-cover-hook-v3';
   const index = {
     title:'Test Reel',
-    coverHookContract:{id:marker,sourceSceneId:'scene-01',titleRenderedByRemotion:true,titleInGeneratedFlowImageForbidden:true,titleVisibleFromFrame:0,titleVisibleWithinFirstSecond:true,titleHoldMinFrames:30,captionsFollowVoiceoverFromFirstSpokenWord:true,captionlessSpokenAudioForbidden:true,standardSceneHeaderForbiddenDuringScene01:true,coverIconForbidden:true,secondaryTextForbidden:true,noIntroBeforeTitle:true,noFadeInDelay:true,flowImageMustReserveTitleSafeSpace:true,standaloneCoverRequired:true,exportedCoverSource:'final-video-frame-0'},
-    scenes:[{id:'scene-01',type:'image',planFile:'EINZELNE-SZENEN/scene-01/bildprompt.txt',coverHook:true,captionEnabled:true,captionsStartWithVoiceover:true,subtitleMode:'sentence-with-audio-synced-active-word',titleMode:'reel-title-overlay',coverTitle:'Test Reel'}],
+    cover:{
+      sourceSceneId:'scene-01',
+      sameAssetAsFirstScene:true,
+      separateGenerationForbidden:true,
+      renderedTitleOverlayRequired:true,
+      heroImageVisibleFromFrame:0,
+      heroImageInitialOpacity:1,
+      imageEntranceTransition:'none',
+      finalExportSource:'final-video-frame-0',
+    },
+    transitionContract:{
+      imageEnterFrames:4,
+      scene01ImageEnterFrames:0,
+      scene01ImageFadeInForbidden:true,
+      scene01BlackLeadInForbidden:true,
+    },
+    coverHookContract:{
+      id:marker,
+      sourceSceneId:'scene-01',
+      titleSource:'scene-index.title',
+      titleRenderedByRemotion:true,
+      titleInGeneratedFlowImageForbidden:true,
+      titleVisibleFromFrame:0,
+      titleVisibleWithinFirstSecond:true,
+      titleHoldMinFrames:30,
+      heroImageVisibleFromFrame:0,
+      heroImageInitialOpacity:1,
+      coverImageFadeInForbidden:true,
+      coverImageEntranceTransitionForbidden:true,
+      blackLeadInForbidden:true,
+      frame0HeroImageRenderQaRequired:true,
+      captionsFollowVoiceoverFromFirstSpokenWord:true,
+      captionlessSpokenAudioForbidden:true,
+      standardSceneHeaderForbiddenDuringScene01:true,
+      coverIconForbidden:true,
+      secondaryTextForbidden:true,
+      noIntroBeforeTitle:true,
+      noFadeInDelay:true,
+      flowImageMustReserveTitleSafeSpace:true,
+      standaloneCoverRequired:true,
+      exportedCoverSource:'final-video-frame-0',
+    },
+    scenes:[{
+      id:'scene-01',
+      type:'image',
+      planFile:'EINZELNE-SZENEN/scene-01/bildprompt.txt',
+      coverHook:true,
+      captionEnabled:true,
+      captionsStartWithVoiceover:true,
+      subtitleMode:'sentence-with-audio-synced-active-word',
+      titleMode:'reel-title-overlay',
+      titleVisibleFromFrame:0,
+      coverTitle:'Test Reel',
+      imageVisibleFromFrame:0,
+      imageInitialOpacity:1,
+      imageEnterMode:'none',
+    }],
   };
   mkdirWrite(root,'03-szenen/scene-index.json',JSON.stringify(index,null,2));
   for (const p of ['03-szenen/00-cover/cover.txt','03-szenen/EINZELNE-SZENEN/scene-01/bildprompt.txt','05-projektdateien/technische-hinweise.md','05-projektdateien/cover-hook-qa.md']) mkdirWrite(root,p,marker+'\n');
-  mkdirWrite(root,'05-projektdateien/ANTIGRAVITY-AUFTRAG.md',`${marker}\nCaptions starten mit dem ersten gesprochenen Wort. Gesprochenes Audio ohne Captions ist verboten. Frame 0.\n`);
+  mkdirWrite(root,'05-projektdateien/ANTIGRAVITY-AUFTRAG.md',`${marker}\nFRAME 0 zeigt das vollständige Hero-Bild. Kein schwarzer Lead-in. Kein Image-Fade-in. Captions starten mit dem ersten gesprochenen Wort. Gesprochenes Audio ohne Captions ist verboten.\n`);
   try { execFileSync(process.execPath,[coverValidator,root],{stdio:'pipe'}); }
   finally { rmSync(root,{recursive:true,force:true}); }
 });
