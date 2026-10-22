@@ -1,0 +1,22 @@
+# Thumbnail-Brief
+
+## Kernspannung
+Eine konkrete unerwartete Rechnung trifft auf die Frage: Reicht deine Reserve wirklich?
+
+## Motiv
+Horizontal 16:9. Große defekte Waschmaschine oder sichtbare Reparatursituation links/mittig, große klare Rechnung im Vordergrund. Rechts eine deutlich erkennbare Reserve/Tagesgeld-Situation als Lösung. Keine Icon-Sammlung, kein Tresor, kein Münzregen.
+
+## Textidee nachträglich in Remotion
+Option A: `WIE VIEL REICHT?`
+Option B: `DEIN NOTGROSCHEN`
+
+Nur eine kurze Textzeile verwenden. Text nicht von Flow generieren lassen.
+
+## Visuelle Priorität
+1. unerwarteter echter Defekt
+2. konkrete hohe Rechnung
+3. sichtbare finanzielle Reserve
+4. Gesicht ist nicht nötig; Objektgeschichte muss allein funktionieren
+
+## Stil
+`finanzneo-youtube-animated-feature-3d-v1`. Bild 01 ist der direkte Stilanker. Premium cineastischer, klar stilisierter 3D-Animationsfilm-Look: gerundete vereinfachte Formen, weiche Materialien, starke Silhouetten, tiefschwarze Bühne und kontrollierte Tiefenwirkung. Kein Foto-, Stock-, Produktwerbe- oder semi-fotorealistischer Look. Grün nur für Schutz/Reserve, Rot-Orange für Kosten/Risiko.

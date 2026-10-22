@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "project": "youtube/video-01_notgroschen",
+  "purpose": "lightweight-phase2-handoff",
+  "imagePromptFile": "04-visuals/alle-bildprompts.txt",
+  "imageInbox": "04-visuals/00-ALLE-BILDER-HIER-REIN/",
+  "youtubeVisualWorldLock": "finanzneo-youtube-animated-feature-3d-v1",
+  "styleReferenceImage": "04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png",
+  "styleReferenceMode": "direct-image-reference",
+  "reelImageWorldMustRemainUntouched": true,
+  "photorealismForbidden": true,
+  "semiPhotorealismForbidden": true,
+  "animatedFeature3DRequired": true,
+  "audioDirectory": "03-audio/",
+  "wordTimings": "03-audio/word-timings.json",
+  "expectedImages": [
+    "YouTube Thumbnail - Notgroschen.png",
+    "YouTube Bild 01 - Waschmaschine kaputt.png",
+    "YouTube Bild 05 - Kein Konsum.png",
+    "YouTube Bild 06 - Echte Notfälle.png",
+    "YouTube Bild 11 - Person A.png",
+    "YouTube Bild 12 - Person B.png",
+    "YouTube Bild 15 - Langfristiges Investment.png",
+    "YouTube Bild 16 - Auto und Depot.png",
+    "YouTube Bild 18 - Giro zu Tagesgeld.png",
+    "YouTube Bild 20 - Reserve trennen.png",
+    "YouTube Bild 25 - Notfall bezahlen.png"
+  ],
+  "expectedVoiceovers": 1,
+  "generatedImageAspectRatio": "16:9",
+  "phase2DoNotScan": [
+    "04-visuals/EINZELNE-VISUALS/",
+    "06-projektdateien/visual-plan.md",
+    "06-projektdateien/remotion-plan.md",
+    "src/"
+  ],
+  "phase3StartCommand": "npm run youtube:ready -- youtube/video-01_notgroschen"
+}
