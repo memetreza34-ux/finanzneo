@@ -1,0 +1,1320 @@
+{
+  "version": 3,
+  "title": "Altersvorsorgedepot 2027: 540 € vom Staat – und drei Haken",
+  "format": "youtube-longform",
+  "shortsForbidden": true,
+  "fixedVisualCount": false,
+  "fixedImageAnimationRatio": false,
+  "video": {
+    "aspectRatio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "thumbnail": {
+    "type": "image",
+    "googleFlowFileName": "YouTube Thumbnail - Altersvorsorgedepot Haken.png",
+    "planFile": "04-visuals/thumbnail-prompt.txt"
+  },
+  "userCreatesImages": true,
+  "antigravityGeneratesImages": false,
+  "googleFlow": {
+    "protocolId": "finanzneo-flow-batch5-v1",
+    "generationMode": "parallel-batches",
+    "batchSize": 5,
+    "oneJobPerImage": true,
+    "strictSequential": false,
+    "waitForBatch": true,
+    "renameImmediately": true,
+    "qaBeforeNextBatch": true,
+    "germanTextOnly": true,
+    "retrySameImageOnFailure": true,
+    "referenceImagesAllowed": true,
+    "continuationReferenceRequiredWhenDeclared": true,
+    "referenceMustUseApprovedPriorImage": true,
+    "finalCollectionDirectory": "../3-bilder-hier-rein/",
+    "distributeToVisualFolders": false
+  },
+  "qualityRules": "finanzneo-youtube-quality-v2",
+  "story": {
+    "protagonist": "Jonas",
+    "reason": "Jonas (28, Angestellter, spart schon 150 € im Monat per ETF-Sparplan) trägt alle Rechenbeispiele: volle Zulage, Kostenvergleich über 37 Jahre, seine Entscheidung im Fazit.",
+    "figurBild": "Thumbnail"
+  },
+  "imageWorld": {
+    "styleMaster": "kanal",
+    "illustrationOnly": true,
+    "id": "finanzneo-editorial-finance-v1",
+    "seriesLockId": "finanzneo-editorial-consistency-v1",
+    "authority": "docs/FINANZNEO-IMAGE-WORLD.md",
+    "generatedImageAspectRatio": "16:9",
+    "horizontalGeneratedImagesRequired": true,
+    "referencePromptFile": "04-visuals/bildwelt.txt",
+    "promptLanguage": "en",
+    "primaryStyle": "clean-editorial-finance-illustration",
+    "flexibleBackgrounds": true,
+    "fixedBlackBackgroundForbidden": true,
+    "fixed3DRenderingForbidden": true,
+    "twoDAllowed": true,
+    "subtleTwoPointFiveDAllowed": true,
+    "selectiveSimple3DAllowed": true,
+    "firstGlanceUnderstandingRequired": true,
+    "oneCoreIdeaPerImageRequired": true,
+    "progressiveSequencesAllowed": true,
+    "approvedPriorImageReferenceAllowed": true,
+    "genericHeadlineByDefault": false,
+    "aiSlopAvoidanceRequired": true
+  },
+  "motionStandard": {
+    "id": "finanzneo-youtube-motion-v3",
+    "visualMotionWorld": "finanzneo-youtube-light-motion-v2",
+    "visualTargetWorld": "finanzneo-youtube-light-motion-v2",
+    "minimumMotionPreferred": false,
+    "motionDensityStoryDriven": true,
+    "cameraStillDefault": true,
+    "cameraStoryDriven": false,
+    "staticImageStyleCopyRequired": false,
+    "youtubeNativeCompositionRequired": true,
+    "conceptCandidatesRequired": 3,
+    "keyframeQaRequired": true,
+    "keyframeQaPercentages": [
+      10,
+      35,
+      65,
+      90
+    ],
+    "fixed3DStyleForbidden": true,
+    "fixedArtDirectionForbidden": false,
+    "flexibleBackgrounds": true,
+    "darkBackgroundAllowed": false,
+    "blackBackgroundAllowed": false,
+    "full3DAllowed": false,
+    "simpleComparisonAllowed": true,
+    "chartAllowed": true,
+    "sceneArtDirectionOpen": false,
+    "mixedStyleAcrossScenesAllowed": true,
+    "brandStyleMatchRequired": false,
+    "lightBackgroundRequired": true,
+    "flat2DPreferred": true,
+    "genericSceneHeadlinesForbidden": true,
+    "viewerChangeFirstRequired": true,
+    "contentFirstTechniqueSelection": true,
+    "openTechniqueSelection": true,
+    "compositionFamiliesAreExamplesOnly": true,
+    "motionSignatureRequired": true,
+    "recentMotionWindow": 4,
+    "customReactAllowed": true,
+    "svgAllowed": true,
+    "css3dAllowed": false,
+    "canvasAllowed": true,
+    "threeAllowed": false,
+    "hybridAllowed": true,
+    "dataVisualizationAllowed": true,
+    "existingComponentsOptional": true,
+    "physicalPrimitivesOptional": true,
+    "semanticVariationRequired": false
+  },
+  "timelineRules": {
+    "timingSource": "03-audio/word-timings.json",
+    "cutsFollowVoiceAndChapters": true,
+    "equalLengthVisualsForbiddenByDefault": true,
+    "beatFirst": true
+  },
+  "audio": {
+    "targetIntegratedLufs": -16,
+    "targetTruePeakDbtp": -1
+  },
+  "publishing": {
+    "youtube": {
+      "titleOptions": "05-publishing/title-options.txt",
+      "finalTitle": "05-publishing/final-title.txt",
+      "description": "05-publishing/description.txt",
+      "chapters": "05-publishing/chapters.txt",
+      "tagsKeywords": "05-publishing/tags-keywords.txt",
+      "hashtags": "05-publishing/hashtags.txt",
+      "thumbnailBrief": "05-publishing/thumbnail-brief.txt",
+      "pinnedComment": "05-publishing/pinned-comment.txt",
+      "communityPost": "05-publishing/community-post.txt",
+      "sourcesDisclaimer": "05-publishing/sources-disclaimer.txt",
+      "uploadChecklist": "05-publishing/upload-checklist.md"
+    },
+    "socialPromo": {
+      "instagram": "05-publishing/social-promo/instagram.txt",
+      "tiktok": "05-publishing/social-promo/tiktok.txt",
+      "facebook": "05-publishing/social-promo/facebook.txt",
+      "snapchat": "05-publishing/social-promo/snapchat.txt"
+    }
+  },
+  "visuals": [
+    {
+      "id": "visual-01",
+      "type": "image",
+      "chapter": "Hook — Jonas und die 540 Euro",
+      "scriptBeat": "Jonas, 28, legt jeden Monat 150 € in einen ETF-Sparplan.",
+      "googleFlowFileName": "YouTube Bild 01 - Jonas Sparplan.png",
+      "expectedVisual": "Jonas am Küchentisch, auf dem Handy „ETF-Sparplan 150 € im Monat“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt",
+      "startCue": "Jonas ist achtundzwanzig",
+      "keyword": "Sparplan",
+      "figur": true,
+      "objectLabels": [
+        "Jonas",
+        "Handy",
+        "ETF-Sparplan"
+      ]
+    },
+    {
+      "id": "visual-02",
+      "type": "image",
+      "chapter": "Hook — Jonas und die 540 Euro",
+      "scriptBeat": "Ab Januar kann er dasselbe tun.",
+      "googleFlowFileName": "YouTube Bild 02 - Kalender Januar 2027.png",
+      "expectedVisual": "Jonas vor einem großen Abreißkalender „Januar 2027“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-02/bildprompt.txt",
+      "startCue": "Ab Januar kann er genau dasselbe tun",
+      "keyword": "Januar",
+      "figur": true,
+      "objectLabels": [
+        "Jonas",
+        "Kalender Januar 2027"
+      ]
+    },
+    {
+      "id": "visual-03",
+      "type": "image",
+      "chapter": "Hook — Jonas und die 540 Euro",
+      "scriptBeat": "Der Staat legt jedes Jahr bis zu 540 € obendrauf — das neue Altersvorsorgedepot.",
+      "googleFlowFileName": "YouTube Bild 03 - Staat legt drauf.png",
+      "expectedVisual": "Hand aus einem Regierungsgebäude legt Münzen „+540 €“ in ein Depot-Glas „Altersvorsorgedepot“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-03/bildprompt.txt",
+      "startCue": "Und der Staat legt jedes Jahr",
+      "keyword": "Staat",
+      "objectLabels": [
+        "Regierungsgebäude",
+        "Münzen",
+        "Depot-Glas"
+      ]
+    },
+    {
+      "id": "visual-04",
+      "type": "image",
+      "chapter": "Hook — Jonas und die 540 Euro",
+      "scriptBeat": "Wo ist der Haken?",
+      "googleFlowFileName": "YouTube Bild 04 - Wo ist der Haken.png",
+      "expectedVisual": "Jonas betrachtet skeptisch ein Geschenk, an dessen Schleife ein Angelhaken hängt",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-04/bildprompt.txt",
+      "startCue": "Jonas fragt sich",
+      "keyword": "Haken",
+      "figur": true,
+      "objectLabels": [
+        "Jonas",
+        "Geschenk",
+        "Angelhaken"
+      ]
+    },
+    {
+      "id": "visual-05",
+      "type": "image",
+      "chapter": "Kapitel 1 — Was ist das Altersvorsorgedepot?",
+      "scriptBeat": "Das Altersvorsorgedepot ist der Nachfolger der Riester-Rente.",
+      "googleFlowFileName": "YouTube Bild 05 - Nachfolger Riester.png",
+      "expectedVisual": "Alter Ordner „Riester-Rente“ übergibt einen Staffelstab an ein Depot-Glas „Altersvorsorgedepot“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-05/bildprompt.txt",
+      "startCue": "Fangen wir vorne an",
+      "keyword": "Riester",
+      "objectLabels": [
+        "Ordner Riester-Rente",
+        "Staffelstab",
+        "Depot-Glas"
+      ]
+    },
+    {
+      "id": "visual-06",
+      "type": "image",
+      "chapter": "Kapitel 1 — Was ist das Altersvorsorgedepot?",
+      "scriptBeat": "Gesetz im März beschlossen, Start am 1. Januar 2027.",
+      "googleFlowFileName": "YouTube Bild 06 - Gesetz beschlossen.png",
+      "expectedVisual": "Kuppel des Bundestags, davor ein Dokument „Gesetz beschlossen“ und ein Kalenderblatt „1. Januar 2027“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-06/bildprompt.txt",
+      "startCue": "Der Bundestag hat das Gesetz",
+      "keyword": "Bundestag",
+      "objectLabels": [
+        "Parlament",
+        "Dokument beschlossen",
+        "Kalender"
+      ]
+    },
+    {
+      "id": "visual-07",
+      "type": "image",
+      "chapter": "Kapitel 1 — Was ist das Altersvorsorgedepot?",
+      "scriptBeat": "Riester: kompliziert, teuer, oft in Versicherungen mit hohen Kosten.",
+      "googleFlowFileName": "YouTube Bild 07 - Riester kompliziert.png",
+      "expectedVisual": "Dicker, verknoteter Papierstapel „Versicherung“ mit mehreren Kosten-Etiketten",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-07/bildprompt.txt",
+      "startCue": "Riester galt als kompliziert",
+      "keyword": "Versicherungen",
+      "objectLabels": [
+        "Papierstapel",
+        "Versicherung",
+        "Kosten-Etiketten"
+      ]
+    },
+    {
+      "id": "visual-08",
+      "type": "image",
+      "chapter": "Kapitel 1 — Was ist das Altersvorsorgedepot?",
+      "scriptBeat": "Neu: direkt in Wertpapiere sparen, zum Beispiel ETFs.",
+      "googleFlowFileName": "YouTube Bild 08 - Depot mit ETFs.png",
+      "expectedVisual": "Offenes Depot-Glas, in das kleine Karten „ETF“ mit Aufwärtskurve gelegt werden",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-08/bildprompt.txt",
+      "startCue": "Das neue Depot funktioniert anders",
+      "keyword": "ETFs",
+      "objectLabels": [
+        "Depot-Glas",
+        "ETF-Karten"
+      ]
+    },
+    {
+      "id": "visual-09",
+      "type": "image",
+      "chapter": "Kapitel 1 — Was ist das Altersvorsorgedepot?",
+      "scriptBeat": "Garantie wählbar, aber keine Pflicht.",
+      "googleFlowFileName": "YouTube Bild 09 - Garantie wahlweise.png",
+      "expectedVisual": "Schalter „Garantie“ mit den Stellungen „ja“ und „nein“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-09/bildprompt.txt",
+      "startCue": "Eine Garantie kannst du wählen",
+      "keyword": "Garantie",
+      "objectLabels": [
+        "Schalter Garantie"
+      ]
+    },
+    {
+      "id": "visual-10",
+      "type": "image",
+      "chapter": "Kapitel 1 — Was ist das Altersvorsorgedepot?",
+      "scriptBeat": "Neu: auch Selbstständige werden gefördert.",
+      "googleFlowFileName": "YouTube Bild 10 - Selbststaendige gefoerdert.png",
+      "expectedVisual": "Selbstständige Grafikerin am Laptop bekommt einen Gutschein „Förderung“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-10/bildprompt.txt",
+      "startCue": "Und neu: Auch Selbstständige",
+      "keyword": "Selbstständige",
+      "objectLabels": [
+        "Grafikerin",
+        "Laptop",
+        "Gutschein Förderung"
+      ]
+    },
+    {
+      "id": "visual-11",
+      "type": "image",
+      "chapter": "Kapitel 2 — So viel legt der Staat drauf",
+      "scriptBeat": "Wie viel legt der Staat drauf? Die Förderung hat zwei Stufen.",
+      "googleFlowFileName": "YouTube Bild 11 - Zwei Stufen.png",
+      "expectedVisual": "Treppe mit zwei Stufen „Stufe 1“ und „Stufe 2“, auf jeder Stufe ein Münzstapel",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-11/bildprompt.txt",
+      "startCue": "Jetzt zum Geld",
+      "keyword": "Stufen",
+      "objectLabels": [
+        "Treppe",
+        "Stufen",
+        "Münzstapel"
+      ]
+    },
+    {
+      "id": "visual-12",
+      "type": "data",
+      "chapter": "Kapitel 2 — So viel legt der Staat drauf",
+      "scriptBeat": "Zulagen-Staffel: 50 % auf die ersten 360 € (bis 180 €), 25 % auf 360–1.800 € (bis 360 €) = maximal 540 € im Jahr.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-12/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-12/animation.tsx",
+      "animationExport": "YouTubeVisual12Animation",
+      "contentBrief": "Ein waagrechter Balken „Eigenbeitrag im Jahr“ von 0 bis 1.800 €, in zwei Zonen geteilt wie die zwei Stufen aus dem Bild davor: Zone 1 (0–360 €) Label „50 %“, Zone 2 (360–1.800 €) Label „25 %“. Beim Sprechen von Stufe 1 wächst darüber ein Zulagen-Stück auf „180 €“ (halb so lang wie Zone 1, wertgenau). Bei Stufe 2 wächst ein zweites Stück auf „360 €“ (ein Viertel von Zone 2). Ergebnis: beide Stücke rutschen zusammen zu „540 € im Jahr“. Quelle oben links: „Altersvorsorgereformgesetz, Bundestag 27.03.2026“. Zahlen exakt, keine weiteren Werte erfinden.",
+      "startCue": "Auf die ersten dreihundertsechzig Euro",
+      "bridgeObject": "Stufen",
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-12/data-notes.md",
+      "viewerChange": "Die zwei Stufen aus Bild 11 stehen als Treppe auf der Achse „Eigenbeitrag im Jahr“ (Stufe 1 = 0–360 €, Stufe 2 = 360–1.800 €, wertgenaue Breiten). Der Eigenbeitrag füllt Stufe 1, darauf zeichnet sich ein gestricheltes Fach mit 2 Zellen; bei „fünfzig Prozent“ erscheint „50 %“ und die grüne Zulage füllt genau eine Zelle: +180 €. Dann füllt sich Stufe 2 mit einem 4-Zellen-Fach, bei „fünfundzwanzig Prozent“ füllt die Zulage genau eine Zelle: +360 €. Bei „Zusammen“ rutschen beide grünen Stücke oben auf Stufe 2 zu einem Balken zusammen: „höchstens = 540 € im Jahr“.",
+      "animationIntent": "Die Zwei-Stufen-Förderung soll ohne Rechnen verständlich werden: Die Zellen zeigen 50 % und 25 % als Bruchteil der jeweiligen Stufe, die grünen Stücke stehen auf derselben €-Skala wie der Eigenbeitrag, und ihr Zusammenrutschen zeigt 180 € + 360 € = 540 € als eine Länge.",
+      "mechanicId": "grant-steps-fill-rate-cells-then-merge",
+      "visualTechniqueId": "two-step-contribution-staircase-dashed-rate-cells-green-grant-slabs-merge-to-540",
+      "techniqueDescription": "Treppe als €-Achse (1.800 € = 1.560 px, 1 € = 0,867 px): Stufe 1 312 px, Stufe 2 1.248 px breit, Stiftkontur per statischem SVG-Displacement wie die Flow-Zeichnungen. Eigenbeitrag-Füllung läuft von links; gestrichelte Fächer in Stufenlänge mit 2 bzw. 4 Zellen; grüne Zulage-Stücke wachsen auf px(180 €) = 156 px und px(360 €) = 312 px mit mitzählendem Betrag; am Ende macht Stück 2 Platz, Stück 1 springt auf Stufe 2, gemeinsamer Rahmen und „= 540 € im Jahr“ (128 px).",
+      "compositionFamilyId": "stepped-grant-scale",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "SVG (clipPath, feTurbulence/feDisplacementMap als Stiftlinie)",
+        "src/design-system/daten.tsx (DATEN, DatenBuehne, skala, euroText)"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "zweistufige Treppe über die volle Breite mit €-Achse darunter, Ergebnis oben auf Stufe 2",
+        "transformation": "Stufen füllen sich, Zulage füllt 1 von 2 bzw. 1 von 4 Zellen, Stücke rutschen zu einem Balken zusammen"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Eigenbeitrag füllt Stufe 1, später Stufe 2",
+        "gestrichelte Fächer mit 2 bzw. 4 Zellen zeichnen sich",
+        "Prozentsätze 50 % / 25 % erscheinen auf den Stufen",
+        "grüne Zulage-Stücke wachsen wertgenau, Betrag zählt mit",
+        "Stücke rutschen zusammen, „= 540 € im Jahr“ erscheint"
+      ],
+      "visualBeats": [
+        "Zwei Stufen: 0–360 € und 360–1.800 €",
+        "Die ersten 360 € Eigenbeitrag",
+        "50 % → +180 €",
+        "Alles darüber bis 1.800 €",
+        "25 % → +360 €",
+        "Zusammen höchstens 540 € im Jahr"
+      ],
+      "beatCues": [
+        "Auf die ersten dreihundertsechzig Euro",
+        "fünfzig Prozent dazu",
+        "Auf alles darüber",
+        "fünfundzwanzig Prozent",
+        "Zusammen sind das"
+      ]
+    },
+    {
+      "id": "visual-13",
+      "type": "image",
+      "chapter": "Kapitel 2 — So viel legt der Staat drauf",
+      "scriptBeat": "150 € im Monat = 1.800 € im Jahr.",
+      "googleFlowFileName": "YouTube Bild 13 - Jonas 1800 im Jahr.png",
+      "expectedVisual": "Jonas mit Depot-Glas, Notiz „150 € im Monat = 1.800 € im Jahr“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-13/bildprompt.txt",
+      "startCue": "Für Jonas heißt das",
+      "keyword": "Monat",
+      "figur": true,
+      "objectLabels": [
+        "Jonas",
+        "Depot-Glas",
+        "Notiz"
+      ]
+    },
+    {
+      "id": "visual-14",
+      "type": "image",
+      "chapter": "Kapitel 2 — So viel legt der Staat drauf",
+      "scriptBeat": "Er bekommt die vollen 540 € — 30 % obendrauf.",
+      "googleFlowFileName": "YouTube Bild 14 - Jonas volle Zulage.png",
+      "expectedVisual": "Jonas freut sich, auf sein Depot-Glas fällt ein Münzstapel „+540 €“, Etikett „+30 %“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-14/bildprompt.txt",
+      "startCue": "Er bekommt die vollen",
+      "keyword": "Prozent",
+      "figur": true,
+      "objectLabels": [
+        "Jonas",
+        "Depot-Glas",
+        "Münzstapel"
+      ]
+    },
+    {
+      "id": "visual-15",
+      "type": "image",
+      "chapter": "Kapitel 2 — So viel legt der Staat drauf",
+      "scriptBeat": "Wer weniger spart, bekommt prozentual mehr.",
+      "googleFlowFileName": "YouTube Bild 15 - Weniger sparen mehr Prozent.png",
+      "expectedVisual": "Kleines und großes Depot-Glas; auf dem kleinen ein großes Plus-Zeichen, auf dem großen ein kleineres",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-15/bildprompt.txt",
+      "startCue": "Spannend ist",
+      "keyword": "weniger",
+      "objectLabels": [
+        "kleines Glas",
+        "großes Glas",
+        "Plus-Zeichen"
+      ]
+    },
+    {
+      "id": "visual-16",
+      "type": "image",
+      "chapter": "Kapitel 2 — So viel legt der Staat drauf",
+      "scriptBeat": "30 € im Monat → 180 € im Jahr dazu = 50 %.",
+      "googleFlowFileName": "YouTube Bild 16 - Dreissig Euro fuenfzig Prozent.png",
+      "expectedVisual": "Kleines Depot-Glas „30 € im Monat“, darauf Münzen „+180 € im Jahr“ und großes Etikett „50 %“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-16/bildprompt.txt",
+      "startCue": "Mit dreißig Euro im Monat",
+      "keyword": "Prozent",
+      "objectLabels": [
+        "kleines Depot-Glas",
+        "Münzen",
+        "Etikett 50 %"
+      ]
+    },
+    {
+      "id": "visual-17",
+      "type": "image",
+      "chapter": "Kapitel 2 — So viel legt der Staat drauf",
+      "scriptBeat": "Kinderzulage bis 300 € pro Kind und Jahr, voll ab 25 € im Monat.",
+      "googleFlowFileName": "YouTube Bild 17 - Kinderzulage.png",
+      "expectedVisual": "Mutter mit Kind vor einem Depot-Glas, Etikett „Kinderzulage bis 300 €“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-17/bildprompt.txt",
+      "startCue": "Für Kinder gibt es extra",
+      "keyword": "Kinder",
+      "objectLabels": [
+        "Mutter",
+        "Kind",
+        "Depot-Glas"
+      ],
+      "akzente": [
+        {
+          "cue": "Dafür reichen fünfundzwanzig Euro",
+          "text": "voll ab 25 € im Monat",
+          "ton": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "visual-18",
+      "type": "image",
+      "chapter": "Kapitel 2 — So viel legt der Staat drauf",
+      "scriptBeat": "Start vor dem 25. Geburtstag: einmalig 200 € Bonus.",
+      "googleFlowFileName": "YouTube Bild 18 - Bonus unter 25.png",
+      "expectedVisual": "Junge Frau mit Geburtstagstorte „24“ bekommt ein Geschenk „200 € Bonus“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-18/bildprompt.txt",
+      "startCue": "Wer vor seinem fünfundzwanzigsten",
+      "keyword": "Bonus",
+      "objectLabels": [
+        "junge Frau",
+        "Torte 24",
+        "Geschenk Bonus"
+      ]
+    },
+    {
+      "id": "visual-19",
+      "type": "image",
+      "chapter": "Kapitel 2 — So viel legt der Staat drauf",
+      "scriptBeat": "Mindestens 120 € im Jahr, sonst keine Zulage.",
+      "googleFlowFileName": "YouTube Bild 19 - Mindestbeitrag 120.png",
+      "expectedVisual": "Waagrechte Linie „mindestens 120 € im Jahr“; darüber bekommt ein Glas Zulage, darunter ein Glas nichts",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-19/bildprompt.txt",
+      "startCue": "Wichtig: Du musst mindestens",
+      "keyword": "Zulage",
+      "objectLabels": [
+        "Linie 120 €",
+        "zwei Gläser",
+        "Zulage"
+      ]
+    },
+    {
+      "id": "visual-20",
+      "type": "image",
+      "chapter": "Kapitel 2 — So viel legt der Staat drauf",
+      "scriptBeat": "Beiträge auch steuerlich absetzbar; Finanzamt wählt das Günstigere.",
+      "googleFlowFileName": "YouTube Bild 20 - Steuer oder Zulage.png",
+      "expectedVisual": "Finanzbeamter mit Waage: links „Zulage“, rechts „Steuer sparen“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-20/bildprompt.txt",
+      "startCue": "Und wer gut verdient",
+      "keyword": "Steuer",
+      "objectLabels": [
+        "Finanzbeamter",
+        "Waage",
+        "Finanzamt"
+      ],
+      "akzente": [
+        {
+          "cue": "Das Finanzamt prüft",
+          "text": "Finanzamt wählt das Günstigere",
+          "ton": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "visual-21",
+      "type": "image",
+      "chapter": "Kapitel 3 — Haken eins: die Kosten",
+      "scriptBeat": "Der erste Haken: die Kosten.",
+      "googleFlowFileName": "YouTube Bild 21 - Haken eins Kosten.png",
+      "expectedVisual": "Angelhaken mit Nummer „1“, an dem ein Preisschild „Kosten“ hängt",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-21/bildprompt.txt",
+      "startCue": "Klingt stark",
+      "keyword": "Kosten",
+      "objectLabels": [
+        "Angelhaken 1",
+        "Preisschild Kosten"
+      ]
+    },
+    {
+      "id": "visual-22",
+      "type": "image",
+      "chapter": "Kapitel 3 — Haken eins: die Kosten",
+      "scriptBeat": "Kostendeckel im Standarddepot: höchstens 1 % im Jahr.",
+      "googleFlowFileName": "YouTube Bild 22 - Kostendeckel.png",
+      "expectedVisual": "Depot-Glas „Standarddepot“ mit großem Deckel „max. 1 % Kosten im Jahr“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-22/bildprompt.txt",
+      "startCue": "Für das sogenannte Standarddepot",
+      "keyword": "Kostendeckel",
+      "objectLabels": [
+        "Depot-Glas Standarddepot",
+        "Deckel 1 %"
+      ]
+    },
+    {
+      "id": "visual-23",
+      "type": "image",
+      "chapter": "Kapitel 3 — Haken eins: die Kosten",
+      "scriptBeat": "Geplant waren 1,5 %, Verbraucherschützer protestierten. 1 % klingt wenig — ist es aber nicht.",
+      "googleFlowFileName": "YouTube Bild 23 - Verbraucherschuetzer protestieren.png",
+      "expectedVisual": "Zettel „1,5 %“ durchgestrichen, daneben „1 %“; dahinter Verbraucherschützer mit Schildern „Zu teuer!“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-23/bildprompt.txt",
+      "startCue": "Geplant waren sogar",
+      "keyword": "Verbraucherschützer",
+      "objectLabels": [
+        "Zettel 1,5 %",
+        "Zettel 1 %",
+        "Verbraucherschützer"
+      ]
+    },
+    {
+      "id": "visual-24",
+      "type": "image",
+      "chapter": "Kapitel 3 — Haken eins: die Kosten",
+      "scriptBeat": "Beispiel Jonas: 150 € + Zulage im Monat, 37 Jahre bis 65, Annahme 5 % Rendite.",
+      "googleFlowFileName": "YouTube Bild 24 - Jonas Zeitstrahl.png",
+      "expectedVisual": "Zeitstrahl von „28“ bis „65“, links junger Jonas, rechts älterer Jonas mit grauem Haar",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-24/bildprompt.txt",
+      "startCue": "Rechnen wir mit Jonas",
+      "keyword": "Jonas",
+      "figur": true,
+      "objectLabels": [
+        "Jonas",
+        "Zeitstrahl",
+        "Münzen"
+      ],
+      "akzente": [
+        {
+          "cue": "siebenunddreißig Jahre lang",
+          "text": "195 € im Monat · 37 Jahre",
+          "ton": "neutral"
+        },
+        {
+          "cue": "Wir nehmen an",
+          "text": "Annahme: 5 % Rendite im Jahr",
+          "ton": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "visual-25",
+      "type": "data",
+      "chapter": "Kapitel 3 — Haken eins: die Kosten",
+      "scriptBeat": "37 Jahre, 195 € im Monat, 5 % vor Kosten: 1 % Kosten → rund 198.000 €, 0,2 % Kosten → rund 238.000 € — rund 40.000 € Unterschied.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-25/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-25/animation.tsx",
+      "animationExport": "YouTubeVisual25Animation",
+      "contentBrief": "Waagrechte Achse wie der Zeitstrahl aus dem Bild davor: „28“ bis „65“ (Jahre). Zwei Vermögenskurven wachsen gleichzeitig von 0 nach rechts: Kurve „1 % Kosten“ endet bei „rund 198.000 €“, Kurve „0,2 % Kosten“ endet bei „rund 238.000 €“ (wertgenau, gleiche Skala; monatliche Einzahlung 195 €, 4,0 % bzw. 4,8 % netto). Am Ende öffnet sich zwischen beiden Endpunkten eine farbige Lücke mit Callout „rund 40.000 € Unterschied“. Kennzeichnung oben: „Beispiel, Annahme 5 % Rendite vor Kosten“. Keine weiteren Zahlen erfinden.",
+      "startCue": "Bei einem Prozent Kosten hat Jonas",
+      "bridgeObject": "Zeitstrahl",
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-25/data-notes.md",
+      "viewerChange": "Der Zeitstrahl 28 → 65 aus Bild 24 liegt als Nulllinie am Boden. Die rote Kurve „1 % Kosten“ zeichnet sich bis 65 und endet bei „rund 198.000 €“; danach zeichnet sich auf derselben Skala die grüne Kurve „0,2 % Kosten“ darüber bis „rund 238.000 €“. Die Fläche zwischen beiden füllt sich rot von links nach rechts — anfangs fast null, am Ende breit — und ein Pfeil führt vom Callout „rund 40.000 € Unterschied“ in die Lücke; zuletzt „nur wegen der Kosten“.",
+      "animationIntent": "Ein Prozent Kosten klingt klein; erst zwei gleich skalierte Kurven zeigen, dass sich der Kostenunterschied über 37 Jahre aufschaukelt und am Ende eine Lücke von rund 40.000 € reißt.",
+      "mechanicId": "cost-drag-two-wealth-curves-gap-band",
+      "visualTechniqueId": "timeline-arrow-axis-sequential-compound-curves-red-gap-band-callout",
+      "techniqueDescription": "Kurven im Code aus v = v · (1 + r/12) + 195 € je Monat über 444 Monate, r = 4,0 % bzw. 4,8 % (Endwerte 197.856 € / 238.158 €, per Laufzeit-Check abgesichert); x 28 → 65 = 1.000 px, y 0 → 240.000 € = 560 px, eine Skala für beide, Nulllinie = Zeitstrahl-Pfeil mit Stiftlinie. Kurve 1 zeichnet sich zuerst, Kurve 2 danach; die Fläche zwischen den Kurven füllt sich monatsgenau, rote Endkante bei 65, gebogener Pfeil vom Callout „rund 40.000 €“ (124 px) in die Lücke; gerundete Endwerte rechts.",
+      "compositionFamilyId": "trend-trace",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "SVG-Pfade aus 445 Monatswerten",
+        "src/design-system/daten.tsx (DATEN, DatenBuehne, skala, euroText)"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Zeitstrahl 28 → 65 unten, zwei Kurven darüber, Endwerte rechts, Ergebnis-Callout im freien Feld links oben",
+        "transformation": "zwei Kurven zeichnen sich nacheinander, die Fläche dazwischen füllt sich zur Lücke"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Kurve 1 % Kosten zeichnet sich 28 → 65",
+        "Endwert rund 198.000 € erscheint",
+        "Kurve 0,2 % Kosten zeichnet sich darüber",
+        "Endwert rund 238.000 € erscheint",
+        "rote Lücke füllt sich von links nach rechts",
+        "Callout rund 40.000 € Unterschied mit Pfeil, dann „nur wegen der Kosten“"
+      ],
+      "visualBeats": [
+        "Zeitstrahl 28 → 65",
+        "1 % Kosten: rund 198.000 €",
+        "0,2 % Kosten zeichnet sich",
+        "0,2 % Kosten: rund 238.000 €",
+        "Lücke: rund 40.000 € Unterschied",
+        "nur wegen der Kosten"
+      ],
+      "beatCues": [
+        "Bei einem Prozent Kosten",
+        "rund hundertachtundneunzigtausend",
+        "Bei null Komma zwei Prozent",
+        "rund zweihundertachtunddreißigtausend",
+        "Rund vierzigtausend Euro Unterschied",
+        "Nur wegen der Kosten"
+      ]
+    },
+    {
+      "id": "visual-26",
+      "type": "image",
+      "chapter": "Kapitel 3 — Haken eins: die Kosten",
+      "scriptBeat": "Deckel = Obergrenze, kein Richtwert. Anbieter vergleichen.",
+      "googleFlowFileName": "YouTube Bild 26 - Anbieter vergleichen.png",
+      "expectedVisual": "Drei Anbieter-Karten „Anbieter A/B/C“ mit unterschiedlich langen Kostenbalken unter einer Linie „max. 1 %“; eine Hand zeigt auf den kürzesten",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-26/bildprompt.txt",
+      "startCue": "Der Deckel ist also",
+      "keyword": "Anbieter",
+      "objectLabels": [
+        "Anbieter-Karten",
+        "Hand",
+        "Haken"
+      ]
+    },
+    {
+      "id": "visual-27",
+      "type": "image",
+      "chapter": "Kapitel 3 — Haken eins: die Kosten",
+      "scriptBeat": "Kommentarfrage: Altersvorsorgedepot ab Januar oder beim normalen Depot bleiben?",
+      "googleFlowFileName": "YouTube Bild 27 - Frage an dich.png",
+      "expectedVisual": "Große Sprechblase „Altersvorsorgedepot ab Januar?“ mit Antwortblasen „Ja“ und „Ich bleibe beim normalen Depot“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-27/bildprompt.txt",
+      "startCue": "Kurze Frage an dich",
+      "keyword": "Depot",
+      "objectLabels": [
+        "Sprechblase",
+        "Antwortblasen"
+      ]
+    },
+    {
+      "id": "visual-28",
+      "type": "image",
+      "chapter": "Kapitel 3 — Haken eins: die Kosten",
+      "scriptBeat": "Schreib es in die Kommentare.",
+      "googleFlowFileName": "YouTube Bild 28 - Kommentare.png",
+      "expectedVisual": "Handy mit Kommentarfeld, ein Daumen tippt",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-28/bildprompt.txt",
+      "startCue": "Schreib es mir in die Kommentare",
+      "keyword": "Kommentare",
+      "objectLabels": [
+        "Handy",
+        "Kommentarfeld"
+      ]
+    },
+    {
+      "id": "visual-29",
+      "type": "image",
+      "chapter": "Kapitel 4 — Haken zwei und drei: gebunden und versteuert",
+      "scriptBeat": "Der zweite Haken: Das Geld ist gebunden, Auszahlung frühestens mit 65.",
+      "googleFlowFileName": "YouTube Bild 29 - Haken zwei gebunden.png",
+      "expectedVisual": "Depot-Glas mit Vorhängeschloss, Anhänger „ab 65“, daneben Angelhaken „2“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-29/bildprompt.txt",
+      "startCue": "Der zweite Haken",
+      "keyword": "fünfundsechzig",
+      "objectLabels": [
+        "Depot-Glas",
+        "Vorhängeschloss",
+        "Angelhaken 2"
+      ]
+    },
+    {
+      "id": "visual-30",
+      "type": "animation",
+      "chapter": "Kapitel 4 — Haken zwei und drei: gebunden und versteuert",
+      "scriptBeat": "Ab 65: höchstens 30 % auf einen Schlag, der Rest als lebenslange Rente oder Auszahlplan bis mindestens 85.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-30/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-30/animation.tsx",
+      "animationExport": "YouTubeVisual30Animation",
+      "contentBrief": "Das Depot-Glas aus dem Bild davor steht links bei „65“ auf einem Zeitstrahl „65 → 85“. Das Schloss geht auf. Ein Stück von genau „30 %“ des Inhalts löst sich und springt als Block „bis 30 % auf einmal“ heraus. Der Rest (70 %) fließt danach in vielen gleich großen Monatsportionen nach rechts entlang des Zeitstrahls bis „85“, Label „Auszahlplan bis mind. 85“; alternativ kurzer Hinweis-Pfeil über 85 hinaus „oder lebenslange Rente“. Ergebnis: Glas leert sich gleichmäßig. Keine Eurobeträge erfinden.",
+      "startCue": "Und nicht alles auf einmal",
+      "bridgeObject": "Depot-Glas",
+      "viewerChange": "Das verschlossene Depot-Glas aus Bild 29 („Altersvorsorgedepot“, Schloss „ab 65“) steht am Anfang des Zeitstrahls 65 → 85. Das Schloss springt auf, Deckel und Schloss gehen weg, „65“ wird grün. Eine Linie teilt genau die oberen 30 % des Inhalts ab, der Block springt nach oben aus dem Glas: „bis 30 % auf einmal“. Dann fließt der Rest („70 %“) als 240 gleich große Münzen aus dem Glas und stapelt sich zu 20 gleich hohen Jahresstapeln von 65 bis 85, bis das Glas leer ist; gestrichelter Pfeil über 85 hinaus „oder lebenslange Rente“, Klammer „Auszahlplan bis mind. 85“.",
+      "animationIntent": "„Gebunden“ heißt auch: nicht alles auf einmal. Die Teilung des Glases zeigt das Verhältnis 30 : 70 direkt, der gleichmäßige Münzstrom über 20 Jahre macht den Auszahlplan greifbar — ohne Eurobeträge zu erfinden.",
+      "mechanicId": "locked-jar-opens-lump-sum-lifts-rest-streams-monthly",
+      "visualTechniqueId": "depot-jar-unlock-30-percent-block-lift-240-month-coins-to-year-stacks-65-85",
+      "techniqueDescription": "Gezeichnetes Einmachglas (Stiftlinie, Glas-Tönung, Etikett „Altersvorsorge-/depot“, Schloss mit Anhänger „ab 65“) mit Münzmuster-Inhalt 336 × 400 px = 100 %; Schnitt bei 120 px = 30 %, Block springt mit Overshoot-Easing nach oben. Der Rest-Pegel sinkt linear mit 240 Münzen (je 1 Monat), die hinter dem Glasrand auftauchen und auf Bézier-Bögen zu 20 Jahresstapeln à 12 Münzen fliegen (37,5 px je Jahr); Stapelfläche = Fläche der 70 % im Glas, Block : Stapel = 30 : 70. Gestrichelte Verlängerung über 85 mit Pfeil, geschweifte Klammer 65–85.",
+      "compositionFamilyId": "payout-timeline",
+      "toolStack": [
+        "Remotion",
+        "React",
+        "SVG (clipPath, Bézier-Flugbahnen, feDisplacementMap als Stiftlinie)",
+        "src/design-system/daten.tsx (DATEN, DatenBuehne)"
+      ],
+      "motionSignature": {
+        "camera": "still",
+        "layout": "Depot-Glas links, 30-%-Block oben links, Zeitstrahl 65 → 85 mit Jahresstapeln rechts, Hinweis-Pfeil über 85",
+        "transformation": "Glas öffnet sich, 30-%-Block springt heraus, Rest fließt als Münzstrom in Jahresstapel und leert das Glas"
+      },
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "Schloss springt auf, Deckel geht weg",
+        "Schnittlinie und Klammer 30 %",
+        "30-%-Block springt aus dem Glas",
+        "Pegel im Glas sinkt gleichmäßig",
+        "240 Monatsmünzen fliegen in 20 Jahresstapel",
+        "gestrichelter Pfeil „oder lebenslange Rente“",
+        "Klammer „Auszahlplan bis mind. 85“"
+      ],
+      "visualBeats": [
+        "Glas verschlossen, ab 65",
+        "Schloss offen bei 65",
+        "30 % abgeteilt",
+        "bis 30 % auf einmal",
+        "Rest 70 % fließt in Monatsportionen",
+        "oder lebenslange Rente",
+        "Auszahlplan bis mind. 85, Glas leer"
+      ],
+      "beatCues": [
+        "Und nicht alles auf einmal",
+        "höchstens dreißig Prozent",
+        "auf einen Schlag",
+        "Der Rest kommt",
+        "lebenslange Rente",
+        "Auszahlplan bis mindestens"
+      ]
+    },
+    {
+      "id": "visual-31",
+      "type": "image",
+      "chapter": "Kapitel 4 — Haken zwei und drei: gebunden und versteuert",
+      "scriptBeat": "Geld vorher entnehmen, z. B. fürs Auto, wird teuer.",
+      "googleFlowFileName": "YouTube Bild 31 - Geld fuers Auto.png",
+      "expectedVisual": "Jonas vor einem Auto, greift in sein verschlossenes Depot-Glas, Warnschild „vorher“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-31/bildprompt.txt",
+      "startCue": "Brauchst du das Geld vorher",
+      "keyword": "Auto",
+      "figur": true,
+      "objectLabels": [
+        "Jonas",
+        "Auto",
+        "Depot-Glas"
+      ]
+    },
+    {
+      "id": "visual-32",
+      "type": "image",
+      "chapter": "Kapitel 4 — Haken zwei und drei: gebunden und versteuert",
+      "scriptBeat": "Dann Zulagen und Steuervorteile zurückzahlen.",
+      "googleFlowFileName": "YouTube Bild 32 - Zulagen zurueck.png",
+      "expectedVisual": "Münzen fliegen aus dem Depot-Glas zurück zum Regierungsgebäude, Etikett „Zulagen zurück“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-32/bildprompt.txt",
+      "startCue": "Dann musst du Zulagen",
+      "keyword": "Zulagen",
+      "objectLabels": [
+        "Depot-Glas",
+        "Münzen",
+        "Regierungsgebäude"
+      ]
+    },
+    {
+      "id": "visual-33",
+      "type": "image",
+      "chapter": "Kapitel 4 — Haken zwei und drei: gebunden und versteuert",
+      "scriptBeat": "Ausnahme: die eigene Wohnung, unter bestimmten Bedingungen.",
+      "googleFlowFileName": "YouTube Bild 33 - Ausnahme Wohnung.png",
+      "expectedVisual": "Kleines Wohnhaus mit Schlüssel, daneben Depot-Glas mit grünem Haken „Ausnahme“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-33/bildprompt.txt",
+      "startCue": "Eine Ausnahme gibt es",
+      "keyword": "Wohnung",
+      "objectLabels": [
+        "Wohnhaus",
+        "Schlüssel",
+        "Depot-Glas"
+      ]
+    },
+    {
+      "id": "visual-34",
+      "type": "image",
+      "chapter": "Kapitel 4 — Haken zwei und drei: gebunden und versteuert",
+      "scriptBeat": "Der dritte Haken: die Steuer. Beim Sparen keine Steuern auf Gewinne.",
+      "googleFlowFileName": "YouTube Bild 34 - Haken drei Steuer.png",
+      "expectedVisual": "Pflanze wächst in einem Depot-Glas, Etikett „steuerfrei beim Sparen“, daneben Angelhaken „3“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-34/bildprompt.txt",
+      "startCue": "Der dritte Haken",
+      "keyword": "Steuer",
+      "objectLabels": [
+        "Pflanze",
+        "Depot-Glas",
+        "Angelhaken 3"
+      ]
+    },
+    {
+      "id": "visual-35",
+      "type": "image",
+      "chapter": "Kapitel 4 — Haken zwei und drei: gebunden und versteuert",
+      "scriptBeat": "Im Alter: Auszahlung mit persönlichem Steuersatz versteuern.",
+      "googleFlowFileName": "YouTube Bild 35 - Steuer im Alter.png",
+      "expectedVisual": "Älterer Mann bekommt einen Umschlag „Auszahlung“, eine Hand vom Finanzamt nimmt ein Stück „Steuer“ heraus",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-35/bildprompt.txt",
+      "startCue": "Aber im Alter musst du",
+      "keyword": "Alter",
+      "objectLabels": [
+        "älterer Mann",
+        "Umschlag Auszahlung",
+        "Finanzamt"
+      ]
+    },
+    {
+      "id": "visual-36",
+      "type": "image",
+      "chapter": "Kapitel 4 — Haken zwei und drei: gebunden und versteuert",
+      "scriptBeat": "Rentner-Steuersatz oft niedriger — aber nicht garantiert.",
+      "googleFlowFileName": "YouTube Bild 36 - Steuersatz Rentner.png",
+      "expectedVisual": "Zwei Balken: hoch „Steuersatz im Berufsleben“, niedriger „Steuersatz als Rentner“ mit Fragezeichen",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-36/bildprompt.txt",
+      "startCue": "Als Rentner ist der Steuersatz",
+      "keyword": "Rentner",
+      "objectLabels": [
+        "Balken Berufsleben",
+        "Balken Rentner",
+        "Fragezeichen"
+      ],
+      "akzente": [
+        {
+          "cue": "Garantiert ist das aber nicht",
+          "text": "nicht garantiert",
+          "ton": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "visual-37",
+      "type": "image",
+      "chapter": "Kapitel 5 — Für wen es sich lohnt",
+      "scriptBeat": "Für wen lohnt es sich?",
+      "googleFlowFileName": "YouTube Bild 37 - Fuer wen lohnt es sich.png",
+      "expectedVisual": "Drei Personen-Silhouetten vor einem Depot-Glas, Schild „Für wen lohnt es sich?“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-37/bildprompt.txt",
+      "startCue": "Für wen lohnt sich das Ganze",
+      "keyword": "lohnt",
+      "objectLabels": [
+        "drei Personen",
+        "Depot-Glas",
+        "Schild"
+      ]
+    },
+    {
+      "id": "visual-38",
+      "type": "image",
+      "chapter": "Kapitel 5 — Für wen es sich lohnt",
+      "scriptBeat": "Erstens: wer fürs Alter spart und das Geld bis zur Rente nicht braucht.",
+      "googleFlowFileName": "YouTube Bild 38 - Bis zur Rente liegen lassen.png",
+      "expectedVisual": "Person stellt ein Depot-Glas in ein Regal und geht entspannt weg, Zettel „bis zur Rente“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-38/bildprompt.txt",
+      "startCue": "Erstens für alle",
+      "keyword": "Rente",
+      "objectLabels": [
+        "Person",
+        "Regal",
+        "Depot-Glas",
+        "1"
+      ]
+    },
+    {
+      "id": "visual-39",
+      "type": "image",
+      "chapter": "Kapitel 5 — Für wen es sich lohnt",
+      "scriptBeat": "Zweitens: kleine Sparer und Familien — höchste Förderung in Prozent.",
+      "googleFlowFileName": "YouTube Bild 39 - Kleine Sparer und Familien.png",
+      "expectedVisual": "Familie mit kleinem Depot-Glas, daneben großes grünes Etikett „%“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-39/bildprompt.txt",
+      "startCue": "Zweitens für kleine Sparer",
+      "keyword": "Familien",
+      "objectLabels": [
+        "Familie",
+        "kleines Depot-Glas",
+        "Prozent-Etikett",
+        "2"
+      ]
+    },
+    {
+      "id": "visual-40",
+      "type": "image",
+      "chapter": "Kapitel 5 — Für wen es sich lohnt",
+      "scriptBeat": "Drittens: junge Leute — Bonus und viel Zeit zum Wachsen.",
+      "googleFlowFileName": "YouTube Bild 40 - Junge Leute Zeit.png",
+      "expectedVisual": "Junger Mensch pflanzt einen kleinen Geldbaum, dahinter derselbe Baum groß und voll",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-40/bildprompt.txt",
+      "startCue": "Drittens für junge Leute",
+      "keyword": "junge",
+      "objectLabels": [
+        "junge Person",
+        "Geldbaum",
+        "3"
+      ]
+    },
+    {
+      "id": "visual-41",
+      "type": "image",
+      "chapter": "Kapitel 5 — Für wen es sich lohnt",
+      "scriptBeat": "Nicht für flexibles Geld: Notgroschen und kurzfristige Sparziele bleiben draußen.",
+      "googleFlowFileName": "YouTube Bild 41 - Flexibles Geld getrennt.png",
+      "expectedVisual": "Verschlossenes Depot-Glas neben offenen Gläsern „Notgroschen“ und „Urlaub“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-41/bildprompt.txt",
+      "startCue": "Weniger passend ist es",
+      "keyword": "flexibel",
+      "objectLabels": [
+        "Depot-Glas",
+        "Glas Notgroschen",
+        "Glas Urlaub"
+      ],
+      "akzente": [
+        {
+          "cue": "Dein Notgroschen",
+          "text": "Notgroschen bleibt flexibel",
+          "ton": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "visual-42",
+      "type": "image",
+      "chapter": "Kapitel 5 — Für wen es sich lohnt",
+      "scriptBeat": "Riester-Besitzer: ab 2027 keine neuen Riester-Verträge.",
+      "googleFlowFileName": "YouTube Bild 42 - Riester geschlossen.png",
+      "expectedVisual": "Älteres Paar mit Ordner „Riester-Vertrag“ vor einer Tür mit Schild „Neue Verträge ab 2027: geschlossen“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-42/bildprompt.txt",
+      "startCue": "Und wer schon einen Riester-Vertrag hat",
+      "keyword": "Riester",
+      "objectLabels": [
+        "älteres Paar",
+        "Ordner Riester-Vertrag",
+        "Schild geschlossen"
+      ]
+    },
+    {
+      "id": "visual-43",
+      "type": "image",
+      "chapter": "Kapitel 5 — Für wen es sich lohnt",
+      "scriptBeat": "Alter Vertrag bleibt; Guthaben kann ins neue Depot übertragen werden.",
+      "googleFlowFileName": "YouTube Bild 43 - Riester uebertragen.png",
+      "expectedVisual": "Münzen wandern über einen Pfeil vom Ordner „Riester-Vertrag“ in das Depot-Glas",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-43/bildprompt.txt",
+      "startCue": "Dein alter Vertrag bleibt",
+      "keyword": "Guthaben",
+      "objectLabels": [
+        "Ordner Riester-Vertrag",
+        "Pfeil",
+        "Depot-Glas"
+      ]
+    },
+    {
+      "id": "visual-44",
+      "type": "image",
+      "chapter": "Kapitel 5 — Für wen es sich lohnt",
+      "scriptBeat": "Vorher Garantien und Kosten des alten Vertrags prüfen.",
+      "googleFlowFileName": "YouTube Bild 44 - Alten Vertrag pruefen.png",
+      "expectedVisual": "Lupe über einem Vertrag, vergrößert die Zeilen „Garantie“ und „Kosten“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-44/bildprompt.txt",
+      "startCue": "Prüf vorher",
+      "keyword": "Kosten",
+      "objectLabels": [
+        "Vertrag",
+        "Lupe"
+      ]
+    },
+    {
+      "id": "visual-45",
+      "type": "image",
+      "chapter": "Fazit",
+      "scriptBeat": "Jonas teilt auf: 150 € im Monat ins Altersvorsorgedepot, bei einem günstigen Anbieter.",
+      "googleFlowFileName": "YouTube Bild 45 - Jonas teilt auf.png",
+      "expectedVisual": "Jonas legt Münzen in das Depot-Glas „Altersvorsorgedepot“, Etikett „günstiger Anbieter“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-45/bildprompt.txt",
+      "startCue": "Und Jonas? Er teilt auf",
+      "keyword": "Altersvorsorgedepot",
+      "figur": true,
+      "objectLabels": [
+        "Jonas",
+        "Depot-Glas",
+        "zweites Glas"
+      ]
+    },
+    {
+      "id": "visual-46",
+      "type": "image",
+      "chapter": "Fazit",
+      "scriptBeat": "Für flexible Ziele spart er normal weiter. Keine Anlageberatung.",
+      "googleFlowFileName": "YouTube Bild 46 - Flexible Ziele.png",
+      "expectedVisual": "Jonas mit dem Glas „normales Depot“, daneben kleine Zettel „Reise“ und „Auto“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-46/bildprompt.txt",
+      "startCue": "Für flexible Ziele spart er",
+      "keyword": "Ziele",
+      "figur": true,
+      "objectLabels": [
+        "Jonas",
+        "Glas normales Depot",
+        "Zettel"
+      ],
+      "akzente": [
+        {
+          "cue": "Das ist keine Anlageberatung",
+          "text": "Keine Anlageberatung",
+          "ton": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "visual-47",
+      "type": "image",
+      "chapter": "Fazit",
+      "scriptBeat": "Geld vom Staat gibt es wirklich — wenn Kosten niedrig sind und das Geld bis zur Rente liegen bleibt.",
+      "googleFlowFileName": "YouTube Bild 47 - Fazit zwei Bedingungen.png",
+      "expectedVisual": "Volles Depot-Glas mit Etikett „+ Zulage vom Staat“, daneben zwei grüne Haken „Kosten niedrig“ und „bis zur Rente“",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-47/bildprompt.txt",
+      "startCue": "Geld vom Staat gibt es also wirklich",
+      "keyword": "Staat",
+      "objectLabels": [
+        "Depot-Glas",
+        "Checkliste"
+      ],
+      "akzente": [
+        {
+          "cue": "Aber nur, wenn",
+          "text": "Kosten niedrig · Geld bis zur Rente",
+          "ton": "neutral"
+        }
+      ]
+    },
+    {
+      "id": "visual-48",
+      "type": "image",
+      "chapter": "Fazit",
+      "scriptBeat": "Abonnier FinanzNeo.",
+      "googleFlowFileName": "YouTube Bild 48 - Abonnieren.png",
+      "expectedVisual": "Notizbuch mit handgeschriebenem „FinanzNeo“ und kleiner Glocke",
+      "imageSequence": {
+        "mode": "independent",
+        "referenceVisualId": null,
+        "plannedChange": null
+      },
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-48/bildprompt.txt",
+      "startCue": "Wenn dir das Video geholfen hat",
+      "keyword": "FinanzNeo",
+      "objectLabels": [
+        "Notizbuch",
+        "Glocke"
+      ],
+      "akzente": [
+        {
+          "cue": "Dann verpasst du nichts",
+          "text": "Anbieter-Preise ab Januar",
+          "ton": "neutral"
+        }
+      ]
+    }
+  ]
+}
