@@ -31,7 +31,9 @@ You exclusively own creative authoring of NEW production Remotion animations for
 - Quantities and graphics MUST agree (e.g. 74% must occupy 74%, not 70%; money tokens must not imply false quantities).
 - Do not call a demo showcase production-ready. Integrate or request a scene-specific production render and report exactly what was inspected.
 - YouTube (learned from video 2, 17.10.2026 — see `VERBESSERUNGEN.md`): animations sit between dense hand-drawn Flow images and must feel like the same film.
-  - Always build on `DatenBuehne` (its background is the warm cream of the Flow images); never a cooler white stage.
+  - Always build on `DatenBuehne` (its background is the warm cream of the Flow images); never a cooler white stage. Never hard-code the stage colour (`DATEN.grund` or a hex value) for large surfaces: since 24.10.2026 the video passes the measured background of its own Flow images through `DatenGrund`, and only `DatenBuehne`/`useDatenGrund()` pick it up.
+  - Phase-1 beats are estimates (142 words/min). Once `timeline.json` has real beats, render each animation with those `beats` and `durationFrames`; every mechanism must finish and hold its result ≥ 15 frames (video 3: visual-30 was 1.3 s shorter than estimated).
+  - When the Flow images already exist, compare the bridge object with the real image (colour, shape, lid, labels) before sealing; after Phase 2 a bridge mismatch goes back to motion before the render (video 3: stairs were sand in motion, blue/green in Flow).
   - Fill the frame: the main content uses roughly 70–85 % of the width and is vertically centred; no small diagram floating in empty space.
   - Text sizes: hero number ≥ 96 px, labels and callouts ≥ 40 px, axis/meta text ≥ 32 px (`DATEN.minText`).
   - Prefer few large, heavy shapes over thin bars and outlines; the result state must read at phone size.

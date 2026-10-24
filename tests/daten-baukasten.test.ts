@@ -18,8 +18,10 @@ test('Daten-Baukasten exportiert alle Bausteine', () => {
 test('Baukasten bleibt in der hellen Motion-Welt: Palette, heller Grund, nur Frame-Motion', () => {
   const palette = ['#F9E9CB', '#FFFFFF', '#202A25', '#68746D', '#B9C4BC', '#4F8A67', '#C9615B', '#D87959', '#5E84AE', '#C5A050', '#DDE4DE'];
   for (const match of kit.matchAll(/#[0-9A-Fa-f]{6}\b/g)) assert.ok(palette.includes(match[0].toUpperCase()), `${match[0]} gehört nicht zur Palette`);
-  assert.match(kit, /backgroundColor: DATEN\.grund/);
   assert.match(kit, /grund: '#F9E9CB'/);
+  // Bühne nimmt den gemessenen Bildgrund des Videos, Standard bleibt DATEN.grund.
+  assert.match(kit, /React\.createContext<string>\(DATEN\.grund\)/);
+  assert.match(kit, /const grund = useDatenGrund\(\);\s*return <AbsoluteFill style=\{\{backgroundColor: grund,/);
   assert.doesNotMatch(kit, /#000000/);
   assert.match(kit, /fontFamily: FONT\.body/);
   assert.doesNotMatch(kit, /Math\.(?:random|sin|cos)\s*\(|\btransition\s*:|\banimation\s*:/);

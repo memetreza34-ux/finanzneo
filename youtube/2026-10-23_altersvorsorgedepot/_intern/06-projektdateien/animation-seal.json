@@ -7,11 +7,11 @@
       "id": "visual-12",
       "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-12/animation.tsx",
       "exportName": "YouTubeVisual12Animation",
-      "viewerChange": "Die zwei Stufen aus Bild 11 stehen als Treppe auf der Achse „Eigenbeitrag im Jahr“ (Stufe 1 = 0–360 €, Stufe 2 = 360–1.800 €, wertgenaue Breiten). Der Eigenbeitrag füllt Stufe 1, darauf zeichnet sich ein gestricheltes Fach mit 2 Zellen; bei „fünfzig Prozent“ erscheint „50 %“ und die grüne Zulage füllt genau eine Zelle: +180 €. Dann füllt sich Stufe 2 mit einem 4-Zellen-Fach, bei „fünfundzwanzig Prozent“ füllt die Zulage genau eine Zelle: +360 €. Bei „Zusammen“ rutschen beide grünen Stücke oben auf Stufe 2 zu einem Balken zusammen: „höchstens = 540 € im Jahr“.",
-      "animationIntent": "Die Zwei-Stufen-Förderung soll ohne Rechnen verständlich werden: Die Zellen zeigen 50 % und 25 % als Bruchteil der jeweiligen Stufe, die grünen Stücke stehen auf derselben €-Skala wie der Eigenbeitrag, und ihr Zusammenrutschen zeigt 180 € + 360 € = 540 € als eine Länge.",
+      "viewerChange": "Die zwei Stufen aus Bild 11 (Stufe 1 staubblau, Stufe 2 salbeigrün) stehen als Treppe auf der Achse „Eigenbeitrag im Jahr“ (Stufe 1 = 0–360 €, Stufe 2 = 360–1.800 €, wertgenaue Breiten). Der Eigenbeitrag füllt Stufe 1, darauf zeichnet sich ein gestricheltes Fach mit 2 Zellen; bei „fünfzig Prozent“ erscheint „50 %“ und die goldene Zulage (wie die Münzstapel in Bild 11) füllt genau eine Zelle: +180 €. Dann füllt sich Stufe 2 mit einem 4-Zellen-Fach, bei „fünfundzwanzig Prozent“ füllt die Zulage genau eine Zelle: +360 €. Bei „Zusammen“ rutschen beide goldenen Stücke oben auf Stufe 2 zu einem Balken zusammen: „höchstens = 540 € im Jahr“.",
+      "animationIntent": "Die Zwei-Stufen-Förderung soll ohne Rechnen verständlich werden: Die Zellen zeigen 50 % und 25 % als Bruchteil der jeweiligen Stufe, die goldenen Stücke stehen auf derselben €-Skala wie der Eigenbeitrag, und ihr Zusammenrutschen zeigt 180 € + 360 € = 540 € als eine Länge.",
       "mechanicId": "grant-steps-fill-rate-cells-then-merge",
       "visualTechniqueId": "two-step-contribution-staircase-dashed-rate-cells-green-grant-slabs-merge-to-540",
-      "techniqueDescription": "Treppe als €-Achse (1.800 € = 1.560 px, 1 € = 0,867 px): Stufe 1 312 px, Stufe 2 1.248 px breit, Stiftkontur per statischem SVG-Displacement wie die Flow-Zeichnungen. Eigenbeitrag-Füllung läuft von links; gestrichelte Fächer in Stufenlänge mit 2 bzw. 4 Zellen; grüne Zulage-Stücke wachsen auf px(180 €) = 156 px und px(360 €) = 312 px mit mitzählendem Betrag; am Ende macht Stück 2 Platz, Stück 1 springt auf Stufe 2, gemeinsamer Rahmen und „= 540 € im Jahr“ (128 px).",
+      "techniqueDescription": "Treppe als €-Achse (1.800 € = 1.560 px, 1 € = 0,867 px): Stufe 1 312 px, Stufe 2 1.248 px breit, Stiftkontur per statischem SVG-Displacement wie die Flow-Zeichnungen. Stufen staubblau/salbeigrün wie Bild 11; Eigenbeitrag-Füllung läuft in dunklerem Stufen-Ton von links; gestrichelte Fächer in Stufenlänge mit 2 bzw. 4 Zellen; goldene Zulage-Stücke (liegende Münzstapel-Optik) wachsen auf px(180 €) = 156 px und px(360 €) = 312 px mit mitzählendem Betrag; am Ende macht Stück 2 Platz, Stück 1 springt auf Stufe 2, gemeinsamer Rahmen und „= 540 € im Jahr“ (128 px).",
       "compositionFamilyId": "stepped-grant-scale",
       "toolStack": [
         "Remotion",
@@ -28,7 +28,7 @@
         "Eigenbeitrag füllt Stufe 1, später Stufe 2",
         "gestrichelte Fächer mit 2 bzw. 4 Zellen zeichnen sich",
         "Prozentsätze 50 % / 25 % erscheinen auf den Stufen",
-        "grüne Zulage-Stücke wachsen wertgenau, Betrag zählt mit",
+        "goldene Zulage-Stücke wachsen wertgenau, Betrag zählt mit",
         "Stücke rutschen zusammen, „= 540 € im Jahr“ erscheint"
       ],
       "visualBeats": [
@@ -40,17 +40,17 @@
         "Zusammen höchstens 540 € im Jahr"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "ac52b8c883137f01cf9f5f5aa9d20903aac71b2c03e06c2af034bc4bdfe73d9d"
+      "sha256": "0e4eb8d0616de780fc9f8faf3e5f7426df70c36bc62ba5c313844021586d6051"
     },
     {
       "id": "visual-25",
       "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-25/animation.tsx",
       "exportName": "YouTubeVisual25Animation",
-      "viewerChange": "Der Zeitstrahl 28 → 65 aus Bild 24 liegt als Nulllinie am Boden. Die rote Kurve „1 % Kosten“ zeichnet sich bis 65 und endet bei „rund 198.000 €“; danach zeichnet sich auf derselben Skala die grüne Kurve „0,2 % Kosten“ darüber bis „rund 238.000 €“. Die Fläche zwischen beiden füllt sich rot von links nach rechts — anfangs fast null, am Ende breit — und ein Pfeil führt vom Callout „rund 40.000 € Unterschied“ in die Lücke; zuletzt „nur wegen der Kosten“.",
+      "viewerChange": "Der Zeitstrahl 28 → 65 aus Bild 24 (mit Münzen entlang des Pfeils) liegt ab Frame 0 als Nulllinie am Boden. Die rote Kurve „1 % Kosten“ zeichnet sich bis 65 und endet bei „rund 198.000 €“; danach zeichnet sich auf derselben Skala die grüne Kurve „0,2 % Kosten“ darüber bis „rund 238.000 €“. Danach zieht die Fläche zwischen beiden langsam rot von links nach rechts auf — anfangs fast null, am Ende breit — und bei „vierzigtausend“ führt ein Pfeil vom Callout „rund 40.000 € Unterschied“ in die Lücke; zuletzt „nur wegen der Kosten“.",
       "animationIntent": "Ein Prozent Kosten klingt klein; erst zwei gleich skalierte Kurven zeigen, dass sich der Kostenunterschied über 37 Jahre aufschaukelt und am Ende eine Lücke von rund 40.000 € reißt.",
       "mechanicId": "cost-drag-two-wealth-curves-gap-band",
       "visualTechniqueId": "timeline-arrow-axis-sequential-compound-curves-red-gap-band-callout",
-      "techniqueDescription": "Kurven im Code aus v = v · (1 + r/12) + 195 € je Monat über 444 Monate, r = 4,0 % bzw. 4,8 % (Endwerte 197.856 € / 238.158 €, per Laufzeit-Check abgesichert); x 28 → 65 = 1.000 px, y 0 → 240.000 € = 560 px, eine Skala für beide, Nulllinie = Zeitstrahl-Pfeil mit Stiftlinie. Kurve 1 zeichnet sich zuerst, Kurve 2 danach; die Fläche zwischen den Kurven füllt sich monatsgenau, rote Endkante bei 65, gebogener Pfeil vom Callout „rund 40.000 €“ (124 px) in die Lücke; gerundete Endwerte rechts.",
+      "techniqueDescription": "Kurven im Code aus v = v · (1 + r/12) + 195 € je Monat über 444 Monate, r = 4,0 % bzw. 4,8 % (Endwerte 197.856 € / 238.158 €, per Laufzeit-Check abgesichert); x 28 → 65 = 1.000 px, y 0 → 240.000 € = 560 px, eine Skala für beide, Nulllinie = Zeitstrahl-Pfeil mit Stiftlinie und 12 Münzen wie in Bild 24. Kurve 1 zeichnet sich zuerst, Kurve 2 danach; die Fläche zwischen den Kurven füllt sich monatsgenau bis zum Beat „Rund vierzigtausend“, rote Endkante bei 65, gebogener Pfeil vom Callout „rund 40.000 €“ (124 px) in die Lücke; gerundete Endwerte rechts.",
       "compositionFamilyId": "trend-trace",
       "toolStack": [
         "Remotion",
@@ -80,17 +80,17 @@
         "nur wegen der Kosten"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "053f4055c538880004b5a3b455293fdd19692d6aadccd41dcee8fe721c88b6db"
+      "sha256": "28e9ae7cad6815e8f59da5029d841b966a852863ae02532d2a21cb6bda464f42"
     },
     {
       "id": "visual-30",
       "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-30/animation.tsx",
       "exportName": "YouTubeVisual30Animation",
-      "viewerChange": "Das verschlossene Depot-Glas aus Bild 29 („Altersvorsorgedepot“, Schloss „ab 65“) steht am Anfang des Zeitstrahls 65 → 85. Das Schloss springt auf, Deckel und Schloss gehen weg, „65“ wird grün. Eine Linie teilt genau die oberen 30 % des Inhalts ab, der Block springt nach oben aus dem Glas: „bis 30 % auf einmal“. Dann fließt der Rest („70 %“) als 240 gleich große Münzen aus dem Glas und stapelt sich zu 20 gleich hohen Jahresstapeln von 65 bis 85, bis das Glas leer ist; gestrichelter Pfeil über 85 hinaus „oder lebenslange Rente“, Klammer „Auszahlplan bis mind. 85“.",
+      "viewerChange": "Das verschlossene Depot-Glas aus Bild 29 (Bügelverschluss, bunte Münzen, Etikett „Altersvorsorgedepot“, Kupferschloss mit Anhänger „ab 65“) steht am Anfang des Zeitstrahls 65 → 85. Das Schloss springt auf, Schloss fällt ab, der Bügeldeckel geht weg, „65“ wird grün. Eine Linie teilt genau die oberen 30 % des Inhalts ab, der Block springt nach oben aus dem Glas: „bis 30 % auf einmal“. Dann fließt der Rest („70 %“) als 240 gleich große Münzen aus dem Glas und stapelt sich zu 20 gleich hohen Jahresstapeln von 65 bis 85, bis das Glas leer ist; gestrichelter Pfeil über 85 hinaus „oder lebenslange Rente“, Klammer „Auszahlplan bis mind. 85“.",
       "animationIntent": "„Gebunden“ heißt auch: nicht alles auf einmal. Die Teilung des Glases zeigt das Verhältnis 30 : 70 direkt, der gleichmäßige Münzstrom über 20 Jahre macht den Auszahlplan greifbar — ohne Eurobeträge zu erfinden.",
       "mechanicId": "locked-jar-opens-lump-sum-lifts-rest-streams-monthly",
       "visualTechniqueId": "depot-jar-unlock-30-percent-block-lift-240-month-coins-to-year-stacks-65-85",
-      "techniqueDescription": "Gezeichnetes Einmachglas (Stiftlinie, Glas-Tönung, Etikett „Altersvorsorge-/depot“, Schloss mit Anhänger „ab 65“) mit Münzmuster-Inhalt 336 × 400 px = 100 %; Schnitt bei 120 px = 30 %, Block springt mit Overshoot-Easing nach oben. Der Rest-Pegel sinkt linear mit 240 Münzen (je 1 Monat), die hinter dem Glasrand auftauchen und auf Bézier-Bögen zu 20 Jahresstapeln à 12 Münzen fliegen (37,5 px je Jahr); Stapelfläche = Fläche der 70 % im Glas, Block : Stapel = 30 : 70. Gestrichelte Verlängerung über 85 mit Pfeil, geschweifte Klammer 65–85.",
+      "techniqueDescription": "Gezeichnetes Bügelglas wie Bild 29 (grünliche Glas-Tönung, Glasdeckel mit Dichtung und Drahtbügel, Kupferschloss am Bügel mit Hänge-Anhänger „ab / 65“, Etikett „Altersvorsorgedepot“ quer, Stiftlinie) mit buntem Münz-Inhalt (Gold/Terrakotta/Silber) 336 × 400 px = 100 %; Schnitt bei 120 px = 30 %, Block springt mit Overshoot-Easing nach oben. Der Rest-Pegel sinkt linear mit 240 Münzen (je 1 Monat), die hinter dem Glasrand auftauchen und auf Bézier-Bögen zu 20 Jahresstapeln à 12 Münzen fliegen (37,5 px je Jahr); Stapelfläche = Fläche der 70 % im Glas, Block : Stapel = 30 : 70. Gestrichelte Verlängerung über 85 mit Pfeil, geschweifte Klammer 65–85.",
       "compositionFamilyId": "payout-timeline",
       "toolStack": [
         "Remotion",
@@ -104,7 +104,7 @@
         "transformation": "Glas öffnet sich, 30-%-Block springt heraus, Rest fließt als Münzstrom in Jahresstapel und leert das Glas"
       },
       "motionChannels": [
-        "Schloss springt auf, Deckel geht weg",
+        "Schloss springt auf und fällt ab, Bügeldeckel geht weg",
         "Schnittlinie und Klammer 30 %",
         "30-%-Block springt aus dem Glas",
         "Pegel im Glas sinkt gleichmäßig",
@@ -122,7 +122,7 @@
         "Auszahlplan bis mind. 85, Glas leer"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "84f00fd532a3e389a164f82479aa66c7936424d2c257c7a6f51820dd1d3459f6"
+      "sha256": "b4038f7bf75d1e5822e57387df981a97fddaf86f4a31186e1e542d8f8455667d"
     }
   ]
 }

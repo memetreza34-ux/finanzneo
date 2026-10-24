@@ -22,6 +22,7 @@ import {basename, relative, resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {ACTIVE_WORD_COLOR, AUDIO_INBOX, IMAGE_INBOX, INTERN_DIR, SCRIPT_FILE, SUBTITLE_MODE, YOUTUBE_ENDCARD_SECONDS, YOUTUBE_IMAGE_WARN_HOLD_SECONDS, YOUTUBE_QUALITY_RULES_IDS, internWurzel} from './lib/youtube-contract.mjs';
 import {verbindeAudioTeile} from './youtube-audio-teile.mjs';
+import {messeBildGrund} from './lib/youtube-bildgrund.mjs';
 
 const args = process.argv.slice(2);
 const wert = (name) => {
@@ -235,6 +236,12 @@ if (fehler.length) {
   process.exit(1);
 }
 
+// Bildgrund: Animationen und Endkarte übernehmen den gemessenen Hintergrund der Flow-Bilder.
+// Nur für Projekte mit Kanal-Stilvorlage (ab 17.10.2026); ältere Videos behalten DATEN.grund.
+const bildGrund = index.imageWorld?.styleMaster === 'kanal'
+  ? messeBildGrund(visuals.filter((v) => v.type === 'image' && v.bild).map((v) => resolve(inbox, v.googleFlowFileName)))
+  : null;
+
 const captions = timing.sentences.map((s, k, alle) => ({
   start: Math.round(s.start * fps),
   end: Math.round((k + 1 < alle.length ? Math.min(alle[k + 1].start, s.end + 0.6) : s.end + 0.6) * fps),
@@ -251,6 +258,7 @@ const zeitplan = {
   durationFrames: gesamt,
   audio: `youtube/${slug}/${audioDatei}`,
   untertitel: args.includes('--untertitel'),
+  ...(bildGrund ? {grund: bildGrund.grund} : {}),
   visuals: visuals.map(({googleFlowFileName, ...rest}) => rest),
   captions,
 };
@@ -282,5 +290,6 @@ zeilen.push('', 'export const YOUTUBE_PROJEKTE: Array<{id: string; zeitplan: You
 writeFileSync(resolve(repo, 'src/youtube-projekt/projekte.generated.ts'), zeilen.join('\n'));
 
 console.log(`✓ Zeitplan: ${visuals.length} Visuals, ${(gesamt / fps).toFixed(1)} s${qualitaet ? ` inkl. ${YOUTUBE_ENDCARD_SECONDS} s Endkarte` : ''}${vorschau ? ' (Vorschau, fehlende Bilder markiert)' : ''}.`);
+if (bildGrund) console.log(`  Bildgrund: ${bildGrund.grund} (gemessen aus ${bildGrund.bilder} Bildern) — gilt für Animationen und Endkarte.`);
 if (langeBilder.length) console.log(`⚠ Standbilder über ${YOUTUBE_IMAGE_WARN_HOLD_SECONDS} s: ${langeBilder.map((x) => `${x.id} ${x.sek.toFixed(1)} s`).join(', ')} — beim nächsten Mal Bild teilen oder akzente[] setzen.`);
 console.log(`  Composition: YouTube-${slug.replace(/[^a-zA-Z0-9-]/g, "-")}`);

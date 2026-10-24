@@ -70,10 +70,20 @@ const verschiebung = (ausrichtung: Ausrichtung) =>
 
 // ─── Bühne, Kopf, Text, Quelle ───────────────────────────────────────────────
 
-/** Schwarze 16:9-Bühne. Alles darin wird absolut im 1920×1080-Raster gesetzt. */
-export const DatenBuehne: React.FC<{children: React.ReactNode}> = ({children}) => (
-  <AbsoluteFill style={{backgroundColor: DATEN.grund, fontFamily: FONT.body, color: DATEN.text}}>{children}</AbsoluteFill>
-);
+/**
+ * Hintergrund der Bühne. Standard ist DATEN.grund; ein YouTube-Video setzt hier den gemessenen
+ * Hintergrund seiner Flow-Bilder (`timeline.json → grund`), damit Animation und Nachbarbild
+ * denselben Ton haben — ohne den versiegelten Animationscode anzufassen.
+ */
+const DatenGrundContext = React.createContext<string>(DATEN.grund);
+export const DatenGrund = DatenGrundContext.Provider;
+export const useDatenGrund = () => React.useContext(DatenGrundContext);
+
+/** Helle 16:9-Bühne. Alles darin wird absolut im 1920×1080-Raster gesetzt. */
+export const DatenBuehne: React.FC<{children: React.ReactNode}> = ({children}) => {
+  const grund = useDatenGrund();
+  return <AbsoluteFill style={{backgroundColor: grund, fontFamily: FONT.body, color: DATEN.text}}>{children}</AbsoluteFill>;
+};
 
 /** Kurze inhaltliche Zeile oben links (kein Szenentitel wie „Balkendiagramm“). */
 export const Kopf: React.FC<{titel: string; ueberzeile?: string; ab?: number}> = ({titel, ueberzeile, ab = 0}) => {
@@ -577,6 +587,7 @@ export const LinienDiagramm: React.FC<{
   ab?: number;
 }> = ({box, reihen, xMax, yMax, xStriche, xFormat = (w) => zahlText(w), yFormat = (w) => euroText(w), xTitel, marken = [], ab = 0}) => {
   const frame = useCurrentFrame();
+  const buehnenGrund = useDatenGrund();
   const yInfo = schoeneSkala(yMax ?? Math.max(...reihen.flatMap((r) => r.punkte.map((p) => p.y))));
   const sx = (w: number) => box.links + skala(xMax, box.rechts - box.links)(w);
   const sy = (w: number) => box.unten - skala(yInfo.max, box.unten - box.oben)(w);
@@ -640,7 +651,7 @@ export const LinienDiagramm: React.FC<{
         const p = prog(frame, marke.ab, marke.ab + 10);
         return (
           <React.Fragment key={index}>
-            <div style={{position: 'absolute', left: sx(marke.x) - 12, top: sy(wert) - 12, width: 24, height: 24, borderRadius: '50%', backgroundColor: DATEN.grund, border: `5px solid ${reihe.farbe}`, opacity: p, boxSizing: 'border-box'}} />
+            <div style={{position: 'absolute', left: sx(marke.x) - 12, top: sy(wert) - 12, width: 24, height: 24, borderRadius: '50%', backgroundColor: buehnenGrund, border: `5px solid ${reihe.farbe}`, opacity: p, boxSizing: 'border-box'}} />
             <Text x={sx(marke.x)} y={sy(wert) - 46} groesse={34} gewicht={800} ausrichtung="mitte" ab={marke.ab}>
               {marke.text ?? yFormat(wert)}
             </Text>

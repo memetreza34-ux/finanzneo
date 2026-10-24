@@ -60,6 +60,9 @@ ${fileName}
 Generate this image together with the other images of its batch (at most ${YOUTUBE_FLOW_BATCH_SIZE} in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
 `;
 const fileOf = (n) => `YouTube Bild ${nr(n)} - ${visuals[n - 1].name}.png`;
+// Akzent-Karten erscheinen oben links auf dem Bild (YouTubeVideo → Akzente). Video 3: Sie lagen
+// teils auf Jonas' Kopf — deshalb hält das Bild diese Ecke frei.
+const AKZENT_FREIRAUM = 'FREE CORNER: Keep the top-left corner (left third of the width, top quarter of the height) calm and empty — no faces, people, labels or key objects there. Small note cards are placed there later in the video.';
 const indexVorab = JSON.parse(readFileSync(resolve(root, VISUAL_INDEX), 'utf8'));
 const kanalStil = indexVorab.imageWorld?.styleMaster === 'kanal';
 if (kanalStil && !existsSync(resolve(YOUTUBE_CHANNEL_STYLE_PATH))) {
@@ -120,7 +123,7 @@ ${v.ref ? fileOf(v.ref) : 'NONE'}
 
 IMAGE PROMPT:
 Soft hand-drawn 2D editorial illustration, not a photo. ${v.prompt}
-
+${v.akzente?.length ? `\n${AKZENT_FREIRAUM}\n` : ''}
 TEXT IN THIS IMAGE: Only the exact words and numbers written in quotes in the prompt may appear in the image. Never invent extra prices, numbers, brand names, headlines or captions.
 
 ${styleBlock}`;

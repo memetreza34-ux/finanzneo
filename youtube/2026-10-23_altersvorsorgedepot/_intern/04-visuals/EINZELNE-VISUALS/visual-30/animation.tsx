@@ -21,7 +21,7 @@ export const COMPOSITION_FAMILY_ID = 'payout-timeline';
  * EDITORIAL_VISUAL_NARRATIVE
  * HERO: Depot-Glas, das sich in einen Block und einen gleichmäßigen Münzstrom teilt
  * SUPPORT: Zeitstrahl 65 → 85, Jahresstapel, Klammer, Hinweis-Pfeil
- * SURFACE: Flow-Creme DATEN.grund, Stift-Konturen wie in den Flow-Bildern
+ * SURFACE: DATEN.grund; Glas, Bügelverschluss, Kupferschloss und bunte Münzen wie in Flow-Bild 29
  * SHAPE_LANGUAGE: gezeichnetes Glas, flache Münzen, keine Eurobeträge
  */
 export const ANIMATION_NARRATIVE = {
@@ -47,9 +47,10 @@ const mix = (a: number, b: number, t: number) => a + (b - a) * t;
 
 // beats: [„Und nicht alles auf einmal“, „höchstens dreißig Prozent“, „auf einen Schlag“,
 //         „Der Rest kommt“, „lebenslange Rente“, „Auszahlplan bis mindestens“]
-const PREVIEW_BEATS = [0, 114, 152, 203, 254, 304];
+// Echte Wortzeiten aus dem finalen Voiceover (word-timings.json), Visual-Dauer 314 Frames.
+const PREVIEW_BEATS = [0, 73, 112, 156, 178, 226];
 
-// Glas (Bridge „Depot-Glas“ aus Bild 29)
+// Glas (Bridge „Depot-Glas“ aus Bild 29: Einmachglas mit Bügelverschluss)
 const BODEN = 776;
 const GLAS = {links: 140, rechts: 520, oben: 336};
 const INNEN = {links: 162, rechts: 498, oben: 358, unten: 758};
@@ -57,9 +58,25 @@ const INHALT_H = INNEN.unten - INNEN.oben; // 400 px = 100 %
 const SCHNITT = INNEN.oben + INHALT_H * ANTEIL_EINMAL; // 30 % → 120 px
 const BLOCK_H = SCHNITT - INNEN.oben;
 const BLOCK_ZIEL_Y = 96;
-const GOLD = '#E2B65C';
-const GOLD_HELL = '#EDC873';
-const GOLD_DUNKEL = '#9C7428';
+// Farben aus Flow-Bild 29 (gemessen): grünliches Glas, Drahtbügel graublau, Kupferschloss,
+// bunte Münzen (Gold, Terrakotta, Silber), Etikett creme.
+const GLAS_TOENUNG = '#DCE2CC';
+const GLAS_RAND = '#C9D0BA';
+const DECKEL = '#D8DECB';
+const DICHTUNG = '#C98B67';
+const DRAHT = '#6C7472';
+const KUPFER = '#8A6E5A';
+const ETIKETT = '#FBF3E2';
+const STIFT = '#363A33';
+const INHALT_GRUND = '#C9A57A';
+const MUENZ_FARBEN = [
+  {fuell: '#DDB066', kante: '#8F6A27'},
+  {fuell: '#C98B67', kante: '#87513A'},
+  {fuell: '#BDBAAE', kante: '#6F6C62'},
+  {fuell: '#DDB066', kante: '#8F6A27'},
+  {fuell: '#D39A5E', kante: '#8A5B2C'},
+];
+const muenzFarbe = (i: number) => MUENZ_FARBEN[(i * 7 + Math.floor(i / 5) * 3) % MUENZ_FARBEN.length];
 
 // Zeitstrahl 65 → 85: 20 Jahre à 37,5 px, je Jahr ein Stapel aus 12 Monatsmünzen.
 // Die 20 Stapel bedecken zusammen genau die Fläche der 70 % im Glas (336 × 280 px) —
@@ -75,18 +92,22 @@ const MUENZE_TAKT = REST_FLAECHE / (JAHRE * MUENZE_B * 12);
 const OEFFNUNG = {x: 430, y: 326};
 const AUSGANG = {x: 470, y: 252};
 const FLUG = 20;
+const ETIKETT_BOX = {x: 154, y: 540, b: 352, h: 62};
+const SCHLOSS = {x: GLAS.rechts + 16, y: GLAS.oben + 40};
 
 // Münzmuster im Glas — fest im Glas-Koordinatensystem, damit Block und Rest nahtlos zusammenpassen.
 const MUSTER: Array<{x: number; y: number}> = [];
-for (let reihe = 0; INNEN.oben + reihe * 22 <= INNEN.unten + 10; reihe++) {
-  for (let spalte = -1; spalte < 8; spalte++) {
-    MUSTER.push({x: INNEN.links + spalte * 48 + (reihe % 2 ? 24 : 0) + 20, y: INNEN.oben + 8 + reihe * 22});
+// Runde Münzen in versetzten Reihen mit fester (deterministischer) Unregelmäßigkeit — wie ein Münzhaufen.
+for (let reihe = 0; INNEN.oben + reihe * 25 <= INNEN.unten + 14; reihe++) {
+  for (let spalte = -1; spalte < 10; spalte++) {
+    const n = MUSTER.length;
+    MUSTER.push({x: INNEN.links + spalte * 37 + (reihe % 2 ? 18 : 0) + 14 + (((n * 13) % 9) - 4), y: INNEN.oben + 10 + reihe * 25 + (((n * 7) % 5) - 2)});
   }
 }
 const Muster: React.FC<{dx?: number; dy?: number}> = ({dx = 0, dy = 0}) => (
   <>
     {MUSTER.map((m, i) => (
-      <ellipse key={i} cx={m.x + dx} cy={m.y + dy} rx={21} ry={9} fill={GOLD_HELL} stroke={GOLD_DUNKEL} strokeWidth={2.5} />
+      <ellipse key={i} cx={m.x + dx} cy={m.y + dy} rx={18} ry={14} fill={muenzFarbe(i).fuell} stroke={muenzFarbe(i).kante} strokeWidth={2.5} />
     ))}
   </>
 );
@@ -184,17 +205,17 @@ export const YouTubeVisual30Animation: React.FC<{beats?: number[]}> = ({beats}) 
       }
     }
     muenzen.push(
-      <rect key={i} x={x - MUENZE_B / 2} y={y - MUENZE_H / 2} width={MUENZE_B} height={MUENZE_H} rx={4} fill={GOLD} stroke={GOLD_DUNKEL} strokeWidth={2} />,
+      <rect key={i} x={x - MUENZE_B / 2} y={y - MUENZE_H / 2} width={MUENZE_B} height={MUENZE_H} rx={4} fill={muenzFarbe(i).fuell} stroke={muenzFarbe(i).kante} strokeWidth={2} />,
     );
   }
 
   const block = (
     <g transform={`translate(0 ${(blockY - INNEN.oben).toFixed(1)})`}>
       <g clipPath="url(#v30-block)">
-        <rect x={INNEN.links} y={INNEN.oben} width={INNEN.rechts - INNEN.links} height={BLOCK_H} fill={GOLD} />
+        <rect x={INNEN.links} y={INNEN.oben} width={INNEN.rechts - INNEN.links} height={BLOCK_H} fill={INHALT_GRUND} />
         <Muster />
       </g>
-      <rect x={INNEN.links} y={INNEN.oben} width={INNEN.rechts - INNEN.links} height={BLOCK_H} rx={10} fill="none" stroke={DATEN.text} strokeWidth={5} opacity={sprung > 0 ? 1 : schnitt} />
+      <rect x={INNEN.links} y={INNEN.oben} width={INNEN.rechts - INNEN.links} height={BLOCK_H} rx={10} fill="none" stroke={STIFT} strokeWidth={5} opacity={sprung > 0 ? 1 : schnitt} />
     </g>
   );
 
@@ -235,11 +256,11 @@ export const YouTubeVisual30Animation: React.FC<{beats?: number[]}> = ({beats}) 
         ) : null}
 
         {/* Glas: Rückwand */}
-        <path d={GLAS_PFAD} fill="#DCE8EA" fillOpacity={0.6} />
+        <path d={GLAS_PFAD} fill={GLAS_TOENUNG} fillOpacity={0.75} />
         {/* Rest-Inhalt (70 %), Pegel sinkt mit jeder Monatsportion */}
         <g clipPath="url(#v30-innen)">
           <g clipPath="url(#v30-rest)">
-            <rect x={INNEN.links} y={SCHNITT} width={INNEN.rechts - INNEN.links} height={INNEN.unten - SCHNITT} fill={GOLD} />
+            <rect x={INNEN.links} y={SCHNITT} width={INNEN.rechts - INNEN.links} height={INNEN.unten - SCHNITT} fill={INHALT_GRUND} />
             <Muster />
           </g>
         </g>
@@ -249,12 +270,13 @@ export const YouTubeVisual30Animation: React.FC<{beats?: number[]}> = ({beats}) 
         {muenzen}
 
         {/* Glas: Vorderseite */}
-        <g filter="url(#v30-stift)" fill="none" stroke={DATEN.text} strokeWidth={5} strokeLinejoin="round">
+        <g filter="url(#v30-stift)" fill="none" stroke={STIFT} strokeWidth={5} strokeLinejoin="round">
           <path d={GLAS_PFAD} />
-          <rect x={GLAS.links + 12} y={GLAS.oben - 24} width={GLAS.rechts - GLAS.links - 24} height={26} rx={8} fill="#CFDDE0" />
+          <rect x={GLAS.links + 12} y={GLAS.oben - 24} width={GLAS.rechts - GLAS.links - 24} height={26} rx={8} fill={GLAS_RAND} />
         </g>
         <path d={`M${GLAS.links + 22},${GLAS.oben + 70} L${GLAS.links + 22},${GLAS.oben + 300}`} stroke="#FFFFFF" strokeOpacity={0.6} strokeWidth={10} strokeLinecap="round" />
-        <rect x={182} y={650} width={296} height={94} rx={8} fill="#FFF8EA" stroke={DATEN.text} strokeWidth={4} />
+        {/* Etikett quer über das Glas wie in Bild 29 */}
+        <rect x={ETIKETT_BOX.x} y={ETIKETT_BOX.y} width={ETIKETT_BOX.b} height={ETIKETT_BOX.h} rx={6} fill={ETIKETT} stroke={STIFT} strokeWidth={4} />
 
         {/* Schnittlinie bei 30 % */}
         {schnitt > 0 && sprung < 0.05 ? (
@@ -272,19 +294,37 @@ export const YouTubeVisual30Animation: React.FC<{beats?: number[]}> = ({beats}) 
           />
         ) : null}
 
-        {/* Deckel, Schloss und Anhänger „ab 65“ */}
+        {/* Bügelverschluss wie in Bild 29: Glasdeckel mit Dichtung und Drahtbügel — klappt auf und geht weg */}
         {weg < 1 ? (
           <g opacity={1 - weg} transform={`translate(${(-30 * weg).toFixed(1)} ${(-130 * weg).toFixed(1)}) rotate(${(-10 * weg).toFixed(2)} 330 300)`}>
-            <g filter="url(#v30-stift)" stroke={DATEN.text} strokeWidth={5} strokeLinejoin="round">
-              <rect x={GLAS.links + 6} y={GLAS.oben - 54} width={GLAS.rechts - GLAS.links - 12} height={32} rx={10} fill="#7F9DB8" />
+            <g filter="url(#v30-stift)" stroke={STIFT} strokeWidth={4.5} strokeLinejoin="round">
+              <rect x={GLAS.links + 10} y={GLAS.oben - 34} width={GLAS.rechts - GLAS.links - 20} height={12} rx={4} fill={DICHTUNG} />
+              <rect x={GLAS.links + 8} y={GLAS.oben - 66} width={GLAS.rechts - GLAS.links - 16} height={34} rx={16} fill={DECKEL} />
             </g>
-            <path d="M306,314 L306,276 A24,24 0 0 1 354,276 L354,314" transform={`translate(0 ${(-18 * auf).toFixed(1)})`} fill="none" stroke={DATEN.text} strokeWidth={9} strokeLinecap="round" />
-            <rect x={292} y={306} width={76} height={62} rx={10} fill="#C9A24B" stroke={DATEN.text} strokeWidth={5} />
-            <circle cx={330} cy={330} r={7} fill={DATEN.text} />
-            <rect x={327} y={333} width={6} height={16} rx={3} fill={DATEN.text} />
-            <path d="M356,362 Q372,380 386,392" fill="none" stroke={DATEN.text} strokeWidth={3} />
-            <g transform="rotate(-8 386 392)">
-              <rect x={386} y={386} width={112} height={54} rx={8} fill="#FFF8EA" stroke={DATEN.text} strokeWidth={4} />
+            <path
+              d={`M${GLAS.links + 14},${GLAS.oben - 4} L${GLAS.links + 20},${GLAS.oben - 52} Q${(GLAS.links + GLAS.rechts) / 2},${GLAS.oben - 82} ${GLAS.rechts - 20},${GLAS.oben - 52} L${GLAS.rechts - 14},${GLAS.oben - 4}`}
+              fill="none"
+              stroke={DRAHT}
+              strokeWidth={6}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path d={`M${GLAS.rechts - 14},${GLAS.oben - 30} L${GLAS.rechts + 16},${GLAS.oben - 30} L${GLAS.rechts + 16},${GLAS.oben + 18}`} fill="none" stroke={DRAHT} strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" />
+          </g>
+        ) : null}
+        {/* Kupferschloss am Bügel mit Anhänger „ab 65“ — springt auf und fällt ab */}
+        {weg < 1 ? (
+          <g opacity={1 - weg} transform={`translate(${(8 * weg).toFixed(1)} ${(150 * weg * weg).toFixed(1)})`}>
+            <path d={`M${SCHLOSS.x - 17},${SCHLOSS.y} L${SCHLOSS.x - 17},${SCHLOSS.y - 22} A17,17 0 0 1 ${SCHLOSS.x + 17},${SCHLOSS.y - 22} L${SCHLOSS.x + 17},${SCHLOSS.y}`} transform={`translate(0 ${(-16 * auf).toFixed(1)})`} fill="none" stroke={DRAHT} strokeWidth={8} strokeLinecap="round" />
+            <rect x={SCHLOSS.x - 32} y={SCHLOSS.y - 4} width={64} height={56} rx={11} fill={KUPFER} stroke={STIFT} strokeWidth={4} />
+            <circle cx={SCHLOSS.x} cy={SCHLOSS.y + 17} r={6} fill={STIFT} />
+            <rect x={SCHLOSS.x - 3} y={SCHLOSS.y + 19} width={6} height={16} rx={3} fill={STIFT} />
+            <path d={`M${SCHLOSS.x + 18},${SCHLOSS.y + 48} Q${SCHLOSS.x + 30},${SCHLOSS.y + 58} ${SCHLOSS.x + 44},${SCHLOSS.y + 62}`} fill="none" stroke={STIFT} strokeWidth={3} />
+            <g transform={`rotate(-12 ${SCHLOSS.x + 44} ${SCHLOSS.y + 62})`}>
+              <path d={`M${SCHLOSS.x + 10},${SCHLOSS.y + 80} L${SCHLOSS.x + 44},${SCHLOSS.y + 62} L${SCHLOSS.x + 78},${SCHLOSS.y + 80} L${SCHLOSS.x + 78},${SCHLOSS.y + 184} L${SCHLOSS.x + 10},${SCHLOSS.y + 184} Z`} fill={ETIKETT} stroke={STIFT} strokeWidth={4} strokeLinejoin="round" />
+              <circle cx={SCHLOSS.x + 44} cy={SCHLOSS.y + 74} r={4} fill={STIFT} />
+              <text x={SCHLOSS.x + 44} y={SCHLOSS.y + 124} textAnchor="middle" fontFamily="Inter" fontSize={36} fontWeight={800} fill={DATEN.text}>ab</text>
+              <text x={SCHLOSS.x + 44} y={SCHLOSS.y + 168} textAnchor="middle" fontFamily="Inter" fontSize={36} fontWeight={800} fill={DATEN.text}>65</text>
             </g>
           </g>
         ) : null}
@@ -295,23 +335,15 @@ export const YouTubeVisual30Animation: React.FC<{beats?: number[]}> = ({beats}) 
         {plan > 0 ? <path d={klammerPfad} fill="none" stroke={DATEN.text} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={1} strokeDashoffset={1 - plan} /> : null}
       </svg>
 
-      {/* Etikett und Anhänger wie in Bild 29 */}
-      <T x={330} y={677} groesse={32} gewicht={800}>
-        Altersvorsorge-
+      {/* Etikett wie in Bild 29 */}
+      <T x={ETIKETT_BOX.x + ETIKETT_BOX.b / 2} y={ETIKETT_BOX.y + ETIKETT_BOX.h / 2} groesse={32} gewicht={700}>
+        Altersvorsorgedepot
       </T>
-      <T x={330} y={717} groesse={32} gewicht={800}>
-        depot
-      </T>
-      {weg < 1 ? (
-        <div style={{position: 'absolute', left: 442, top: 413, transform: `translate(-50%, -50%) translate(${(-30 * weg).toFixed(1)}px, ${(-130 * weg).toFixed(1)}px) rotate(-8deg)`, opacity: 1 - weg, fontSize: 36, fontWeight: 800, whiteSpace: 'nowrap'}}>
-          ab 65
-        </div>
-      ) : null}
 
       <T x={GLAS.rechts + 46} y={(INNEN.oben + SCHNITT) / 2} groesse={56} gewicht={900} ausrichtung="links" sicht={klammer * (1 - klammerWeg)}>
         30 %
       </T>
-      <div style={{position: 'absolute', left: 330, top: 562, transform: 'translate(-50%, -50%)', opacity: rest70, padding: '2px 18px', borderRadius: 14, backgroundColor: '#FFF8EA', border: `4px solid ${DATEN.text}`, fontSize: 64, fontWeight: 900, letterSpacing: -1, lineHeight: 1.1, whiteSpace: 'nowrap', color: DATEN.text}}>
+      <div style={{position: 'absolute', left: 330, top: 680, transform: 'translate(-50%, -50%)', opacity: rest70, padding: '2px 18px', borderRadius: 14, backgroundColor: ETIKETT, border: `4px solid ${DATEN.text}`, fontSize: 64, fontWeight: 900, letterSpacing: -1, lineHeight: 1.1, whiteSpace: 'nowrap', color: DATEN.text}}>
         70 %
       </div>
 

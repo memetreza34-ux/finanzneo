@@ -11,15 +11,15 @@ export const COMPOSITION_FAMILY_ID = 'stepped-grant-scale';
  * START: Die zwei Stufen aus Bild 11 stehen als Treppe auf einer €-Achse „Eigenbeitrag im Jahr“
  *   0 – 1.800 €: Stufe 1 ist genau 0 – 360 € breit, Stufe 2 genau 360 – 1.800 €.
  * MECHANISM: Auf jeder Stufe liegt ein gestricheltes Fach so lang wie die Stufe, geteilt in
- *   2 (Stufe 1, „50 %“) bzw. 4 (Stufe 2, „25 %“) gleiche Zellen. Die grüne Zulage füllt genau
+ *   2 (Stufe 1, „50 %“) bzw. 4 (Stufe 2, „25 %“) gleiche Zellen. Die goldene Zulage füllt genau
  *   eine Zelle: 180 € (halbe Stufe 1) und 360 € (Viertel von Stufe 2) — gleiche €-Skala.
- * CONSEQUENCE: Beide grünen Stücke heben ab und rutschen in einer Zeile zusammen.
- * RESULT: +180 € +360 € = 540 € im Jahr (höchstens), als ein durchgehender grüner Balken.
+ * CONSEQUENCE: Beide goldenen Stücke heben ab und rutschen in einer Zeile zusammen.
+ * RESULT: +180 € +360 € = 540 € im Jahr (höchstens), als ein durchgehender goldener Balken.
  *
  * EDITORIAL_VISUAL_NARRATIVE
- * HERO: zusammengeschobener Zulage-Balken mit „= 540 € im Jahr“
+ * HERO: zusammengeschobener goldener Zulage-Balken mit „= 540 € im Jahr“
  * SUPPORT: Sandfarbene Treppe (Bridge „Stufen“), Prozentzahlen auf den Stufen, €-Achse
- * SURFACE: Flow-Creme DATEN.grund, Stift-Konturen wie in den Flow-Bildern
+ * SURFACE: DATEN.grund, Stufen staubblau/salbeigrün und goldene Zulage wie in Flow-Bild 11
  * SHAPE_LANGUAGE: wenige große flache Blöcke, Längen exakt aus Euro-Werten
  */
 export const ANIMATION_NARRATIVE = {
@@ -48,7 +48,8 @@ const mix = (a: number, b: number, t: number) => a + (b - a) * t;
 
 // beats: [„Auf die ersten dreihundertsechzig Euro“, „fünfzig Prozent dazu“, „Auf alles darüber“,
 //         „fünfundzwanzig Prozent“, „Zusammen sind das“] — Frames ab Visual-Start.
-const PREVIEW_BEATS = [0, 152, 190, 304, 330];
+// Echte Wortzeiten aus dem finalen Voiceover (word-timings.json), Visual-Dauer 394 Frames.
+const PREVIEW_BEATS = [0, 108, 167, 250, 299];
 
 // Eine gemeinsame €-Skala für Eigenbeitrag und Zulage: 1.800 € = 1.560 px (1 € = 0,8667 px).
 const LINKS = 180;
@@ -63,9 +64,29 @@ const STUECK = 64;
 // Ergebnis: Beide Stücke liegen am Ende zusammen oben auf Stufe 2 (ab Stufen-Kante).
 const ZEILE = OBEN_2 - STUECK;
 const ZIEL_X = X_GRENZE;
-const SAND_HELL = '#F2DFB6';
-const SAND = '#E3BF7F';
+// Farben aus Flow-Bild 11 (gemessen): Stufe 1 staubblau, Stufe 2 salbeigrün, Münzstapel gold.
+const STUFE_1 = '#A5B9C7';
+const STUFE_1_TIEF = '#93AABB';
+const STUFE_2 = '#B1C3A3';
+const STUFE_2_TIEF = '#A0B792';
+const STIFT = '#33372F';
+const MUENZE = '#D8A94F';
+const MUENZE_HELL = '#E9C77D';
+const MUENZE_KANTE = '#7A5A1C';
+// Zulage-Schrift: dunkles Gold, auf Creme gut lesbar (Kontrast ≈ 4,4 : 1).
+const ZULAGE_TEXT = '#8A6417';
 const ZELLE = 'rgba(255, 255, 255, 0.55)';
+
+// Liegender Münzstapel: Länge = Wert, die waagrechten Schichten sind nur Münz-Optik (keine Stückzahl).
+const Muenzstueck: React.FC<{x: number; y: number; breite: number}> = ({x, y, breite}) => (
+  <g>
+    <rect x={x} y={y} width={breite} height={STUECK} rx={8} fill={MUENZE} stroke={MUENZE_KANTE} strokeWidth={4} />
+    {[1, 2, 3].map((k) => (
+      <line key={k} x1={x + 6} y1={y + (STUECK * k) / 4} x2={Math.max(x + 6, x + breite - 6)} y2={y + (STUECK * k) / 4} stroke={MUENZE_KANTE} strokeOpacity={0.55} strokeWidth={2.5} />
+    ))}
+    <rect x={x + 6} y={y + 4} width={Math.max(0, breite - 12)} height={9} rx={4} fill={MUENZE_HELL} />
+  </g>
+);
 
 type Ausrichtung = 'links' | 'mitte' | 'rechts';
 const T: React.FC<{
@@ -155,12 +176,12 @@ export const YouTubeVisual12Animation: React.FC<{beats?: number[]}> = ({beats}) 
         </defs>
 
         {/* Bridge „Stufen“: zwei Treppenstufen, Breiten exakt 0–360 € und 360–1.800 € */}
-        <rect x={LINKS} y={OBEN_1} width={breite1} height={BODEN - OBEN_1} fill={SAND_HELL} />
-        <rect x={X_GRENZE} y={OBEN_2} width={breite2} height={BODEN - OBEN_2} fill={SAND_HELL} />
-        {/* Eigenbeitrag füllt die Stufen entlang der €-Achse, während er genannt wird */}
-        <rect x={LINKS} y={OBEN_1} width={breite1 * beitrag1} height={BODEN - OBEN_1} fill={SAND} />
-        <rect x={X_GRENZE} y={OBEN_2} width={breite2 * beitrag2} height={BODEN - OBEN_2} fill={SAND} />
-        <g filter="url(#v12-stift)" fill="none" stroke={DATEN.text} strokeWidth={5} strokeLinejoin="round" strokeLinecap="round">
+        <rect x={LINKS} y={OBEN_1} width={breite1} height={BODEN - OBEN_1} fill={STUFE_1} />
+        <rect x={X_GRENZE} y={OBEN_2} width={breite2} height={BODEN - OBEN_2} fill={STUFE_2} />
+        {/* Eigenbeitrag füllt die Stufen entlang der €-Achse (dunklerer Ton), während er genannt wird */}
+        <rect x={LINKS} y={OBEN_1} width={breite1 * beitrag1} height={BODEN - OBEN_1} fill={STUFE_1_TIEF} />
+        <rect x={X_GRENZE} y={OBEN_2} width={breite2 * beitrag2} height={BODEN - OBEN_2} fill={STUFE_2_TIEF} />
+        <g filter="url(#v12-stift)" fill="none" stroke={STIFT} strokeWidth={5} strokeLinejoin="round" strokeLinecap="round">
           <path d={`M${LINKS},${BODEN} L${LINKS},${OBEN_1} L${X_GRENZE},${OBEN_1} L${X_GRENZE},${OBEN_2} L${X_ENDE},${OBEN_2} L${X_ENDE},${BODEN}`} />
           <path d={`M${X_GRENZE},${OBEN_1} L${X_GRENZE},${BODEN}`} />
           <path d={`M${LINKS - 24},${BODEN} L${X_ENDE + 24},${BODEN}`} strokeWidth={6} />
@@ -182,15 +203,11 @@ export const YouTubeVisual12Animation: React.FC<{beats?: number[]}> = ({beats}) 
           ))}
         </g>
 
-        {/* Zulage-Stücke: Länge exakt px(180 €) und px(360 €) */}
-        {wachs1 > 0 ? (
-          <rect x={stueck1.x} y={stueck1.y} width={laenge1 * wachs1} height={STUECK} rx={6} fill={DATEN.gruen} stroke={DATEN.text} strokeWidth={4} />
-        ) : null}
-        {wachs2 > 0 ? (
-          <rect x={stueck2.x} y={stueck2.y} width={laenge2 * wachs2} height={STUECK} rx={6} fill={DATEN.gruen} stroke={DATEN.text} strokeWidth={4} />
-        ) : null}
+        {/* Zulage-Stücke wie die Münzstapel aus Bild 11 (gold, liegende Münzschichten); Länge exakt px(180 €) und px(360 €) */}
+        {wachs1 > 0 ? <Muenzstueck x={stueck1.x} y={stueck1.y} breite={laenge1 * wachs1} /> : null}
+        {wachs2 > 0 ? <Muenzstueck x={stueck2.x} y={stueck2.y} breite={laenge2 * wachs2} /> : null}
         {ergebnis > 0 ? (
-          <rect x={ZIEL_X - 8} y={ZEILE - 8} width={px(ZULAGE_MAX) + 16} height={STUECK + 8} rx={12} fill="none" stroke={DATEN.gruen} strokeWidth={5} opacity={ergebnis} />
+          <rect x={ZIEL_X - 8} y={ZEILE - 8} width={px(ZULAGE_MAX) + 16} height={STUECK + 8} rx={12} fill="none" stroke={ZULAGE_TEXT} strokeWidth={5} opacity={ergebnis} />
         ) : null}
       </svg>
 
@@ -198,13 +215,13 @@ export const YouTubeVisual12Animation: React.FC<{beats?: number[]}> = ({beats}) 
       <T x={LINKS + breite1 / 2} y={OBEN_1 + 42} groesse={40}>
         Stufe 1
       </T>
-      <T x={LINKS + breite1 / 2} y={OBEN_1 + 120} groesse={80} gewicht={900} farbe={DATEN.gruen} sicht={satz1} heben={(1 - satz1) * 14}>
+      <T x={LINKS + breite1 / 2} y={OBEN_1 + 120} groesse={80} gewicht={900} sicht={satz1} heben={(1 - satz1) * 14}>
         50 %
       </T>
       <T x={X_GRENZE + breite2 / 2} y={OBEN_2 + 50} groesse={40}>
         Stufe 2
       </T>
-      <T x={X_GRENZE + breite2 / 2} y={OBEN_2 + 162} groesse={112} gewicht={900} farbe={DATEN.gruen} sicht={satz2} heben={(1 - satz2) * 14}>
+      <T x={X_GRENZE + breite2 / 2} y={OBEN_2 + 162} groesse={112} gewicht={900} sicht={satz2} heben={(1 - satz2) * 14}>
         25 %
       </T>
 
@@ -223,10 +240,10 @@ export const YouTubeVisual12Animation: React.FC<{beats?: number[]}> = ({beats}) 
       </T>
 
       {/* Zulage-Beträge wandern mit ihren Stücken */}
-      <T x={stueck1.x + laenge1 / 2} y={stueck1.y - 38} groesse={44} gewicht={900} farbe={DATEN.gruen} sicht={p(frame, wachs1Ab + 3, wachs1Ab + 10)}>
+      <T x={stueck1.x + laenge1 / 2} y={stueck1.y - 38} groesse={44} gewicht={900} farbe={ZULAGE_TEXT} sicht={p(frame, wachs1Ab + 3, wachs1Ab + 10)}>
         {euroText(Math.round(ZULAGE_1 * wachs1), 0, true)}
       </T>
-      <T x={stueck2.x + laenge2 / 2} y={stueck2.y - 38} groesse={44} gewicht={900} farbe={DATEN.gruen} sicht={p(frame, wachs2Ab + 3, wachs2Ab + 10)}>
+      <T x={stueck2.x + laenge2 / 2} y={stueck2.y - 38} groesse={44} gewicht={900} farbe={ZULAGE_TEXT} sicht={p(frame, wachs2Ab + 3, wachs2Ab + 10)}>
         {euroText(Math.round(ZULAGE_2 * wachs2), 0, true)}
       </T>
 
@@ -248,7 +265,7 @@ export const YouTubeVisual12Animation: React.FC<{beats?: number[]}> = ({beats}) 
           lineHeight: 1,
         }}
       >
-        <span style={{fontSize: 128, fontWeight: 900, letterSpacing: -2, color: DATEN.gruen}}>= {euroText(ZULAGE_MAX)}</span>
+        <span style={{fontSize: 128, fontWeight: 900, letterSpacing: -2, color: ZULAGE_TEXT}}>= {euroText(ZULAGE_MAX)}</span>
         <span style={{fontSize: 56, fontWeight: 800, color: DATEN.text}}>im Jahr</span>
       </div>
     </DatenBuehne>

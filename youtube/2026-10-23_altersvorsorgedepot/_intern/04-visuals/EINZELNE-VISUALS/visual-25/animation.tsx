@@ -62,7 +62,8 @@ const p = (frame: number, von: number, bis: number, easing = weich) => interpola
 
 // beats: [„Bei einem Prozent Kosten“, „rund hundertachtundneunzigtausend“, „Bei null Komma zwei Prozent“,
 //         „rund zweihundertachtunddreißigtausend“, „Rund vierzigtausend Euro Unterschied“, „Nur wegen der Kosten“]
-const PREVIEW_BEATS = [0, 101, 139, 304, 342, 393];
+// Echte Wortzeiten aus dem finalen Voiceover (word-timings.json), Visual-Dauer 518 Frames.
+const PREVIEW_BEATS = [0, 73, 156, 293, 390, 463];
 
 // Gemeinsame Skala: x = Alter 28 → 65, y = Vermögen 0 → 240.000 € (560 px), Nulllinie = Zeitstrahl.
 const X_START = 250;
@@ -128,7 +129,8 @@ export const YouTubeVisual25Animation: React.FC<{beats?: number[]}> = ({beats}) 
   const frame = useCurrentFrame();
   const at = (step: number) => beats?.[step] ?? PREVIEW_BEATS[step];
 
-  const grund = p(frame, 0, 12);
+  // Bridge: Der Zeitstrahl aus Bild 24 steht ab Frame 0 (harter Schnitt vom Bild in die Animation).
+  const grund = 1;
   // Kurve 1 % Kosten zeichnet sich bis zum gesprochenen Endwert.
   const name1 = p(frame, at(0) + 2, at(0) + 14);
   const k1Ab = at(0) + 6;
@@ -142,13 +144,17 @@ export const YouTubeVisual25Animation: React.FC<{beats?: number[]}> = ({beats}) 
   const k2Ab = Math.max(name2Ab + 4, k2Bis - 130);
   const zug2 = p(frame, k2Ab, k2Bis, zeichnen);
   const wert2 = p(frame, k2Bis, k2Bis + 12);
-  // Lücke und Ergebnis.
-  const lueckeAb = Math.max(at(4), k2Bis + 6);
-  const luecke = p(frame, lueckeAb, lueckeAb + 30, zeichnen);
-  const kante = p(frame, lueckeAb + 22, lueckeAb + 32);
-  const callout = p(frame, lueckeAb + 6, lueckeAb + 20);
-  const pfeil = p(frame, lueckeAb + 16, lueckeAb + 30);
-  const grundText = p(frame, Math.max(at(5), lueckeAb + 20), Math.max(at(5), lueckeAb + 20) + 12);
+  // Lücke: zieht nach der grünen Kurve langsam von 28 nach 65 auf und ist bei „vierzigtausend“ voll.
+  const lueckeAb = k2Bis + 18;
+  const lueckeBis = Math.max(lueckeAb + 30, at(4) + 6);
+  const luecke = p(frame, lueckeAb, lueckeBis, zeichnen);
+  const kante = p(frame, lueckeBis - 8, lueckeBis + 4);
+  // Ergebnis-Callout erst beim gesprochenen Betrag.
+  const calloutAb = Math.max(at(4), lueckeAb + 10);
+  const callout = p(frame, calloutAb, calloutAb + 14);
+  const pfeil = p(frame, calloutAb + 10, calloutAb + 24);
+  const grundAb = Math.max(at(5), calloutAb + 14);
+  const grundText = p(frame, grundAb, grundAb + 12);
 
   const teuer = kurve(TEUER, PUNKTE_TEUER, zug1);
   const guenstig = kurve(GUENSTIG, PUNKTE_GUENSTIG, zug2);
@@ -188,6 +194,13 @@ export const YouTubeVisual25Animation: React.FC<{beats?: number[]}> = ({beats}) 
           <path d={`M${X_ZIEL + 62},${BASIS - 18} L${X_ZIEL + 88},${BASIS} L${X_ZIEL + 62},${BASIS + 18}`} strokeWidth={6} />
           <path d={`M${X_START},${BASIS - 14} L${X_START},${BASIS + 14}`} strokeWidth={5} />
           <path d={`M${X_ZIEL},${BASIS - 14} L${X_ZIEL},${BASIS + 14}`} strokeWidth={5} />
+        </g>
+
+        {/* Münzen entlang des Zeitstrahls wie in Bild 24 (regelmäßige Einzahlungen, ohne Betrag je Münze) */}
+        <g opacity={grund}>
+          {Array.from({length: 12}, (_, k) => (
+            <ellipse key={k} cx={X_START + ((k + 0.5) * (X_ZIEL - X_START)) / 12} cy={BASIS - 6} rx={17} ry={7} fill="#D9C48F" stroke="#8C7742" strokeWidth={2.5} />
+          ))}
         </g>
 
         {/* Lücke = Kostenwirkung, füllt sich von 28 nach 65 */}

@@ -8,7 +8,7 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Img, Sequence, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {FONT} from '../brand';
-import {DATEN} from '../design-system/daten';
+import {DATEN, DatenGrund, useDatenGrund} from '../design-system/daten';
 
 export type ZeitVisual = {
   id: string;
@@ -31,6 +31,8 @@ export type YouTubeZeitplan = {
   visuals: ZeitVisual[];
   captions: CaptionSatz[];
   untertitel: boolean;
+  /** Gemessener Hintergrund der Flow-Bilder (Zusammenbau); fehlt bei älteren Projekten → DATEN.grund. */
+  grund?: string;
 };
 
 const UEBERBLENDEN = 8;
@@ -40,6 +42,7 @@ const BildVisual: React.FC<{bild?: string | null; dauer: number; id: string}> = 
   const frame = useCurrentFrame();
   // Ganz ruhiger Zug ins Bild, damit ein Standbild nicht einfriert.
   const zoom = interpolate(frame, [0, Math.max(1, dauer)], [1, 1.035], CLAMP);
+  const grund = useDatenGrund();
   if (!bild) {
     return (
       <AbsoluteFill style={{backgroundColor: DATEN.linie, alignItems: 'center', justifyContent: 'center', fontFamily: FONT.body, fontSize: 48, fontWeight: 800, color: DATEN.leise}}>
@@ -48,7 +51,7 @@ const BildVisual: React.FC<{bild?: string | null; dauer: number; id: string}> = 
     );
   }
   return (
-    <AbsoluteFill style={{backgroundColor: DATEN.grund, overflow: 'hidden'}}>
+    <AbsoluteFill style={{backgroundColor: grund, overflow: 'hidden'}}>
       <Img src={staticFile(bild)} style={{width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${zoom.toFixed(4)})`}} />
     </AbsoluteFill>
   );
@@ -100,8 +103,9 @@ const Akzente: React.FC<{akzente: NonNullable<ZeitVisual['akzente']>}> = ({akzen
 const Endkarte: React.FC = () => {
   const frame = useCurrentFrame();
   const p = interpolate(frame, [0, 18], [0, 1], {...CLAMP, easing: (t) => 1 - (1 - t) ** 3});
+  const grund = useDatenGrund();
   return (
-    <AbsoluteFill style={{backgroundColor: DATEN.grund, alignItems: 'center', fontFamily: FONT.body}}>
+    <AbsoluteFill style={{backgroundColor: grund, alignItems: 'center', fontFamily: FONT.body}}>
       <div style={{marginTop: 120, opacity: p, transform: `translateY(${((1 - p) * 16).toFixed(1)}px)`, textAlign: 'center'}}>
         <div style={{fontSize: 96, fontWeight: 800, color: DATEN.text, letterSpacing: -1}}>FinanzNeo</div>
         <div style={{marginTop: 8, fontSize: 40, fontWeight: 600, color: DATEN.leise}}>Geld einfach erklärt</div>
@@ -149,30 +153,32 @@ const Untertitel: React.FC<{saetze: CaptionSatz[]}> = ({saetze}) => {
 };
 
 export const YouTubeVideo: React.FC<{zeitplan: YouTubeZeitplan; animationen: Record<string, React.FC<{beats?: number[]}>>}> = ({zeitplan, animationen}) => (
-  <AbsoluteFill style={{backgroundColor: DATEN.grund}}>
-    {zeitplan.visuals.map((visual, index) => {
-      const Animation = animationen[visual.id];
-      const letztes = index === zeitplan.visuals.length - 1;
-      return (
-        <Sequence key={visual.id} from={visual.startFrame} durationInFrames={visual.durationFrames + (letztes ? 0 : UEBERBLENDEN)} name={visual.id}>
-          <Einblenden aktiv={index > 0}>
-            {visual.type === 'endkarte' ? (
-              <Endkarte />
-            ) : visual.type === 'image' ? (
-              <>
-                <BildVisual bild={visual.bild} dauer={visual.durationFrames} id={visual.id} />
-                {visual.akzente?.length ? <Akzente akzente={visual.akzente} /> : null}
-              </>
-            ) : Animation ? (
-              <Animation beats={visual.beats} />
-            ) : (
-              <BildVisual bild={null} dauer={visual.durationFrames} id={visual.id} />
-            )}
-          </Einblenden>
-        </Sequence>
-      );
-    })}
-    <Audio src={staticFile(zeitplan.audio)} />
-    {zeitplan.untertitel ? <Untertitel saetze={zeitplan.captions} /> : null}
-  </AbsoluteFill>
+  <DatenGrund value={zeitplan.grund ?? DATEN.grund}>
+    <AbsoluteFill style={{backgroundColor: zeitplan.grund ?? DATEN.grund}}>
+      {zeitplan.visuals.map((visual, index) => {
+        const Animation = animationen[visual.id];
+        const letztes = index === zeitplan.visuals.length - 1;
+        return (
+          <Sequence key={visual.id} from={visual.startFrame} durationInFrames={visual.durationFrames + (letztes ? 0 : UEBERBLENDEN)} name={visual.id}>
+            <Einblenden aktiv={index > 0}>
+              {visual.type === 'endkarte' ? (
+                <Endkarte />
+              ) : visual.type === 'image' ? (
+                <>
+                  <BildVisual bild={visual.bild} dauer={visual.durationFrames} id={visual.id} />
+                  {visual.akzente?.length ? <Akzente akzente={visual.akzente} /> : null}
+                </>
+              ) : Animation ? (
+                <Animation beats={visual.beats} />
+              ) : (
+                <BildVisual bild={null} dauer={visual.durationFrames} id={visual.id} />
+              )}
+            </Einblenden>
+          </Sequence>
+        );
+      })}
+      <Audio src={staticFile(zeitplan.audio)} />
+      {zeitplan.untertitel ? <Untertitel saetze={zeitplan.captions} /> : null}
+    </AbsoluteFill>
+  </DatenGrund>
 );

@@ -1,8 +1,8 @@
-# VORLÄUFIG aus Wortzahl geschätzt — nach finalem Render anpassen
+# Aus dem finalen Render (timeline.json), 24.10.2026
 0:00 540 € vom Staat – wo ist der Haken?
 0:17 Was ist das Altersvorsorgedepot?
-0:49 So viel legt der Staat drauf
-1:57 Haken 1: die Kosten
-2:58 Haken 2 und 3: gebunden bis 65 und versteuert
-3:50 Für wen es sich lohnt
-4:38 Fazit
+0:48 So viel legt der Staat drauf
+1:49 Haken 1: die Kosten
+2:52 Haken 2 und 3: gebunden bis 65 und versteuert
+3:38 Für wen es sich lohnt
+4:18 Fazit
