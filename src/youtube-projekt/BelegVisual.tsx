@@ -53,7 +53,9 @@ const kartenLayout = (beleg: BelegDaten) => {
   return {teile, breite, hoehe, aufKarte};
 };
 
-const einstellung = (zeilen: BelegRechteck[], breite: number, uebersicht: Kamera): Kamera => {
+const klemme = (wert: number, min: number, max: number) => (min > max ? (min + max) / 2 : Math.min(Math.max(wert, min), max));
+
+const einstellung = (zeilen: BelegRechteck[], breite: number, hoehe: number, uebersicht: Kamera): Kamera => {
   const x0 = Math.min(...zeilen.map((r) => r.x));
   const y0 = Math.min(...zeilen.map((r) => r.y));
   const x1 = Math.max(...zeilen.map((r) => r.x + r.w));
@@ -63,7 +65,11 @@ const einstellung = (zeilen: BelegRechteck[], breite: number, uebersicht: Kamera
   // Möglichst die ganze Textspalte zeigen; nur verschieben, wenn die Markierung sonst rausfällt.
   const halb = MITTE_X / z;
   const cx = Math.min(Math.max(breite / 2, x1 + 20 - halb), x0 - 20 + halb);
-  return {cx, cy: (y0 + y1) / 2, z};
+  // Senkrecht: Karte füllt das Bild (keine leere Creme unter dem Text), die Markierung bleibt
+  // aber immer zwischen Quellenangabe und Unterkante sichtbar.
+  const fuellt = klemme((y0 + y1) / 2, MITTE_Y / z, hoehe - (1080 - MITTE_Y) / z);
+  const cy = klemme(fuellt, y1 - (1020 - MITTE_Y) / z, y0 - (180 - MITTE_Y) / z);
+  return {cx, cy, z};
 };
 
 export const BelegVisual: React.FC<{beleg: BelegDaten; marken: number[]}> = ({beleg, marken}) => {
@@ -71,7 +77,7 @@ export const BelegVisual: React.FC<{beleg: BelegDaten; marken: number[]}> = ({be
   const {teile, breite, hoehe, aufKarte} = kartenLayout(beleg);
   const uebersicht: Kamera = {cx: breite / 2, cy: hoehe / 2, z: Math.min(1600 / breite, 800 / hoehe)};
   const markierungen = beleg.markierungen.map((m) => m.rects.map(aufKarte));
-  const einstellungen = markierungen.map((zeilen) => einstellung(zeilen, breite, uebersicht));
+  const einstellungen = markierungen.map((zeilen) => einstellung(zeilen, breite, hoehe, uebersicht));
 
   // Kamera: Übersicht, dann nacheinander zu jeder Markierung — jeweils kurz vor ihrem Wort.
   let kamera = uebersicht;

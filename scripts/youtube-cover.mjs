@@ -25,7 +25,7 @@ const projekt = args.find((a, i) => !a.startsWith('--') && !optionen.has(args[i 
 let cover;
 let bild;
 let aus;
-let klein = null;
+let klein;
 if (projekt) {
   const root = internWurzel(projekt);
   const index = JSON.parse(readFileSync(resolve(root, VISUAL_INDEX), 'utf8'));

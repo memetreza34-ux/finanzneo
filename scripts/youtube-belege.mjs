@@ -102,6 +102,7 @@ const verbinde = async (wsUrl) => {
 
 // ─── Seitenskript: Overlays weg, Text finden, Ausschnitte messen ─────────────
 // Läuft im Browser. Alle Koordinaten in Seiten-CSS-Pixeln (inkl. Scroll).
+/* global document, getComputedStyle, innerWidth, innerHeight, window, NodeFilter, scrollY */
 const SEITENSKRIPT = String(async (marken, entfernen) => {
   const raus = ['#usercentrics-root', '#onetrust-consent-sdk', '#CybotCookiebotDialog', '[id^="sp_message"]', 'iframe[src*="consent"]', 'iframe[id*="consent" i]', ...entfernen];
   for (const s of raus) document.querySelectorAll(s).forEach((e) => e.remove());
