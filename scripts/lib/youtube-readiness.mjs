@@ -14,6 +14,7 @@ import {
   internWurzel,
 } from './youtube-contract.mjs';
 import {requiresYouTubeImage, requiresYouTubeMotion, validateYouTubeMotionMetadata, validateYouTubeMotionVariety} from './youtube-motion-contract.mjs';
+import {pruefeBelegAufnahme, pruefeBelegPlan} from './youtube-beleg.mjs';
 
 export const AUDIO_EXTENSIONS = new Set(['.mp3', '.wav', '.aiff', '.aif', '.m4a']);
 export const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif']);
@@ -150,6 +151,15 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
       const imagePlanFile = visual.type === 'hybrid' ? visual.imagePlanFile : visual.planFile;
       if (typeof imagePlanFile !== 'string' || !imagePlanFile.trim()) phase1Blockers.push(`${VISUAL_INDEX}: ${id}.image plan file fehlt.`);
       else checkCompletedText(root, imagePlanFile, phase1Blockers);
+    }
+
+    if (visual?.type === 'beleg') {
+      for (const error of pruefeBelegPlan(visual)) phase1Blockers.push(`${VISUAL_INDEX}: ${error}`);
+      const datenPfad = typeof visual.belegDatenFile === 'string' ? resolve(root, visual.belegDatenFile) : null;
+      let daten = null;
+      try {daten = datenPfad && existsSync(datenPfad) ? JSON.parse(readFileSync(datenPfad, 'utf8')) : null;} catch {/* unten als fehlend gemeldet */}
+      if (daten && !(typeof visual.belegFile === 'string' && existsSync(resolve(root, visual.belegFile)))) daten = null;
+      for (const error of pruefeBelegAufnahme(visual, daten)) phase1Blockers.push(error);
     }
 
     if (requiresYouTubeMotion(visual)) {

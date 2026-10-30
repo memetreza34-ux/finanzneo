@@ -36,6 +36,7 @@ import {
   internWurzel,
 } from './lib/youtube-contract.mjs';
 import {pruefeYouTubeQualitaet} from './lib/youtube-quality.mjs';
+import {pruefeBelegPlan} from './lib/youtube-beleg.mjs';
 import {
   requiresYouTubeImage,
   requiresYouTubeMotion,
@@ -177,6 +178,11 @@ if (index) {
       assert(typeof visual.animationSourceFile === 'string' && existsSync(resolve(root, visual.animationSourceFile ?? '')), `${id}: animation.tsx fehlt.`);
     }
 
+    if (visual?.type === 'beleg') {
+      errors.push(...pruefeBelegPlan(visual));
+      assert(typeof visual.planFile === 'string' && visual.planFile.endsWith('/beleg.md') && existsSync(resolve(root, visual.planFile)), `${id}: beleg.md fehlt.`);
+    }
+
     if (visual?.type === 'data') {
       assert(typeof visual.dataNotesFile === 'string' && existsSync(resolve(root, visual.dataNotesFile ?? '')), `${id}: data-notes.md fehlt.`);
     }
@@ -192,11 +198,11 @@ if (index) {
       let echteHaltezeiten = null;
       try {
         const zeitplan = JSON.parse(read('06-projektdateien/timeline.json'));
-        const bilder = (zeitplan.visuals ?? []).filter((v) => v.type === 'image');
+        const bilder = (zeitplan.visuals ?? []).filter((v) => v.type === 'image' || v.type === 'beleg');
         if (bilder.length && bilder.every((v) => Number(v.durationFrames) > 0)) {
           const fps = Number(zeitplan.fps) || 30;
           echteHaltezeiten = new Map(bilder.map((v) => {
-            const marken = [0, ...(v.akzente ?? []).map((a) => a.ab), v.durationFrames].sort((x, y) => x - y);
+            const marken = [0, ...(v.akzente ?? []).map((a) => a.ab), ...(v.marken ?? []), v.durationFrames].sort((x, y) => x - y);
             return [v.id, Math.max(...marken.slice(1).map((m, k) => m - marken[k])) / fps];
           }));
         }

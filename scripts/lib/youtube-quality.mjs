@@ -10,11 +10,13 @@ import {
   YOUTUBE_IMAGE_WARN_HOLD_SECONDS,
   YOUTUBE_SPEECH_WPM,
   YOUTUBE_STYLE_REFERENCE_MARKER,
-  YOUTUBE_QUALITY_RULES_V2_ID,
+  YOUTUBE_BINDUNG_RULES_IDS,
+  YOUTUBE_QUALITY_RULES_V3_ID,
   YOUTUBE_HOOK_ANNOUNCEMENT_PATTERN,
   YOUTUBE_CHARACTER_REFERENCE_MARKER,
   YOUTUBE_CHANNEL_STYLE_FILE,
 } from './youtube-contract.mjs';
+import {youtubeBelegSoll} from './youtube-beleg.mjs';
 
 export const normWort = (wort) =>
   wort
@@ -60,7 +62,8 @@ export const schaetzeHaltezeiten = (scriptText, visuals) => {
     const naechster = starts.slice(k + 1).find((s) => s !== null) ?? woerter.length;
     const marken = [start];
     let akzentCursor = start;
-    for (const akzent of v.akzente ?? []) {
+    // Akzente auf Bildern und Markierungen auf Belegen zeigen beide neue Information.
+    for (const akzent of v.akzente ?? v.markierungen ?? []) {
       const a = findeCue(woerter, akzent.cue ?? '', akzentCursor);
       if (a >= 0 && a < naechster) {marken.push(a); akzentCursor = a;}
     }
@@ -84,7 +87,7 @@ export const pruefeYouTubeQualitaet = ({index, scriptText, prompts, bildprompt, 
   fehler.push(...cueFehler);
 
   for (const e of ergebnis) {
-    if (e.type !== 'image' || e.startWort === null) continue;
+    if ((e.type !== 'image' && e.type !== 'beleg') || e.startWort === null) continue;
     const echt = echteHaltezeiten?.get(e.id);
     if (echt != null) {
       if (echt > YOUTUBE_IMAGE_WARN_HOLD_SECONDS) fehler.push(`${e.id}: Standbild steht im fertigen Zeitplan ${echt.toFixed(1)} s ohne neue Information (max. ${YOUTUBE_IMAGE_WARN_HOLD_SECONDS} s nach echtem Audio).`);
@@ -131,7 +134,8 @@ export const pruefeYouTubeQualitaet = ({index, scriptText, prompts, bildprompt, 
     }
   }
 
-  if (index.qualityRules === YOUTUBE_QUALITY_RULES_V2_ID) fehler.push(...pruefeBindungV2({index, scriptText, ergebnis, woerter, ersterInhalt, bildprompt}));
+  if (YOUTUBE_BINDUNG_RULES_IDS.includes(index.qualityRules)) fehler.push(...pruefeBindungV2({index, scriptText, ergebnis, woerter, ersterInhalt, bildprompt}));
+  if (index.qualityRules === YOUTUBE_QUALITY_RULES_V3_ID) fehler.push(...pruefeBelegeV3({visuals, woerter}));
 
   return {fehler, haltezeiten: ergebnis, wortzahl: woerter.length};
 };
@@ -179,15 +183,39 @@ export const pruefeBindungV2 = ({index, scriptText, ergebnis, woerter, ersterInh
     if (!v || e.startWort === null) return;
     const ende = ergebnis.slice(k + 1).find((x) => x.startWort !== null)?.startWort ?? woerter.length;
     const abschnitt = woerter.slice(e.startWort, ende);
-    if (v.type === 'image' || v.type === 'hybrid') {
+    if (v.type === 'beleg') {
+      for (const m of v.markierungen ?? []) {
+        if (typeof m?.cue === 'string' && m.cue.trim() && !kommtVor(m.cue, abschnitt)) fehler.push(`${v.id}: Markierungs-cue „${m.cue}“ fällt nicht in seinem Sprechabschnitt — Beleg und Satz passen nicht zusammen.`);
+      }
+    } else if (v.type === 'image' || v.type === 'hybrid') {
       if (typeof v.keyword !== 'string' || !v.keyword.trim()) fehler.push(`${v.id}: keyword fehlt (welches gesprochene Wort zeigt dieses Bild?).`);
       else if (!kommtVor(v.keyword, abschnitt)) fehler.push(`${v.id}: keyword „${v.keyword}“ fällt nicht in seinem Sprechabschnitt — Bild und Satz passen nicht zusammen.`);
     } else {
-      const nachbarn = [visuals[k - 1], visuals[k + 1]].filter((n) => n && (n.type === 'image' || n.type === 'hybrid'));
-      const text = (n) => [n.expectedVisual, ...(n.objectLabels ?? [])].join(' ');
+      const nachbarn = [visuals[k - 1], visuals[k + 1]].filter((n) => n && (n.type === 'image' || n.type === 'hybrid' || n.type === 'beleg'));
+      const text = (n) => [n.expectedVisual, ...(n.objectLabels ?? []), ...(n.markierungen ?? []).map((m) => m.text)].join(' ');
       if (typeof v.bridgeObject !== 'string' || !v.bridgeObject.trim()) fehler.push(`${v.id}: bridgeObject fehlt (welches Objekt aus dem Nachbarbild trägt die Animation weiter?).`);
       else if (!nachbarn.some((n) => kommtVor(v.bridgeObject, skriptWoerter(text(n))))) fehler.push(`${v.id}: bridgeObject „${v.bridgeObject}“ kommt im Bild davor/danach nicht vor.`);
     }
   });
+  return fehler;
+};
+
+/**
+ * V3 — echte Belege statt nur KI-Bildern (Arman, 30.10.2026): Zahlen, Gesetze und Aussagen Dritter
+ * werden mit einem echten Quellen-Screenshot gezeigt. Einer je volle 90 s Sprechzeit, mindestens 3,
+ * und der erste spätestens im ersten inhaltlichen Kapitel nach dem Hook.
+ */
+export const pruefeBelegeV3 = ({visuals, woerter}) => {
+  const fehler = [];
+  const belege = visuals.filter((v) => v.type === 'beleg');
+  const soll = youtubeBelegSoll(sekunden(woerter.length));
+  if (belege.length < soll) fehler.push(`Nur ${belege.length} Beleg-Szene(n) mit echtem Quellen-Screenshot; für ${Math.round(sekunden(woerter.length) / 60)} min Sprechzeit sind mindestens ${soll} Pflicht (docs/YOUTUBE-BELEG-SZENEN.md).`);
+  const kapitel = [...new Set(visuals.map((v) => v.chapter))];
+  const erstesInhaltsKapitel = kapitel[1];
+  if (belege.length && erstesInhaltsKapitel) {
+    const ersterBeleg = visuals.findIndex((v) => v.type === 'beleg');
+    const kapitelEnde = visuals.findLastIndex((v) => v.chapter === erstesInhaltsKapitel);
+    if (ersterBeleg > kapitelEnde) fehler.push(`Erster Beleg kommt erst nach Kapitel „${erstesInhaltsKapitel}“ — Glaubwürdigkeit früh zeigen: spätestens dort einen Beleg einplanen.`);
+  }
   return fehler;
 };

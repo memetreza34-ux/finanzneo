@@ -196,7 +196,15 @@ for (const v of index.visuals) {
     akzentCursor = b;
     return {ab: Math.max(0, Math.round(skriptWoerter[b].start * fps) - start), text: a.text, ton: a.ton ?? 'neutral'};
   }).filter(Boolean);
-  visuals.push({id: v.id, type: v.type, startFrame: start, beats, akzente, googleFlowFileName: v.googleFlowFileName});
+  // Beleg-Markierungen: Kamera und Textmarker beim gesprochenen Wort.
+  let markenCursor = i;
+  const marken = (v.type === 'beleg' ? v.markierungen ?? [] : []).map((m) => {
+    const b = finde(m.cue, markenCursor);
+    if (b < 0) {fehler.push(`${v.id}: Markierungs-Cue „${m.cue}“ nicht gefunden.`); return 0;}
+    markenCursor = b;
+    return Math.max(0, Math.round(skriptWoerter[b].start * fps) - start);
+  });
+  visuals.push({id: v.id, type: v.type, startFrame: start, beats, akzente, ...(v.type === 'beleg' ? {marken, belegQuelle: v} : {}), googleFlowFileName: v.googleFlowFileName});
 }
 const sprechEnde = Math.ceil((dauerSek + 0.8) * fps);
 visuals.forEach((v, k) => {
@@ -207,8 +215,8 @@ visuals.forEach((v, k) => {
 const qualitaet = YOUTUBE_QUALITY_RULES_IDS.includes(index.qualityRules);
 if (qualitaet) visuals.push({id: 'endkarte', type: 'endkarte', startFrame: sprechEnde, durationFrames: YOUTUBE_ENDCARD_SECONDS * fps, beats: [], akzente: []});
 const gesamt = qualitaet ? sprechEnde + YOUTUBE_ENDCARD_SECONDS * fps : sprechEnde;
-const langeBilder = visuals.filter((v) => v.type === 'image').map((v) => {
-  const marken = [0, ...v.akzente.map((a) => a.ab), v.durationFrames].sort((a, b) => a - b);
+const langeBilder = visuals.filter((v) => v.type === 'image' || v.type === 'beleg').map((v) => {
+  const marken = [0, ...v.akzente.map((a) => a.ab), ...(v.marken ?? []), v.durationFrames].sort((a, b) => a - b);
   return {id: v.id, sek: Math.max(...marken.slice(1).map((m, k) => m - marken[k])) / fps};
 }).filter((x) => x.sek > YOUTUBE_IMAGE_WARN_HOLD_SECONDS);
 
@@ -227,6 +235,31 @@ for (const v of visuals) {
     v.bild = null;
     if (!vorschau) fehler.push(`${v.id}: Bild fehlt: 3-bilder-hier-rein/${v.googleFlowFileName}`);
   }
+}
+
+// Belege: Screenshot nach public/, Fundstellen in den Zeitplan (Screenshot entsteht in Phase 1 mit youtube:belege).
+for (const v of visuals) {
+  if (v.type !== 'beleg') continue;
+  const quelle = v.belegQuelle;
+  delete v.belegQuelle;
+  const datenPfad = resolve(root, quelle.belegDatenFile ?? '');
+  const bildPfad = resolve(root, quelle.belegFile ?? '');
+  if (!existsSync(datenPfad) || !existsSync(bildPfad)) {
+    fehler.push(`${v.id}: Beleg-Screenshot fehlt — npm run youtube:belege -- ${projektArg}`);
+    continue;
+  }
+  const daten = lies(datenPfad);
+  const datei = `${v.id}-beleg.png`;
+  copyFileSync(bildPfad, resolve(publicDir, 'bilder', datei));
+  v.beleg = {
+    bild: `youtube/${slug}/bilder/${datei}`,
+    bildBreite: daten.bildBreite,
+    quelle: daten.quelle,
+    host: new URL(daten.endUrl ?? daten.url).hostname.replace(/^www\./, ''),
+    abgerufenAm: daten.abgerufenAm,
+    teile: daten.teile,
+    markierungen: daten.markierungen.map((m) => ({rects: m.rects})),
+  };
 }
 
 if (fehler.length) {

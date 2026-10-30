@@ -6,7 +6,9 @@
 // Quelle: _intern/06-projektdateien/visual-plan.mjs mit `title`, `thumbnail {file, prompt}`, optional
 // `story {protagonist, reason}` und `visuals[]`. Bild-Visuals: {type:'image', chapter, cue, beat, keyword,
 // name, expected, prompt, labels, ref?, change?, akzente?}. Motion-Visuals: {type:'animation'|'data',
-// chapter, cue, beat, bridgeObject, brief}. keyword/bridgeObject prüft youtube:validate (Qualitätsregeln V2).
+// chapter, cue, beat, bridgeObject, brief}. Beleg-Visuals (echter Quellen-Screenshot, docs/YOUTUBE-BELEG-SZENEN.md):
+// {type:'beleg', chapter, cue, beat, quelle, quellenArt, url, markierungen:[{text, cue}], entfernen?}.
+// keyword/bridgeObject prüft youtube:validate (Qualitätsregeln V2), Belege V3.
 //
 // Schreibt Visual-Index, alle Einzel-Bildprompts, die Flow-Übergabe (Batch 1 = nur Thumbnail
 // als Stilvorlage, Fortsetzungen immer in einem späteren Batch als ihre Referenz), die Motion-
@@ -30,6 +32,7 @@ import {
   youtubeStyleReferenceText,
   internWurzel,
 } from './lib/youtube-contract.mjs';
+import {YOUTUBE_BELEG_BILD, YOUTUBE_BELEG_DATEN, YOUTUBE_BELEG_PLAN, YOUTUBE_BELEG_STANDARD_ID} from './lib/youtube-beleg.mjs';
 
 const projekt = process.argv[2];
 if (!projekt) {
@@ -139,6 +142,21 @@ ${styleBlock}`;
       ...(v.akzente ? {akzente: v.akzente} : {}),
     };
   }
+  if (v.type === 'beleg') {
+    write(`${dir}/beleg.md`, `# Beleg ${id}\n\nBELEG_STANDARD: ${YOUTUBE_BELEG_STANDARD_ID}\n\n- Kapitel: ${v.chapter}\n- Sprechtext-Bezug: ${v.beat}\n- Quelle: ${v.quelle} (${v.quellenArt})\n- URL: ${v.url}\n${(v.markierungen ?? []).map((m) => `- Markierung bei „${m.cue}“: „${m.text}“`).join('\n')}\n\nScreenshot und Textpositionen erzeugt \`npm run youtube:belege -- youtube/<Projekt>\` (${YOUTUBE_BELEG_BILD}, ${YOUTUBE_BELEG_DATEN}).\n`);
+    return {
+      ...base,
+      planFile: `${dir}/${YOUTUBE_BELEG_PLAN}`,
+      startCue: v.cue,
+      quelle: v.quelle,
+      quellenArt: v.quellenArt,
+      url: v.url,
+      markierungen: v.markierungen,
+      ...(v.entfernen?.length ? {entfernen: v.entfernen} : {}),
+      belegFile: `${dir}/${YOUTUBE_BELEG_BILD}`,
+      belegDatenFile: `${dir}/${YOUTUBE_BELEG_DATEN}`,
+    };
+  }
   const vorher = alt.get(id);
   if (vorher && vorher.type === v.type && vorher.viewerChange && !String(vorher.viewerChange).startsWith('[')) {
     return {...vorher, ...base, startCue: v.cue, contentBrief: v.brief, ...(v.bridgeObject ? {bridgeObject: v.bridgeObject} : {})};
@@ -190,8 +208,10 @@ for (const members of batches) {
       : `${line}\nVISUAL ${nr(m)} — IMAGE\n${line}\n\n${blocks.get(m)}\n`;
   }
 }
-const motion = visuals.map((v, i) => (v.type === 'image' ? null : nr(i + 1))).filter(Boolean);
-body += `${line}\nRESERVED NUMBERS — REMOTION, NOT FLOW\n${line}\n\nDO NOT GENERATE IMAGES ${motion.join(', ')}. These numbers are animations built in Remotion. Keep the numbers reserved; never close the numbering gap.\n\n`;
+const motion = visuals.map((v, i) => (v.type === 'image' || v.type === 'beleg' ? null : nr(i + 1))).filter(Boolean);
+const belege = visuals.map((v, i) => (v.type === 'beleg' ? nr(i + 1) : null)).filter(Boolean);
+const reserviert = visuals.map((v, i) => (v.type === 'image' ? null : nr(i + 1))).filter(Boolean);
+body += `${line}\nRESERVED NUMBERS — REMOTION, NOT FLOW\n${line}\n\nDO NOT GENERATE IMAGES ${reserviert.join(', ')}. These numbers are built in Remotion (animations and real source screenshots). Keep the numbers reserved; never close the numbering gap.\n\n`;
 
 const inbox = IMAGE_INBOX.replace(/^\.\.\//, '');
 write(ALL_PROMPTS, `FINANZNEO — SINGLE HANDOFF FILE FOR THE GOOGLE FLOW AI AGENT
@@ -225,4 +245,4 @@ tl.title = title;
 tl.visuals = index.visuals.map((v) => ({id: v.id, type: v.type, startFrame: 0, durationFrames: 0}));
 write('06-projektdateien/timeline.json', `${JSON.stringify(tl, null, 2)}\n`);
 write(VISUAL_INDEX, `${JSON.stringify(index, null, 2)}\n`);
-console.log(`✓ Plan angewendet: ${visuals.length} Visuals · ${blocks.size} Bilder + Thumbnail in ${batchNr} Batches · Motion: ${motion.join(', ') || '—'}`);
+console.log(`✓ Plan angewendet: ${visuals.length} Visuals · ${blocks.size} Bilder + Thumbnail in ${batchNr} Batches · Motion: ${motion.join(', ') || '—'} · Belege: ${belege.join(', ') || '—'}`);
