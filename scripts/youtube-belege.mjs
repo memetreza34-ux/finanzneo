@@ -14,10 +14,11 @@
 
 import {spawn} from 'node:child_process';
 import {createHash} from 'node:crypto';
-import {existsSync, globSync, mkdtempSync, readFileSync, rmSync, writeFileSync} from 'node:fs';
+import {mkdtempSync, readFileSync, rmSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join, resolve} from 'node:path';
 import {VISUAL_INDEX, internWurzel} from './lib/youtube-contract.mjs';
+import {findeChrome} from './lib/youtube-chrome.mjs';
 import {YOUTUBE_BELEG_BILD, YOUTUBE_BELEG_STANDARD_ID, berechneBelegTeile, pruefeBelegAufnahme, pruefeBelegPlan} from './lib/youtube-beleg.mjs';
 
 const args = process.argv.slice(2);
@@ -46,18 +47,6 @@ const SKALA = 2;
 const MAX_SEITENHOEHE = 12000;
 
 // ─── Chrome ──────────────────────────────────────────────────────────────────
-const findeChrome = () => {
-  const kandidaten = [
-    process.env.FINANZNEO_CHROME,
-    '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-    '/Applications/Chromium.app/Contents/MacOS/Chromium',
-    '/usr/bin/google-chrome',
-    '/usr/bin/chromium',
-    ...globSync('node_modules/.remotion/chrome-headless-shell/**/chrome-headless-shell'),
-  ].filter(Boolean);
-  return kandidaten.find((p) => existsSync(p));
-};
-
 const starteChrome = async () => {
   const pfad = findeChrome();
   if (!pfad) throw new Error('Kein Chrome gefunden. Google Chrome installieren oder FINANZNEO_CHROME=<Pfad> setzen.');

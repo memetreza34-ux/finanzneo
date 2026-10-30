@@ -10,11 +10,12 @@ import {AbsoluteFill, Audio, Img, Sequence, interpolate, staticFile, useCurrentF
 import {FONT} from '../brand';
 import {DATEN} from '../design-system/daten';
 import {BelegVisual, type BelegDaten} from './BelegVisual';
+import {FolieVisual, type FolieDaten} from './FolieVisual';
 
 export type ZeitVisual = {
   id: string;
   /** endkarte: ruhiger Abschluss nach dem Voiceover, Platz für die YouTube-Endelemente. */
-  type: 'image' | 'animation' | 'data' | 'hybrid' | 'beleg' | 'endkarte';
+  type: 'image' | 'animation' | 'data' | 'hybrid' | 'beleg' | 'folie' | 'endkarte';
   startFrame: number;
   durationFrames: number;
   /** Pfad unter public/ (staticFile), nur bei Bildern. null = Bild fehlt (nur Vorschau). */
@@ -24,6 +25,9 @@ export type ZeitVisual = {
   akzente?: Array<{ab: number; text: string; ton: 'gruen' | 'rot' | 'neutral'}>;
   /** Nur bei Belegen: Screenshot + Fundstellen und je Markierung der Frame des gesprochenen Worts. */
   beleg?: BelegDaten;
+  /** Nur bei Erklär-Folien: Titel, Zeilen oder große Zahl. */
+  folie?: FolieDaten;
+  /** Belege und Folien: je Markierung/Zeile der Frame des gesprochenen Worts. */
   marken?: number[];
 };
 export type CaptionWort = {text: string; start: number; end: number};
@@ -164,6 +168,8 @@ export const YouTubeVideo: React.FC<{zeitplan: YouTubeZeitplan; animationen: Rec
               <Endkarte />
             ) : visual.type === 'beleg' && visual.beleg ? (
               <BelegVisual beleg={visual.beleg} marken={visual.marken ?? []} />
+            ) : visual.type === 'folie' && visual.folie ? (
+              <FolieVisual folie={visual.folie} marken={visual.marken ?? []} />
             ) : visual.type === 'image' ? (
               <>
                 <BildVisual bild={visual.bild} dauer={visual.durationFrames} id={visual.id} />

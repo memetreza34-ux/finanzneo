@@ -12,11 +12,14 @@ import {
   YOUTUBE_STYLE_REFERENCE_MARKER,
   YOUTUBE_BINDUNG_RULES_IDS,
   YOUTUBE_QUALITY_RULES_V3_ID,
+  YOUTUBE_V3_MAX_HOLD_SECONDS,
+  YOUTUBE_V3_MAX_BILD_ANTEIL,
   YOUTUBE_HOOK_ANNOUNCEMENT_PATTERN,
   YOUTUBE_CHARACTER_REFERENCE_MARKER,
   YOUTUBE_CHANNEL_STYLE_FILE,
 } from './youtube-contract.mjs';
 import {youtubeBelegSoll} from './youtube-beleg.mjs';
+import {folieCues} from './youtube-folie.mjs';
 
 export const normWort = (wort) =>
   wort
@@ -62,8 +65,8 @@ export const schaetzeHaltezeiten = (scriptText, visuals) => {
     const naechster = starts.slice(k + 1).find((s) => s !== null) ?? woerter.length;
     const marken = [start];
     let akzentCursor = start;
-    // Akzente auf Bildern und Markierungen auf Belegen zeigen beide neue Information.
-    for (const akzent of v.akzente ?? v.markierungen ?? []) {
+    // Akzente auf Bildern, Markierungen auf Belegen und Zeilen auf Folien zeigen neue Information.
+    for (const akzent of v.akzente ?? v.markierungen ?? folieCues(v.folie).map((cue) => ({cue}))) {
       const a = findeCue(woerter, akzent.cue ?? '', akzentCursor);
       if (a >= 0 && a < naechster) {marken.push(a); akzentCursor = a;}
     }
@@ -86,15 +89,16 @@ export const pruefeYouTubeQualitaet = ({index, scriptText, prompts, bildprompt, 
   const {woerter, ergebnis, fehler: cueFehler} = schaetzeHaltezeiten(scriptText, visuals);
   fehler.push(...cueFehler);
 
+  const maxHalten = index.qualityRules === YOUTUBE_QUALITY_RULES_V3_ID ? YOUTUBE_V3_MAX_HOLD_SECONDS : YOUTUBE_IMAGE_MAX_HOLD_SECONDS;
   for (const e of ergebnis) {
-    if ((e.type !== 'image' && e.type !== 'beleg') || e.startWort === null) continue;
+    if (!['image', 'beleg', 'folie'].includes(e.type) || e.startWort === null) continue;
     const echt = echteHaltezeiten?.get(e.id);
     if (echt != null) {
       if (echt > YOUTUBE_IMAGE_WARN_HOLD_SECONDS) fehler.push(`${e.id}: Standbild steht im fertigen Zeitplan ${echt.toFixed(1)} s ohne neue Information (max. ${YOUTUBE_IMAGE_WARN_HOLD_SECONDS} s nach echtem Audio).`);
       continue;
     }
-    if (e.laengsteHaltung > YOUTUBE_IMAGE_MAX_HOLD_SECONDS) {
-      fehler.push(`${e.id}: Standbild steht geschätzt ${e.laengsteHaltung.toFixed(1)} s ohne neue Information (max. ${YOUTUBE_IMAGE_MAX_HOLD_SECONDS} s). Zusätzliches Bild einplanen oder akzente[] mit cue setzen.`);
+    if (e.laengsteHaltung > maxHalten) {
+      fehler.push(`${e.id}: Standbild steht geschätzt ${e.laengsteHaltung.toFixed(1)} s ohne neue Information (max. ${maxHalten} s). Zusätzliches Bild einplanen oder akzente[]/Folienzeilen mit cue setzen.`);
     }
   }
 
@@ -135,7 +139,7 @@ export const pruefeYouTubeQualitaet = ({index, scriptText, prompts, bildprompt, 
   }
 
   if (YOUTUBE_BINDUNG_RULES_IDS.includes(index.qualityRules)) fehler.push(...pruefeBindungV2({index, scriptText, ergebnis, woerter, ersterInhalt, bildprompt}));
-  if (index.qualityRules === YOUTUBE_QUALITY_RULES_V3_ID) fehler.push(...pruefeBelegeV3({visuals, woerter}));
+  if (index.qualityRules === YOUTUBE_QUALITY_RULES_V3_ID) fehler.push(...pruefeBelegeV3({visuals, woerter}), ...pruefeBildmixV3({ergebnis, woerter}));
 
   return {fehler, haltezeiten: ergebnis, wortzahl: woerter.length};
 };
@@ -187,12 +191,16 @@ export const pruefeBindungV2 = ({index, scriptText, ergebnis, woerter, ersterInh
       for (const m of v.markierungen ?? []) {
         if (typeof m?.cue === 'string' && m.cue.trim() && !kommtVor(m.cue, abschnitt)) fehler.push(`${v.id}: Markierungs-cue „${m.cue}“ fällt nicht in seinem Sprechabschnitt — Beleg und Satz passen nicht zusammen.`);
       }
+    } else if (v.type === 'folie') {
+      for (const cue of folieCues(v.folie)) {
+        if (!kommtVor(cue, abschnitt)) fehler.push(`${v.id}: Folien-cue „${cue}“ fällt nicht in seinem Sprechabschnitt — Folie und Satz passen nicht zusammen.`);
+      }
     } else if (v.type === 'image' || v.type === 'hybrid') {
       if (typeof v.keyword !== 'string' || !v.keyword.trim()) fehler.push(`${v.id}: keyword fehlt (welches gesprochene Wort zeigt dieses Bild?).`);
       else if (!kommtVor(v.keyword, abschnitt)) fehler.push(`${v.id}: keyword „${v.keyword}“ fällt nicht in seinem Sprechabschnitt — Bild und Satz passen nicht zusammen.`);
     } else {
-      const nachbarn = [visuals[k - 1], visuals[k + 1]].filter((n) => n && (n.type === 'image' || n.type === 'hybrid' || n.type === 'beleg'));
-      const text = (n) => [n.expectedVisual, ...(n.objectLabels ?? []), ...(n.markierungen ?? []).map((m) => m.text)].join(' ');
+      const nachbarn = [visuals[k - 1], visuals[k + 1]].filter((n) => n && ['image', 'hybrid', 'beleg', 'folie'].includes(n.type));
+      const text = (n) => [n.expectedVisual, ...(n.objectLabels ?? []), ...(n.markierungen ?? []).map((m) => m.text), n.folie?.titel, n.folie?.zahl?.wert, n.folie?.zahl?.label, ...(n.folie?.zeilen ?? []).map((z) => z.text)].filter(Boolean).join(' ');
       if (typeof v.bridgeObject !== 'string' || !v.bridgeObject.trim()) fehler.push(`${v.id}: bridgeObject fehlt (welches Objekt aus dem Nachbarbild trägt die Animation weiter?).`);
       else if (!nachbarn.some((n) => kommtVor(v.bridgeObject, skriptWoerter(text(n))))) fehler.push(`${v.id}: bridgeObject „${v.bridgeObject}“ kommt im Bild davor/danach nicht vor.`);
     }
@@ -218,4 +226,23 @@ export const pruefeBelegeV3 = ({visuals, woerter}) => {
     if (ersterBeleg > kapitelEnde) fehler.push(`Erster Beleg kommt erst nach Kapitel „${erstesInhaltsKapitel}“ — Glaubwürdigkeit früh zeigen: spätestens dort einen Beleg einplanen.`);
   }
   return fehler;
+};
+
+/**
+ * V3 — Bildmix (Finanzbär-Analyse, 30.10.2026): Erfolgreiche Finanzvideos bestehen überwiegend aus
+ * Folien, Zahlen und Belegen; Illustrationen sind die Würze. Gezeichnete Flow-Bilder tragen höchstens
+ * 40 % der Sprechzeit (geschätzt aus dem Skript).
+ */
+export const pruefeBildmixV3 = ({ergebnis, woerter}) => {
+  const starts = ergebnis.map((e) => e.startWort);
+  let bildWoerter = 0;
+  ergebnis.forEach((e, k) => {
+    if (e.startWort === null || e.type !== 'image') return;
+    const ende = starts.slice(k + 1).find((s) => s !== null) ?? woerter.length;
+    bildWoerter += ende - e.startWort;
+  });
+  const anteil = woerter.length ? bildWoerter / woerter.length : 0;
+  return anteil > YOUTUBE_V3_MAX_BILD_ANTEIL
+    ? [`Gezeichnete Bilder tragen ${Math.round(anteil * 100)} % der Sprechzeit (max. ${Math.round(YOUTUBE_V3_MAX_BILD_ANTEIL * 100)} %). Zahlen, Aufzählungen und Regeln als folie, Quellen als beleg zeigen (docs/YOUTUBE-BILDMIX-UND-COVER.md).`]
+    : [];
 };

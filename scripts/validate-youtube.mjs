@@ -33,10 +33,13 @@ import {
   EXPORT_DIR,
   SCRIPT_FILE,
   YOUTUBE_QUALITY_RULES_IDS,
+  YOUTUBE_QUALITY_RULES_V3_ID,
   internWurzel,
 } from './lib/youtube-contract.mjs';
 import {pruefeYouTubeQualitaet} from './lib/youtube-quality.mjs';
 import {pruefeBelegPlan} from './lib/youtube-beleg.mjs';
+import {pruefeFoliePlan} from './lib/youtube-folie.mjs';
+import {pruefeCover} from './lib/youtube-cover.mjs';
 import {
   requiresYouTubeImage,
   requiresYouTubeMotion,
@@ -183,11 +186,15 @@ if (index) {
       assert(typeof visual.planFile === 'string' && visual.planFile.endsWith('/beleg.md') && existsSync(resolve(root, visual.planFile)), `${id}: beleg.md fehlt.`);
     }
 
+    if (visual?.type === 'folie') errors.push(...pruefeFoliePlan(visual));
+
     if (visual?.type === 'data') {
       assert(typeof visual.dataNotesFile === 'string' && existsSync(resolve(root, visual.dataNotesFile ?? '')), `${id}: data-notes.md fehlt.`);
     }
   }
   errors.push(...validateYouTubeMotionVariety(index.visuals ?? []));
+  // Cover V1 (Regel V3): fester Thumbnail-Text statt Flow-Text.
+  if (index.qualityRules === YOUTUBE_QUALITY_RULES_V3_ID) errors.push(...pruefeCover(index.thumbnail?.cover));
 
   // Qualitätsregeln (finanzneo-youtube-quality-v1): Haltezeit, Hook, Kommentarfrage, Stilvorlage.
   if (YOUTUBE_QUALITY_RULES_IDS.includes(index.qualityRules)) {
@@ -198,7 +205,7 @@ if (index) {
       let echteHaltezeiten = null;
       try {
         const zeitplan = JSON.parse(read('06-projektdateien/timeline.json'));
-        const bilder = (zeitplan.visuals ?? []).filter((v) => v.type === 'image' || v.type === 'beleg');
+        const bilder = (zeitplan.visuals ?? []).filter((v) => ['image', 'beleg', 'folie'].includes(v.type));
         if (bilder.length && bilder.every((v) => Number(v.durationFrames) > 0)) {
           const fps = Number(zeitplan.fps) || 30;
           echteHaltezeiten = new Map(bilder.map((v) => {

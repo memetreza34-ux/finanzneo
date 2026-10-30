@@ -15,6 +15,7 @@ import {
 } from './youtube-contract.mjs';
 import {requiresYouTubeImage, requiresYouTubeMotion, validateYouTubeMotionMetadata, validateYouTubeMotionVariety} from './youtube-motion-contract.mjs';
 import {pruefeBelegAufnahme, pruefeBelegPlan} from './youtube-beleg.mjs';
+import {pruefeFoliePlan} from './youtube-folie.mjs';
 
 export const AUDIO_EXTENSIONS = new Set(['.mp3', '.wav', '.aiff', '.aif', '.m4a']);
 export const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif']);
@@ -161,6 +162,8 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
       if (daten && !(typeof visual.belegFile === 'string' && existsSync(resolve(root, visual.belegFile)))) daten = null;
       for (const error of pruefeBelegAufnahme(visual, daten)) phase1Blockers.push(error);
     }
+
+    if (visual?.type === 'folie') for (const error of pruefeFoliePlan(visual)) phase1Blockers.push(`${VISUAL_INDEX}: ${error}`);
 
     if (requiresYouTubeMotion(visual)) {
       for (const error of validateYouTubeMotionMetadata(visual)) phase1Blockers.push(`${VISUAL_INDEX}: ${error}`);

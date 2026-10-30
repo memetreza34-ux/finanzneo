@@ -22,6 +22,7 @@ import {basename, relative, resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {ACTIVE_WORD_COLOR, AUDIO_INBOX, IMAGE_INBOX, INTERN_DIR, SCRIPT_FILE, SUBTITLE_MODE, YOUTUBE_ENDCARD_SECONDS, YOUTUBE_IMAGE_WARN_HOLD_SECONDS, YOUTUBE_QUALITY_RULES_IDS, internWurzel} from './lib/youtube-contract.mjs';
 import {verbindeAudioTeile} from './youtube-audio-teile.mjs';
+import {folieCues} from './lib/youtube-folie.mjs';
 
 const args = process.argv.slice(2);
 const wert = (name) => {
@@ -196,15 +197,16 @@ for (const v of index.visuals) {
     akzentCursor = b;
     return {ab: Math.max(0, Math.round(skriptWoerter[b].start * fps) - start), text: a.text, ton: a.ton ?? 'neutral'};
   }).filter(Boolean);
-  // Beleg-Markierungen: Kamera und Textmarker beim gesprochenen Wort.
+  // Beleg-Markierungen und Folienzeilen: erscheinen beim gesprochenen Wort.
   let markenCursor = i;
-  const marken = (v.type === 'beleg' ? v.markierungen ?? [] : []).map((m) => {
-    const b = finde(m.cue, markenCursor);
-    if (b < 0) {fehler.push(`${v.id}: Markierungs-Cue „${m.cue}“ nicht gefunden.`); return 0;}
+  const markenCues = v.type === 'beleg' ? (v.markierungen ?? []).map((m) => m.cue) : v.type === 'folie' ? folieCues(v.folie) : [];
+  const marken = markenCues.map((cue) => {
+    const b = finde(cue, markenCursor);
+    if (b < 0) {fehler.push(`${v.id}: Cue „${cue}“ nicht gefunden.`); return 0;}
     markenCursor = b;
     return Math.max(0, Math.round(skriptWoerter[b].start * fps) - start);
   });
-  visuals.push({id: v.id, type: v.type, startFrame: start, beats, akzente, ...(v.type === 'beleg' ? {marken, belegQuelle: v} : {}), googleFlowFileName: v.googleFlowFileName});
+  visuals.push({id: v.id, type: v.type, startFrame: start, beats, akzente, ...(v.type === 'beleg' ? {marken, belegQuelle: v} : {}), ...(v.type === 'folie' ? {marken, folie: v.folie} : {}), googleFlowFileName: v.googleFlowFileName});
 }
 const sprechEnde = Math.ceil((dauerSek + 0.8) * fps);
 visuals.forEach((v, k) => {
@@ -215,7 +217,7 @@ visuals.forEach((v, k) => {
 const qualitaet = YOUTUBE_QUALITY_RULES_IDS.includes(index.qualityRules);
 if (qualitaet) visuals.push({id: 'endkarte', type: 'endkarte', startFrame: sprechEnde, durationFrames: YOUTUBE_ENDCARD_SECONDS * fps, beats: [], akzente: []});
 const gesamt = qualitaet ? sprechEnde + YOUTUBE_ENDCARD_SECONDS * fps : sprechEnde;
-const langeBilder = visuals.filter((v) => v.type === 'image' || v.type === 'beleg').map((v) => {
+const langeBilder = visuals.filter((v) => ['image', 'beleg', 'folie'].includes(v.type)).map((v) => {
   const marken = [0, ...v.akzente.map((a) => a.ab), ...(v.marken ?? []), v.durationFrames].sort((a, b) => a - b);
   return {id: v.id, sek: Math.max(...marken.slice(1).map((m, k) => m - marken[k])) / fps};
 }).filter((x) => x.sek > YOUTUBE_IMAGE_WARN_HOLD_SECONDS);

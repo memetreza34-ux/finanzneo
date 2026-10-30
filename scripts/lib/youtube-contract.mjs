@@ -130,6 +130,10 @@ export const YOUTUBE_HOOK_ANNOUNCEMENT_PATTERN = /\b(?:in diesem video|heute (?:
 export const YOUTUBE_SPEECH_WPM = 142;
 /** Ein Standbild ohne neue sichtbare Information höchstens so lange (geschätzt aus dem Skript). */
 export const YOUTUBE_IMAGE_MAX_HOLD_SECONDS = 8;
+/** V3 (Bildmix nach Finanzbär-Analyse): schnellere Wechsel — höchstens 6 s ohne neue Information. */
+export const YOUTUBE_V3_MAX_HOLD_SECONDS = 6;
+/** V3: gezeichnete Flow-Bilder höchstens 40 % der Sprechzeit; den Rest tragen Folien, Belege und Daten. */
+export const YOUTUBE_V3_MAX_BILD_ANTEIL = 0.4;
 /** Nach echtem Audio: ab hier warnt der Zusammenbau. */
 export const YOUTUBE_IMAGE_WARN_HOLD_SECONDS = 10;
 /** Hook: bis zum ersten inhaltlichen Kapitel höchstens so lange. */

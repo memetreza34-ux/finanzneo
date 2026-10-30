@@ -41,6 +41,7 @@
     "youtube:zusammenbau": "node scripts/youtube-zusammenbau.mjs",
     "youtube:render": "node scripts/youtube-render.mjs",
     "youtube:belege": "node scripts/youtube-belege.mjs",
+    "youtube:cover": "node scripts/youtube-cover.mjs",
     "protect:install": "node scripts/install-git-guards.mjs",
     "protect:check-staged": "node scripts/check-staged-protected-files.mjs",
     "antigravity:safety": "node scripts/antigravity-repo-safety-check.mjs",

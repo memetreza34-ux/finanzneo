@@ -54,6 +54,7 @@ Erlaubte Visualtypen:
 - `hybrid`
 - `data`
 - `beleg` — echter Quellen-Screenshot mit Textmarker ([Beleg-Szenen](../docs/YOUTUBE-BELEG-SZENEN.md))
+- `folie` — Erklär-Folie aus fester Vorlage ([Bildmix und Cover](../docs/YOUTUBE-BILDMIX-UND-COVER.md))
 
 ## Visual Selection V1
 
@@ -240,6 +241,11 @@ Aus Armans Feedback nach Video 3: „nicht nur KI-Bilder, sondern auch richtige 
 | Mindestens **3 Belege** pro Video, einer je volle 90 s Sprechzeit | Glaubwürdigkeit zieht sich durch das ganze Video | `youtube:validate` |
 | Erster Beleg spätestens im **ersten Kapitel nach dem Hook** | Vertrauen früh aufbauen | `youtube:validate` |
 | Presse nur als kurzer Ausschnitt (max. 700 Zeichen), Quelle immer sichtbar | Zitatrecht, Fairness | `youtube:belege` + `youtube:ready` |
+| **Bildmix:** gezeichnete Flow-Bilder höchstens 40 % der Sprechzeit; Zahlen/Aufzählungen als **`folie`** | Finanzbär-Analyse: Erfolgreiche Finanzvideos sind überwiegend Folien, Zahlen, Belege | `youtube:validate` |
+| Höchstens **6 s** ohne neue Information (vorher 8 s) | schnellere Wechsel halten die Zuschauer | `youtube:validate` |
+| **Cover V1:** Flow zeichnet nur das Motiv rechts ohne Text; `youtube:cover` setzt max. 5 Wörter mit gelbem Marker | Flow erfindet Text; feste Vorlage = Wiedererkennung im Feed | `youtube:validate` + `youtube:cover` |
+
+Details zu Folien und Cover: [`docs/YOUTUBE-BILDMIX-UND-COVER.md`](../docs/YOUTUBE-BILDMIX-UND-COVER.md).
 
 ## Vollständiges Publishing-Paket
 

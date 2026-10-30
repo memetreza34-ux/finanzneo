@@ -8,6 +8,8 @@
 // name, expected, prompt, labels, ref?, change?, akzente?}. Motion-Visuals: {type:'animation'|'data',
 // chapter, cue, beat, bridgeObject, brief}. Beleg-Visuals (echter Quellen-Screenshot, docs/YOUTUBE-BELEG-SZENEN.md):
 // {type:'beleg', chapter, cue, beat, quelle, quellenArt, url, markierungen:[{text, cue}], entfernen?}.
+// Erklär-Folien (docs/YOUTUBE-BILDMIX-UND-COVER.md): {type:'folie', chapter, cue, beat, folie:{titel?, zeilen:[{text, cue, betont?}]}}
+// oder folie:{titel?, zahl:{wert, label, cue}}. Cover: thumbnail.cover = {zeilen:[..], marker, ton?, kicker?}.
 // keyword/bridgeObject prüft youtube:validate (Qualitätsregeln V2), Belege V3.
 //
 // Schreibt Visual-Index, alle Einzel-Bildprompts, die Flow-Übergabe (Batch 1 = nur Thumbnail
@@ -90,6 +92,11 @@ const blocks = new Map();
 index.title = title;
 if (story) index.story = story;
 index.thumbnail.googleFlowFileName = thumbnail.file;
+// Cover V1: Flow zeichnet nur das Motiv rechts, den Text setzt youtube:cover exakt.
+if (thumbnail.cover) index.thumbnail.cover = thumbnail.cover;
+const coverMotiv = thumbnail.cover
+  ? `\nCOVER LAYOUT (FinanzNeo Cover V1): NO TEXT, NO LETTERS, NO NUMBERS anywhere in this image — the headline is added later. Put the main subject large and close in the RIGHT 45 % of the frame with a clear facial expression or one strong object. Keep the LEFT 55 % completely empty plain warm cream background without objects, lines or shadows.\n`
+  : '';
 const thumbBlock = `${flowStep(thumbnail.file)}
 ${kanalStil ? styleReference : ''}${story?.protagonist && story.figurBild === 'Thumbnail' ? `The person in this thumbnail is ${story.protagonist}, the protagonist of the video. This thumbnail becomes the character reference for every image that shows ${story.protagonist}.\n` : ''}
 REFERENCE_IMAGE:
@@ -97,7 +104,7 @@ NONE
 
 THUMBNAIL PROMPT:
 Soft hand-drawn 2D editorial illustration, not a photo. ${thumbnail.prompt}
-
+${coverMotiv}
 TEXT IN THIS IMAGE: Only the exact words and numbers written in quotes in the prompt may appear in the image. Never invent extra prices, numbers, brand names, headlines or captions.
 
 ${kanalStil ? '' : 'This thumbnail is the STYLE MASTER of the whole video: every later image attaches it as a style reference.'}
@@ -142,6 +149,7 @@ ${styleBlock}`;
       ...(v.akzente ? {akzente: v.akzente} : {}),
     };
   }
+  if (v.type === 'folie') return {...base, startCue: v.cue, folie: v.folie};
   if (v.type === 'beleg') {
     write(`${dir}/beleg.md`, `# Beleg ${id}\n\nBELEG_STANDARD: ${YOUTUBE_BELEG_STANDARD_ID}\n\n- Kapitel: ${v.chapter}\n- Sprechtext-Bezug: ${v.beat}\n- Quelle: ${v.quelle} (${v.quellenArt})\n- URL: ${v.url}\n${(v.markierungen ?? []).map((m) => `- Markierung bei „${m.cue}“: „${m.text}“`).join('\n')}\n\nScreenshot und Textpositionen erzeugt \`npm run youtube:belege -- youtube/<Projekt>\` (${YOUTUBE_BELEG_BILD}, ${YOUTUBE_BELEG_DATEN}).\n`);
     return {
@@ -208,10 +216,11 @@ for (const members of batches) {
       : `${line}\nVISUAL ${nr(m)} — IMAGE\n${line}\n\n${blocks.get(m)}\n`;
   }
 }
-const motion = visuals.map((v, i) => (v.type === 'image' || v.type === 'beleg' ? null : nr(i + 1))).filter(Boolean);
+const motion = visuals.map((v, i) => (['image', 'beleg', 'folie'].includes(v.type) ? null : nr(i + 1))).filter(Boolean);
+const folien = visuals.map((v, i) => (v.type === 'folie' ? nr(i + 1) : null)).filter(Boolean);
 const belege = visuals.map((v, i) => (v.type === 'beleg' ? nr(i + 1) : null)).filter(Boolean);
 const reserviert = visuals.map((v, i) => (v.type === 'image' ? null : nr(i + 1))).filter(Boolean);
-body += `${line}\nRESERVED NUMBERS — REMOTION, NOT FLOW\n${line}\n\nDO NOT GENERATE IMAGES ${reserviert.join(', ')}. These numbers are built in Remotion (animations and real source screenshots). Keep the numbers reserved; never close the numbering gap.\n\n`;
+body += `${line}\nRESERVED NUMBERS — REMOTION, NOT FLOW\n${line}\n\nDO NOT GENERATE IMAGES ${reserviert.join(', ')}. These numbers are built in Remotion (animations, explainer slides and real source screenshots). Keep the numbers reserved; never close the numbering gap.\n\n`;
 
 const inbox = IMAGE_INBOX.replace(/^\.\.\//, '');
 write(ALL_PROMPTS, `FINANZNEO — SINGLE HANDOFF FILE FOR THE GOOGLE FLOW AI AGENT
@@ -245,4 +254,4 @@ tl.title = title;
 tl.visuals = index.visuals.map((v) => ({id: v.id, type: v.type, startFrame: 0, durationFrames: 0}));
 write('06-projektdateien/timeline.json', `${JSON.stringify(tl, null, 2)}\n`);
 write(VISUAL_INDEX, `${JSON.stringify(index, null, 2)}\n`);
-console.log(`✓ Plan angewendet: ${visuals.length} Visuals · ${blocks.size} Bilder + Thumbnail in ${batchNr} Batches · Motion: ${motion.join(', ') || '—'} · Belege: ${belege.join(', ') || '—'}`);
+console.log(`✓ Plan angewendet: ${visuals.length} Visuals · ${blocks.size} Bilder + Thumbnail in ${batchNr} Batches · Motion: ${motion.join(', ') || '—'} · Belege: ${belege.join(', ') || '—'} · Folien: ${folien.join(', ') || '—'}`);

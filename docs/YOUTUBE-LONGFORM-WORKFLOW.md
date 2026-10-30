@@ -13,13 +13,13 @@ ChatGPT erstellt im YouTube-Projektordner ohne offene Platzhalter:
 - Hook, Kapitel-Dramaturgie und Retention-Plan
 - vollständiges deutsches Voiceover-Skript
 - gesprochene Gedanken und sichtbare Visual Beats
-- danach die beste Visualart je Beat: `image`, `animation`, `hybrid`, `data` oder `beleg` (echter Quellen-Screenshot, `docs/YOUTUBE-BELEG-SZENEN.md`)
+- danach die beste Visualart je Beat: `image`, `animation`, `hybrid`, `data`, `beleg` (echter Quellen-Screenshot, `docs/YOUTUBE-BELEG-SZENEN.md`) oder `folie` (Erklär-Folie, `docs/YOUTUBE-BILDMIX-UND-COVER.md`)
 - für jedes Beleg-Visual den Screenshot mit `npm run youtube:belege -- youtube/<Projekt>`
 - Visual-Plan ohne feste Visualzahl und ohne feste Bild-/Animationsquote
 - alle Google-Flow-Bildprompts in Englisch und mit exakten Dateinamen
 - für jedes Motion-Visual produktionsreife `animation.tsx`
 - pro Motion-Visual `viewerChange`, `animationIntent`, `mechanicId`, `visualTechniqueId`, `techniqueDescription`, freien `compositionFamilyId`, `toolStack`, `motionSignature`, Motion Channels und Visual Beats
-- Thumbnail-Prompt und Thumbnail-Brief
+- Thumbnail-Prompt (Motiv rechts, ohne Text) und `thumbnail.cover` mit dem exakten Cover-Text
 - Titelvarianten, finalen Titel, Beschreibung, Kapitel, Keywords, Hashtags
 - Quellen-/Disclaimer-Text, angehefteten Kommentar, Community-Post und Upload-Checkliste
 - Promo-Texte für Instagram, TikTok, Facebook und Snapchat

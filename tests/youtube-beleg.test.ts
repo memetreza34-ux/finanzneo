@@ -61,12 +61,12 @@ test('Qualitätsregel V3: genug Belege, der erste früh, Markierungs-Cue im eige
   assert.equal(youtubeBelegSoll(120), 3);
   assert.equal(youtubeBelegSoll(600), 6);
   const skript = [
-    'Jonas spart jeden Monat', woerter(10),
-    'Der Bundestag hat das Gesetz beschlossen', woerter(10),
-    'Geplant waren sogar eineinhalb Prozent', woerter(10),
-    'Schreib es mir in die Kommentare', woerter(10),
-    'Das Finanzamt prüft die Steuer', woerter(10),
-    'Am Ende zählt der Vergleich', woerter(10),
+    'Jonas spart jeden Monat', woerter(7),
+    'Der Bundestag hat das Gesetz beschlossen', woerter(7),
+    'Geplant waren sogar eineinhalb Prozent', woerter(7),
+    'Schreib es mir in die Kommentare', woerter(7),
+    'Das Finanzamt prüft die Steuer', woerter(7),
+    'Am Ende zählt der Vergleich', woerter(7),
   ].join(' ');
   const visuals = [
     {id: 'visual-01', type: 'image', chapter: 'Hook', startCue: 'Jonas spart', keyword: 'Monat', expectedVisual: 'Jonas', objectLabels: ['Sparschwein']},
@@ -74,15 +74,15 @@ test('Qualitätsregel V3: genug Belege, der erste früh, Markierungs-Cue im eige
     {...beleg({id: 'visual-03'}), chapter: 'Kosten', startCue: 'Geplant waren'},
     {id: 'visual-04', type: 'image', chapter: 'Kosten', startCue: 'Schreib es mir', keyword: 'Kommentare', expectedVisual: 'Sprechblase', objectLabels: ['Sprechblase']},
     {...beleg({id: 'visual-05', markierungen: [{text: 'Günstigerprüfung', cue: 'Finanzamt'}]}), chapter: 'Steuer', startCue: 'Das Finanzamt prüft'},
-    {id: 'visual-06', type: 'image', chapter: 'Fazit', startCue: 'Am Ende zählt', keyword: 'Vergleich', expectedVisual: 'Waage', objectLabels: ['Waage']},
+    {id: 'visual-06', type: 'folie', chapter: 'Fazit', startCue: 'Am Ende zählt', folie: {zeilen: [{text: 'Anbieter vergleichen', cue: 'Vergleich'}]}},
   ];
   const index = (vs: unknown[]) => ({qualityRules: 'finanzneo-youtube-quality-v3', story: {protagonist: 'Jonas', reason: 'x'}, thumbnail: {googleFlowFileName: 'T.png'}, imageWorld: {}, visuals: vs});
   const pruefe = (vs: unknown[]) => (pruefeYouTubeQualitaet({index: index(vs), scriptText: skript, prompts: '', bildprompt: () => ''}).fehler as string[]).filter((f) => !f.includes('Kommentarfrage'));
 
   assert.deepEqual(pruefe(visuals), []);
-  const zuWenig = visuals.map((v) => (v.id === 'visual-05' ? {...v, type: 'image', keyword: 'Finanzamt', expectedVisual: 'Finanzamt', objectLabels: ['Finanzamt']} : v));
+  const zuWenig = visuals.map((v) => (v.id === 'visual-05' ? {...v, type: 'folie', folie: {zeilen: [{text: 'Steuer', cue: 'Finanzamt'}]}} : v));
   assert.ok(pruefe(zuWenig).some((f) => f.startsWith('Nur 2 Beleg-Szene(n)')));
-  const spaet = visuals.map((v) => (v.id === 'visual-02' ? {...v, type: 'image', keyword: 'Bundestag', expectedVisual: 'Bundestag', objectLabels: ['Bundestag']} : v));
+  const spaet = visuals.map((v) => (v.id === 'visual-02' ? {...v, type: 'folie', folie: {zeilen: [{text: 'Gesetz', cue: 'Gesetz'}]}} : v));
   assert.ok(pruefe(spaet).some((f) => f.startsWith('Erster Beleg kommt erst nach Kapitel')));
   const falscherCue = visuals.map((v) => (v.id === 'visual-03' ? {...v, markierungen: [{text: 'x', cue: 'Finanzamt'}]} : v));
   assert.ok(pruefe(falscherCue).some((f) => f.startsWith('visual-03: Markierungs-cue „Finanzamt“')));

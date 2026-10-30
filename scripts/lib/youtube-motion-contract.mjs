@@ -2,8 +2,9 @@ export const YOUTUBE_MOTION_STANDARD_ID = 'finanzneo-youtube-motion-v3';
 export const YOUTUBE_EDITORIAL_MOTION_WORLD_ID = 'finanzneo-youtube-light-motion-v2';
 export const YOUTUBE_EDITORIAL_VISUAL_TARGET_ID = 'finanzneo-youtube-light-motion-v2';
 
-// beleg = echter Quellen-Screenshot mit Textmarker (docs/YOUTUBE-BELEG-SZENEN.md); weder Flow noch Motion-Seal.
-export const YOUTUBE_VISUAL_TYPES = ['image', 'animation', 'hybrid', 'data', 'beleg'];
+// beleg = echter Quellen-Screenshot mit Textmarker (docs/YOUTUBE-BELEG-SZENEN.md), folie = Erklär-Folie
+// aus fester Vorlage (docs/YOUTUBE-BILDMIX-UND-COVER.md); beide weder Flow noch Motion-Seal.
+export const YOUTUBE_VISUAL_TYPES = ['image', 'animation', 'hybrid', 'data', 'beleg', 'folie'];
 export const YOUTUBE_MOTION_VISUAL_TYPES = new Set(['animation', 'hybrid', 'data']);
 export const YOUTUBE_IMAGE_VISUAL_TYPES = new Set(['image', 'hybrid']);
 
