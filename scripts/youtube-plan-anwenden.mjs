@@ -8,8 +8,8 @@
 // name, expected, prompt, labels, ref?, change?, akzente?}. Motion-Visuals: {type:'animation'|'data',
 // chapter, cue, beat, bridgeObject, brief}. Beleg-Visuals (echter Quellen-Screenshot, docs/YOUTUBE-BELEG-SZENEN.md):
 // {type:'beleg', chapter, cue, beat, quelle, quellenArt, url, markierungen:[{text, cue}], entfernen?}.
-// Erklär-Folien (docs/YOUTUBE-BILDMIX-UND-COVER.md): {type:'folie', chapter, cue, beat, folie:{titel?, zeilen:[{text, cue, betont?}]}}
-// oder folie:{titel?, zahl:{wert, label, cue}}. Cover: thumbnail.cover = {zeilen:[..], marker, ton?, kicker?}.
+// Erklär-Folien (docs/YOUTUBE-BILDMIX-UND-COVER.md): {type:'folie', chapter, cue, beat, folie:{titel?, icon?, <eine Form>}}
+// Formen: begriff · ablauf · vergleich · zahl · zeilen; Icons aus `npm run youtube:icons -- --liste`. Cover: thumbnail.cover = {zeilen:[..], marker, ton?, kicker?}.
 // keyword/bridgeObject prüft youtube:validate (Qualitätsregeln V2), Belege V3.
 //
 // Schreibt Visual-Index, alle Einzel-Bildprompts, die Flow-Übergabe (Batch 1 = nur Thumbnail

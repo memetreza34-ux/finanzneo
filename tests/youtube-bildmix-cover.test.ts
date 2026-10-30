@@ -3,7 +3,11 @@ import test from 'node:test';
 // @ts-expect-error -- plain ESM module without types
 import {pruefeYouTubeQualitaet} from '../scripts/lib/youtube-quality.mjs';
 // @ts-expect-error -- plain ESM module without types
-import {folieCues, pruefeFoliePlan} from '../scripts/lib/youtube-folie.mjs';
+import {folieCues, folieIcons, folieText, pruefeFoliePlan} from '../scripts/lib/youtube-folie.mjs';
+// @ts-expect-error -- plain ESM module without types
+import {YOUTUBE_ICONS, youtubeIconDatei} from '../scripts/lib/youtube-icons.mjs';
+import {existsSync} from 'node:fs';
+import {resolve} from 'node:path';
 // @ts-expect-error -- plain ESM module without types
 import {coverHtml, pruefeCover} from '../scripts/lib/youtube-cover.mjs';
 
@@ -19,6 +23,24 @@ test('Folie: Liste mit Cue je Zeile oder eine große Zahl, kurz und mit betontem
   assert.ok(pruefeFoliePlan({id: 'v', folie: {zeilen: [{text: 'a'}]}}).some((f: string) => f.includes('cue fehlt')));
   assert.ok(pruefeFoliePlan({id: 'v', folie: {zeilen: Array.from({length: 6}, () => ({text: 'a', cue: 'a'}))}}).some((f: string) => f.includes('1–5')));
   assert.deepEqual(folieCues({zeilen: [{text: 'a', cue: 'eins'}, {text: 'b', cue: 'zwei'}]}), ['eins', 'zwei']);
+});
+
+test('Folie V2: Icon-Formen begriff, ablauf, vergleich; Icons nur aus dem Katalog, genau eine Form', () => {
+  const begriff = {icon: 'behoerde', begriff: {text: 'Staatlich gefördertes Depot', cue: 'gefördert', betont: 'gefördertes'}};
+  const ablauf = {ablauf: {von: {icon: 'chart_hoch', text: 'Ansparphase', cue: 'sparst'}, nach: {icon: 'seniorin', text: 'Rente', cue: 'Rente'}, punkte: [{text: 'Förderung', cue: 'Förderung'}]}};
+  const vergleich = {vergleich: [{icon: 'computer', oben: 'Selbstverwaltetes', text: 'Depot', cue: 'selbst'}, {icon: 'bank', oben: 'Standard-', text: 'Depot', hinweis: 'max. 1 % Kosten', cue: 'Standard'}]};
+  for (const folie of [begriff, ablauf, vergleich, {icon: 'geldsack', zahl: {wert: '+300 €', label: 'pro Kind', cue: 'Kind', ton: 'gruen'}}]) {
+    assert.deepEqual(pruefeFoliePlan({id: 'v', folie}), []);
+  }
+  assert.deepEqual(folieCues(ablauf), ['sparst', 'Rente', 'Förderung']);
+  assert.deepEqual(folieIcons(vergleich), ['computer', 'bank']);
+  assert.ok(folieText(begriff).includes('Staatlich'));
+  assert.ok(pruefeFoliePlan({id: 'v', folie: {...begriff, icon: 'sparschwein'}}).some((f: string) => f.includes('nicht im Icon-Katalog')));
+  assert.ok(pruefeFoliePlan({id: 'v', folie: {begriff: begriff.begriff}}).some((f: string) => f.includes('Pflicht')));
+  assert.ok(pruefeFoliePlan({id: 'v', folie: {...begriff, ...vergleich}}).some((f: string) => f.includes('genau eine Form')));
+  assert.ok(pruefeFoliePlan({id: 'v', folie: {vergleich: vergleich.vergleich.slice(0, 1)}}).some((f: string) => f.includes('2–3')));
+  // Jedes Katalog-Icon liegt als PNG im Repo.
+  for (const name of Object.keys(YOUTUBE_ICONS)) assert.ok(existsSync(resolve(import.meta.dirname, '..', 'public', youtubeIconDatei(name))), `Icon ${name} fehlt`);
 });
 
 test('Cover V1: höchstens 5 Wörter, kurze Zeilen, Marker aus dem Text; HTML enthält den exakten Text', () => {

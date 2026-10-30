@@ -12,45 +12,75 @@ Analyse am 30.10.2026: Finanzbär (215.000 Abos) zeigt im Video kaum aufwendige 
 
 Das Bild wechselt alle 5–10 Sekunden. Seine Thumbnails sind eine feste Marke: dunkler Grund, 2–4 riesige Wörter, eine Zahl, ein Objekt.
 
-Unsere ersten Videos bestanden fast nur aus gezeichneten Bildern. Das sieht schön aus, wirkt aber weich und wenig belegt.
+Unsere ersten Videos bestanden fast nur aus gezeichneten Bildern. Das sieht schön aus, wirkt aber weich und wenig belegt — und gefällt Arman nicht.
+
+## Bildwelt: weiße Folien mit 3D-Icons (Arman 30.10.2026)
+
+Armans Entscheidung nach der Demo: Die gezeichneten Flow-Bilder gefallen nicht als Hauptbildwelt. YouTube-Videos sehen ab jetzt aus wie Finanzbär im Prinzip:
+
+- **weißer Hintergrund**, wenig Text, eine große Zahl oder ein Begriff
+- daneben **ein farbiges 3D-Icon** aus dem festen Katalog (`scripts/lib/youtube-icons.mjs`, Microsoft Fluent Emoji 3D, MIT-Lizenz)
+- **Belege** (echte Screenshots mit Marker) für Gesetze, Zahlen, Anbieter, Presse
+- Flow-Bilder nur noch selten: Hook-Szene, Gefühl, eine Alltagssituation, die ein Icon nicht zeigen kann
 
 ## Bildmix
 
 | Anteil (Richtwert) | Visual | Wofür |
 |---|---|---|
-| ca. 50 % | **folie** + **data/animation** | Zahlen, Aufzählungen, Regeln, Rechnungen, Vergleiche |
+| ca. 60 % | **folie** (weiß, mit Icon) + **data/animation** | Begriffe, Zahlen, Abläufe, Vergleiche, Aufzählungen, Rechnungen |
 | ca. 25 % | **beleg** (`docs/YOUTUBE-BELEG-SZENEN.md`) | Gesetz, Behörde, Statistik, Anbieter, Presse |
-| höchstens 40 % | **image** (Flow, gezeichnet) | Hook, Gefühl, Alltag, Metapher, die Figur |
+| ca. 10–15 %, höchstens 40 % | **image** (Flow) | Hook, Gefühl, Alltagsszene |
 
 Prüfungen in `youtube:validate` (Regel V3):
 
-- Gezeichnete Bilder tragen **höchstens 40 % der Sprechzeit** (geschätzt aus dem Skript).
-- Kein Bild, keine Folie und kein Beleg steht länger als **6 s** ohne neue Information (vorher 8 s). Jede Folienzeile und jede Markierung zählt als neue Information.
+- Flow-Bilder tragen **höchstens 40 % der Sprechzeit** (geschätzt aus dem Skript). Ziel sind 10–15 %.
+- Kein Bild, keine Folie und kein Beleg steht länger als **6 s** ohne neue Information. Jedes Folienteil und jede Markierung zählt als neue Information.
 - Folien-Cues fallen in ihrem eigenen Sprechabschnitt.
+- Folien-Icons stehen im Katalog und liegen als PNG in `public/icons/fluent-3d/`.
 
-## Erklär-Folie (`type: 'folie'`)
+## Erklär-Folie (`type: 'folie'`, finanzneo-youtube-folie-v2)
 
 Feste Vorlage `src/youtube-projekt/FolieVisual.tsx`:
 
-- Kanal-Creme, Text dunkel, Nummern grün
+- weißer Grund, Text dunkel, Nummern und Hinweise grün, Ziel/Rente orange
+- jedes Teil erscheint bei seinem gesprochenen Wort; Icons springen kurz auf
 - der betonte Teil bekommt den **gelben FinanzNeo-Marker**, denselben wie in Belegen und auf dem Cover
-- jede Zeile erscheint bei ihrem gesprochenen Wort
-- ältere Zeilen treten zurück, die aktuelle ist voll sichtbar
 
-Kein Flow-Bild, kein Motion-Seal.
+Kein Flow-Bild, kein Motion-Seal. Genau **eine Form** pro Folie, dazu optional `titel` und `icon`:
 
 ```js
-// Liste: 1–5 Zeilen, je höchstens 46 Zeichen
-{type: 'folie', chapter: K2, cue: 'Die Förderung hat zwei Stufen', beat: 'Zwei Förderstufen',
-  folie: {titel: 'Staatliche Förderung', zeilen: [
-    {text: 'Erste 360 € → 50 % Zulage', cue: 'Auf die ersten', betont: '50 %'},
-    {text: 'Bis 1.800 € → 25 % Zulage', cue: 'Auf alles darüber', betont: '25 %'},
-  ]}}
+// begriff — großes Icon, darunter der Begriff (icon Pflicht)
+{type: 'folie', chapter: K1, cue: 'Das Altersvorsorgedepot', beat: 'Neues gefördertes Depot',
+  folie: {icon: 'behoerde', begriff: {text: 'Staatlich gefördertes Depot', cue: 'gefördert', betont: 'gefördertes'}}}
 
-// Große Zahl
-{type: 'folie', chapter: K2, cue: 'Zusammen sind das', beat: 'Maximal 540 € pro Jahr',
-  folie: {zahl: {wert: '540 €', label: 'Zulage pro Jahr, höchstens', cue: 'fünfhundertvierzig'}}}
+// ablauf — A → B, optional bis 3 Punkte
+folie: {ablauf: {von: {icon: 'chart_hoch', text: 'Ansparphase', cue: 'sparst'},
+                 nach: {icon: 'seniorin', text: 'Rente', cue: 'Rente'},
+                 punkte: [{text: 'Förderung', cue: 'Förderung'}, {text: 'Zulagen', cue: 'Zulagen'}]}}
+
+// vergleich — 2–3 Varianten untereinander, hinweis als grüne Marke
+folie: {vergleich: [
+  {icon: 'computer', oben: 'Selbstverwaltetes', text: 'Depot', cue: 'selbst'},
+  {icon: 'bank', oben: 'Standard-', text: 'Depot', hinweis: 'max. 1 % Kosten', cue: 'Standard'}]}
+
+// zahl — große Zahl, mit Icon daneben; ton gruen/rot färbt statt Marker
+folie: {icon: 'euroschein', zahl: {wert: '540 €', label: 'Förderung pro Jahr', cue: 'fünfhundertvierzig'}}
+folie: {icon: 'kind', zahl: {wert: '+300 €', label: 'pro Kind pro Jahr', cue: 'Kind', ton: 'gruen'}}
+
+// zeilen — 1–5 nummerierte Stichpunkte, je höchstens 46 Zeichen
+folie: {titel: 'Staatliche Förderung', icon: 'geschenk', zeilen: [
+  {text: 'Erste 360 € → 50 % Zulage', cue: 'Auf die ersten', betont: '50 %'},
+  {text: 'Bis 1.800 € → 25 % Zulage', cue: 'Auf alles darüber', betont: '25 %'}]}
 ```
+
+Kurze Beschriftungen (ablauf, vergleich) höchstens 24 Zeichen.
+
+### Icons
+
+- Katalog mit Bedeutungen: `npm run youtube:icons -- --liste`
+- Neues Icon: Eintrag in `scripts/lib/youtube-icons.mjs` (Name → Fluent-Ordner, Bedeutung), dann `npm run youtube:icons`
+- Achtung: `geldsack` trägt ein **$-Zeichen** — für Euro-Beträge `euroschein` oder `muenze` nehmen. Ein Sparschwein gibt es im Set nicht.
+- Lizenz: `public/icons/fluent-3d/LICENSE` (MIT, Microsoft)
 
 ## Cover V1 (`thumbnail.cover`)
 

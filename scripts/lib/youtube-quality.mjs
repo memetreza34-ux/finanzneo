@@ -19,7 +19,7 @@ import {
   YOUTUBE_CHANNEL_STYLE_FILE,
 } from './youtube-contract.mjs';
 import {youtubeBelegSoll} from './youtube-beleg.mjs';
-import {folieCues} from './youtube-folie.mjs';
+import {folieCues, folieText} from './youtube-folie.mjs';
 
 export const normWort = (wort) =>
   wort
@@ -200,7 +200,7 @@ export const pruefeBindungV2 = ({index, scriptText, ergebnis, woerter, ersterInh
       else if (!kommtVor(v.keyword, abschnitt)) fehler.push(`${v.id}: keyword „${v.keyword}“ fällt nicht in seinem Sprechabschnitt — Bild und Satz passen nicht zusammen.`);
     } else {
       const nachbarn = [visuals[k - 1], visuals[k + 1]].filter((n) => n && ['image', 'hybrid', 'beleg', 'folie'].includes(n.type));
-      const text = (n) => [n.expectedVisual, ...(n.objectLabels ?? []), ...(n.markierungen ?? []).map((m) => m.text), n.folie?.titel, n.folie?.zahl?.wert, n.folie?.zahl?.label, ...(n.folie?.zeilen ?? []).map((z) => z.text)].filter(Boolean).join(' ');
+      const text = (n) => [n.expectedVisual, ...(n.objectLabels ?? []), ...(n.markierungen ?? []).map((m) => m.text), folieText(n.folie)].filter(Boolean).join(' ');
       if (typeof v.bridgeObject !== 'string' || !v.bridgeObject.trim()) fehler.push(`${v.id}: bridgeObject fehlt (welches Objekt aus dem Nachbarbild trägt die Animation weiter?).`);
       else if (!nachbarn.some((n) => kommtVor(v.bridgeObject, skriptWoerter(text(n))))) fehler.push(`${v.id}: bridgeObject „${v.bridgeObject}“ kommt im Bild davor/danach nicht vor.`);
     }

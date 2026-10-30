@@ -38,7 +38,8 @@ import {
 } from './lib/youtube-contract.mjs';
 import {pruefeYouTubeQualitaet} from './lib/youtube-quality.mjs';
 import {pruefeBelegPlan} from './lib/youtube-beleg.mjs';
-import {pruefeFoliePlan} from './lib/youtube-folie.mjs';
+import {folieIcons, pruefeFoliePlan} from './lib/youtube-folie.mjs';
+import {youtubeIconDatei} from './lib/youtube-icons.mjs';
 import {pruefeCover} from './lib/youtube-cover.mjs';
 import {
   requiresYouTubeImage,
@@ -186,7 +187,12 @@ if (index) {
       assert(typeof visual.planFile === 'string' && visual.planFile.endsWith('/beleg.md') && existsSync(resolve(root, visual.planFile)), `${id}: beleg.md fehlt.`);
     }
 
-    if (visual?.type === 'folie') errors.push(...pruefeFoliePlan(visual));
+    if (visual?.type === 'folie') {
+      errors.push(...pruefeFoliePlan(visual));
+      for (const icon of folieIcons(visual.folie)) {
+        assert(existsSync(resolve(import.meta.dirname, '..', 'public', youtubeIconDatei(icon))), `${id}: Icon ${icon} fehlt in public/ — npm run youtube:icons.`);
+      }
+    }
 
     if (visual?.type === 'data') {
       assert(typeof visual.dataNotesFile === 'string' && existsSync(resolve(root, visual.dataNotesFile ?? '')), `${id}: data-notes.md fehlt.`);

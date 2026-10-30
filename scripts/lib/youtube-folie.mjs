@@ -1,46 +1,116 @@
-// Erklär-Folien für YouTube-Longform (finanzneo-youtube-folie-v1, Arman 30.10.2026).
+// Erklär-Folien für YouTube-Longform (finanzneo-youtube-folie-v2, Arman 30.10.2026).
 //
 // Aus der Analyse von Finanzbär: Der Großteil eines erfolgreichen Finanzvideos sind schlichte
-// Folien — Stichpunkte, die beim gesprochenen Wort erscheinen, und große Zahlen. Bei uns auf
-// Kanal-Creme mit demselben gelben Marker wie Belege und Cover.
+// weiße Folien — wenig Text, ein farbiges 3D-Icon, große Zahlen, Pfeile, Vergleiche. Jedes Teil
+// erscheint beim gesprochenen Wort; betonte Stellen bekommen den gelben FinanzNeo-Marker.
+// Icons nur aus dem Katalog scripts/lib/youtube-icons.mjs.
 // Kanonische Regel: docs/YOUTUBE-BILDMIX-UND-COVER.md
 
-export const YOUTUBE_FOLIE_STANDARD_ID = 'finanzneo-youtube-folie-v1';
+import {istYouTubeIcon} from './youtube-icons.mjs';
+
+export const YOUTUBE_FOLIE_STANDARD_ID = 'finanzneo-youtube-folie-v2';
 export const YOUTUBE_FOLIE_MAX_ZEILEN = 5;
 export const YOUTUBE_FOLIE_MAX_ZEICHEN = 46;
 export const YOUTUBE_FOLIE_TITEL_MAX_ZEICHEN = 40;
+/** Kurze Beschriftungen neben Icons (Ablauf, Vergleich). */
+export const YOUTUBE_FOLIE_KURZ_MAX_ZEICHEN = 24;
+export const YOUTUBE_FOLIE_FORMEN = ['zeilen', 'zahl', 'begriff', 'ablauf', 'vergleich'];
 
 const text = (wert) => typeof wert === 'string' && wert.trim() && !wert.trim().startsWith('[');
 
 /**
- * Zwei Formen:
- *   liste: {titel?, zeilen: [{text, cue, betont?}]} — jede Zeile erscheint bei ihrem cue,
- *          `betont` (Teil des Texts) bekommt den gelben Marker.
- *   zahl:  {zahl: {wert, label, cue}, titel?}        — große Zahl, die beim cue einrastet.
+ * Genau eine Form pro Folie, dazu optional `titel` und `icon`:
+ *   zeilen:    [{text, cue, betont?}]                           Stichpunkte, nummeriert
+ *   zahl:      {wert, label, cue, ton?: 'gruen'|'rot'}          große Zahl (mit icon daneben)
+ *   begriff:   {text, cue, betont?}                             großes icon (Pflicht), darunter der Begriff
+ *   ablauf:    {von:{icon,text,cue}, nach:{icon,text,cue}, punkte?:[{text,cue}]}   A → B
+ *   vergleich: [{icon, text, cue, oben?, hinweis?}]             2–3 Varianten untereinander
  */
 export const pruefeFoliePlan = (visual) => {
   const id = visual?.id ?? 'Folie';
   const f = visual?.folie;
-  if (!f || typeof f !== 'object') return [`${id}: folie fehlt ({titel?, zeilen:[{text, cue, betont?}]} oder {zahl:{wert, label, cue}}).`];
+  if (!f || typeof f !== 'object') return [`${id}: folie fehlt (eine Form aus ${YOUTUBE_FOLIE_FORMEN.join(', ')}).`];
   const fehler = [];
-  if (f.titel !== undefined && (!text(f.titel) || f.titel.length > YOUTUBE_FOLIE_TITEL_MAX_ZEICHEN)) fehler.push(`${id}: folie.titel höchstens ${YOUTUBE_FOLIE_TITEL_MAX_ZEICHEN} Zeichen.`);
-  if (f.zahl) {
+  const formen = YOUTUBE_FOLIE_FORMEN.filter((form) => f[form] !== undefined);
+  if (formen.length !== 1) return [`${id}: folie braucht genau eine Form (${YOUTUBE_FOLIE_FORMEN.join(' | ')}), hat ${formen.length ? formen.join(' + ') : 'keine'}.`];
+  const form = formen[0];
+
+  const icon = (wert, wo) => {
+    if (!text(wert)) fehler.push(`${id}: ${wo} fehlt.`);
+    else if (!istYouTubeIcon(wert)) fehler.push(`${id}: ${wo} „${wert}“ ist nicht im Icon-Katalog (npm run youtube:icons -- --liste).`);
+  };
+  const kurz = (wert, wo, max = YOUTUBE_FOLIE_KURZ_MAX_ZEICHEN) => {
+    if (!text(wert)) fehler.push(`${id}: ${wo} fehlt.`);
+    else if (wert.length > max) fehler.push(`${id}: ${wo} hat ${wert.length} Zeichen (max. ${max}).`);
+  };
+  const cue = (wert, wo) => {
+    if (!text(wert)) fehler.push(`${id}: ${wo}.cue fehlt (gesprochenes Wort, bei dem es erscheint).`);
+  };
+  const betont = (z, wo) => {
+    if (z?.betont !== undefined && (!text(z.betont) || !String(z.text ?? '').includes(z.betont))) fehler.push(`${id}: ${wo}.betont muss ein Teil des Texts sein.`);
+  };
+
+  if (f.titel !== undefined) kurz(f.titel, 'folie.titel', YOUTUBE_FOLIE_TITEL_MAX_ZEICHEN);
+  if (f.icon !== undefined) icon(f.icon, 'folie.icon');
+
+  if (form === 'zeilen') {
+    const zeilen = Array.isArray(f.zeilen) ? f.zeilen : [];
+    if (zeilen.length < 1 || zeilen.length > YOUTUBE_FOLIE_MAX_ZEILEN) fehler.push(`${id}: folie.zeilen braucht 1–${YOUTUBE_FOLIE_MAX_ZEILEN} Zeilen.`);
+    zeilen.forEach((z, k) => {
+      if (!text(z?.text)) fehler.push(`${id}: folie.zeilen[${k}].text fehlt.`);
+      else if (z.text.length > YOUTUBE_FOLIE_MAX_ZEICHEN) fehler.push(`${id}: folie.zeilen[${k}] hat ${z.text.length} Zeichen (max. ${YOUTUBE_FOLIE_MAX_ZEICHEN}) — kürzen, eine Folie ist kein Fließtext.`);
+      cue(z?.cue, `folie.zeilen[${k}]`);
+      betont(z, `folie.zeilen[${k}]`);
+    });
+  } else if (form === 'zahl') {
     if (!text(f.zahl.wert) || f.zahl.wert.length > 12) fehler.push(`${id}: folie.zahl.wert fehlt oder ist länger als 12 Zeichen (z. B. „540 €“).`);
-    if (!text(f.zahl.label) || f.zahl.label.length > YOUTUBE_FOLIE_MAX_ZEICHEN) fehler.push(`${id}: folie.zahl.label fehlt oder ist zu lang.`);
-    if (!text(f.zahl.cue)) fehler.push(`${id}: folie.zahl.cue fehlt (gesprochenes Wort, bei dem die Zahl einrastet).`);
-    if (f.zeilen) fehler.push(`${id}: folie hat entweder zahl oder zeilen, nicht beides.`);
-    return fehler;
+    kurz(f.zahl.label, 'folie.zahl.label', YOUTUBE_FOLIE_MAX_ZEICHEN);
+    cue(f.zahl.cue, 'folie.zahl');
+    if (f.zahl.ton !== undefined && !['gruen', 'rot'].includes(f.zahl.ton)) fehler.push(`${id}: folie.zahl.ton ist gruen oder rot.`);
+  } else if (form === 'begriff') {
+    icon(f.icon, 'folie.icon (bei begriff Pflicht)');
+    kurz(f.begriff.text, 'folie.begriff.text', YOUTUBE_FOLIE_TITEL_MAX_ZEICHEN);
+    cue(f.begriff.cue, 'folie.begriff');
+    betont(f.begriff, 'folie.begriff');
+  } else if (form === 'ablauf') {
+    for (const seite of ['von', 'nach']) {
+      icon(f.ablauf[seite]?.icon, `folie.ablauf.${seite}.icon`);
+      kurz(f.ablauf[seite]?.text, `folie.ablauf.${seite}.text`);
+      cue(f.ablauf[seite]?.cue, `folie.ablauf.${seite}`);
+    }
+    const punkte = f.ablauf.punkte ?? [];
+    if (!Array.isArray(punkte) || punkte.length > 3) fehler.push(`${id}: folie.ablauf.punkte höchstens 3.`);
+    else punkte.forEach((p, k) => {kurz(p?.text, `folie.ablauf.punkte[${k}].text`); cue(p?.cue, `folie.ablauf.punkte[${k}]`);});
+  } else if (form === 'vergleich') {
+    const zeilen = Array.isArray(f.vergleich) ? f.vergleich : [];
+    if (zeilen.length < 2 || zeilen.length > 3) fehler.push(`${id}: folie.vergleich braucht 2–3 Varianten.`);
+    zeilen.forEach((z, k) => {
+      icon(z?.icon, `folie.vergleich[${k}].icon`);
+      kurz(z?.text, `folie.vergleich[${k}].text`);
+      cue(z?.cue, `folie.vergleich[${k}]`);
+      if (z?.oben !== undefined) kurz(z.oben, `folie.vergleich[${k}].oben`);
+      if (z?.hinweis !== undefined) kurz(z.hinweis, `folie.vergleich[${k}].hinweis`, 20);
+    });
   }
-  const zeilen = Array.isArray(f.zeilen) ? f.zeilen : [];
-  if (zeilen.length < 1 || zeilen.length > YOUTUBE_FOLIE_MAX_ZEILEN) fehler.push(`${id}: folie.zeilen braucht 1–${YOUTUBE_FOLIE_MAX_ZEILEN} Zeilen.`);
-  zeilen.forEach((z, k) => {
-    if (!text(z?.text)) fehler.push(`${id}: folie.zeilen[${k}].text fehlt.`);
-    else if (z.text.length > YOUTUBE_FOLIE_MAX_ZEICHEN) fehler.push(`${id}: folie.zeilen[${k}] hat ${z.text.length} Zeichen (max. ${YOUTUBE_FOLIE_MAX_ZEICHEN}) — kürzen, eine Folie ist kein Fließtext.`);
-    if (!text(z?.cue)) fehler.push(`${id}: folie.zeilen[${k}].cue fehlt (gesprochenes Wort, bei dem die Zeile erscheint).`);
-    if (z?.betont !== undefined && (!text(z.betont) || !String(z.text ?? '').includes(z.betont))) fehler.push(`${id}: folie.zeilen[${k}].betont muss ein Teil des Zeilentexts sein.`);
-  });
   return fehler;
 };
 
 /** Alle Cues einer Folie in Sprechreihenfolge (jeder ist neue sichtbare Information). */
-export const folieCues = (folie) => (folie?.zahl ? [folie.zahl.cue] : (folie?.zeilen ?? []).map((z) => z.cue)).filter(Boolean);
+export const folieCues = (folie) => {
+  if (!folie) return [];
+  if (folie.zahl) return [folie.zahl.cue].filter(Boolean);
+  if (folie.begriff) return [folie.begriff.cue].filter(Boolean);
+  if (folie.ablauf) return [folie.ablauf.von?.cue, folie.ablauf.nach?.cue, ...(folie.ablauf.punkte ?? []).map((p) => p.cue)].filter(Boolean);
+  if (folie.vergleich) return folie.vergleich.map((z) => z.cue).filter(Boolean);
+  return (folie.zeilen ?? []).map((z) => z.cue).filter(Boolean);
+};
+
+/** Sichtbarer Text einer Folie (für Bezugsprüfungen). */
+export const folieText = (folie) => {
+  if (!folie) return '';
+  const teile = [folie.titel, folie.zahl?.wert, folie.zahl?.label, folie.begriff?.text, folie.ablauf?.von?.text, folie.ablauf?.nach?.text, ...(folie.ablauf?.punkte ?? []).map((p) => p.text), ...(folie.vergleich ?? []).flatMap((z) => [z.oben, z.text, z.hinweis]), ...(folie.zeilen ?? []).map((z) => z.text)];
+  return teile.filter(Boolean).join(' ');
+};
+
+/** Alle Icons einer Folie. */
+export const folieIcons = (folie) => [folie?.icon, folie?.ablauf?.von?.icon, folie?.ablauf?.nach?.icon, ...(folie?.vergleich ?? []).map((z) => z.icon)].filter(Boolean);
