@@ -8,7 +8,7 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Img, Sequence, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {FONT} from '../brand';
-import {DATEN} from '../design-system/daten';
+import {DATEN, FLAECHEN, FlaechenKontext, useFlaeche, type Flaeche} from '../design-system/daten';
 import {BelegVisual, type BelegDaten} from './BelegVisual';
 import {FolieVisual, type FolieDaten} from './FolieVisual';
 
@@ -39,9 +39,12 @@ export type YouTubeZeitplan = {
   visuals: ZeitVisual[];
   captions: CaptionSatz[];
   untertitel: boolean;
+  /** creme = Videos bis Regel V2, weiss = Bildwelt seit 30.10.2026 (fehlt = creme). */
+  flaeche?: Flaeche;
 };
 
 const UEBERBLENDEN = 8;
+const FLAECHE_GRUND = {creme: FLAECHEN.creme.grund, weiss: FLAECHEN.weiss.grund};
 const CLAMP = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
 const BildVisual: React.FC<{bild?: string | null; dauer: number; id: string}> = ({bild, dauer, id}) => {
@@ -56,7 +59,7 @@ const BildVisual: React.FC<{bild?: string | null; dauer: number; id: string}> = 
     );
   }
   return (
-    <AbsoluteFill style={{backgroundColor: DATEN.grund, overflow: 'hidden'}}>
+    <AbsoluteFill style={{backgroundColor: useFlaeche().grund, overflow: 'hidden'}}>
       <Img src={staticFile(bild)} style={{width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${zoom.toFixed(4)})`}} />
     </AbsoluteFill>
   );
@@ -109,7 +112,7 @@ const Endkarte: React.FC = () => {
   const frame = useCurrentFrame();
   const p = interpolate(frame, [0, 18], [0, 1], {...CLAMP, easing: (t) => 1 - (1 - t) ** 3});
   return (
-    <AbsoluteFill style={{backgroundColor: DATEN.grund, alignItems: 'center', fontFamily: FONT.body}}>
+    <AbsoluteFill style={{backgroundColor: useFlaeche().grund, alignItems: 'center', fontFamily: FONT.body}}>
       <div style={{marginTop: 120, opacity: p, transform: `translateY(${((1 - p) * 16).toFixed(1)}px)`, textAlign: 'center'}}>
         <div style={{fontSize: 96, fontWeight: 800, color: DATEN.text, letterSpacing: -1}}>FinanzNeo</div>
         <div style={{marginTop: 8, fontSize: 40, fontWeight: 600, color: DATEN.leise}}>Geld einfach erklärt</div>
@@ -157,7 +160,8 @@ const Untertitel: React.FC<{saetze: CaptionSatz[]}> = ({saetze}) => {
 };
 
 export const YouTubeVideo: React.FC<{zeitplan: YouTubeZeitplan; animationen: Record<string, React.FC<{beats?: number[]}>>}> = ({zeitplan, animationen}) => (
-  <AbsoluteFill style={{backgroundColor: DATEN.grund}}>
+  <FlaechenKontext.Provider value={zeitplan.flaeche ?? 'creme'}>
+  <AbsoluteFill style={{backgroundColor: FLAECHE_GRUND[zeitplan.flaeche ?? 'creme']}}>
     {zeitplan.visuals.map((visual, index) => {
       const Animation = animationen[visual.id];
       const letztes = index === zeitplan.visuals.length - 1;
@@ -187,4 +191,5 @@ export const YouTubeVideo: React.FC<{zeitplan: YouTubeZeitplan; animationen: Rec
     <Audio src={staticFile(zeitplan.audio)} />
     {zeitplan.untertitel ? <Untertitel saetze={zeitplan.captions} /> : null}
   </AbsoluteFill>
+  </FlaechenKontext.Provider>
 );

@@ -1,4 +1,4 @@
-// Beleg-Szene (finanzneo-youtube-beleg-v1): echter Quellen-Screenshot als Karte auf Creme.
+// Beleg-Szene (finanzneo-youtube-beleg-v1): echter Quellen-Screenshot als Karte auf der Video-Fläche.
 // Die Kamera fährt zu jeder Fundstelle, sobald das passende Wort gesprochen wird, und ein
 // Textmarker läuft über genau den Wortlaut, den `npm run youtube:belege` auf der Seite gefunden hat.
 // Regel: docs/YOUTUBE-BELEG-SZENEN.md
@@ -6,7 +6,7 @@
 import React from 'react';
 import {AbsoluteFill, Easing, Img, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {FONT} from '../brand';
-import {DATEN} from '../design-system/daten';
+import {DATEN, useFlaeche} from '../design-system/daten';
 
 export type BelegRechteck = {x: number; y: number; w: number; h: number};
 export type BelegDaten = {
@@ -74,6 +74,7 @@ const einstellung = (zeilen: BelegRechteck[], breite: number, hoehe: number, ueb
 
 export const BelegVisual: React.FC<{beleg: BelegDaten; marken: number[]}> = ({beleg, marken}) => {
   const frame = useCurrentFrame();
+  const flaeche = useFlaeche();
   const {teile, breite, hoehe, aufKarte} = kartenLayout(beleg);
   const uebersicht: Kamera = {cx: breite / 2, cy: hoehe / 2, z: Math.min(1600 / breite, 800 / hoehe)};
   const markierungen = beleg.markierungen.map((m) => m.rects.map(aufKarte));
@@ -92,7 +93,7 @@ export const BelegVisual: React.FC<{beleg: BelegDaten; marken: number[]}> = ({be
   const [jahr, monat, tag] = beleg.abgerufenAm.split('-');
 
   return (
-    <AbsoluteFill style={{backgroundColor: DATEN.grund, overflow: 'hidden', fontFamily: FONT.body}}>
+    <AbsoluteFill style={{backgroundColor: flaeche.grund, overflow: 'hidden', fontFamily: FONT.body}}>
       <div
         style={{
           position: 'absolute',
@@ -105,6 +106,8 @@ export const BelegVisual: React.FC<{beleg: BelegDaten; marken: number[]}> = ({be
           opacity: auftritt,
           backgroundColor: DATEN.papier,
           borderRadius: 10,
+          // Auf weißer Fläche hält die feine Kante die Karte sichtbar.
+          outline: `1px solid ${DATEN.linie}`,
           boxShadow: '0 14px 40px rgba(60, 45, 20, 0.16), 0 2px 6px rgba(60, 45, 20, 0.10)',
           overflow: 'hidden',
         }}

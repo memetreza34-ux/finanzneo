@@ -24,6 +24,10 @@ Armans Entscheidung nach der Demo: Die gezeichneten Flow-Bilder gefallen nicht a
 - **Belege** (echte Screenshots mit Marker) für Gesetze, Zahlen, Anbieter, Presse
 - große Flow-Szenenbilder nur noch selten oder gar nicht
 
+## Durchgehend weiß
+
+Regel-V3-Videos haben **eine** Fläche: Weiß. Das gilt für Folien, Belege, Daten-Animationen, Endkarte und den Videorahmen; `youtube:zusammenbau` schreibt `flaeche: 'weiss'` in den Zeitplan. Animationen nehmen die Fläche über `DatenBuehne`, `LightStage` oder `useFlaeche()` (`.grund`, `.karte` für Felder); feste Creme-Töne blockiert `youtube:animation:validate`. Ältere Videos (V1/V2) bleiben Creme und ändern sich nicht.
+
 ## Bildmix
 
 | Anteil (Richtwert) | Visual | Wofür |
@@ -91,10 +95,11 @@ Kurze Beschriftungen (ablauf, vergleich) höchstens 24 Zeichen.
 
 ### Metapher-Sticker (finanzneo-youtube-sticker-v1)
 
-- **Bibliothek:** `public/sticker/<name>.png` mit Katalog `public/sticker/katalog.json`. Sie wächst mit jedem Video; ein Sticker wird nur **einmal** erzeugt und danach überall wiederverwendet.
-- **Name:** kleinbuchstaben-mit-bindestrich, beschreibend (`gluehbirne-idee`, `schere-kosten`, `detektiv-lupe`). Vor dem Planen in `katalog.json` nach einem passenden vorhandenen Sticker suchen.
+- **Individuell pro Video (Arman 31.10.2026):** Jeder Sticker zeigt genau den gesprochenen Satz dieses Videos. Standard ist ein **neuer, passender Sticker**. Ein Sticker aus der Bibliothek kommt nur wieder vor, wenn er den Satz **exakt** trifft — nie nur, weil er schon da ist.
+- **Bibliothek:** `public/sticker/<name>.png` mit Katalog `public/sticker/katalog.json`. Sie spart Arbeit bei wirklich gleichen Metaphern, ist aber ein Angebot, keine Vorgabe.
+- **Name:** kleinbuchstaben-mit-bindestrich und so konkret wie die Metapher (`schere-schneidet-kostenpfeil`, `detektiv-prueft-vertrag`), nicht allgemein (`schere`).
 - **Neuer Sticker:** `motiv` (englisch, eine einfache Metapher) angeben. `youtube:plan` schreibt dann einen eigenen STICKER-Auftrag in die Flow-Datei: fester Sticker-Stil (`YOUTUBE_STICKER_STIL`: flacher Cartoon, dunkle Kontur, 2–4 Farben mit Gelb, reines Weiß, quadratisch, kein Text), **ohne** Stilvorlage der Szenenbilder. Dateiname: `YouTube Sticker - <name>.png`.
-- **Übernahme:** `youtube:zusammenbau` schneidet den weißen Rand weg und legt den Sticker in die Bibliothek. Danach braucht kein Video ihn mehr neu.
+- **Übernahme:** `youtube:zusammenbau` schneidet den weißen Rand weg und legt den Sticker in die Bibliothek.
 - Sticker sind quadratisch; die 16:9-Prüfung gilt nur für Szenenbilder.
 - Ein Sticker zeigt **eine** Idee auf den ersten Blick. Keine Szene, kein Hintergrund, kein Text.
 

@@ -20,7 +20,7 @@
 import {copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync} from 'node:fs';
 import {basename, relative, resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
-import {ACTIVE_WORD_COLOR, AUDIO_INBOX, IMAGE_INBOX, INTERN_DIR, SCRIPT_FILE, SUBTITLE_MODE, YOUTUBE_ENDCARD_SECONDS, YOUTUBE_IMAGE_WARN_HOLD_SECONDS, YOUTUBE_QUALITY_RULES_IDS, internWurzel} from './lib/youtube-contract.mjs';
+import {ACTIVE_WORD_COLOR, AUDIO_INBOX, IMAGE_INBOX, INTERN_DIR, SCRIPT_FILE, SUBTITLE_MODE, YOUTUBE_ENDCARD_SECONDS, YOUTUBE_IMAGE_WARN_HOLD_SECONDS, YOUTUBE_QUALITY_RULES_IDS, YOUTUBE_QUALITY_RULES_V3_ID, internWurzel} from './lib/youtube-contract.mjs';
 import {verbindeAudioTeile} from './youtube-audio-teile.mjs';
 import {folieCues, folieSticker} from './lib/youtube-folie.mjs';
 import {importiereSticker, stickerVorhanden, youtubeStickerFlowDatei} from './lib/youtube-sticker.mjs';
@@ -301,6 +301,8 @@ const zeitplan = {
   durationFrames: gesamt,
   audio: `youtube/${slug}/${audioDatei}`,
   untertitel: args.includes('--untertitel'),
+  // Bildwelt seit 30.10.2026: Regel-V3-Videos sind durchgehend weiß, ältere bleiben Creme.
+  flaeche: index.qualityRules === YOUTUBE_QUALITY_RULES_V3_ID ? 'weiss' : 'creme',
   visuals: visuals.map(({googleFlowFileName, ...rest}) => rest),
   captions,
 };
