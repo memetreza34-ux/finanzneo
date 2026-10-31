@@ -3,7 +3,9 @@ import test from 'node:test';
 // @ts-expect-error -- plain ESM module without types
 import {pruefeYouTubeQualitaet} from '../scripts/lib/youtube-quality.mjs';
 // @ts-expect-error -- plain ESM module without types
-import {folieCues, folieIcons, folieText, pruefeFoliePlan} from '../scripts/lib/youtube-folie.mjs';
+import {folieCues, folieIcons, folieSticker, folieText, pruefeFoliePlan} from '../scripts/lib/youtube-folie.mjs';
+// @ts-expect-error -- plain ESM module without types
+import {YOUTUBE_STICKER_STIL, youtubeStickerFlowDatei} from '../scripts/lib/youtube-sticker.mjs';
 // @ts-expect-error -- plain ESM module without types
 import {YOUTUBE_ICONS, youtubeIconDatei} from '../scripts/lib/youtube-icons.mjs';
 import {existsSync} from 'node:fs';
@@ -39,6 +41,20 @@ test('Folie V2: Icon-Formen begriff, ablauf, vergleich; Icons nur aus dem Katalo
   assert.ok(pruefeFoliePlan({id: 'v', folie: {begriff: begriff.begriff}}).some((f: string) => f.includes('Pflicht')));
   assert.ok(pruefeFoliePlan({id: 'v', folie: {...begriff, ...vergleich}}).some((f: string) => f.includes('genau eine Form')));
   assert.ok(pruefeFoliePlan({id: 'v', folie: {vergleich: vergleich.vergleich.slice(0, 1)}}).some((f: string) => f.includes('2–3')));
+  // Metapher-Sticker: Motiv nur Pflicht, solange der Sticker nicht in der Bibliothek liegt.
+  const metapher = {metapher: {sticker: 'gluehbirne-idee', cue: 'Idee', text: 'Die ersten 100.000 € sind die schwersten', betont: '100.000 €'}};
+  assert.deepEqual(pruefeFoliePlan({id: 'v', folie: metapher}, {stickerVorhanden: () => true}), []);
+  assert.ok(pruefeFoliePlan({id: 'v', folie: metapher}, {stickerVorhanden: () => false}).some((f: string) => f.includes('motiv')));
+  assert.deepEqual(pruefeFoliePlan({id: 'v', folie: {metapher: {...metapher.metapher, motiv: 'a glowing light bulb with rays'}}}, {stickerVorhanden: () => false}), []);
+  assert.ok(pruefeFoliePlan({id: 'v', folie: {metapher: {...metapher.metapher, sticker: 'Glühbirne'}}}).some((f: string) => f.includes('kleinbuchstaben')));
+  const wolke = {wolke: {sticker: 'motor', woerter: ['Kosten', 'Inflation', 'Rendite'].map((text) => ({text, cue: text}))}};
+  assert.deepEqual(pruefeFoliePlan({id: 'v', folie: wolke}), []);
+  assert.ok(pruefeFoliePlan({id: 'v', folie: {wolke: {...wolke.wolke, woerter: wolke.wolke.woerter.slice(0, 2)}}}).some((f: string) => f.includes('3–6')));
+  assert.deepEqual(folieCues(wolke), ['Kosten', 'Inflation', 'Rendite']);
+  assert.deepEqual(folieSticker({...metapher}).map((s: {name: string}) => s.name), ['gluehbirne-idee']);
+  assert.deepEqual(pruefeFoliePlan({id: 'v', folie: {zitat: {text: 'Die ersten 100.000 € sind hart.', von: 'Charlie Munger', cue: 'Munger', betont: 'hart'}}}), []);
+  assert.equal(youtubeStickerFlowDatei('motor'), 'YouTube Sticker - motor.png');
+  assert.ok(YOUTUBE_STICKER_STIL.includes('pure flat white background'));
   // Jedes Katalog-Icon liegt als PNG im Repo.
   for (const name of Object.keys(YOUTUBE_ICONS)) assert.ok(existsSync(resolve(import.meta.dirname, '..', 'public', youtubeIconDatei(name))), `Icon ${name} fehlt`);
 });

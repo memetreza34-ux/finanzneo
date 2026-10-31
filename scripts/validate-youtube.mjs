@@ -40,6 +40,7 @@ import {pruefeYouTubeQualitaet} from './lib/youtube-quality.mjs';
 import {pruefeBelegPlan} from './lib/youtube-beleg.mjs';
 import {folieIcons, pruefeFoliePlan} from './lib/youtube-folie.mjs';
 import {youtubeIconDatei} from './lib/youtube-icons.mjs';
+import {stickerVorhanden} from './lib/youtube-sticker.mjs';
 import {pruefeCover} from './lib/youtube-cover.mjs';
 import {
   requiresYouTubeImage,
@@ -188,7 +189,7 @@ if (index) {
     }
 
     if (visual?.type === 'folie') {
-      errors.push(...pruefeFoliePlan(visual));
+      errors.push(...pruefeFoliePlan(visual, {stickerVorhanden: (name) => stickerVorhanden(resolve(import.meta.dirname, '..'), name)}));
       for (const icon of folieIcons(visual.folie)) {
         assert(existsSync(resolve(import.meta.dirname, '..', 'public', youtubeIconDatei(icon))), `${id}: Icon ${icon} fehlt in public/ — npm run youtube:icons.`);
       }

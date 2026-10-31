@@ -1,7 +1,8 @@
 // Erklär-Folie (finanzneo-youtube-folie-v2): weiße Folie, wenig Text, farbiges 3D-Icon — das
 // Finanzbär-Prinzip. Jedes Teil erscheint beim gesprochenen Wort (`marken`, in der Reihenfolge von
 // folieCues); betonte Stellen bekommen den gelben FinanzNeo-Marker (derselbe wie in Belegen und auf
-// dem Cover). Formen: zeilen · zahl · begriff · ablauf · vergleich.
+// dem Cover). Formen: zeilen · zahl · begriff · ablauf · vergleich · metapher · wolke · zitat.
+// Metapher-Sticker kommen aus der Kanal-Bibliothek public/sticker/ (scripts/lib/youtube-sticker.mjs).
 // Regel: docs/YOUTUBE-BILDMIX-UND-COVER.md · Icons: scripts/lib/youtube-icons.mjs
 
 import React from 'react';
@@ -18,6 +19,9 @@ export type FolieDaten = {
   begriff?: {text: string; betont?: string};
   ablauf?: {von: Teil & {icon: string}; nach: Teil & {icon: string}; punkte?: Teil[]};
   vergleich?: Array<Teil & {icon: string; oben?: string; hinweis?: string}>;
+  metapher?: {sticker: string; text?: string; betont?: string};
+  wolke?: {sticker: string; woerter: Teil[]};
+  zitat?: {text: string; von: string; betont?: string};
 };
 
 const WEISS = '#FFFFFF';
@@ -35,6 +39,19 @@ const Icon: React.FC<{name: string; groesse: number; ab: number}> = ({name, groe
     <Img
       src={staticFile(`icons/fluent-3d/${name}.png`)}
       style={{flex: 'none', width: groesse, height: groesse, opacity: weich(frame, ab, 8), transform: `scale(${(0.6 + 0.4 * s).toFixed(3)})`}}
+    />
+  );
+};
+
+/** Metapher-Sticker aus der Bibliothek; weißer Rand verschwindet auf der weißen Folie (multiply). */
+const Sticker: React.FC<{name: string; breite: number; hoehe: number; ab: number}> = ({name, breite, hoehe, ab}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const s = spring({frame: frame - ab, fps, config: {damping: 16, stiffness: 140}});
+  return (
+    <Img
+      src={staticFile(`sticker/${name}.png`)}
+      style={{flex: 'none', width: breite, height: hoehe, objectFit: 'contain', mixBlendMode: 'multiply', opacity: weich(frame, ab, 8), transform: `scale(${(0.8 + 0.2 * s).toFixed(3)})`}}
     />
   );
 };
@@ -195,6 +212,60 @@ const Vergleich: React.FC<{folie: FolieDaten; marken: number[]}> = ({folie, mark
   </div>
 );
 
+const Metapher: React.FC<{folie: FolieDaten; marken: number[]}> = ({folie, marken}) => {
+  const ab = marken[0] ?? 0;
+  const {sticker, text, betont} = folie.metapher!;
+  return (
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 30}}>
+      <Sticker name={sticker} breite={1100} hoehe={text ? 640 : 780} ab={ab} />
+      {text ? (
+        <Ein ab={ab + 12} style={{fontSize: 64, fontWeight: 700, textAlign: 'center', maxWidth: 1500}}>
+          <MitMarker text={text} betont={betont} ab={ab + 30} />
+        </Ein>
+      ) : null}
+    </div>
+  );
+};
+
+// Begriffe auf einer Ellipse um den Sticker, im Uhrzeigersinn ab oben links.
+const WOLKE_PLAETZE = [-150, -90, -30, 30, 90, 150];
+const Wolke: React.FC<{folie: FolieDaten; marken: number[]}> = ({folie, marken}) => {
+  const {sticker, woerter} = folie.wolke!;
+  const schritt = 360 / woerter.length;
+  return (
+    <AbsoluteFill>
+      <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
+        <Sticker name={sticker} breite={520} hoehe={420} ab={0} />
+      </AbsoluteFill>
+      {woerter.map((w, k) => {
+        const winkel = ((woerter.length === 6 ? WOLKE_PLAETZE[k] : -90 + k * schritt) * Math.PI) / 180;
+        return (
+          <Ein
+            key={k}
+            ab={marken[k] ?? 10 + k * 12}
+            style={{position: 'absolute', left: 960 + Math.cos(winkel) * 620, top: 540 + Math.sin(winkel) * 340, transform: 'translate(-50%, -50%)', fontSize: 60, fontWeight: 600, whiteSpace: 'nowrap'}}
+          >
+            {w.text}
+          </Ein>
+        );
+      })}
+    </AbsoluteFill>
+  );
+};
+
+const Zitat: React.FC<{folie: FolieDaten; marken: number[]}> = ({folie, marken}) => {
+  const ab = marken[0] ?? 0;
+  const {text, von, betont} = folie.zitat!;
+  return (
+    <div style={{maxWidth: 1460}}>
+      <Ein ab={ab} style={{borderLeft: `12px solid ${DATEN.gruen}`, paddingLeft: 56, fontSize: 64, fontWeight: 500, fontStyle: 'italic', lineHeight: 1.35}}>
+        „<MitMarker text={text} betont={betont} ab={ab + 40} />“
+      </Ein>
+      <Ein ab={ab + 20} style={{fontSize: 48, fontWeight: 700, color: DATEN.leise, textAlign: 'right', marginTop: 36}}>– {von}</Ein>
+    </div>
+  );
+};
+
 export const FolieVisual: React.FC<{folie: FolieDaten; marken: number[]}> = ({folie, marken}) => {
   const inhalt = folie.zahl ? (
     <Zahl folie={folie} marken={marken} />
@@ -204,7 +275,18 @@ export const FolieVisual: React.FC<{folie: FolieDaten; marken: number[]}> = ({fo
     <Ablauf folie={folie} marken={marken} />
   ) : folie.vergleich ? (
     <Vergleich folie={folie} marken={marken} />
+  ) : folie.metapher ? (
+    <Metapher folie={folie} marken={marken} />
+  ) : folie.zitat ? (
+    <Zitat folie={folie} marken={marken} />
   ) : null;
+  if (folie.wolke) {
+    return (
+      <AbsoluteFill style={{backgroundColor: WEISS, fontFamily: FONT.body, color: DATEN.text}}>
+        <Wolke folie={folie} marken={marken} />
+      </AbsoluteFill>
+    );
+  }
   return (
     <AbsoluteFill style={{backgroundColor: WEISS, fontFamily: FONT.body, color: DATEN.text, alignItems: 'center', justifyContent: 'center'}}>
       {inhalt ? (

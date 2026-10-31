@@ -20,8 +20,9 @@ Armans Entscheidung nach der Demo: Die gezeichneten Flow-Bilder gefallen nicht a
 
 - **weißer Hintergrund**, wenig Text, eine große Zahl oder ein Begriff
 - daneben **ein farbiges 3D-Icon** aus dem festen Katalog (`scripts/lib/youtube-icons.mjs`, Microsoft Fluent Emoji 3D, MIT-Lizenz)
+- **Metapher-Sticker** (seit 31.10.2026): kleine, simple Cartoon-Bilder frei auf Weiß — Glühbirne für die Idee, Schere für „kürzen“, ein Motor mit Begriffen drumherum, Detektiv mit Lupe. Genau wie Finanzbär.
 - **Belege** (echte Screenshots mit Marker) für Gesetze, Zahlen, Anbieter, Presse
-- Flow-Bilder nur noch selten: Hook-Szene, Gefühl, eine Alltagssituation, die ein Icon nicht zeigen kann
+- große Flow-Szenenbilder nur noch selten oder gar nicht
 
 ## Bildmix
 
@@ -73,7 +74,29 @@ folie: {titel: 'Staatliche Förderung', icon: 'geschenk', zeilen: [
   {text: 'Bis 1.800 € → 25 % Zulage', cue: 'Auf alles darüber', betont: '25 %'}]}
 ```
 
+```js
+// metapher — ein Sticker groß, optional ein Satz darunter
+folie: {metapher: {sticker: 'gluehbirne-idee', motiv: 'a glowing light bulb with small rays', cue: 'Idee',
+                   text: 'Die ersten 100.000 € sind die schwersten', betont: '100.000 €'}}
+
+// wolke — Sticker in der Mitte, 3–6 Begriffe erscheinen drumherum (je höchstens 16 Zeichen)
+folie: {wolke: {sticker: 'motor-zahnraeder', motiv: 'a small engine block made of gears and pistons',
+                woerter: [{text: 'Kosten', cue: 'Kosten'}, {text: 'Inflation', cue: 'Inflation'}, {text: 'Rendite', cue: 'Rendite'}]}}
+
+// zitat — kursiv mit grünem Balken und Quelle (höchstens 220 Zeichen)
+folie: {zitat: {text: 'Die ersten 100.000 € sind hart.', von: 'Charlie Munger (sinngemäß)', cue: 'Munger', betont: 'hart'}}
+```
+
 Kurze Beschriftungen (ablauf, vergleich) höchstens 24 Zeichen.
+
+### Metapher-Sticker (finanzneo-youtube-sticker-v1)
+
+- **Bibliothek:** `public/sticker/<name>.png` mit Katalog `public/sticker/katalog.json`. Sie wächst mit jedem Video; ein Sticker wird nur **einmal** erzeugt und danach überall wiederverwendet.
+- **Name:** kleinbuchstaben-mit-bindestrich, beschreibend (`gluehbirne-idee`, `schere-kosten`, `detektiv-lupe`). Vor dem Planen in `katalog.json` nach einem passenden vorhandenen Sticker suchen.
+- **Neuer Sticker:** `motiv` (englisch, eine einfache Metapher) angeben. `youtube:plan` schreibt dann einen eigenen STICKER-Auftrag in die Flow-Datei: fester Sticker-Stil (`YOUTUBE_STICKER_STIL`: flacher Cartoon, dunkle Kontur, 2–4 Farben mit Gelb, reines Weiß, quadratisch, kein Text), **ohne** Stilvorlage der Szenenbilder. Dateiname: `YouTube Sticker - <name>.png`.
+- **Übernahme:** `youtube:zusammenbau` schneidet den weißen Rand weg und legt den Sticker in die Bibliothek. Danach braucht kein Video ihn mehr neu.
+- Sticker sind quadratisch; die 16:9-Prüfung gilt nur für Szenenbilder.
+- Ein Sticker zeigt **eine** Idee auf den ersten Blick. Keine Szene, kein Hintergrund, kein Text.
 
 ### Icons
 

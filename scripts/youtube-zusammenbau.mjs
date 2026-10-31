@@ -22,7 +22,8 @@ import {basename, relative, resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {ACTIVE_WORD_COLOR, AUDIO_INBOX, IMAGE_INBOX, INTERN_DIR, SCRIPT_FILE, SUBTITLE_MODE, YOUTUBE_ENDCARD_SECONDS, YOUTUBE_IMAGE_WARN_HOLD_SECONDS, YOUTUBE_QUALITY_RULES_IDS, internWurzel} from './lib/youtube-contract.mjs';
 import {verbindeAudioTeile} from './youtube-audio-teile.mjs';
-import {folieCues} from './lib/youtube-folie.mjs';
+import {folieCues, folieSticker} from './lib/youtube-folie.mjs';
+import {importiereSticker, stickerVorhanden, youtubeStickerFlowDatei} from './lib/youtube-sticker.mjs';
 
 const args = process.argv.slice(2);
 const wert = (name) => {
@@ -236,6 +237,20 @@ for (const v of visuals) {
   } else {
     v.bild = null;
     if (!vorschau) fehler.push(`${v.id}: Bild fehlt: 3-bilder-hier-rein/${v.googleFlowFileName}`);
+  }
+}
+
+// Metapher-Sticker: neue Flow-Sticker aus der Inbox in die Kanal-Bibliothek public/sticker/ übernehmen
+// (weißer Rand wird zugeschnitten); danach stehen sie jedem späteren Video zur Verfügung.
+for (const v of visuals) {
+  if (v.type !== 'folie') continue;
+  for (const st of folieSticker(v.folie)) {
+    if (stickerVorhanden(repo, st.name)) continue;
+    const quelle = resolve(inbox, youtubeStickerFlowDatei(st.name));
+    if (existsSync(quelle)) {
+      importiereSticker({repo, quelle, name: st.name, motiv: st.motiv, projekt: slug});
+      console.log(`✓ Sticker ${st.name} in die Bibliothek übernommen (public/sticker/).`);
+    } else if (!vorschau) fehler.push(`${v.id}: Sticker fehlt: 3-bilder-hier-rein/${youtubeStickerFlowDatei(st.name)}`);
   }
 }
 

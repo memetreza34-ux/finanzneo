@@ -54,6 +54,8 @@ const audioProbe = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format
 ensureProbeSucceeded(audioProbe, audioFile);
 
 for (const fileName of result.expectedImages) {
+  // Metapher-Sticker sind quadratisch (eigener Sticker-Stil), nur Szenenbilder müssen 16:9 sein.
+  if (fileName.startsWith('YouTube Sticker - ')) continue;
   const imageFile = resolve(root, IMAGE_INBOX, fileName);
   const imageProbe = spawnSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'json', imageFile], {encoding: 'utf8'});
   ensureProbeSucceeded(imageProbe, imageFile);
