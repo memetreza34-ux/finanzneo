@@ -82,7 +82,8 @@
     "motion:claude:test:preflight": "node --test tests/claude-motion-preflight.test.mjs",
     "motion:claude:test:render": "npx remotion render src/index.ts ClaudeMotionSubscriptionYearTest out/claude-motion-test/SubscriptionYearTest.mp4 --codec=h264 --crf=18",
     "motion:claude:test:qa": "node scripts/qa-claude-motion-test.mjs",
-    "youtube:icons": "node scripts/youtube-icons.mjs"
+    "youtube:icons": "node scripts/youtube-icons.mjs",
+    "youtube:doodles": "node scripts/youtube-doodles.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "^8.18.0",

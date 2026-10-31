@@ -3,9 +3,11 @@ import test from 'node:test';
 // @ts-expect-error -- plain ESM module without types
 import {pruefeYouTubeQualitaet} from '../scripts/lib/youtube-quality.mjs';
 // @ts-expect-error -- plain ESM module without types
-import {folieCues, folieIcons, folieSticker, folieText, pruefeFoliePlan} from '../scripts/lib/youtube-folie.mjs';
+import {folieCues, folieDoodles, folieIcons, folieSticker, folieText, pruefeFoliePlan} from '../scripts/lib/youtube-folie.mjs';
 // @ts-expect-error -- plain ESM module without types
 import {YOUTUBE_STICKER_STIL, youtubeStickerFlowDatei} from '../scripts/lib/youtube-sticker.mjs';
+// @ts-expect-error -- plain ESM module without types
+import {doodleNachweise, faerbeDoodle, youtubeDoodleDatei} from '../scripts/lib/youtube-doodle.mjs';
 // @ts-expect-error -- plain ESM module without types
 import {YOUTUBE_ICONS, youtubeIconDatei} from '../scripts/lib/youtube-icons.mjs';
 import {existsSync} from 'node:fs';
@@ -55,6 +57,15 @@ test('Folie V2: Icon-Formen begriff, ablauf, vergleich; Icons nur aus dem Katalo
   assert.deepEqual(pruefeFoliePlan({id: 'v', folie: {zitat: {text: 'Die ersten 100.000 € sind hart.', von: 'Charlie Munger', cue: 'Munger', betont: 'hart'}}}), []);
   assert.equal(youtubeStickerFlowDatei('motor'), 'YouTube Sticker - motor.png');
   assert.ok(YOUTUBE_STICKER_STIL.includes('pure flat white background'));
+  // Freehand-Doodles: Standard ohne KI, nur aus erlaubten Sammlungen, kein Flow-Auftrag, Nachweis für die Beschreibung.
+  const doodle = {metapher: {sticker: 'streamline-freehand-color:saving-piggy-bank', cue: 'sparen', text: 'Erst sparen', betont: 'sparen'}};
+  assert.deepEqual(pruefeFoliePlan({id: 'v', folie: doodle}, {stickerVorhanden: () => false}), []);
+  assert.deepEqual(folieSticker(doodle), []);
+  assert.deepEqual(folieDoodles(doodle), ['streamline-freehand-color:saving-piggy-bank']);
+  assert.ok(pruefeFoliePlan({id: 'v', folie: {metapher: {...doodle.metapher, sticker: 'flaticon:piggy'}}}).some((f: string) => f.includes('erlaubt sind nur')));
+  assert.equal(youtubeDoodleDatei('streamline-freehand-color:saving-piggy-bank'), 'doodles/streamline-freehand-color/saving-piggy-bank.svg');
+  assert.deepEqual(doodleNachweise(['streamline-freehand-color:a', 'streamline-freehand:b', 'fluent-emoji-flat:c']), ['Streamline Freehand (streamlinehq.com), CC BY 4.0']);
+  assert.equal(faerbeDoodle('<path stroke="#0C6FFF"/>'), '<path stroke="#4F8A67"/>');
   // Jedes Katalog-Icon liegt als PNG im Repo.
   for (const name of Object.keys(YOUTUBE_ICONS)) assert.ok(existsSync(resolve(import.meta.dirname, '..', 'public', youtubeIconDatei(name))), `Icon ${name} fehlt`);
 });

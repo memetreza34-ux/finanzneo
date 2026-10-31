@@ -93,7 +93,21 @@ folie: {zitat: {text: 'Die ersten 100.000 € sind hart.', von: 'Charlie Munger 
 
 Kurze Beschriftungen (ablauf, vergleich) höchstens 24 Zeichen.
 
-### Metapher-Sticker (finanzneo-youtube-sticker-v1)
+### Metapher-Bilder: Freehand-Doodles zuerst (finanzneo-youtube-doodle-v1, Arman 31.10.2026)
+
+Arman: „wie Finanzbär, aber ohne KI und kostenlos“. Reihenfolge für jedes Metapher-Bild (`metapher.sticker`, `wolke.sticker`):
+
+1. **Freehand-Doodle** (Standard): handgezeichnete Kritzelei, schwarze Linie, ein Akzent in Kanal-Grün. Sammlungen `streamline-freehand-color`, dann `streamline-freehand` (Streamline, CC BY 4.0). Verweis `sammlung:name`, z. B. `streamline-freehand-color:saving-piggy-bank`.
+2. Freie Emoji-Sammlungen `fluent-emoji-flat` (MIT), `noto` (Apache 2.0) — v. a. für Personen.
+3. **Erst danach** ein Flow-Sticker (unten) — KI nur, wenn nichts Passendes existiert.
+
+- Suchen beim Planen: `npm run youtube:doodles -- --suche "piggy bank"` (englische Begriffe; Liste + Übersichtsbild). Andere Sammlungen blockiert der Validator.
+- Laden: `npm run youtube:doodles -- youtube/<Projekt>`; `youtube:zusammenbau` lädt fehlende automatisch nach `public/doodles/` und färbt den blauen Akzent in Kanal-Grün.
+- **Bildnachweis:** CC BY verlangt eine Nennung. `youtube:zusammenbau` hängt „Bildnachweise: Icons: Streamline Freehand (streamlinehq.com), CC BY 4.0“ automatisch an `05-publishing/description.txt`.
+- Euro statt Dollar: Motive mit `$` nur bei US-Themen; sonst Euro-Varianten (`money-bag-euro`) oder neutrale Doodles wählen.
+- Doodles passen individuell zum Satz — pro Video neu suchen, nicht aus Gewohnheit dieselben.
+
+### Metapher-Sticker aus Flow (Ausnahme, finanzneo-youtube-sticker-v1)
 
 - **Individuell pro Video (Arman 31.10.2026):** Jeder Sticker zeigt genau den gesprochenen Satz dieses Videos. Standard ist ein **neuer, passender Sticker**. Ein Sticker aus der Bibliothek kommt nur wieder vor, wenn er den Satz **exakt** trifft — nie nur, weil er schon da ist.
 - **Bibliothek:** `public/sticker/<name>.png` mit Katalog `public/sticker/katalog.json`. Sie spart Arbeit bei wirklich gleichen Metaphern, ist aber ein Angebot, keine Vorgabe.

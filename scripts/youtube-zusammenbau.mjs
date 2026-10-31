@@ -20,9 +20,10 @@
 import {copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync} from 'node:fs';
 import {basename, relative, resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
-import {ACTIVE_WORD_COLOR, AUDIO_INBOX, IMAGE_INBOX, INTERN_DIR, SCRIPT_FILE, SUBTITLE_MODE, YOUTUBE_ENDCARD_SECONDS, YOUTUBE_IMAGE_WARN_HOLD_SECONDS, YOUTUBE_QUALITY_RULES_IDS, YOUTUBE_QUALITY_RULES_V3_ID, internWurzel} from './lib/youtube-contract.mjs';
+import {ACTIVE_WORD_COLOR, AUDIO_INBOX, IMAGE_INBOX, INTERN_DIR, SCRIPT_FILE, SUBTITLE_MODE, YOUTUBE_ENDCARD_SECONDS, YOUTUBE_PUBLISHING_FILES, YOUTUBE_IMAGE_WARN_HOLD_SECONDS, YOUTUBE_QUALITY_RULES_IDS, YOUTUBE_QUALITY_RULES_V3_ID, internWurzel} from './lib/youtube-contract.mjs';
 import {verbindeAudioTeile} from './youtube-audio-teile.mjs';
-import {folieCues, folieSticker} from './lib/youtube-folie.mjs';
+import {folieCues, folieDoodles, folieSticker} from './lib/youtube-folie.mjs';
+import {doodleNachweise, ladeDoodles} from './lib/youtube-doodle.mjs';
 import {importiereSticker, stickerVorhanden, youtubeStickerFlowDatei} from './lib/youtube-sticker.mjs';
 
 const args = process.argv.slice(2);
@@ -252,6 +253,22 @@ for (const v of visuals) {
       console.log(`✓ Sticker ${st.name} in die Bibliothek übernommen (public/sticker/).`);
     } else if (!vorschau) fehler.push(`${v.id}: Sticker fehlt: 3-bilder-hier-rein/${youtubeStickerFlowDatei(st.name)}`);
   }
+}
+
+// Freehand-Doodles (Standard für Metaphern, kostenlos, ohne KI): fehlende laden, Bildnachweis in die Beschreibung.
+const doodles = visuals.flatMap((v) => (v.type === 'folie' ? folieDoodles(v.folie) : []));
+try {
+  const neu = await ladeDoodles(repo, doodles);
+  if (neu.length) console.log(`✓ ${neu.length} Doodle(s) geladen (public/doodles/).`);
+} catch (error) {
+  fehler.push(`Doodles: ${error.message}`);
+}
+const nachweise = doodleNachweise(doodles);
+const beschreibung = resolve(root, YOUTUBE_PUBLISHING_FILES.description);
+if (nachweise.length && existsSync(beschreibung)) {
+  const text = readFileSync(beschreibung, 'utf8');
+  const fehlend = nachweise.filter((n) => !text.includes(n));
+  if (fehlend.length) writeFileSync(beschreibung, `${text.trimEnd()}\n\n${text.includes('Bildnachweise:') ? '' : 'Bildnachweise:\n'}${fehlend.map((n) => `Icons: ${n}`).join('\n')}\n`);
 }
 
 // Belege: Screenshot nach public/, Fundstellen in den Zeitplan (Screenshot entsteht in Phase 1 mit youtube:belege).

@@ -43,14 +43,14 @@ const Icon: React.FC<{name: string; groesse: number; ab: number}> = ({name, groe
   );
 };
 
-/** Metapher-Sticker aus der Bibliothek; weißer Rand verschwindet auf der weißen Folie (multiply). */
+/** Metapher-Bild: Freehand-Doodle „sammlung:name“ (Standard) oder Flow-Sticker aus der Bibliothek; Weiß verschwindet auf der Folie (multiply). */
 const Sticker: React.FC<{name: string; breite: number; hoehe: number; ab: number}> = ({name, breite, hoehe, ab}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const s = spring({frame: frame - ab, fps, config: {damping: 16, stiffness: 140}});
   return (
     <Img
-      src={staticFile(`sticker/${name}.png`)}
+      src={staticFile(name.includes(':') ? `doodles/${name.replace(':', '/')}.svg` : `sticker/${name}.png`)}
       style={{flex: 'none', width: breite, height: hoehe, objectFit: 'contain', mixBlendMode: 'multiply', opacity: weich(frame, ab, 8), transform: `scale(${(0.8 + 0.2 * s).toFixed(3)})`}}
     />
   );

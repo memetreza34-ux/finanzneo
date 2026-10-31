@@ -8,6 +8,7 @@
 
 import {istYouTubeIcon} from './youtube-icons.mjs';
 import {pruefeStickerVerweis} from './youtube-sticker.mjs';
+import {istDoodle, pruefeDoodleVerweis} from './youtube-doodle.mjs';
 
 export const YOUTUBE_FOLIE_STANDARD_ID = 'finanzneo-youtube-folie-v2';
 export const YOUTUBE_FOLIE_MAX_ZEILEN = 5;
@@ -90,8 +91,12 @@ export const pruefeFoliePlan = (visual, optionen = {}) => {
     else punkte.forEach((p, k) => {kurz(p?.text, `folie.ablauf.punkte[${k}].text`); cue(p?.cue, `folie.ablauf.punkte[${k}]`);});
   } else if (form === 'metapher' || form === 'wolke') {
     const teil = f[form];
-    const neu = optionen.stickerVorhanden ? !optionen.stickerVorhanden(teil?.sticker) : false;
-    fehler.push(...pruefeStickerVerweis(id, `folie.${form}`, teil?.sticker, teil?.motiv, neu));
+    // Standard: Freehand-Doodle „sammlung:name“ (kostenlos, ohne KI); sonst ein Flow-Sticker aus der Bibliothek.
+    if (istDoodle(teil?.sticker)) fehler.push(...pruefeDoodleVerweis(id, `folie.${form}.sticker`, teil.sticker));
+    else {
+      const neu = optionen.stickerVorhanden ? !optionen.stickerVorhanden(teil?.sticker) : false;
+      fehler.push(...pruefeStickerVerweis(id, `folie.${form}`, teil?.sticker, teil?.motiv, neu));
+    }
     if (form === 'metapher') {
       cue(teil?.cue, 'folie.metapher');
       if (teil?.text !== undefined) kurz(teil.text, 'folie.metapher.text', YOUTUBE_FOLIE_MAX_ZEICHEN);
@@ -143,5 +148,7 @@ export const folieText = (folie) => {
 /** Alle Icons einer Folie. */
 export const folieIcons = (folie) => [folie?.icon, folie?.ablauf?.von?.icon, folie?.ablauf?.nach?.icon, ...(folie?.vergleich ?? []).map((z) => z.icon)].filter(Boolean);
 
-/** Sticker einer Folie mit Flow-Motiv (metapher, wolke). */
-export const folieSticker = (folie) => [folie?.metapher, folie?.wolke].filter((t) => t?.sticker).map((t) => ({name: t.sticker, motiv: t.motiv}));
+/** Flow-Sticker einer Folie (metapher, wolke) — Doodles zählen nicht dazu. */
+export const folieSticker = (folie) => [folie?.metapher, folie?.wolke].filter((t) => t?.sticker && !istDoodle(t.sticker)).map((t) => ({name: t.sticker, motiv: t.motiv}));
+/** Doodle-Verweise einer Folie („sammlung:name“). */
+export const folieDoodles = (folie) => [folie?.metapher, folie?.wolke].map((t) => t?.sticker).filter(istDoodle);
