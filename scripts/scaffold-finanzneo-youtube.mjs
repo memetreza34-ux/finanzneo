@@ -41,6 +41,7 @@ import {
   internWurzel,
 } from './lib/youtube-contract.mjs';
 import {requiresYouTubeImage, requiresYouTubeMotion} from './lib/youtube-motion-contract.mjs';
+import {YOUTUBE_ZAHLEN_DATEI, YOUTUBE_ZAHLEN_MESSTAGE, ladeKanal, leereZahlen, offeneZahlen} from './lib/youtube-zahlen.mjs';
 
 const args = process.argv.slice(2);
 const valueOf = (name) => {
@@ -73,6 +74,12 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
 if (existsSync(projektRoot)) {
   console.error(`Ziel existiert bereits: ${root}`);
   process.exit(1);
+}
+
+// Zahlen-Rückschau: Vor jedem neuen Video sichtbar machen, was aus den bisherigen Videos noch fehlt.
+const offeneZahlenListe = existsSync(youtubeRoot) ? offeneZahlen(ladeKanal(youtubeRoot, new Date().toISOString().slice(0, 10))) : [];
+if (offeneZahlenListe.length) {
+  console.warn(`\n⚠ Zahlen-Rückschau offen — erst eintragen, dann aus den Zahlen lernen (npm run youtube:zahlen):\n${offeneZahlenListe.map((o) => `  - ${o}`).join('\n')}\n`);
 }
 
 const write = (relativePath, content) => {
@@ -292,7 +299,8 @@ write(YOUTUBE_PUBLISHING_FILES.thumbnailBrief, '[THUMBNAIL-BRIEF MIT KERNVERSPRE
 write(YOUTUBE_PUBLISHING_FILES.pinnedComment, '[ANGEHEFTETEN KOMMENTAR EINFÜGEN]\n');
 write(YOUTUBE_PUBLISHING_FILES.communityPost, '[COMMUNITY-POST EINFÜGEN]\n');
 write(YOUTUBE_PUBLISHING_FILES.sourcesDisclaimer, '[QUELLEN- UND DISCLAIMER-TEXT EINFÜGEN]\n');
-write(YOUTUBE_PUBLISHING_FILES.uploadChecklist, '# Upload-Checkliste\n\n[FINALEN TITEL, BESCHREIBUNG, THUMBNAIL, KAPITEL, QUELLEN, TON, 16:9, UNTERTITEL UND ENDCARD PRÜFEN]\n');
+write(YOUTUBE_PUBLISHING_FILES.uploadChecklist, `# Upload-Checkliste\n\n[FINALEN TITEL, BESCHREIBUNG, THUMBNAIL, KAPITEL, QUELLEN, TON, 16:9, UNTERTITEL UND ENDCARD PRÜFEN]\n\n## Nach dem Upload\n\n- [ ] \`npm run youtube:zahlen -- ${targetArg} --veroeffentlicht JJJJ-MM-TT\`\n- [ ] Tag ${YOUTUBE_ZAHLEN_MESSTAGE.join(' und Tag ')}: Zahlen aus YouTube Studio eintragen (\`npm run youtube:zahlen -- ${targetArg} --tag 7 …\`), Engpass als Regel in VERBESSERUNGEN.md\n`);
+write(YOUTUBE_ZAHLEN_DATEI, `${JSON.stringify(leereZahlen(relativeTarget), null, 2)}\n`);
 write(SOCIAL_PROMO_FILES.instagram, '[INSTAGRAM-PROMO EINFÜGEN]\n');
 write(SOCIAL_PROMO_FILES.tiktok, '[TIKTOK-PROMO EINFÜGEN]\n');
 write(SOCIAL_PROMO_FILES.facebook, '[FACEBOOK-PROMO EINFÜGEN]\n');
