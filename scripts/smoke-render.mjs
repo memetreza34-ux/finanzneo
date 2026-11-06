@@ -17,12 +17,14 @@ const ENTRY = 'src/index.ts';
 const filter = process.argv[2];
 
 const npx = process.platform === 'win32' ? 'npx.cmd' : 'npx';
+// Node startet .cmd-Dateien unter Windows nur über die Shell.
+const shell = process.platform === 'win32';
 
 console.log('Compositions werden geladen …\n');
 
 // Browser-Installation separat ausführen. So kann deren Fortschrittsausgabe
 // nicht versehentlich als Composition-ID interpretiert werden.
-const browser = spawnSync(npx, ['remotion', 'browser', 'ensure'], {encoding: 'utf8'});
+const browser = spawnSync(npx, ['remotion', 'browser', 'ensure'], {encoding: 'utf8', shell});
 if (browser.status !== 0) {
   console.error('Remotion-Browser konnte nicht vorbereitet werden.');
   console.error(`${browser.stdout ?? ''}${browser.stderr ?? ''}`.trim());
@@ -31,7 +33,7 @@ if (browser.status !== 0) {
 
 let listing;
 try {
-  listing = execFileSync(npx, ['remotion', 'compositions', ENTRY, '--quiet'], {encoding: 'utf8'});
+  listing = execFileSync(npx, ['remotion', 'compositions', ENTRY, '--quiet'], {encoding: 'utf8', shell});
 } catch (error) {
   console.error('Compositions konnten nicht geladen werden.');
   console.error(error instanceof Error ? error.message : String(error));
@@ -63,7 +65,7 @@ for (const [index, id] of ids.entries()) {
   const result = spawnSync(
     npx,
     ['remotion', 'still', ENTRY, id, join(outDir, `${id}.png`), '--frame=0', '--log=error'],
-    {encoding: 'utf8'},
+    {encoding: 'utf8', shell},
   );
 
   if (result.status === 0) {

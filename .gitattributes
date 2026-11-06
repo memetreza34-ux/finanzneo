@@ -1,0 +1,2 @@
+# Immer LF: Die Versiegelung (SHA-256) und die Prüfungen setzen LF voraus, auch auf Windows.
+* text=auto eol=lf
