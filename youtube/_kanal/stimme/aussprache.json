@@ -1,0 +1,21 @@
+{
+  "hinweis": "Ersetzungen nur für die Sprachausgabe. Skript und Untertitel behalten die Originalschreibweise. Schlüssel = ganzes Wort (Groß/Klein beachtet).",
+  "ersetzungen": {
+    "z. B.": "zum Beispiel",
+    "z.B.": "zum Beispiel",
+    "u. a.": "unter anderem",
+    "d. h.": "das heißt",
+    "bzw.": "beziehungsweise",
+    "ca.": "circa",
+    "inkl.": "inklusive",
+    "Nr.": "Nummer",
+    "§": "Paragraf",
+    "ETF": "E-T-F",
+    "ETFs": "E-T-Fs",
+    "EZB": "E-Z-B",
+    "EU": "E-U",
+    "OLG": "O-L-G",
+    "BGH": "B-G-H",
+    "KfW": "K-f-W"
+  }
+}

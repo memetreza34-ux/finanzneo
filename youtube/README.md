@@ -8,7 +8,7 @@ Dieser Bereich ist ausschließlich für eigenständige längere FinanzNeo-Videos
 1-script/            Sprechtext
 2-bildprompts/       alle Flow-Prompts (5er-Batches)
 3-bilder-hier-rein/  Flow-Bilder rein
-4-audio-hier-rein/   Sprachaufnahme rein
+4-audio-hier-rein/   voiceover.wav (automatisch per youtube:stimme oder eigene Aufnahme)
 5-export/            Cover, Video, Caption, Untertitel mit Zeitstempeln
 _intern/             alles andere
 ```
@@ -17,12 +17,14 @@ _intern/             alles andere
 
 ```bash
 npm run youtube:create -- --target youtube/<Projekt> --title "Titel"
-npm run youtube:zusammenbau -- youtube/<Projekt> --whisper <whisper.json>
+npm run youtube:stimme -- youtube/<Projekt>
+npm run youtube:zusammenbau -- youtube/<Projekt> --whisper youtube/<Projekt>/_intern/03-audio/whisper.json
 npm run youtube:render -- youtube/<Projekt>
 ```
 
 - Phase-1-Visualplanung: `_intern/06-projektdateien/visual-plan.mjs` schreiben (Bilder mit `cue`, `prompt`, optional `ref`/`akzente`; Motion mit `brief`), dann `node scripts/youtube-plan-anwenden.mjs youtube/<Projekt>` — erzeugt Visual-Index, Einzelprompts, die Flow-Übergabe (Batch 1 = Thumbnail) und die Motion-Ordner. Danach `youtube:validate` für die Qualitätsregeln.
-- Sprachaufnahme in mehreren Teilen? Alle Teile in `4-audio-hier-rein/` legen — sie werden automatisch zu einer `voiceover.wav` verbunden.
+- Voiceover: `youtube:stimme` spricht `1-script/script.txt` automatisch mit der Kanalstimme ein (lokal, −16 LUFS, Wortzeiten inklusive). Erst reinhören, dann Zusammenbau. Details und Einrichtung: [Kanalstimme](_kanal/stimme/README.md).
+- Eigene Sprachaufnahme in mehreren Teilen? Alle Teile in `4-audio-hier-rein/` legen — sie werden automatisch zu einer `voiceover.wav` verbunden.
 - Optionale Hintergrundmusik: `_intern/03-audio/musik.mp3` (lizenzfrei), wird leise untergemischt.
 - Neue Projekte prüfen automatisch: Standbilder max. 8 s, Hook max. 20 s, Kommentarfrage in der Mitte, Endkarte 15 s, Bilder nur Illustration mit Thumbnail als Stilvorlage. Details: [Produktionsstandard](PRODUKTIONSSTANDARD.md#qualitätsregeln-v1-finanzneo-youtube-quality-v1-arman-10102026).
 

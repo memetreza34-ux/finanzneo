@@ -74,6 +74,10 @@ npm-debug.log*
 public/youtube/
 youtube/**/03-audio/*.wav
 youtube/**/03-audio/quelle/
+youtube/**/03-audio/stimme/
+youtube/**/03-audio/ersetzt/
+youtube/**/03-audio/stimme-protokoll.json
+youtube/**/03-audio/whisper.json
 youtube/**/04-visuals/_verworfen/
 youtube/**/04-visuals/_flow-download/
 youtube/**/4-audio-hier-rein/*.wav

@@ -1,0 +1,37 @@
+{
+  "id": "finanzneo-kanalstimme-v1",
+  "name": "FinanzNeo-Kanalstimme (Nachbau der bisherigen Google-KI-Stimme)",
+  "gewaehlt": "2026-11-03",
+  "gewaehltVon": "Arman",
+  "hinweis": "Lokaler Nachbau der Google-KI-Stimme, mit der Arman die bisherigen Videos vertont hat (Referenz: Anfang von Video 0 % Finanzierung). Nur bewusst austauschen (neue Referenz + Eintrag in VERBESSERUNGEN.md).",
+  "engine": {
+    "projekt": "Qwen3-TTS (QwenLM)",
+    "lizenz": "Apache-2.0",
+    "quelle": "https://github.com/QwenLM/Qwen3-TTS",
+    "laufzeit": "mlx-audio 0.6.3 (MIT), Apple Silicon",
+    "modell": "mlx-community/Qwen3-TTS-12Hz-1.7B-Base-bf16"
+  },
+  "referenz": {
+    "datei": "referenz-alte-stimme.wav",
+    "herkunft": "youtube/2026-10-17_null-prozent-finanzierung/_intern/03-audio/teile/Finanzneo 1.mp4, 0,00–16,95 s, mono 24 kHz",
+    "text": "Null Prozent Finanzierung. Kein Zins, kleine Monatsrate. Klingt wie geschenktes Geld. Manchmal stimmt das sogar. Aber manchmal unterschreibst du dabei einen zweiten Vertrag, den du gar nicht wolltest. In diesem Video zeige ich dir, woran du den Unterschied erkennst."
+  },
+  "erzeugung": {
+    "sprache": "german",
+    "temperature": 0.8,
+    "seed": "crc32 aus Stimm-ID, Temperatur und Sprechtext; bei auffälliger Länge +1 (max. 3 Versuche)",
+    "einheit": "eine Skriptzeile pro Durchgang, lange Zeilen an Satzgrenzen geteilt",
+    "maxZeichenProStueck": 220
+  },
+  "pausenSekunden": {
+    "zeile": 0.5,
+    "absatz": 0.75,
+    "kapitel": 1.0,
+    "quelle": "gemessen an den alten Aufnahmen (Satzpause Median 0,42–0,56 s, P90 0,84–1,0 s)"
+  },
+  "mastering": {
+    "lufs": -16,
+    "truePeakDb": -1,
+    "sampleRate": 48000
+  }
+}

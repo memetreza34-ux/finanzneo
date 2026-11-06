@@ -8,7 +8,7 @@ Sichtbar ist nur, was der Nutzer anfasst. Alles andere liegt unter `_intern/` (R
 
 ```text
 youtube/<Projekt>/
-├── 1-script/script.txt              Sprechtext zum Einsprechen
+├── 1-script/script.txt              Sprechtext (Quelle für die Kanalstimme)
 ├── 2-bildprompts/bildprompts.txt    alle Flow-Prompts inkl. Thumbnail, in 5er-Batches
 ├── 3-bilder-hier-rein/              fertige Flow-Bilder, exakt benannt
 ├── 4-audio-hier-rein/               genau eine Sprachaufnahme
@@ -195,6 +195,7 @@ Bilder werden in Batches von bis zu **5 gleichzeitig** erzeugt (`finanzneo-flow-
 ## Audio, Timing und Untertitel
 
 - genau ein finales Voiceover in `4-audio-hier-rein/`
+- **Kanalstimme statt Einsprechen (Arman, 01.11.2026):** `npm run youtube:stimme -- youtube/<Projekt>` macht aus `1-script/script.txt` die fertige `voiceover.wav`: lokal, kostenlos, feste Kanalstimme (Nachbau der bisherigen Stimme, `youtube/_kanal/stimme/`), Zahlen deutsch ausgesprochen, Pausen an Zeilen/Absätzen/Kapiteln, −16 LUFS / −1 dBTP, Whisper-Wortzeiten in `_intern/03-audio/whisper.json`. Vor dem Zusammenbau hört Arman einmal komplett rein. Falsch Betontes im Skript oder in `aussprache.json` korrigieren; ein neuer Lauf spricht nur geänderte Zeilen neu. Eigene Aufnahme bleibt erlaubt.
 - echte Wort-Zeitstempel aus genau diesem Audio
 - Schnitte folgen Sprache, Visual Beats, Kapiteln und Payoffs
 - keine pauschal gleich langen Visuals

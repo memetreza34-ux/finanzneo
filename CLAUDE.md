@@ -52,7 +52,8 @@ Phase 1 ist erst fertig, wenn keine Platzhalter mehr vorkommen, alle Motion-Quel
 - legt alle finalen Bilder exakt benannt in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
 - legt genau ein finales Voiceover in `02-audio/`
 - erzeugt echte Wort-Zeitstempel
-- finale Flow-Bilder und das Haupt-Voiceover bleiben Nutzerverantwortung; kein Agent ersetzt oder generiert sie eigenmächtig
+- finale Flow-Bilder bleiben Nutzerverantwortung; kein Agent ersetzt oder generiert sie eigenmächtig
+- **YouTube-Voiceover (Arman, 01.11.2026):** Das Haupt-Voiceover entsteht auf Armans ausdrücklichen Wunsch automatisch mit `npm run youtube:stimme -- youtube/<Projekt>` aus `1-script/script.txt`, lokal mit der festen Kanalstimme aus `youtube/_kanal/stimme/` (Qwen3-TTS, Apache 2.0). Arman hört vor dem Zusammenbau rein und gibt frei; eine eigene Aufnahme bleibt jederzeit möglich. Kein Agent wechselt Stimme, Referenz oder Engine eigenmächtig, und Phase 3 erzeugt nie ein Ersatz-Voiceover. Reels: unverändert Nutzeraufnahme in `02-audio/`.
 
 ### Phase 3 — Antigravity oder Claude Code
 
