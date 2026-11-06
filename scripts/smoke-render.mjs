@@ -9,7 +9,7 @@
 //   npm run smoke -- ReelTemplateDemo nur eine (Teilstring-Filter)
 
 import {execFileSync, spawnSync} from 'node:child_process';
-import {mkdtempSync, rmSync} from 'node:fs';
+import {existsSync, mkdtempSync, readdirSync, rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 
@@ -55,12 +55,28 @@ if (ids.length === 0) {
 
 const outDir = mkdtempSync(join(tmpdir(), 'finanzneo-smoke-'));
 const failures = [];
+const skipped = [];
+
+// public/youtube/ liegt absichtlich nicht im Git. Ein Video ohne jedes Bild kann hier nicht rendern;
+// das wird sichtbar übersprungen. Sobald Bilder da sind, gilt wieder die volle Prüfung.
+const ohneYouTubeBilder = (id) => {
+  const treffer = /^YouTube-(\d{4}-\d{2}-\d{2})-(.+)$/.exec(id);
+  if (!treffer) return false;
+  const ordner = join('public', 'youtube', `${treffer[1]}_${treffer[2]}`, 'bilder');
+  return !existsSync(ordner) || readdirSync(ordner).length === 0;
+};
 
 console.log(`${ids.length} Compositions werden geprüft …\n`);
 
 for (const [index, id] of ids.entries()) {
   const position = `${String(index + 1).padStart(String(ids.length).length)}/${ids.length}`;
   process.stdout.write(`  ${position}  ${id.padEnd(26)}`);
+
+  if (ohneYouTubeBilder(id)) {
+    console.log('ÜBERSPRUNGEN (keine Bilder vorhanden)');
+    skipped.push(id);
+    continue;
+  }
 
   const result = spawnSync(
     npx,
@@ -89,4 +105,6 @@ if (failures.length > 0) {
   process.exit(1);
 }
 
-console.log(`\n✓ Alle ${ids.length} Compositions rendern fehlerfrei.`);
+const geprueft = ids.length - skipped.length;
+console.log(`\n✓ ${geprueft} von ${ids.length} Compositions rendern fehlerfrei.`);
+if (skipped.length > 0) console.log(`Übersprungen, weil die Bilder fehlen: ${skipped.join(', ')}`);

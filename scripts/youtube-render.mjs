@@ -41,7 +41,8 @@ const lies = (cmd, args) => spawnSync(cmd, args, {encoding: 'utf8'}).stderr;
 try {verbindeAudioTeile(projekt);} catch (error) {console.error(`✗ ${error.message}`); process.exit(1);}
 lauf('node', ['scripts/check-youtube-production-ready.mjs', projekt], 'Startfreigabe (youtube:ready)');
 lauf('node', ['scripts/youtube-zusammenbau.mjs', projekt], 'Zeitplan ohne Vorschau');
-lauf('npx', ['remotion', 'render', 'src/index.ts', id, roh, '--codec=h264', '--crf=18', '--log=error'], `Render ${id}`);
+// Remotion direkt über Node starten: Unter Windows lässt sich `npx` ohne Shell nicht aufrufen.
+lauf('node', ['node_modules/@remotion/cli/remotion-cli.js', 'render', 'src/index.ts', id, roh, '--codec=h264', '--crf=18', '--log=error'], `Render ${id}`);
 
 // Optionale Hintergrundmusik aus _intern/03-audio/musik.*: leise unter der Stimme, Schleife, Ausblende.
 const musik = YOUTUBE_MUSIC_FILES.map((rel) => resolve(internWurzel(projekt), rel)).find((pfad) => existsSync(pfad));
