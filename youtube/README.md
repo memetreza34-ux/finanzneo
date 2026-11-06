@@ -24,6 +24,8 @@ npm run youtube:render -- youtube/<Projekt>
 
 - Phase-1-Visualplanung: `_intern/06-projektdateien/visual-plan.mjs` schreiben (Bilder mit `cue`, `prompt`, optional `ref`/`akzente`; Motion mit `brief`), dann `node scripts/youtube-plan-anwenden.mjs youtube/<Projekt>` — erzeugt Visual-Index, Einzelprompts, die Flow-Übergabe (Batch 1 = Thumbnail) und die Motion-Ordner. Danach `youtube:validate` für die Qualitätsregeln.
 - Voiceover: `youtube:stimme` spricht `1-script/script.txt` automatisch mit der Kanalstimme ein (lokal, −16 LUFS, Wortzeiten inklusive). Erst reinhören, dann Zusammenbau. Details und Einrichtung: [Kanalstimme](_kanal/stimme/README.md).
+- Belege (echte Quellen-Screenshots, ab Regel V3 mindestens 3 pro Video): im Visual-Plan `type: 'beleg'` mit `quelle`, `quellenArt`, `url` und `markierungen[{text, cue}]`, dann `npm run youtube:belege -- youtube/<Projekt>`. Details: [Beleg-Szenen](../docs/YOUTUBE-BELEG-SZENEN.md).
+- Bildwelt (Regel V3): weiße Folien mit 3D-Icons (`type: 'folie'`, Formen begriff/ablauf/vergleich/zahl/zeilen/metapher/wolke/zitat, Metapher-Sticker aus `public/sticker/`, `npm run youtube:icons -- --liste`) und Belege; Flow-Bilder nur selten, höchstens 40 % der Sprechzeit. Cover: `thumbnail.cover = {zeilen, marker}`, `npm run youtube:cover`. Details: [Bildmix und Cover](../docs/YOUTUBE-BILDMIX-UND-COVER.md).
 - Eigene Sprachaufnahme in mehreren Teilen? Alle Teile in `4-audio-hier-rein/` legen — sie werden automatisch zu einer `voiceover.wav` verbunden.
 - Optionale Hintergrundmusik: `_intern/03-audio/musik.mp3` (lizenzfrei), wird leise untergemischt.
 - Neue Projekte prüfen automatisch: Standbilder max. 8 s, Hook max. 20 s, Kommentarfrage in der Mitte, Endkarte 15 s, Bilder nur Illustration mit Thumbnail als Stilvorlage. Details: [Produktionsstandard](PRODUKTIONSSTANDARD.md#qualitätsregeln-v1-finanzneo-youtube-quality-v1-arman-10102026).
@@ -46,6 +48,8 @@ Erlaubt:
 - `animation`
 - `hybrid`
 - `data`
+- `beleg`
+- `folie`
 
 Für Motion gilt V3: erst `viewerChange`, dann die beste Technik. Es gibt keine feste Animationsbibliothek und keine Whitelist für Composition Families.
 

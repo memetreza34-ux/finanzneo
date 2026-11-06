@@ -53,6 +53,8 @@ Erlaubte Visualtypen:
 - `animation`
 - `hybrid`
 - `data`
+- `beleg` — echter Quellen-Screenshot mit Textmarker ([Beleg-Szenen](../docs/YOUTUBE-BELEG-SZENEN.md))
+- `folie` — weiße Erklär-Folie mit 3D-Icon aus fester Vorlage ([Bildmix und Cover](../docs/YOUTUBE-BILDMIX-UND-COVER.md))
 
 ## Visual Selection V1
 
@@ -229,6 +231,22 @@ Aus der Wettbewerbsanalyse (simplicissimus, Kurzgesagt, Finanzfluss) und der Rü
 | **`bridgeObject` pro Animation** — ein Objekt aus dem Bild davor oder danach, das die Animation sichtbar weiterträgt (gleiche Form, Farbe, Name) | Kein Weltwechsel zwischen Illustration und Grafik; die Animation ist die bewegte Fortsetzung des Bildes | `youtube:validate` + Motion-Director |
 
 Zu lange Standbilder löst man mit einem zusätzlichen Bild oder mit `akzente[]` am Visual (`{cue, text, ton}`): Ein Akzent erscheint beim gesprochenen Wort als kleine Karte auf dem Bild und zählt als neue sichtbare Information.
+
+## Qualitätsregeln V3 — echte Belege (`finanzneo-youtube-quality-v3`, Arman 30.10.2026)
+
+Aus Armans Feedback nach Video 3: „nicht nur KI-Bilder, sondern auch richtige Screenshots“. Gilt für alle neu angelegten Projekte zusätzlich zu V1 und V2. Kanonische Regel: [`docs/YOUTUBE-BELEG-SZENEN.md`](../docs/YOUTUBE-BELEG-SZENEN.md).
+
+| Regel | Warum | Prüfung |
+|---|---|---|
+| Neuer Visualtyp **`beleg`**: echter Quellen-Screenshot mit Textmarker beim gesprochenen Wort | Zahlen, Gesetze und Aussagen Dritter werden bewiesen statt nur illustriert | `youtube:belege` findet den Wortlaut auf der echten Seite, sonst Abbruch |
+| Mindestens **3 Belege** pro Video, einer je volle 90 s Sprechzeit | Glaubwürdigkeit zieht sich durch das ganze Video | `youtube:validate` |
+| Erster Beleg spätestens im **ersten Kapitel nach dem Hook** | Vertrauen früh aufbauen | `youtube:validate` |
+| Presse nur als kurzer Ausschnitt (max. 700 Zeichen), Quelle immer sichtbar | Zitatrecht, Fairness | `youtube:belege` + `youtube:ready` |
+| **Bildwelt:** weiße Folien mit 3D-Icons (**`folie`**) + Belege; Flow-Bilder Ziel 10–15 %, höchstens 40 % der Sprechzeit | Finanzbär-Analyse: Erfolgreiche Finanzvideos sind überwiegend Folien, Zahlen, Belege | `youtube:validate` |
+| Höchstens **6 s** ohne neue Information (vorher 8 s) | schnellere Wechsel halten die Zuschauer | `youtube:validate` |
+| **Cover V1:** Flow zeichnet nur das Motiv rechts ohne Text; `youtube:cover` setzt max. 5 Wörter mit gelbem Marker | Flow erfindet Text; feste Vorlage = Wiedererkennung im Feed | `youtube:validate` + `youtube:cover` |
+
+Details zu Folien und Cover: [`docs/YOUTUBE-BILDMIX-UND-COVER.md`](../docs/YOUTUBE-BILDMIX-UND-COVER.md).
 
 ## Vollständiges Publishing-Paket
 

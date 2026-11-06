@@ -11,6 +11,8 @@
 - Stil: auch komplexe Themen einfach, professionell und verständlich erklären; **die Sprache ist zugänglich, nicht die Themenauswahl eingeschränkt**
 - Reel-Plattformen: TikTok, Instagram Reels, Facebook Reels, Snapchat
 - YouTube: ausschließlich Longform unter `youtube/`; **keine YouTube Shorts**
+- YouTube zeigt Zahlen, Gesetze und Aussagen Dritter als **echte Quellen-Screenshots** (Visualtyp `beleg`, mind. 3 pro Video, Qualitätsregel V3): `docs/YOUTUBE-BELEG-SZENEN.md`
+- YouTube-Bildwelt (seit 30.10.2026): weiße Folien mit 3D-Icons (`folie`, Icon-Katalog `youtube:icons`), Metapher-Bilder als kostenlose Freehand-Doodles (`youtube:doodles`, KI-Sticker nur als Ausnahme) + Belege; Flow-Bilder nur selten (Ziel 10–15 %, max. 40 % der Sprechzeit), max. 6 s ohne neue Information; Cover-Text setzt `youtube:cover` (max. 5 Wörter): `docs/YOUTUBE-BILDMIX-UND-COVER.md`
 - Reel: 1080 × 1920, 9:16, 30 fps; typischerweise ca. 45–70 Sekunden, aber Inhalt und echtes Voiceover entscheiden
 
 Kanonischer Themen-Scope: `docs/CONTENT-SCOPE.md`.

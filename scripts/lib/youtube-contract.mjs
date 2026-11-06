@@ -118,7 +118,11 @@ export const PHASE_1_FILES = [
 export const YOUTUBE_QUALITY_RULES_ID = 'finanzneo-youtube-quality-v1';
 // V2 (17.10.2026, Wettbewerbsanalyse): Skript, Bild und Animation werden fest aneinander gebunden.
 export const YOUTUBE_QUALITY_RULES_V2_ID = 'finanzneo-youtube-quality-v2';
-export const YOUTUBE_QUALITY_RULES_IDS = [YOUTUBE_QUALITY_RULES_ID, YOUTUBE_QUALITY_RULES_V2_ID];
+// V3 (30.10.2026, Arman: „nicht nur KI-Bilder, auch echte Screenshots“): V2 + echte Beleg-Szenen.
+export const YOUTUBE_QUALITY_RULES_V3_ID = 'finanzneo-youtube-quality-v3';
+export const YOUTUBE_QUALITY_RULES_IDS = [YOUTUBE_QUALITY_RULES_ID, YOUTUBE_QUALITY_RULES_V2_ID, YOUTUBE_QUALITY_RULES_V3_ID];
+/** Regeln, die die V2-Bindung (Hook, Figur, keyword, bridgeObject) einschließen. */
+export const YOUTUBE_BINDUNG_RULES_IDS = [YOUTUBE_QUALITY_RULES_V2_ID, YOUTUBE_QUALITY_RULES_V3_ID];
 /** Hook beginnt mit Szene/Person/Konflikt, nicht mit einer Ankündigung (simplicissimus-Prinzip). */
 export const YOUTUBE_HOOK_ANNOUNCEMENT_PATTERN = /\b(?:in diesem video|heute (?:zeige|erkläre|erklaere|schauen|sprechen)|ich zeige dir|ich erkläre dir|ich erklaere dir|lass uns (?:heute|mal))\b/i;
 /** Sprechtempo des echten FinanzNeo-Voiceovers inkl. Pausen (gemessen: Supermarkt-Tricks 141,6 und
@@ -126,6 +130,10 @@ export const YOUTUBE_HOOK_ANNOUNCEMENT_PATTERN = /\b(?:in diesem video|heute (?:
 export const YOUTUBE_SPEECH_WPM = 142;
 /** Ein Standbild ohne neue sichtbare Information höchstens so lange (geschätzt aus dem Skript). */
 export const YOUTUBE_IMAGE_MAX_HOLD_SECONDS = 8;
+/** V3 (Bildmix nach Finanzbär-Analyse): schnellere Wechsel — höchstens 6 s ohne neue Information. */
+export const YOUTUBE_V3_MAX_HOLD_SECONDS = 6;
+/** V3: gezeichnete Flow-Bilder höchstens 40 % der Sprechzeit; den Rest tragen Folien, Belege und Daten. */
+export const YOUTUBE_V3_MAX_BILD_ANTEIL = 0.4;
 /** Nach echtem Audio: ab hier warnt der Zusammenbau. */
 export const YOUTUBE_IMAGE_WARN_HOLD_SECONDS = 10;
 /** Hook: bis zum ersten inhaltlichen Kapitel höchstens so lange. */

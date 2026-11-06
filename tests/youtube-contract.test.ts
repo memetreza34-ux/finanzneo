@@ -38,7 +38,7 @@ test('YouTube-Flow arbeitet in Batches von höchstens 5 Einzelbild-Jobs, nur deu
 
 test('YouTube Motion V3 trennt Longform-Motion von Reel-Pflichten und bleibt technikoffen', () => {
   assert.equal(YOUTUBE_MOTION_STANDARD_ID, 'finanzneo-youtube-motion-v3');
-  assert.deepEqual(YOUTUBE_VISUAL_TYPES, ['image', 'animation', 'hybrid', 'data']);
+  assert.deepEqual(YOUTUBE_VISUAL_TYPES, ['image', 'animation', 'hybrid', 'data', 'beleg', 'folie']);
 });
 
 test('YouTube-Paket enthält Upload-Metadaten und vier Social-Promos', () => {
