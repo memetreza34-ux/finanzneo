@@ -32,6 +32,7 @@ const promptParagraphs = (text) => text
   .filter((line) => /^\s*Stylized 3D animated (?:feature )?film still/i.test(line));
 
 export const countFlowPrompts = (text) => promptParagraphs(text).length;
+export const flowPromptLines = (text) => promptParagraphs(text).map((line) => line.trim());
 
 const positiveText = (sentence) => {
   const kept = [];

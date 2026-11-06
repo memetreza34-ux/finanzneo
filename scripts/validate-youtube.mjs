@@ -35,6 +35,9 @@ import {
   YOUTUBE_FLOW_NATURAL_LOOK_MARKER,
   YOUTUBE_FLOW_ONE_FOLDER_MARKER,
   YOUTUBE_FLOW_PROMPT_OPENING,
+  YOUTUBE_MAX_STATIC_SECONDS,
+  YOUTUBE_SCRIPT_FILE,
+  YOUTUBE_STORY_CONTRACT_ID,
   YOUTUBE_THUMBNAIL_CANDIDATE_COUNT,
   YOUTUBE_THUMBNAIL_CONCURRENCY,
   YOUTUBE_IMAGE_BATCH_SIZE,
@@ -47,7 +50,8 @@ import {
   validateYouTubeMotionMetadata,
   validateYouTubeMotionVariety,
 } from './lib/youtube-motion-contract.mjs';
-import {countFlowPrompts, findAbstractFlowPromptTerms, findFlowPromptFormIssues} from './lib/youtube-flow-prompt-check.mjs';
+import {countFlowPrompts, findAbstractFlowPromptTerms, findFlowPromptFormIssues, flowPromptLines} from './lib/youtube-flow-prompt-check.mjs';
+import {validateYouTubeStory} from './lib/youtube-story-contract.mjs';
 
 const [target] = process.argv.slice(2);
 if (!target) {
@@ -251,6 +255,17 @@ if (existsSync(resolve(root, ALL_PROMPTS))) {
   }
 }
 
+// Erzähl- und Tempo-Vertrag: Reihenfolge wie im Skript, keine langen Standbilder, eine Hauptfigur.
+let storyNote = '';
+if (index?.storyContract === YOUTUBE_STORY_CONTRACT_ID) {
+  const scriptText = existsSync(resolve(root, YOUTUBE_SCRIPT_FILE)) ? read(YOUTUBE_SCRIPT_FILE) : '';
+  const promptLines = existsSync(resolve(root, ALL_PROMPTS)) ? flowPromptLines(read(ALL_PROMPTS)) : [];
+  errors.push(...validateYouTubeStory({visuals: index.visuals ?? [], scriptText, recurringCharacter: index.recurringCharacter, promptLines}));
+  storyNote = ` · Erzähl-/Tempo-Vertrag: Skript-Reihenfolge, max. ${YOUTUBE_MAX_STATIC_SECONDS} s Standbild, eine Hauptfigur`;
+} else if (index) {
+  storyNote = ` · Hinweis: ohne ${YOUTUBE_STORY_CONTRACT_ID} (älteres Projekt) — Reihenfolge, Tempo und Hauptfigur ungeprüft`;
+}
+
 if (existsSync(resolve(root, WORD_TIMINGS))) {
   try {
     const timing = JSON.parse(read(WORD_TIMINGS));
@@ -269,4 +284,4 @@ if (errors.length > 0) {
 }
 
 console.log('\n✓ YouTube-Longform-Vertrag erfüllt.');
-console.log(`  16:9 · ${YOUTUBE_IMAGE_WORLD_LOCK} · Animationsfilm-Look, Inhalt frei · Precision = Remotion · min. ${YOUTUBE_MIN_MOTION_VISUALS} Motion · keine Shorts/Reels`);
+console.log(`  16:9 · ${YOUTUBE_IMAGE_WORLD_LOCK} · Animationsfilm-Look, Inhalt frei · Precision = Remotion · min. ${YOUTUBE_MIN_MOTION_VISUALS} Motion · keine Shorts/Reels${storyNote}`);

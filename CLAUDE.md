@@ -19,6 +19,8 @@ Verbindlich für neue Arbeit:
 - Bildwelt: **Look fest — Inhalt frei** (§6): Standbilder im stilisierten 3D-Animationsfilm-Look auf tiefem Schwarz; Menschen, Hände, echte Gegenstände und Orte, wenn es passt
 - **natürlich — kein KI-Look**: ruhig, einfach, echte Dinge in echter Situation; keine Glas-/Leuchtbalken, Wertblöcke, Neon, Rauch oder Poster-Drama
 - jedes normale YouTube-Projekt enthält **mindestens zwei echte Motion-/Animationsvisuals**; keine reine Slideshow
+- **Erzählung und Tempo** (`finanzneo-youtube-story-v1`): Visuals in Skript-Reihenfolge (`startCue`), Animationsstufen erscheinen beim gesprochenen Wort (`beatCues` → Prop `beats`), spätestens alle 8 Sekunden neue sichtbare Information, eine wiederkehrende Hauptfigur (`recurringCharacter`)
+- **ein Motion-Stil:** flacher Keynote-Datenstil wie der Karten-Baukasten — Inter, Kartenfarben, Größen aus den Werten berechnet, jede Zahl beschriftet
 - Google Flow: ein Flow-Ordner pro Video → zuerst 3 Thumbnail-Kandidaten parallel → Nutzer wählt → die zwei anderen Cover löschen → Szenenbilder in parallelen Batches von bis zu 5 (Anzahl laut Visualplan) → am Ende liegen Thumbnail und alle Szenenbilder nach Szene benannt in diesem einen Ordner
 - Diagramme/Charts standardmäßig frontal, gerade und sofort lesbar; keine schrägen 3D-Perspektiven
 
@@ -66,15 +68,15 @@ Phase 1 ist erst fertig, wenn keine kreativen Lücken/Platzhalter mehr offen sin
 ### Phase 2 — Nutzer
 
 - erzeugt finale Szenenbilder mit Google Flow
-- `scene-01` ist automatisch das Cover; kein separates `Bild 00`
-- legt alle finalen Bilder exakt benannt in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
-- legt genau ein finales Voiceover in `02-audio/`
+- Reels: `scene-01` ist automatisch das Cover; YouTube: Thumbnail A/B/C separat nach `youtube/PRODUKTIONSSTANDARD.md`
+- legt alle finalen Bilder exakt benannt in `03-szenen/00-ALLE-BILDER-HIER-REIN/` (Reels) bzw. `04-visuals/00-ALLE-BILDER-HIER-REIN/` (YouTube)
+- legt genau ein finales Voiceover in `02-audio/` (Reels) bzw. `03-audio/` (YouTube)
 - erzeugt echte Wort-Zeitstempel
 - Agenten ersetzen Bilder oder Voiceover nicht eigenmächtig
 
 ### Phase 3 — Antigravity oder Claude Code
 
-`scene-index.json -> phase3Executor` bestimmt den Executor.
+`scene-index.json -> phase3Executor` bestimmt bei Reels den Executor.
 
 Phase 3 darf:
 
@@ -86,7 +88,7 @@ Phase 3 darf:
 
 Phase 3 darf versiegelte Animationen nicht kreativ ersetzen, vereinfachen oder neu erfinden.
 
-## 4. Reel-Struktur
+## 4. Reel-Struktur (nur Legacy-Reels)
 
 Cover-Regel: `scene-01` ist immer Bildszene und Cover. `03-szenen/00-cover/cover.txt` ist nur technischer Alias auf diese Szene.
 
@@ -123,7 +125,8 @@ Bildszene:
 - keine feste Szenenzahl
 - 1 gesprochener Gedanke = 1 sichtbarer Visual Beat
 - Voiceover und Visual müssen gemeinsam fortschreiten
-- neue Future-V3-Bildbeats ideal ca. 1,8–3,0 s; ohne neue sichtbare Information hart max. 4,0 s
+- Reels: neue Future-V3-Bildbeats ideal ca. 1,8–3,0 s; ohne neue sichtbare Information hart max. 4,0 s
+- YouTube: spätestens alle 8 s neue sichtbare Information (`youtube/PRODUKTIONSSTANDARD.md`, Erzählung und Tempo)
 - Animationen dürfen länger sein, müssen aber mehrere klar unterschiedliche Zustände zeigen
 - ca. 60 % Bild / 40 % Animation ist nur Richtwert
 - echte Wort-Zeitstempel bestimmen finale Schnitte
@@ -179,7 +182,7 @@ Es gibt keine Objektliste und keine Quote. Wähle, was den Sprechpunkt am schnel
 - `object-story` — ein starker echter Gegenstand trägt die Idee
 - `everyday-scene` — wenige echte Gegenstände an einem kleinen echten Ort
 - `comparison-scene` — zwei echte Situationen nebeneinander
-- `creative-idea` — Übertreibung oder eine Bildidee aus echten Gegenständen; kreativ ist erwünscht, solange es auf einen Blick lesbar ist
+- `creative-idea` — eine Bildidee aus echten Gegenständen; erlaubt, wenn sie sofort sitzt — die naheliegende Alltagsszene geht vor
 
 Keine Figur und keine Geschichte einbauen, nur damit sie da sind — die meisten Bilder brauchen beides nicht.
 
@@ -242,7 +245,7 @@ Kurze deutsche Labels direkt am Gegenstand sind erwünscht, wenn sie Mehrdeutigk
 - heller Studio-, weißer oder farbiger Hintergrund
 - winzige Miniatur-/Diorama-Darstellung
 - Spielzeug-, Plastik- oder Knete-Look
-- aufgeräumter Endzustand statt Moment
+- steriles Produktfoto ohne Alltagsbezug
 - reale identifizierbare Personen, flach aufgeklebte echte Logos
 - Clutter und Deko ohne Erklärwert
 
@@ -261,7 +264,9 @@ Bild verwerfen und **dieselbe Bildnummer neu erzeugen**, wenn:
 - es Ort und Blickwinkel des vorigen Bildes wiederholt
 - notwendige deutsche Labels fehlen oder falsch zugeordnet sind
 
-## 7. Google Flow — Cover Parallel V2 + Scene Single Job
+## 7. Google Flow für Reels — Cover Parallel V2 + Scene Single Job (nur Legacy-Reels)
+
+> YouTube arbeitet anders: ein Flow-Ordner, 3 Cover parallel, Szenenbilder in parallelen 5er-Batches — siehe §0 und `youtube/PRODUKTIONSSTANDARD.md`.
 
 ```text
 FLOW_EXECUTION_MODE: finanzneo-flow-cover-parallel-then-single-v4
@@ -345,7 +350,7 @@ Verboten nach der Cover-Phase:
 
 Nach dem letzten Bild ist ein vollständiger Inventory-/Dateinamen-QA Pflicht; alle finalen Flow-Bilder liegen gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/`.
 
-## 8. Finales Reel-Layout V5
+## 8. Finales Reel-Layout V5 (nur Legacy-Reels)
 
 Einzige technische Wahrheit: `src/brand/tokens.ts -> REEL_STYLE`.
 
@@ -371,7 +376,7 @@ Header:
 
 `AnimationStage` clippt produktive Animationen hart auf Y320–1400. Kein Animationsinhalt im Header- oder Caption-Bereich.
 
-## 9. Untertitel
+## 9. Untertitel (Reels; YouTube: `youtube/PRODUKTIONSSTANDARD.md`)
 
 Standard: `src/brand/components/Captions.tsx`.
 
@@ -383,7 +388,7 @@ Standard: `src/brand/components/Captions.tsx`.
 - `bottom = 340`
 - kein Wort der nächsten Szene darf vorgreifen
 
-## 10. Reel-Hintergrund — Pure Black V1
+## 10. Reel-Hintergrund — Pure Black V1 (nur Legacy-Reels)
 
 Der einzige produktive Reel-Hintergrund ist:
 
@@ -403,7 +408,7 @@ Verboten als Reel-Hintergrund:
 
 Hintergrundbewegung zählt niemals als Szenenanimation oder QA-Nachweis.
 
-## 11. Phase-1-Animationscode
+## 11. Phase-1-Animationscode (Reels; YouTube-Motion: `docs/YOUTUBE-MOTION-V3.md`)
 
 Basis-Lock:
 
@@ -501,7 +506,7 @@ Header, Caption, Canvas und Safe-Zone-Clipping werden exakt einmal vom zentralen
 
 Technische Tests sind Pflicht, beweisen aber nicht allein die visuelle Qualität. Eine globale Stil-Promotion braucht einen echten visuellen Test mit realen Flow-Bildern und Animationen im finalen Reel-Layout.
 
-## 12. Phase-3-Seal und Dispatch
+## 12. Phase-3-Seal und Dispatch (nur Legacy-Reels)
 
 `npm run reel:ready -- <Reel-Pfad>` versiegelt jede kanonische `animation.tsx` per SHA-256.
 
@@ -514,7 +519,7 @@ Phase 3 verlangt danach:
 
 Fehlt ein Binding: Render hart abbrechen. Kein Ersatzvisual.
 
-## 13. Phase-3-Completion-Gate
+## 13. Phase-3-Completion-Gate (nur Legacy-Reels)
 
 Eine vorhandene MP4 bedeutet nicht fertig.
 
@@ -539,7 +544,7 @@ Post-Render-QA prüft mindestens:
 - Audio, Auflösung und Timeline stimmen
 - Future-V3-Candidate wird auf -16 LUFS / -1 dBTP gemastert und gemessen
 
-## 14. Publishing
+## 14. Publishing (Reels; YouTube: `05-publishing/`)
 
 Für alle Reel-Plattformen gibt es genau eine Social-Caption.
 
@@ -557,7 +562,7 @@ Finaler Export:
 
 Dieselbe Caption gilt für Instagram Reels, TikTok, Facebook Reels und Snapchat. YouTube bleibt Longform unter `youtube/`.
 
-## 15. Produktionsbefehle
+## 15. Produktionsbefehle (nur Legacy-Reels; YouTube: `npm run youtube:*`)
 
 ```bash
 npm run reel:create -- --target <Reel-Pfad> --title "Titel"

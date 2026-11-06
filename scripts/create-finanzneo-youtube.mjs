@@ -74,7 +74,9 @@ Jedes Bild wirkt wie ein ruhiges Standbild aus einem Animationsfilm, nicht wie e
 
 ENTSCHEIDENDER MOMENT — NUR AB UND ZU: Nur wenn der Sprechpunkt von etwas handelt, das passiert, zeigt das Bild diese Sekunde. Keine Geschichte und keine Person erfinden, nur damit eine da ist.
 
-ABWECHSLUNG: Jedes Bild zeigt eine sichtbar andere Situation, einen anderen Ort oder Blickwinkel als das vorige.
+ABWECHSLUNG: Jedes Bild zeigt eine sichtbar andere Situation, einen anderen Ort oder Blickwinkel als das vorige — und setzt trotzdem dieselbe Geschichte fort.
+
+HAUPTFIGUR: Kommt eine Person vor, ist es immer dieselbe Figur mit exakt derselben englischen Beschreibung (visual-index.json → recurringCharacter).
 
 TEXT: kurze deutsche Objektlabels direkt am Gegenstand, wenn sie helfen. Keine Sätze, kein Logo.
 

@@ -43,6 +43,9 @@ There is no object whitelist and no quota. Do not add a person just to have one 
 STORY MOMENTS — NOW AND THEN
 Only when the beat is about something happening, show the second in which it happens (the thumb just about to press, the letter just sliding out). Most images do not need this; never invent a story just to have one.
 
+ONE RECURRING CHARACTER
+When a person appears, it is the video's one recurring character, written with exactly the same English description in every prompt (visual-index.json -> recurringCharacter). Later images continue the same situation (the broken washing machine is repaired and paid) instead of jumping to an unrelated place.
+
 SCENE VARIANCE
 Every image shows a visibly different situation, place, camera distance or angle than the one before. Style comes from the look, never from repeating the same table, cup or props.
 

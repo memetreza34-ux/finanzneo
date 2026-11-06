@@ -239,6 +239,8 @@ Do not cut on a fixed timer. Voiceover thought, visual information and chapter l
 
 A long visual is allowed when it continues to reveal meaningful information. A static state must not remain while several new spoken thoughts arrive without a visual reason.
 
+Since `finanzneo-youtube-story-v1` this is enforced (`youtube/PRODUKTIONSSTANDARD.md`, „Erzählung und Tempo“): every visual has a `startCue`, every motion visual has one `beatCues` entry per `visualBeat`, and no static stretch may run longer than 8 seconds of estimated speech.
+
 ## Hybrid visuals
 
 Use `hybrid` when a strong Flow image provides the detailed FinanzNeo world and Remotion adds meaningful temporal information, for example:
@@ -278,6 +280,9 @@ Every Phase-1 `animation.tsx` must:
 - export the component named in `visual-index.json`
 - contain no placeholder/TODO content
 - contain no CSS animation/transition, timer, `Math.random`, runtime fetch or remote runtime dependency
+- (story contract) accept the prop `beats?: number[]` — frames from visual start, one per `visualBeat` — and drive each visible step from it; preview defaults only as fallback. Phase 3 fills `beats` from `beatCues` and the real word timings, so the sealed source never changes for retiming
+- (story contract) use only the motion palette and fonts of the Karten-Baukasten: `#000000`, `#FFFFFF`, `#9DB0A6`, `#00D26A`, `#FF6B6B`, `#FFC83D`, `#3A3A3A`; Inter or Bebas Neue
+- compute sizes, bar lengths and positions from the actual values — never hand-typed pixel heights that break proportions
 
 All productive motion remains deterministic from the Remotion frame timeline.
 

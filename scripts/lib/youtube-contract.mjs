@@ -63,6 +63,22 @@ export const YOUTUBE_FLOW_PROMPT_CLOSING = 'Soft natural light, deep black backg
 export const YOUTUBE_FLOW_PROMPT_MAX_WORDS = 70;
 export const YOUTUBE_FLOW_PROMPT_MAX_TEXTS = 2;
 
+// Erzähl- und Tempo-Vertrag (2026-10-05). Erste echte Produktion (Notgroschen) hatte
+// vertauschte Visuals, 12–20 s Standbilder und Animationen, die in 3 s fertig waren.
+// Jedes Visual hängt deshalb an einem wörtlichen Skript-Satz (startCue), jede
+// Animationsstufe an einem gesprochenen Wort (beatCues). Phase 3 rechnet daraus Frames.
+export const YOUTUBE_STORY_CONTRACT_ID = 'finanzneo-youtube-story-v1';
+export const YOUTUBE_SCRIPT_FILE = '02-script/script-fliess-text.txt';
+export const YOUTUBE_WORDS_PER_SECOND = 2.5;
+export const YOUTUBE_MAX_STATIC_SECONDS = 8;
+export const YOUTUBE_CUE_MIN_WORDS = 2;
+export const YOUTUBE_CUE_MAX_WORDS = 8;
+
+// Ein Animationsstil für alle YouTube-Motion: dieselben Farben und Schriften wie der
+// Karten-Baukasten (src/design-system/karten.tsx, src/brand/tokens.ts, src/brand/fonts.ts).
+export const YOUTUBE_MOTION_PALETTE = ['#000000', '#FFFFFF', '#9DB0A6', '#00D26A', '#FF6B6B', '#FFC83D', '#3A3A3A'];
+export const YOUTUBE_MOTION_FONTS = ['Inter', 'Bebas Neue'];
+
 export const VISUAL_INDEX = '04-visuals/visual-index.json';
 export const PROMPT_DIRECTORY = '04-visuals/01-BILDPROMPTS';
 // This is intentionally the user-facing, directly copyable Google Flow master prompt.

@@ -24,6 +24,7 @@ import {
   YOUTUBE_IMAGE_WORLD_LOCK,
   YOUTUBE_FLOW_EXECUTION_MODE_ID,
   YOUTUBE_FLOW_ONE_FOLDER_MARKER,
+  YOUTUBE_STORY_CONTRACT_ID,
   YOUTUBE_FLOW_DELETE_LOSERS_MARKER,
   YOUTUBE_FLOW_FINISHED_FOLDER_MARKER,
   YOUTUBE_THUMBNAIL_CANDIDATE_COUNT,
@@ -81,7 +82,7 @@ const visualFileName = (index) => `YouTube Bild ${numberOf(index)} - [KURZER NAM
 const thumbnailFileName = 'YouTube Thumbnail - [KURZER NAME].png';
 const exportNameFor = (index) => `YouTubeVisual${numberOf(index)}Animation`;
 
-const styleBlock = `${WORLD_ID_MARKER}\n${SERIES_LOCK_MARKER}\n${GENERATED_IMAGE_ASPECT_MARKER}\nYOUTUBE_VISUAL_WORLD_LOCK: ${YOUTUBE_IMAGE_WORLD_LOCK}\n\nLOOK FIXED — CONTENT FREE. Every image supports the spoken point visually in the look of a high-end stylized 3D animated feature film: real everyday objects with believable proportions and recognizable details, a person only when the beat is about a person, soft cinematic light with a gentle rim, soft contact shadows, and a deep seamless black world with at most a small local set that dissolves into black. Anything may appear when it explains the spoken point. Emerald = positive, warm red-orange = cost/warning, gold only as a small money accent, ivory/soft gray neutral, natural skin and clothing colors. Never photorealistic.\n\nDECISIVE MOMENT — NOW AND THEN: only when the beat is about something happening. Most images need no person and no story.\n\nDEFAULT CAMERA: eye-level or natural camera height, level horizon. Creative ideas are welcome. Quotes, keywords and tables are Remotion cards with exact text, not Flow images. Charts, diagrams, exact numbers, tables, checklists and UI belong to Remotion.\n\nANTI-DRIFT: no green-gold symbol world (bank buildings, shields, vaults, coin mountains), no abstract finance sculptures (debt clamps, interest magnets, payment tokens, money ribbons), no dark green-black monochrome frames, no dashboards or flat PowerPoint-style infographics, no charts or diagrams (Remotion), no floating cards, no trophy or gold-luxury staging, no toy/plastic/clay look.\n\nNATURAL, NOT AI-LOOKING: a calm frame from an animated film, not an AI poster. Few real objects, natural colors, soft natural light. No glowing or neon edges, no glass bars or value blocks, no smoke, sparks or lens flares, no epic drama, no invented extra labels.\n\nhorizontal 16:9 source image. Important subjects large enough for TV/laptop/mobile. Use one clear idea. Short German object labels only when useful. Prompts in English, one short paragraph, same shape every time.\n`;
+const styleBlock = `${WORLD_ID_MARKER}\n${SERIES_LOCK_MARKER}\n${GENERATED_IMAGE_ASPECT_MARKER}\nYOUTUBE_VISUAL_WORLD_LOCK: ${YOUTUBE_IMAGE_WORLD_LOCK}\n\nLOOK FIXED — CONTENT FREE. Every image supports the spoken point visually in the look of a high-end stylized 3D animated feature film: real everyday objects with believable proportions and recognizable details, a person only when the beat is about a person, soft natural light with a gentle rim, soft contact shadows, and a deep seamless black world with at most a small local set that dissolves into black. Anything may appear when it explains the spoken point. Emerald = positive, warm red-orange = cost/warning, gold only as a small money accent, ivory/soft gray neutral, natural skin and clothing colors. Never photorealistic.\n\nDECISIVE MOMENT — NOW AND THEN: only when the beat is about something happening. Most images need no person and no story.\n\nDEFAULT CAMERA: eye-level or natural camera height, level horizon. Creative ideas are welcome. Quotes, keywords and tables are Remotion cards with exact text, not Flow images. Charts, diagrams, exact numbers, tables, checklists and UI belong to Remotion.\n\nANTI-DRIFT: no green-gold symbol world (bank buildings, shields, vaults, coin mountains), no abstract finance sculptures (debt clamps, interest magnets, payment tokens, money ribbons), no dark green-black monochrome frames, no dashboards or flat PowerPoint-style infographics, no charts or diagrams (Remotion), no floating cards, no trophy or gold-luxury staging, no toy/plastic/clay look.\n\nNATURAL, NOT AI-LOOKING: a calm frame from an animated film, not an AI poster. Few real objects, natural colors, soft natural light. No glowing or neon edges, no glass bars or value blocks, no smoke, sparks or lens flares, no epic drama, no invented extra labels.\n\nhorizontal 16:9 source image. Important subjects large enough for TV/laptop/mobile. Use one clear idea. Short German object labels only when useful. Prompts in English, one short paragraph, same shape every time.\n`;
 
 const flowStep = (fileName, referenceText) => `${FLOW_AGENT_PROTOCOL_MARKER}\nONE JOB = ONE IMAGE\n\nFINAL FILE NAME:\n${fileName}\n\nThis prompt belongs to one separate image-generation job. Generate exactly ONE image for this job. ${referenceText} As soon as the result returns, rename it immediately to the exact final file name, place it in the final image directory and run QA. If it fails, regenerate only this same image number. Never render the file name inside the image.\n`;
 
@@ -94,7 +95,41 @@ const thumbnailPrompt = `${FLOW_AGENT_PROTOCOL_MARKER}\nYOUTUBE THUMBNAIL PHASE 
 
 const motionTemplate = (index, type) => {
   const exportName = exportNameFor(index);
-  return `import React from 'react';\nimport {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';\n\nexport const MECHANIC_ID = '[MECHANIC_ID]';\nexport const VISUAL_TECHNIQUE_ID = '[VISUAL_TECHNIQUE_ID]';\nexport const COMPOSITION_FAMILY_ID = '[COMPOSITION_FAMILY_ID]';\nexport const ANIMATION_NARRATIVE = {\n  START: '[START STATE]',\n  MECHANISM: '[VISIBLE CHANGE]',\n  RESULT: '[CLEAR RESULT]',\n};\n\nexport const ${exportName}: React.FC = () => {\n  const frame = useCurrentFrame();\n  const progress = interpolate(frame, [0, 30], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});\n  return (\n    <AbsoluteFill>\n      {/* PLACEHOLDER: replace in Phase 1 with production-ready ${type} motion chosen from viewerChange, not from a preset animation list. */}\n      <div style={{opacity: progress}}>[EINFÜGEN]</div>\n    </AbsoluteFill>\n  );\n};\n`;
+  return `import React from 'react';
+import {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';
+
+export const MECHANIC_ID = '[MECHANIC_ID]';
+export const VISUAL_TECHNIQUE_ID = '[VISUAL_TECHNIQUE_ID]';
+export const COMPOSITION_FAMILY_ID = '[COMPOSITION_FAMILY_ID]';
+export const ANIMATION_NARRATIVE = {
+  START: '[START STATE]',
+  MECHANISM: '[VISIBLE CHANGE]',
+  RESULT: '[CLEAR RESULT]',
+};
+
+// Ein Stil für alle FinanzNeo-YouTube-Motion: schwarzer Grund, Inter, Farben des Karten-Baukastens.
+const INK = '#FFFFFF';
+const QUIET = '#9DB0A6';
+const GREEN = '#00D26A';
+const RED = '#FF6B6B';
+
+// Phase 3 setzt beats aus den beatCues und den echten Wort-Zeitstempeln (Frames ab Visual-Start).
+// Die Standardwerte gelten nur für die Vorschau. Größen immer aus den Werten berechnen, nie von Hand.
+const PREVIEW_BEATS = [0, 45];
+
+export const ${exportName}: React.FC<{beats?: number[]}> = ({beats}) => {
+  const frame = useCurrentFrame();
+  const at = (step: number) => beats?.[step] ?? PREVIEW_BEATS[step];
+  const reveal = (step: number) => interpolate(frame, [at(step), at(step) + 15], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  return (
+    <AbsoluteFill style={{backgroundColor: '#000000', fontFamily: 'Inter', color: INK}}>
+      {/* PLACEHOLDER: replace in Phase 1 with production-ready ${type} motion chosen from viewerChange. One visible step per beat. */}
+      <div style={{opacity: reveal(0), color: QUIET}}>[EINFÜGEN]</div>
+      <div style={{opacity: reveal(1), color: GREEN, borderColor: RED}}>[EINFÜGEN]</div>
+    </AbsoluteFill>
+  );
+};
+`;
 };
 
 const visuals = types.map((type, index) => {
@@ -106,6 +141,7 @@ const visuals = types.map((type, index) => {
     type,
     chapter: '[CHAPTER]',
     scriptBeat: '[SCRIPT BEAT]',
+    startCue: '[2–8 EXACT SPOKEN WORDS WHERE THIS VISUAL STARTS]',
   };
 
   if (requiresYouTubeImage({type})) {
@@ -141,6 +177,7 @@ const visuals = types.map((type, index) => {
       repeatTechniqueReason: '',
       motionChannels: ['[CHANNEL 1]', '[CHANNEL 2]'],
       visualBeats: ['[START]', '[RESULT]'],
+      beatCues: ['[EXACT SPOKEN WORD(S) FOR BEAT 1]', '[EXACT SPOKEN WORD(S) FOR BEAT 2]'],
     });
   } else {
     base.planFile = `${directory}/bildprompt.txt`;
@@ -184,6 +221,8 @@ write('04-visuals/visual-index.json', `${JSON.stringify({
   version:3,
   title,
   format:'youtube-longform',
+  storyContract:YOUTUBE_STORY_CONTRACT_ID,
+  recurringCharacter:'[EXACT ENGLISH DESCRIPTION OF THE ONE RECURRING CHARACTER, e.g. "a woman in her thirties with a short dark bob and a mustard sweater" — OR: none — REASON]',
   shortsForbidden:true,
   fixedVisualCount:false,
   fixedImageAnimationRatio:false,
