@@ -120,6 +120,8 @@ Jedes Motion-Visual braucht:
 - mindestens **eine** sinnvolle erklärende Motion
 - mindestens zwei sichtbare Visual Beats: Start + Result
 
+**Hintergrund = gemessener Bildgrund (Arman, 24.10.2026):** Flow trifft das Creme der Stilvorlage nicht exakt (Video 2 ≈ #F9E9CB, Video 3 ≈ #FCF6E5). `youtube:zusammenbau` misst deshalb bei Projekten mit Kanal-Stilvorlage den Rand aller Flow-Bilder (`scripts/lib/youtube-bildgrund.mjs`) und schreibt ihn als `grund` in `timeline.json`. `YouTubeVideo` gibt ihn über `DatenGrund` an `DatenBuehne` und die Endkarte weiter. Animationen verwenden für ihre Fläche deshalb immer `DatenBuehne` und nie fest `DATEN.grund`/Hex; der versiegelte Code bleibt unverändert. Ältere Projekte ohne `grund` behalten `DATEN.grund`.
+
 **Komposition mittig:** Weil keine Untertitel eingebrannt werden, steht der Inhalt vertikal mittig im 1920 × 1080-Bild (`DATEN.mitteY`), Quelle oben links. Nicht mehr nach oben schieben.
 
 Eine klare Hauptbewegung darf vollständig reichen. Mehr Motion ist kein Qualitätsmerkmal. Neue YouTube-Visuals verwenden nach Möglichkeit die datengetriebenen Mechaniken unter `src/youtube-motion/light-v3/`; ein isolierter Demo-Effekt ist keine Freigabe.

@@ -24,6 +24,9 @@ test('Baukasten bleibt in der hellen Motion-Welt: Palette, heller Grund, nur Fra
   assert.match(kit, /grund: '#F9E9CB'/);
   assert.match(kit, /creme: \{grund: DATEN\.grund/);
   assert.match(kit, /weiss: \{grund: '#FFFFFF'/);
+  // Creme-Videos nehmen den gemessenen Bildgrund, Standard bleibt DATEN.grund; Weiß bleibt Weiß.
+  assert.match(kit, /React\.createContext<string>\(DATEN\.grund\)/);
+  assert.match(kit, /flaeche === 'creme' \? \{\.\.\.FLAECHEN\.creme, grund: gemessen\} : FLAECHEN\[flaeche\]/);
   assert.doesNotMatch(kit, /#000000/);
   assert.match(kit, /fontFamily: FONT\.body/);
   assert.doesNotMatch(kit, /Math\.(?:random|sin|cos)\s*\(|\btransition\s*:|\banimation\s*:/);

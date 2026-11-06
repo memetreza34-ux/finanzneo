@@ -78,6 +78,9 @@ ${fileName}
 Generate this sticker together with the other images of its batch (at most ${YOUTUBE_FLOW_BATCH_SIZE} in parallel). Rename it immediately to the exact final file name above. This is NOT a scene image: do NOT attach the style master or any reference. Verify: one simple metaphor at first glance, sticker style below, pure white background, square 1:1, no text unless quoted. If a check fails, regenerate it before the next batch starts. Never render the file name inside the image.
 `;
 const fileOf = (n) => `YouTube Bild ${nr(n)} - ${visuals[n - 1].name}.png`;
+// Akzent-Karten erscheinen oben links auf dem Bild (YouTubeVideo → Akzente). Video 3: Sie lagen
+// teils auf Jonas' Kopf — deshalb hält das Bild diese Ecke frei.
+const AKZENT_FREIRAUM = 'FREE CORNER: Keep the top-left corner (left third of the width, top quarter of the height) calm and empty — no faces, people, labels or key objects there. Small note cards are placed there later in the video.';
 const indexVorab = JSON.parse(readFileSync(resolve(root, VISUAL_INDEX), 'utf8'));
 const kanalStil = indexVorab.imageWorld?.styleMaster === 'kanal';
 if (kanalStil && !existsSync(resolve(YOUTUBE_CHANNEL_STYLE_PATH))) {
@@ -144,7 +147,7 @@ ${v.ref ? fileOf(v.ref) : 'NONE'}
 
 IMAGE PROMPT:
 Soft hand-drawn 2D editorial illustration, not a photo. ${v.prompt}
-
+${v.akzente?.length ? `\n${AKZENT_FREIRAUM}\n` : ''}
 TEXT IN THIS IMAGE: Only the exact words and numbers written in quotes in the prompt may appear in the image. Never invent extra prices, numbers, brand names, headlines or captions.
 
 ${styleBlock}`;

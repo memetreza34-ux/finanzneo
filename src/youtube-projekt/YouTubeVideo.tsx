@@ -8,7 +8,7 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Img, Sequence, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {FONT} from '../brand';
-import {DATEN, FLAECHEN, FlaechenKontext, useFlaeche, type Flaeche} from '../design-system/daten';
+import {DATEN, DatenGrund, FLAECHEN, FlaechenKontext, useFlaeche, type Flaeche} from '../design-system/daten';
 import {BelegVisual, type BelegDaten} from './BelegVisual';
 import {FolieVisual, type FolieDaten} from './FolieVisual';
 
@@ -41,10 +41,11 @@ export type YouTubeZeitplan = {
   untertitel: boolean;
   /** creme = Videos bis Regel V2, weiss = Bildwelt seit 30.10.2026 (fehlt = creme). */
   flaeche?: Flaeche;
+  /** Gemessener Hintergrund der Flow-Bilder (Zusammenbau); fehlt bei älteren Projekten → DATEN.grund. */
+  grund?: string;
 };
 
 const UEBERBLENDEN = 8;
-const FLAECHE_GRUND = {creme: FLAECHEN.creme.grund, weiss: FLAECHEN.weiss.grund};
 const CLAMP = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
 const BildVisual: React.FC<{bild?: string | null; dauer: number; id: string}> = ({bild, dauer, id}) => {
@@ -161,7 +162,8 @@ const Untertitel: React.FC<{saetze: CaptionSatz[]}> = ({saetze}) => {
 
 export const YouTubeVideo: React.FC<{zeitplan: YouTubeZeitplan; animationen: Record<string, React.FC<{beats?: number[]}>>}> = ({zeitplan, animationen}) => (
   <FlaechenKontext.Provider value={zeitplan.flaeche ?? 'creme'}>
-  <AbsoluteFill style={{backgroundColor: FLAECHE_GRUND[zeitplan.flaeche ?? 'creme']}}>
+  <DatenGrund value={zeitplan.grund ?? DATEN.grund}>
+  <AbsoluteFill style={{backgroundColor: zeitplan.flaeche === 'weiss' ? FLAECHEN.weiss.grund : zeitplan.grund ?? DATEN.grund}}>
     {zeitplan.visuals.map((visual, index) => {
       const Animation = animationen[visual.id];
       const letztes = index === zeitplan.visuals.length - 1;
@@ -191,5 +193,6 @@ export const YouTubeVideo: React.FC<{zeitplan: YouTubeZeitplan; animationen: Rec
     <Audio src={staticFile(zeitplan.audio)} />
     {zeitplan.untertitel ? <Untertitel saetze={zeitplan.captions} /> : null}
   </AbsoluteFill>
+  </DatenGrund>
   </FlaechenKontext.Provider>
 );

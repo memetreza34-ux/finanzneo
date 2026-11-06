@@ -24,9 +24,14 @@ import {YouTubeVisual18Animation as P2_visual_18} from '../../youtube/2026-10-17
 import {YouTubeVisual24Animation as P2_visual_24} from '../../youtube/2026-10-17_null-prozent-finanzierung/_intern/04-visuals/EINZELNE-VISUALS/visual-24/animation';
 import {YouTubeVisual30Animation as P2_visual_30} from '../../youtube/2026-10-17_null-prozent-finanzierung/_intern/04-visuals/EINZELNE-VISUALS/visual-30/animation';
 import {YouTubeVisual33Animation as P2_visual_33} from '../../youtube/2026-10-17_null-prozent-finanzierung/_intern/04-visuals/EINZELNE-VISUALS/visual-33/animation';
+import zeitplan3 from '../../youtube/2026-10-23_altersvorsorgedepot/_intern/06-projektdateien/timeline.json';
+import {YouTubeVisual12Animation as P3_visual_12} from '../../youtube/2026-10-23_altersvorsorgedepot/_intern/04-visuals/EINZELNE-VISUALS/visual-12/animation';
+import {YouTubeVisual25Animation as P3_visual_25} from '../../youtube/2026-10-23_altersvorsorgedepot/_intern/04-visuals/EINZELNE-VISUALS/visual-25/animation';
+import {YouTubeVisual30Animation as P3_visual_30} from '../../youtube/2026-10-23_altersvorsorgedepot/_intern/04-visuals/EINZELNE-VISUALS/visual-30/animation';
 
 export const YOUTUBE_PROJEKTE: Array<{id: string; zeitplan: YouTubeZeitplan; animationen: Record<string, React.FC<{beats?: number[]}>>}> = [
   {id: 'YouTube-2026-10-09-abo-falle', zeitplan: zeitplan0 as unknown as YouTubeZeitplan, animationen: {'visual-01': P0_visual_01, 'visual-03': P0_visual_03, 'visual-04': P0_visual_04, 'visual-07': P0_visual_07, 'visual-11': P0_visual_11, 'visual-17': P0_visual_17, 'visual-20': P0_visual_20}},
   {id: 'YouTube-2026-10-10-supermarkt-tricks', zeitplan: zeitplan1 as unknown as YouTubeZeitplan, animationen: {'visual-02': P1_visual_02, 'visual-14': P1_visual_14, 'visual-22': P1_visual_22, 'visual-25': P1_visual_25, 'visual-32': P1_visual_32, 'visual-38': P1_visual_38}},
   {id: 'YouTube-2026-10-17-null-prozent-finanzierung', zeitplan: zeitplan2 as unknown as YouTubeZeitplan, animationen: {'visual-11': P2_visual_11, 'visual-15': P2_visual_15, 'visual-18': P2_visual_18, 'visual-24': P2_visual_24, 'visual-30': P2_visual_30, 'visual-33': P2_visual_33}},
+  {id: 'YouTube-2026-10-23-altersvorsorgedepot', zeitplan: zeitplan3 as unknown as YouTubeZeitplan, animationen: {'visual-12': P3_visual_12, 'visual-25': P3_visual_25, 'visual-30': P3_visual_30}},
 ];

@@ -25,6 +25,7 @@ import {verbindeAudioTeile} from './youtube-audio-teile.mjs';
 import {folieCues, folieDoodles, folieSticker} from './lib/youtube-folie.mjs';
 import {doodleNachweise, ladeDoodles} from './lib/youtube-doodle.mjs';
 import {importiereSticker, stickerVorhanden, youtubeStickerFlowDatei} from './lib/youtube-sticker.mjs';
+import {messeBildGrund} from './lib/youtube-bildgrund.mjs';
 
 const args = process.argv.slice(2);
 const wert = (name) => {
@@ -302,6 +303,12 @@ if (fehler.length) {
   process.exit(1);
 }
 
+// Bildgrund: Animationen und Endkarte übernehmen den gemessenen Hintergrund der Flow-Bilder.
+// Nur für Projekte mit Kanal-Stilvorlage (ab 17.10.2026); ältere Videos behalten DATEN.grund.
+const bildGrund = index.qualityRules !== YOUTUBE_QUALITY_RULES_V3_ID && index.imageWorld?.styleMaster === 'kanal'
+  ? messeBildGrund(visuals.filter((v) => v.type === 'image' && v.bild).map((v) => resolve(inbox, v.googleFlowFileName)))
+  : null;
+
 const captions = timing.sentences.map((s, k, alle) => ({
   start: Math.round(s.start * fps),
   end: Math.round((k + 1 < alle.length ? Math.min(alle[k + 1].start, s.end + 0.6) : s.end + 0.6) * fps),
@@ -320,6 +327,7 @@ const zeitplan = {
   untertitel: args.includes('--untertitel'),
   // Bildwelt seit 30.10.2026: Regel-V3-Videos sind durchgehend weiß, ältere bleiben Creme.
   flaeche: index.qualityRules === YOUTUBE_QUALITY_RULES_V3_ID ? 'weiss' : 'creme',
+  ...(bildGrund ? {grund: bildGrund.grund} : {}),
   visuals: visuals.map((v) => {
     const ohneDatei = {...v};
     delete ohneDatei.googleFlowFileName;
@@ -355,5 +363,6 @@ zeilen.push('', 'export const YOUTUBE_PROJEKTE: Array<{id: string; zeitplan: You
 writeFileSync(resolve(repo, 'src/youtube-projekt/projekte.generated.ts'), zeilen.join('\n'));
 
 console.log(`✓ Zeitplan: ${visuals.length} Visuals, ${(gesamt / fps).toFixed(1)} s${qualitaet ? ` inkl. ${YOUTUBE_ENDCARD_SECONDS} s Endkarte` : ''}${vorschau ? ' (Vorschau, fehlende Bilder markiert)' : ''}.`);
+if (bildGrund) console.log(`  Bildgrund: ${bildGrund.grund} (gemessen aus ${bildGrund.bilder} Bildern) — gilt für Animationen und Endkarte.`);
 if (langeBilder.length) console.log(`⚠ Standbilder über ${YOUTUBE_IMAGE_WARN_HOLD_SECONDS} s: ${langeBilder.map((x) => `${x.id} ${x.sek.toFixed(1)} s`).join(', ')} — beim nächsten Mal Bild teilen oder akzente[] setzen.`);
 console.log(`  Composition: YouTube-${slug.replace(/[^a-zA-Z0-9-]/g, "-")}`);

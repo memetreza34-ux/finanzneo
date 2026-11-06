@@ -68,7 +68,17 @@ export const FLAECHEN = {
 export type Flaeche = keyof typeof FLAECHEN;
 /** null = kein YouTube-Zeitplan drumherum (Studio, Showcases): alte Standardfarben. */
 export const FlaechenKontext = React.createContext<Flaeche | null>(null);
-export const useFlaeche = () => FLAECHEN[React.useContext(FlaechenKontext) ?? 'creme'];
+/**
+ * Gemessener Hintergrund der Flow-Bilder eines Creme-Videos (`timeline.json -> grund`), damit Animation
+ * und Nachbarbild denselben Ton haben, ohne den versiegelten Animationscode anzufassen. Weiße Videos ignorieren ihn.
+ */
+const DatenGrundContext = React.createContext<string>(DATEN.grund);
+export const DatenGrund = DatenGrundContext.Provider;
+export const useFlaeche = (): {grund: string; karte: string} => {
+  const flaeche = React.useContext(FlaechenKontext) ?? 'creme';
+  const gemessen = React.useContext(DatenGrundContext);
+  return flaeche === 'creme' ? {...FLAECHEN.creme, grund: gemessen} : FLAECHEN[flaeche];
+};
 
 /** Textfarbe zu einer Flächenfarbe: helle Neutralflächen bekommen lesbares Grau. */
 export const lesbar = (farbe: string) => (farbe === DATEN.neutral || farbe === DATEN.linie ? DATEN.leise : farbe);
