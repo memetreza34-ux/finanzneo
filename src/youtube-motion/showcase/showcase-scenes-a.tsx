@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Easing, interpolate} from 'remotion';
 import {FONT} from '../../brand';
-import {BigTitle, Card, FadeEdges, MiniIcon, P, SceneLabel, SCENE_FRAMES, Value, clamp, pop, prog, useScene} from './showcase-primitives';
+import {BigTitle, Card, FadeEdges, MiniIcon, P, SceneLabel, Value, clamp, pop, prog, useScene} from './showcase-primitives';
 
 export const CompareScene:React.FC=()=>{
   const {frame,fps}=useScene();
@@ -200,7 +200,7 @@ export const WaterfallScene:React.FC=()=>{
       <div style={{position:'absolute',left:0,right:0,bottom:0,height:3,background:P.line}}/>
       {computed.map((b,i)=>{
         const show=prog(frame,8+i*9,44+i*9);
-        const base=70; const scale=4.3;
+        const scale=4.3;
         const y=(b.start*scale); const h=Math.max(14,(b.end-b.start)*scale)*show;
         return <div key={b.label} style={{position:'absolute',left:90+i*300,bottom:y,width:180,height:h,borderRadius:14,background:b.color,opacity:show}}>
           <div style={{position:'absolute',left:-40,right:-40,top:-44,textAlign:'center',fontFamily:FONT.title,fontSize:34,fontWeight:900,color:b.color}}>{i===0||i===4?b.delta:(b.delta>0?'+':'')+b.delta}</div>

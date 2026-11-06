@@ -320,7 +320,11 @@ const zeitplan = {
   untertitel: args.includes('--untertitel'),
   // Bildwelt seit 30.10.2026: Regel-V3-Videos sind durchgehend weiß, ältere bleiben Creme.
   flaeche: index.qualityRules === YOUTUBE_QUALITY_RULES_V3_ID ? 'weiss' : 'creme',
-  visuals: visuals.map(({googleFlowFileName, ...rest}) => rest),
+  visuals: visuals.map((v) => {
+    const ohneDatei = {...v};
+    delete ohneDatei.googleFlowFileName;
+    return ohneDatei;
+  }),
   captions,
 };
 schreibJson(resolve(root, '06-projektdateien/timeline.json'), zeitplan);

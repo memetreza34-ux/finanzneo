@@ -73,7 +73,7 @@ Do not begin with code.
 
 ## Keyframe planning
 
-Every scene must be understandable in four representative stills:
+Every scene must be understandable in four representative stills (10% / 35% / 65% / 90%):
 
 1. **10% — START**
 2. **35% — CHANGE**
