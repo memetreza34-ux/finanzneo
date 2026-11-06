@@ -156,3 +156,39 @@ test('Kanal-Stilvorlage: Thumbnail und jedes Bild hängen „FinanzNeo Stilvorla
   assert.ok(schlecht.fehler.some((f: string) => f.startsWith('Thumbnail hängt die Kanal-Stilvorlage')));
   assert.ok(schlecht.fehler.some((f: string) => f.startsWith('visual-01: Bildprompt hängt die Kanal-Stilvorlage nicht')));
 });
+
+test('V3: Veränderungs-Beats werden Animation (oder statischWeil), Mindestanteil Animation', () => {
+  const text = [
+    'Lena steht im Laden', woerter(10),
+    'Die Rate wächst jeden Monat', woerter(10),
+    'Jetzt rechnen wir zusammen', woerter(10),
+    'Schreib es in die Kommentare', woerter(10),
+  ].join(' ');
+  const v3 = (bild2: Record<string, unknown>, anim = true) => ({
+    qualityRules: 'finanzneo-youtube-quality-v3',
+    story: {protagonist: 'Lena', reason: 'x'},
+    thumbnail: {googleFlowFileName: 'T.png'},
+    imageWorld: {},
+    visuals: [
+      {id: 'visual-01', type: 'image', chapter: 'Hook', startCue: 'Lena steht', keyword: 'Laden', scriptBeat: 'Lena im Laden.', expectedVisual: 'Laden', objectLabels: ['Laden']},
+      {id: 'visual-02', type: 'image', chapter: 'K1', startCue: 'Die Rate wächst', keyword: 'Rate', expectedVisual: 'Rate', objectLabels: ['Rate'], ...bild2},
+      {id: 'visual-03', type: anim ? 'animation' : 'image', chapter: 'K1', startCue: 'Jetzt rechnen wir', keyword: 'rechnen', bridgeObject: 'Rate', scriptBeat: '50 € → 600 €'},
+      {id: 'visual-04', type: 'image', chapter: 'K1', startCue: 'Schreib es in', keyword: 'Kommentare', scriptBeat: 'Frage.', expectedVisual: 'Blase', objectLabels: ['Blase']},
+    ],
+  });
+  const fehler = (index: unknown) => pruefeYouTubeQualitaet({index, scriptText: text, prompts: '', bildprompt: () => ''}).fehler as string[];
+
+  assert.ok(fehler(v3({scriptBeat: 'Die Rate wächst von 50 € auf 110 €.'})).some((f) => f.startsWith('visual-02: Beat zeigt eine Veränderung')));
+  assert.ok(fehler(v3({scriptBeat: 'Guthaben wird ins Depot übertragen.'})).some((f) => f.startsWith('visual-02: Beat zeigt eine Veränderung („übertragen“')));
+  assert.ok(!fehler(v3({scriptBeat: 'Die Rate wächst.', statischWeil: 'Nur Symbolbild, keine Zahlen'})).some((f) => f.startsWith('visual-02')));
+  assert.ok(!fehler(v3({scriptBeat: 'Lena schaut auf die Rate.'})).some((f) => f.startsWith('visual-02')));
+  assert.ok(!fehler(v3({scriptBeat: 'x'})).some((f) => f.startsWith('Animationen zeigen nur')));
+  assert.ok(fehler(v3({scriptBeat: 'x'}, false)).some((f) => f.startsWith('Animationen zeigen nur 0 %')));
+  // „vs“ in Wörtern wie „Investment“ oder „gegenüber“ löst nichts aus.
+  assert.ok(!fehler(v3({scriptBeat: 'Ein Investment gegenüber der Bank.'})).some((f) => f.startsWith('visual-02')));
+});
+
+test('V3: neue YouTube-Projekte starten mit Qualitätsregeln V3', async () => {
+  const {readFileSync} = await import('node:fs');
+  assert.match(readFileSync('scripts/scaffold-finanzneo-youtube.mjs', 'utf8'), /qualityRules:YOUTUBE_QUALITY_RULES_V3_ID,/);
+});

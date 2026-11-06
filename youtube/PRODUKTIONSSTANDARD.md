@@ -231,6 +231,17 @@ Aus der Wettbewerbsanalyse (simplicissimus, Kurzgesagt, Finanzfluss) und der Rü
 
 Zu lange Standbilder löst man mit einem zusätzlichen Bild oder mit `akzente[]` am Visual (`{cue, text, ton}`): Ein Akzent erscheint beim gesprochenen Wort als kleine Karte auf dem Bild und zählt als neue sichtbare Information.
 
+## Qualitätsregeln V3 — was sich animieren lässt, wird animiert (`finanzneo-youtube-quality-v3`, Arman 25.10.2026)
+
+Aus Video 3: nur 3 Animationen (≈ 14 % der Zeit), obwohl Rechnungen und Vergleiche als Standbild liefen (50 % vs. 30 %, 1,5 % → 1 %, Riester-Guthaben übertragen). Gilt für alle neu angelegten Projekte zusätzlich zu V1 und V2:
+
+| Regel | Prüfung |
+|---|---|
+| Ein Bild-Beat, der eine Veränderung beschreibt (Rechnung, Vergleich, „→“, wächst/sinkt/schrumpft, „von X auf Y“, übertragen/fließt), wird Animation. Ausnahme nur mit `statischWeil` am Bild (Begründung) | `youtube:validate` |
+| Animationen zeigen mindestens 15 % der Sprechzeit; Richtwert 20–30 % (≈ 5–7 Animationen pro 5 Minuten) | `youtube:validate` |
+
+Beats deshalb immer konkret mit der Veränderung formulieren („30 €/Monat → +50 %, 150 €/Monat → +30 %“), damit die Prüfung greift. Animiert wird weiterhin nur, wo die Veränderung der Inhalt ist — Bewegung ohne neue Information zählt nicht.
+
 ## Vollständiges Publishing-Paket
 
 `_intern/05-publishing/` enthält (für den Upload reicht `5-export/caption.txt`):

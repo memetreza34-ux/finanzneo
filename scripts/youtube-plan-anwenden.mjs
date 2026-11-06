@@ -5,7 +5,7 @@
 //
 // Quelle: _intern/06-projektdateien/visual-plan.mjs mit `title`, `thumbnail {file, prompt}`, optional
 // `story {protagonist, reason}` und `visuals[]`. Bild-Visuals: {type:'image', chapter, cue, beat, keyword,
-// name, expected, prompt, labels, ref?, change?, akzente?}. Motion-Visuals: {type:'animation'|'data',
+// name, expected, prompt, labels, ref?, change?, akzente?, statischWeil?}. Motion-Visuals: {type:'animation'|'data',
 // chapter, cue, beat, bridgeObject, brief}. keyword/bridgeObject prüft youtube:validate (Qualitätsregeln V2).
 //
 // Schreibt Visual-Index, alle Einzel-Bildprompts, die Flow-Übergabe (Batch 1 = nur Thumbnail
@@ -138,6 +138,7 @@ ${styleBlock}`;
       startCue: v.cue,
       ...(v.keyword ? {keyword: v.keyword} : {}),
       ...(v.figur ? {figur: true} : {}),
+      ...(v.statischWeil ? {statischWeil: v.statischWeil} : {}),
       objectLabels: v.labels,
       ...(v.akzente ? {akzente: v.akzente} : {}),
     };

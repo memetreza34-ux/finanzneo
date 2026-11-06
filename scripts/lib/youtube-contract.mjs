@@ -118,7 +118,17 @@ export const PHASE_1_FILES = [
 export const YOUTUBE_QUALITY_RULES_ID = 'finanzneo-youtube-quality-v1';
 // V2 (17.10.2026, Wettbewerbsanalyse): Skript, Bild und Animation werden fest aneinander gebunden.
 export const YOUTUBE_QUALITY_RULES_V2_ID = 'finanzneo-youtube-quality-v2';
-export const YOUTUBE_QUALITY_RULES_IDS = [YOUTUBE_QUALITY_RULES_ID, YOUTUBE_QUALITY_RULES_V2_ID];
+// V3 (Arman, 25.10.2026): Was sich animieren lässt, wird animiert. Ein Bild-Beat, der eine Veränderung
+// beschreibt (Rechnung, Vergleich, Wachsen/Schrumpfen, Fluss von A nach B), wird Animation — oder das
+// Visual begründet mit `statischWeil`, warum ein Standbild besser ist. Dazu ein Mindestanteil Animation.
+export const YOUTUBE_QUALITY_RULES_V3_ID = 'finanzneo-youtube-quality-v3';
+export const YOUTUBE_QUALITY_RULES_IDS = [YOUTUBE_QUALITY_RULES_ID, YOUTUBE_QUALITY_RULES_V2_ID, YOUTUBE_QUALITY_RULES_V3_ID];
+/** Bindungsregeln V2 gelten auch für V3. */
+export const YOUTUBE_QUALITY_RULES_BINDUNG_IDS = [YOUTUBE_QUALITY_RULES_V2_ID, YOUTUBE_QUALITY_RULES_V3_ID];
+/** Beat-Text, der eine sichtbare Veränderung beschreibt (Wortgrenzen auch für Umlaute). */
+export const YOUTUBE_VERAENDERUNG_PATTERN = /→|->|(?<!\p{L})(?:vs\.?|gegen|statt|wächst|wachsen|steigt|steigen|sinkt|sinken|schrumpft|schrumpfen|fällt|verdoppelt|halbiert|summiert|addiert|übertragen|überträgt|fließt|fließen|wandert|wandern|wird zu|werden zu|von [\d.,]+\s?(?:€|%|Euro|Prozent)? auf)(?!\p{L})/iu;
+/** Mindestanteil der Sprechzeit, die eine Animation zeigt (Richtwert 20–30 %). */
+export const YOUTUBE_ANIMATION_MIN_SHARE = 0.15;
 /** Hook beginnt mit Szene/Person/Konflikt, nicht mit einer Ankündigung (simplicissimus-Prinzip). */
 export const YOUTUBE_HOOK_ANNOUNCEMENT_PATTERN = /\b(?:in diesem video|heute (?:zeige|erkläre|erklaere|schauen|sprechen)|ich zeige dir|ich erkläre dir|ich erklaere dir|lass uns (?:heute|mal))\b/i;
 /** Sprechtempo des echten FinanzNeo-Voiceovers inkl. Pausen (gemessen: Supermarkt-Tricks 141,6 und
