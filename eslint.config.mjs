@@ -7,7 +7,7 @@ const typescriptFiles = ['src/**/*.{ts,tsx}', 'tests/**/*.ts'];
 
 export default tseslint.config(
   {
-    ignores: ['build/**', 'dist/**', 'node_modules/**', 'out/**'],
+    ignores: ['build/**', 'dist/**', 'node_modules/**', 'out/**', '.claude/**'],
   },
   {
     ...eslint.configs.recommended,

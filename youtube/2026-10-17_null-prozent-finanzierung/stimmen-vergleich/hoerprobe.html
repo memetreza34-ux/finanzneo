@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinanzNeo · Stimmen-Shootout & Qualitätsvergleich</title>
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: #151d2f;
+      --card-border: #24324d;
+      --accent-green: #00e699;
+      --accent-red: #ff4d6d;
+      --accent-blue: #3b82f6;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-bad { background: rgba(255, 77, 109, 0.2); color: var(--accent-red); border: 1px solid var(--accent-red); }
+    .badge-sota { background: rgba(0, 230, 153, 0.2); color: var(--accent-green); border: 1px solid var(--accent-green); }
+    .intro {
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      font-size: 1.05rem;
+    }
+    .hook-box {
+      background: rgba(59, 130, 246, 0.1);
+      border-left: 4px solid var(--accent-blue);
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      border-radius: 0 8px 8px 0;
+    }
+    .hook-box h3 { margin: 0 0 6px 0; font-size: 0.95rem; color: #93c5fd; }
+    .hook-box p { margin: 0; font-style: italic; color: #e2e8f0; }
+    .voice-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      transition: transform 0.15s, border-color 0.15s;
+    }
+    .voice-card:hover {
+      border-color: #3b82f6;
+    }
+    .voice-card.baseline {
+      border-color: rgba(255, 77, 109, 0.4);
+      background: #19121c;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+    audio {
+      width: 100%;
+      height: 40px;
+      border-radius: 8px;
+      outline: none;
+    }
+    .specs {
+      display: flex;
+      gap: 16px;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎙️ FinanzNeo · Stimmen-Shootout & Hörprobe</h1>
+  <p class="intro">
+    Direkter A/B-Vergleich aller Stimmen auf dem <strong>identischen Hook</strong> des KW44-Videos ("Null Prozent Finanzierung").
+    Alle neuen SOTA-Varianten laufen <strong>100% lokal auf Apple Silicon via MLX</strong>, mit intelligenter Pausenkappung (max 300ms) und EBU R128 Broadcast-Mastering (-14 LUFS, 48 kHz).
+  </p>
+
+  <div class="hook-box">
+    <h3>Gesprochener Test-Text (Hook):</h3>
+    <p>
+      „Null Prozent Finanzierung. Kein Zins, kleine Monatsrate. Klingt wie geschenktes Geld. Manchmal stimmt das sogar. Aber manchmal unterschreibst du dabei einen zweiten Vertrag, den du gar nicht wolltest. Ein Beispiel. Ein Fernseher kostet sechshundert Euro. Du zahlst zwölf Raten zu je fünfzig Euro. Zwölf mal fünfzig sind sechshundert. Wenn sonst nichts dazukommt, zahlst du genau den Kaufpreis. Keinen Cent mehr.“
+    </p>
+  </div>
+
+  <!-- BASELINE -->
+  <div class="voice-card baseline">
+    <div class="card-header">
+      <h2 class="card-title">0. Vorherige Baseline (Florian / Edge-TTS)</h2>
+      <span class="badge badge-bad">Vom Nutzer abgelehnt</span>
+    </div>
+    <div class="card-desc">
+      Die bisher im Video-Projekt verwendete Edge-TTS Stimme. Klingt teleprompter-artig, synthetisch, flache Prosodie, keine echten Atmer oder menschlichen Mikro-Intonationen.
+    </div>
+    <audio controls preload="metadata" src="0-ORIGINAL-Baseline-Florian-EdgeTTS.wav"></audio>
+    <div class="specs">
+      <span>Engine: Edge-TTS (Cloud)</span>
+      <span>Dauer: 25.5s</span>
+      <span>Status: Ersetzt</span>
+    </div>
+  </div>
+
+  <!-- NEUE SOTA VARIANTEN -->
+  <div class="voice-card">
+    <div class="card-header">
+      <h2 class="card-title">1. Profil A: Ruhig & Kompetent (YouTube-Finanzerklärer)</h2>
+      <span class="badge badge-sota">Empfehlung Standard</span>
+    </div>
+    <div class="card-desc">
+      Männlich Mitte 30, warme Brustresonanz, fehlerfreies Hochdeutsch. Freundlich, souverän und sachlich wie ein erfahrener Erklärer auf YouTube. Natürliche Betonung auf Zahlen und Kernaussagen.
+    </div>
+    <audio controls preload="metadata" src="1-SOTA-Qwen3-A-ruhig-kompetent.wav"></audio>
+    <div class="specs">
+      <span>Engine: Qwen3-TTS 1.7B (MLX lokal)</span>
+      <span>Seed: 1101</span>
+      <span>Dauer: 24.5s</span>
+      <span>Lautheit: -16.6 LUFS</span>
+    </div>
+  </div>
+
+  <div class="voice-card">
+    <div class="card-header">
+      <h2 class="card-title">2. Profil B: Tief & Souverän (Premium-Dokumentarfilm)</h2>
+      <span class="badge badge-sota">Premium Doku</span>
+    </div>
+    <div class="card-desc">
+      Männlich um 40, tiefe, sonore und extrem vertrauensvolle Stimme mit hoher Autorität. Wie ein Premium-Dokumentarfilm-Sprecher (ZDFinfo / Arte / ARD). Sehr präzise Artikulation, klare Sinneinheiten.
+    </div>
+    <audio controls preload="metadata" src="2-SOTA-Qwen3-B-tief-souveraen.wav"></audio>
+    <div class="specs">
+      <span>Engine: Qwen3-TTS 1.7B (MLX lokal)</span>
+      <span>Seed: 2202</span>
+      <span>Dauer: 27.6s</span>
+      <span>Lautheit: -15.6 LUFS</span>
+    </div>
+  </div>
+
+  <div class="voice-card">
+    <div class="card-header">
+      <h2 class="card-title">3. Profil C: Jung & Lebendig (Creator / Reel-Tempo)</h2>
+      <span class="badge badge-sota">Dynamisch</span>
+    </div>
+    <div class="card-desc">
+      Junger männlicher YouTuber (ca. 28 Jahre), helle, sympathische und lockere Stimme. Flottes Sprechtempo, lebendige Satzmelodie ("lächelnder Ton"), klingt wie ein Freund auf Augenhöhe.
+    </div>
+    <audio controls preload="metadata" src="3-SOTA-Qwen3-C-jung-lebendig.wav"></audio>
+    <div class="specs">
+      <span>Engine: Qwen3-TTS 1.7B (MLX lokal)</span>
+      <span>Seed: 3303</span>
+      <span>Dauer: 23.3s</span>
+      <span>Lautheit: -15.8 LUFS</span>
+    </div>
+  </div>
+
+  <div class="voice-card">
+    <div class="card-header">
+      <h2 class="card-title">4. Profil D: Podcast & Nahbar (Intimes Studio-Mikrofon)</h2>
+      <span class="badge badge-sota">Besonders Menschlich</span>
+    </div>
+    <div class="card-desc">
+      Extrem intimer Nahbesprechungseffekt (Shure SM7B Charakter). Hörbare, feine menschliche Atmer und Mundgeräusche, maximale Natürlichkeit, null Künstlichkeit.
+    </div>
+    <audio controls preload="metadata" src="4-SOTA-Qwen3-D-podcast-nahbar.wav"></audio>
+    <div class="specs">
+      <span>Engine: Qwen3-TTS 1.7B (MLX lokal)</span>
+      <span>Seed: 4404</span>
+      <span>Dauer: 23.7s</span>
+      <span>Lautheit: -17.3 LUFS</span>
+    </div>
+  </div>
+
+  <div class="voice-card">
+    <div class="card-header">
+      <h2 class="card-title">5. Profil E: Finanzberater Dynamisch (Modern & Engagiert)</h2>
+      <span class="badge badge-sota">Moderne Ansprache</span>
+    </div>
+    <div class="card-desc">
+      Männlich ca. 32 Jahre, crisp artikuliert, dynamisch und überzeugend. Klare Akzente bei Geldsummen und Konditionen, flüssig und modern für anspruchsvolle Finanzthemen.
+    </div>
+    <audio controls preload="metadata" src="5-SOTA-Qwen3-E-finanzberater-dynamisch.wav"></audio>
+    <div class="specs">
+      <span>Engine: Qwen3-TTS 1.7B (MLX lokal)</span>
+      <span>Seed: 5505</span>
+      <span>Dauer: 24.9s</span>
+      <span>Lautheit: -15.7 LUFS</span>
+    </div>
+  </div>
+
+  <div class="voice-card">
+    <div class="card-header">
+      <h2 class="card-title">6. Profil F: Finanzjournalistin (Weiblich, Souverän & Klar)</h2>
+      <span class="badge badge-sota">Weibliche Alternative</span>
+    </div>
+    <div class="card-desc">
+      Weiblich Anfang 30, warmherzig, hochprofessionell und nahbar. Natürliche Sprachmelodie, souveräne Führung des Hörers, exzellente Zahlenaussprache.
+    </div>
+    <audio controls preload="metadata" src="6-SOTA-Qwen3-F-expertin-souveraen.wav"></audio>
+    <div class="specs">
+      <span>Engine: Qwen3-TTS 1.7B (MLX lokal)</span>
+      <span>Seed: 6606</span>
+      <span>Dauer: 24.2s</span>
+      <span>Lautheit: -14.7 LUFS</span>
+    </div>
+  </div>
+
+</body>
+</html>
