@@ -248,6 +248,39 @@ Aus Armans Feedback nach Video 3: „nicht nur KI-Bilder, sondern auch richtige 
 
 Details zu Folien und Cover: [`docs/YOUTUBE-BILDMIX-UND-COVER.md`](../docs/YOUTUBE-BILDMIX-UND-COVER.md).
 
+## Zahlen-Rückschau V1 (`finanzneo-youtube-zahlen-v1`, Arman 31.10.2026)
+
+Regeln entstehen ab jetzt aus **echten Zahlen**, nicht nur aus dem Eindruck. Nach dem Upload:
+
+```bash
+npm run youtube:zahlen -- youtube/<Projekt> --veroeffentlicht 2026-11-07
+```
+
+An **Tag 7 und Tag 28** die Werte aus YouTube Studio → Analytics (Zeitraum „seit Veröffentlichung“) eintragen:
+
+```bash
+npm run youtube:zahlen -- youtube/<Projekt> --tag 7 --impressionen 1200 --ctr 3,4 --aufrufe 41 --dauer 2:10 --halten30 58 [--prozent 31] [--abos 2] [--suche 35] [--vorschlag 20]
+```
+
+| Wert | Wo in YouTube Studio |
+|---|---|
+| `--impressionen`, `--ctr` | Reichweite → Impressionen, Klickrate der Impressionen |
+| `--aufrufe`, `--dauer` | Übersicht → Aufrufe, durchschnittliche Wiedergabedauer |
+| `--halten30` | Interaktion → Zuschauerbindung, Prozent bei 0:30 |
+| `--prozent` | durchschnittlich angesehener Prozentsatz (fehlt er, wird er aus `5-export/video.mp4` berechnet) |
+| `--suche`, `--vorschlag` | Reichweite → Traffic-Quellen, Anteil YouTube-Suche / vorgeschlagene Videos |
+
+Die Diagnose nennt **einen Engpass** in Trichter-Reihenfolge — erst die frühere Stufe lösen:
+
+| Stufe | Schwach (Richtwert) | Hebel |
+|---|---|---|
+| Reichweite | unter 300 Impressionen | Thema mit Suchnachfrage, Suchbegriff vorne im Titel, Shorts als Zubringer |
+| Klickrate | unter 2 % | Titel + Cover; Cover-Test mit 2–3 Varianten in YouTube Studio |
+| Hook | unter 50 % nach 30 s | Versprechen aus Titel/Cover in den ersten Sekunden einlösen |
+| Mitte | unter 30 % angesehen | größte Absprungstelle in der Bindungskurve suchen |
+
+Daten liegen in `_intern/07-zahlen/zahlen.json`. `npm run youtube:zahlen` ohne Projekt zeigt alle Videos und was fällig ist; `youtube:create` warnt vor jedem neuen Video, wenn Zahlen offen sind. Der Befehl gibt eine fertige Zeile für `VERBESSERUNGEN.md` aus — die Regel daraus trägt man selbst ein.
+
 ## Vollständiges Publishing-Paket
 
 `_intern/05-publishing/` enthält (für den Upload reicht `5-export/caption.txt`):
