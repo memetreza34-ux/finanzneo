@@ -72,12 +72,6 @@ for (const [index, id] of ids.entries()) {
   const position = `${String(index + 1).padStart(String(ids.length).length)}/${ids.length}`;
   process.stdout.write(`  ${position}  ${id.padEnd(26)}`);
 
-  if (ohneYouTubeBilder(id)) {
-    console.log('ÜBERSPRUNGEN (keine Bilder vorhanden)');
-    skipped.push(id);
-    continue;
-  }
-
   const result = spawnSync(
     npx,
     ['remotion', 'still', ENTRY, id, join(outDir, `${id}.png`), '--frame=0', '--log=error'],
@@ -87,8 +81,14 @@ for (const [index, id] of ids.entries()) {
   if (result.status === 0) {
     console.log('OK');
   } else {
+    const ausgabe = `${result.stdout ?? ''}${result.stderr ?? ''}`;
+    if (ohneYouTubeBilder(id) && /Error loading image/.test(ausgabe)) {
+      console.log('ÜBERSPRUNGEN (keine Bilder vorhanden)');
+      skipped.push(id);
+      continue;
+    }
     console.log('FEHLER');
-    const output = `${result.stdout ?? ''}${result.stderr ?? ''}`
+    const output = ausgabe
       .split('\n')
       .find((line) => /error|Error|failed/.test(line));
     failures.push({id, reason: output?.trim() ?? 'unbekannter Fehler'});
