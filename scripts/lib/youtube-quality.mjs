@@ -14,6 +14,8 @@ import {
   YOUTUBE_QUALITY_RULES_V3_ID,
   YOUTUBE_V3_MAX_HOLD_SECONDS,
   YOUTUBE_V3_MAX_BILD_ANTEIL,
+  YOUTUBE_VERAENDERUNG_PATTERN,
+  YOUTUBE_ANIMATION_MIN_SHARE,
   YOUTUBE_HOOK_ANNOUNCEMENT_PATTERN,
   YOUTUBE_CHARACTER_REFERENCE_MARKER,
   YOUTUBE_CHANNEL_STYLE_FILE,
@@ -139,7 +141,7 @@ export const pruefeYouTubeQualitaet = ({index, scriptText, prompts, bildprompt, 
   }
 
   if (YOUTUBE_BINDUNG_RULES_IDS.includes(index.qualityRules)) fehler.push(...pruefeBindungV2({index, scriptText, ergebnis, woerter, ersterInhalt, bildprompt}));
-  if (index.qualityRules === YOUTUBE_QUALITY_RULES_V3_ID) fehler.push(...pruefeBelegeV3({visuals, woerter}), ...pruefeBildmixV3({ergebnis, woerter}));
+  if (index.qualityRules === YOUTUBE_QUALITY_RULES_V3_ID) fehler.push(...pruefeBelegeV3({visuals, woerter}), ...pruefeBildmixV3({ergebnis, woerter}), ...pruefeAnimationV3({visuals, ergebnis, woerter}));
 
   return {fehler, haltezeiten: ergebnis, wortzahl: woerter.length};
 };
@@ -245,4 +247,30 @@ export const pruefeBildmixV3 = ({ergebnis, woerter}) => {
   return anteil > YOUTUBE_V3_MAX_BILD_ANTEIL
     ? [`Gezeichnete Bilder tragen ${Math.round(anteil * 100)} % der Sprechzeit (max. ${Math.round(YOUTUBE_V3_MAX_BILD_ANTEIL * 100)} %). Zahlen, Aufzählungen und Regeln als folie, Quellen als beleg zeigen (docs/YOUTUBE-BILDMIX-UND-COVER.md).`]
     : [];
+};
+
+/**
+ * V3 — was sich animieren lässt, wird animiert (Arman, 25.10.2026):
+ * 1. Ein Bild, dessen Beat eine Veränderung beschreibt, wird Animation — oder begründet `statischWeil`.
+ * 2. Animationen zeigen mindestens YOUTUBE_ANIMATION_MIN_SHARE der Sprechzeit (Richtwert 20–30 %).
+ */
+export const pruefeAnimationV3 = ({visuals, ergebnis, woerter}) => {
+  const fehler = [];
+  for (const v of visuals) {
+    if (v.type !== 'image' || (typeof v.statischWeil === 'string' && v.statischWeil.trim())) continue;
+    const treffer = YOUTUBE_VERAENDERUNG_PATTERN.exec(v.scriptBeat ?? '');
+    if (treffer) fehler.push(`${v.id}: Beat zeigt eine Veränderung („${treffer[0]}“: ${v.scriptBeat}) — als Animation planen oder statischWeil begründen.`);
+  }
+  const starts = ergebnis.map((e) => e.startWort);
+  let animiert = 0;
+  ergebnis.forEach((e, k) => {
+    if (e.startWort === null || !['animation', 'data'].includes(e.type)) return;
+    const ende = starts.slice(k + 1).find((s) => s !== null) ?? woerter.length;
+    animiert += ende - e.startWort;
+  });
+  const anteil = woerter.length ? animiert / woerter.length : 0;
+  if (anteil < YOUTUBE_ANIMATION_MIN_SHARE) {
+    fehler.push(`Animationen zeigen nur ${Math.round(anteil * 100)} % der Sprechzeit (mindestens ${Math.round(YOUTUBE_ANIMATION_MIN_SHARE * 100)} %, Richtwert 20–30 %). Rechnungen, Vergleiche und Veränderungen animieren.`);
+  }
+  return fehler;
 };

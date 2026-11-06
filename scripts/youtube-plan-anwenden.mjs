@@ -5,7 +5,7 @@
 //
 // Quelle: _intern/06-projektdateien/visual-plan.mjs mit `title`, `thumbnail {file, prompt}`, optional
 // `story {protagonist, reason}` und `visuals[]`. Bild-Visuals: {type:'image', chapter, cue, beat, keyword,
-// name, expected, prompt, labels, ref?, change?, akzente?}. Motion-Visuals: {type:'animation'|'data',
+// name, expected, prompt, labels, ref?, change?, akzente?, statischWeil?}. Motion-Visuals: {type:'animation'|'data',
 // chapter, cue, beat, bridgeObject, brief}. Beleg-Visuals (echter Quellen-Screenshot, docs/YOUTUBE-BELEG-SZENEN.md):
 // {type:'beleg', chapter, cue, beat, quelle, quellenArt, url, markierungen:[{text, cue}], entfernen?}.
 // Erklär-Folien (docs/YOUTUBE-BILDMIX-UND-COVER.md): {type:'folie', chapter, cue, beat, folie:{titel?, icon?, <eine Form>}}
@@ -162,6 +162,7 @@ ${styleBlock}`;
       startCue: v.cue,
       ...(v.keyword ? {keyword: v.keyword} : {}),
       ...(v.figur ? {figur: true} : {}),
+      ...(v.statischWeil ? {statischWeil: v.statischWeil} : {}),
       objectLabels: v.labels,
       ...(v.akzente ? {akzente: v.akzente} : {}),
     };

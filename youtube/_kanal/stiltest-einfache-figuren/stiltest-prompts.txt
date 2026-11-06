@@ -1,0 +1,97 @@
+VERWORFEN 25.10.2026 (Arman: zu kindlich, zu leer, passt nicht zum Thema) — NICHT VERWENDEN.
+
+FINANZNEO — STILTEST „EINFACHE FIGUREN, MEHR SCHEMA“ (25.10.2026)
+
+Ziel: Dieselben 6 Szenen wie in Video 3 (Altersvorsorgedepot) im neuen Stil erzeugen und neben die
+alten Bilder legen. Danach entscheidet Arman, ob der Kanal umstellt. Noch keine Systemänderung.
+
+Vergleich (alt → neu):
+  Test 01 ↔ Video 3 Bild 01 (Jonas Sparplan)
+  Test 02 ↔ Video 3 Bild 17 (Kinderzulage)
+  Test 03 ↔ Video 3 Bild 42 (Riester-Paar)
+  Test 04 ↔ Video 3 Bild 22 (Kostendeckel, ohne Figur)
+  Test 05 ↔ Video 3 Bild 24 (Zeitstrahl 28 → 65)
+  Test 06 ↔ Video 3 Bild 31 (Geld fürs Auto)
+
+ABLAUF IN GOOGLE FLOW
+1. Batch 1: nur Test 01. Das Bild legt die neue Jonas-Figur fest. Erst prüfen, dann weiter.
+2. Batch 2: Test 02–06 gleichzeitig, jedes als eigener Einzelbild-Job.
+   Bilder mit Jonas (05, 06) hängen das fertige Test 01 als Figur-Referenz an.
+3. An jedes Bild „youtube/_kanal/FinanzNeo Stilvorlage.png“ als STYLE_REFERENCE anhängen
+   (nur für Strich, Creme und Farben — NICHT für die Figuren).
+4. Format 16:9, alle Texte im Bild deutsch. Sofort exakt umbenennen.
+5. Fertige Bilder in diesen Ordner legen: youtube/_kanal/stiltest-einfache-figuren/bilder/
+
+FÜR JEDEN PROMPT GILT (an jeden Prompt anhängen):
+
+STYLE (fixed): Soft hand-drawn 2D editorial illustration on a warm cream background, gentle pencil-like
+outlines, softly painted flat fills, muted earthy palette (sand, terracotta, sage green, dusty blue, warm
+gray) with one stronger accent color for the key information. Never a photo, never glossy 3D.
+Use the attached style reference ONLY for line quality, cream background and colors — NOT for how people look.
+
+PEOPLE (new, strict): People are very simple schematic characters, like in a calm explainer graphic:
+round head, hair as one flat shape, two small dot eyes, a tiny line mouth, no nose, no wrinkles, no beard
+stubble, no realistic facial detail, simple rounded body without folds. Emotions only through eyebrows,
+mouth line and body posture. People stay small to medium in the frame; the information is the hero.
+
+COMPOSITION (new): Schema first, scene second. One big clear object or diagram with a short German label
+or number, generous empty cream space, at most 3–4 elements. No room interiors, no furniture or
+decoration unless it explains the sentence.
+
+TEXT: Only the exact words and numbers written in quotes may appear in the image. Never invent extra text.
+
+████████████████████████████████████
+BATCH 1 — START ALONE: Test 01
+████████████████████████████████████
+
+FINAL FILE NAME: Stiltest 01 - Jonas Sparplan.png
+REFERENCE: FinanzNeo Stilvorlage.png (style only)
+PROMPT:
+On the right stands Jonas, a simple schematic character: round head, dark brown hair as one flat shape,
+two dot eyes, a small friendly line smile, mustard-yellow sweater, dark trousers. He holds a smartphone.
+On the left, large and centered in the free space, a big rounded card like a phone notification reads
+"ETF-Sparplan" and below it, bold, "150 € im Monat". A thin dotted line connects the phone to the card.
+Nothing else, lots of empty cream space.
+This image defines Jonas for all later images: keep his look simple and memorable.
+
+████████████████████████████████████
+BATCH 2 — START ALL TOGETHER: Test 02, Test 03, Test 04, Test 05, Test 06
+████████████████████████████████████
+
+FINAL FILE NAME: Stiltest 02 - Kinderzulage.png
+REFERENCE: FinanzNeo Stilvorlage.png (style only)
+PROMPT:
+A simple schematic parent and a small child (round heads, dot eyes, hair as flat shapes) stand on the
+left, small in the frame. The child drops a coin into a big glass jar in the center. A large tag on the jar
+reads "Kinderzulage" and, bold in green, "+300 € im Jahr". Empty cream space around, no room, no table.
+
+FINAL FILE NAME: Stiltest 03 - Riester geschlossen.png
+REFERENCE: FinanzNeo Stilvorlage.png (style only)
+PROMPT:
+An older couple as simple schematic characters (round heads, gray hair as one flat shape, dot eyes,
+small line mouths, no wrinkles, no glasses details) stand on the left holding a file folder labeled
+"Riester-Vertrag". On the right a simple closed door shape with a hanging sign "Neue Verträge ab 2027:
+geschlossen". Few elements, lots of empty cream space.
+
+FINAL FILE NAME: Stiltest 04 - Kostendeckel.png
+REFERENCE: FinanzNeo Stilvorlage.png (style only)
+PROMPT:
+Pure schema, no people. In the center a big glass jar labeled "Standarddepot". On top a wide lid that
+reads "max. 1 % Kosten im Jahr". Next to the jar a small upward arrow stopped by a short horizontal line,
+like a cap, labeled "Obergrenze". Clean, centered, lots of empty cream space.
+
+FINAL FILE NAME: Stiltest 05 - Jonas Zeitstrahl.png
+REFERENCE: FinanzNeo Stilvorlage.png (style only) + Stiltest 01 - Jonas Sparplan.png (character)
+PROMPT:
+A long horizontal arrow across the image from "28" on the left to "65" on the right, with small coins
+sitting on the arrow at regular intervals. At the left end stands Jonas exactly as in the character
+reference (simple schematic, mustard-yellow sweater). At the right end stands the same Jonas aged 65:
+same simple style, hair now one flat gray shape, same sweater. Both small; the arrow is the hero.
+
+FINAL FILE NAME: Stiltest 06 - Geld fuers Auto.png
+REFERENCE: FinanzNeo Stilvorlage.png (style only) + Stiltest 01 - Jonas Sparplan.png (character)
+PROMPT:
+Jonas exactly as in the character reference (simple schematic, mustard-yellow sweater) stands in the
+middle with a worried eyebrow line. On the left a simple flat car shape. On the right a glass jar labeled
+"Altersvorsorgedepot", closed with a padlock. Between Jonas and the jar a small orange warning triangle
+labeled "vorher". Few elements, lots of empty cream space, no street, no furniture.

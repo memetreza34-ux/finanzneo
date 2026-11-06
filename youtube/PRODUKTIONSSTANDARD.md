@@ -250,6 +250,17 @@ Aus Armans Feedback nach Video 3: „nicht nur KI-Bilder, sondern auch richtige 
 
 Details zu Folien und Cover: [`docs/YOUTUBE-BILDMIX-UND-COVER.md`](../docs/YOUTUBE-BILDMIX-UND-COVER.md).
 
+### V3 — was sich animieren lässt, wird animiert (Arman 25.10.2026)
+
+Aus Video 3: nur 3 Animationen (≈ 14 % der Zeit), obwohl Rechnungen und Vergleiche als Standbild liefen (50 % vs. 30 %, 1,5 % → 1 %, Riester-Guthaben übertragen). Gilt zusätzlich zu den Belegen und zum Bildmix:
+
+| Regel | Prüfung |
+|---|---|
+| Ein Bild-Beat, der eine Veränderung beschreibt (Rechnung, Vergleich, „→“, wächst/sinkt/schrumpft, „von X auf Y“, übertragen/fließt), wird Animation. Ausnahme nur mit `statischWeil` am Bild (Begründung) | `youtube:validate` |
+| Animationen zeigen mindestens 15 % der Sprechzeit; Richtwert 20–30 % (≈ 5–7 Animationen pro 5 Minuten) | `youtube:validate` |
+
+Beats deshalb immer konkret mit der Veränderung formulieren („30 €/Monat → +50 %, 150 €/Monat → +30 %“), damit die Prüfung greift. Animiert wird weiterhin nur, wo die Veränderung der Inhalt ist — Bewegung ohne neue Information zählt nicht.
+
 ## Zahlen-Rückschau V1 (`finanzneo-youtube-zahlen-v1`, Arman 31.10.2026)
 
 Regeln entstehen ab jetzt aus **echten Zahlen**, nicht nur aus dem Eindruck. Nach dem Upload:

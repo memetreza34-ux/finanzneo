@@ -77,7 +77,7 @@ test('Qualitätsregel V3: genug Belege, der erste früh, Markierungs-Cue im eige
     {id: 'visual-06', type: 'folie', chapter: 'Fazit', startCue: 'Am Ende zählt', folie: {zeilen: [{text: 'Anbieter vergleichen', cue: 'Vergleich'}]}},
   ];
   const index = (vs: unknown[]) => ({qualityRules: 'finanzneo-youtube-quality-v3', story: {protagonist: 'Jonas', reason: 'x'}, thumbnail: {googleFlowFileName: 'T.png'}, imageWorld: {}, visuals: vs});
-  const pruefe = (vs: unknown[]) => (pruefeYouTubeQualitaet({index: index(vs), scriptText: skript, prompts: '', bildprompt: () => ''}).fehler as string[]).filter((f) => !f.includes('Kommentarfrage'));
+  const pruefe = (vs: unknown[]) => (pruefeYouTubeQualitaet({index: index(vs), scriptText: skript, prompts: '', bildprompt: () => ''}).fehler as string[]).filter((f) => !f.includes('Kommentarfrage') && !f.startsWith('Animationen zeigen nur'));
 
   assert.deepEqual(pruefe(visuals), []);
   const zuWenig = visuals.map((v) => (v.id === 'visual-05' ? {...v, type: 'folie', folie: {zeilen: [{text: 'Steuer', cue: 'Finanzamt'}]}} : v));
