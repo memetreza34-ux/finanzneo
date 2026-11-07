@@ -7,5 +7,7 @@ export const findeChrome = () => [
   '/Applications/Chromium.app/Contents/MacOS/Chromium',
   '/usr/bin/google-chrome',
   '/usr/bin/chromium',
-  ...globSync('node_modules/.remotion/chrome-headless-shell/**/chrome-headless-shell'),
+  `${process.env.ProgramFiles}/Google/Chrome/Application/chrome.exe`,
+  `${process.env.LOCALAPPDATA}/Google/Chrome/Application/chrome.exe`,
+  ...globSync('node_modules/.remotion/chrome-headless-shell/**/chrome-headless-shell{,.exe}'),
 ].filter(Boolean).find((p) => existsSync(p));
