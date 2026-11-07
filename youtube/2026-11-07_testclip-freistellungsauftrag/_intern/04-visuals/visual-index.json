@@ -1,0 +1,381 @@
+{
+  "version": 3,
+  "title": "Freistellungsauftrag: 1.000 € steuerfrei",
+  "format": "youtube-longform",
+  "shortsForbidden": true,
+  "fixedVisualCount": false,
+  "fixedImageAnimationRatio": false,
+  "video": {
+    "aspectRatio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "thumbnail": {
+    "type": "image",
+    "googleFlowFileName": "YouTube Thumbnail - Freistellungsauftrag.png",
+    "planFile": "04-visuals/thumbnail-prompt.txt",
+    "cover": {
+      "zeilen": [
+        "130 € weg?",
+        "Unnötig!"
+      ],
+      "marker": "130 €",
+      "ton": "rot"
+    }
+  },
+  "userCreatesImages": true,
+  "antigravityGeneratesImages": false,
+  "googleFlow": {
+    "protocolId": "finanzneo-flow-batch5-v1",
+    "generationMode": "parallel-batches",
+    "batchSize": 5,
+    "oneJobPerImage": true,
+    "strictSequential": false,
+    "waitForBatch": true,
+    "renameImmediately": true,
+    "qaBeforeNextBatch": true,
+    "germanTextOnly": true,
+    "retrySameImageOnFailure": true,
+    "referenceImagesAllowed": true,
+    "continuationReferenceRequiredWhenDeclared": true,
+    "referenceMustUseApprovedPriorImage": true,
+    "finalCollectionDirectory": "../3-bilder-hier-rein/",
+    "distributeToVisualFolders": false
+  },
+  "qualityRules": "finanzneo-youtube-quality-v3",
+  "story": {
+    "protagonist": "Lena",
+    "reason": "Lena ist ein Rechenbeispiel (20.000 € Tagesgeld, angenommen 2,5 % Zinsen): 500 € Zinsen, ohne Auftrag 25 % plus Soli = 131,88 €."
+  },
+  "imageWorld": {
+    "styleMaster": "kanal",
+    "illustrationOnly": true,
+    "id": "finanzneo-editorial-finance-v1",
+    "seriesLockId": "finanzneo-editorial-consistency-v1",
+    "authority": "docs/FINANZNEO-IMAGE-WORLD.md",
+    "generatedImageAspectRatio": "16:9",
+    "horizontalGeneratedImagesRequired": true,
+    "referencePromptFile": "04-visuals/bildwelt.txt",
+    "promptLanguage": "en",
+    "primaryStyle": "clean-editorial-finance-illustration",
+    "flexibleBackgrounds": true,
+    "fixedBlackBackgroundForbidden": true,
+    "fixed3DRenderingForbidden": true,
+    "twoDAllowed": true,
+    "subtleTwoPointFiveDAllowed": true,
+    "selectiveSimple3DAllowed": true,
+    "firstGlanceUnderstandingRequired": true,
+    "oneCoreIdeaPerImageRequired": true,
+    "progressiveSequencesAllowed": true,
+    "approvedPriorImageReferenceAllowed": true,
+    "genericHeadlineByDefault": false,
+    "aiSlopAvoidanceRequired": true
+  },
+  "motionStandard": {
+    "id": "finanzneo-youtube-motion-v3",
+    "visualMotionWorld": "finanzneo-youtube-light-motion-v2",
+    "visualTargetWorld": "finanzneo-youtube-light-motion-v2",
+    "minimumMotionPreferred": false,
+    "motionDensityStoryDriven": true,
+    "cameraStillDefault": true,
+    "cameraStoryDriven": false,
+    "staticImageStyleCopyRequired": false,
+    "youtubeNativeCompositionRequired": true,
+    "conceptCandidatesRequired": 3,
+    "keyframeQaRequired": true,
+    "keyframeQaPercentages": [
+      10,
+      35,
+      65,
+      90
+    ],
+    "fixed3DStyleForbidden": true,
+    "fixedArtDirectionForbidden": false,
+    "flexibleBackgrounds": true,
+    "darkBackgroundAllowed": false,
+    "blackBackgroundAllowed": false,
+    "full3DAllowed": false,
+    "simpleComparisonAllowed": true,
+    "chartAllowed": true,
+    "sceneArtDirectionOpen": false,
+    "mixedStyleAcrossScenesAllowed": true,
+    "brandStyleMatchRequired": false,
+    "lightBackgroundRequired": true,
+    "flat2DPreferred": true,
+    "genericSceneHeadlinesForbidden": true,
+    "viewerChangeFirstRequired": true,
+    "contentFirstTechniqueSelection": true,
+    "openTechniqueSelection": true,
+    "compositionFamiliesAreExamplesOnly": true,
+    "motionSignatureRequired": true,
+    "recentMotionWindow": 4,
+    "customReactAllowed": true,
+    "svgAllowed": true,
+    "css3dAllowed": false,
+    "canvasAllowed": true,
+    "threeAllowed": false,
+    "hybridAllowed": true,
+    "dataVisualizationAllowed": true,
+    "existingComponentsOptional": true,
+    "physicalPrimitivesOptional": true,
+    "semanticVariationRequired": false
+  },
+  "timelineRules": {
+    "timingSource": "03-audio/word-timings.json",
+    "cutsFollowVoiceAndChapters": true,
+    "equalLengthVisualsForbiddenByDefault": true,
+    "beatFirst": true
+  },
+  "audio": {
+    "targetIntegratedLufs": -16,
+    "targetTruePeakDbtp": -1
+  },
+  "publishing": {
+    "youtube": {
+      "titleOptions": "05-publishing/title-options.txt",
+      "finalTitle": "05-publishing/final-title.txt",
+      "description": "05-publishing/description.txt",
+      "chapters": "05-publishing/chapters.txt",
+      "tagsKeywords": "05-publishing/tags-keywords.txt",
+      "hashtags": "05-publishing/hashtags.txt",
+      "thumbnailBrief": "05-publishing/thumbnail-brief.txt",
+      "pinnedComment": "05-publishing/pinned-comment.txt",
+      "communityPost": "05-publishing/community-post.txt",
+      "sourcesDisclaimer": "05-publishing/sources-disclaimer.txt",
+      "uploadChecklist": "05-publishing/upload-checklist.md"
+    },
+    "socialPromo": {
+      "instagram": "05-publishing/social-promo/instagram.txt",
+      "tiktok": "05-publishing/social-promo/tiktok.txt",
+      "facebook": "05-publishing/social-promo/facebook.txt",
+      "snapchat": "05-publishing/social-promo/snapchat.txt"
+    }
+  },
+  "visuals": [
+    {
+      "id": "visual-01",
+      "type": "folie",
+      "chapter": "Hook — Lena und die fehlenden 130 Euro",
+      "scriptBeat": "Lena hat 20.000 € auf dem Tagesgeld.",
+      "startCue": "Lena hat zwanzigtausend",
+      "folie": {
+        "icon": "bank",
+        "zahl": {
+          "wert": "20.000 €",
+          "label": "auf dem Tagesgeld",
+          "cue": "zwanzigtausend"
+        }
+      }
+    },
+    {
+      "id": "visual-02",
+      "type": "folie",
+      "chapter": "Hook — Lena und die fehlenden 130 Euro",
+      "scriptBeat": "2,5 % Zinsen: 500 € im Jahr (Beispiel).",
+      "startCue": "Zweieinhalb Prozent Zinsen",
+      "folie": {
+        "icon": "muenze",
+        "zahl": {
+          "wert": "+500 €",
+          "label": "Zinsen im Jahr (Beispiel)",
+          "cue": "fünfhundert",
+          "ton": "gruen"
+        }
+      }
+    },
+    {
+      "id": "visual-03",
+      "type": "folie",
+      "chapter": "Hook — Lena und die fehlenden 130 Euro",
+      "scriptBeat": "Rund 130 € fehlen auf dem Konto.",
+      "startCue": "Trotzdem fehlen auf",
+      "folie": {
+        "icon": "geld_fliegt",
+        "zahl": {
+          "wert": "−130 €",
+          "label": "fehlen auf dem Konto",
+          "cue": "hundertdreißig",
+          "ton": "rot"
+        }
+      }
+    },
+    {
+      "id": "visual-04",
+      "type": "folie",
+      "chapter": "Hook — Lena und die fehlenden 130 Euro",
+      "scriptBeat": "Die Bank führt das Geld ans Finanzamt ab.",
+      "startCue": "Das Geld hat ihre",
+      "folie": {
+        "ablauf": {
+          "von": {
+            "icon": "bank",
+            "text": "Bank",
+            "cue": "Bank"
+          },
+          "nach": {
+            "icon": "behoerde",
+            "text": "Finanzamt",
+            "cue": "Finanzamt"
+          }
+        }
+      }
+    },
+    {
+      "id": "visual-05",
+      "type": "folie",
+      "chapter": "Hook — Lena und die fehlenden 130 Euro",
+      "scriptBeat": "Dabei hätte sie nichts zahlen müssen.",
+      "startCue": "Dabei hätte sie",
+      "folie": {
+        "icon": "denken",
+        "begriff": {
+          "text": "Gar nichts zahlen",
+          "cue": "nichts",
+          "betont": "nichts"
+        }
+      }
+    },
+    {
+      "id": "visual-06",
+      "type": "beleg",
+      "chapter": "Kapitel 1 — Das steht dir zu",
+      "scriptBeat": "§ 20 EStG: Sparer-Pauschbetrag von 1.000 € im Jahr.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-06/beleg.md",
+      "startCue": "Das Einkommensteuergesetz gibt",
+      "quelle": "Einkommensteuergesetz, § 20",
+      "quellenArt": "gesetz",
+      "url": "https://www.gesetze-im-internet.de/estg/__20.html",
+      "markierungen": [
+        {
+          "text": "Sparer-Pauschbetrag",
+          "cue": "Sparer-Pauschbetrag"
+        }
+      ],
+      "belegFile": "04-visuals/EINZELNE-VISUALS/visual-06/beleg.png",
+      "belegDatenFile": "04-visuals/EINZELNE-VISUALS/visual-06/beleg.json"
+    },
+    {
+      "id": "visual-07",
+      "type": "folie",
+      "chapter": "Kapitel 1 — Das steht dir zu",
+      "scriptBeat": "Bis 1.000 € bleiben Kapitalerträge steuerfrei.",
+      "startCue": "Bis dahin bleiben",
+      "folie": {
+        "icon": "schild",
+        "begriff": {
+          "text": "Bis 1.000 € steuerfrei",
+          "cue": "steuerfrei",
+          "betont": "steuerfrei"
+        }
+      }
+    },
+    {
+      "id": "visual-08",
+      "type": "beleg",
+      "chapter": "Kapitel 1 — Das steht dir zu",
+      "scriptBeat": "§ 32d EStG: darüber 25 Prozent, dazu Solidaritätszuschlag.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-08/beleg.md",
+      "startCue": "Darüber werden fünfundzwanzig",
+      "quelle": "Einkommensteuergesetz, § 32d",
+      "quellenArt": "gesetz",
+      "url": "https://www.gesetze-im-internet.de/estg/__32d.html",
+      "markierungen": [
+        {
+          "text": "beträgt 25 Prozent",
+          "cue": "fünfundzwanzig"
+        }
+      ],
+      "belegFile": "04-visuals/EINZELNE-VISUALS/visual-08/beleg.png",
+      "belegDatenFile": "04-visuals/EINZELNE-VISUALS/visual-08/beleg.json"
+    },
+    {
+      "id": "visual-09",
+      "type": "folie",
+      "chapter": "Kapitel 1 — Das steht dir zu",
+      "scriptBeat": "Kommentarfrage: Freistellungsauftrag schon eingerichtet?",
+      "startCue": "Hast du deinen",
+      "folie": {
+        "icon": "frage",
+        "begriff": {
+          "text": "Schon eingerichtet?",
+          "cue": "eingerichtet",
+          "betont": "eingerichtet"
+        }
+      }
+    },
+    {
+      "id": "visual-10",
+      "type": "beleg",
+      "chapter": "Kapitel 2 — So holst du es dir",
+      "scriptBeat": "§ 44a EStG: Kein Steuerabzug nur mit Freistellungsauftrag.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-10/beleg.md",
+      "startCue": "Ohne diesen Auftrag",
+      "quelle": "Einkommensteuergesetz, § 44a",
+      "quellenArt": "gesetz",
+      "url": "https://www.gesetze-im-internet.de/estg/__44a.html",
+      "markierungen": [
+        {
+          "text": "ein Freistellungsauftrag des Gläubigers der Kapitalerträge",
+          "cue": "Auftrag"
+        }
+      ],
+      "belegFile": "04-visuals/EINZELNE-VISUALS/visual-10/beleg.png",
+      "belegDatenFile": "04-visuals/EINZELNE-VISUALS/visual-10/beleg.json"
+    },
+    {
+      "id": "visual-11",
+      "type": "data",
+      "chapter": "Kapitel 2 — So holst du es dir",
+      "scriptBeat": "Vergleich: ohne Auftrag 500 € → rund 370 €, mit Auftrag 500 € → 500 €.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-11/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-11/animation.tsx",
+      "animationExport": "YouTubeVisual11Animation",
+      "contentBrief": "Zwei große Balken aus je 500 € Zinsen untereinander, Beschriftung „Ohne Auftrag“ und „Mit Auftrag“. Beim Wort „hundertdreißig“ schrumpft der obere Balken wertgenau auf 368,12 €, der abgeschnittene Teil mit der Beschriftung „Steuerabzug“ (131,88 €, gerundet „rund 130 €“) färbt sich rot und fällt ab. Beim Wort „vollen“ leuchtet der untere Balken grün und bleibt bei „500 €“. Bei „Formular“ erscheint daneben die Differenz „+130 €“. Ergebnis mindestens 15 Frames stehen lassen. Kleiner Hinweis: „Beispiel, ohne Kirchensteuer“.",
+      "startCue": "Schau dir Lena an",
+      "bridgeObject": "Freistellungsauftrag",
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-11/data-notes.md"
+    },
+    {
+      "id": "visual-12",
+      "type": "folie",
+      "chapter": "Kapitel 2 — So holst du es dir",
+      "scriptBeat": "So geht es: anmelden, Auftrag suchen, Betrag eintragen.",
+      "startCue": "So holst du dir",
+      "folie": {
+        "titel": "In 3 Schritten",
+        "icon": "handy",
+        "zeilen": [
+          {
+            "text": "Im Online-Banking anmelden",
+            "cue": "Online-Banking"
+          },
+          {
+            "text": "Freistellungsauftrag suchen",
+            "cue": "Suche"
+          },
+          {
+            "text": "Betrag eintragen",
+            "cue": "Betrag",
+            "betont": "Betrag"
+          }
+        ]
+      }
+    },
+    {
+      "id": "visual-13",
+      "type": "folie",
+      "chapter": "Kapitel 2 — So holst du es dir",
+      "scriptBeat": "Mehrere Banken: 1.000 € aufteilen.",
+      "startCue": "Hast du mehrere",
+      "folie": {
+        "icon": "waage",
+        "zahl": {
+          "wert": "1.000 €",
+          "label": "auf alle Banken aufteilen",
+          "cue": "tausend"
+        }
+      }
+    }
+  ]
+}

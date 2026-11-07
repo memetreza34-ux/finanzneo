@@ -1,0 +1,88 @@
+FINANZNEO — SINGLE HANDOFF FILE FOR THE GOOGLE FLOW AI AGENT
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+
+STYLE MASTER (WHOLE CHANNEL):
+Before you start, open youtube/_kanal/FinanzNeo Stilvorlage.png (file name: "FinanzNeo Stilvorlage.png"). Attach it to EVERY scene image of this file, including the thumbnail, as STYLE_REFERENCE. Exception: STICKER blocks never attach it — they follow the sticker style written in their block. Every image of every FinanzNeo video must look like it was drawn by the same illustrator as this file.
+Batch 1 contains ONLY the thumbnail. Generate it, wait until it is complete, rename it and verify it. Never start batch 2 before the thumbnail is approved.
+
+BATCH WORKFLOW (MAX. 5 IMAGES IN PARALLEL):
+1. Read the full file once. Images are grouped into numbered BATCH blocks of up to 5.
+2. Start every image of the current batch at the same time, each as its own single-image job. Never put several prompts into one request and never make a collage or contact sheet.
+3. As soon as an image returns, rename it immediately to the exact final file name stated in its block.
+4. Verify every image of the batch (STICKER blocks: their own sticker checks instead): soft hand-drawn illustration in the style master's style (reject anything photorealistic), script-beat fit, first-glance clarity, Editorial Finance style, 16:9 format, German-only text and file name. For a continuation visual, also verify that the approved reference composition is preserved and only the planned change was made.
+5. Regenerate every failed image (same image number, replace the failed file) before the next batch starts.
+6. Start the next batch only after all images of the current batch pass. A continuation image is never in the same batch as its reference.
+7. Skip non-image blocks without closing the numbering gap.
+8. At the end, place every generated and correctly named image together in 3-bilder-hier-rein/.
+
+████████████████████████████████████
+BATCH 1 — START ALL TOGETHER: Thumbnail
+████████████████████████████████████
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+THUMBNAIL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-batch5-v1
+ONE IMAGE OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+YouTube Thumbnail - Freistellungsauftrag.png
+
+Generate this image together with the other images of its batch (at most 5 in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
+
+STYLE_REFERENCE:
+FinanzNeo Stilvorlage.png — attach this approved FinanzNeo style master to EVERY image as a style reference (from youtube/_kanal/FinanzNeo Stilvorlage.png in the repository). Copy only its drawing style: warm cream background, gentle pencil-like outlines, softly painted flat fills, muted palette and hand-lettered labels. Never copy its composition, amount of detail, people, objects or text — the composition always follows the current scene.
+
+REFERENCE_IMAGE:
+NONE
+
+THUMBNAIL PROMPT:
+Soft hand-drawn 2D editorial illustration, not a photo. A simple hand-drawn illustration in the right half of the image: a bank statement with a large bite missing, a few coins falling out. Left half stays empty.
+
+COVER LAYOUT (FinanzNeo Cover V1): NO TEXT, NO LETTERS, NO NUMBERS anywhere in this image — the headline is added later. Put the main subject large and close in the RIGHT 45 % of the frame with a clear facial expression or one strong object. Keep the LEFT 55 % completely empty plain warm cream background without objects, lines or shadows.
+
+TEXT IN THIS IMAGE: Only the exact words and numbers written in quotes in the prompt may appear in the image. Never invent extra prices, numbers, brand names, headlines or captions.
+
+
+
+FINANZNEO_IMAGE_WORLD: finanzneo-editorial-finance-v1
+FINANZNEO_IMAGE_SERIES: finanzneo-editorial-consistency-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+IMAGE WORLD:
+FinanzNeo Editorial Finance V1 — the hand-drawn look of video 1 and 2 (Arman, 17.10.2026).
+
+CORE:
+One spoken thought becomes one simple visual idea that is understandable at first glance.
+
+STYLE (STRICT — the drawing style never changes):
+Soft hand-drawn editorial illustration, like a calm finance explainer book: gentle pencil-like outlines, softly painted flat color fills with a very light paper feel, warm cream background, muted earthy palette (sand, terracotta, sage green, dusty blue, warm gray) with at most one stronger accent color for the key information. Simple, friendly, slightly rounded shapes; people are simplified illustrated characters; labels look neatly hand-lettered. No heavy shading, no dramatic lighting, no dark or saturated backgrounds; never photorealistic, never a photo, never a glossy 3D render.
+
+COMPOSITION (FREE — follows the scene):
+Choose whatever explains this exact sentence best: a full everyday scene with several people and objects, a single object in close-up, a wide landscape metaphor (path, stairs, mountain, bridge, scale), a top-down plan or a side-by-side comparison. A full, detailed scene is just as welcome as a sparse one. It must stay readable at first glance with one clear focal point.
+
+BACKGROUND:
+Warm cream, always light. Water, sky or ground are drawn as calm flat color areas, never as a dark full-frame background.
+
+ANTI-AI-SLOP:
+Avoid decorative neon finance glow, holograms, floating coin showers, futuristic dashboards, generic UI cards, miniature cities, glowing networks, podiums, cinematic spectacle and glossy toy-like 3D.
+
+TEXT:
+No automatic generic headline. Very little text: only short labels or numbers that explain. All visible text in the image must be German: labels, numbers, buttons, screens and documents. Never use English words. Only the exact words and numbers written in quotes in the prompt may appear in the image. Never invent extra prices, numbers, brand names, headlines or captions.
+
+FORMAT:
+Horizontal 16:9 source image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RESERVED NUMBERS — REMOTION, NOT FLOW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGES 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13. These numbers are built in Remotion (animations, explainer slides and real source screenshots). Keep the numbers reserved; never close the numbering gap.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FINISH
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Finish only after every expected image has been generated in its batch, renamed immediately and verified. All final files must be together in 3-bilder-hier-rein/.

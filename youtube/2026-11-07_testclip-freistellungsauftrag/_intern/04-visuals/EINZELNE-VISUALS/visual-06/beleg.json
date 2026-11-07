@@ -1,0 +1,45 @@
+{
+  "standard": "finanzneo-youtube-beleg-v1",
+  "url": "https://www.gesetze-im-internet.de/estg/__20.html",
+  "endUrl": "https://www.gesetze-im-internet.de/estg/__20.html",
+  "quelle": "Einkommensteuergesetz, § 20",
+  "quellenArt": "gesetz",
+  "seitenTitel": "§ 20 EStG - Einzelnorm",
+  "abgerufenAm": "2026-11-07",
+  "bild": "beleg.png",
+  "skala": 2,
+  "bildBreite": 1440,
+  "bildHoehe": 2367,
+  "sha256": "da94e3fd1c80c481d64ee17b6003a0e3293cd151068aedc9f9c6d6c2dd186fdb",
+  "auszugZeichen": 788,
+  "teile": [
+    {
+      "art": "titel",
+      "x": 197,
+      "y": 185,
+      "w": 1213,
+      "h": 74
+    },
+    {
+      "art": "text",
+      "x": 197,
+      "y": 2261,
+      "w": 1213,
+      "h": 98
+    }
+  ],
+  "markierungen": [
+    {
+      "text": "Sparer-Pauschbetrag",
+      "cue": "Sparer-Pauschbetrag",
+      "rects": [
+        {
+          "x": 868,
+          "y": 2283,
+          "w": 112,
+          "h": 13
+        }
+      ]
+    }
+  ]
+}

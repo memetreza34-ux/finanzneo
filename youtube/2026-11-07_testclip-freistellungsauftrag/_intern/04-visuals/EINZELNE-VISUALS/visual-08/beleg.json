@@ -1,0 +1,38 @@
+{
+  "standard": "finanzneo-youtube-beleg-v1",
+  "url": "https://www.gesetze-im-internet.de/estg/__32d.html",
+  "endUrl": "https://www.gesetze-im-internet.de/estg/__32d.html",
+  "quelle": "Einkommensteuergesetz, § 32d",
+  "quellenArt": "gesetz",
+  "seitenTitel": "§ 32d EStG - Einzelnorm",
+  "abgerufenAm": "2026-11-07",
+  "bild": "beleg.png",
+  "skala": 2,
+  "bildBreite": 1440,
+  "bildHoehe": 382,
+  "sha256": "fa66ba9b807bfe2771fb85f763c58303adaaf707085de71f66ee6b2777559fc7",
+  "auszugZeichen": 691,
+  "teile": [
+    {
+      "art": "text",
+      "x": 197,
+      "y": 234,
+      "w": 1213,
+      "h": 140
+    }
+  ],
+  "markierungen": [
+    {
+      "text": "beträgt 25 Prozent",
+      "cue": "fünfundzwanzig",
+      "rects": [
+        {
+          "x": 745,
+          "y": 256,
+          "w": 97,
+          "h": 13
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "standard": "finanzneo-youtube-beleg-v1",
+  "url": "https://www.gesetze-im-internet.de/estg/__44a.html",
+  "endUrl": "https://www.gesetze-im-internet.de/estg/__44a.html",
+  "quelle": "Einkommensteuergesetz, § 44a",
+  "quellenArt": "gesetz",
+  "seitenTitel": "§ 44a EStG - Einzelnorm",
+  "abgerufenAm": "2026-11-07",
+  "bild": "beleg.png",
+  "skala": 2,
+  "bildBreite": 1440,
+  "bildHoehe": 502,
+  "sha256": "dd7b1bc9ca13615f7e64d085d4261c44a8f502e66b71ff18c187c144fc83552f",
+  "auszugZeichen": 122,
+  "teile": [
+    {
+      "art": "titel",
+      "x": 197,
+      "y": 185,
+      "w": 1213,
+      "h": 74
+    },
+    {
+      "art": "text",
+      "x": 197,
+      "y": 441,
+      "w": 1213,
+      "h": 53
+    }
+  ],
+  "markierungen": [
+    {
+      "text": "ein Freistellungsauftrag des Gläubigers der Kapitalerträge",
+      "cue": "Auftrag",
+      "rects": [
+        {
+          "x": 391,
+          "y": 461,
+          "w": 301,
+          "h": 13
+        }
+      ]
+    }
+  ]
+}
