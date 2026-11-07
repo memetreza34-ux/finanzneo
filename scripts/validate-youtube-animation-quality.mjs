@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import {internWurzel} from './lib/youtube-contract.mjs';
+import {YOUTUBE_QUALITY_RULES_V3_ID, internWurzel} from './lib/youtube-contract.mjs';
 import {existsSync, readFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 import {
@@ -96,6 +96,12 @@ for (const visual of visuals.filter(requiresYouTubeMotion)) {
   const source = readFileSync(sourcePath, 'utf8');
   for (const [pattern, message] of forbiddenSourcePatterns) {
     if (pattern.test(source)) errors.push(`${id}: ${message}`);
+  }
+  // Bildwelt seit 30.10.2026 (Regel V3): ein durchgehend weißes Video. Flächen kommen aus useFlaeche() /
+  // DatenBuehne / LightStage — feste Creme-Töne würden zwischen weißen Folien als Farbsprung auffallen.
+  if (index?.qualityRules === YOUTUBE_QUALITY_RULES_V3_ID) {
+    if (/DATEN\.papier/.test(source)) errors.push(`${id}: DATEN.papier (Weiß) verschwindet auf der weißen Fläche — Karten und Felder mit useFlaeche().karte füllen.`);
+    if (/DATEN\.grund|LIGHT\.cream|#F9E9CB|#FAF8F2|#FBF9F4|#F6EAD0/i.test(source)) errors.push(`${id}: Creme-Fläche fest im Code — in Regel-V3-Videos ist die Fläche weiß: DatenBuehne/LightStage oder useFlaeche().grund bzw. .karte nutzen.`);
   }
   if (!/useCurrentFrame\s*\(/.test(source)) errors.push(`${id}: useCurrentFrame() fehlt.`);
   if (!/\b(interpolate|spring)\s*\(/.test(source)) errors.push(`${id}: mindestens interpolate() oder spring() muss echte Frame-Motion steuern.`);

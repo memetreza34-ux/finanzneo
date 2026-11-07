@@ -12,6 +12,7 @@ import {spawnSync} from 'node:child_process';
 import {copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {basename, resolve} from 'node:path';
 import {EXPORT_DIR, EXPORT_FILES, IMAGE_INBOX, VISUAL_INDEX, WORD_TIMINGS, YOUTUBE_MUSIC_FILES, YOUTUBE_MUSIC_GAIN_DB, YOUTUBE_PUBLISHING_FILES, internWurzel} from './lib/youtube-contract.mjs';
+import {YOUTUBE_COVER_DATEI} from './lib/youtube-cover.mjs';
 import {verbindeAudioTeile} from './youtube-audio-teile.mjs';
 
 const projekt = process.argv[2];
@@ -40,7 +41,8 @@ const lies = (cmd, args) => spawnSync(cmd, args, {encoding: 'utf8'}).stderr;
 try {verbindeAudioTeile(projekt);} catch (error) {console.error(`✗ ${error.message}`); process.exit(1);}
 lauf('node', ['scripts/check-youtube-production-ready.mjs', projekt], 'Startfreigabe (youtube:ready)');
 lauf('node', ['scripts/youtube-zusammenbau.mjs', projekt], 'Zeitplan ohne Vorschau');
-lauf('npx', ['remotion', 'render', 'src/index.ts', id, roh, '--codec=h264', '--crf=18', '--log=error'], `Render ${id}`);
+// Remotion direkt über Node starten: Unter Windows lässt sich `npx` ohne Shell nicht aufrufen.
+lauf('node', ['node_modules/@remotion/cli/remotion-cli.js', 'render', 'src/index.ts', id, roh, '--codec=h264', '--crf=18', '--log=error'], `Render ${id}`);
 
 // Optionale Hintergrundmusik aus _intern/03-audio/musik.*: leise unter der Stimme, Schleife, Ausblende.
 const musik = YOUTUBE_MUSIC_FILES.map((rel) => resolve(internWurzel(projekt), rel)).find((pfad) => existsSync(pfad));
@@ -80,7 +82,12 @@ const liesIntern = (rel) => readFileSync(resolve(intern, rel), 'utf8').trim();
 mkdirSync(resolve(intern, EXPORT_DIR), {recursive: true});
 copyFileSync(final, resolve(intern, EXPORT_FILES.video));
 const index = JSON.parse(liesIntern(VISUAL_INDEX));
-copyFileSync(resolve(intern, IMAGE_INBOX, index.thumbnail.googleFlowFileName), resolve(intern, EXPORT_FILES.cover));
+// Cover V1: fester FinanzNeo-Text auf der Flow-Illustration; ältere Projekte nehmen das Flow-Thumbnail direkt.
+if (index.thumbnail.cover) {
+  const cover = spawnSync(process.execPath, [resolve('scripts/youtube-cover.mjs'), projekt], {stdio: 'inherit'});
+  if (cover.status !== 0) process.exit(cover.status ?? 1);
+  copyFileSync(resolve(intern, YOUTUBE_COVER_DATEI), resolve(intern, EXPORT_FILES.cover));
+} else copyFileSync(resolve(intern, IMAGE_INBOX, index.thumbnail.googleFlowFileName), resolve(intern, EXPORT_FILES.cover));
 writeFileSync(resolve(intern, EXPORT_FILES.caption), `${liesIntern(YOUTUBE_PUBLISHING_FILES.finalTitle)}\n\n${liesIntern(YOUTUBE_PUBLISHING_FILES.description)}\n`);
 const zeit = (sek) => {
   const s = Math.floor(sek);

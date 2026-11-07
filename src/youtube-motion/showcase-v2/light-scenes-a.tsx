@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Easing, interpolate} from 'remotion';
+import { Easing, interpolate} from 'remotion';
 import {FONT} from '../../brand';
 import {CircleIcon, L, SceneFade, SoftPanel, Txt, CLAMP, pr, sp, useLightScene} from './light-primitives';
 

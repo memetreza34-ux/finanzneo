@@ -8,7 +8,7 @@ Dieser Bereich ist ausschließlich für eigenständige längere FinanzNeo-Videos
 1-script/            Sprechtext
 2-bildprompts/       alle Flow-Prompts (5er-Batches)
 3-bilder-hier-rein/  Flow-Bilder rein
-4-audio-hier-rein/   Sprachaufnahme rein
+4-audio-hier-rein/   voiceover.wav (automatisch per youtube:stimme oder eigene Aufnahme)
 5-export/            Cover, Video, Caption, Untertitel mit Zeitstempeln
 _intern/             alles andere
 ```
@@ -17,12 +17,17 @@ _intern/             alles andere
 
 ```bash
 npm run youtube:create -- --target youtube/<Projekt> --title "Titel"
-npm run youtube:zusammenbau -- youtube/<Projekt> --whisper <whisper.json>
+npm run youtube:stimme -- youtube/<Projekt>
+npm run youtube:zusammenbau -- youtube/<Projekt> --whisper youtube/<Projekt>/_intern/03-audio/whisper.json
 npm run youtube:render -- youtube/<Projekt>
 ```
 
 - Phase-1-Visualplanung: `_intern/06-projektdateien/visual-plan.mjs` schreiben (Bilder mit `cue`, `prompt`, optional `ref`/`akzente`; Motion mit `brief`), dann `node scripts/youtube-plan-anwenden.mjs youtube/<Projekt>` — erzeugt Visual-Index, Einzelprompts, die Flow-Übergabe (Batch 1 = Thumbnail) und die Motion-Ordner. Danach `youtube:validate` für die Qualitätsregeln.
-- Sprachaufnahme in mehreren Teilen? Alle Teile in `4-audio-hier-rein/` legen — sie werden automatisch zu einer `voiceover.wav` verbunden.
+- Voiceover: `youtube:stimme` spricht `1-script/script.txt` automatisch mit der Kanalstimme ein (lokal, −16 LUFS, Wortzeiten inklusive). Erst reinhören, dann Zusammenbau. Details und Einrichtung: [Kanalstimme](_kanal/stimme/README.md).
+- Belege (echte Quellen-Screenshots, ab Regel V3 mindestens 3 pro Video): im Visual-Plan `type: 'beleg'` mit `quelle`, `quellenArt`, `url` und `markierungen[{text, cue}]`, dann `npm run youtube:belege -- youtube/<Projekt>`. Details: [Beleg-Szenen](../docs/YOUTUBE-BELEG-SZENEN.md).
+- Bildwelt (Regel V3): weiße Folien mit 3D-Icons (`type: 'folie'`, Formen begriff/ablauf/vergleich/zahl/zeilen/metapher/wolke/zitat, Metapher-Sticker aus `public/sticker/`, `npm run youtube:icons -- --liste`) und Belege; Flow-Bilder nur selten, höchstens 40 % der Sprechzeit. Cover: `thumbnail.cover = {zeilen, marker}`, `npm run youtube:cover`. Details: [Bildmix und Cover](../docs/YOUTUBE-BILDMIX-UND-COVER.md).
+- Zahlen-Rückschau: nach dem Upload `npm run youtube:zahlen -- youtube/<Projekt> --veroeffentlicht JJJJ-MM-TT`, an Tag 7 und 28 die Studio-Zahlen eintragen; `npm run youtube:zahlen` zeigt alle Videos und den Engpass. Details: [Produktionsstandard](PRODUKTIONSSTANDARD.md#zahlen-rückschau-v1-finanzneo-youtube-zahlen-v1-arman-31102026).
+- Eigene Sprachaufnahme in mehreren Teilen? Alle Teile in `4-audio-hier-rein/` legen — sie werden automatisch zu einer `voiceover.wav` verbunden.
 - Optionale Hintergrundmusik: `_intern/03-audio/musik.mp3` (lizenzfrei), wird leise untergemischt.
 - Neue Projekte prüfen automatisch: Standbilder max. 8 s, Hook max. 20 s, Kommentarfrage in der Mitte, Endkarte 15 s, Bilder nur Illustration mit Thumbnail als Stilvorlage. Details: [Produktionsstandard](PRODUKTIONSSTANDARD.md#qualitätsregeln-v1-finanzneo-youtube-quality-v1-arman-10102026).
 
@@ -44,6 +49,8 @@ Erlaubt:
 - `animation`
 - `hybrid`
 - `data`
+- `beleg`
+- `folie`
 
 Für Motion gilt V3: erst `viewerChange`, dann die beste Technik. Es gibt keine feste Animationsbibliothek und keine Whitelist für Composition Families.
 

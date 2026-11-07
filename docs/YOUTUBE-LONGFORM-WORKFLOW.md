@@ -13,12 +13,13 @@ ChatGPT erstellt im YouTube-Projektordner ohne offene Platzhalter:
 - Hook, Kapitel-Dramaturgie und Retention-Plan
 - vollständiges deutsches Voiceover-Skript
 - gesprochene Gedanken und sichtbare Visual Beats
-- danach die beste Visualart je Beat: `image`, `animation`, `hybrid` oder `data`
+- danach die beste Visualart je Beat: `image`, `animation`, `hybrid`, `data`, `beleg` (echter Quellen-Screenshot, `docs/YOUTUBE-BELEG-SZENEN.md`) oder `folie` (Erklär-Folie, `docs/YOUTUBE-BILDMIX-UND-COVER.md`)
+- für jedes Beleg-Visual den Screenshot mit `npm run youtube:belege -- youtube/<Projekt>`
 - Visual-Plan ohne feste Visualzahl und ohne feste Bild-/Animationsquote
 - alle Google-Flow-Bildprompts in Englisch und mit exakten Dateinamen
 - für jedes Motion-Visual produktionsreife `animation.tsx`
 - pro Motion-Visual `viewerChange`, `animationIntent`, `mechanicId`, `visualTechniqueId`, `techniqueDescription`, freien `compositionFamilyId`, `toolStack`, `motionSignature`, Motion Channels und Visual Beats
-- Thumbnail-Prompt und Thumbnail-Brief
+- Thumbnail-Prompt (Motiv rechts, ohne Text) und `thumbnail.cover` mit dem exakten Cover-Text
 - Titelvarianten, finalen Titel, Beschreibung, Kapitel, Keywords, Hashtags
 - Quellen-/Disclaimer-Text, angehefteten Kommentar, Community-Post und Upload-Checkliste
 - Promo-Texte für Instagram, TikTok, Facebook und Snapchat
@@ -71,10 +72,10 @@ GENAU EIN BILD ERZEUGEN
 - Nicht-Bild-Visualnummern überspringen, aber nicht neu nummerieren.
 - Alle fertigen Dateien gemeinsam nach `04-visuals/00-ALLE-BILDER-HIER-REIN/` legen.
 - Alle YouTube-Quellbilder und das Thumbnail sind horizontal `16:9`.
-- Genau ein finales Voiceover in `03-audio/` ablegen.
-- Aus genau diesem Audio echte Wort-Zeitstempel in `03-audio/word-timings.json` erzeugen.
+- Genau ein finales Voiceover in `4-audio-hier-rein/`: seit 01.11.2026 (Armans Wunsch) normalerweise automatisch mit `npm run youtube:stimme -- youtube/<Projekt>` in der festen Kanalstimme (`youtube/_kanal/stimme/README.md`), danach von Arman angehört und freigegeben. Eine eigene Aufnahme bleibt erlaubt.
+- Aus genau diesem Audio echte Wort-Zeitstempel erzeugen (`youtube:stimme` legt `_intern/03-audio/whisper.json` gleich mit an).
 
-Antigravity erzeugt keine fehlenden Bilder und kein Ersatz-Voiceover.
+Antigravity erzeugt keine fehlenden Bilder und kein Ersatz-Voiceover; `youtube:stimme` ist ein Phase-2-Schritt, kein Phase-3-Ersatz.
 
 ## Phase 3 — Integration, Retiming, QA und Render
 

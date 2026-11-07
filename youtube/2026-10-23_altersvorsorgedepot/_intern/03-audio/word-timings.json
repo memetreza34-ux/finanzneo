@@ -1,0 +1,8196 @@
+{
+  "version": "finanzneo-caption-v1",
+  "language": "de",
+  "source": "4-audio-hier-rein/voiceover.wav",
+  "generatedAt": "2026-10-24T02:10:29.090Z",
+  "duration": 285.732,
+  "wordCount": 740,
+  "fps": 30,
+  "subtitleMode": "sentence-with-audio-synced-active-word",
+  "activeWordColor": "finance-green",
+  "alignment": {
+    "method": "script-text-with-whisper-anchors",
+    "anchoredShare": 0.92
+  },
+  "words": [
+    {
+      "word": "Jonas",
+      "start": 0,
+      "end": 0.56
+    },
+    {
+      "word": "ist",
+      "start": 0.56,
+      "end": 0.72
+    },
+    {
+      "word": "achtundzwanzig.",
+      "start": 0.72,
+      "end": 1.82
+    },
+    {
+      "word": "Jeden",
+      "start": 1.82,
+      "end": 2.14
+    },
+    {
+      "word": "Monat",
+      "start": 2.14,
+      "end": 2.58
+    },
+    {
+      "word": "legt",
+      "start": 2.58,
+      "end": 2.8
+    },
+    {
+      "word": "er",
+      "start": 2.8,
+      "end": 2.98
+    },
+    {
+      "word": "hundertfünfzig",
+      "start": 2.98,
+      "end": 3.68
+    },
+    {
+      "word": "Euro",
+      "start": 3.68,
+      "end": 4.16
+    },
+    {
+      "word": "in",
+      "start": 4.16,
+      "end": 4.44
+    },
+    {
+      "word": "einen",
+      "start": 4.44,
+      "end": 4.66
+    },
+    {
+      "word": "ETF-Sparplan.",
+      "start": 4.66,
+      "end": 6.26
+    },
+    {
+      "word": "Ab",
+      "start": 6.26,
+      "end": 6.48
+    },
+    {
+      "word": "Januar",
+      "start": 6.48,
+      "end": 6.88
+    },
+    {
+      "word": "kann",
+      "start": 6.88,
+      "end": 7.04
+    },
+    {
+      "word": "er",
+      "start": 7.04,
+      "end": 7.2
+    },
+    {
+      "word": "genau",
+      "start": 7.2,
+      "end": 7.38
+    },
+    {
+      "word": "dasselbe",
+      "start": 7.38,
+      "end": 7.76
+    },
+    {
+      "word": "tun.",
+      "start": 7.76,
+      "end": 8
+    },
+    {
+      "word": "Und",
+      "start": 8.52,
+      "end": 8.64
+    },
+    {
+      "word": "der",
+      "start": 8.64,
+      "end": 8.88
+    },
+    {
+      "word": "Staat",
+      "start": 8.88,
+      "end": 9.02
+    },
+    {
+      "word": "legt",
+      "start": 9.02,
+      "end": 9.34
+    },
+    {
+      "word": "jedes",
+      "start": 9.34,
+      "end": 9.6
+    },
+    {
+      "word": "Jahr",
+      "start": 9.6,
+      "end": 9.88
+    },
+    {
+      "word": "bis",
+      "start": 9.88,
+      "end": 10.04
+    },
+    {
+      "word": "zu",
+      "start": 10.04,
+      "end": 10.38
+    },
+    {
+      "word": "fünfhundertvierzig",
+      "start": 10.38,
+      "end": 11.12
+    },
+    {
+      "word": "Euro",
+      "start": 11.12,
+      "end": 11.42
+    },
+    {
+      "word": "obendrauf.",
+      "start": 11.42,
+      "end": 12.14
+    },
+    {
+      "word": "Das",
+      "start": 12.48,
+      "end": 12.72
+    },
+    {
+      "word": "neue",
+      "start": 12.72,
+      "end": 13.12
+    },
+    {
+      "word": "Altersvorsorgedepot.",
+      "start": 13.12,
+      "end": 14.74
+    },
+    {
+      "word": "Jonas",
+      "start": 15.22,
+      "end": 15.46
+    },
+    {
+      "word": "fragt",
+      "start": 15.46,
+      "end": 15.76
+    },
+    {
+      "word": "sich:",
+      "start": 15.76,
+      "end": 16.06
+    },
+    {
+      "word": "Wo",
+      "start": 16.3,
+      "end": 16.48
+    },
+    {
+      "word": "ist",
+      "start": 16.48,
+      "end": 16.6
+    },
+    {
+      "word": "der",
+      "start": 16.6,
+      "end": 16.72
+    },
+    {
+      "word": "Haken?",
+      "start": 16.72,
+      "end": 16.96
+    },
+    {
+      "word": "Fangen",
+      "start": 17.82,
+      "end": 18.02
+    },
+    {
+      "word": "wir",
+      "start": 18.02,
+      "end": 18.14
+    },
+    {
+      "word": "vorne",
+      "start": 18.14,
+      "end": 18.38
+    },
+    {
+      "word": "an.",
+      "start": 18.38,
+      "end": 18.72
+    },
+    {
+      "word": "Was",
+      "start": 18.98,
+      "end": 19.16
+    },
+    {
+      "word": "ist",
+      "start": 19.16,
+      "end": 19.34
+    },
+    {
+      "word": "das",
+      "start": 19.34,
+      "end": 19.5
+    },
+    {
+      "word": "überhaupt?",
+      "start": 19.5,
+      "end": 19.86
+    },
+    {
+      "word": "Das",
+      "start": 20.58,
+      "end": 20.78
+    },
+    {
+      "word": "Altersvorsorgedepot",
+      "start": 20.78,
+      "end": 21.8
+    },
+    {
+      "word": "ist",
+      "start": 21.8,
+      "end": 21.98
+    },
+    {
+      "word": "der",
+      "start": 21.98,
+      "end": 22.2
+    },
+    {
+      "word": "Nachfolger",
+      "start": 22.2,
+      "end": 22.7
+    },
+    {
+      "word": "der",
+      "start": 22.7,
+      "end": 22.86
+    },
+    {
+      "word": "Riester-Rente.",
+      "start": 22.86,
+      "end": 23.26
+    },
+    {
+      "word": "Der",
+      "start": 24.16,
+      "end": 24.32
+    },
+    {
+      "word": "Bundestag",
+      "start": 24.32,
+      "end": 24.78
+    },
+    {
+      "word": "hat",
+      "start": 24.78,
+      "end": 24.9
+    },
+    {
+      "word": "das",
+      "start": 24.9,
+      "end": 25.08
+    },
+    {
+      "word": "Gesetz",
+      "start": 25.08,
+      "end": 25.32
+    },
+    {
+      "word": "im",
+      "start": 25.32,
+      "end": 25.44
+    },
+    {
+      "word": "März",
+      "start": 25.44,
+      "end": 25.72
+    },
+    {
+      "word": "beschlossen.",
+      "start": 25.72,
+      "end": 26.18
+    },
+    {
+      "word": "Start",
+      "start": 26.18,
+      "end": 26.72
+    },
+    {
+      "word": "ist",
+      "start": 26.72,
+      "end": 26.96
+    },
+    {
+      "word": "am",
+      "start": 26.96,
+      "end": 27.14
+    },
+    {
+      "word": "ersten",
+      "start": 27.14,
+      "end": 27.54
+    },
+    {
+      "word": "Januar",
+      "start": 27.54,
+      "end": 27.88
+    },
+    {
+      "word": "zweitausendsiebenundzwanzig.",
+      "start": 27.88,
+      "end": 30.08
+    },
+    {
+      "word": "Riester",
+      "start": 30.08,
+      "end": 30.34
+    },
+    {
+      "word": "galt",
+      "start": 30.34,
+      "end": 30.62
+    },
+    {
+      "word": "als",
+      "start": 30.62,
+      "end": 30.82
+    },
+    {
+      "word": "kompliziert",
+      "start": 30.82,
+      "end": 31.36
+    },
+    {
+      "word": "und",
+      "start": 31.36,
+      "end": 31.62
+    },
+    {
+      "word": "teuer.",
+      "start": 31.62,
+      "end": 32.14
+    },
+    {
+      "word": "Oft",
+      "start": 32.3,
+      "end": 32.46
+    },
+    {
+      "word": "steckte",
+      "start": 32.46,
+      "end": 32.82
+    },
+    {
+      "word": "das",
+      "start": 32.82,
+      "end": 32.96
+    },
+    {
+      "word": "Geld",
+      "start": 32.96,
+      "end": 33.1
+    },
+    {
+      "word": "in",
+      "start": 33.1,
+      "end": 33.34
+    },
+    {
+      "word": "Versicherungen",
+      "start": 33.34,
+      "end": 33.86
+    },
+    {
+      "word": "mit",
+      "start": 33.86,
+      "end": 34.12
+    },
+    {
+      "word": "hohen",
+      "start": 34.12,
+      "end": 34.32
+    },
+    {
+      "word": "Kosten.",
+      "start": 34.32,
+      "end": 34.64
+    },
+    {
+      "word": "Das",
+      "start": 35.3,
+      "end": 35.46
+    },
+    {
+      "word": "neue",
+      "start": 35.46,
+      "end": 35.66
+    },
+    {
+      "word": "Depot",
+      "start": 35.66,
+      "end": 35.96
+    },
+    {
+      "word": "funktioniert",
+      "start": 35.96,
+      "end": 36.44
+    },
+    {
+      "word": "anders.",
+      "start": 36.44,
+      "end": 36.94
+    },
+    {
+      "word": "Du",
+      "start": 37.38,
+      "end": 37.54
+    },
+    {
+      "word": "sparst",
+      "start": 37.54,
+      "end": 37.86
+    },
+    {
+      "word": "direkt",
+      "start": 37.86,
+      "end": 38.2
+    },
+    {
+      "word": "in",
+      "start": 38.2,
+      "end": 38.44
+    },
+    {
+      "word": "Wertpapiere,",
+      "start": 38.44,
+      "end": 39.12
+    },
+    {
+      "word": "zum",
+      "start": 39.24,
+      "end": 39.4
+    },
+    {
+      "word": "Beispiel",
+      "start": 39.4,
+      "end": 39.68
+    },
+    {
+      "word": "in",
+      "start": 39.68,
+      "end": 39.88
+    },
+    {
+      "word": "ETFs.",
+      "start": 39.88,
+      "end": 40.18
+    },
+    {
+      "word": "Eine",
+      "start": 40.94,
+      "end": 41.1
+    },
+    {
+      "word": "Garantie",
+      "start": 41.1,
+      "end": 41.66
+    },
+    {
+      "word": "kannst",
+      "start": 41.66,
+      "end": 41.88
+    },
+    {
+      "word": "du",
+      "start": 41.88,
+      "end": 42.06
+    },
+    {
+      "word": "wählen.",
+      "start": 42.06,
+      "end": 42.52
+    },
+    {
+      "word": "Sie",
+      "start": 42.6,
+      "end": 42.74
+    },
+    {
+      "word": "ist",
+      "start": 42.74,
+      "end": 42.88
+    },
+    {
+      "word": "aber",
+      "start": 42.88,
+      "end": 43.04
+    },
+    {
+      "word": "keine",
+      "start": 43.04,
+      "end": 43.16
+    },
+    {
+      "word": "Pflicht.",
+      "start": 43.16,
+      "end": 43.58
+    },
+    {
+      "word": "Und",
+      "start": 44.42,
+      "end": 44.64
+    },
+    {
+      "word": "neu:",
+      "start": 44.64,
+      "end": 44.86
+    },
+    {
+      "word": "Auch",
+      "start": 44.86,
+      "end": 45.48
+    },
+    {
+      "word": "Selbstständige",
+      "start": 45.48,
+      "end": 46.18
+    },
+    {
+      "word": "bekommen",
+      "start": 46.18,
+      "end": 46.44
+    },
+    {
+      "word": "jetzt",
+      "start": 46.44,
+      "end": 46.7
+    },
+    {
+      "word": "die",
+      "start": 46.7,
+      "end": 46.84
+    },
+    {
+      "word": "Förderung.",
+      "start": 46.84,
+      "end": 47.56
+    },
+    {
+      "word": "Jetzt",
+      "start": 48.26,
+      "end": 48.54
+    },
+    {
+      "word": "zum",
+      "start": 48.54,
+      "end": 48.68
+    },
+    {
+      "word": "Geld.",
+      "start": 48.68,
+      "end": 49.08
+    },
+    {
+      "word": "Wie",
+      "start": 49.42,
+      "end": 49.6
+    },
+    {
+      "word": "viel",
+      "start": 49.6,
+      "end": 49.74
+    },
+    {
+      "word": "legt",
+      "start": 49.74,
+      "end": 49.96
+    },
+    {
+      "word": "der",
+      "start": 49.96,
+      "end": 50.16
+    },
+    {
+      "word": "Staat",
+      "start": 50.16,
+      "end": 50.26
+    },
+    {
+      "word": "wirklich",
+      "start": 50.26,
+      "end": 50.62
+    },
+    {
+      "word": "drauf?",
+      "start": 50.62,
+      "end": 50.86
+    },
+    {
+      "word": "Die",
+      "start": 51.54,
+      "end": 51.7
+    },
+    {
+      "word": "Förderung",
+      "start": 51.7,
+      "end": 52.02
+    },
+    {
+      "word": "hat",
+      "start": 52.02,
+      "end": 52.22
+    },
+    {
+      "word": "zwei",
+      "start": 52.22,
+      "end": 52.52
+    },
+    {
+      "word": "Stufen.",
+      "start": 52.52,
+      "end": 53.1
+    },
+    {
+      "word": "Auf",
+      "start": 53.1,
+      "end": 53.4
+    },
+    {
+      "word": "die",
+      "start": 53.4,
+      "end": 53.58
+    },
+    {
+      "word": "ersten",
+      "start": 53.58,
+      "end": 53.88
+    },
+    {
+      "word": "dreihundertsechzig",
+      "start": 53.88,
+      "end": 54.64
+    },
+    {
+      "word": "Euro,",
+      "start": 54.64,
+      "end": 54.98
+    },
+    {
+      "word": "die",
+      "start": 54.98,
+      "end": 55.08
+    },
+    {
+      "word": "du",
+      "start": 55.08,
+      "end": 55.22
+    },
+    {
+      "word": "im",
+      "start": 55.22,
+      "end": 55.3
+    },
+    {
+      "word": "Jahr",
+      "start": 55.3,
+      "end": 55.48
+    },
+    {
+      "word": "einzahlst,",
+      "start": 55.48,
+      "end": 56.26
+    },
+    {
+      "word": "gibt",
+      "start": 56.4,
+      "end": 56.5
+    },
+    {
+      "word": "es",
+      "start": 56.5,
+      "end": 56.7
+    },
+    {
+      "word": "fünfzig",
+      "start": 56.7,
+      "end": 57.137
+    },
+    {
+      "word": "Prozent",
+      "start": 57.137,
+      "end": 57.52
+    },
+    {
+      "word": "dazu.",
+      "start": 57.52,
+      "end": 57.98
+    },
+    {
+      "word": "Auf",
+      "start": 58.66,
+      "end": 58.8
+    },
+    {
+      "word": "alles",
+      "start": 58.8,
+      "end": 59
+    },
+    {
+      "word": "darüber",
+      "start": 59,
+      "end": 59.42
+    },
+    {
+      "word": "bis",
+      "start": 59.42,
+      "end": 59.66
+    },
+    {
+      "word": "eintausendachthundert",
+      "start": 59.66,
+      "end": 60.34
+    },
+    {
+      "word": "Euro",
+      "start": 60.34,
+      "end": 60.94
+    },
+    {
+      "word": "gibt",
+      "start": 60.94,
+      "end": 61.1
+    },
+    {
+      "word": "es",
+      "start": 61.1,
+      "end": 61.26
+    },
+    {
+      "word": "noch",
+      "start": 61.26,
+      "end": 61.44
+    },
+    {
+      "word": "fünfundzwanzig",
+      "start": 61.44,
+      "end": 62.558
+    },
+    {
+      "word": "Prozent.",
+      "start": 62.558,
+      "end": 63.08
+    },
+    {
+      "word": "Zusammen",
+      "start": 63.08,
+      "end": 63.48
+    },
+    {
+      "word": "sind",
+      "start": 63.48,
+      "end": 63.66
+    },
+    {
+      "word": "das",
+      "start": 63.66,
+      "end": 63.8
+    },
+    {
+      "word": "höchstens",
+      "start": 63.8,
+      "end": 64.2
+    },
+    {
+      "word": "fünfhundertvierzig",
+      "start": 64.2,
+      "end": 64.92
+    },
+    {
+      "word": "Euro",
+      "start": 64.92,
+      "end": 65.2
+    },
+    {
+      "word": "im",
+      "start": 65.2,
+      "end": 65.34
+    },
+    {
+      "word": "Jahr.",
+      "start": 65.34,
+      "end": 65.58
+    },
+    {
+      "word": "Für",
+      "start": 66.24,
+      "end": 66.42
+    },
+    {
+      "word": "Jonas",
+      "start": 66.42,
+      "end": 66.7
+    },
+    {
+      "word": "heißt",
+      "start": 66.7,
+      "end": 66.98
+    },
+    {
+      "word": "das:",
+      "start": 66.98,
+      "end": 67.38
+    },
+    {
+      "word": "Hundertfünfzig",
+      "start": 67.38,
+      "end": 68.1
+    },
+    {
+      "word": "Euro",
+      "start": 68.1,
+      "end": 68.48
+    },
+    {
+      "word": "im",
+      "start": 68.48,
+      "end": 68.66
+    },
+    {
+      "word": "Monat",
+      "start": 68.66,
+      "end": 69.02
+    },
+    {
+      "word": "sind",
+      "start": 69.02,
+      "end": 69.36
+    },
+    {
+      "word": "eintausendachthundert",
+      "start": 69.36,
+      "end": 70.18
+    },
+    {
+      "word": "im",
+      "start": 70.18,
+      "end": 70.44
+    },
+    {
+      "word": "Jahr.",
+      "start": 70.44,
+      "end": 70.7
+    },
+    {
+      "word": "Er",
+      "start": 71.02,
+      "end": 71.14
+    },
+    {
+      "word": "bekommt",
+      "start": 71.14,
+      "end": 71.36
+    },
+    {
+      "word": "die",
+      "start": 71.36,
+      "end": 71.58
+    },
+    {
+      "word": "vollen",
+      "start": 71.58,
+      "end": 72.02
+    },
+    {
+      "word": "fünfhundertvierzig",
+      "start": 72.02,
+      "end": 72.68
+    },
+    {
+      "word": "Euro.",
+      "start": 72.68,
+      "end": 73.08
+    },
+    {
+      "word": "Das",
+      "start": 73.48,
+      "end": 73.62
+    },
+    {
+      "word": "sind",
+      "start": 73.62,
+      "end": 73.8
+    },
+    {
+      "word": "dreißig",
+      "start": 73.8,
+      "end": 74.163
+    },
+    {
+      "word": "Prozent",
+      "start": 74.163,
+      "end": 74.48
+    },
+    {
+      "word": "obendrauf.",
+      "start": 74.48,
+      "end": 75.42
+    },
+    {
+      "word": "Spannend",
+      "start": 75.92,
+      "end": 76.26
+    },
+    {
+      "word": "ist:",
+      "start": 76.26,
+      "end": 76.48
+    },
+    {
+      "word": "Wer",
+      "start": 76.56,
+      "end": 76.8
+    },
+    {
+      "word": "weniger",
+      "start": 76.8,
+      "end": 77.18
+    },
+    {
+      "word": "spart,",
+      "start": 77.18,
+      "end": 77.6
+    },
+    {
+      "word": "bekommt",
+      "start": 77.7,
+      "end": 78
+    },
+    {
+      "word": "prozentual",
+      "start": 78,
+      "end": 78.62
+    },
+    {
+      "word": "mehr.",
+      "start": 78.62,
+      "end": 78.92
+    },
+    {
+      "word": "Mit",
+      "start": 78.92,
+      "end": 79.66
+    },
+    {
+      "word": "dreißig",
+      "start": 79.66,
+      "end": 80.08
+    },
+    {
+      "word": "Euro",
+      "start": 80.08,
+      "end": 80.3
+    },
+    {
+      "word": "im",
+      "start": 80.3,
+      "end": 80.42
+    },
+    {
+      "word": "Monat",
+      "start": 80.42,
+      "end": 80.8
+    },
+    {
+      "word": "gibt",
+      "start": 80.8,
+      "end": 81.02
+    },
+    {
+      "word": "es",
+      "start": 81.02,
+      "end": 81.22
+    },
+    {
+      "word": "hundertachtzig",
+      "start": 81.22,
+      "end": 81.82
+    },
+    {
+      "word": "Euro",
+      "start": 81.82,
+      "end": 82.18
+    },
+    {
+      "word": "im",
+      "start": 82.18,
+      "end": 82.28
+    },
+    {
+      "word": "Jahr",
+      "start": 82.28,
+      "end": 82.48
+    },
+    {
+      "word": "dazu.",
+      "start": 82.48,
+      "end": 82.82
+    },
+    {
+      "word": "Das",
+      "start": 83.02,
+      "end": 83.12
+    },
+    {
+      "word": "sind",
+      "start": 83.12,
+      "end": 83.28
+    },
+    {
+      "word": "fünfzig",
+      "start": 83.28,
+      "end": 84.123
+    },
+    {
+      "word": "Prozent.",
+      "start": 84.123,
+      "end": 84.86
+    },
+    {
+      "word": "Für",
+      "start": 84.86,
+      "end": 85.14
+    },
+    {
+      "word": "Kinder",
+      "start": 85.14,
+      "end": 85.44
+    },
+    {
+      "word": "gibt",
+      "start": 85.44,
+      "end": 85.64
+    },
+    {
+      "word": "es",
+      "start": 85.64,
+      "end": 85.8
+    },
+    {
+      "word": "extra.",
+      "start": 85.8,
+      "end": 86.24
+    },
+    {
+      "word": "Bis",
+      "start": 86.68,
+      "end": 86.76
+    },
+    {
+      "word": "zu",
+      "start": 86.76,
+      "end": 87.06
+    },
+    {
+      "word": "dreihundert",
+      "start": 87.06,
+      "end": 87.4
+    },
+    {
+      "word": "Euro",
+      "start": 87.4,
+      "end": 87.8
+    },
+    {
+      "word": "pro",
+      "start": 87.8,
+      "end": 88
+    },
+    {
+      "word": "Kind",
+      "start": 88,
+      "end": 88.24
+    },
+    {
+      "word": "und",
+      "start": 88.24,
+      "end": 88.5
+    },
+    {
+      "word": "Jahr.",
+      "start": 88.5,
+      "end": 88.7
+    },
+    {
+      "word": "Dafür",
+      "start": 89.26,
+      "end": 89.5
+    },
+    {
+      "word": "reichen",
+      "start": 89.5,
+      "end": 89.9
+    },
+    {
+      "word": "fünfundzwanzig",
+      "start": 89.9,
+      "end": 90.44
+    },
+    {
+      "word": "Euro",
+      "start": 90.44,
+      "end": 90.96
+    },
+    {
+      "word": "Eigenbeitrag",
+      "start": 90.96,
+      "end": 91.62
+    },
+    {
+      "word": "im",
+      "start": 91.62,
+      "end": 91.74
+    },
+    {
+      "word": "Monat.",
+      "start": 91.74,
+      "end": 92
+    },
+    {
+      "word": "Wer",
+      "start": 93.04,
+      "end": 93.18
+    },
+    {
+      "word": "vor",
+      "start": 93.18,
+      "end": 93.4
+    },
+    {
+      "word": "seinem",
+      "start": 93.4,
+      "end": 93.58
+    },
+    {
+      "word": "fünfundzwanzigsten",
+      "start": 93.58,
+      "end": 94.36
+    },
+    {
+      "word": "Geburtstag",
+      "start": 94.36,
+      "end": 94.88
+    },
+    {
+      "word": "startet,",
+      "start": 94.88,
+      "end": 95.28
+    },
+    {
+      "word": "bekommt",
+      "start": 95.38,
+      "end": 95.64
+    },
+    {
+      "word": "einmalig",
+      "start": 95.64,
+      "end": 96.3
+    },
+    {
+      "word": "zweihundert",
+      "start": 96.3,
+      "end": 96.66
+    },
+    {
+      "word": "Euro",
+      "start": 96.66,
+      "end": 97.04
+    },
+    {
+      "word": "Bonus.",
+      "start": 97.04,
+      "end": 97.38
+    },
+    {
+      "word": "Wichtig:",
+      "start": 98.08,
+      "end": 98.46
+    },
+    {
+      "word": "Du",
+      "start": 98.72,
+      "end": 98.84
+    },
+    {
+      "word": "musst",
+      "start": 98.84,
+      "end": 99.02
+    },
+    {
+      "word": "mindestens",
+      "start": 99.02,
+      "end": 99.5
+    },
+    {
+      "word": "hundertzwanzig",
+      "start": 99.5,
+      "end": 100.2
+    },
+    {
+      "word": "Euro",
+      "start": 100.2,
+      "end": 100.54
+    },
+    {
+      "word": "im",
+      "start": 100.54,
+      "end": 100.62
+    },
+    {
+      "word": "Jahr",
+      "start": 100.62,
+      "end": 100.84
+    },
+    {
+      "word": "einzahlen.",
+      "start": 100.84,
+      "end": 101.34
+    },
+    {
+      "word": "Sonst",
+      "start": 101.58,
+      "end": 101.74
+    },
+    {
+      "word": "gibt",
+      "start": 101.74,
+      "end": 101.92
+    },
+    {
+      "word": "es",
+      "start": 101.92,
+      "end": 102.06
+    },
+    {
+      "word": "gar",
+      "start": 102.06,
+      "end": 102.24
+    },
+    {
+      "word": "keine",
+      "start": 102.24,
+      "end": 102.44
+    },
+    {
+      "word": "Zulage.",
+      "start": 102.44,
+      "end": 103.3
+    },
+    {
+      "word": "Und",
+      "start": 103.76,
+      "end": 103.96
+    },
+    {
+      "word": "wer",
+      "start": 103.96,
+      "end": 104.08
+    },
+    {
+      "word": "gut",
+      "start": 104.08,
+      "end": 104.3
+    },
+    {
+      "word": "verdient,",
+      "start": 104.3,
+      "end": 104.68
+    },
+    {
+      "word": "kann",
+      "start": 104.88,
+      "end": 105
+    },
+    {
+      "word": "die",
+      "start": 105,
+      "end": 105.16
+    },
+    {
+      "word": "Beiträge",
+      "start": 105.16,
+      "end": 105.56
+    },
+    {
+      "word": "auch",
+      "start": 105.56,
+      "end": 105.76
+    },
+    {
+      "word": "von",
+      "start": 105.76,
+      "end": 105.86
+    },
+    {
+      "word": "der",
+      "start": 105.86,
+      "end": 106.1
+    },
+    {
+      "word": "Steuer",
+      "start": 106.1,
+      "end": 106.28
+    },
+    {
+      "word": "absetzen.",
+      "start": 106.28,
+      "end": 106.74
+    },
+    {
+      "word": "Das",
+      "start": 106.74,
+      "end": 107.14
+    },
+    {
+      "word": "Finanzamt",
+      "start": 107.14,
+      "end": 107.62
+    },
+    {
+      "word": "prüft,",
+      "start": 107.62,
+      "end": 107.92
+    },
+    {
+      "word": "was",
+      "start": 108,
+      "end": 108.2
+    },
+    {
+      "word": "für",
+      "start": 108.2,
+      "end": 108.26
+    },
+    {
+      "word": "dich",
+      "start": 108.26,
+      "end": 108.4
+    },
+    {
+      "word": "günstiger",
+      "start": 108.4,
+      "end": 108.84
+    },
+    {
+      "word": "ist.",
+      "start": 108.84,
+      "end": 109.36
+    },
+    {
+      "word": "Klingt",
+      "start": 109.56,
+      "end": 109.8
+    },
+    {
+      "word": "stark.",
+      "start": 109.8,
+      "end": 110.3
+    },
+    {
+      "word": "Aber",
+      "start": 110.72,
+      "end": 110.88
+    },
+    {
+      "word": "jetzt",
+      "start": 110.88,
+      "end": 111.06
+    },
+    {
+      "word": "kommt",
+      "start": 111.06,
+      "end": 111.24
+    },
+    {
+      "word": "der",
+      "start": 111.24,
+      "end": 111.36
+    },
+    {
+      "word": "erste",
+      "start": 111.36,
+      "end": 111.66
+    },
+    {
+      "word": "Haken:",
+      "start": 111.66,
+      "end": 112.08
+    },
+    {
+      "word": "die",
+      "start": 112.42,
+      "end": 112.6
+    },
+    {
+      "word": "Kosten.",
+      "start": 112.6,
+      "end": 112.9
+    },
+    {
+      "word": "Für",
+      "start": 113.6,
+      "end": 113.78
+    },
+    {
+      "word": "das",
+      "start": 113.78,
+      "end": 113.92
+    },
+    {
+      "word": "sogenannte",
+      "start": 113.92,
+      "end": 114.54
+    },
+    {
+      "word": "Standarddepot",
+      "start": 114.54,
+      "end": 115.08
+    },
+    {
+      "word": "gilt",
+      "start": 115.48,
+      "end": 115.72
+    },
+    {
+      "word": "ein",
+      "start": 115.72,
+      "end": 116.04
+    },
+    {
+      "word": "Kostendeckel.",
+      "start": 116.04,
+      "end": 116.9
+    },
+    {
+      "word": "Höchstens",
+      "start": 117.24,
+      "end": 117.6
+    },
+    {
+      "word": "ein",
+      "start": 117.6,
+      "end": 117.768
+    },
+    {
+      "word": "Prozent",
+      "start": 117.768,
+      "end": 118.16
+    },
+    {
+      "word": "im",
+      "start": 118.16,
+      "end": 118.38
+    },
+    {
+      "word": "Jahr.",
+      "start": 118.38,
+      "end": 118.64
+    },
+    {
+      "word": "Geplant",
+      "start": 119.12,
+      "end": 119.52
+    },
+    {
+      "word": "waren",
+      "start": 119.52,
+      "end": 119.74
+    },
+    {
+      "word": "sogar",
+      "start": 119.74,
+      "end": 120.02
+    },
+    {
+      "word": "eineinhalb",
+      "start": 120.02,
+      "end": 120.738
+    },
+    {
+      "word": "Prozent.",
+      "start": 120.738,
+      "end": 121.24
+    },
+    {
+      "word": "Verbraucherschützer",
+      "start": 121.24,
+      "end": 122.02
+    },
+    {
+      "word": "haben",
+      "start": 122.02,
+      "end": 122.2
+    },
+    {
+      "word": "dagegen",
+      "start": 122.2,
+      "end": 122.5
+    },
+    {
+      "word": "protestiert.",
+      "start": 122.5,
+      "end": 123.26
+    },
+    {
+      "word": "Ein",
+      "start": 123.26,
+      "end": 123.782
+    },
+    {
+      "word": "Prozent",
+      "start": 123.782,
+      "end": 125
+    },
+    {
+      "word": "klingt",
+      "start": 125,
+      "end": 125.36
+    },
+    {
+      "word": "wenig.",
+      "start": 125.36,
+      "end": 125.98
+    },
+    {
+      "word": "Ist",
+      "start": 126.4,
+      "end": 126.6
+    },
+    {
+      "word": "es",
+      "start": 126.6,
+      "end": 126.76
+    },
+    {
+      "word": "aber",
+      "start": 126.76,
+      "end": 126.94
+    },
+    {
+      "word": "nicht.",
+      "start": 126.94,
+      "end": 127.24
+    },
+    {
+      "word": "Rechnen",
+      "start": 127.78,
+      "end": 128.08
+    },
+    {
+      "word": "wir",
+      "start": 128.08,
+      "end": 128.18
+    },
+    {
+      "word": "mit",
+      "start": 128.18,
+      "end": 128.34
+    },
+    {
+      "word": "Jonas.",
+      "start": 128.34,
+      "end": 128.68
+    },
+    {
+      "word": "Hundertfünfzig",
+      "start": 128.68,
+      "end": 129.78
+    },
+    {
+      "word": "Euro",
+      "start": 129.78,
+      "end": 130.08
+    },
+    {
+      "word": "im",
+      "start": 130.08,
+      "end": 130.24
+    },
+    {
+      "word": "Monat",
+      "start": 130.24,
+      "end": 130.68
+    },
+    {
+      "word": "plus",
+      "start": 130.68,
+      "end": 130.98
+    },
+    {
+      "word": "Zulage,",
+      "start": 130.98,
+      "end": 131.6
+    },
+    {
+      "word": "siebenunddreißig",
+      "start": 131.6,
+      "end": 132.34
+    },
+    {
+      "word": "Jahre",
+      "start": 132.34,
+      "end": 132.72
+    },
+    {
+      "word": "lang,",
+      "start": 132.72,
+      "end": 132.94
+    },
+    {
+      "word": "bis",
+      "start": 132.94,
+      "end": 133.044
+    },
+    {
+      "word": "er",
+      "start": 133.044,
+      "end": 133.114
+    },
+    {
+      "word": "fünfundsechzig",
+      "start": 133.114,
+      "end": 133.636
+    },
+    {
+      "word": "ist.",
+      "start": 133.636,
+      "end": 133.74
+    },
+    {
+      "word": "Wir",
+      "start": 133.74,
+      "end": 134.56
+    },
+    {
+      "word": "nehmen",
+      "start": 134.56,
+      "end": 134.78
+    },
+    {
+      "word": "an:",
+      "start": 134.78,
+      "end": 135.24
+    },
+    {
+      "word": "fünf",
+      "start": 135.24,
+      "end": 135.482
+    },
+    {
+      "word": "Prozent",
+      "start": 135.482,
+      "end": 135.82
+    },
+    {
+      "word": "Rendite",
+      "start": 135.82,
+      "end": 136.24
+    },
+    {
+      "word": "im",
+      "start": 136.24,
+      "end": 136.38
+    },
+    {
+      "word": "Jahr.",
+      "start": 136.38,
+      "end": 136.64
+    },
+    {
+      "word": "Das",
+      "start": 137.1,
+      "end": 137.18
+    },
+    {
+      "word": "ist",
+      "start": 137.18,
+      "end": 137.36
+    },
+    {
+      "word": "ein",
+      "start": 137.36,
+      "end": 137.4
+    },
+    {
+      "word": "Beispiel,",
+      "start": 137.4,
+      "end": 137.82
+    },
+    {
+      "word": "keine",
+      "start": 138.02,
+      "end": 138.14
+    },
+    {
+      "word": "Prognose.",
+      "start": 138.14,
+      "end": 138.96
+    },
+    {
+      "word": "Bei",
+      "start": 139.54,
+      "end": 139.72
+    },
+    {
+      "word": "einem",
+      "start": 139.72,
+      "end": 139.945
+    },
+    {
+      "word": "Prozent",
+      "start": 139.945,
+      "end": 140.26
+    },
+    {
+      "word": "Kosten",
+      "start": 140.26,
+      "end": 140.62
+    },
+    {
+      "word": "hat",
+      "start": 140.62,
+      "end": 140.86
+    },
+    {
+      "word": "Jonas",
+      "start": 140.86,
+      "end": 141.32
+    },
+    {
+      "word": "am",
+      "start": 141.32,
+      "end": 141.6
+    },
+    {
+      "word": "Ende",
+      "start": 141.6,
+      "end": 141.96
+    },
+    {
+      "word": "rund",
+      "start": 141.96,
+      "end": 142.38
+    },
+    {
+      "word": "hundertachtundneunzigtausend",
+      "start": 142.38,
+      "end": 143.68
+    },
+    {
+      "word": "Euro.",
+      "start": 143.68,
+      "end": 144.02
+    },
+    {
+      "word": "Bei",
+      "start": 144.74,
+      "end": 145.14
+    },
+    {
+      "word": "null",
+      "start": 145.14,
+      "end": 145.496
+    },
+    {
+      "word": "Komma",
+      "start": 145.496,
+      "end": 145.941
+    },
+    {
+      "word": "zwei",
+      "start": 145.941,
+      "end": 146.297
+    },
+    {
+      "word": "Prozent,",
+      "start": 146.297,
+      "end": 146.92
+    },
+    {
+      "word": "so",
+      "start": 146.92,
+      "end": 147.18
+    },
+    {
+      "word": "viel",
+      "start": 147.18,
+      "end": 147.34
+    },
+    {
+      "word": "kostet",
+      "start": 147.34,
+      "end": 147.7
+    },
+    {
+      "word": "ein",
+      "start": 147.7,
+      "end": 147.82
+    },
+    {
+      "word": "günstiger",
+      "start": 147.82,
+      "end": 148.26
+    },
+    {
+      "word": "ETF,",
+      "start": 148.26,
+      "end": 148.6
+    },
+    {
+      "word": "sind",
+      "start": 148.98,
+      "end": 149.14
+    },
+    {
+      "word": "es",
+      "start": 149.14,
+      "end": 149.3
+    },
+    {
+      "word": "rund",
+      "start": 149.3,
+      "end": 149.86
+    },
+    {
+      "word": "zweihundertachtunddreißigtausend",
+      "start": 149.86,
+      "end": 151.42
+    },
+    {
+      "word": "Euro.",
+      "start": 151.42,
+      "end": 152.04
+    },
+    {
+      "word": "Rund",
+      "start": 152.52,
+      "end": 152.96
+    },
+    {
+      "word": "vierzigtausend",
+      "start": 152.96,
+      "end": 153.66
+    },
+    {
+      "word": "Euro",
+      "start": 153.66,
+      "end": 153.98
+    },
+    {
+      "word": "Unterschied.",
+      "start": 153.98,
+      "end": 154.4
+    },
+    {
+      "word": "Nur",
+      "start": 154.96,
+      "end": 155.12
+    },
+    {
+      "word": "wegen",
+      "start": 155.12,
+      "end": 155.3
+    },
+    {
+      "word": "der",
+      "start": 155.3,
+      "end": 155.52
+    },
+    {
+      "word": "Kosten.",
+      "start": 155.52,
+      "end": 155.78
+    },
+    {
+      "word": "Der",
+      "start": 156.8,
+      "end": 156.98
+    },
+    {
+      "word": "Deckel",
+      "start": 156.98,
+      "end": 157.2
+    },
+    {
+      "word": "ist",
+      "start": 157.2,
+      "end": 157.46
+    },
+    {
+      "word": "also",
+      "start": 157.46,
+      "end": 157.76
+    },
+    {
+      "word": "eine",
+      "start": 157.76,
+      "end": 158.02
+    },
+    {
+      "word": "Obergrenze.",
+      "start": 158.02,
+      "end": 158.74
+    },
+    {
+      "word": "Kein",
+      "start": 158.94,
+      "end": 159.12
+    },
+    {
+      "word": "Richtwert.",
+      "start": 159.12,
+      "end": 159.64
+    },
+    {
+      "word": "Vergleich",
+      "start": 160.12,
+      "end": 160.5
+    },
+    {
+      "word": "die",
+      "start": 160.5,
+      "end": 160.68
+    },
+    {
+      "word": "Anbieter,",
+      "start": 160.68,
+      "end": 161.2
+    },
+    {
+      "word": "bevor",
+      "start": 161.28,
+      "end": 161.48
+    },
+    {
+      "word": "du",
+      "start": 161.48,
+      "end": 161.66
+    },
+    {
+      "word": "unterschreibst.",
+      "start": 161.66,
+      "end": 162.3
+    },
+    {
+      "word": "Kurze",
+      "start": 163.14,
+      "end": 163.7
+    },
+    {
+      "word": "Frage",
+      "start": 163.7,
+      "end": 163.9
+    },
+    {
+      "word": "an",
+      "start": 163.9,
+      "end": 164.08
+    },
+    {
+      "word": "dich:",
+      "start": 164.08,
+      "end": 164.38
+    },
+    {
+      "word": "Würdest",
+      "start": 164.88,
+      "end": 165.18
+    },
+    {
+      "word": "du",
+      "start": 165.18,
+      "end": 165.28
+    },
+    {
+      "word": "ab",
+      "start": 165.28,
+      "end": 165.44
+    },
+    {
+      "word": "Januar",
+      "start": 165.44,
+      "end": 165.74
+    },
+    {
+      "word": "ein",
+      "start": 165.74,
+      "end": 165.98
+    },
+    {
+      "word": "Altersvorsorgedepot",
+      "start": 165.98,
+      "end": 166.78
+    },
+    {
+      "word": "eröffnen?",
+      "start": 167.04,
+      "end": 167.74
+    },
+    {
+      "word": "Oder",
+      "start": 167.94,
+      "end": 168.26
+    },
+    {
+      "word": "bleibst",
+      "start": 168.26,
+      "end": 168.58
+    },
+    {
+      "word": "du",
+      "start": 168.58,
+      "end": 168.6
+    },
+    {
+      "word": "bei",
+      "start": 168.6,
+      "end": 168.8
+    },
+    {
+      "word": "deinem",
+      "start": 168.8,
+      "end": 169
+    },
+    {
+      "word": "normalen",
+      "start": 169,
+      "end": 169.46
+    },
+    {
+      "word": "Depot?",
+      "start": 169.46,
+      "end": 169.68
+    },
+    {
+      "word": "Schreib",
+      "start": 170.32,
+      "end": 170.52
+    },
+    {
+      "word": "es",
+      "start": 170.52,
+      "end": 170.62
+    },
+    {
+      "word": "mir",
+      "start": 170.62,
+      "end": 170.72
+    },
+    {
+      "word": "in",
+      "start": 170.72,
+      "end": 170.74
+    },
+    {
+      "word": "die",
+      "start": 170.74,
+      "end": 170.9
+    },
+    {
+      "word": "Kommentare.",
+      "start": 170.9,
+      "end": 171.3
+    },
+    {
+      "word": "Der",
+      "start": 172.92,
+      "end": 173.12
+    },
+    {
+      "word": "zweite",
+      "start": 173.12,
+      "end": 173.42
+    },
+    {
+      "word": "Haken:",
+      "start": 173.42,
+      "end": 173.88
+    },
+    {
+      "word": "Das",
+      "start": 174.2,
+      "end": 174.38
+    },
+    {
+      "word": "Geld",
+      "start": 174.38,
+      "end": 174.56
+    },
+    {
+      "word": "ist",
+      "start": 174.56,
+      "end": 174.8
+    },
+    {
+      "word": "gebunden.",
+      "start": 174.8,
+      "end": 175.64
+    },
+    {
+      "word": "Ausgezahlt",
+      "start": 175.96,
+      "end": 176.52
+    },
+    {
+      "word": "wird",
+      "start": 176.52,
+      "end": 176.9
+    },
+    {
+      "word": "frühestens",
+      "start": 176.9,
+      "end": 177.24
+    },
+    {
+      "word": "mit",
+      "start": 177.24,
+      "end": 177.42
+    },
+    {
+      "word": "fünfundsechzig.",
+      "start": 177.42,
+      "end": 178.62
+    },
+    {
+      "word": "Und",
+      "start": 178.62,
+      "end": 179.04
+    },
+    {
+      "word": "nicht",
+      "start": 179.04,
+      "end": 179.24
+    },
+    {
+      "word": "alles",
+      "start": 179.24,
+      "end": 179.42
+    },
+    {
+      "word": "auf",
+      "start": 179.42,
+      "end": 179.64
+    },
+    {
+      "word": "einmal.",
+      "start": 179.64,
+      "end": 179.94
+    },
+    {
+      "word": "Zu",
+      "start": 180.28,
+      "end": 180.46
+    },
+    {
+      "word": "Beginn",
+      "start": 180.46,
+      "end": 180.74
+    },
+    {
+      "word": "darfst",
+      "start": 180.74,
+      "end": 181
+    },
+    {
+      "word": "du",
+      "start": 181,
+      "end": 181.08
+    },
+    {
+      "word": "höchstens",
+      "start": 181.08,
+      "end": 181.56
+    },
+    {
+      "word": "dreißig",
+      "start": 181.56,
+      "end": 181.997
+    },
+    {
+      "word": "Prozent",
+      "start": 181.997,
+      "end": 182.38
+    },
+    {
+      "word": "auf",
+      "start": 182.38,
+      "end": 182.54
+    },
+    {
+      "word": "einen",
+      "start": 182.54,
+      "end": 182.74
+    },
+    {
+      "word": "Schlag",
+      "start": 182.74,
+      "end": 183.02
+    },
+    {
+      "word": "nehmen.",
+      "start": 183.02,
+      "end": 183.2
+    },
+    {
+      "word": "Der",
+      "start": 183.84,
+      "end": 183.94
+    },
+    {
+      "word": "Rest",
+      "start": 183.94,
+      "end": 184.1
+    },
+    {
+      "word": "kommt",
+      "start": 184.1,
+      "end": 184.3
+    },
+    {
+      "word": "als",
+      "start": 184.3,
+      "end": 184.56
+    },
+    {
+      "word": "lebenslange",
+      "start": 184.56,
+      "end": 185.04
+    },
+    {
+      "word": "Rente",
+      "start": 185.04,
+      "end": 185.38
+    },
+    {
+      "word": "oder",
+      "start": 185.38,
+      "end": 185.94
+    },
+    {
+      "word": "als",
+      "start": 185.94,
+      "end": 186.18
+    },
+    {
+      "word": "Auszahlplan",
+      "start": 186.18,
+      "end": 186.86
+    },
+    {
+      "word": "bis",
+      "start": 186.86,
+      "end": 187.06
+    },
+    {
+      "word": "mindestens",
+      "start": 187.06,
+      "end": 187.48
+    },
+    {
+      "word": "fünfundachtzig.",
+      "start": 187.48,
+      "end": 189.1
+    },
+    {
+      "word": "Brauchst",
+      "start": 189.1,
+      "end": 189.54
+    },
+    {
+      "word": "du",
+      "start": 189.54,
+      "end": 189.62
+    },
+    {
+      "word": "das",
+      "start": 189.62,
+      "end": 189.78
+    },
+    {
+      "word": "Geld",
+      "start": 189.78,
+      "end": 189.92
+    },
+    {
+      "word": "vorher,",
+      "start": 189.92,
+      "end": 190.46
+    },
+    {
+      "word": "zum",
+      "start": 190.46,
+      "end": 190.618
+    },
+    {
+      "word": "Beispiel",
+      "start": 190.618,
+      "end": 191.04
+    },
+    {
+      "word": "für",
+      "start": 191.04,
+      "end": 191.14
+    },
+    {
+      "word": "ein",
+      "start": 191.14,
+      "end": 191.24
+    },
+    {
+      "word": "Auto,",
+      "start": 191.24,
+      "end": 191.66
+    },
+    {
+      "word": "wird",
+      "start": 191.82,
+      "end": 191.92
+    },
+    {
+      "word": "es",
+      "start": 191.92,
+      "end": 192.12
+    },
+    {
+      "word": "teuer.",
+      "start": 192.12,
+      "end": 192.82
+    },
+    {
+      "word": "Dann",
+      "start": 192.96,
+      "end": 193.16
+    },
+    {
+      "word": "musst",
+      "start": 193.16,
+      "end": 193.34
+    },
+    {
+      "word": "du",
+      "start": 193.34,
+      "end": 193.52
+    },
+    {
+      "word": "Zulagen",
+      "start": 193.52,
+      "end": 193.94
+    },
+    {
+      "word": "und",
+      "start": 193.94,
+      "end": 194.18
+    },
+    {
+      "word": "Steuervorteile",
+      "start": 194.18,
+      "end": 194.86
+    },
+    {
+      "word": "zurückzahlen.",
+      "start": 194.86,
+      "end": 195.56
+    },
+    {
+      "word": "Eine",
+      "start": 196.34,
+      "end": 196.5
+    },
+    {
+      "word": "Ausnahme",
+      "start": 196.5,
+      "end": 196.9
+    },
+    {
+      "word": "gibt",
+      "start": 196.9,
+      "end": 197.06
+    },
+    {
+      "word": "es",
+      "start": 197.06,
+      "end": 197.18
+    },
+    {
+      "word": "für",
+      "start": 197.18,
+      "end": 197.3
+    },
+    {
+      "word": "die",
+      "start": 197.3,
+      "end": 197.46
+    },
+    {
+      "word": "eigene",
+      "start": 197.46,
+      "end": 197.68
+    },
+    {
+      "word": "Wohnung.",
+      "start": 197.68,
+      "end": 198.1
+    },
+    {
+      "word": "Dafür",
+      "start": 198.32,
+      "end": 198.52
+    },
+    {
+      "word": "darfst",
+      "start": 198.52,
+      "end": 198.82
+    },
+    {
+      "word": "du",
+      "start": 198.82,
+      "end": 198.9
+    },
+    {
+      "word": "unter",
+      "start": 198.9,
+      "end": 199.08
+    },
+    {
+      "word": "bestimmten",
+      "start": 199.08,
+      "end": 199.46
+    },
+    {
+      "word": "Bedingungen",
+      "start": 199.46,
+      "end": 199.92
+    },
+    {
+      "word": "Geld",
+      "start": 199.92,
+      "end": 200.12
+    },
+    {
+      "word": "nutzen.",
+      "start": 200.12,
+      "end": 200.48
+    },
+    {
+      "word": "Der",
+      "start": 201.7,
+      "end": 201.84
+    },
+    {
+      "word": "dritte",
+      "start": 201.84,
+      "end": 202.08
+    },
+    {
+      "word": "Haken:",
+      "start": 202.08,
+      "end": 202.42
+    },
+    {
+      "word": "die",
+      "start": 202.64,
+      "end": 202.86
+    },
+    {
+      "word": "Steuer.",
+      "start": 202.86,
+      "end": 203.12
+    },
+    {
+      "word": "Während",
+      "start": 203.96,
+      "end": 204.14
+    },
+    {
+      "word": "du",
+      "start": 204.14,
+      "end": 204.38
+    },
+    {
+      "word": "sparst,",
+      "start": 204.38,
+      "end": 204.92
+    },
+    {
+      "word": "zahlst",
+      "start": 205.12,
+      "end": 205.3
+    },
+    {
+      "word": "du",
+      "start": 205.3,
+      "end": 205.54
+    },
+    {
+      "word": "keine",
+      "start": 205.54,
+      "end": 205.84
+    },
+    {
+      "word": "Steuern",
+      "start": 205.84,
+      "end": 206.18
+    },
+    {
+      "word": "auf",
+      "start": 206.18,
+      "end": 206.36
+    },
+    {
+      "word": "die",
+      "start": 206.36,
+      "end": 206.52
+    },
+    {
+      "word": "Gewinne.",
+      "start": 206.52,
+      "end": 206.86
+    },
+    {
+      "word": "Aber",
+      "start": 207.4,
+      "end": 207.56
+    },
+    {
+      "word": "im",
+      "start": 207.56,
+      "end": 207.74
+    },
+    {
+      "word": "Alter",
+      "start": 207.74,
+      "end": 208
+    },
+    {
+      "word": "musst",
+      "start": 208,
+      "end": 208.2
+    },
+    {
+      "word": "du",
+      "start": 208.2,
+      "end": 208.34
+    },
+    {
+      "word": "die",
+      "start": 208.34,
+      "end": 208.54
+    },
+    {
+      "word": "Auszahlung",
+      "start": 208.54,
+      "end": 209.02
+    },
+    {
+      "word": "mit",
+      "start": 209.02,
+      "end": 209.2
+    },
+    {
+      "word": "deinem",
+      "start": 209.2,
+      "end": 209.5
+    },
+    {
+      "word": "persönlichen",
+      "start": 209.5,
+      "end": 210.08
+    },
+    {
+      "word": "Steuersatz",
+      "start": 210.08,
+      "end": 210.52
+    },
+    {
+      "word": "versteuern.",
+      "start": 210.52,
+      "end": 211.1
+    },
+    {
+      "word": "Als",
+      "start": 211.7,
+      "end": 211.96
+    },
+    {
+      "word": "Rentner",
+      "start": 211.96,
+      "end": 212.24
+    },
+    {
+      "word": "ist",
+      "start": 212.24,
+      "end": 212.38
+    },
+    {
+      "word": "der",
+      "start": 212.38,
+      "end": 212.54
+    },
+    {
+      "word": "Steuersatz",
+      "start": 212.54,
+      "end": 212.9
+    },
+    {
+      "word": "oft",
+      "start": 212.9,
+      "end": 213.12
+    },
+    {
+      "word": "niedriger",
+      "start": 213.12,
+      "end": 213.58
+    },
+    {
+      "word": "als",
+      "start": 213.58,
+      "end": 213.7
+    },
+    {
+      "word": "im",
+      "start": 213.7,
+      "end": 213.88
+    },
+    {
+      "word": "Berufsleben.",
+      "start": 213.88,
+      "end": 214.34
+    },
+    {
+      "word": "Dann",
+      "start": 214.5,
+      "end": 214.7
+    },
+    {
+      "word": "geht",
+      "start": 214.7,
+      "end": 214.86
+    },
+    {
+      "word": "die",
+      "start": 214.86,
+      "end": 215
+    },
+    {
+      "word": "Rechnung",
+      "start": 215,
+      "end": 215.28
+    },
+    {
+      "word": "trotzdem",
+      "start": 215.28,
+      "end": 215.64
+    },
+    {
+      "word": "auf.",
+      "start": 215.64,
+      "end": 215.94
+    },
+    {
+      "word": "Garantiert",
+      "start": 216.52,
+      "end": 217.04
+    },
+    {
+      "word": "ist",
+      "start": 217.04,
+      "end": 217.26
+    },
+    {
+      "word": "das",
+      "start": 217.26,
+      "end": 217.42
+    },
+    {
+      "word": "aber",
+      "start": 217.42,
+      "end": 217.62
+    },
+    {
+      "word": "nicht.",
+      "start": 217.62,
+      "end": 217.92
+    },
+    {
+      "word": "Für",
+      "start": 218.36,
+      "end": 218.56
+    },
+    {
+      "word": "wen",
+      "start": 218.56,
+      "end": 218.8
+    },
+    {
+      "word": "lohnt",
+      "start": 218.8,
+      "end": 219.14
+    },
+    {
+      "word": "sich",
+      "start": 219.14,
+      "end": 219.32
+    },
+    {
+      "word": "das",
+      "start": 219.32,
+      "end": 219.48
+    },
+    {
+      "word": "Ganze",
+      "start": 219.48,
+      "end": 219.74
+    },
+    {
+      "word": "also?",
+      "start": 219.74,
+      "end": 220.24
+    },
+    {
+      "word": "Erstens",
+      "start": 220.74,
+      "end": 221.26
+    },
+    {
+      "word": "für",
+      "start": 221.26,
+      "end": 221.56
+    },
+    {
+      "word": "alle,",
+      "start": 221.56,
+      "end": 221.84
+    },
+    {
+      "word": "die",
+      "start": 221.88,
+      "end": 222.08
+    },
+    {
+      "word": "sowieso",
+      "start": 222.08,
+      "end": 222.56
+    },
+    {
+      "word": "fürs",
+      "start": 222.56,
+      "end": 222.76
+    },
+    {
+      "word": "Alter",
+      "start": 222.76,
+      "end": 223.12
+    },
+    {
+      "word": "sparen",
+      "start": 223.12,
+      "end": 223.36
+    },
+    {
+      "word": "und",
+      "start": 223.36,
+      "end": 223.58
+    },
+    {
+      "word": "das",
+      "start": 223.58,
+      "end": 223.76
+    },
+    {
+      "word": "Geld",
+      "start": 223.76,
+      "end": 223.9
+    },
+    {
+      "word": "bis",
+      "start": 223.9,
+      "end": 224.08
+    },
+    {
+      "word": "zur",
+      "start": 224.08,
+      "end": 224.26
+    },
+    {
+      "word": "Rente",
+      "start": 224.26,
+      "end": 224.5
+    },
+    {
+      "word": "nicht",
+      "start": 224.5,
+      "end": 224.78
+    },
+    {
+      "word": "brauchen.",
+      "start": 224.78,
+      "end": 225.14
+    },
+    {
+      "word": "Zweitens",
+      "start": 226.12,
+      "end": 226.58
+    },
+    {
+      "word": "für",
+      "start": 226.58,
+      "end": 226.86
+    },
+    {
+      "word": "kleine",
+      "start": 226.86,
+      "end": 227.22
+    },
+    {
+      "word": "Sparer",
+      "start": 227.22,
+      "end": 227.58
+    },
+    {
+      "word": "und",
+      "start": 227.58,
+      "end": 227.76
+    },
+    {
+      "word": "für",
+      "start": 227.76,
+      "end": 228
+    },
+    {
+      "word": "Familien.",
+      "start": 228,
+      "end": 228.32
+    },
+    {
+      "word": "Bei",
+      "start": 228.68,
+      "end": 228.82
+    },
+    {
+      "word": "ihnen",
+      "start": 228.82,
+      "end": 229.04
+    },
+    {
+      "word": "ist",
+      "start": 229.04,
+      "end": 229.2
+    },
+    {
+      "word": "die",
+      "start": 229.2,
+      "end": 229.34
+    },
+    {
+      "word": "Förderung",
+      "start": 229.34,
+      "end": 229.72
+    },
+    {
+      "word": "prozentual",
+      "start": 229.72,
+      "end": 230.28
+    },
+    {
+      "word": "am",
+      "start": 230.28,
+      "end": 230.42
+    },
+    {
+      "word": "höchsten.",
+      "start": 230.42,
+      "end": 231.02
+    },
+    {
+      "word": "Drittens",
+      "start": 231.3,
+      "end": 231.64
+    },
+    {
+      "word": "für",
+      "start": 231.64,
+      "end": 231.84
+    },
+    {
+      "word": "junge",
+      "start": 231.84,
+      "end": 232.06
+    },
+    {
+      "word": "Leute.",
+      "start": 232.06,
+      "end": 232.46
+    },
+    {
+      "word": "Wegen",
+      "start": 232.86,
+      "end": 233.04
+    },
+    {
+      "word": "des",
+      "start": 233.04,
+      "end": 233.26
+    },
+    {
+      "word": "Bonus",
+      "start": 233.26,
+      "end": 233.58
+    },
+    {
+      "word": "und",
+      "start": 233.58,
+      "end": 233.92
+    },
+    {
+      "word": "weil",
+      "start": 233.92,
+      "end": 234.12
+    },
+    {
+      "word": "ihr",
+      "start": 234.12,
+      "end": 234.26
+    },
+    {
+      "word": "Geld",
+      "start": 234.26,
+      "end": 234.46
+    },
+    {
+      "word": "am",
+      "start": 234.46,
+      "end": 234.74
+    },
+    {
+      "word": "längsten",
+      "start": 234.74,
+      "end": 235.04
+    },
+    {
+      "word": "wachsen",
+      "start": 235.04,
+      "end": 235.36
+    },
+    {
+      "word": "kann.",
+      "start": 235.36,
+      "end": 235.66
+    },
+    {
+      "word": "Weniger",
+      "start": 236.74,
+      "end": 237.26
+    },
+    {
+      "word": "passend",
+      "start": 237.26,
+      "end": 237.54
+    },
+    {
+      "word": "ist",
+      "start": 237.54,
+      "end": 237.72
+    },
+    {
+      "word": "es",
+      "start": 237.72,
+      "end": 237.84
+    },
+    {
+      "word": "für",
+      "start": 237.84,
+      "end": 237.98
+    },
+    {
+      "word": "Geld,",
+      "start": 237.98,
+      "end": 238.18
+    },
+    {
+      "word": "das",
+      "start": 238.24,
+      "end": 238.36
+    },
+    {
+      "word": "du",
+      "start": 238.36,
+      "end": 238.56
+    },
+    {
+      "word": "flexibel",
+      "start": 238.56,
+      "end": 239.1
+    },
+    {
+      "word": "brauchst.",
+      "start": 239.1,
+      "end": 239.9
+    },
+    {
+      "word": "Dein",
+      "start": 240.1,
+      "end": 240.28
+    },
+    {
+      "word": "Notgroschen",
+      "start": 240.28,
+      "end": 240.8
+    },
+    {
+      "word": "und",
+      "start": 240.8,
+      "end": 241.02
+    },
+    {
+      "word": "dein",
+      "start": 241.02,
+      "end": 241.14
+    },
+    {
+      "word": "Sparziel",
+      "start": 241.14,
+      "end": 241.54
+    },
+    {
+      "word": "für",
+      "start": 241.54,
+      "end": 241.72
+    },
+    {
+      "word": "die",
+      "start": 241.72,
+      "end": 241.86
+    },
+    {
+      "word": "nächsten",
+      "start": 241.86,
+      "end": 242.08
+    },
+    {
+      "word": "Jahre",
+      "start": 242.08,
+      "end": 242.36
+    },
+    {
+      "word": "gehören",
+      "start": 242.36,
+      "end": 242.62
+    },
+    {
+      "word": "nicht",
+      "start": 242.62,
+      "end": 242.92
+    },
+    {
+      "word": "hinein.",
+      "start": 242.92,
+      "end": 243.44
+    },
+    {
+      "word": "Und",
+      "start": 243.44,
+      "end": 244.12
+    },
+    {
+      "word": "wer",
+      "start": 244.12,
+      "end": 244.34
+    },
+    {
+      "word": "schon",
+      "start": 244.34,
+      "end": 244.54
+    },
+    {
+      "word": "einen",
+      "start": 244.54,
+      "end": 244.76
+    },
+    {
+      "word": "Riester-Vertrag",
+      "start": 244.76,
+      "end": 245.04
+    },
+    {
+      "word": "hat?",
+      "start": 245.42,
+      "end": 245.78
+    },
+    {
+      "word": "Neue",
+      "start": 246.54,
+      "end": 246.86
+    },
+    {
+      "word": "Riester-Verträge",
+      "start": 246.86,
+      "end": 247.18
+    },
+    {
+      "word": "gibt",
+      "start": 247.58,
+      "end": 247.78
+    },
+    {
+      "word": "es",
+      "start": 247.78,
+      "end": 247.9
+    },
+    {
+      "word": "ab",
+      "start": 247.9,
+      "end": 248.12
+    },
+    {
+      "word": "zweitausendsiebenundzwanzig",
+      "start": 248.12,
+      "end": 249.04
+    },
+    {
+      "word": "nicht",
+      "start": 249.04,
+      "end": 249.36
+    },
+    {
+      "word": "mehr.",
+      "start": 249.36,
+      "end": 249.66
+    },
+    {
+      "word": "Dein",
+      "start": 249.94,
+      "end": 250.2
+    },
+    {
+      "word": "alter",
+      "start": 250.2,
+      "end": 250.82
+    },
+    {
+      "word": "Vertrag",
+      "start": 250.82,
+      "end": 250.82
+    },
+    {
+      "word": "bleibt",
+      "start": 250.82,
+      "end": 251
+    },
+    {
+      "word": "aber",
+      "start": 251,
+      "end": 251.24
+    },
+    {
+      "word": "bestehen.",
+      "start": 251.24,
+      "end": 251.86
+    },
+    {
+      "word": "Du",
+      "start": 252.18,
+      "end": 252.28
+    },
+    {
+      "word": "kannst",
+      "start": 252.28,
+      "end": 252.44
+    },
+    {
+      "word": "das",
+      "start": 252.44,
+      "end": 252.6
+    },
+    {
+      "word": "Guthaben",
+      "start": 252.6,
+      "end": 253.02
+    },
+    {
+      "word": "auch",
+      "start": 253.02,
+      "end": 253.22
+    },
+    {
+      "word": "ins",
+      "start": 253.22,
+      "end": 253.42
+    },
+    {
+      "word": "neue",
+      "start": 253.42,
+      "end": 253.66
+    },
+    {
+      "word": "Depot",
+      "start": 253.66,
+      "end": 253.9
+    },
+    {
+      "word": "übertragen.",
+      "start": 253.9,
+      "end": 254.62
+    },
+    {
+      "word": "Prüf",
+      "start": 255.06,
+      "end": 255.26
+    },
+    {
+      "word": "vorher,",
+      "start": 255.26,
+      "end": 255.64
+    },
+    {
+      "word": "welche",
+      "start": 255.76,
+      "end": 255.98
+    },
+    {
+      "word": "Garantien",
+      "start": 255.98,
+      "end": 256.46
+    },
+    {
+      "word": "und",
+      "start": 256.46,
+      "end": 256.62
+    },
+    {
+      "word": "Kosten",
+      "start": 256.62,
+      "end": 256.92
+    },
+    {
+      "word": "dein",
+      "start": 256.92,
+      "end": 257.14
+    },
+    {
+      "word": "alter",
+      "start": 257.14,
+      "end": 257.32
+    },
+    {
+      "word": "Vertrag",
+      "start": 257.32,
+      "end": 257.7
+    },
+    {
+      "word": "hat.",
+      "start": 257.7,
+      "end": 257.9
+    },
+    {
+      "word": "Und",
+      "start": 258.4,
+      "end": 258.56
+    },
+    {
+      "word": "Jonas?",
+      "start": 258.56,
+      "end": 258.98
+    },
+    {
+      "word": "Er",
+      "start": 259.76,
+      "end": 259.96
+    },
+    {
+      "word": "teilt",
+      "start": 259.96,
+      "end": 260.14
+    },
+    {
+      "word": "auf.",
+      "start": 260.14,
+      "end": 260.48
+    },
+    {
+      "word": "Ab",
+      "start": 261.06,
+      "end": 261.26
+    },
+    {
+      "word": "Januar",
+      "start": 261.26,
+      "end": 261.64
+    },
+    {
+      "word": "gehen",
+      "start": 261.64,
+      "end": 261.82
+    },
+    {
+      "word": "hundertfünfzig",
+      "start": 261.82,
+      "end": 262.48
+    },
+    {
+      "word": "Euro",
+      "start": 262.48,
+      "end": 262.82
+    },
+    {
+      "word": "im",
+      "start": 262.82,
+      "end": 262.94
+    },
+    {
+      "word": "Monat",
+      "start": 262.94,
+      "end": 263.2
+    },
+    {
+      "word": "ins",
+      "start": 263.2,
+      "end": 263.4
+    },
+    {
+      "word": "Altersvorsorgedepot.",
+      "start": 263.4,
+      "end": 264.46
+    },
+    {
+      "word": "Bei",
+      "start": 264.46,
+      "end": 264.72
+    },
+    {
+      "word": "einem",
+      "start": 264.72,
+      "end": 264.88
+    },
+    {
+      "word": "günstigen",
+      "start": 264.88,
+      "end": 265.4
+    },
+    {
+      "word": "Anbieter.",
+      "start": 265.4,
+      "end": 265.66
+    },
+    {
+      "word": "Für",
+      "start": 266.5,
+      "end": 266.72
+    },
+    {
+      "word": "flexible",
+      "start": 266.72,
+      "end": 267.16
+    },
+    {
+      "word": "Ziele",
+      "start": 267.16,
+      "end": 267.5
+    },
+    {
+      "word": "spart",
+      "start": 267.5,
+      "end": 267.72
+    },
+    {
+      "word": "er",
+      "start": 267.72,
+      "end": 267.86
+    },
+    {
+      "word": "weiter",
+      "start": 267.86,
+      "end": 268.1
+    },
+    {
+      "word": "in",
+      "start": 268.1,
+      "end": 268.26
+    },
+    {
+      "word": "seinem",
+      "start": 268.26,
+      "end": 268.38
+    },
+    {
+      "word": "normalen",
+      "start": 268.38,
+      "end": 268.84
+    },
+    {
+      "word": "Depot.",
+      "start": 268.84,
+      "end": 269.04
+    },
+    {
+      "word": "Das",
+      "start": 269.74,
+      "end": 269.92
+    },
+    {
+      "word": "ist",
+      "start": 269.92,
+      "end": 270.12
+    },
+    {
+      "word": "keine",
+      "start": 270.12,
+      "end": 270.4
+    },
+    {
+      "word": "Anlageberatung.",
+      "start": 270.4,
+      "end": 271.3
+    },
+    {
+      "word": "Schau,",
+      "start": 271.58,
+      "end": 271.8
+    },
+    {
+      "word": "was",
+      "start": 271.82,
+      "end": 271.98
+    },
+    {
+      "word": "zu",
+      "start": 271.98,
+      "end": 272.2
+    },
+    {
+      "word": "deinem",
+      "start": 272.2,
+      "end": 272.44
+    },
+    {
+      "word": "Leben",
+      "start": 272.44,
+      "end": 272.62
+    },
+    {
+      "word": "passt.",
+      "start": 272.62,
+      "end": 272.94
+    },
+    {
+      "word": "Geld",
+      "start": 273.6,
+      "end": 274.02
+    },
+    {
+      "word": "vom",
+      "start": 274.02,
+      "end": 274.18
+    },
+    {
+      "word": "Staat",
+      "start": 274.18,
+      "end": 274.44
+    },
+    {
+      "word": "gibt",
+      "start": 274.44,
+      "end": 274.6
+    },
+    {
+      "word": "es",
+      "start": 274.6,
+      "end": 274.78
+    },
+    {
+      "word": "also",
+      "start": 274.78,
+      "end": 274.98
+    },
+    {
+      "word": "wirklich.",
+      "start": 274.98,
+      "end": 275.42
+    },
+    {
+      "word": "Aber",
+      "start": 275.7,
+      "end": 275.84
+    },
+    {
+      "word": "nur,",
+      "start": 275.84,
+      "end": 275.98
+    },
+    {
+      "word": "wenn",
+      "start": 276.02,
+      "end": 276.14
+    },
+    {
+      "word": "die",
+      "start": 276.14,
+      "end": 276.34
+    },
+    {
+      "word": "Kosten",
+      "start": 276.34,
+      "end": 276.56
+    },
+    {
+      "word": "niedrig",
+      "start": 276.56,
+      "end": 277.04
+    },
+    {
+      "word": "sind",
+      "start": 277.04,
+      "end": 277.28
+    },
+    {
+      "word": "und",
+      "start": 277.28,
+      "end": 277.48
+    },
+    {
+      "word": "du",
+      "start": 277.48,
+      "end": 277.66
+    },
+    {
+      "word": "das",
+      "start": 277.66,
+      "end": 277.8
+    },
+    {
+      "word": "Geld",
+      "start": 277.8,
+      "end": 277.96
+    },
+    {
+      "word": "bis",
+      "start": 277.96,
+      "end": 278.12
+    },
+    {
+      "word": "zur",
+      "start": 278.12,
+      "end": 278.28
+    },
+    {
+      "word": "Rente",
+      "start": 278.28,
+      "end": 278.5
+    },
+    {
+      "word": "liegen",
+      "start": 278.5,
+      "end": 278.74
+    },
+    {
+      "word": "lassen",
+      "start": 278.74,
+      "end": 279
+    },
+    {
+      "word": "kannst.",
+      "start": 279,
+      "end": 279.28
+    },
+    {
+      "word": "Wenn",
+      "start": 279.96,
+      "end": 280.08
+    },
+    {
+      "word": "dir",
+      "start": 280.08,
+      "end": 280.22
+    },
+    {
+      "word": "das",
+      "start": 280.22,
+      "end": 280.38
+    },
+    {
+      "word": "Video",
+      "start": 280.38,
+      "end": 280.6
+    },
+    {
+      "word": "geholfen",
+      "start": 280.6,
+      "end": 281.04
+    },
+    {
+      "word": "hat,",
+      "start": 281.04,
+      "end": 281.26
+    },
+    {
+      "word": "abonnier",
+      "start": 281.54,
+      "end": 281.7
+    },
+    {
+      "word": "FinanzNeo.",
+      "start": 281.7,
+      "end": 282.3
+    },
+    {
+      "word": "Dann",
+      "start": 282.62,
+      "end": 282.8
+    },
+    {
+      "word": "verpasst",
+      "start": 282.8,
+      "end": 283.12
+    },
+    {
+      "word": "du",
+      "start": 283.12,
+      "end": 283.26
+    },
+    {
+      "word": "nichts,",
+      "start": 283.26,
+      "end": 283.44
+    },
+    {
+      "word": "wenn",
+      "start": 283.58,
+      "end": 283.62
+    },
+    {
+      "word": "die",
+      "start": 283.62,
+      "end": 283.88
+    },
+    {
+      "word": "ersten",
+      "start": 283.88,
+      "end": 284.14
+    },
+    {
+      "word": "Anbieter",
+      "start": 284.14,
+      "end": 284.56
+    },
+    {
+      "word": "ihre",
+      "start": 284.56,
+      "end": 284.74
+    },
+    {
+      "word": "Preise",
+      "start": 284.74,
+      "end": 285.14
+    },
+    {
+      "word": "zeigen.",
+      "start": 285.14,
+      "end": 285.36
+    }
+  ],
+  "sentences": [
+    {
+      "text": "Jonas ist achtundzwanzig.",
+      "start": 0,
+      "end": 1.82,
+      "words": [
+        {
+          "word": "Jonas",
+          "start": 0,
+          "end": 0.56
+        },
+        {
+          "word": "ist",
+          "start": 0.56,
+          "end": 0.72
+        },
+        {
+          "word": "achtundzwanzig.",
+          "start": 0.72,
+          "end": 1.82
+        }
+      ]
+    },
+    {
+      "text": "Jeden Monat legt er hundertfünfzig Euro in einen ETF-Sparplan.",
+      "start": 1.82,
+      "end": 6.26,
+      "words": [
+        {
+          "word": "Jeden",
+          "start": 1.82,
+          "end": 2.14
+        },
+        {
+          "word": "Monat",
+          "start": 2.14,
+          "end": 2.58
+        },
+        {
+          "word": "legt",
+          "start": 2.58,
+          "end": 2.8
+        },
+        {
+          "word": "er",
+          "start": 2.8,
+          "end": 2.98
+        },
+        {
+          "word": "hundertfünfzig",
+          "start": 2.98,
+          "end": 3.68
+        },
+        {
+          "word": "Euro",
+          "start": 3.68,
+          "end": 4.16
+        },
+        {
+          "word": "in",
+          "start": 4.16,
+          "end": 4.44
+        },
+        {
+          "word": "einen",
+          "start": 4.44,
+          "end": 4.66
+        },
+        {
+          "word": "ETF-Sparplan.",
+          "start": 4.66,
+          "end": 6.26
+        }
+      ]
+    },
+    {
+      "text": "Ab Januar kann er genau dasselbe tun.",
+      "start": 6.26,
+      "end": 8,
+      "words": [
+        {
+          "word": "Ab",
+          "start": 6.26,
+          "end": 6.48
+        },
+        {
+          "word": "Januar",
+          "start": 6.48,
+          "end": 6.88
+        },
+        {
+          "word": "kann",
+          "start": 6.88,
+          "end": 7.04
+        },
+        {
+          "word": "er",
+          "start": 7.04,
+          "end": 7.2
+        },
+        {
+          "word": "genau",
+          "start": 7.2,
+          "end": 7.38
+        },
+        {
+          "word": "dasselbe",
+          "start": 7.38,
+          "end": 7.76
+        },
+        {
+          "word": "tun.",
+          "start": 7.76,
+          "end": 8
+        }
+      ]
+    },
+    {
+      "text": "Und der Staat legt jedes Jahr bis zu fünfhundertvierzig Euro obendrauf.",
+      "start": 8.52,
+      "end": 12.14,
+      "words": [
+        {
+          "word": "Und",
+          "start": 8.52,
+          "end": 8.64
+        },
+        {
+          "word": "der",
+          "start": 8.64,
+          "end": 8.88
+        },
+        {
+          "word": "Staat",
+          "start": 8.88,
+          "end": 9.02
+        },
+        {
+          "word": "legt",
+          "start": 9.02,
+          "end": 9.34
+        },
+        {
+          "word": "jedes",
+          "start": 9.34,
+          "end": 9.6
+        },
+        {
+          "word": "Jahr",
+          "start": 9.6,
+          "end": 9.88
+        },
+        {
+          "word": "bis",
+          "start": 9.88,
+          "end": 10.04
+        },
+        {
+          "word": "zu",
+          "start": 10.04,
+          "end": 10.38
+        },
+        {
+          "word": "fünfhundertvierzig",
+          "start": 10.38,
+          "end": 11.12
+        },
+        {
+          "word": "Euro",
+          "start": 11.12,
+          "end": 11.42
+        },
+        {
+          "word": "obendrauf.",
+          "start": 11.42,
+          "end": 12.14
+        }
+      ]
+    },
+    {
+      "text": "Das neue Altersvorsorgedepot.",
+      "start": 12.48,
+      "end": 14.74,
+      "words": [
+        {
+          "word": "Das",
+          "start": 12.48,
+          "end": 12.72
+        },
+        {
+          "word": "neue",
+          "start": 12.72,
+          "end": 13.12
+        },
+        {
+          "word": "Altersvorsorgedepot.",
+          "start": 13.12,
+          "end": 14.74
+        }
+      ]
+    },
+    {
+      "text": "Jonas fragt sich: Wo ist der Haken?",
+      "start": 15.22,
+      "end": 16.96,
+      "words": [
+        {
+          "word": "Jonas",
+          "start": 15.22,
+          "end": 15.46
+        },
+        {
+          "word": "fragt",
+          "start": 15.46,
+          "end": 15.76
+        },
+        {
+          "word": "sich:",
+          "start": 15.76,
+          "end": 16.06
+        },
+        {
+          "word": "Wo",
+          "start": 16.3,
+          "end": 16.48
+        },
+        {
+          "word": "ist",
+          "start": 16.48,
+          "end": 16.6
+        },
+        {
+          "word": "der",
+          "start": 16.6,
+          "end": 16.72
+        },
+        {
+          "word": "Haken?",
+          "start": 16.72,
+          "end": 16.96
+        }
+      ]
+    },
+    {
+      "text": "Fangen wir vorne an.",
+      "start": 17.82,
+      "end": 18.72,
+      "words": [
+        {
+          "word": "Fangen",
+          "start": 17.82,
+          "end": 18.02
+        },
+        {
+          "word": "wir",
+          "start": 18.02,
+          "end": 18.14
+        },
+        {
+          "word": "vorne",
+          "start": 18.14,
+          "end": 18.38
+        },
+        {
+          "word": "an.",
+          "start": 18.38,
+          "end": 18.72
+        }
+      ]
+    },
+    {
+      "text": "Was ist das überhaupt?",
+      "start": 18.98,
+      "end": 19.86,
+      "words": [
+        {
+          "word": "Was",
+          "start": 18.98,
+          "end": 19.16
+        },
+        {
+          "word": "ist",
+          "start": 19.16,
+          "end": 19.34
+        },
+        {
+          "word": "das",
+          "start": 19.34,
+          "end": 19.5
+        },
+        {
+          "word": "überhaupt?",
+          "start": 19.5,
+          "end": 19.86
+        }
+      ]
+    },
+    {
+      "text": "Das Altersvorsorgedepot ist der Nachfolger der Riester-Rente.",
+      "start": 20.58,
+      "end": 23.26,
+      "words": [
+        {
+          "word": "Das",
+          "start": 20.58,
+          "end": 20.78
+        },
+        {
+          "word": "Altersvorsorgedepot",
+          "start": 20.78,
+          "end": 21.8
+        },
+        {
+          "word": "ist",
+          "start": 21.8,
+          "end": 21.98
+        },
+        {
+          "word": "der",
+          "start": 21.98,
+          "end": 22.2
+        },
+        {
+          "word": "Nachfolger",
+          "start": 22.2,
+          "end": 22.7
+        },
+        {
+          "word": "der",
+          "start": 22.7,
+          "end": 22.86
+        },
+        {
+          "word": "Riester-Rente.",
+          "start": 22.86,
+          "end": 23.26
+        }
+      ]
+    },
+    {
+      "text": "Der Bundestag hat das Gesetz im März beschlossen.",
+      "start": 24.16,
+      "end": 26.18,
+      "words": [
+        {
+          "word": "Der",
+          "start": 24.16,
+          "end": 24.32
+        },
+        {
+          "word": "Bundestag",
+          "start": 24.32,
+          "end": 24.78
+        },
+        {
+          "word": "hat",
+          "start": 24.78,
+          "end": 24.9
+        },
+        {
+          "word": "das",
+          "start": 24.9,
+          "end": 25.08
+        },
+        {
+          "word": "Gesetz",
+          "start": 25.08,
+          "end": 25.32
+        },
+        {
+          "word": "im",
+          "start": 25.32,
+          "end": 25.44
+        },
+        {
+          "word": "März",
+          "start": 25.44,
+          "end": 25.72
+        },
+        {
+          "word": "beschlossen.",
+          "start": 25.72,
+          "end": 26.18
+        }
+      ]
+    },
+    {
+      "text": "Start ist am ersten Januar zweitausendsiebenundzwanzig.",
+      "start": 26.18,
+      "end": 30.08,
+      "words": [
+        {
+          "word": "Start",
+          "start": 26.18,
+          "end": 26.72
+        },
+        {
+          "word": "ist",
+          "start": 26.72,
+          "end": 26.96
+        },
+        {
+          "word": "am",
+          "start": 26.96,
+          "end": 27.14
+        },
+        {
+          "word": "ersten",
+          "start": 27.14,
+          "end": 27.54
+        },
+        {
+          "word": "Januar",
+          "start": 27.54,
+          "end": 27.88
+        },
+        {
+          "word": "zweitausendsiebenundzwanzig.",
+          "start": 27.88,
+          "end": 30.08
+        }
+      ]
+    },
+    {
+      "text": "Riester galt als kompliziert und teuer.",
+      "start": 30.08,
+      "end": 32.14,
+      "words": [
+        {
+          "word": "Riester",
+          "start": 30.08,
+          "end": 30.34
+        },
+        {
+          "word": "galt",
+          "start": 30.34,
+          "end": 30.62
+        },
+        {
+          "word": "als",
+          "start": 30.62,
+          "end": 30.82
+        },
+        {
+          "word": "kompliziert",
+          "start": 30.82,
+          "end": 31.36
+        },
+        {
+          "word": "und",
+          "start": 31.36,
+          "end": 31.62
+        },
+        {
+          "word": "teuer.",
+          "start": 31.62,
+          "end": 32.14
+        }
+      ]
+    },
+    {
+      "text": "Oft steckte das Geld in Versicherungen mit hohen Kosten.",
+      "start": 32.3,
+      "end": 34.64,
+      "words": [
+        {
+          "word": "Oft",
+          "start": 32.3,
+          "end": 32.46
+        },
+        {
+          "word": "steckte",
+          "start": 32.46,
+          "end": 32.82
+        },
+        {
+          "word": "das",
+          "start": 32.82,
+          "end": 32.96
+        },
+        {
+          "word": "Geld",
+          "start": 32.96,
+          "end": 33.1
+        },
+        {
+          "word": "in",
+          "start": 33.1,
+          "end": 33.34
+        },
+        {
+          "word": "Versicherungen",
+          "start": 33.34,
+          "end": 33.86
+        },
+        {
+          "word": "mit",
+          "start": 33.86,
+          "end": 34.12
+        },
+        {
+          "word": "hohen",
+          "start": 34.12,
+          "end": 34.32
+        },
+        {
+          "word": "Kosten.",
+          "start": 34.32,
+          "end": 34.64
+        }
+      ]
+    },
+    {
+      "text": "Das neue Depot funktioniert anders.",
+      "start": 35.3,
+      "end": 36.94,
+      "words": [
+        {
+          "word": "Das",
+          "start": 35.3,
+          "end": 35.46
+        },
+        {
+          "word": "neue",
+          "start": 35.46,
+          "end": 35.66
+        },
+        {
+          "word": "Depot",
+          "start": 35.66,
+          "end": 35.96
+        },
+        {
+          "word": "funktioniert",
+          "start": 35.96,
+          "end": 36.44
+        },
+        {
+          "word": "anders.",
+          "start": 36.44,
+          "end": 36.94
+        }
+      ]
+    },
+    {
+      "text": "Du sparst direkt in Wertpapiere, zum Beispiel in ETFs.",
+      "start": 37.38,
+      "end": 40.18,
+      "words": [
+        {
+          "word": "Du",
+          "start": 37.38,
+          "end": 37.54
+        },
+        {
+          "word": "sparst",
+          "start": 37.54,
+          "end": 37.86
+        },
+        {
+          "word": "direkt",
+          "start": 37.86,
+          "end": 38.2
+        },
+        {
+          "word": "in",
+          "start": 38.2,
+          "end": 38.44
+        },
+        {
+          "word": "Wertpapiere,",
+          "start": 38.44,
+          "end": 39.12
+        },
+        {
+          "word": "zum",
+          "start": 39.24,
+          "end": 39.4
+        },
+        {
+          "word": "Beispiel",
+          "start": 39.4,
+          "end": 39.68
+        },
+        {
+          "word": "in",
+          "start": 39.68,
+          "end": 39.88
+        },
+        {
+          "word": "ETFs.",
+          "start": 39.88,
+          "end": 40.18
+        }
+      ]
+    },
+    {
+      "text": "Eine Garantie kannst du wählen.",
+      "start": 40.94,
+      "end": 42.52,
+      "words": [
+        {
+          "word": "Eine",
+          "start": 40.94,
+          "end": 41.1
+        },
+        {
+          "word": "Garantie",
+          "start": 41.1,
+          "end": 41.66
+        },
+        {
+          "word": "kannst",
+          "start": 41.66,
+          "end": 41.88
+        },
+        {
+          "word": "du",
+          "start": 41.88,
+          "end": 42.06
+        },
+        {
+          "word": "wählen.",
+          "start": 42.06,
+          "end": 42.52
+        }
+      ]
+    },
+    {
+      "text": "Sie ist aber keine Pflicht.",
+      "start": 42.6,
+      "end": 43.58,
+      "words": [
+        {
+          "word": "Sie",
+          "start": 42.6,
+          "end": 42.74
+        },
+        {
+          "word": "ist",
+          "start": 42.74,
+          "end": 42.88
+        },
+        {
+          "word": "aber",
+          "start": 42.88,
+          "end": 43.04
+        },
+        {
+          "word": "keine",
+          "start": 43.04,
+          "end": 43.16
+        },
+        {
+          "word": "Pflicht.",
+          "start": 43.16,
+          "end": 43.58
+        }
+      ]
+    },
+    {
+      "text": "Und neu: Auch Selbstständige bekommen jetzt die Förderung.",
+      "start": 44.42,
+      "end": 47.56,
+      "words": [
+        {
+          "word": "Und",
+          "start": 44.42,
+          "end": 44.64
+        },
+        {
+          "word": "neu:",
+          "start": 44.64,
+          "end": 44.86
+        },
+        {
+          "word": "Auch",
+          "start": 44.86,
+          "end": 45.48
+        },
+        {
+          "word": "Selbstständige",
+          "start": 45.48,
+          "end": 46.18
+        },
+        {
+          "word": "bekommen",
+          "start": 46.18,
+          "end": 46.44
+        },
+        {
+          "word": "jetzt",
+          "start": 46.44,
+          "end": 46.7
+        },
+        {
+          "word": "die",
+          "start": 46.7,
+          "end": 46.84
+        },
+        {
+          "word": "Förderung.",
+          "start": 46.84,
+          "end": 47.56
+        }
+      ]
+    },
+    {
+      "text": "Jetzt zum Geld.",
+      "start": 48.26,
+      "end": 49.08,
+      "words": [
+        {
+          "word": "Jetzt",
+          "start": 48.26,
+          "end": 48.54
+        },
+        {
+          "word": "zum",
+          "start": 48.54,
+          "end": 48.68
+        },
+        {
+          "word": "Geld.",
+          "start": 48.68,
+          "end": 49.08
+        }
+      ]
+    },
+    {
+      "text": "Wie viel legt der Staat wirklich drauf?",
+      "start": 49.42,
+      "end": 50.86,
+      "words": [
+        {
+          "word": "Wie",
+          "start": 49.42,
+          "end": 49.6
+        },
+        {
+          "word": "viel",
+          "start": 49.6,
+          "end": 49.74
+        },
+        {
+          "word": "legt",
+          "start": 49.74,
+          "end": 49.96
+        },
+        {
+          "word": "der",
+          "start": 49.96,
+          "end": 50.16
+        },
+        {
+          "word": "Staat",
+          "start": 50.16,
+          "end": 50.26
+        },
+        {
+          "word": "wirklich",
+          "start": 50.26,
+          "end": 50.62
+        },
+        {
+          "word": "drauf?",
+          "start": 50.62,
+          "end": 50.86
+        }
+      ]
+    },
+    {
+      "text": "Die Förderung hat zwei Stufen.",
+      "start": 51.54,
+      "end": 53.1,
+      "words": [
+        {
+          "word": "Die",
+          "start": 51.54,
+          "end": 51.7
+        },
+        {
+          "word": "Förderung",
+          "start": 51.7,
+          "end": 52.02
+        },
+        {
+          "word": "hat",
+          "start": 52.02,
+          "end": 52.22
+        },
+        {
+          "word": "zwei",
+          "start": 52.22,
+          "end": 52.52
+        },
+        {
+          "word": "Stufen.",
+          "start": 52.52,
+          "end": 53.1
+        }
+      ]
+    },
+    {
+      "text": "Auf die ersten dreihundertsechzig Euro, die du im Jahr einzahlst,",
+      "start": 53.1,
+      "end": 56.26,
+      "words": [
+        {
+          "word": "Auf",
+          "start": 53.1,
+          "end": 53.4
+        },
+        {
+          "word": "die",
+          "start": 53.4,
+          "end": 53.58
+        },
+        {
+          "word": "ersten",
+          "start": 53.58,
+          "end": 53.88
+        },
+        {
+          "word": "dreihundertsechzig",
+          "start": 53.88,
+          "end": 54.64
+        },
+        {
+          "word": "Euro,",
+          "start": 54.64,
+          "end": 54.98
+        },
+        {
+          "word": "die",
+          "start": 54.98,
+          "end": 55.08
+        },
+        {
+          "word": "du",
+          "start": 55.08,
+          "end": 55.22
+        },
+        {
+          "word": "im",
+          "start": 55.22,
+          "end": 55.3
+        },
+        {
+          "word": "Jahr",
+          "start": 55.3,
+          "end": 55.48
+        },
+        {
+          "word": "einzahlst,",
+          "start": 55.48,
+          "end": 56.26
+        }
+      ]
+    },
+    {
+      "text": "gibt es fünfzig Prozent dazu.",
+      "start": 56.4,
+      "end": 57.98,
+      "words": [
+        {
+          "word": "gibt",
+          "start": 56.4,
+          "end": 56.5
+        },
+        {
+          "word": "es",
+          "start": 56.5,
+          "end": 56.7
+        },
+        {
+          "word": "fünfzig",
+          "start": 56.7,
+          "end": 57.137
+        },
+        {
+          "word": "Prozent",
+          "start": 57.137,
+          "end": 57.52
+        },
+        {
+          "word": "dazu.",
+          "start": 57.52,
+          "end": 57.98
+        }
+      ]
+    },
+    {
+      "text": "Auf alles darüber bis eintausendachthundert Euro gibt es noch fünfundzwanzig Prozent.",
+      "start": 58.66,
+      "end": 63.08,
+      "words": [
+        {
+          "word": "Auf",
+          "start": 58.66,
+          "end": 58.8
+        },
+        {
+          "word": "alles",
+          "start": 58.8,
+          "end": 59
+        },
+        {
+          "word": "darüber",
+          "start": 59,
+          "end": 59.42
+        },
+        {
+          "word": "bis",
+          "start": 59.42,
+          "end": 59.66
+        },
+        {
+          "word": "eintausendachthundert",
+          "start": 59.66,
+          "end": 60.34
+        },
+        {
+          "word": "Euro",
+          "start": 60.34,
+          "end": 60.94
+        },
+        {
+          "word": "gibt",
+          "start": 60.94,
+          "end": 61.1
+        },
+        {
+          "word": "es",
+          "start": 61.1,
+          "end": 61.26
+        },
+        {
+          "word": "noch",
+          "start": 61.26,
+          "end": 61.44
+        },
+        {
+          "word": "fünfundzwanzig",
+          "start": 61.44,
+          "end": 62.558
+        },
+        {
+          "word": "Prozent.",
+          "start": 62.558,
+          "end": 63.08
+        }
+      ]
+    },
+    {
+      "text": "Zusammen sind das höchstens fünfhundertvierzig Euro im Jahr.",
+      "start": 63.08,
+      "end": 65.58,
+      "words": [
+        {
+          "word": "Zusammen",
+          "start": 63.08,
+          "end": 63.48
+        },
+        {
+          "word": "sind",
+          "start": 63.48,
+          "end": 63.66
+        },
+        {
+          "word": "das",
+          "start": 63.66,
+          "end": 63.8
+        },
+        {
+          "word": "höchstens",
+          "start": 63.8,
+          "end": 64.2
+        },
+        {
+          "word": "fünfhundertvierzig",
+          "start": 64.2,
+          "end": 64.92
+        },
+        {
+          "word": "Euro",
+          "start": 64.92,
+          "end": 65.2
+        },
+        {
+          "word": "im",
+          "start": 65.2,
+          "end": 65.34
+        },
+        {
+          "word": "Jahr.",
+          "start": 65.34,
+          "end": 65.58
+        }
+      ]
+    },
+    {
+      "text": "Für Jonas heißt das:",
+      "start": 66.24,
+      "end": 67.38,
+      "words": [
+        {
+          "word": "Für",
+          "start": 66.24,
+          "end": 66.42
+        },
+        {
+          "word": "Jonas",
+          "start": 66.42,
+          "end": 66.7
+        },
+        {
+          "word": "heißt",
+          "start": 66.7,
+          "end": 66.98
+        },
+        {
+          "word": "das:",
+          "start": 66.98,
+          "end": 67.38
+        }
+      ]
+    },
+    {
+      "text": "Hundertfünfzig Euro im Monat sind eintausendachthundert im Jahr.",
+      "start": 67.38,
+      "end": 70.7,
+      "words": [
+        {
+          "word": "Hundertfünfzig",
+          "start": 67.38,
+          "end": 68.1
+        },
+        {
+          "word": "Euro",
+          "start": 68.1,
+          "end": 68.48
+        },
+        {
+          "word": "im",
+          "start": 68.48,
+          "end": 68.66
+        },
+        {
+          "word": "Monat",
+          "start": 68.66,
+          "end": 69.02
+        },
+        {
+          "word": "sind",
+          "start": 69.02,
+          "end": 69.36
+        },
+        {
+          "word": "eintausendachthundert",
+          "start": 69.36,
+          "end": 70.18
+        },
+        {
+          "word": "im",
+          "start": 70.18,
+          "end": 70.44
+        },
+        {
+          "word": "Jahr.",
+          "start": 70.44,
+          "end": 70.7
+        }
+      ]
+    },
+    {
+      "text": "Er bekommt die vollen fünfhundertvierzig Euro.",
+      "start": 71.02,
+      "end": 73.08,
+      "words": [
+        {
+          "word": "Er",
+          "start": 71.02,
+          "end": 71.14
+        },
+        {
+          "word": "bekommt",
+          "start": 71.14,
+          "end": 71.36
+        },
+        {
+          "word": "die",
+          "start": 71.36,
+          "end": 71.58
+        },
+        {
+          "word": "vollen",
+          "start": 71.58,
+          "end": 72.02
+        },
+        {
+          "word": "fünfhundertvierzig",
+          "start": 72.02,
+          "end": 72.68
+        },
+        {
+          "word": "Euro.",
+          "start": 72.68,
+          "end": 73.08
+        }
+      ]
+    },
+    {
+      "text": "Das sind dreißig Prozent obendrauf.",
+      "start": 73.48,
+      "end": 75.42,
+      "words": [
+        {
+          "word": "Das",
+          "start": 73.48,
+          "end": 73.62
+        },
+        {
+          "word": "sind",
+          "start": 73.62,
+          "end": 73.8
+        },
+        {
+          "word": "dreißig",
+          "start": 73.8,
+          "end": 74.163
+        },
+        {
+          "word": "Prozent",
+          "start": 74.163,
+          "end": 74.48
+        },
+        {
+          "word": "obendrauf.",
+          "start": 74.48,
+          "end": 75.42
+        }
+      ]
+    },
+    {
+      "text": "Spannend ist: Wer weniger spart, bekommt prozentual mehr.",
+      "start": 75.92,
+      "end": 78.92,
+      "words": [
+        {
+          "word": "Spannend",
+          "start": 75.92,
+          "end": 76.26
+        },
+        {
+          "word": "ist:",
+          "start": 76.26,
+          "end": 76.48
+        },
+        {
+          "word": "Wer",
+          "start": 76.56,
+          "end": 76.8
+        },
+        {
+          "word": "weniger",
+          "start": 76.8,
+          "end": 77.18
+        },
+        {
+          "word": "spart,",
+          "start": 77.18,
+          "end": 77.6
+        },
+        {
+          "word": "bekommt",
+          "start": 77.7,
+          "end": 78
+        },
+        {
+          "word": "prozentual",
+          "start": 78,
+          "end": 78.62
+        },
+        {
+          "word": "mehr.",
+          "start": 78.62,
+          "end": 78.92
+        }
+      ]
+    },
+    {
+      "text": "Mit dreißig Euro im Monat gibt",
+      "start": 78.92,
+      "end": 81.02,
+      "words": [
+        {
+          "word": "Mit",
+          "start": 78.92,
+          "end": 79.66
+        },
+        {
+          "word": "dreißig",
+          "start": 79.66,
+          "end": 80.08
+        },
+        {
+          "word": "Euro",
+          "start": 80.08,
+          "end": 80.3
+        },
+        {
+          "word": "im",
+          "start": 80.3,
+          "end": 80.42
+        },
+        {
+          "word": "Monat",
+          "start": 80.42,
+          "end": 80.8
+        },
+        {
+          "word": "gibt",
+          "start": 80.8,
+          "end": 81.02
+        }
+      ]
+    },
+    {
+      "text": "es hundertachtzig Euro im Jahr dazu.",
+      "start": 81.02,
+      "end": 82.82,
+      "words": [
+        {
+          "word": "es",
+          "start": 81.02,
+          "end": 81.22
+        },
+        {
+          "word": "hundertachtzig",
+          "start": 81.22,
+          "end": 81.82
+        },
+        {
+          "word": "Euro",
+          "start": 81.82,
+          "end": 82.18
+        },
+        {
+          "word": "im",
+          "start": 82.18,
+          "end": 82.28
+        },
+        {
+          "word": "Jahr",
+          "start": 82.28,
+          "end": 82.48
+        },
+        {
+          "word": "dazu.",
+          "start": 82.48,
+          "end": 82.82
+        }
+      ]
+    },
+    {
+      "text": "Das sind fünfzig Prozent.",
+      "start": 83.02,
+      "end": 84.86,
+      "words": [
+        {
+          "word": "Das",
+          "start": 83.02,
+          "end": 83.12
+        },
+        {
+          "word": "sind",
+          "start": 83.12,
+          "end": 83.28
+        },
+        {
+          "word": "fünfzig",
+          "start": 83.28,
+          "end": 84.123
+        },
+        {
+          "word": "Prozent.",
+          "start": 84.123,
+          "end": 84.86
+        }
+      ]
+    },
+    {
+      "text": "Für Kinder gibt es extra.",
+      "start": 84.86,
+      "end": 86.24,
+      "words": [
+        {
+          "word": "Für",
+          "start": 84.86,
+          "end": 85.14
+        },
+        {
+          "word": "Kinder",
+          "start": 85.14,
+          "end": 85.44
+        },
+        {
+          "word": "gibt",
+          "start": 85.44,
+          "end": 85.64
+        },
+        {
+          "word": "es",
+          "start": 85.64,
+          "end": 85.8
+        },
+        {
+          "word": "extra.",
+          "start": 85.8,
+          "end": 86.24
+        }
+      ]
+    },
+    {
+      "text": "Bis zu dreihundert Euro pro Kind und Jahr.",
+      "start": 86.68,
+      "end": 88.7,
+      "words": [
+        {
+          "word": "Bis",
+          "start": 86.68,
+          "end": 86.76
+        },
+        {
+          "word": "zu",
+          "start": 86.76,
+          "end": 87.06
+        },
+        {
+          "word": "dreihundert",
+          "start": 87.06,
+          "end": 87.4
+        },
+        {
+          "word": "Euro",
+          "start": 87.4,
+          "end": 87.8
+        },
+        {
+          "word": "pro",
+          "start": 87.8,
+          "end": 88
+        },
+        {
+          "word": "Kind",
+          "start": 88,
+          "end": 88.24
+        },
+        {
+          "word": "und",
+          "start": 88.24,
+          "end": 88.5
+        },
+        {
+          "word": "Jahr.",
+          "start": 88.5,
+          "end": 88.7
+        }
+      ]
+    },
+    {
+      "text": "Dafür reichen fünfundzwanzig Euro Eigenbeitrag im Monat.",
+      "start": 89.26,
+      "end": 92,
+      "words": [
+        {
+          "word": "Dafür",
+          "start": 89.26,
+          "end": 89.5
+        },
+        {
+          "word": "reichen",
+          "start": 89.5,
+          "end": 89.9
+        },
+        {
+          "word": "fünfundzwanzig",
+          "start": 89.9,
+          "end": 90.44
+        },
+        {
+          "word": "Euro",
+          "start": 90.44,
+          "end": 90.96
+        },
+        {
+          "word": "Eigenbeitrag",
+          "start": 90.96,
+          "end": 91.62
+        },
+        {
+          "word": "im",
+          "start": 91.62,
+          "end": 91.74
+        },
+        {
+          "word": "Monat.",
+          "start": 91.74,
+          "end": 92
+        }
+      ]
+    },
+    {
+      "text": "Wer vor seinem fünfundzwanzigsten Geburtstag startet, bekommt einmalig zweihundert Euro Bonus.",
+      "start": 93.04,
+      "end": 97.38,
+      "words": [
+        {
+          "word": "Wer",
+          "start": 93.04,
+          "end": 93.18
+        },
+        {
+          "word": "vor",
+          "start": 93.18,
+          "end": 93.4
+        },
+        {
+          "word": "seinem",
+          "start": 93.4,
+          "end": 93.58
+        },
+        {
+          "word": "fünfundzwanzigsten",
+          "start": 93.58,
+          "end": 94.36
+        },
+        {
+          "word": "Geburtstag",
+          "start": 94.36,
+          "end": 94.88
+        },
+        {
+          "word": "startet,",
+          "start": 94.88,
+          "end": 95.28
+        },
+        {
+          "word": "bekommt",
+          "start": 95.38,
+          "end": 95.64
+        },
+        {
+          "word": "einmalig",
+          "start": 95.64,
+          "end": 96.3
+        },
+        {
+          "word": "zweihundert",
+          "start": 96.3,
+          "end": 96.66
+        },
+        {
+          "word": "Euro",
+          "start": 96.66,
+          "end": 97.04
+        },
+        {
+          "word": "Bonus.",
+          "start": 97.04,
+          "end": 97.38
+        }
+      ]
+    },
+    {
+      "text": "Wichtig: Du musst mindestens hundertzwanzig Euro im Jahr einzahlen.",
+      "start": 98.08,
+      "end": 101.34,
+      "words": [
+        {
+          "word": "Wichtig:",
+          "start": 98.08,
+          "end": 98.46
+        },
+        {
+          "word": "Du",
+          "start": 98.72,
+          "end": 98.84
+        },
+        {
+          "word": "musst",
+          "start": 98.84,
+          "end": 99.02
+        },
+        {
+          "word": "mindestens",
+          "start": 99.02,
+          "end": 99.5
+        },
+        {
+          "word": "hundertzwanzig",
+          "start": 99.5,
+          "end": 100.2
+        },
+        {
+          "word": "Euro",
+          "start": 100.2,
+          "end": 100.54
+        },
+        {
+          "word": "im",
+          "start": 100.54,
+          "end": 100.62
+        },
+        {
+          "word": "Jahr",
+          "start": 100.62,
+          "end": 100.84
+        },
+        {
+          "word": "einzahlen.",
+          "start": 100.84,
+          "end": 101.34
+        }
+      ]
+    },
+    {
+      "text": "Sonst gibt es gar keine Zulage.",
+      "start": 101.58,
+      "end": 103.3,
+      "words": [
+        {
+          "word": "Sonst",
+          "start": 101.58,
+          "end": 101.74
+        },
+        {
+          "word": "gibt",
+          "start": 101.74,
+          "end": 101.92
+        },
+        {
+          "word": "es",
+          "start": 101.92,
+          "end": 102.06
+        },
+        {
+          "word": "gar",
+          "start": 102.06,
+          "end": 102.24
+        },
+        {
+          "word": "keine",
+          "start": 102.24,
+          "end": 102.44
+        },
+        {
+          "word": "Zulage.",
+          "start": 102.44,
+          "end": 103.3
+        }
+      ]
+    },
+    {
+      "text": "Und wer gut verdient,",
+      "start": 103.76,
+      "end": 104.68,
+      "words": [
+        {
+          "word": "Und",
+          "start": 103.76,
+          "end": 103.96
+        },
+        {
+          "word": "wer",
+          "start": 103.96,
+          "end": 104.08
+        },
+        {
+          "word": "gut",
+          "start": 104.08,
+          "end": 104.3
+        },
+        {
+          "word": "verdient,",
+          "start": 104.3,
+          "end": 104.68
+        }
+      ]
+    },
+    {
+      "text": "kann die Beiträge auch von der Steuer absetzen.",
+      "start": 104.88,
+      "end": 106.74,
+      "words": [
+        {
+          "word": "kann",
+          "start": 104.88,
+          "end": 105
+        },
+        {
+          "word": "die",
+          "start": 105,
+          "end": 105.16
+        },
+        {
+          "word": "Beiträge",
+          "start": 105.16,
+          "end": 105.56
+        },
+        {
+          "word": "auch",
+          "start": 105.56,
+          "end": 105.76
+        },
+        {
+          "word": "von",
+          "start": 105.76,
+          "end": 105.86
+        },
+        {
+          "word": "der",
+          "start": 105.86,
+          "end": 106.1
+        },
+        {
+          "word": "Steuer",
+          "start": 106.1,
+          "end": 106.28
+        },
+        {
+          "word": "absetzen.",
+          "start": 106.28,
+          "end": 106.74
+        }
+      ]
+    },
+    {
+      "text": "Das Finanzamt prüft, was für dich günstiger ist.",
+      "start": 106.74,
+      "end": 109.36,
+      "words": [
+        {
+          "word": "Das",
+          "start": 106.74,
+          "end": 107.14
+        },
+        {
+          "word": "Finanzamt",
+          "start": 107.14,
+          "end": 107.62
+        },
+        {
+          "word": "prüft,",
+          "start": 107.62,
+          "end": 107.92
+        },
+        {
+          "word": "was",
+          "start": 108,
+          "end": 108.2
+        },
+        {
+          "word": "für",
+          "start": 108.2,
+          "end": 108.26
+        },
+        {
+          "word": "dich",
+          "start": 108.26,
+          "end": 108.4
+        },
+        {
+          "word": "günstiger",
+          "start": 108.4,
+          "end": 108.84
+        },
+        {
+          "word": "ist.",
+          "start": 108.84,
+          "end": 109.36
+        }
+      ]
+    },
+    {
+      "text": "Klingt stark.",
+      "start": 109.56,
+      "end": 110.3,
+      "words": [
+        {
+          "word": "Klingt",
+          "start": 109.56,
+          "end": 109.8
+        },
+        {
+          "word": "stark.",
+          "start": 109.8,
+          "end": 110.3
+        }
+      ]
+    },
+    {
+      "text": "Aber jetzt kommt der erste Haken: die Kosten.",
+      "start": 110.72,
+      "end": 112.9,
+      "words": [
+        {
+          "word": "Aber",
+          "start": 110.72,
+          "end": 110.88
+        },
+        {
+          "word": "jetzt",
+          "start": 110.88,
+          "end": 111.06
+        },
+        {
+          "word": "kommt",
+          "start": 111.06,
+          "end": 111.24
+        },
+        {
+          "word": "der",
+          "start": 111.24,
+          "end": 111.36
+        },
+        {
+          "word": "erste",
+          "start": 111.36,
+          "end": 111.66
+        },
+        {
+          "word": "Haken:",
+          "start": 111.66,
+          "end": 112.08
+        },
+        {
+          "word": "die",
+          "start": 112.42,
+          "end": 112.6
+        },
+        {
+          "word": "Kosten.",
+          "start": 112.6,
+          "end": 112.9
+        }
+      ]
+    },
+    {
+      "text": "Für das sogenannte Standarddepot gilt ein Kostendeckel.",
+      "start": 113.6,
+      "end": 116.9,
+      "words": [
+        {
+          "word": "Für",
+          "start": 113.6,
+          "end": 113.78
+        },
+        {
+          "word": "das",
+          "start": 113.78,
+          "end": 113.92
+        },
+        {
+          "word": "sogenannte",
+          "start": 113.92,
+          "end": 114.54
+        },
+        {
+          "word": "Standarddepot",
+          "start": 114.54,
+          "end": 115.08
+        },
+        {
+          "word": "gilt",
+          "start": 115.48,
+          "end": 115.72
+        },
+        {
+          "word": "ein",
+          "start": 115.72,
+          "end": 116.04
+        },
+        {
+          "word": "Kostendeckel.",
+          "start": 116.04,
+          "end": 116.9
+        }
+      ]
+    },
+    {
+      "text": "Höchstens ein Prozent im Jahr.",
+      "start": 117.24,
+      "end": 118.64,
+      "words": [
+        {
+          "word": "Höchstens",
+          "start": 117.24,
+          "end": 117.6
+        },
+        {
+          "word": "ein",
+          "start": 117.6,
+          "end": 117.768
+        },
+        {
+          "word": "Prozent",
+          "start": 117.768,
+          "end": 118.16
+        },
+        {
+          "word": "im",
+          "start": 118.16,
+          "end": 118.38
+        },
+        {
+          "word": "Jahr.",
+          "start": 118.38,
+          "end": 118.64
+        }
+      ]
+    },
+    {
+      "text": "Geplant waren sogar eineinhalb Prozent.",
+      "start": 119.12,
+      "end": 121.24,
+      "words": [
+        {
+          "word": "Geplant",
+          "start": 119.12,
+          "end": 119.52
+        },
+        {
+          "word": "waren",
+          "start": 119.52,
+          "end": 119.74
+        },
+        {
+          "word": "sogar",
+          "start": 119.74,
+          "end": 120.02
+        },
+        {
+          "word": "eineinhalb",
+          "start": 120.02,
+          "end": 120.738
+        },
+        {
+          "word": "Prozent.",
+          "start": 120.738,
+          "end": 121.24
+        }
+      ]
+    },
+    {
+      "text": "Verbraucherschützer haben dagegen protestiert.",
+      "start": 121.24,
+      "end": 123.26,
+      "words": [
+        {
+          "word": "Verbraucherschützer",
+          "start": 121.24,
+          "end": 122.02
+        },
+        {
+          "word": "haben",
+          "start": 122.02,
+          "end": 122.2
+        },
+        {
+          "word": "dagegen",
+          "start": 122.2,
+          "end": 122.5
+        },
+        {
+          "word": "protestiert.",
+          "start": 122.5,
+          "end": 123.26
+        }
+      ]
+    },
+    {
+      "text": "Ein Prozent klingt wenig.",
+      "start": 123.26,
+      "end": 125.98,
+      "words": [
+        {
+          "word": "Ein",
+          "start": 123.26,
+          "end": 123.782
+        },
+        {
+          "word": "Prozent",
+          "start": 123.782,
+          "end": 125
+        },
+        {
+          "word": "klingt",
+          "start": 125,
+          "end": 125.36
+        },
+        {
+          "word": "wenig.",
+          "start": 125.36,
+          "end": 125.98
+        }
+      ]
+    },
+    {
+      "text": "Ist es aber nicht.",
+      "start": 126.4,
+      "end": 127.24,
+      "words": [
+        {
+          "word": "Ist",
+          "start": 126.4,
+          "end": 126.6
+        },
+        {
+          "word": "es",
+          "start": 126.6,
+          "end": 126.76
+        },
+        {
+          "word": "aber",
+          "start": 126.76,
+          "end": 126.94
+        },
+        {
+          "word": "nicht.",
+          "start": 126.94,
+          "end": 127.24
+        }
+      ]
+    },
+    {
+      "text": "Rechnen wir mit Jonas.",
+      "start": 127.78,
+      "end": 128.68,
+      "words": [
+        {
+          "word": "Rechnen",
+          "start": 127.78,
+          "end": 128.08
+        },
+        {
+          "word": "wir",
+          "start": 128.08,
+          "end": 128.18
+        },
+        {
+          "word": "mit",
+          "start": 128.18,
+          "end": 128.34
+        },
+        {
+          "word": "Jonas.",
+          "start": 128.34,
+          "end": 128.68
+        }
+      ]
+    },
+    {
+      "text": "Hundertfünfzig Euro im Monat plus Zulage,",
+      "start": 128.68,
+      "end": 131.6,
+      "words": [
+        {
+          "word": "Hundertfünfzig",
+          "start": 128.68,
+          "end": 129.78
+        },
+        {
+          "word": "Euro",
+          "start": 129.78,
+          "end": 130.08
+        },
+        {
+          "word": "im",
+          "start": 130.08,
+          "end": 130.24
+        },
+        {
+          "word": "Monat",
+          "start": 130.24,
+          "end": 130.68
+        },
+        {
+          "word": "plus",
+          "start": 130.68,
+          "end": 130.98
+        },
+        {
+          "word": "Zulage,",
+          "start": 130.98,
+          "end": 131.6
+        }
+      ]
+    },
+    {
+      "text": "siebenunddreißig Jahre lang, bis er fünfundsechzig ist.",
+      "start": 131.6,
+      "end": 133.74,
+      "words": [
+        {
+          "word": "siebenunddreißig",
+          "start": 131.6,
+          "end": 132.34
+        },
+        {
+          "word": "Jahre",
+          "start": 132.34,
+          "end": 132.72
+        },
+        {
+          "word": "lang,",
+          "start": 132.72,
+          "end": 132.94
+        },
+        {
+          "word": "bis",
+          "start": 132.94,
+          "end": 133.044
+        },
+        {
+          "word": "er",
+          "start": 133.044,
+          "end": 133.114
+        },
+        {
+          "word": "fünfundsechzig",
+          "start": 133.114,
+          "end": 133.636
+        },
+        {
+          "word": "ist.",
+          "start": 133.636,
+          "end": 133.74
+        }
+      ]
+    },
+    {
+      "text": "Wir nehmen an: fünf Prozent Rendite im Jahr.",
+      "start": 133.74,
+      "end": 136.64,
+      "words": [
+        {
+          "word": "Wir",
+          "start": 133.74,
+          "end": 134.56
+        },
+        {
+          "word": "nehmen",
+          "start": 134.56,
+          "end": 134.78
+        },
+        {
+          "word": "an:",
+          "start": 134.78,
+          "end": 135.24
+        },
+        {
+          "word": "fünf",
+          "start": 135.24,
+          "end": 135.482
+        },
+        {
+          "word": "Prozent",
+          "start": 135.482,
+          "end": 135.82
+        },
+        {
+          "word": "Rendite",
+          "start": 135.82,
+          "end": 136.24
+        },
+        {
+          "word": "im",
+          "start": 136.24,
+          "end": 136.38
+        },
+        {
+          "word": "Jahr.",
+          "start": 136.38,
+          "end": 136.64
+        }
+      ]
+    },
+    {
+      "text": "Das ist ein Beispiel, keine Prognose.",
+      "start": 137.1,
+      "end": 138.96,
+      "words": [
+        {
+          "word": "Das",
+          "start": 137.1,
+          "end": 137.18
+        },
+        {
+          "word": "ist",
+          "start": 137.18,
+          "end": 137.36
+        },
+        {
+          "word": "ein",
+          "start": 137.36,
+          "end": 137.4
+        },
+        {
+          "word": "Beispiel,",
+          "start": 137.4,
+          "end": 137.82
+        },
+        {
+          "word": "keine",
+          "start": 138.02,
+          "end": 138.14
+        },
+        {
+          "word": "Prognose.",
+          "start": 138.14,
+          "end": 138.96
+        }
+      ]
+    },
+    {
+      "text": "Bei einem Prozent Kosten hat Jonas am Ende rund hundertachtundneunzigtausend Euro.",
+      "start": 139.54,
+      "end": 144.02,
+      "words": [
+        {
+          "word": "Bei",
+          "start": 139.54,
+          "end": 139.72
+        },
+        {
+          "word": "einem",
+          "start": 139.72,
+          "end": 139.945
+        },
+        {
+          "word": "Prozent",
+          "start": 139.945,
+          "end": 140.26
+        },
+        {
+          "word": "Kosten",
+          "start": 140.26,
+          "end": 140.62
+        },
+        {
+          "word": "hat",
+          "start": 140.62,
+          "end": 140.86
+        },
+        {
+          "word": "Jonas",
+          "start": 140.86,
+          "end": 141.32
+        },
+        {
+          "word": "am",
+          "start": 141.32,
+          "end": 141.6
+        },
+        {
+          "word": "Ende",
+          "start": 141.6,
+          "end": 141.96
+        },
+        {
+          "word": "rund",
+          "start": 141.96,
+          "end": 142.38
+        },
+        {
+          "word": "hundertachtundneunzigtausend",
+          "start": 142.38,
+          "end": 143.68
+        },
+        {
+          "word": "Euro.",
+          "start": 143.68,
+          "end": 144.02
+        }
+      ]
+    },
+    {
+      "text": "Bei null Komma zwei Prozent, so viel kostet ein günstiger ETF,",
+      "start": 144.74,
+      "end": 148.6,
+      "words": [
+        {
+          "word": "Bei",
+          "start": 144.74,
+          "end": 145.14
+        },
+        {
+          "word": "null",
+          "start": 145.14,
+          "end": 145.496
+        },
+        {
+          "word": "Komma",
+          "start": 145.496,
+          "end": 145.941
+        },
+        {
+          "word": "zwei",
+          "start": 145.941,
+          "end": 146.297
+        },
+        {
+          "word": "Prozent,",
+          "start": 146.297,
+          "end": 146.92
+        },
+        {
+          "word": "so",
+          "start": 146.92,
+          "end": 147.18
+        },
+        {
+          "word": "viel",
+          "start": 147.18,
+          "end": 147.34
+        },
+        {
+          "word": "kostet",
+          "start": 147.34,
+          "end": 147.7
+        },
+        {
+          "word": "ein",
+          "start": 147.7,
+          "end": 147.82
+        },
+        {
+          "word": "günstiger",
+          "start": 147.82,
+          "end": 148.26
+        },
+        {
+          "word": "ETF,",
+          "start": 148.26,
+          "end": 148.6
+        }
+      ]
+    },
+    {
+      "text": "sind es rund zweihundertachtunddreißigtausend Euro.",
+      "start": 148.98,
+      "end": 152.04,
+      "words": [
+        {
+          "word": "sind",
+          "start": 148.98,
+          "end": 149.14
+        },
+        {
+          "word": "es",
+          "start": 149.14,
+          "end": 149.3
+        },
+        {
+          "word": "rund",
+          "start": 149.3,
+          "end": 149.86
+        },
+        {
+          "word": "zweihundertachtunddreißigtausend",
+          "start": 149.86,
+          "end": 151.42
+        },
+        {
+          "word": "Euro.",
+          "start": 151.42,
+          "end": 152.04
+        }
+      ]
+    },
+    {
+      "text": "Rund vierzigtausend Euro Unterschied.",
+      "start": 152.52,
+      "end": 154.4,
+      "words": [
+        {
+          "word": "Rund",
+          "start": 152.52,
+          "end": 152.96
+        },
+        {
+          "word": "vierzigtausend",
+          "start": 152.96,
+          "end": 153.66
+        },
+        {
+          "word": "Euro",
+          "start": 153.66,
+          "end": 153.98
+        },
+        {
+          "word": "Unterschied.",
+          "start": 153.98,
+          "end": 154.4
+        }
+      ]
+    },
+    {
+      "text": "Nur wegen der Kosten.",
+      "start": 154.96,
+      "end": 155.78,
+      "words": [
+        {
+          "word": "Nur",
+          "start": 154.96,
+          "end": 155.12
+        },
+        {
+          "word": "wegen",
+          "start": 155.12,
+          "end": 155.3
+        },
+        {
+          "word": "der",
+          "start": 155.3,
+          "end": 155.52
+        },
+        {
+          "word": "Kosten.",
+          "start": 155.52,
+          "end": 155.78
+        }
+      ]
+    },
+    {
+      "text": "Der Deckel ist also eine Obergrenze.",
+      "start": 156.8,
+      "end": 158.74,
+      "words": [
+        {
+          "word": "Der",
+          "start": 156.8,
+          "end": 156.98
+        },
+        {
+          "word": "Deckel",
+          "start": 156.98,
+          "end": 157.2
+        },
+        {
+          "word": "ist",
+          "start": 157.2,
+          "end": 157.46
+        },
+        {
+          "word": "also",
+          "start": 157.46,
+          "end": 157.76
+        },
+        {
+          "word": "eine",
+          "start": 157.76,
+          "end": 158.02
+        },
+        {
+          "word": "Obergrenze.",
+          "start": 158.02,
+          "end": 158.74
+        }
+      ]
+    },
+    {
+      "text": "Kein Richtwert.",
+      "start": 158.94,
+      "end": 159.64,
+      "words": [
+        {
+          "word": "Kein",
+          "start": 158.94,
+          "end": 159.12
+        },
+        {
+          "word": "Richtwert.",
+          "start": 159.12,
+          "end": 159.64
+        }
+      ]
+    },
+    {
+      "text": "Vergleich die Anbieter, bevor du unterschreibst.",
+      "start": 160.12,
+      "end": 162.3,
+      "words": [
+        {
+          "word": "Vergleich",
+          "start": 160.12,
+          "end": 160.5
+        },
+        {
+          "word": "die",
+          "start": 160.5,
+          "end": 160.68
+        },
+        {
+          "word": "Anbieter,",
+          "start": 160.68,
+          "end": 161.2
+        },
+        {
+          "word": "bevor",
+          "start": 161.28,
+          "end": 161.48
+        },
+        {
+          "word": "du",
+          "start": 161.48,
+          "end": 161.66
+        },
+        {
+          "word": "unterschreibst.",
+          "start": 161.66,
+          "end": 162.3
+        }
+      ]
+    },
+    {
+      "text": "Kurze Frage an dich: Würdest du ab Januar ein Altersvorsorgedepot eröffnen?",
+      "start": 163.14,
+      "end": 167.74,
+      "words": [
+        {
+          "word": "Kurze",
+          "start": 163.14,
+          "end": 163.7
+        },
+        {
+          "word": "Frage",
+          "start": 163.7,
+          "end": 163.9
+        },
+        {
+          "word": "an",
+          "start": 163.9,
+          "end": 164.08
+        },
+        {
+          "word": "dich:",
+          "start": 164.08,
+          "end": 164.38
+        },
+        {
+          "word": "Würdest",
+          "start": 164.88,
+          "end": 165.18
+        },
+        {
+          "word": "du",
+          "start": 165.18,
+          "end": 165.28
+        },
+        {
+          "word": "ab",
+          "start": 165.28,
+          "end": 165.44
+        },
+        {
+          "word": "Januar",
+          "start": 165.44,
+          "end": 165.74
+        },
+        {
+          "word": "ein",
+          "start": 165.74,
+          "end": 165.98
+        },
+        {
+          "word": "Altersvorsorgedepot",
+          "start": 165.98,
+          "end": 166.78
+        },
+        {
+          "word": "eröffnen?",
+          "start": 167.04,
+          "end": 167.74
+        }
+      ]
+    },
+    {
+      "text": "Oder bleibst du bei deinem normalen Depot?",
+      "start": 167.94,
+      "end": 169.68,
+      "words": [
+        {
+          "word": "Oder",
+          "start": 167.94,
+          "end": 168.26
+        },
+        {
+          "word": "bleibst",
+          "start": 168.26,
+          "end": 168.58
+        },
+        {
+          "word": "du",
+          "start": 168.58,
+          "end": 168.6
+        },
+        {
+          "word": "bei",
+          "start": 168.6,
+          "end": 168.8
+        },
+        {
+          "word": "deinem",
+          "start": 168.8,
+          "end": 169
+        },
+        {
+          "word": "normalen",
+          "start": 169,
+          "end": 169.46
+        },
+        {
+          "word": "Depot?",
+          "start": 169.46,
+          "end": 169.68
+        }
+      ]
+    },
+    {
+      "text": "Schreib es mir in die Kommentare.",
+      "start": 170.32,
+      "end": 171.3,
+      "words": [
+        {
+          "word": "Schreib",
+          "start": 170.32,
+          "end": 170.52
+        },
+        {
+          "word": "es",
+          "start": 170.52,
+          "end": 170.62
+        },
+        {
+          "word": "mir",
+          "start": 170.62,
+          "end": 170.72
+        },
+        {
+          "word": "in",
+          "start": 170.72,
+          "end": 170.74
+        },
+        {
+          "word": "die",
+          "start": 170.74,
+          "end": 170.9
+        },
+        {
+          "word": "Kommentare.",
+          "start": 170.9,
+          "end": 171.3
+        }
+      ]
+    },
+    {
+      "text": "Der zweite Haken: Das Geld ist gebunden.",
+      "start": 172.92,
+      "end": 175.64,
+      "words": [
+        {
+          "word": "Der",
+          "start": 172.92,
+          "end": 173.12
+        },
+        {
+          "word": "zweite",
+          "start": 173.12,
+          "end": 173.42
+        },
+        {
+          "word": "Haken:",
+          "start": 173.42,
+          "end": 173.88
+        },
+        {
+          "word": "Das",
+          "start": 174.2,
+          "end": 174.38
+        },
+        {
+          "word": "Geld",
+          "start": 174.38,
+          "end": 174.56
+        },
+        {
+          "word": "ist",
+          "start": 174.56,
+          "end": 174.8
+        },
+        {
+          "word": "gebunden.",
+          "start": 174.8,
+          "end": 175.64
+        }
+      ]
+    },
+    {
+      "text": "Ausgezahlt wird frühestens mit fünfundsechzig.",
+      "start": 175.96,
+      "end": 178.62,
+      "words": [
+        {
+          "word": "Ausgezahlt",
+          "start": 175.96,
+          "end": 176.52
+        },
+        {
+          "word": "wird",
+          "start": 176.52,
+          "end": 176.9
+        },
+        {
+          "word": "frühestens",
+          "start": 176.9,
+          "end": 177.24
+        },
+        {
+          "word": "mit",
+          "start": 177.24,
+          "end": 177.42
+        },
+        {
+          "word": "fünfundsechzig.",
+          "start": 177.42,
+          "end": 178.62
+        }
+      ]
+    },
+    {
+      "text": "Und nicht alles auf einmal.",
+      "start": 178.62,
+      "end": 179.94,
+      "words": [
+        {
+          "word": "Und",
+          "start": 178.62,
+          "end": 179.04
+        },
+        {
+          "word": "nicht",
+          "start": 179.04,
+          "end": 179.24
+        },
+        {
+          "word": "alles",
+          "start": 179.24,
+          "end": 179.42
+        },
+        {
+          "word": "auf",
+          "start": 179.42,
+          "end": 179.64
+        },
+        {
+          "word": "einmal.",
+          "start": 179.64,
+          "end": 179.94
+        }
+      ]
+    },
+    {
+      "text": "Zu Beginn darfst du höchstens dreißig Prozent auf einen Schlag nehmen.",
+      "start": 180.28,
+      "end": 183.2,
+      "words": [
+        {
+          "word": "Zu",
+          "start": 180.28,
+          "end": 180.46
+        },
+        {
+          "word": "Beginn",
+          "start": 180.46,
+          "end": 180.74
+        },
+        {
+          "word": "darfst",
+          "start": 180.74,
+          "end": 181
+        },
+        {
+          "word": "du",
+          "start": 181,
+          "end": 181.08
+        },
+        {
+          "word": "höchstens",
+          "start": 181.08,
+          "end": 181.56
+        },
+        {
+          "word": "dreißig",
+          "start": 181.56,
+          "end": 181.997
+        },
+        {
+          "word": "Prozent",
+          "start": 181.997,
+          "end": 182.38
+        },
+        {
+          "word": "auf",
+          "start": 182.38,
+          "end": 182.54
+        },
+        {
+          "word": "einen",
+          "start": 182.54,
+          "end": 182.74
+        },
+        {
+          "word": "Schlag",
+          "start": 182.74,
+          "end": 183.02
+        },
+        {
+          "word": "nehmen.",
+          "start": 183.02,
+          "end": 183.2
+        }
+      ]
+    },
+    {
+      "text": "Der Rest kommt als lebenslange Rente",
+      "start": 183.84,
+      "end": 185.38,
+      "words": [
+        {
+          "word": "Der",
+          "start": 183.84,
+          "end": 183.94
+        },
+        {
+          "word": "Rest",
+          "start": 183.94,
+          "end": 184.1
+        },
+        {
+          "word": "kommt",
+          "start": 184.1,
+          "end": 184.3
+        },
+        {
+          "word": "als",
+          "start": 184.3,
+          "end": 184.56
+        },
+        {
+          "word": "lebenslange",
+          "start": 184.56,
+          "end": 185.04
+        },
+        {
+          "word": "Rente",
+          "start": 185.04,
+          "end": 185.38
+        }
+      ]
+    },
+    {
+      "text": "oder als Auszahlplan bis mindestens fünfundachtzig.",
+      "start": 185.38,
+      "end": 189.1,
+      "words": [
+        {
+          "word": "oder",
+          "start": 185.38,
+          "end": 185.94
+        },
+        {
+          "word": "als",
+          "start": 185.94,
+          "end": 186.18
+        },
+        {
+          "word": "Auszahlplan",
+          "start": 186.18,
+          "end": 186.86
+        },
+        {
+          "word": "bis",
+          "start": 186.86,
+          "end": 187.06
+        },
+        {
+          "word": "mindestens",
+          "start": 187.06,
+          "end": 187.48
+        },
+        {
+          "word": "fünfundachtzig.",
+          "start": 187.48,
+          "end": 189.1
+        }
+      ]
+    },
+    {
+      "text": "Brauchst du das Geld vorher,",
+      "start": 189.1,
+      "end": 190.46,
+      "words": [
+        {
+          "word": "Brauchst",
+          "start": 189.1,
+          "end": 189.54
+        },
+        {
+          "word": "du",
+          "start": 189.54,
+          "end": 189.62
+        },
+        {
+          "word": "das",
+          "start": 189.62,
+          "end": 189.78
+        },
+        {
+          "word": "Geld",
+          "start": 189.78,
+          "end": 189.92
+        },
+        {
+          "word": "vorher,",
+          "start": 189.92,
+          "end": 190.46
+        }
+      ]
+    },
+    {
+      "text": "zum Beispiel für ein Auto, wird es teuer.",
+      "start": 190.46,
+      "end": 192.82,
+      "words": [
+        {
+          "word": "zum",
+          "start": 190.46,
+          "end": 190.618
+        },
+        {
+          "word": "Beispiel",
+          "start": 190.618,
+          "end": 191.04
+        },
+        {
+          "word": "für",
+          "start": 191.04,
+          "end": 191.14
+        },
+        {
+          "word": "ein",
+          "start": 191.14,
+          "end": 191.24
+        },
+        {
+          "word": "Auto,",
+          "start": 191.24,
+          "end": 191.66
+        },
+        {
+          "word": "wird",
+          "start": 191.82,
+          "end": 191.92
+        },
+        {
+          "word": "es",
+          "start": 191.92,
+          "end": 192.12
+        },
+        {
+          "word": "teuer.",
+          "start": 192.12,
+          "end": 192.82
+        }
+      ]
+    },
+    {
+      "text": "Dann musst du Zulagen und Steuervorteile zurückzahlen.",
+      "start": 192.96,
+      "end": 195.56,
+      "words": [
+        {
+          "word": "Dann",
+          "start": 192.96,
+          "end": 193.16
+        },
+        {
+          "word": "musst",
+          "start": 193.16,
+          "end": 193.34
+        },
+        {
+          "word": "du",
+          "start": 193.34,
+          "end": 193.52
+        },
+        {
+          "word": "Zulagen",
+          "start": 193.52,
+          "end": 193.94
+        },
+        {
+          "word": "und",
+          "start": 193.94,
+          "end": 194.18
+        },
+        {
+          "word": "Steuervorteile",
+          "start": 194.18,
+          "end": 194.86
+        },
+        {
+          "word": "zurückzahlen.",
+          "start": 194.86,
+          "end": 195.56
+        }
+      ]
+    },
+    {
+      "text": "Eine Ausnahme gibt es für die eigene Wohnung.",
+      "start": 196.34,
+      "end": 198.1,
+      "words": [
+        {
+          "word": "Eine",
+          "start": 196.34,
+          "end": 196.5
+        },
+        {
+          "word": "Ausnahme",
+          "start": 196.5,
+          "end": 196.9
+        },
+        {
+          "word": "gibt",
+          "start": 196.9,
+          "end": 197.06
+        },
+        {
+          "word": "es",
+          "start": 197.06,
+          "end": 197.18
+        },
+        {
+          "word": "für",
+          "start": 197.18,
+          "end": 197.3
+        },
+        {
+          "word": "die",
+          "start": 197.3,
+          "end": 197.46
+        },
+        {
+          "word": "eigene",
+          "start": 197.46,
+          "end": 197.68
+        },
+        {
+          "word": "Wohnung.",
+          "start": 197.68,
+          "end": 198.1
+        }
+      ]
+    },
+    {
+      "text": "Dafür darfst du unter bestimmten Bedingungen Geld nutzen.",
+      "start": 198.32,
+      "end": 200.48,
+      "words": [
+        {
+          "word": "Dafür",
+          "start": 198.32,
+          "end": 198.52
+        },
+        {
+          "word": "darfst",
+          "start": 198.52,
+          "end": 198.82
+        },
+        {
+          "word": "du",
+          "start": 198.82,
+          "end": 198.9
+        },
+        {
+          "word": "unter",
+          "start": 198.9,
+          "end": 199.08
+        },
+        {
+          "word": "bestimmten",
+          "start": 199.08,
+          "end": 199.46
+        },
+        {
+          "word": "Bedingungen",
+          "start": 199.46,
+          "end": 199.92
+        },
+        {
+          "word": "Geld",
+          "start": 199.92,
+          "end": 200.12
+        },
+        {
+          "word": "nutzen.",
+          "start": 200.12,
+          "end": 200.48
+        }
+      ]
+    },
+    {
+      "text": "Der dritte Haken: die Steuer.",
+      "start": 201.7,
+      "end": 203.12,
+      "words": [
+        {
+          "word": "Der",
+          "start": 201.7,
+          "end": 201.84
+        },
+        {
+          "word": "dritte",
+          "start": 201.84,
+          "end": 202.08
+        },
+        {
+          "word": "Haken:",
+          "start": 202.08,
+          "end": 202.42
+        },
+        {
+          "word": "die",
+          "start": 202.64,
+          "end": 202.86
+        },
+        {
+          "word": "Steuer.",
+          "start": 202.86,
+          "end": 203.12
+        }
+      ]
+    },
+    {
+      "text": "Während du sparst, zahlst du keine Steuern auf die Gewinne.",
+      "start": 203.96,
+      "end": 206.86,
+      "words": [
+        {
+          "word": "Während",
+          "start": 203.96,
+          "end": 204.14
+        },
+        {
+          "word": "du",
+          "start": 204.14,
+          "end": 204.38
+        },
+        {
+          "word": "sparst,",
+          "start": 204.38,
+          "end": 204.92
+        },
+        {
+          "word": "zahlst",
+          "start": 205.12,
+          "end": 205.3
+        },
+        {
+          "word": "du",
+          "start": 205.3,
+          "end": 205.54
+        },
+        {
+          "word": "keine",
+          "start": 205.54,
+          "end": 205.84
+        },
+        {
+          "word": "Steuern",
+          "start": 205.84,
+          "end": 206.18
+        },
+        {
+          "word": "auf",
+          "start": 206.18,
+          "end": 206.36
+        },
+        {
+          "word": "die",
+          "start": 206.36,
+          "end": 206.52
+        },
+        {
+          "word": "Gewinne.",
+          "start": 206.52,
+          "end": 206.86
+        }
+      ]
+    },
+    {
+      "text": "Aber im Alter musst du die",
+      "start": 207.4,
+      "end": 208.54,
+      "words": [
+        {
+          "word": "Aber",
+          "start": 207.4,
+          "end": 207.56
+        },
+        {
+          "word": "im",
+          "start": 207.56,
+          "end": 207.74
+        },
+        {
+          "word": "Alter",
+          "start": 207.74,
+          "end": 208
+        },
+        {
+          "word": "musst",
+          "start": 208,
+          "end": 208.2
+        },
+        {
+          "word": "du",
+          "start": 208.2,
+          "end": 208.34
+        },
+        {
+          "word": "die",
+          "start": 208.34,
+          "end": 208.54
+        }
+      ]
+    },
+    {
+      "text": "Auszahlung mit deinem persönlichen Steuersatz versteuern.",
+      "start": 208.54,
+      "end": 211.1,
+      "words": [
+        {
+          "word": "Auszahlung",
+          "start": 208.54,
+          "end": 209.02
+        },
+        {
+          "word": "mit",
+          "start": 209.02,
+          "end": 209.2
+        },
+        {
+          "word": "deinem",
+          "start": 209.2,
+          "end": 209.5
+        },
+        {
+          "word": "persönlichen",
+          "start": 209.5,
+          "end": 210.08
+        },
+        {
+          "word": "Steuersatz",
+          "start": 210.08,
+          "end": 210.52
+        },
+        {
+          "word": "versteuern.",
+          "start": 210.52,
+          "end": 211.1
+        }
+      ]
+    },
+    {
+      "text": "Als Rentner ist der Steuersatz oft niedriger als im Berufsleben.",
+      "start": 211.7,
+      "end": 214.34,
+      "words": [
+        {
+          "word": "Als",
+          "start": 211.7,
+          "end": 211.96
+        },
+        {
+          "word": "Rentner",
+          "start": 211.96,
+          "end": 212.24
+        },
+        {
+          "word": "ist",
+          "start": 212.24,
+          "end": 212.38
+        },
+        {
+          "word": "der",
+          "start": 212.38,
+          "end": 212.54
+        },
+        {
+          "word": "Steuersatz",
+          "start": 212.54,
+          "end": 212.9
+        },
+        {
+          "word": "oft",
+          "start": 212.9,
+          "end": 213.12
+        },
+        {
+          "word": "niedriger",
+          "start": 213.12,
+          "end": 213.58
+        },
+        {
+          "word": "als",
+          "start": 213.58,
+          "end": 213.7
+        },
+        {
+          "word": "im",
+          "start": 213.7,
+          "end": 213.88
+        },
+        {
+          "word": "Berufsleben.",
+          "start": 213.88,
+          "end": 214.34
+        }
+      ]
+    },
+    {
+      "text": "Dann geht die Rechnung trotzdem auf.",
+      "start": 214.5,
+      "end": 215.94,
+      "words": [
+        {
+          "word": "Dann",
+          "start": 214.5,
+          "end": 214.7
+        },
+        {
+          "word": "geht",
+          "start": 214.7,
+          "end": 214.86
+        },
+        {
+          "word": "die",
+          "start": 214.86,
+          "end": 215
+        },
+        {
+          "word": "Rechnung",
+          "start": 215,
+          "end": 215.28
+        },
+        {
+          "word": "trotzdem",
+          "start": 215.28,
+          "end": 215.64
+        },
+        {
+          "word": "auf.",
+          "start": 215.64,
+          "end": 215.94
+        }
+      ]
+    },
+    {
+      "text": "Garantiert ist das aber nicht.",
+      "start": 216.52,
+      "end": 217.92,
+      "words": [
+        {
+          "word": "Garantiert",
+          "start": 216.52,
+          "end": 217.04
+        },
+        {
+          "word": "ist",
+          "start": 217.04,
+          "end": 217.26
+        },
+        {
+          "word": "das",
+          "start": 217.26,
+          "end": 217.42
+        },
+        {
+          "word": "aber",
+          "start": 217.42,
+          "end": 217.62
+        },
+        {
+          "word": "nicht.",
+          "start": 217.62,
+          "end": 217.92
+        }
+      ]
+    },
+    {
+      "text": "Für wen lohnt sich das Ganze also?",
+      "start": 218.36,
+      "end": 220.24,
+      "words": [
+        {
+          "word": "Für",
+          "start": 218.36,
+          "end": 218.56
+        },
+        {
+          "word": "wen",
+          "start": 218.56,
+          "end": 218.8
+        },
+        {
+          "word": "lohnt",
+          "start": 218.8,
+          "end": 219.14
+        },
+        {
+          "word": "sich",
+          "start": 219.14,
+          "end": 219.32
+        },
+        {
+          "word": "das",
+          "start": 219.32,
+          "end": 219.48
+        },
+        {
+          "word": "Ganze",
+          "start": 219.48,
+          "end": 219.74
+        },
+        {
+          "word": "also?",
+          "start": 219.74,
+          "end": 220.24
+        }
+      ]
+    },
+    {
+      "text": "Erstens für alle, die sowieso fürs Alter sparen",
+      "start": 220.74,
+      "end": 223.36,
+      "words": [
+        {
+          "word": "Erstens",
+          "start": 220.74,
+          "end": 221.26
+        },
+        {
+          "word": "für",
+          "start": 221.26,
+          "end": 221.56
+        },
+        {
+          "word": "alle,",
+          "start": 221.56,
+          "end": 221.84
+        },
+        {
+          "word": "die",
+          "start": 221.88,
+          "end": 222.08
+        },
+        {
+          "word": "sowieso",
+          "start": 222.08,
+          "end": 222.56
+        },
+        {
+          "word": "fürs",
+          "start": 222.56,
+          "end": 222.76
+        },
+        {
+          "word": "Alter",
+          "start": 222.76,
+          "end": 223.12
+        },
+        {
+          "word": "sparen",
+          "start": 223.12,
+          "end": 223.36
+        }
+      ]
+    },
+    {
+      "text": "und das Geld bis zur Rente nicht brauchen.",
+      "start": 223.36,
+      "end": 225.14,
+      "words": [
+        {
+          "word": "und",
+          "start": 223.36,
+          "end": 223.58
+        },
+        {
+          "word": "das",
+          "start": 223.58,
+          "end": 223.76
+        },
+        {
+          "word": "Geld",
+          "start": 223.76,
+          "end": 223.9
+        },
+        {
+          "word": "bis",
+          "start": 223.9,
+          "end": 224.08
+        },
+        {
+          "word": "zur",
+          "start": 224.08,
+          "end": 224.26
+        },
+        {
+          "word": "Rente",
+          "start": 224.26,
+          "end": 224.5
+        },
+        {
+          "word": "nicht",
+          "start": 224.5,
+          "end": 224.78
+        },
+        {
+          "word": "brauchen.",
+          "start": 224.78,
+          "end": 225.14
+        }
+      ]
+    },
+    {
+      "text": "Zweitens für kleine Sparer und für Familien.",
+      "start": 226.12,
+      "end": 228.32,
+      "words": [
+        {
+          "word": "Zweitens",
+          "start": 226.12,
+          "end": 226.58
+        },
+        {
+          "word": "für",
+          "start": 226.58,
+          "end": 226.86
+        },
+        {
+          "word": "kleine",
+          "start": 226.86,
+          "end": 227.22
+        },
+        {
+          "word": "Sparer",
+          "start": 227.22,
+          "end": 227.58
+        },
+        {
+          "word": "und",
+          "start": 227.58,
+          "end": 227.76
+        },
+        {
+          "word": "für",
+          "start": 227.76,
+          "end": 228
+        },
+        {
+          "word": "Familien.",
+          "start": 228,
+          "end": 228.32
+        }
+      ]
+    },
+    {
+      "text": "Bei ihnen ist die Förderung prozentual am höchsten.",
+      "start": 228.68,
+      "end": 231.02,
+      "words": [
+        {
+          "word": "Bei",
+          "start": 228.68,
+          "end": 228.82
+        },
+        {
+          "word": "ihnen",
+          "start": 228.82,
+          "end": 229.04
+        },
+        {
+          "word": "ist",
+          "start": 229.04,
+          "end": 229.2
+        },
+        {
+          "word": "die",
+          "start": 229.2,
+          "end": 229.34
+        },
+        {
+          "word": "Förderung",
+          "start": 229.34,
+          "end": 229.72
+        },
+        {
+          "word": "prozentual",
+          "start": 229.72,
+          "end": 230.28
+        },
+        {
+          "word": "am",
+          "start": 230.28,
+          "end": 230.42
+        },
+        {
+          "word": "höchsten.",
+          "start": 230.42,
+          "end": 231.02
+        }
+      ]
+    },
+    {
+      "text": "Drittens für junge Leute.",
+      "start": 231.3,
+      "end": 232.46,
+      "words": [
+        {
+          "word": "Drittens",
+          "start": 231.3,
+          "end": 231.64
+        },
+        {
+          "word": "für",
+          "start": 231.64,
+          "end": 231.84
+        },
+        {
+          "word": "junge",
+          "start": 231.84,
+          "end": 232.06
+        },
+        {
+          "word": "Leute.",
+          "start": 232.06,
+          "end": 232.46
+        }
+      ]
+    },
+    {
+      "text": "Wegen des Bonus und weil ihr Geld am längsten wachsen kann.",
+      "start": 232.86,
+      "end": 235.66,
+      "words": [
+        {
+          "word": "Wegen",
+          "start": 232.86,
+          "end": 233.04
+        },
+        {
+          "word": "des",
+          "start": 233.04,
+          "end": 233.26
+        },
+        {
+          "word": "Bonus",
+          "start": 233.26,
+          "end": 233.58
+        },
+        {
+          "word": "und",
+          "start": 233.58,
+          "end": 233.92
+        },
+        {
+          "word": "weil",
+          "start": 233.92,
+          "end": 234.12
+        },
+        {
+          "word": "ihr",
+          "start": 234.12,
+          "end": 234.26
+        },
+        {
+          "word": "Geld",
+          "start": 234.26,
+          "end": 234.46
+        },
+        {
+          "word": "am",
+          "start": 234.46,
+          "end": 234.74
+        },
+        {
+          "word": "längsten",
+          "start": 234.74,
+          "end": 235.04
+        },
+        {
+          "word": "wachsen",
+          "start": 235.04,
+          "end": 235.36
+        },
+        {
+          "word": "kann.",
+          "start": 235.36,
+          "end": 235.66
+        }
+      ]
+    },
+    {
+      "text": "Weniger passend ist es für Geld, das du flexibel brauchst.",
+      "start": 236.74,
+      "end": 239.9,
+      "words": [
+        {
+          "word": "Weniger",
+          "start": 236.74,
+          "end": 237.26
+        },
+        {
+          "word": "passend",
+          "start": 237.26,
+          "end": 237.54
+        },
+        {
+          "word": "ist",
+          "start": 237.54,
+          "end": 237.72
+        },
+        {
+          "word": "es",
+          "start": 237.72,
+          "end": 237.84
+        },
+        {
+          "word": "für",
+          "start": 237.84,
+          "end": 237.98
+        },
+        {
+          "word": "Geld,",
+          "start": 237.98,
+          "end": 238.18
+        },
+        {
+          "word": "das",
+          "start": 238.24,
+          "end": 238.36
+        },
+        {
+          "word": "du",
+          "start": 238.36,
+          "end": 238.56
+        },
+        {
+          "word": "flexibel",
+          "start": 238.56,
+          "end": 239.1
+        },
+        {
+          "word": "brauchst.",
+          "start": 239.1,
+          "end": 239.9
+        }
+      ]
+    },
+    {
+      "text": "Dein Notgroschen und dein Sparziel für",
+      "start": 240.1,
+      "end": 241.72,
+      "words": [
+        {
+          "word": "Dein",
+          "start": 240.1,
+          "end": 240.28
+        },
+        {
+          "word": "Notgroschen",
+          "start": 240.28,
+          "end": 240.8
+        },
+        {
+          "word": "und",
+          "start": 240.8,
+          "end": 241.02
+        },
+        {
+          "word": "dein",
+          "start": 241.02,
+          "end": 241.14
+        },
+        {
+          "word": "Sparziel",
+          "start": 241.14,
+          "end": 241.54
+        },
+        {
+          "word": "für",
+          "start": 241.54,
+          "end": 241.72
+        }
+      ]
+    },
+    {
+      "text": "die nächsten Jahre gehören nicht hinein.",
+      "start": 241.72,
+      "end": 243.44,
+      "words": [
+        {
+          "word": "die",
+          "start": 241.72,
+          "end": 241.86
+        },
+        {
+          "word": "nächsten",
+          "start": 241.86,
+          "end": 242.08
+        },
+        {
+          "word": "Jahre",
+          "start": 242.08,
+          "end": 242.36
+        },
+        {
+          "word": "gehören",
+          "start": 242.36,
+          "end": 242.62
+        },
+        {
+          "word": "nicht",
+          "start": 242.62,
+          "end": 242.92
+        },
+        {
+          "word": "hinein.",
+          "start": 242.92,
+          "end": 243.44
+        }
+      ]
+    },
+    {
+      "text": "Und wer schon einen Riester-Vertrag hat?",
+      "start": 243.44,
+      "end": 245.78,
+      "words": [
+        {
+          "word": "Und",
+          "start": 243.44,
+          "end": 244.12
+        },
+        {
+          "word": "wer",
+          "start": 244.12,
+          "end": 244.34
+        },
+        {
+          "word": "schon",
+          "start": 244.34,
+          "end": 244.54
+        },
+        {
+          "word": "einen",
+          "start": 244.54,
+          "end": 244.76
+        },
+        {
+          "word": "Riester-Vertrag",
+          "start": 244.76,
+          "end": 245.04
+        },
+        {
+          "word": "hat?",
+          "start": 245.42,
+          "end": 245.78
+        }
+      ]
+    },
+    {
+      "text": "Neue Riester-Verträge gibt es ab zweitausendsiebenundzwanzig nicht mehr.",
+      "start": 246.54,
+      "end": 249.66,
+      "words": [
+        {
+          "word": "Neue",
+          "start": 246.54,
+          "end": 246.86
+        },
+        {
+          "word": "Riester-Verträge",
+          "start": 246.86,
+          "end": 247.18
+        },
+        {
+          "word": "gibt",
+          "start": 247.58,
+          "end": 247.78
+        },
+        {
+          "word": "es",
+          "start": 247.78,
+          "end": 247.9
+        },
+        {
+          "word": "ab",
+          "start": 247.9,
+          "end": 248.12
+        },
+        {
+          "word": "zweitausendsiebenundzwanzig",
+          "start": 248.12,
+          "end": 249.04
+        },
+        {
+          "word": "nicht",
+          "start": 249.04,
+          "end": 249.36
+        },
+        {
+          "word": "mehr.",
+          "start": 249.36,
+          "end": 249.66
+        }
+      ]
+    },
+    {
+      "text": "Dein alter Vertrag bleibt aber bestehen.",
+      "start": 249.94,
+      "end": 251.86,
+      "words": [
+        {
+          "word": "Dein",
+          "start": 249.94,
+          "end": 250.2
+        },
+        {
+          "word": "alter",
+          "start": 250.2,
+          "end": 250.82
+        },
+        {
+          "word": "Vertrag",
+          "start": 250.82,
+          "end": 250.82
+        },
+        {
+          "word": "bleibt",
+          "start": 250.82,
+          "end": 251
+        },
+        {
+          "word": "aber",
+          "start": 251,
+          "end": 251.24
+        },
+        {
+          "word": "bestehen.",
+          "start": 251.24,
+          "end": 251.86
+        }
+      ]
+    },
+    {
+      "text": "Du kannst das Guthaben auch ins neue Depot übertragen.",
+      "start": 252.18,
+      "end": 254.62,
+      "words": [
+        {
+          "word": "Du",
+          "start": 252.18,
+          "end": 252.28
+        },
+        {
+          "word": "kannst",
+          "start": 252.28,
+          "end": 252.44
+        },
+        {
+          "word": "das",
+          "start": 252.44,
+          "end": 252.6
+        },
+        {
+          "word": "Guthaben",
+          "start": 252.6,
+          "end": 253.02
+        },
+        {
+          "word": "auch",
+          "start": 253.02,
+          "end": 253.22
+        },
+        {
+          "word": "ins",
+          "start": 253.22,
+          "end": 253.42
+        },
+        {
+          "word": "neue",
+          "start": 253.42,
+          "end": 253.66
+        },
+        {
+          "word": "Depot",
+          "start": 253.66,
+          "end": 253.9
+        },
+        {
+          "word": "übertragen.",
+          "start": 253.9,
+          "end": 254.62
+        }
+      ]
+    },
+    {
+      "text": "Prüf vorher, welche Garantien und Kosten dein alter Vertrag hat.",
+      "start": 255.06,
+      "end": 257.9,
+      "words": [
+        {
+          "word": "Prüf",
+          "start": 255.06,
+          "end": 255.26
+        },
+        {
+          "word": "vorher,",
+          "start": 255.26,
+          "end": 255.64
+        },
+        {
+          "word": "welche",
+          "start": 255.76,
+          "end": 255.98
+        },
+        {
+          "word": "Garantien",
+          "start": 255.98,
+          "end": 256.46
+        },
+        {
+          "word": "und",
+          "start": 256.46,
+          "end": 256.62
+        },
+        {
+          "word": "Kosten",
+          "start": 256.62,
+          "end": 256.92
+        },
+        {
+          "word": "dein",
+          "start": 256.92,
+          "end": 257.14
+        },
+        {
+          "word": "alter",
+          "start": 257.14,
+          "end": 257.32
+        },
+        {
+          "word": "Vertrag",
+          "start": 257.32,
+          "end": 257.7
+        },
+        {
+          "word": "hat.",
+          "start": 257.7,
+          "end": 257.9
+        }
+      ]
+    },
+    {
+      "text": "Und Jonas?",
+      "start": 258.4,
+      "end": 258.98,
+      "words": [
+        {
+          "word": "Und",
+          "start": 258.4,
+          "end": 258.56
+        },
+        {
+          "word": "Jonas?",
+          "start": 258.56,
+          "end": 258.98
+        }
+      ]
+    },
+    {
+      "text": "Er teilt auf.",
+      "start": 259.76,
+      "end": 260.48,
+      "words": [
+        {
+          "word": "Er",
+          "start": 259.76,
+          "end": 259.96
+        },
+        {
+          "word": "teilt",
+          "start": 259.96,
+          "end": 260.14
+        },
+        {
+          "word": "auf.",
+          "start": 260.14,
+          "end": 260.48
+        }
+      ]
+    },
+    {
+      "text": "Ab Januar gehen hundertfünfzig Euro im Monat ins Altersvorsorgedepot.",
+      "start": 261.06,
+      "end": 264.46,
+      "words": [
+        {
+          "word": "Ab",
+          "start": 261.06,
+          "end": 261.26
+        },
+        {
+          "word": "Januar",
+          "start": 261.26,
+          "end": 261.64
+        },
+        {
+          "word": "gehen",
+          "start": 261.64,
+          "end": 261.82
+        },
+        {
+          "word": "hundertfünfzig",
+          "start": 261.82,
+          "end": 262.48
+        },
+        {
+          "word": "Euro",
+          "start": 262.48,
+          "end": 262.82
+        },
+        {
+          "word": "im",
+          "start": 262.82,
+          "end": 262.94
+        },
+        {
+          "word": "Monat",
+          "start": 262.94,
+          "end": 263.2
+        },
+        {
+          "word": "ins",
+          "start": 263.2,
+          "end": 263.4
+        },
+        {
+          "word": "Altersvorsorgedepot.",
+          "start": 263.4,
+          "end": 264.46
+        }
+      ]
+    },
+    {
+      "text": "Bei einem günstigen Anbieter.",
+      "start": 264.46,
+      "end": 265.66,
+      "words": [
+        {
+          "word": "Bei",
+          "start": 264.46,
+          "end": 264.72
+        },
+        {
+          "word": "einem",
+          "start": 264.72,
+          "end": 264.88
+        },
+        {
+          "word": "günstigen",
+          "start": 264.88,
+          "end": 265.4
+        },
+        {
+          "word": "Anbieter.",
+          "start": 265.4,
+          "end": 265.66
+        }
+      ]
+    },
+    {
+      "text": "Für flexible Ziele spart er weiter in seinem normalen Depot.",
+      "start": 266.5,
+      "end": 269.04,
+      "words": [
+        {
+          "word": "Für",
+          "start": 266.5,
+          "end": 266.72
+        },
+        {
+          "word": "flexible",
+          "start": 266.72,
+          "end": 267.16
+        },
+        {
+          "word": "Ziele",
+          "start": 267.16,
+          "end": 267.5
+        },
+        {
+          "word": "spart",
+          "start": 267.5,
+          "end": 267.72
+        },
+        {
+          "word": "er",
+          "start": 267.72,
+          "end": 267.86
+        },
+        {
+          "word": "weiter",
+          "start": 267.86,
+          "end": 268.1
+        },
+        {
+          "word": "in",
+          "start": 268.1,
+          "end": 268.26
+        },
+        {
+          "word": "seinem",
+          "start": 268.26,
+          "end": 268.38
+        },
+        {
+          "word": "normalen",
+          "start": 268.38,
+          "end": 268.84
+        },
+        {
+          "word": "Depot.",
+          "start": 268.84,
+          "end": 269.04
+        }
+      ]
+    },
+    {
+      "text": "Das ist keine Anlageberatung.",
+      "start": 269.74,
+      "end": 271.3,
+      "words": [
+        {
+          "word": "Das",
+          "start": 269.74,
+          "end": 269.92
+        },
+        {
+          "word": "ist",
+          "start": 269.92,
+          "end": 270.12
+        },
+        {
+          "word": "keine",
+          "start": 270.12,
+          "end": 270.4
+        },
+        {
+          "word": "Anlageberatung.",
+          "start": 270.4,
+          "end": 271.3
+        }
+      ]
+    },
+    {
+      "text": "Schau, was zu deinem Leben passt.",
+      "start": 271.58,
+      "end": 272.94,
+      "words": [
+        {
+          "word": "Schau,",
+          "start": 271.58,
+          "end": 271.8
+        },
+        {
+          "word": "was",
+          "start": 271.82,
+          "end": 271.98
+        },
+        {
+          "word": "zu",
+          "start": 271.98,
+          "end": 272.2
+        },
+        {
+          "word": "deinem",
+          "start": 272.2,
+          "end": 272.44
+        },
+        {
+          "word": "Leben",
+          "start": 272.44,
+          "end": 272.62
+        },
+        {
+          "word": "passt.",
+          "start": 272.62,
+          "end": 272.94
+        }
+      ]
+    },
+    {
+      "text": "Geld vom Staat gibt es also wirklich.",
+      "start": 273.6,
+      "end": 275.42,
+      "words": [
+        {
+          "word": "Geld",
+          "start": 273.6,
+          "end": 274.02
+        },
+        {
+          "word": "vom",
+          "start": 274.02,
+          "end": 274.18
+        },
+        {
+          "word": "Staat",
+          "start": 274.18,
+          "end": 274.44
+        },
+        {
+          "word": "gibt",
+          "start": 274.44,
+          "end": 274.6
+        },
+        {
+          "word": "es",
+          "start": 274.6,
+          "end": 274.78
+        },
+        {
+          "word": "also",
+          "start": 274.78,
+          "end": 274.98
+        },
+        {
+          "word": "wirklich.",
+          "start": 274.98,
+          "end": 275.42
+        }
+      ]
+    },
+    {
+      "text": "Aber nur, wenn die Kosten niedrig sind und du",
+      "start": 275.7,
+      "end": 277.66,
+      "words": [
+        {
+          "word": "Aber",
+          "start": 275.7,
+          "end": 275.84
+        },
+        {
+          "word": "nur,",
+          "start": 275.84,
+          "end": 275.98
+        },
+        {
+          "word": "wenn",
+          "start": 276.02,
+          "end": 276.14
+        },
+        {
+          "word": "die",
+          "start": 276.14,
+          "end": 276.34
+        },
+        {
+          "word": "Kosten",
+          "start": 276.34,
+          "end": 276.56
+        },
+        {
+          "word": "niedrig",
+          "start": 276.56,
+          "end": 277.04
+        },
+        {
+          "word": "sind",
+          "start": 277.04,
+          "end": 277.28
+        },
+        {
+          "word": "und",
+          "start": 277.28,
+          "end": 277.48
+        },
+        {
+          "word": "du",
+          "start": 277.48,
+          "end": 277.66
+        }
+      ]
+    },
+    {
+      "text": "das Geld bis zur Rente liegen lassen kannst.",
+      "start": 277.66,
+      "end": 279.28,
+      "words": [
+        {
+          "word": "das",
+          "start": 277.66,
+          "end": 277.8
+        },
+        {
+          "word": "Geld",
+          "start": 277.8,
+          "end": 277.96
+        },
+        {
+          "word": "bis",
+          "start": 277.96,
+          "end": 278.12
+        },
+        {
+          "word": "zur",
+          "start": 278.12,
+          "end": 278.28
+        },
+        {
+          "word": "Rente",
+          "start": 278.28,
+          "end": 278.5
+        },
+        {
+          "word": "liegen",
+          "start": 278.5,
+          "end": 278.74
+        },
+        {
+          "word": "lassen",
+          "start": 278.74,
+          "end": 279
+        },
+        {
+          "word": "kannst.",
+          "start": 279,
+          "end": 279.28
+        }
+      ]
+    },
+    {
+      "text": "Wenn dir das Video geholfen hat, abonnier FinanzNeo.",
+      "start": 279.96,
+      "end": 282.3,
+      "words": [
+        {
+          "word": "Wenn",
+          "start": 279.96,
+          "end": 280.08
+        },
+        {
+          "word": "dir",
+          "start": 280.08,
+          "end": 280.22
+        },
+        {
+          "word": "das",
+          "start": 280.22,
+          "end": 280.38
+        },
+        {
+          "word": "Video",
+          "start": 280.38,
+          "end": 280.6
+        },
+        {
+          "word": "geholfen",
+          "start": 280.6,
+          "end": 281.04
+        },
+        {
+          "word": "hat,",
+          "start": 281.04,
+          "end": 281.26
+        },
+        {
+          "word": "abonnier",
+          "start": 281.54,
+          "end": 281.7
+        },
+        {
+          "word": "FinanzNeo.",
+          "start": 281.7,
+          "end": 282.3
+        }
+      ]
+    },
+    {
+      "text": "Dann verpasst du nichts, wenn die ersten Anbieter ihre Preise zeigen.",
+      "start": 282.62,
+      "end": 285.36,
+      "words": [
+        {
+          "word": "Dann",
+          "start": 282.62,
+          "end": 282.8
+        },
+        {
+          "word": "verpasst",
+          "start": 282.8,
+          "end": 283.12
+        },
+        {
+          "word": "du",
+          "start": 283.12,
+          "end": 283.26
+        },
+        {
+          "word": "nichts,",
+          "start": 283.26,
+          "end": 283.44
+        },
+        {
+          "word": "wenn",
+          "start": 283.58,
+          "end": 283.62
+        },
+        {
+          "word": "die",
+          "start": 283.62,
+          "end": 283.88
+        },
+        {
+          "word": "ersten",
+          "start": 283.88,
+          "end": 284.14
+        },
+        {
+          "word": "Anbieter",
+          "start": 284.14,
+          "end": 284.56
+        },
+        {
+          "word": "ihre",
+          "start": 284.56,
+          "end": 284.74
+        },
+        {
+          "word": "Preise",
+          "start": 284.74,
+          "end": 285.14
+        },
+        {
+          "word": "zeigen.",
+          "start": 285.14,
+          "end": 285.36
+        }
+      ]
+    }
+  ]
+}

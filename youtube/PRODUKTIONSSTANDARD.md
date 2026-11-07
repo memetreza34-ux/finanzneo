@@ -8,7 +8,7 @@ Sichtbar ist nur, was der Nutzer anfasst. Alles andere liegt unter `_intern/` (R
 
 ```text
 youtube/<Projekt>/
-├── 1-script/script.txt              Sprechtext zum Einsprechen
+├── 1-script/script.txt              Sprechtext (Quelle für die Kanalstimme)
 ├── 2-bildprompts/bildprompts.txt    alle Flow-Prompts inkl. Thumbnail, in 5er-Batches
 ├── 3-bilder-hier-rein/              fertige Flow-Bilder, exakt benannt
 ├── 4-audio-hier-rein/               genau eine Sprachaufnahme
@@ -53,6 +53,8 @@ Erlaubte Visualtypen:
 - `animation`
 - `hybrid`
 - `data`
+- `beleg` — echter Quellen-Screenshot mit Textmarker ([Beleg-Szenen](../docs/YOUTUBE-BELEG-SZENEN.md))
+- `folie` — weiße Erklär-Folie mit 3D-Icon aus fester Vorlage ([Bildmix und Cover](../docs/YOUTUBE-BILDMIX-UND-COVER.md))
 
 ## Visual Selection V1
 
@@ -117,6 +119,8 @@ Jedes Motion-Visual braucht:
 - `motionSignature` mit `camera`, `layout`, `transformation`
 - mindestens **eine** sinnvolle erklärende Motion
 - mindestens zwei sichtbare Visual Beats: Start + Result
+
+**Hintergrund = gemessener Bildgrund (Arman, 24.10.2026):** Flow trifft das Creme der Stilvorlage nicht exakt (Video 2 ≈ #F9E9CB, Video 3 ≈ #FCF6E5). `youtube:zusammenbau` misst deshalb bei Projekten mit Kanal-Stilvorlage den Rand aller Flow-Bilder (`scripts/lib/youtube-bildgrund.mjs`) und schreibt ihn als `grund` in `timeline.json`. `YouTubeVideo` gibt ihn über `DatenGrund` an `DatenBuehne` und die Endkarte weiter. Animationen verwenden für ihre Fläche deshalb immer `DatenBuehne` und nie fest `DATEN.grund`/Hex; der versiegelte Code bleibt unverändert. Ältere Projekte ohne `grund` behalten `DATEN.grund`.
 
 **Komposition mittig:** Weil keine Untertitel eingebrannt werden, steht der Inhalt vertikal mittig im 1920 × 1080-Bild (`DATEN.mitteY`), Quelle oben links. Nicht mehr nach oben schieben.
 
@@ -195,6 +199,7 @@ Bilder werden in Batches von bis zu **5 gleichzeitig** erzeugt (`finanzneo-flow-
 ## Audio, Timing und Untertitel
 
 - genau ein finales Voiceover in `4-audio-hier-rein/`
+- **Kanalstimme statt Einsprechen (Arman, 01.11.2026):** `npm run youtube:stimme -- youtube/<Projekt>` macht aus `1-script/script.txt` die fertige `voiceover.wav`: lokal, kostenlos, feste Kanalstimme (Nachbau der bisherigen Stimme, `youtube/_kanal/stimme/`), Zahlen deutsch ausgesprochen, Pausen an Zeilen/Absätzen/Kapiteln, −16 LUFS / −1 dBTP, Whisper-Wortzeiten in `_intern/03-audio/whisper.json`. Vor dem Zusammenbau hört Arman einmal komplett rein. Falsch Betontes im Skript oder in `aussprache.json` korrigieren; ein neuer Lauf spricht nur geänderte Zeilen neu. Eigene Aufnahme bleibt erlaubt.
 - echte Wort-Zeitstempel aus genau diesem Audio
 - Schnitte folgen Sprache, Visual Beats, Kapiteln und Payoffs
 - keine pauschal gleich langen Visuals
@@ -228,6 +233,66 @@ Aus der Wettbewerbsanalyse (simplicissimus, Kurzgesagt, Finanzfluss) und der Rü
 | **`bridgeObject` pro Animation** — ein Objekt aus dem Bild davor oder danach, das die Animation sichtbar weiterträgt (gleiche Form, Farbe, Name) | Kein Weltwechsel zwischen Illustration und Grafik; die Animation ist die bewegte Fortsetzung des Bildes | `youtube:validate` + Motion-Director |
 
 Zu lange Standbilder löst man mit einem zusätzlichen Bild oder mit `akzente[]` am Visual (`{cue, text, ton}`): Ein Akzent erscheint beim gesprochenen Wort als kleine Karte auf dem Bild und zählt als neue sichtbare Information.
+
+## Qualitätsregeln V3 — echte Belege (`finanzneo-youtube-quality-v3`, Arman 30.10.2026)
+
+Aus Armans Feedback nach Video 3: „nicht nur KI-Bilder, sondern auch richtige Screenshots“. Gilt für alle neu angelegten Projekte zusätzlich zu V1 und V2. Kanonische Regel: [`docs/YOUTUBE-BELEG-SZENEN.md`](../docs/YOUTUBE-BELEG-SZENEN.md).
+
+| Regel | Warum | Prüfung |
+|---|---|---|
+| Neuer Visualtyp **`beleg`**: echter Quellen-Screenshot mit Textmarker beim gesprochenen Wort | Zahlen, Gesetze und Aussagen Dritter werden bewiesen statt nur illustriert | `youtube:belege` findet den Wortlaut auf der echten Seite, sonst Abbruch |
+| Mindestens **3 Belege** pro Video, einer je volle 90 s Sprechzeit | Glaubwürdigkeit zieht sich durch das ganze Video | `youtube:validate` |
+| Erster Beleg spätestens im **ersten Kapitel nach dem Hook** | Vertrauen früh aufbauen | `youtube:validate` |
+| Presse nur als kurzer Ausschnitt (max. 700 Zeichen), Quelle immer sichtbar | Zitatrecht, Fairness | `youtube:belege` + `youtube:ready` |
+| **Bildwelt:** weiße Folien mit 3D-Icons (**`folie`**) + Belege; Flow-Bilder Ziel 10–15 %, höchstens 40 % der Sprechzeit | Finanzbär-Analyse: Erfolgreiche Finanzvideos sind überwiegend Folien, Zahlen, Belege | `youtube:validate` |
+| Höchstens **6 s** ohne neue Information (vorher 8 s) | schnellere Wechsel halten die Zuschauer | `youtube:validate` |
+| **Cover V1:** Flow zeichnet nur das Motiv rechts ohne Text; `youtube:cover` setzt max. 5 Wörter mit gelbem Marker | Flow erfindet Text; feste Vorlage = Wiedererkennung im Feed | `youtube:validate` + `youtube:cover` |
+
+Details zu Folien und Cover: [`docs/YOUTUBE-BILDMIX-UND-COVER.md`](../docs/YOUTUBE-BILDMIX-UND-COVER.md).
+
+### V3 — was sich animieren lässt, wird animiert (Arman 25.10.2026)
+
+Aus Video 3: nur 3 Animationen (≈ 14 % der Zeit), obwohl Rechnungen und Vergleiche als Standbild liefen (50 % vs. 30 %, 1,5 % → 1 %, Riester-Guthaben übertragen). Gilt zusätzlich zu den Belegen und zum Bildmix:
+
+| Regel | Prüfung |
+|---|---|
+| Ein Bild-Beat, der eine Veränderung beschreibt (Rechnung, Vergleich, „→“, wächst/sinkt/schrumpft, „von X auf Y“, übertragen/fließt), wird Animation. Ausnahme nur mit `statischWeil` am Bild (Begründung) | `youtube:validate` |
+| Animationen zeigen mindestens 15 % der Sprechzeit; Richtwert 20–30 % (≈ 5–7 Animationen pro 5 Minuten) | `youtube:validate` |
+
+Beats deshalb immer konkret mit der Veränderung formulieren („30 €/Monat → +50 %, 150 €/Monat → +30 %“), damit die Prüfung greift. Animiert wird weiterhin nur, wo die Veränderung der Inhalt ist — Bewegung ohne neue Information zählt nicht.
+
+## Zahlen-Rückschau V1 (`finanzneo-youtube-zahlen-v1`, Arman 31.10.2026)
+
+Regeln entstehen ab jetzt aus **echten Zahlen**, nicht nur aus dem Eindruck. Nach dem Upload:
+
+```bash
+npm run youtube:zahlen -- youtube/<Projekt> --veroeffentlicht 2026-11-07
+```
+
+An **Tag 7 und Tag 28** die Werte aus YouTube Studio → Analytics (Zeitraum „seit Veröffentlichung“) eintragen:
+
+```bash
+npm run youtube:zahlen -- youtube/<Projekt> --tag 7 --impressionen 1200 --ctr 3,4 --aufrufe 41 --dauer 2:10 --halten30 58 [--prozent 31] [--abos 2] [--suche 35] [--vorschlag 20]
+```
+
+| Wert | Wo in YouTube Studio |
+|---|---|
+| `--impressionen`, `--ctr` | Reichweite → Impressionen, Klickrate der Impressionen |
+| `--aufrufe`, `--dauer` | Übersicht → Aufrufe, durchschnittliche Wiedergabedauer |
+| `--halten30` | Interaktion → Zuschauerbindung, Prozent bei 0:30 |
+| `--prozent` | durchschnittlich angesehener Prozentsatz (fehlt er, wird er aus `5-export/video.mp4` berechnet) |
+| `--suche`, `--vorschlag` | Reichweite → Traffic-Quellen, Anteil YouTube-Suche / vorgeschlagene Videos |
+
+Die Diagnose nennt **einen Engpass** in Trichter-Reihenfolge — erst die frühere Stufe lösen:
+
+| Stufe | Schwach (Richtwert) | Hebel |
+|---|---|---|
+| Reichweite | unter 300 Impressionen | Thema mit Suchnachfrage, Suchbegriff vorne im Titel, Shorts als Zubringer |
+| Klickrate | unter 2 % | Titel + Cover; Cover-Test mit 2–3 Varianten in YouTube Studio |
+| Hook | unter 50 % nach 30 s | Versprechen aus Titel/Cover in den ersten Sekunden einlösen |
+| Mitte | unter 30 % angesehen | größte Absprungstelle in der Bindungskurve suchen |
+
+Daten liegen in `_intern/07-zahlen/zahlen.json`. `npm run youtube:zahlen` ohne Projekt zeigt alle Videos und was fällig ist; `youtube:create` warnt vor jedem neuen Video, wenn Zahlen offen sind. Der Befehl gibt eine fertige Zeile für `VERBESSERUNGEN.md` aus — die Regel daraus trägt man selbst ein.
 
 ## Vollständiges Publishing-Paket
 

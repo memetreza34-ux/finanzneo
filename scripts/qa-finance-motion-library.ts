@@ -14,13 +14,15 @@ import {
 const ENTRY = 'src/index.ts';
 const COMPOSITION = 'ReelsTestFinanceMotionLibraryV1';
 const npx = process.platform === 'win32' ? 'npx.cmd' : 'npx';
+// Node startet .cmd-Dateien unter Windows nur über die Shell.
+const shell = process.platform === 'win32';
 const outDir = mkdtempSync(join(tmpdir(), 'finanzneo-finance-motion-qa-'));
 const failures: string[] = [];
 
 const hashFile = (path: string) =>
   createHash('sha256').update(readFileSync(path)).digest('hex');
 
-const browser = spawnSync(npx, ['remotion', 'browser', 'ensure'], {encoding: 'utf8'});
+const browser = spawnSync(npx, ['remotion', 'browser', 'ensure'], {encoding: 'utf8', shell});
 if (browser.status !== 0) {
   console.error('Remotion-Browser konnte für Finance-Motion-QA nicht vorbereitet werden.');
   console.error(`${browser.stdout ?? ''}${browser.stderr ?? ''}`.trim());
@@ -48,7 +50,7 @@ try {
           '--scale=0.5',
           '--log=error',
         ],
-        {encoding: 'utf8'},
+        {encoding: 'utf8', shell},
       );
 
       if (result.status !== 0) {

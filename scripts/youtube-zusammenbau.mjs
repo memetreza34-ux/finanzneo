@@ -20,8 +20,12 @@
 import {copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync} from 'node:fs';
 import {basename, relative, resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
-import {ACTIVE_WORD_COLOR, AUDIO_INBOX, IMAGE_INBOX, INTERN_DIR, SCRIPT_FILE, SUBTITLE_MODE, YOUTUBE_ENDCARD_SECONDS, YOUTUBE_IMAGE_WARN_HOLD_SECONDS, YOUTUBE_QUALITY_RULES_IDS, internWurzel} from './lib/youtube-contract.mjs';
+import {ACTIVE_WORD_COLOR, AUDIO_INBOX, IMAGE_INBOX, INTERN_DIR, SCRIPT_FILE, SUBTITLE_MODE, YOUTUBE_ENDCARD_SECONDS, YOUTUBE_PUBLISHING_FILES, YOUTUBE_IMAGE_WARN_HOLD_SECONDS, YOUTUBE_QUALITY_RULES_IDS, YOUTUBE_QUALITY_RULES_V3_ID, internWurzel} from './lib/youtube-contract.mjs';
 import {verbindeAudioTeile} from './youtube-audio-teile.mjs';
+import {folieCues, folieDoodles, folieSticker} from './lib/youtube-folie.mjs';
+import {doodleNachweise, ladeDoodles} from './lib/youtube-doodle.mjs';
+import {importiereSticker, stickerVorhanden, youtubeStickerFlowDatei} from './lib/youtube-sticker.mjs';
+import {messeBildGrund} from './lib/youtube-bildgrund.mjs';
 
 const args = process.argv.slice(2);
 const wert = (name) => {
@@ -196,7 +200,16 @@ for (const v of index.visuals) {
     akzentCursor = b;
     return {ab: Math.max(0, Math.round(skriptWoerter[b].start * fps) - start), text: a.text, ton: a.ton ?? 'neutral'};
   }).filter(Boolean);
-  visuals.push({id: v.id, type: v.type, startFrame: start, beats, akzente, googleFlowFileName: v.googleFlowFileName});
+  // Beleg-Markierungen und Folienzeilen: erscheinen beim gesprochenen Wort.
+  let markenCursor = i;
+  const markenCues = v.type === 'beleg' ? (v.markierungen ?? []).map((m) => m.cue) : v.type === 'folie' ? folieCues(v.folie) : [];
+  const marken = markenCues.map((cue) => {
+    const b = finde(cue, markenCursor);
+    if (b < 0) {fehler.push(`${v.id}: Cue „${cue}“ nicht gefunden.`); return 0;}
+    markenCursor = b;
+    return Math.max(0, Math.round(skriptWoerter[b].start * fps) - start);
+  });
+  visuals.push({id: v.id, type: v.type, startFrame: start, beats, akzente, ...(v.type === 'beleg' ? {marken, belegQuelle: v} : {}), ...(v.type === 'folie' ? {marken, folie: v.folie} : {}), googleFlowFileName: v.googleFlowFileName});
 }
 const sprechEnde = Math.ceil((dauerSek + 0.8) * fps);
 visuals.forEach((v, k) => {
@@ -207,8 +220,8 @@ visuals.forEach((v, k) => {
 const qualitaet = YOUTUBE_QUALITY_RULES_IDS.includes(index.qualityRules);
 if (qualitaet) visuals.push({id: 'endkarte', type: 'endkarte', startFrame: sprechEnde, durationFrames: YOUTUBE_ENDCARD_SECONDS * fps, beats: [], akzente: []});
 const gesamt = qualitaet ? sprechEnde + YOUTUBE_ENDCARD_SECONDS * fps : sprechEnde;
-const langeBilder = visuals.filter((v) => v.type === 'image').map((v) => {
-  const marken = [0, ...v.akzente.map((a) => a.ab), v.durationFrames].sort((a, b) => a - b);
+const langeBilder = visuals.filter((v) => ['image', 'beleg', 'folie'].includes(v.type)).map((v) => {
+  const marken = [0, ...v.akzente.map((a) => a.ab), ...(v.marken ?? []), v.durationFrames].sort((a, b) => a - b);
   return {id: v.id, sek: Math.max(...marken.slice(1).map((m, k) => m - marken[k])) / fps};
 }).filter((x) => x.sek > YOUTUBE_IMAGE_WARN_HOLD_SECONDS);
 
@@ -229,11 +242,72 @@ for (const v of visuals) {
   }
 }
 
+// Metapher-Sticker: neue Flow-Sticker aus der Inbox in die Kanal-Bibliothek public/sticker/ übernehmen
+// (weißer Rand wird zugeschnitten); danach stehen sie jedem späteren Video zur Verfügung.
+for (const v of visuals) {
+  if (v.type !== 'folie') continue;
+  for (const st of folieSticker(v.folie)) {
+    if (stickerVorhanden(repo, st.name)) continue;
+    const quelle = resolve(inbox, youtubeStickerFlowDatei(st.name));
+    if (existsSync(quelle)) {
+      importiereSticker({repo, quelle, name: st.name, motiv: st.motiv, projekt: slug});
+      console.log(`✓ Sticker ${st.name} in die Bibliothek übernommen (public/sticker/).`);
+    } else if (!vorschau) fehler.push(`${v.id}: Sticker fehlt: 3-bilder-hier-rein/${youtubeStickerFlowDatei(st.name)}`);
+  }
+}
+
+// Freehand-Doodles (Standard für Metaphern, kostenlos, ohne KI): fehlende laden, Bildnachweis in die Beschreibung.
+const doodles = visuals.flatMap((v) => (v.type === 'folie' ? folieDoodles(v.folie) : []));
+try {
+  const neu = await ladeDoodles(repo, doodles);
+  if (neu.length) console.log(`✓ ${neu.length} Doodle(s) geladen (public/doodles/).`);
+} catch (error) {
+  fehler.push(`Doodles: ${error.message}`);
+}
+const nachweise = doodleNachweise(doodles);
+const beschreibung = resolve(root, YOUTUBE_PUBLISHING_FILES.description);
+if (nachweise.length && existsSync(beschreibung)) {
+  const text = readFileSync(beschreibung, 'utf8');
+  const fehlend = nachweise.filter((n) => !text.includes(n));
+  if (fehlend.length) writeFileSync(beschreibung, `${text.trimEnd()}\n\n${text.includes('Bildnachweise:') ? '' : 'Bildnachweise:\n'}${fehlend.map((n) => `Icons: ${n}`).join('\n')}\n`);
+}
+
+// Belege: Screenshot nach public/, Fundstellen in den Zeitplan (Screenshot entsteht in Phase 1 mit youtube:belege).
+for (const v of visuals) {
+  if (v.type !== 'beleg') continue;
+  const quelle = v.belegQuelle;
+  delete v.belegQuelle;
+  const datenPfad = resolve(root, quelle.belegDatenFile ?? '');
+  const bildPfad = resolve(root, quelle.belegFile ?? '');
+  if (!existsSync(datenPfad) || !existsSync(bildPfad)) {
+    fehler.push(`${v.id}: Beleg-Screenshot fehlt — npm run youtube:belege -- ${projektArg}`);
+    continue;
+  }
+  const daten = lies(datenPfad);
+  const datei = `${v.id}-beleg.png`;
+  copyFileSync(bildPfad, resolve(publicDir, 'bilder', datei));
+  v.beleg = {
+    bild: `youtube/${slug}/bilder/${datei}`,
+    bildBreite: daten.bildBreite,
+    quelle: daten.quelle,
+    host: new URL(daten.endUrl ?? daten.url).hostname.replace(/^www\./, ''),
+    abgerufenAm: daten.abgerufenAm,
+    teile: daten.teile,
+    markierungen: daten.markierungen.map((m) => ({rects: m.rects})),
+  };
+}
+
 if (fehler.length) {
   console.error('\nZusammenbau abgebrochen:\n');
   fehler.forEach((f) => console.error(`- ${f}`));
   process.exit(1);
 }
+
+// Bildgrund: Animationen und Endkarte übernehmen den gemessenen Hintergrund der Flow-Bilder.
+// Nur für Projekte mit Kanal-Stilvorlage (ab 17.10.2026); ältere Videos behalten DATEN.grund.
+const bildGrund = index.qualityRules !== YOUTUBE_QUALITY_RULES_V3_ID && index.imageWorld?.styleMaster === 'kanal'
+  ? messeBildGrund(visuals.filter((v) => v.type === 'image' && v.bild).map((v) => resolve(inbox, v.googleFlowFileName)))
+  : null;
 
 const captions = timing.sentences.map((s, k, alle) => ({
   start: Math.round(s.start * fps),
@@ -251,7 +325,14 @@ const zeitplan = {
   durationFrames: gesamt,
   audio: `youtube/${slug}/${audioDatei}`,
   untertitel: args.includes('--untertitel'),
-  visuals: visuals.map(({googleFlowFileName, ...rest}) => rest),
+  // Bildwelt seit 30.10.2026: Regel-V3-Videos sind durchgehend weiß, ältere bleiben Creme.
+  flaeche: index.qualityRules === YOUTUBE_QUALITY_RULES_V3_ID ? 'weiss' : 'creme',
+  ...(bildGrund ? {grund: bildGrund.grund} : {}),
+  visuals: visuals.map((v) => {
+    const ohneDatei = {...v};
+    delete ohneDatei.googleFlowFileName;
+    return ohneDatei;
+  }),
   captions,
 };
 schreibJson(resolve(root, '06-projektdateien/timeline.json'), zeitplan);
@@ -282,5 +363,6 @@ zeilen.push('', 'export const YOUTUBE_PROJEKTE: Array<{id: string; zeitplan: You
 writeFileSync(resolve(repo, 'src/youtube-projekt/projekte.generated.ts'), zeilen.join('\n'));
 
 console.log(`✓ Zeitplan: ${visuals.length} Visuals, ${(gesamt / fps).toFixed(1)} s${qualitaet ? ` inkl. ${YOUTUBE_ENDCARD_SECONDS} s Endkarte` : ''}${vorschau ? ' (Vorschau, fehlende Bilder markiert)' : ''}.`);
+if (bildGrund) console.log(`  Bildgrund: ${bildGrund.grund} (gemessen aus ${bildGrund.bilder} Bildern) — gilt für Animationen und Endkarte.`);
 if (langeBilder.length) console.log(`⚠ Standbilder über ${YOUTUBE_IMAGE_WARN_HOLD_SECONDS} s: ${langeBilder.map((x) => `${x.id} ${x.sek.toFixed(1)} s`).join(', ')} — beim nächsten Mal Bild teilen oder akzente[] setzen.`);
 console.log(`  Composition: YouTube-${slug.replace(/[^a-zA-Z0-9-]/g, "-")}`);

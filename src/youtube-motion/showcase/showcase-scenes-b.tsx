@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Easing, interpolate} from 'remotion';
 import {FONT} from '../../brand';
-import {BigTitle, Card, FadeEdges, MiniIcon, P, SceneLabel, Value, clamp, pop, prog, useScene} from './showcase-primitives';
+import {BigTitle, FadeEdges, MiniIcon, P, SceneLabel, Value, clamp, pop, prog, useScene} from './showcase-primitives';
 
 export const TimelineScene:React.FC=()=>{
   const {frame,fps}=useScene();

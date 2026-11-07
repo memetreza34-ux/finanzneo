@@ -14,6 +14,12 @@ import {
   internWurzel,
 } from './youtube-contract.mjs';
 import {requiresYouTubeImage, requiresYouTubeMotion, validateYouTubeMotionMetadata, validateYouTubeMotionVariety} from './youtube-motion-contract.mjs';
+import {pruefeBelegAufnahme, pruefeBelegPlan} from './youtube-beleg.mjs';
+import {folieSticker, pruefeFoliePlan} from './youtube-folie.mjs';
+import {stickerVorhanden, youtubeStickerFlowDatei} from './youtube-sticker.mjs';
+
+const REPO = resolve(import.meta.dirname, '../..');
+const imRepo = (name) => stickerVorhanden(REPO, name);
 
 export const AUDIO_EXTENSIONS = new Set(['.mp3', '.wav', '.aiff', '.aif', '.m4a']);
 export const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif']);
@@ -152,6 +158,21 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
       else checkCompletedText(root, imagePlanFile, phase1Blockers);
     }
 
+    if (visual?.type === 'beleg') {
+      for (const error of pruefeBelegPlan(visual)) phase1Blockers.push(`${VISUAL_INDEX}: ${error}`);
+      const datenPfad = typeof visual.belegDatenFile === 'string' ? resolve(root, visual.belegDatenFile) : null;
+      let daten = null;
+      try {daten = datenPfad && existsSync(datenPfad) ? JSON.parse(readFileSync(datenPfad, 'utf8')) : null;} catch {/* unten als fehlend gemeldet */}
+      if (daten && !(typeof visual.belegFile === 'string' && existsSync(resolve(root, visual.belegFile)))) daten = null;
+      for (const error of pruefeBelegAufnahme(visual, daten)) phase1Blockers.push(error);
+    }
+
+    if (visual?.type === 'folie') {
+      for (const error of pruefeFoliePlan(visual, {stickerVorhanden: imRepo})) phase1Blockers.push(`${VISUAL_INDEX}: ${error}`);
+      // Neue Metapher-Sticker erzeugt der Nutzer in Flow (Phase 2), bis sie in der Bibliothek liegen.
+      for (const st of folieSticker(visual.folie)) if (!imRepo(st.name)) expectedImages.push(youtubeStickerFlowDatei(st.name));
+    }
+
     if (requiresYouTubeMotion(visual)) {
       for (const error of validateYouTubeMotionMetadata(visual)) phase1Blockers.push(`${VISUAL_INDEX}: ${error}`);
       const sourceFile = visual.animationSourceFile;
@@ -234,8 +255,10 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
     if (!actualImages.includes(fileName)) phase2Blockers.push(`Nutzerbild fehlt: ${bilderOrdner}/${fileName}`);
     else if (statSync(resolve(inbox, fileName)).size === 0) phase2Blockers.push(`Nutzerbild ist leer: ${bilderOrdner}/${fileName}`);
   }
+  // Bereits in die Bibliothek übernommene Sticker dürfen in der Inbox liegen bleiben.
+  const bibliotheksSticker = new Set(visuals.flatMap((v) => (v?.type === 'folie' ? folieSticker(v.folie) : [])).filter((st) => imRepo(st.name)).map((st) => youtubeStickerFlowDatei(st.name)));
   for (const fileName of actualImages) {
-    if (!expectedSet.has(fileName)) phase2Blockers.push(`Unerwartetes Nutzerbild: ${bilderOrdner}/${fileName}`);
+    if (!expectedSet.has(fileName) && !bibliotheksSticker.has(fileName)) phase2Blockers.push(`Unerwartetes Nutzerbild: ${bilderOrdner}/${fileName}`);
   }
 
   const audioFiles = listFiles(resolve(root, AUDIO_INBOX), AUDIO_EXTENSIONS);

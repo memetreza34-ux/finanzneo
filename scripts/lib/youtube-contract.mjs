@@ -118,7 +118,18 @@ export const PHASE_1_FILES = [
 export const YOUTUBE_QUALITY_RULES_ID = 'finanzneo-youtube-quality-v1';
 // V2 (17.10.2026, Wettbewerbsanalyse): Skript, Bild und Animation werden fest aneinander gebunden.
 export const YOUTUBE_QUALITY_RULES_V2_ID = 'finanzneo-youtube-quality-v2';
-export const YOUTUBE_QUALITY_RULES_IDS = [YOUTUBE_QUALITY_RULES_ID, YOUTUBE_QUALITY_RULES_V2_ID];
+// V3 = V2 + echte Beleg-Szenen und Bildmix (Arman, 30.10.2026: „nicht nur KI-Bilder, auch echte Screenshots“)
+// + Animationsregel (Arman, 25.10.2026): Ein Bild-Beat, der eine Veränderung beschreibt (Rechnung, Vergleich,
+// Wachsen/Schrumpfen, Fluss von A nach B), wird Animation — oder das Visual begründet mit `statischWeil`,
+// warum ein Standbild besser ist. Dazu ein Mindestanteil Animation.
+export const YOUTUBE_QUALITY_RULES_V3_ID = 'finanzneo-youtube-quality-v3';
+export const YOUTUBE_QUALITY_RULES_IDS = [YOUTUBE_QUALITY_RULES_ID, YOUTUBE_QUALITY_RULES_V2_ID, YOUTUBE_QUALITY_RULES_V3_ID];
+/** Regeln, die die V2-Bindung (Hook, Figur, keyword, bridgeObject) einschließen. */
+export const YOUTUBE_BINDUNG_RULES_IDS = [YOUTUBE_QUALITY_RULES_V2_ID, YOUTUBE_QUALITY_RULES_V3_ID];
+/** Beat-Text, der eine sichtbare Veränderung beschreibt (Wortgrenzen auch für Umlaute). */
+export const YOUTUBE_VERAENDERUNG_PATTERN = /→|->|(?<!\p{L})(?:vs\.?|gegen|statt|wächst|wachsen|steigt|steigen|sinkt|sinken|schrumpft|schrumpfen|fällt|verdoppelt|halbiert|summiert|addiert|übertragen|überträgt|fließt|fließen|wandert|wandern|wird zu|werden zu|von [\d.,]+\s?(?:€|%|Euro|Prozent)? auf)(?!\p{L})/iu;
+/** Mindestanteil der Sprechzeit, die eine Animation zeigt (Richtwert 20–30 %). */
+export const YOUTUBE_ANIMATION_MIN_SHARE = 0.15;
 /** Hook beginnt mit Szene/Person/Konflikt, nicht mit einer Ankündigung (simplicissimus-Prinzip). */
 export const YOUTUBE_HOOK_ANNOUNCEMENT_PATTERN = /\b(?:in diesem video|heute (?:zeige|erkläre|erklaere|schauen|sprechen)|ich zeige dir|ich erkläre dir|ich erklaere dir|lass uns (?:heute|mal))\b/i;
 /** Sprechtempo des echten FinanzNeo-Voiceovers inkl. Pausen (gemessen: Supermarkt-Tricks 141,6 und
@@ -126,6 +137,10 @@ export const YOUTUBE_HOOK_ANNOUNCEMENT_PATTERN = /\b(?:in diesem video|heute (?:
 export const YOUTUBE_SPEECH_WPM = 142;
 /** Ein Standbild ohne neue sichtbare Information höchstens so lange (geschätzt aus dem Skript). */
 export const YOUTUBE_IMAGE_MAX_HOLD_SECONDS = 8;
+/** V3 (Bildmix nach Finanzbär-Analyse): schnellere Wechsel — höchstens 6 s ohne neue Information. */
+export const YOUTUBE_V3_MAX_HOLD_SECONDS = 6;
+/** V3: gezeichnete Flow-Bilder höchstens 40 % der Sprechzeit; den Rest tragen Folien, Belege und Daten. */
+export const YOUTUBE_V3_MAX_BILD_ANTEIL = 0.4;
 /** Nach echtem Audio: ab hier warnt der Zusammenbau. */
 export const YOUTUBE_IMAGE_WARN_HOLD_SECONDS = 10;
 /** Hook: bis zum ersten inhaltlichen Kapitel höchstens so lange. */

@@ -5,8 +5,13 @@
 //
 // Quelle: _intern/06-projektdateien/visual-plan.mjs mit `title`, `thumbnail {file, prompt}`, optional
 // `story {protagonist, reason}` und `visuals[]`. Bild-Visuals: {type:'image', chapter, cue, beat, keyword,
-// name, expected, prompt, labels, ref?, change?, akzente?}. Motion-Visuals: {type:'animation'|'data',
-// chapter, cue, beat, bridgeObject, brief}. keyword/bridgeObject prüft youtube:validate (Qualitätsregeln V2).
+// name, expected, prompt, labels, ref?, change?, akzente?, statischWeil?}. Motion-Visuals: {type:'animation'|'data',
+// chapter, cue, beat, bridgeObject, brief}. Beleg-Visuals (echter Quellen-Screenshot, docs/YOUTUBE-BELEG-SZENEN.md):
+// {type:'beleg', chapter, cue, beat, quelle, quellenArt, url, markierungen:[{text, cue}], entfernen?}.
+// Erklär-Folien (docs/YOUTUBE-BILDMIX-UND-COVER.md): {type:'folie', chapter, cue, beat, folie:{titel?, icon?, <eine Form>}}
+// Formen: begriff · ablauf · vergleich · zahl · zeilen · metapher · wolke · zitat; Icons aus `npm run youtube:icons -- --liste`.
+// Metapher-Sticker (metapher/wolke): {sticker, motiv} — fehlt der Sticker in public/sticker/, bekommt Flow einen Sticker-Auftrag. Cover: thumbnail.cover = {zeilen:[..], marker, ton?, kicker?}.
+// keyword/bridgeObject prüft youtube:validate (Qualitätsregeln V2), Belege V3.
 //
 // Schreibt Visual-Index, alle Einzel-Bildprompts, die Flow-Übergabe (Batch 1 = nur Thumbnail
 // als Stilvorlage, Fortsetzungen immer in einem späteren Batch als ihre Referenz), die Motion-
@@ -30,6 +35,9 @@ import {
   youtubeStyleReferenceText,
   internWurzel,
 } from './lib/youtube-contract.mjs';
+import {folieSticker} from './lib/youtube-folie.mjs';
+import {YOUTUBE_STICKER_STIL, stickerVorhanden, youtubeStickerFlowDatei} from './lib/youtube-sticker.mjs';
+import {YOUTUBE_BELEG_BILD, YOUTUBE_BELEG_DATEN, YOUTUBE_BELEG_PLAN, YOUTUBE_BELEG_STANDARD_ID} from './lib/youtube-beleg.mjs';
 
 const projekt = process.argv[2];
 if (!projekt) {
@@ -59,7 +67,20 @@ ${fileName}
 
 Generate this image together with the other images of its batch (at most ${YOUTUBE_FLOW_BATCH_SIZE} in parallel). Rename it immediately to the exact final file name above as soon as it returns. Verify that the visual matches the script beat, reads clearly at first glance, follows the Editorial Finance image world, uses horizontal 16:9 and contains only German text. If REFERENCE_IMAGE points to an approved prior visual, attach that exact file before generating and preserve its composition while making only the planned change; such an image always belongs to a later batch than its reference. If any check fails, regenerate the same image number before the next batch starts. Never render the file name inside the image.
 `;
+const repo = resolve(import.meta.dirname, '..');
+// Metapher-Sticker: eigener Flow-Auftrag mit festem Sticker-Stil, ohne Stilvorlage der Szenenbilder.
+const stickerStep = (fileName) => `${YOUTUBE_FLOW_PROTOCOL_MARKER}
+ONE STICKER OF THE CURRENT BATCH — SEE BATCH HEADER
+
+FINAL FILE NAME:
+${fileName}
+
+Generate this sticker together with the other images of its batch (at most ${YOUTUBE_FLOW_BATCH_SIZE} in parallel). Rename it immediately to the exact final file name above. This is NOT a scene image: do NOT attach the style master or any reference. Verify: one simple metaphor at first glance, sticker style below, pure white background, square 1:1, no text unless quoted. If a check fails, regenerate it before the next batch starts. Never render the file name inside the image.
+`;
 const fileOf = (n) => `YouTube Bild ${nr(n)} - ${visuals[n - 1].name}.png`;
+// Akzent-Karten erscheinen oben links auf dem Bild (YouTubeVideo → Akzente). Video 3: Sie lagen
+// teils auf Jonas' Kopf — deshalb hält das Bild diese Ecke frei.
+const AKZENT_FREIRAUM = 'FREE CORNER: Keep the top-left corner (left third of the width, top quarter of the height) calm and empty — no faces, people, labels or key objects there. Small note cards are placed there later in the video.';
 const indexVorab = JSON.parse(readFileSync(resolve(root, VISUAL_INDEX), 'utf8'));
 const kanalStil = indexVorab.imageWorld?.styleMaster === 'kanal';
 if (kanalStil && !existsSync(resolve(YOUTUBE_CHANNEL_STYLE_PATH))) {
@@ -83,10 +104,16 @@ ${figurDatei} — attach this approved image as character reference. The person 
 const index = indexVorab;
 const alt = new Map((index.visuals ?? []).map((v) => [v.id, v]));
 const blocks = new Map();
+const stickerJobs = new Map();
 
 index.title = title;
 if (story) index.story = story;
 index.thumbnail.googleFlowFileName = thumbnail.file;
+// Cover V1: Flow zeichnet nur das Motiv rechts, den Text setzt youtube:cover exakt.
+if (thumbnail.cover) index.thumbnail.cover = thumbnail.cover;
+const coverMotiv = thumbnail.cover
+  ? `\nCOVER LAYOUT (FinanzNeo Cover V1): NO TEXT, NO LETTERS, NO NUMBERS anywhere in this image — the headline is added later. Put the main subject large and close in the RIGHT 45 % of the frame with a clear facial expression or one strong object. Keep the LEFT 55 % completely empty plain warm cream background without objects, lines or shadows.\n`
+  : '';
 const thumbBlock = `${flowStep(thumbnail.file)}
 ${kanalStil ? styleReference : ''}${story?.protagonist && story.figurBild === 'Thumbnail' ? `The person in this thumbnail is ${story.protagonist}, the protagonist of the video. This thumbnail becomes the character reference for every image that shows ${story.protagonist}.\n` : ''}
 REFERENCE_IMAGE:
@@ -94,7 +121,7 @@ NONE
 
 THUMBNAIL PROMPT:
 Soft hand-drawn 2D editorial illustration, not a photo. ${thumbnail.prompt}
-
+${coverMotiv}
 TEXT IN THIS IMAGE: Only the exact words and numbers written in quotes in the prompt may appear in the image. Never invent extra prices, numbers, brand names, headlines or captions.
 
 ${kanalStil ? '' : 'This thumbnail is the STYLE MASTER of the whole video: every later image attaches it as a style reference.'}
@@ -120,7 +147,7 @@ ${v.ref ? fileOf(v.ref) : 'NONE'}
 
 IMAGE PROMPT:
 Soft hand-drawn 2D editorial illustration, not a photo. ${v.prompt}
-
+${v.akzente?.length ? `\n${AKZENT_FREIRAUM}\n` : ''}
 TEXT IN THIS IMAGE: Only the exact words and numbers written in quotes in the prompt may appear in the image. Never invent extra prices, numbers, brand names, headlines or captions.
 
 ${styleBlock}`;
@@ -135,8 +162,38 @@ ${styleBlock}`;
       startCue: v.cue,
       ...(v.keyword ? {keyword: v.keyword} : {}),
       ...(v.figur ? {figur: true} : {}),
+      ...(v.statischWeil ? {statischWeil: v.statischWeil} : {}),
       objectLabels: v.labels,
       ...(v.akzente ? {akzente: v.akzente} : {}),
+    };
+  }
+  if (v.type === 'folie') {
+    // Neue Sticker (noch nicht in der Bibliothek) gehen als eigener Auftrag an Flow.
+    const neu = folieSticker(v.folie).filter((st) => !stickerVorhanden(repo, st.name));
+    for (const st of neu) {
+      if (stickerJobs.has(st.name)) continue;
+      stickerJobs.set(st.name, `${stickerStep(youtubeStickerFlowDatei(st.name))}
+STICKER MOTIF:
+${st.motiv}
+
+${YOUTUBE_STICKER_STIL}
+`);
+    }
+    return {...base, startCue: v.cue, folie: v.folie, ...(neu.length ? {stickerFlowFileNames: neu.map((st) => youtubeStickerFlowDatei(st.name))} : {})};
+  }
+  if (v.type === 'beleg') {
+    write(`${dir}/beleg.md`, `# Beleg ${id}\n\nBELEG_STANDARD: ${YOUTUBE_BELEG_STANDARD_ID}\n\n- Kapitel: ${v.chapter}\n- Sprechtext-Bezug: ${v.beat}\n- Quelle: ${v.quelle} (${v.quellenArt})\n- URL: ${v.url}\n${(v.markierungen ?? []).map((m) => `- Markierung bei „${m.cue}“: „${m.text}“`).join('\n')}\n\nScreenshot und Textpositionen erzeugt \`npm run youtube:belege -- youtube/<Projekt>\` (${YOUTUBE_BELEG_BILD}, ${YOUTUBE_BELEG_DATEN}).\n`);
+    return {
+      ...base,
+      planFile: `${dir}/${YOUTUBE_BELEG_PLAN}`,
+      startCue: v.cue,
+      quelle: v.quelle,
+      quellenArt: v.quellenArt,
+      url: v.url,
+      markierungen: v.markierungen,
+      ...(v.entfernen?.length ? {entfernen: v.entfernen} : {}),
+      belegFile: `${dir}/${YOUTUBE_BELEG_BILD}`,
+      belegDatenFile: `${dir}/${YOUTUBE_BELEG_DATEN}`,
     };
   }
   const vorher = alt.get(id);
@@ -175,6 +232,13 @@ for (const [i, v] of visuals.entries()) {
   batchOf.set(n, b);
   while (batches[cur] && batches[cur].length >= YOUTUBE_FLOW_BATCH_SIZE) cur++;
 }
+// Sticker hängen an keiner Referenz: freie Plätze ab Batch 2 füllen.
+for (const name of stickerJobs.keys()) {
+  let b = 1;
+  while (batches[b] && batches[b].length >= YOUTUBE_FLOW_BATCH_SIZE) b++;
+  batches[b] ??= [];
+  batches[b].push(`sticker:${name}`);
+}
 
 const line = '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━';
 const bar = '████████████████████████████████████';
@@ -183,15 +247,19 @@ let batchNr = 0;
 for (const members of batches) {
   if (!members?.length) continue;
   batchNr++;
-  body += `${bar}\nBATCH ${batchNr} — START ALL TOGETHER: ${members.map((m) => (m === 'Thumbnail' ? 'Thumbnail' : `Bild ${nr(m)}`)).join(', ')}\n${bar}\n\n`;
+  const titel = (m) => (m === 'Thumbnail' ? 'Thumbnail' : String(m).startsWith('sticker:') ? `Sticker ${m.slice(8)}` : `Bild ${nr(m)}`);
+  body += `${bar}\nBATCH ${batchNr} — START ALL TOGETHER: ${members.map(titel).join(', ')}\n${bar}\n\n`;
   for (const m of members) {
-    body += m === 'Thumbnail'
-      ? `${line}\nTHUMBNAIL\n${line}\n\n${thumbBlock}\n`
-      : `${line}\nVISUAL ${nr(m)} — IMAGE\n${line}\n\n${blocks.get(m)}\n`;
+    if (m === 'Thumbnail') body += `${line}\nTHUMBNAIL\n${line}\n\n${thumbBlock}\n`;
+    else if (String(m).startsWith('sticker:')) body += `${line}\nSTICKER ${m.slice(8)}\n${line}\n\n${stickerJobs.get(m.slice(8))}\n`;
+    else body += `${line}\nVISUAL ${nr(m)} — IMAGE\n${line}\n\n${blocks.get(m)}\n`;
   }
 }
-const motion = visuals.map((v, i) => (v.type === 'image' ? null : nr(i + 1))).filter(Boolean);
-body += `${line}\nRESERVED NUMBERS — REMOTION, NOT FLOW\n${line}\n\nDO NOT GENERATE IMAGES ${motion.join(', ')}. These numbers are animations built in Remotion. Keep the numbers reserved; never close the numbering gap.\n\n`;
+const motion = visuals.map((v, i) => (['image', 'beleg', 'folie'].includes(v.type) ? null : nr(i + 1))).filter(Boolean);
+const folien = visuals.map((v, i) => (v.type === 'folie' ? nr(i + 1) : null)).filter(Boolean);
+const belege = visuals.map((v, i) => (v.type === 'beleg' ? nr(i + 1) : null)).filter(Boolean);
+const reserviert = visuals.map((v, i) => (v.type === 'image' ? null : nr(i + 1))).filter(Boolean);
+body += `${line}\nRESERVED NUMBERS — REMOTION, NOT FLOW\n${line}\n\nDO NOT GENERATE IMAGES ${reserviert.join(', ')}. These numbers are built in Remotion (animations, explainer slides and real source screenshots). Keep the numbers reserved; never close the numbering gap.\n\n`;
 
 const inbox = IMAGE_INBOX.replace(/^\.\.\//, '');
 write(ALL_PROMPTS, `FINANZNEO — SINGLE HANDOFF FILE FOR THE GOOGLE FLOW AI AGENT
@@ -199,15 +267,15 @@ write(ALL_PROMPTS, `FINANZNEO — SINGLE HANDOFF FILE FOR THE GOOGLE FLOW AI AGE
 ${YOUTUBE_FLOW_PROTOCOL_MARKER}
 
 ${kanalStil ? `STYLE MASTER (WHOLE CHANNEL):
-Before you start, open ${YOUTUBE_CHANNEL_STYLE_PATH} (file name: "${YOUTUBE_CHANNEL_STYLE_FILE}"). Attach it to EVERY image of this file, including the thumbnail, as STYLE_REFERENCE. Every image of every FinanzNeo video must look like it was drawn by the same illustrator as this file.
+Before you start, open ${YOUTUBE_CHANNEL_STYLE_PATH} (file name: "${YOUTUBE_CHANNEL_STYLE_FILE}"). Attach it to EVERY scene image of this file, including the thumbnail, as STYLE_REFERENCE. Exception: STICKER blocks never attach it — they follow the sticker style written in their block. Every image of every FinanzNeo video must look like it was drawn by the same illustrator as this file.
 Batch 1 contains ONLY the thumbnail. Generate it, wait until it is complete, rename it and verify it. Never start batch 2 before the thumbnail is approved.` : `STYLE MASTER FIRST:
-Batch 1 contains ONLY the thumbnail. Generate it, wait until it is complete, rename it and verify it is a soft hand-drawn illustration (no photo look). Every later image attaches this approved thumbnail as STYLE_REFERENCE. Never start batch 2 before the thumbnail is approved.`}
+Batch 1 contains ONLY the thumbnail. Generate it, wait until it is complete, rename it and verify it is a soft hand-drawn illustration (no photo look). Every later scene image attaches this approved thumbnail as STYLE_REFERENCE (STICKER blocks never do). Never start batch 2 before the thumbnail is approved.`}
 
 BATCH WORKFLOW (MAX. ${YOUTUBE_FLOW_BATCH_SIZE} IMAGES IN PARALLEL):
 1. Read the full file once. Images are grouped into numbered BATCH blocks of up to ${YOUTUBE_FLOW_BATCH_SIZE}.
 2. Start every image of the current batch at the same time, each as its own single-image job. Never put several prompts into one request and never make a collage or contact sheet.
 3. As soon as an image returns, rename it immediately to the exact final file name stated in its block.
-4. Verify every image of the batch: soft hand-drawn illustration in the style master's style (reject anything photorealistic), script-beat fit, first-glance clarity, Editorial Finance style, 16:9 format, German-only text and file name. For a continuation visual, also verify that the approved reference composition is preserved and only the planned change was made.
+4. Verify every image of the batch (STICKER blocks: their own sticker checks instead): soft hand-drawn illustration in the style master's style (reject anything photorealistic), script-beat fit, first-glance clarity, Editorial Finance style, 16:9 format, German-only text and file name. For a continuation visual, also verify that the approved reference composition is preserved and only the planned change was made.
 5. Regenerate every failed image (same image number, replace the failed file) before the next batch starts.
 6. Start the next batch only after all images of the current batch pass. A continuation image is never in the same batch as its reference.
 7. Skip non-image blocks without closing the numbering gap.
@@ -225,4 +293,4 @@ tl.title = title;
 tl.visuals = index.visuals.map((v) => ({id: v.id, type: v.type, startFrame: 0, durationFrames: 0}));
 write('06-projektdateien/timeline.json', `${JSON.stringify(tl, null, 2)}\n`);
 write(VISUAL_INDEX, `${JSON.stringify(index, null, 2)}\n`);
-console.log(`✓ Plan angewendet: ${visuals.length} Visuals · ${blocks.size} Bilder + Thumbnail in ${batchNr} Batches · Motion: ${motion.join(', ') || '—'}`);
+console.log(`✓ Plan angewendet: ${visuals.length} Visuals · ${blocks.size} Bilder + ${stickerJobs.size} Sticker + Thumbnail in ${batchNr} Batches · Motion: ${motion.join(', ') || '—'} · Belege: ${belege.join(', ') || '—'} · Folien: ${folien.join(', ') || '—'} · neue Sticker: ${[...stickerJobs.keys()].join(', ') || '—'}`);

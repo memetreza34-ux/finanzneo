@@ -3,8 +3,6 @@ import {existsSync, mkdirSync, writeFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 import {
   ACTIVE_WORD_COLOR,
-  FLOW_AGENT_PROTOCOL_ID,
-  FLOW_AGENT_PROTOCOL_MARKER,
   GENERATED_IMAGE_ASPECT_MARKER,
   GENERATED_IMAGE_ASPECT_RATIO,
   IMAGE_INBOX,
@@ -27,7 +25,7 @@ import {
   YOUTUBE_IMAGE_TEXT_LANGUAGE_RULE,
   ALL_PROMPTS,
   AUDIO_INBOX,
-  YOUTUBE_QUALITY_RULES_V2_ID,
+  YOUTUBE_QUALITY_RULES_V3_ID,
   YOUTUBE_STYLE_MASTER_KANAL,
   YOUTUBE_CHANNEL_STYLE_FILE,
   YOUTUBE_CHANNEL_STYLE_PATH,
@@ -41,6 +39,7 @@ import {
   internWurzel,
 } from './lib/youtube-contract.mjs';
 import {requiresYouTubeImage, requiresYouTubeMotion} from './lib/youtube-motion-contract.mjs';
+import {YOUTUBE_ZAHLEN_DATEI, YOUTUBE_ZAHLEN_MESSTAGE, ladeKanal, leereZahlen, offeneZahlen} from './lib/youtube-zahlen.mjs';
 
 const args = process.argv.slice(2);
 const valueOf = (name) => {
@@ -73,6 +72,12 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
 if (existsSync(projektRoot)) {
   console.error(`Ziel existiert bereits: ${root}`);
   process.exit(1);
+}
+
+// Zahlen-Rückschau: Vor jedem neuen Video sichtbar machen, was aus den bisherigen Videos noch fehlt.
+const offeneZahlenListe = existsSync(youtubeRoot) ? offeneZahlen(ladeKanal(youtubeRoot, new Date().toISOString().slice(0, 10))) : [];
+if (offeneZahlenListe.length) {
+  console.warn(`\n⚠ Zahlen-Rückschau offen — erst eintragen, dann aus den Zahlen lernen (npm run youtube:zahlen):\n${offeneZahlenListe.map((o) => `  - ${o}`).join('\n')}\n`);
 }
 
 const write = (relativePath, content) => {
@@ -151,7 +156,7 @@ Soft hand-drawn 2D editorial illustration, not a photo. [WRITE A COMPLETE ENGLIS
 
 ${styleBlock}`;
 
-const motionTemplate = (index, type) => {
+const motionTemplate = (index) => {
   const exportName = exportNameFor(index);
   return `import React from 'react';\nimport {AbsoluteFill, useCurrentFrame} from 'remotion';\n\nexport const MECHANIC_ID = '[MECHANIC_ID]';\nexport const VISUAL_TECHNIQUE_ID = '[VISUAL_TECHNIQUE_ID]';\nexport const COMPOSITION_FAMILY_ID = '[COMPOSITION_FAMILY_ID]';\nexport const ANIMATION_NARRATIVE = {\n  START: '[START STATE]',\n  MECHANISM: '[VISIBLE CHANGE]',\n  RESULT: '[CLEAR RESULT]',\n};\n\nexport const ${exportName}: React.FC = () => {\n  const frame = useCurrentFrame();\n  // No example fade: select an actual motion mechanism from the plan.\n  void frame;\n  return <AbsoluteFill style={{background:'#FAF8F2'}}>{/* TODO: Phase 1 requires a real visual mechanism and final rendering. */}</AbsoluteFill>;\n};\n`;
 };
@@ -189,7 +194,7 @@ const visuals = types.map((type, index) => {
 - Keyframe 65%: [CONSEQUENCE]
 - Keyframe 90%: [PAYOFF]
 - Motion Channels: [AT LEAST ONE MEANINGFUL EXPLANATORY CHANGE]\n- SFX-Cues: [OPTIONAL FRAME-BOUND EVENTS]\n\nWähle die Technik erst NACH dem Viewer Change. Eine neue Technik darf frei erfunden/kombiniert werden, wenn sie den Inhalt besser erklärt. Nicht künstlich variieren; Wiederholung ist erlaubt, wenn sie wirklich die beste Erklärung ist und begründet wird.\n`);
-    write(animationSourceFile, motionTemplate(index, type));
+    write(animationSourceFile, motionTemplate(index));
     Object.assign(base, {
       planFile: `${directory}/remotion.md`,
       animationSourceFile,
@@ -255,7 +260,7 @@ write(`${IMAGE_INBOX}/.gitkeep`, '');
 write('04-visuals/bildwelt.txt', `FINANZNEO YOUTUBE IMAGE WORLD\n\n${styleBlock}`);
 write('04-visuals/thumbnail-prompt.txt', thumbnailPrompt);
 write(ALL_PROMPTS, `FINANZNEO — SINGLE HANDOFF FILE FOR THE GOOGLE FLOW AI AGENT\n\n${YOUTUBE_FLOW_PROTOCOL_MARKER}\n\nSTYLE MASTER (WHOLE CHANNEL):\nBefore you start, open ${YOUTUBE_CHANNEL_STYLE_PATH} (file name: "${YOUTUBE_CHANNEL_STYLE_FILE}"). Attach it to EVERY image of this file, including the thumbnail, as ${YOUTUBE_STYLE_REFERENCE_MARKER.replace(':', '')}. Every image of every FinanzNeo video must look like it was drawn by the same illustrator as this file.\nBatch 1 contains ONLY the thumbnail. Generate it, wait until it is complete, rename it and verify it. Never start batch 2 before the thumbnail is approved.\n\nBATCH WORKFLOW (MAX. ${YOUTUBE_FLOW_BATCH_SIZE} IMAGES IN PARALLEL):\n1. Read the full file once. Images are grouped into numbered BATCH blocks of up to ${YOUTUBE_FLOW_BATCH_SIZE}.\n2. Start every image of the current batch at the same time, each as its own single-image job. Never put several prompts into one request and never make a collage or contact sheet.\n3. As soon as an image returns, rename it immediately to the exact final file name stated in its block.\n4. Verify every image of the batch: soft hand-drawn illustration in the style master's style (reject anything photorealistic), script-beat fit, first-glance clarity, Editorial Finance style, 16:9 format, German-only text and file name. For a continuation visual, also verify that the approved reference composition is preserved and only the planned change was made.\n5. Regenerate every failed image (same image number, replace the failed file) before the next batch starts.\n6. Start the next batch only after all images of the current batch pass. A continuation image is never in the same batch as its reference.\n7. Skip non-image blocks without closing the numbering gap.\n8. At the end, place every generated and correctly named image together in ${IMAGE_INBOX.replace(/^\.\.\//, '')}/.\n\n${batchKopf('Thumbnail')}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nTHUMBNAIL\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${thumbnailPrompt}\n${promptSections}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nFINISH\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nFinish only after every expected image has been generated in its batch, renamed immediately and verified. All final files must be together in ${IMAGE_INBOX.replace(/^\.\.\//, '')}/.\n`);
-write('06-projektdateien/visual-plan.md', `# Visual-Plan — Viewer Change First\n\n1. Skript in gesprochene Gedanken zerlegen.\n2. Jedem Gedanken einen sichtbaren Visual Beat geben.\n3. Für jeden Motion-Beat zuerst in einem Satz festlegen: Was soll der Zuschauer tatsächlich sehen, das sich verändert, enthüllt, vergleicht oder räumlich erschließt?\n4. Erst danach den besten Typ und die beste konkrete Technik wählen.\n5. Technik darf frei erfunden oder kombiniert werden; Familien sind nur Beschreibungen, keine Whitelist.\n6. Vor Freigabe die letzten vier Motion-Visuals auf echte Wiederholung von Kamera, Layout und Transformation prüfen.\n7. Kein Standbild länger als ca. ${YOUTUBE_IMAGE_MAX_HOLD_SECONDS} s ohne neue Information: sonst zusätzliches Bild oder akzente[] ({cue, text, ton}) setzen. youtube:validate schätzt das aus dem Skript.\n8. Die Endkarte (${YOUTUBE_ENDCARD_SECONDS} s für YouTube-Endelemente) hängt der Zusammenbau automatisch an.\n\nKeine feste Visualzahl. Keine feste Bild-/Animationsquote. Keine Standardanimation. Keine bestehende Komponente auswählen, bevor klar ist, was der Zuschauer sehen soll. Variation dient der Erklärung, nicht der Effekthascherei.\n`);
+write('06-projektdateien/visual-plan.md', `# Visual-Plan — Viewer Change First\n\n1. Skript in gesprochene Gedanken zerlegen.\n2. Jedem Gedanken einen sichtbaren Visual Beat geben.\n3. Für jeden Motion-Beat zuerst in einem Satz festlegen: Was soll der Zuschauer tatsächlich sehen, das sich verändert, enthüllt, vergleicht oder räumlich erschließt?\n4. Erst danach den besten Typ und die beste konkrete Technik wählen.\n5. Technik darf frei erfunden oder kombiniert werden; Familien sind nur Beschreibungen, keine Whitelist.\n6. Vor Freigabe die letzten vier Motion-Visuals auf echte Wiederholung von Kamera, Layout und Transformation prüfen.\n7. Kein Standbild länger als ca. ${YOUTUBE_IMAGE_MAX_HOLD_SECONDS} s ohne neue Information: sonst zusätzliches Bild oder akzente[] ({cue, text, ton}) setzen. youtube:validate schätzt das aus dem Skript.\n8. Die Endkarte (${YOUTUBE_ENDCARD_SECONDS} s für YouTube-Endelemente) hängt der Zusammenbau automatisch an.\n9. Belege (Qualitätsregel V3): Zahlen, Gesetze, Fristen und Aussagen Dritter als echten Quellen-Screenshot zeigen — type 'beleg' mit quelle, quellenArt, url und markierungen[{text, cue}] (exakter Wortlaut der Seite). Einer je 90 s Sprechzeit, mindestens 3, der erste spätestens im ersten Kapitel nach dem Hook. Danach npm run youtube:belege. Regel: docs/YOUTUBE-BELEG-SZENEN.md\n10. Bildwelt (V3): die meisten Beats als type 'folie' — weiße Folie mit 3D-Icon, Formen begriff / ablauf / vergleich / zahl / zeilen / metapher / wolke / zitat (Icons: npm run youtube:icons -- --liste; Metapher-Bilder individuell pro Video als Freehand-Doodle suchen: npm run youtube:doodles -- --suche "<englischer Begriff>"; Flow-Sticker mit motiv nur, wenn kein Doodle passt); Flow-Bilder nur für Hook, Gefühl, Alltagsszene (Ziel 10–15 %, max. 40 % der Sprechzeit); nichts steht länger als 6 s ohne neue Information.\n11. Cover (V3): thumbnail.cover = {zeilen: max. 2, max. 5 Wörter, marker, ton?, kicker?}; Flow zeichnet nur das Motiv rechts ohne Text. Regel: docs/YOUTUBE-BILDMIX-UND-COVER.md\n\nKeine feste Visualzahl. Keine feste Bild-/Animationsquote. Keine Standardanimation. Keine bestehende Komponente auswählen, bevor klar ist, was der Zuschauer sehen soll. Variation dient der Erklärung, nicht der Effekthascherei.\n`);
 write('06-projektdateien/remotion-plan.md', `# Remotion-Plan — ${YOUTUBE_MOTION_STANDARD_ID}\n\n- Ausgabe: 1920 × 1080, 16:9, 30 fps\n- Viewer Change zuerst; Technik danach.\n- Motion World: finanzneo-youtube-light-motion-v2. Die Animation bleibt hell, sauber und 2D. Unterschiedliche Designs sind erlaubt, aber keine dunklen Welten, kein Full-3D und keine großen generischen Szenenüberschriften. Die aktuelle Mechanik/Visual-Bibliothek liegt unter src/youtube-motion/light-v3/.
 Wähle pro Szene frei zwischen Vergleich, Chart, Tabelle, Icons, Dokument, Timeline, Prozess, Flow-Diagramm, Route, abstrakter 2D-Geometrie oder einer anderen hellen Custom-Lösung.\n- Erlaubt: Custom React, SVG, Canvas, Masks, clip-path, Paths, Shapes, Motion Blur, Effects, Lottie als Support, Datenvisualisierung, Bild+Motion-Hybrid und neue sinnvolle Kombinationen.\n- Composition Families sind freie Beschreibungen, keine erlaubte Endmenge.\n- Neue kanonische Light-2D-Bibliothek: src/youtube-motion/light-v3/. Dort sind Mechanik/Core von Visual-Komponenten getrennt.\n- Bestehende FinanzNeo-Komponenten sind optionale Werkzeuge, keine Pflichtvorlagen.\n- Pro Motion-Visual: viewerChange + animationIntent + mechanicId + visualTechniqueId + techniqueDescription + toolStack + motionSignature + mindestens eine klare erklärende Bewegung + Start/Result-Beats.\n- Anti-Fake-Variation: neuer Name allein reicht nicht; Kamera + Layout + Transformation werden gegen die letzten vier Motion-Visuals geprüft.\n- Wiederholung bleibt erlaubt, wenn sie für den Inhalt wirklich die beste Lösung ist und mit repeatTechniqueReason begründet wird.\n- Schnitte und finale Dauern folgen dem finalen Voiceover.\n`);
 write('06-projektdateien/PHASENSTATUS.md', `# Phasenstatus\n\n- [ ] Phase 1 vollständig und ohne Platzhalter\n- [ ] \`npm run youtube:animation:validate -- ${targetArg}\` erfolgreich\n- [ ] \`npm run youtube:phase1:seal -- ${targetArg}\` erfolgreich\n- [ ] Phase 2: alle exakten 16:9-Bilder, ein finales Voiceover und echte Wort-Timings vorhanden\n- [ ] Phase 3: \`npm run youtube:ready -- ${targetArg}\` erfolgreich; Produktion und QA abgeschlossen\n`);
@@ -272,7 +277,7 @@ write('04-visuals/visual-index.json', `${JSON.stringify({
   userCreatesImages:true,
   antigravityGeneratesImages:false,
   googleFlow:{protocolId:YOUTUBE_FLOW_PROTOCOL_ID,generationMode:'parallel-batches',batchSize:YOUTUBE_FLOW_BATCH_SIZE,oneJobPerImage:true,strictSequential:false,waitForBatch:true,renameImmediately:true,qaBeforeNextBatch:true,germanTextOnly:true,retrySameImageOnFailure:true,referenceImagesAllowed:true,continuationReferenceRequiredWhenDeclared:true,referenceMustUseApprovedPriorImage:true,finalCollectionDirectory:`${IMAGE_INBOX}/`,distributeToVisualFolders:false},
-  qualityRules:YOUTUBE_QUALITY_RULES_V2_ID,
+  qualityRules:YOUTUBE_QUALITY_RULES_V3_ID,
   story:{protagonist:'[NAME DER HAUPTFIGUR ODER null]',reason:'[WARUM DIESE FIGUR / WARUM KEINE]'},
   imageWorld:{styleMaster:YOUTUBE_STYLE_MASTER_KANAL,illustrationOnly:true,id:WORLD_ID,seriesLockId:SERIES_LOCK_ID,authority:'docs/FINANZNEO-IMAGE-WORLD.md',generatedImageAspectRatio:GENERATED_IMAGE_ASPECT_RATIO,horizontalGeneratedImagesRequired:true,referencePromptFile:'04-visuals/bildwelt.txt',promptLanguage:'en',primaryStyle:'clean-editorial-finance-illustration',flexibleBackgrounds:true,fixedBlackBackgroundForbidden:true,fixed3DRenderingForbidden:true,twoDAllowed:true,subtleTwoPointFiveDAllowed:true,selectiveSimple3DAllowed:true,firstGlanceUnderstandingRequired:true,oneCoreIdeaPerImageRequired:true,progressiveSequencesAllowed:true,approvedPriorImageReferenceAllowed:true,genericHeadlineByDefault:false,aiSlopAvoidanceRequired:true},
   motionStandard:{id:YOUTUBE_MOTION_STANDARD_ID,visualMotionWorld:'finanzneo-youtube-light-motion-v2',visualTargetWorld:'finanzneo-youtube-light-motion-v2',minimumMotionPreferred:false,motionDensityStoryDriven:true,cameraStillDefault:true,cameraStoryDriven:false,staticImageStyleCopyRequired:false,youtubeNativeCompositionRequired:true,conceptCandidatesRequired:3,keyframeQaRequired:true,keyframeQaPercentages:[10,35,65,90],fixed3DStyleForbidden:true,fixedArtDirectionForbidden:false,flexibleBackgrounds:true,darkBackgroundAllowed:false,blackBackgroundAllowed:false,full3DAllowed:false,simpleComparisonAllowed:true,chartAllowed:true,sceneArtDirectionOpen:false,mixedStyleAcrossScenesAllowed:true,brandStyleMatchRequired:false,lightBackgroundRequired:true,flat2DPreferred:true,genericSceneHeadlinesForbidden:true,viewerChangeFirstRequired:true,contentFirstTechniqueSelection:true,openTechniqueSelection:true,compositionFamiliesAreExamplesOnly:true,motionSignatureRequired:true,recentMotionWindow:4,customReactAllowed:true,svgAllowed:true,css3dAllowed:false,canvasAllowed:true,threeAllowed:false,hybridAllowed:true,dataVisualizationAllowed:true,existingComponentsOptional:true,physicalPrimitivesOptional:true,semanticVariationRequired:false},
@@ -292,7 +297,8 @@ write(YOUTUBE_PUBLISHING_FILES.thumbnailBrief, '[THUMBNAIL-BRIEF MIT KERNVERSPRE
 write(YOUTUBE_PUBLISHING_FILES.pinnedComment, '[ANGEHEFTETEN KOMMENTAR EINFÜGEN]\n');
 write(YOUTUBE_PUBLISHING_FILES.communityPost, '[COMMUNITY-POST EINFÜGEN]\n');
 write(YOUTUBE_PUBLISHING_FILES.sourcesDisclaimer, '[QUELLEN- UND DISCLAIMER-TEXT EINFÜGEN]\n');
-write(YOUTUBE_PUBLISHING_FILES.uploadChecklist, '# Upload-Checkliste\n\n[FINALEN TITEL, BESCHREIBUNG, THUMBNAIL, KAPITEL, QUELLEN, TON, 16:9, UNTERTITEL UND ENDCARD PRÜFEN]\n');
+write(YOUTUBE_PUBLISHING_FILES.uploadChecklist, `# Upload-Checkliste\n\n[FINALEN TITEL, BESCHREIBUNG, THUMBNAIL, KAPITEL, QUELLEN, TON, 16:9, UNTERTITEL UND ENDCARD PRÜFEN]\n\n## Nach dem Upload\n\n- [ ] \`npm run youtube:zahlen -- ${targetArg} --veroeffentlicht JJJJ-MM-TT\`\n- [ ] Tag ${YOUTUBE_ZAHLEN_MESSTAGE.join(' und Tag ')}: Zahlen aus YouTube Studio eintragen (\`npm run youtube:zahlen -- ${targetArg} --tag 7 …\`), Engpass als Regel in VERBESSERUNGEN.md\n`);
+write(YOUTUBE_ZAHLEN_DATEI, `${JSON.stringify(leereZahlen(relativeTarget), null, 2)}\n`);
 write(SOCIAL_PROMO_FILES.instagram, '[INSTAGRAM-PROMO EINFÜGEN]\n');
 write(SOCIAL_PROMO_FILES.tiktok, '[TIKTOK-PROMO EINFÜGEN]\n');
 write(SOCIAL_PROMO_FILES.facebook, '[FACEBOOK-PROMO EINFÜGEN]\n');

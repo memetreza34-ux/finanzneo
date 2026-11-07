@@ -1,6 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {FONT} from '../../brand';
+import {FlaechenKontext, useFlaeche} from '../../design-system/daten';
 import {
   DonutPart, RankDatum, TrendPoint, donutSlices, euro,
   mix, polylinePath, progressAt, rankPositions, ringArcPath,
@@ -24,9 +25,13 @@ export const LIGHT = {
   red: '#C9615B',
 } as const;
 
+// Ohne gesetzte Fläche (Studio, ältere Videos) bleibt der alte Creme-Ton; in neuen Videos Weiß.
 export const LightStage: React.FC<{children: React.ReactNode; background?: string}> =
-  ({children, background = LIGHT.cream}) =>
-    <AbsoluteFill style={{background, overflow: 'hidden', fontFamily: FONT.body, color: LIGHT.ink}}>{children}</AbsoluteFill>;
+  ({children, background}) => {
+    const gesetzt = React.useContext(FlaechenKontext);
+    const flaeche = useFlaeche();
+    return <AbsoluteFill style={{background: background ?? (gesetzt ? flaeche.grund : LIGHT.cream), overflow: 'hidden', fontFamily: FONT.body, color: LIGHT.ink}}>{children}</AbsoluteFill>;
+  };
 
 export const SmallLabel: React.FC<{children: React.ReactNode; x: number; y: number; size?: number; color?: string}> =
   ({children, x, y, size = 26, color = LIGHT.muted}) =>

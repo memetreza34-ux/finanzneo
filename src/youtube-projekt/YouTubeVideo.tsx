@@ -8,12 +8,14 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Img, Sequence, interpolate, staticFile, useCurrentFrame} from 'remotion';
 import {FONT} from '../brand';
-import {DATEN} from '../design-system/daten';
+import {DATEN, DatenGrund, FLAECHEN, FlaechenKontext, useFlaeche, type Flaeche} from '../design-system/daten';
+import {BelegVisual, type BelegDaten} from './BelegVisual';
+import {FolieVisual, type FolieDaten} from './FolieVisual';
 
 export type ZeitVisual = {
   id: string;
   /** endkarte: ruhiger Abschluss nach dem Voiceover, Platz für die YouTube-Endelemente. */
-  type: 'image' | 'animation' | 'data' | 'hybrid' | 'endkarte';
+  type: 'image' | 'animation' | 'data' | 'hybrid' | 'beleg' | 'folie' | 'endkarte';
   startFrame: number;
   durationFrames: number;
   /** Pfad unter public/ (staticFile), nur bei Bildern. null = Bild fehlt (nur Vorschau). */
@@ -21,6 +23,12 @@ export type ZeitVisual = {
   beats?: number[];
   /** Kurze Hinweise auf Standbildern, Frames relativ zum Visual-Start. */
   akzente?: Array<{ab: number; text: string; ton: 'gruen' | 'rot' | 'neutral'}>;
+  /** Nur bei Belegen: Screenshot + Fundstellen und je Markierung der Frame des gesprochenen Worts. */
+  beleg?: BelegDaten;
+  /** Nur bei Erklär-Folien: Titel, Zeilen oder große Zahl. */
+  folie?: FolieDaten;
+  /** Belege und Folien: je Markierung/Zeile der Frame des gesprochenen Worts. */
+  marken?: number[];
 };
 export type CaptionWort = {text: string; start: number; end: number};
 export type CaptionSatz = {start: number; end: number; words: CaptionWort[]};
@@ -31,6 +39,10 @@ export type YouTubeZeitplan = {
   visuals: ZeitVisual[];
   captions: CaptionSatz[];
   untertitel: boolean;
+  /** creme = Videos bis Regel V2, weiss = Bildwelt seit 30.10.2026 (fehlt = creme). */
+  flaeche?: Flaeche;
+  /** Gemessener Hintergrund der Flow-Bilder (Zusammenbau); fehlt bei älteren Projekten → DATEN.grund. */
+  grund?: string;
 };
 
 const UEBERBLENDEN = 8;
@@ -48,7 +60,7 @@ const BildVisual: React.FC<{bild?: string | null; dauer: number; id: string}> = 
     );
   }
   return (
-    <AbsoluteFill style={{backgroundColor: DATEN.grund, overflow: 'hidden'}}>
+    <AbsoluteFill style={{backgroundColor: useFlaeche().grund, overflow: 'hidden'}}>
       <Img src={staticFile(bild)} style={{width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${zoom.toFixed(4)})`}} />
     </AbsoluteFill>
   );
@@ -101,7 +113,7 @@ const Endkarte: React.FC = () => {
   const frame = useCurrentFrame();
   const p = interpolate(frame, [0, 18], [0, 1], {...CLAMP, easing: (t) => 1 - (1 - t) ** 3});
   return (
-    <AbsoluteFill style={{backgroundColor: DATEN.grund, alignItems: 'center', fontFamily: FONT.body}}>
+    <AbsoluteFill style={{backgroundColor: useFlaeche().grund, alignItems: 'center', fontFamily: FONT.body}}>
       <div style={{marginTop: 120, opacity: p, transform: `translateY(${((1 - p) * 16).toFixed(1)}px)`, textAlign: 'center'}}>
         <div style={{fontSize: 96, fontWeight: 800, color: DATEN.text, letterSpacing: -1}}>FinanzNeo</div>
         <div style={{marginTop: 8, fontSize: 40, fontWeight: 600, color: DATEN.leise}}>Geld einfach erklärt</div>
@@ -149,7 +161,9 @@ const Untertitel: React.FC<{saetze: CaptionSatz[]}> = ({saetze}) => {
 };
 
 export const YouTubeVideo: React.FC<{zeitplan: YouTubeZeitplan; animationen: Record<string, React.FC<{beats?: number[]}>>}> = ({zeitplan, animationen}) => (
-  <AbsoluteFill style={{backgroundColor: DATEN.grund}}>
+  <FlaechenKontext.Provider value={zeitplan.flaeche ?? 'creme'}>
+  <DatenGrund value={zeitplan.grund ?? DATEN.grund}>
+  <AbsoluteFill style={{backgroundColor: zeitplan.flaeche === 'weiss' ? FLAECHEN.weiss.grund : zeitplan.grund ?? DATEN.grund}}>
     {zeitplan.visuals.map((visual, index) => {
       const Animation = animationen[visual.id];
       const letztes = index === zeitplan.visuals.length - 1;
@@ -158,6 +172,10 @@ export const YouTubeVideo: React.FC<{zeitplan: YouTubeZeitplan; animationen: Rec
           <Einblenden aktiv={index > 0}>
             {visual.type === 'endkarte' ? (
               <Endkarte />
+            ) : visual.type === 'beleg' && visual.beleg ? (
+              <BelegVisual beleg={visual.beleg} marken={visual.marken ?? []} />
+            ) : visual.type === 'folie' && visual.folie ? (
+              <FolieVisual folie={visual.folie} marken={visual.marken ?? []} />
             ) : visual.type === 'image' ? (
               <>
                 <BildVisual bild={visual.bild} dauer={visual.durationFrames} id={visual.id} />
@@ -175,4 +193,6 @@ export const YouTubeVideo: React.FC<{zeitplan: YouTubeZeitplan; animationen: Rec
     <Audio src={staticFile(zeitplan.audio)} />
     {zeitplan.untertitel ? <Untertitel saetze={zeitplan.captions} /> : null}
   </AbsoluteFill>
+  </DatenGrund>
+  </FlaechenKontext.Provider>
 );

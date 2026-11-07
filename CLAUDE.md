@@ -11,6 +11,8 @@
 - Stil: auch komplexe Themen einfach, professionell und verständlich erklären; **die Sprache ist zugänglich, nicht die Themenauswahl eingeschränkt**
 - Reel-Plattformen: TikTok, Instagram Reels, Facebook Reels, Snapchat
 - YouTube: ausschließlich Longform unter `youtube/`; **keine YouTube Shorts**
+- YouTube zeigt Zahlen, Gesetze und Aussagen Dritter als **echte Quellen-Screenshots** (Visualtyp `beleg`, mind. 3 pro Video, Qualitätsregel V3): `docs/YOUTUBE-BELEG-SZENEN.md`
+- YouTube-Bildwelt (seit 30.10.2026): weiße Folien mit 3D-Icons (`folie`, Icon-Katalog `youtube:icons`), Metapher-Bilder als kostenlose Freehand-Doodles (`youtube:doodles`, KI-Sticker nur als Ausnahme) + Belege; Flow-Bilder nur selten (Ziel 10–15 %, max. 40 % der Sprechzeit), max. 6 s ohne neue Information; Cover-Text setzt `youtube:cover` (max. 5 Wörter): `docs/YOUTUBE-BILDMIX-UND-COVER.md`
 - Reel: 1080 × 1920, 9:16, 30 fps; typischerweise ca. 45–70 Sekunden, aber Inhalt und echtes Voiceover entscheiden
 
 Kanonischer Themen-Scope: `docs/CONTENT-SCOPE.md`.
@@ -52,7 +54,8 @@ Phase 1 ist erst fertig, wenn keine Platzhalter mehr vorkommen, alle Motion-Quel
 - legt alle finalen Bilder exakt benannt in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
 - legt genau ein finales Voiceover in `02-audio/`
 - erzeugt echte Wort-Zeitstempel
-- finale Flow-Bilder und das Haupt-Voiceover bleiben Nutzerverantwortung; kein Agent ersetzt oder generiert sie eigenmächtig
+- finale Flow-Bilder bleiben Nutzerverantwortung; kein Agent ersetzt oder generiert sie eigenmächtig
+- **YouTube-Voiceover (Arman, 01.11.2026):** Das Haupt-Voiceover entsteht auf Armans ausdrücklichen Wunsch automatisch mit `npm run youtube:stimme -- youtube/<Projekt>` aus `1-script/script.txt`, lokal mit der festen Kanalstimme aus `youtube/_kanal/stimme/` (Qwen3-TTS, Apache 2.0). Arman hört vor dem Zusammenbau rein und gibt frei; eine eigene Aufnahme bleibt jederzeit möglich. Kein Agent wechselt Stimme, Referenz oder Engine eigenmächtig, und Phase 3 erzeugt nie ein Ersatz-Voiceover. Reels: unverändert Nutzeraufnahme in `02-audio/`.
 
 ### Phase 3 — Antigravity oder Claude Code
 
